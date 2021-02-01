@@ -51,6 +51,7 @@ const plugins = {
     'react-hot-loader/babel',
     'react-loadable/babel',
     '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-proposal-optional-chaining',
   ],
   legacy: [
     [

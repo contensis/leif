@@ -8,8 +8,8 @@ import { Loading } from '~/core/routes/Loading';
 import NotFound from '~/pages/NotFound';
 import { selectRouteLoading } from './core/redux/selectors';
 
-import GlobalStyle from '~/theme/globalStyles';
-import { defaultTheme } from './theme';
+import GlobalStyle from '~/theme/global/globalStyles';
+import { defaultTheme } from './theme/leif';
 
 const AppRoot = props => {
   const stateLoading = useSelector(selectRouteLoading);

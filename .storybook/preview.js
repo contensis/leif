@@ -2,8 +2,8 @@ import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import StoryRouter from 'storybook-react-router';
-import GlobalStyle from '../src/app/theme/globalStyles';
-import { defaultTheme } from '../src/app/theme';
+import GlobalStyle from '../src/app/theme/global/globalStyles';
+import { defaultTheme } from '../src/app/theme/leif';
 
 const ThemeDecorator = storyFn => (
   <>

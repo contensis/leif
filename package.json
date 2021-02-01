@@ -100,6 +100,7 @@
     "zengenti-buildstartup-package": "0.0.13"
   },
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@storybook/addon-a11y": "^6.1.9",
     "@storybook/addon-knobs": "^6.1.15",
     "@zengenti/contensis-react-base": "^1.0.0",
