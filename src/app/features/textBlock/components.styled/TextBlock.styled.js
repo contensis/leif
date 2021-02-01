@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components';
 
 const TextBlockStyled = styled.div`
-  ${({ isLeadParagraph }) => {
+  ${({ theme, isLeadParagraph }) => {
     return css`
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
       ${isLeadParagraph &&
         css`
-          font-size: 24px;
-          line-height: 32px;
-          font-weight: 600;
+          ${theme?.typeStyles?.h4};
+          font-family: ${theme?.typeStyles?.fontFamily?.headings};
         `}
     `;
   }}

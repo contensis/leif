@@ -1,7 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import TextBlockStyled from '../components.styled/TextBlock.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.text
+ * @param {boolean} props.isLeadParagraph
+ */
 
 const TextBlock = ({ className, text, isLeadParagraph }) => {
   return (
@@ -11,12 +17,6 @@ const TextBlock = ({ className, text, isLeadParagraph }) => {
       dangerouslySetInnerHTML={{ __html: text }}
     />
   );
-};
-
-TextBlock.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string,
-  isLeadParagraph: PropTypes.bool,
 };
 
 export default TextBlock;

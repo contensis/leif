@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  plugins: ['prettier', 'react', 'react-hooks', 'flowtype'],
+  plugins: ['prettier', 'react', 'react-hooks', 'flowtype', 'jsdoc'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -13,6 +13,7 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/flowtype',
+    'plugin:jsdoc/recommended',
   ],
   env: {
     browser: true,
@@ -36,6 +37,13 @@ module.exports = {
     },
   },
   rules: {
+    'jsdoc/require-returns': 0,
+    'jsdoc/require-returns-description': 0,
+    'jsdoc/require-param-description': 0,
+    'jsdoc/check-alignment': 0,
+    'jsdoc/valid-types': 0,
+    'jsdoc/require-property-description': 0,
+    'react/prop-types': 0,
     'react/require-default-props': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
