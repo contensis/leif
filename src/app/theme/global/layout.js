@@ -1,13 +1,14 @@
 /**
  * Defines valid keys to use when referring to media query breakpoints
  *
- * @typedef {'base'|'mobile'|'laptop'|'desktop'|'largeDesktop'|'xlargeDesktop'} screenSizeKeys
+ * @typedef {'base'|'mobile'|'tablet'|'laptop'|'desktop'|'largeDesktop'|'xlargeDesktop'} screenSizeKeys
  */
 
 /**
  * @typedef breakpointDef_number
  * @property {number} [base]
  * @property {number} [mobile]
+ * @property {number} [tablet]
  * @property {number} [laptop]
  * @property {number} [desktop]
  * @property {number} [largeDesktop]
@@ -34,6 +35,7 @@
  */
 export const breakpointMap = new Map([
   ['mobile', 320],
+  ['tablet', 481],
   ['laptop', 768],
   ['desktop', 1024],
   ['largeDesktop', 1440],

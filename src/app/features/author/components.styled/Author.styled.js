@@ -13,7 +13,7 @@ const AuthorStyled = styled.div`
       }
       .aPerson {
         margin-left: 8px;
-        font-family: ${theme.typeStyles.fontFamily.headings};
+        font-family: ${theme?.typeStyles?.fontFamily?.headings};
         ${theme?.typeStyles?.h6};
       }
     `;

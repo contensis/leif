@@ -23,9 +23,9 @@ const BlogInformationStyled = styled.div`
       }
       .biInfo {
         margin-top: 24px;
-        color: ${theme.colors.kimberly};
+        color: ${theme?.colors?.kimberly};
         ${theme?.typeStyles?.smallCopy};
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.tablet} {
           margin-top: 16px;
         }
       }
@@ -42,7 +42,7 @@ const BlogInformationStyled = styled.div`
           position: absolute;
           top: 50%;
           right: -2px;
-          background-color: #39b28e; //TODO: needs to be a theme variable.
+          background-color: ${theme?.colors?.keppel};
           border-radius: 50%;
           transform: translateY(-50%);
           height: 4px;
