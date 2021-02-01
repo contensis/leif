@@ -1,9 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import CardStyled from '../components.styled/Card.styled';
 import formatDate from '~/utils/formatDate';
 import Icon from '../../icon';
 import Rating from '../../rating';
+
+/**
+ * @param {object} props
+ * @param {string} props.type
+ * @param {string} props.title
+ * @param {string} props.text
+ * @param {object} props.image
+ * @param {number} props.readTime
+ * @param {string} props.date
+ * @param {number} props.price
+ * @param {number} props.rating
+ */
 
 const Card = ({
   className,
@@ -56,18 +68,6 @@ const Card = ({
     default:
       return null; // Default card here? maybe content card?
   }
-};
-
-Card.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
-  title: PropTypes.string,
-  text: PropTypes.string,
-  image: PropTypes.object,
-  readTime: PropTypes.number,
-  date: PropTypes.string,
-  price: PropTypes.number,
-  rating: PropTypes.number,
 };
 
 export default Card;

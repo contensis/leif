@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 
 import VisuallyHiddenStyled from '../components.styled/VisuallyHidden.styled';
 
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.text
+ * @param {any} props.children
+ */
+
 const VisuallyHidden = ({ text, children }) => {
   return (
     <VisuallyHiddenStyled>

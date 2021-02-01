@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import VisuallyHidden from '~/features/visuallyHidden';
 
 import HamburgerStyled from '../components.styled/Hamburger.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ */
 
 const Hamburger = ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +25,6 @@ const Hamburger = ({ className }) => {
       <VisuallyHidden text="Open menu" />
     </HamburgerStyled>
   );
-};
-
-Hamburger.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Hamburger;

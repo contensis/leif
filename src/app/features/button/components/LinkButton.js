@@ -1,7 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import LinkButtonStyled from '../components.styled/LinkButton.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.type
+ * @param {string} props.label
+ * @param {string} props.href
+ * @param {Function} props.onClick
+ */
 
 const LinkButton = ({
   className,
@@ -23,15 +31,6 @@ const LinkButton = ({
       {label}
     </LinkButtonStyled>
   );
-};
-
-LinkButton.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
-  label: PropTypes.string,
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  isHollow: PropTypes.bool,
 };
 
 export default LinkButton;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import IconStyled from '../components.styled/Icon.styled';
 
@@ -15,6 +14,12 @@ import {
   Star,
   Arrow,
 } from '../svgs';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.type
+ */
 
 const Icon = ({ className, type }) => {
   switch (type) {
@@ -41,11 +46,6 @@ const Icon = ({ className, type }) => {
     default:
       return null;
   }
-};
-
-Icon.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
 };
 
 export default Icon;

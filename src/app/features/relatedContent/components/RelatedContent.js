@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from '../../card';
 
 import RelatedContentStyled from '../components.styled/RelatedContent.styled';
 import { LinkButton } from '../../button';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.title
+ * @param {Array} props.results
+ * @param {object} props.link
+ */
 
 const RelatedContent = ({ className, title, results, link }) => {
   if (!results || results.length < 1) return null;
@@ -39,13 +46,6 @@ const RelatedContent = ({ className, title, results, link }) => {
       )}
     </RelatedContentStyled>
   );
-};
-
-RelatedContent.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  results: PropTypes.arrayOf(PropTypes.object),
-  link: PropTypes.object,
 };
 
 export default RelatedContent;

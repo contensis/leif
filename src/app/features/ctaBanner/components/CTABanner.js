@@ -1,8 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import CTABannerStyled from '../components.styled/CTABanner.styled';
 import { LinkButton } from '../../button';
+import Image from '~/features/image';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {object} props.image
+ * @param {string} props.title
+ * @param {string} props.text
+ * @param {object} props.cta
+ * @param {number} props.headingLevel
+ */
 
 const CTABanner = ({
   className,
@@ -15,25 +25,12 @@ const CTABanner = ({
   const Heading = `h${headingLevel}`;
   return (
     <CTABannerStyled className={className}>
-      <img
-        className="ctaImage"
-        src={image.asset.sys.uri}
-        alt={image.asset.altText}
-      />
+      <Image className="ctaImage" image={image} />
       <Heading className="ctaTitle">{title}</Heading>
       <p className="ctaText">{text}</p>
       <LinkButton className="ctaLink" label={cta.label} href={cta.uri} />
     </CTABannerStyled>
   );
-};
-
-CTABanner.propTypes = {
-  className: PropTypes.string,
-  image: PropTypes.object,
-  title: PropTypes.string,
-  text: PropTypes.string,
-  cta: PropTypes.object,
-  headingLevel: PropTypes.number,
 };
 
 export default CTABanner;

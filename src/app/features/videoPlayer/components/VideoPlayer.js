@@ -1,9 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import VideoPlayerStyled from '../components.styled/VideoPlayer.styled';
 import VideoContainerStyled from '../components.styled/VideoContainer.styled';
 import YoutubeEmbed from '../components/YoutubeEmbed';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.title
+ * @param {string} props.type
+ * @param {boolean} props.hasControls
+ * @param {string} props.externalURL
+ * @param {string} props.internalVideo
+ */
 
 const VideoPlayer = ({
   className,
@@ -36,15 +45,6 @@ const VideoPlayer = ({
     default:
       break;
   }
-};
-
-VideoPlayer.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  hasControls: PropTypes.bool,
-  src: PropTypes.string,
-  externalURL: PropTypes.string,
-  internalVideo: PropTypes.string,
 };
 
 export default VideoPlayer;

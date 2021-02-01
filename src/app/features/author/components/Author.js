@@ -1,7 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import AuthorStyled from '../components.styled/Author.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {object} props.person
+ */
 
 const Author = ({ className, person }) => {
   if (!person) return null;
@@ -15,11 +20,6 @@ const Author = ({ className, person }) => {
       </span>
     </AuthorStyled>
   );
-};
-
-Author.propTypes = {
-  className: PropTypes.string,
-  person: PropTypes.object,
 };
 
 export default Author;

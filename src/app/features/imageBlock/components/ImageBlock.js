@@ -1,8 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import ImageBlockStyled from '../components.styled/ImageBlock.styled';
 import Image from '~/features/image';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {object} props.image
+ * @param {string} props.title
+ * @param {string} props.text
+ */
 
 const ImageBlock = ({ className, image, title, text }) => {
   if (!image) return null;
@@ -15,13 +22,6 @@ const ImageBlock = ({ className, image, title, text }) => {
       <p className="ibText">{text}</p>
     </ImageBlockStyled>
   );
-};
-
-ImageBlock.propTypes = {
-  className: PropTypes.string,
-  image: PropTypes.object,
-  title: PropTypes.string,
-  text: PropTypes.string,
 };
 
 export default ImageBlock;

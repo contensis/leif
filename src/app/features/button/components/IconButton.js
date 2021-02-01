@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+
 import IconButtonStyled from '../components.styled/IconButton.styled';
 import Icon from '../../icon';
 import VisuallyHidden from '~/features/visuallyHidden';
 
-const IconButton = ({ type, text }) => {
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.type
+ * @param {string} props.text
+ */
+
+const IconButton = ({ className, type, text }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <IconButtonStyled type="button" onClick={() => setIsOpen(!isOpen)}>
+    <IconButtonStyled
+      className={className}
+      type="button"
+      onClick={() => setIsOpen(!isOpen)}
+    >
       <div className="ibWrapper">
         {!isOpen && (
           <>
@@ -20,12 +31,6 @@ const IconButton = ({ type, text }) => {
       </div>
     </IconButtonStyled>
   );
-};
-
-IconButton.propTypes = {
-  clasSName: PropTypes.string,
-  type: PropTypes.string,
-  text: PropTypes.string,
 };
 
 export default IconButton;

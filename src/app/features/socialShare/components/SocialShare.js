@@ -1,11 +1,15 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import SocialShareStyled from '../components.styled/SocialShare.styled';
 import { socials } from '../utils/';
 import Icon from '../../icon';
 import VisuallyHidden from '~/features/visuallyHidden';
 import copy from 'copy-to-clipboard';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ */
 
 const SocialShare = ({ className }) => {
   if (!socials || socials.length < 1) return null;
@@ -34,10 +38,6 @@ const SocialShare = ({ className }) => {
       </button>
     </SocialShareStyled>
   );
-};
-
-SocialShare.propTypes = {
-  className: PropTypes.string,
 };
 
 export default SocialShare;

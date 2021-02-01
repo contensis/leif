@@ -1,11 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import HeaderStyled from '../components.styled/Header.styled';
 
 // import logo from '../../../public/logos/logo-dark.png';
 import Hamburger from '../../hamburger';
 import { IconButton } from '../../button';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ */
 
 const Header = ({ className }) => {
   return (
@@ -18,10 +22,6 @@ const Header = ({ className }) => {
       </div>
     </HeaderStyled>
   );
-};
-
-Header.propTypes = {
-  className: PropTypes.string,
 };
 
 export default Header;

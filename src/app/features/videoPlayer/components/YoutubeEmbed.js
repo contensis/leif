@@ -1,6 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import getVideoID from '../utils/getVideoID';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.title
+ * @param {string} props.src
+ */
 
 const YoutubeEmbed = ({ className, title, src }) => {
   const ID = getVideoID(src);
@@ -13,12 +20,6 @@ const YoutubeEmbed = ({ className, title, src }) => {
       />
     </div>
   );
-};
-
-YoutubeEmbed.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string,
-  src: PropTypes.string,
 };
 
 export default YoutubeEmbed;

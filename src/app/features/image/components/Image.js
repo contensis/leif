@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import cropImage from '../utils/cropImage';
-
 import ImageStyled from '../components.styled/Image.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {object} props.image
+ * @param {boolean} props.crop
+ * @param {number} props.height
+ * @param {number} props.width
+ */
 
 const Image = ({ className, image, crop = true, height, width }) => {
   if (!image || !image.asset || !image.asset.sys) {
@@ -23,14 +30,6 @@ const Image = ({ className, image, crop = true, height, width }) => {
   src = src.toLowerCase().includes('bridget') ? src + '&clearCache=true' : src;
 
   return <ImageStyled src={src} alt={altText} className={className} />;
-};
-
-Image.propTypes = {
-  image: PropTypes.object,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  crop: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 export default Image;

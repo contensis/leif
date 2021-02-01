@@ -1,10 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import FooterStyled from '../components.styled/Footer.styled';
 import Icon from '../../icon';
 
 // import logo from '../../../public/logos/logo-dark.png';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {Array} props.data
+ */
 
 const Footer = ({ className, data }) => {
   if (!data || data.length < 1) return null;
@@ -37,11 +42,6 @@ const Footer = ({ className, data }) => {
       })}
     </FooterStyled>
   );
-};
-
-Footer.propTypes = {
-  className: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Footer;

@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import BackButtonStyled from '../components.styled/BackButton.styled';
 import Icon from '../../icon';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.label
+ */
 
 const BackButton = ({ className, label }) => {
   return (
@@ -11,11 +16,6 @@ const BackButton = ({ className, label }) => {
       <span className="bbText">{label}</span>
     </BackButtonStyled>
   );
-};
-
-BackButton.propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.string,
 };
 
 export default BackButton;
