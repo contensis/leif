@@ -1,7 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import QuoteBlockStyled from '../components.styled/QuoteBlock.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {string} props.quote
+ */
 
 const QuoteBlock = ({ className, quote }) => {
   return (
@@ -9,11 +14,6 @@ const QuoteBlock = ({ className, quote }) => {
       &quot;{quote}&quot;
     </QuoteBlockStyled>
   );
-};
-
-QuoteBlock.propTypes = {
-  className: PropTypes.string,
-  quote: PropTypes.string,
 };
 
 export default QuoteBlock;
