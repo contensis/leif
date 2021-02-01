@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
 const CardStyled = styled.a`
-  ${({ type }) => {
+  ${({ theme, type }) => {
     return css`
       display: block;
       text-decoration: none;
       padding: 16px;
-      background: #ffffff;
+      background: ${theme?.colors?.white};
       border-radius: 8px;
       transition: box-shadow 200ms ease-out;
       &:hover {
@@ -18,7 +18,7 @@ const CardStyled = styled.a`
       .cThumbnail {
         border-radius: 4px;
         display: block;
-        object-fit: cover; //TODO: npm package to fix object-fit on older browsers?
+        object-fit: cover;
       }
       ${type === 'blog' &&
         css`
@@ -32,7 +32,6 @@ const CardStyled = styled.a`
           .cDetails {
             margin-top: 24px;
           }
-          /* TODO: Make this a pattern? (its used else where) */
           .cDate {
             position: relative;
             padding-right: 8px;
@@ -42,7 +41,7 @@ const CardStyled = styled.a`
               position: absolute;
               top: 50%;
               right: -2px;
-              background-color: #39b28e; //TODO: needs to be a theme variable.
+              background-color: ${theme?.colors?.keppel};
               border-radius: 50%;
               transform: translateY(-50%);
               height: 4px;
@@ -59,6 +58,7 @@ const CardStyled = styled.a`
           text-align: center;
           .cTitle {
             margin-top: 24px;
+            ${theme?.typeStyles?.h5};
           }
           .cThumbnail {
             width: 256px;
@@ -74,7 +74,7 @@ const CardStyled = styled.a`
               left: 8px;
               bottom: 24px;
               border-radius: 50%;
-              background: #fff;
+              background: ${theme?.colors?.white};
             }
           }
           .cTag {
@@ -84,13 +84,18 @@ const CardStyled = styled.a`
             left: 12px;
             bottom: 28px;
             path {
-              fill: #c3c6de;
+              fill: ${theme?.colors?.hazel};
             }
           }
           .cPrice,
           .cRating {
             display: block;
             margin-top: 16px;
+          }
+          .cPrice {
+            color: ${theme?.colors?.kimberly};
+            font-family: ${theme?.typeStyles?.fontFamily?.headings};
+            ${theme?.typeStyles?.h5};
           }
         `}
     `;

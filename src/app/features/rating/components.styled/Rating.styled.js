@@ -1,21 +1,21 @@
 import styled, { css } from 'styled-components';
 
 const RatingStyled = styled.div`
-  ${({ rating }) => {
+  ${({ theme, rating }) => {
     return css`
       display: flex;
       align-items: center;
       justify-content: center;
       .rStar {
         path {
-          fill: #f1f1f1;
+          fill: ${theme?.colors?.seashell};
         }
       }
       ${rating !== 0 &&
         css`
           .rStar:nth-child(-n + ${rating}) {
             path {
-              fill: #ffc805;
+              fill: ${theme?.colors?.supernova};
             }
           }
         `}

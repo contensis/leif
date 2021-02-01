@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Icon from '../../icon';
 import RatingStyled from '../components.styled/Rating.styled';
+
+/**
+ * @param {object} props
+ * @param {string} props.className
+ * @param {number} props.rating 0 - 5
+ */
 
 const Rating = ({ className, rating }) => {
   const stars = [];
@@ -17,11 +22,6 @@ const Rating = ({ className, rating }) => {
         })}
     </RatingStyled>
   );
-};
-
-Rating.propTypes = {
-  className: PropTypes.string,
-  rating: PropTypes.number,
 };
 
 export default Rating;
