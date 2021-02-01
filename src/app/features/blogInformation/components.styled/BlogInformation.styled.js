@@ -1,15 +1,33 @@
 import styled, { css } from 'styled-components';
 
 const BlogInformationStyled = styled.div`
-  ${() => {
+  ${({ theme }) => {
     return css`
+      text-align: center;
+      @media ${theme.mq.laptop} {
+        text-align: left;
+      }
       .biAuthor {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: center;
+        @media ${theme.mq.laptop} {
+          justify-content: space-between;
+        }
+      }
+      .biSocials {
+        display: none;
+        @media ${theme.mq.laptop} {
+          display: flex;
+        }
       }
       .biInfo {
-        margin-top: 16px;
+        margin-top: 24px;
+        color: ${theme.colors.kimberly};
+        ${theme?.typeStyles?.smallCopy};
+        @media ${theme.mq.laptop} {
+          margin-top: 16px;
+        }
       }
       .biInfo,
       .biDate {

@@ -12,7 +12,7 @@ const BlogInformation = ({ className, person, readTime, date }) => {
     <BlogInformationStyled className={className}>
       <div className="biAuthor">
         <Author person={person} />
-        <SocialShare />
+        <SocialShare className="biSocials" />
       </div>
       <div className="biInfo">
         <span className="biDate">{formatDate(date, 'dd MMM')}</span>
