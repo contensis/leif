@@ -67,7 +67,7 @@ const typography = {
       'line-height': '3rem',
       'font-weight': '600',
     },
-    desktop: {
+    tablet: {
       'font-size': '4rem',
       'line-height': '5rem',
     },
@@ -78,7 +78,7 @@ const typography = {
       'line-height': '2.5rem',
       'font-weight': '600',
     },
-    desktop: {
+    tablet: {
       'font-size': '3rem',
       'line-height': '3.5rem',
     },
@@ -89,7 +89,7 @@ const typography = {
       'line-height': '2.5rem',
       'font-weight': '600',
     },
-    desktop: {
+    tablet: {
       'font-size': '2rem',
       'line-height': '3rem',
     },
@@ -100,7 +100,7 @@ const typography = {
       'line-height': '2rem',
       'font-weight': '600',
     },
-    desktop: {
+    tablet: {
       'font-size': '1.5rem',
       'line-height': '2rem',
     },
@@ -111,7 +111,7 @@ const typography = {
       'line-height': '1.5rem',
       'font-weight': '600',
     },
-    desktop: {
+    tablet: {
       'font-size': '1.25rem',
       'line-height': '2rem',
     },
@@ -121,6 +121,9 @@ const typography = {
       'font-size': '1rem',
       'line-height': '1.5rem',
       'font-weight': '600',
+    },
+    tablet: {
+      'font-size': '1.125rem',
     },
   },
   cardCopy: {
