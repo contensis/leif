@@ -101,6 +101,7 @@
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.1.9",
+    "@storybook/addon-knobs": "^6.1.15",
     "@zengenti/contensis-react-base": "^1.0.0",
     "custom-env": "^1.0.2",
     "dateformat": "^3.0.3",

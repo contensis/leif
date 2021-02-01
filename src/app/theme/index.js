@@ -11,6 +11,4 @@ export const defaultTheme = {
   sizes,
 };
 
-export const darkTheme = {
-  //Testing,
-};
+export const darkTheme = {};
