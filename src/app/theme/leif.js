@@ -23,13 +23,15 @@ export const defaultTheme = {
       solid: {
         color: colors.riptide,
         background: colors.martinique,
+        border: 'transparent',
         hover: {
           background: colors.mirage,
         },
       },
       hollow: {
         color: colors.martinique,
-        background: colors.martinique,
+        background: 'transparent',
+        border: colors.martinique,
         hover: {
           background: 'rgba(195, 198, 222, .2)',
         },
@@ -38,10 +40,23 @@ export const defaultTheme = {
     white: {
       hollow: {
         color: colors.white,
+        background: 'transparent',
         border: colors.white,
         hover: {
-          background: 'rgba(255, 255, 255, .2) ',
+          background: 'rgba(255, 255, 255, .2)',
         },
+      },
+    },
+    disabled: {
+      solid: {
+        background: colors.seashell,
+        color: colors.white,
+        border: 'transparent',
+      },
+      hollow: {
+        color: colors.seashell,
+        border: colors.seashell,
+        background: 'transparent',
       },
     },
   },

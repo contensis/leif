@@ -41,8 +41,16 @@ const Icon = ({ className, type }) => {
       return <IconStyled className={className} as={Tag} />;
     case 'star':
       return <IconStyled className={className} as={Star} />;
+    case 'arrowRight':
+    case 'arrowLeft':
     case 'arrow':
-      return <IconStyled className={className} as={Arrow} />;
+      return (
+        <IconStyled
+          className={className}
+          transform={type === 'arrowRight' ? 'scale(-1,1)' : ''}
+          as={Arrow}
+        />
+      );
     default:
       return null;
   }

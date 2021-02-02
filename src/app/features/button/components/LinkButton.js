@@ -1,11 +1,15 @@
 import React from 'react';
 
 import LinkButtonStyled from '../components.styled/LinkButton.styled';
+import Icon from '../../icon';
 
 /**
  * @param {object} props
  * @param {string} props.className
  * @param {string} props.type
+ * @param {boolean} props.isHollow // Defaulted to false
+ * @param {boolean} props.isDisabled // Defaulted to false
+ * @param {boolean} props.hasArrow // Defaulted to false
  * @param {string} props.label
  * @param {string} props.href
  * @param {Function} props.onClick
@@ -15,20 +19,34 @@ const LinkButton = ({
   className,
   type = 'primary',
   isHollow = false,
+  isDisabled = false,
+  hasArrow = false,
   label,
   href,
   onClick,
 }) => {
+  const _handleClick = e => {
+    e.preventDefault();
+    if (!isDisabled) {
+      onClick(e);
+    } else {
+      return null;
+    }
+  };
+
   return (
     <LinkButtonStyled
       className={className}
       type={type}
       isHollow={isHollow}
-      href={href}
+      isDisabled={isDisabled}
+      hasArrow={hasArrow}
       title={label}
-      onClick={e => onClick(e)}
+      href={href}
+      onClick={e => _handleClick(e)}
     >
       {label}
+      {hasArrow && <Icon type="arrowRight" className="lbArrow" />}
     </LinkButtonStyled>
   );
 };
