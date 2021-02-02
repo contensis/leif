@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const RelatedContentStyled = styled.div`
-  ${() => {
+  ${({ theme }) => {
     return css`
       .rcTitle {
         text-align: center;
@@ -9,18 +9,43 @@ const RelatedContentStyled = styled.div`
       }
       .rcResults {
         display: flex;
-        align-items: stretch;
+        flex-direction: column-reverse;
+        @media ${theme.mq.laptop} {
+          display: block;
+        }
+      }
+      .rcResultsWrapper {
+        display: flex;
         justify-content: center;
-        margin-top: 48px;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+        @media ${theme.mq.laptop} {
+          margin-top: 48px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: stretch;
+        }
       }
       .rcCard {
+        padding: 8px;
         &:not(:last-child) {
-          margin-right: 40px;
+          margin-bottom: 40px;
+        }
+        @media ${theme.mq.laptop} {
+        padding: 16px
+          margin: 16px;
+          &:not(:last-child) {
+            margin: 16px;
+          }
         }
       }
       .rcLink {
         display: block;
-        margin: 48px auto 0;
+        margin: 40px auto 0;
+        @media ${theme.mq.laptop} {
+          margin: 48px auto 0;
+        }
       }
     `;
   }}

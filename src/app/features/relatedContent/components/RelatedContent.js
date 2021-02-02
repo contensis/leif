@@ -18,32 +18,34 @@ const RelatedContent = ({ className, title, results, link }) => {
     <RelatedContentStyled className={className}>
       {title && <h3 className="rcTitle">{title}</h3>}
       <div className="rcResults">
-        {results.map((res, idx) => {
-          if (!res) return null;
-          const type = res && res.sys && res.sys.contentTypeId;
-          return (
-            <Card
-              key={`${res.title}-${idx}`}
-              className="rcCard"
-              type={type}
-              title={res.title}
-              text={res.text}
-              image={res.image}
-              readTime={res.readTime}
-              date={res.date}
-            />
-          );
-        })}
+        <div className="rcResultsWrapper">
+          {results.map((res, idx) => {
+            if (!res) return null;
+            const type = res && res.sys && res.sys.contentTypeId;
+            return (
+              <Card
+                key={`${res.title}-${idx}`}
+                className="rcCard"
+                type={type}
+                title={res.title}
+                text={res.text}
+                image={res.image}
+                readTime={res.readTime}
+                date={res.date}
+              />
+            );
+          })}
+        </div>
+        {link && (
+          <LinkButton
+            type={link.type}
+            isHollow
+            className="rcLink"
+            label={link.label}
+            href={link.href}
+          />
+        )}
       </div>
-      {link && (
-        <LinkButton
-          type={link.type}
-          isHollow
-          className="rcLink"
-          label={link.label}
-          href={link.href}
-        />
-      )}
     </RelatedContentStyled>
   );
 };

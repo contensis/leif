@@ -14,6 +14,11 @@ const CardStyled = styled.a`
       }
       .cTitle {
         margin: 0;
+        color: ${theme?.colors?.martinique};
+      }
+      .cText {
+        color: ${theme?.colors?.charcoal};
+        margin: 24px 0 0 0;
       }
       .cThumbnail {
         border-radius: 4px;
@@ -29,8 +34,13 @@ const CardStyled = styled.a`
             height: 304px;
             margin-top: 24px;
           }
+          .cTitle {
+            ${theme?.typeStyles?.h4};
+          }
           .cDetails {
             margin-top: 24px;
+            color: ${theme?.colors?.kimberly};
+            ${theme?.typeStyles?.smallCopy};
           }
           .cDate {
             position: relative;
