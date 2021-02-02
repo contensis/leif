@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const SocialShareStyled = styled.div`
-  ${() => {
+  ${({ theme }) => {
     return css`
       display: flex;
       align-items: flex-end;
@@ -11,7 +11,7 @@ const SocialShareStyled = styled.div`
         display: inline-block;
         line-height: 0;
         svg path {
-          fill: #c3c6de;
+          fill: ${theme?.colors?.hazel};
         }
       }
       .ssCopy {
@@ -22,8 +22,15 @@ const SocialShareStyled = styled.div`
         margin: 0;
         padding: 0;
         svg path {
-          stroke: #c3c6de;
+          stroke: ${theme?.colors?.hazel};
           fill: none;
+        }
+      }
+      .ssIcon,
+      .ssCopy {
+        transition: opacity 100ms ease-in-out;
+        &:hover {
+          opacity: 50%;
         }
       }
     `;

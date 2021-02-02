@@ -1,13 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Link from './Link';
+import Link from './components/Link';
 
 const link = {
   text: 'Live example link',
   path: '/site-link',
 };
 
-storiesOf('Features. Global', module).add('Link', () => {
-  return <Link text={link.text} path={link.path} />;
+storiesOf('Features | Global', module).add('Link', () => {
+  return <Link uri={link.path}>{link.text}</Link>;
 });

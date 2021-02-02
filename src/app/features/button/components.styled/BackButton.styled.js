@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const BackButtonStyled = styled.button`
-  ${() => {
+  ${({ theme }) => {
     return css`
       display: inline-flex;
       align-items: center;
@@ -10,7 +10,7 @@ const BackButtonStyled = styled.button`
       border: none;
       font-family: inherit;
       font-size: inherit;
-      color: #6e729b;
+      color: ${theme?.colors?.kimberly};
       cursor: pointer;
       &:hover {
         text-decoration: none;
@@ -20,7 +20,7 @@ const BackButtonStyled = styled.button`
       }
       .bbIcon {
         path {
-          stroke: #6e729b;
+          stroke: ${theme?.colors?.kimberly};
         }
       }
     `;

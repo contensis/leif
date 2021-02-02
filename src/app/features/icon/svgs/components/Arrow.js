@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Arrrow = props => (
+const Arrow = props => (
   <svg
     width="24"
     height="24"
@@ -26,4 +26,4 @@ const Arrrow = props => (
   </svg>
 );
 
-export default Arrrow;
+export default Arrow;
