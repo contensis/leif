@@ -62,6 +62,12 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+  a:focus, button:focus{
+    outline-offset: 4px;
+    outline: auto;
+    outline-color: ${colors?.sapphire};
+    outline-width: medium;
+  }
 `;
 
 export default GlobalStyle;

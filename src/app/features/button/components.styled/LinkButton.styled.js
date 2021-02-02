@@ -18,12 +18,6 @@ const LinkButtonStyled = styled.a`
       &:hover {
         background-color: ${theme?.button?.primary?.solid?.hover?.background};
       }
-      &:focus {
-        outline-offset: 4px;
-        outline: auto;
-        outline-color: ${theme?.colors?.sapphire};
-        outline-width: medium;
-      }
       .lbArrow path {
         stroke: ${
           isHollow ? theme?.button?.hollow?.color : theme?.button?.solid?.color

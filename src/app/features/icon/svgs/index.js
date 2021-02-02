@@ -8,6 +8,7 @@ import Cross from './components/Cross';
 import Tag from './components/Tag';
 import Star from './components/Star';
 import Arrow from './components/Arrow';
+import Chevron from './components/Chevron';
 
 export {
   Facebook,
@@ -20,4 +21,5 @@ export {
   Tag,
   Star,
   Arrow,
+  Chevron,
 };

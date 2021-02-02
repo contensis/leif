@@ -13,6 +13,7 @@ import {
   Tag,
   Star,
   Arrow,
+  Chevron,
 } from '../svgs';
 
 /**
@@ -41,6 +42,26 @@ const Icon = ({ className, type }) => {
       return <IconStyled className={className} as={Tag} />;
     case 'star':
       return <IconStyled className={className} as={Star} />;
+    case 'chevron':
+    case 'chevronDown':
+    case 'chevronUp':
+    case 'chevronLeft':
+    case 'chevronRight':
+      return (
+        <IconStyled
+          className={className}
+          as={Chevron}
+          transform={
+            type === 'chevronUp'
+              ? 'scale(1,-1)'
+              : type === 'chevronLeft'
+              ? 'rotate(90)'
+              : type === 'chevronRight'
+              ? 'rotate(-90)'
+              : ''
+          }
+        />
+      );
     case 'arrowRight':
     case 'arrowLeft':
     case 'arrow':
