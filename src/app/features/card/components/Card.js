@@ -1,9 +1,9 @@
 import React from 'react';
 
 import CardStyled from '../components.styled/Card.styled';
-import formatDate from '~/utils/formatDate';
 import Icon from '../../icon';
 import Rating from '../../rating';
+import dateWithSuffix from '~/utils/dateWithSuffix';
 
 /**
  * @param {object} props
@@ -40,9 +40,7 @@ const Card = ({
           />
           {text && <p className="cText">{text}</p>}
           <div className="cDetails">
-            {date && (
-              <span className="cDate">{formatDate(date, 'dd MMM')}</span>
-            )}
+            {date && <span className="cDate">{dateWithSuffix(date, 'dd MMM')}</span>}
             {readTime && <span className="cReadTime">{readTime} min read</span>}
           </div>
         </CardStyled>

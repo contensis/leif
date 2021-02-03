@@ -4,8 +4,7 @@ import BlogInformationStyled from '../components.styled/BlogInformation.styled';
 
 import Author from '../../author';
 import SocialShare from '../../socialShare';
-import formatDate from '~/utils/formatDate';
-import dateSuffix from '~/utils/dateSuffix';
+import dateWithSuffix from '~/utils/dateWithSuffix';
 
 /**
  * @param {object} props
@@ -16,8 +15,6 @@ import dateSuffix from '~/utils/dateSuffix';
  */
 
 const BlogInformation = ({ className, person, readTime, date }) => {
-  const dateDay = formatDate(date, 'd');
-  const dateMonth = formatDate(date, 'MMM');
   return (
     <BlogInformationStyled className={className}>
       <div className="biAuthor">
@@ -25,11 +22,7 @@ const BlogInformation = ({ className, person, readTime, date }) => {
         <SocialShare className="biSocials" />
       </div>
       <div className="biInfo">
-        {date && (
-          <span className="biDate">
-            {dateSuffix(dateDay)} {dateMonth}
-          </span>
-        )}
+        {date && <span className="biDate">{dateWithSuffix(date)}</span>}
         {readTime && <span className="biReadTime">{readTime} min read</span>}
       </div>
     </BlogInformationStyled>
