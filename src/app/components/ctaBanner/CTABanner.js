@@ -25,10 +25,14 @@ const CTABanner = ({
   const Heading = `h${headingLevel}`;
   return (
     <CTABannerStyled className={className}>
-      <Image className="ctaImage" image={image} />
-      <Heading className="ctaTitle">{title}</Heading>
-      <p className="ctaText">{text}</p>
-      <LinkButton className="ctaLink" label={cta.label} href={cta.uri} />
+      <Image className="cta-banner__image" image={image} />
+      <Heading className="cta-banner__title">{title}</Heading>
+      <p className="cta-banner__text">{text}</p>
+      <LinkButton
+        className="cta-banner__link"
+        label={cta.label}
+        href={cta.uri}
+      />
     </CTABannerStyled>
   );
 };

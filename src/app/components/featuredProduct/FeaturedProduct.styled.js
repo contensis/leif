@@ -10,7 +10,7 @@ const FeaturedProductStyled = styled.div`
         text-align: left;
         overflow-x: auto;
       }
-      .fpContent {
+      .featured-product__content {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -60,25 +60,25 @@ const FeaturedProductStyled = styled.div`
           }
         }
       }
-      .fpContentWrapper {
+      .featured-product__content-wrapper {
         max-width: 472px;
         width: 100%;
         @media ${theme.mq.laptop} {
           margin-right: 16px;
         }
       }
-      .fpTitle {
+      .featured-product__title {
         margin: 0;
       }
-      .fpText {
+      .featured-product__text {
         ${theme?.typeStyles?.cardCopy};
         color: ${theme?.colors?.martinique};
         margin: 24px 0 0 0;
       }
-      .fpBtn {
+      .featured-product__btn {
         margin-top: 24px;
       }
-      .fpCard {
+      .featured-product__card {
         margin-top: 24px;
         @media ${theme.mq.laptop} {
           margin: 0;

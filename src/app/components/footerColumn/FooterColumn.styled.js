@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const FooterColumnStyled = styled.div`
   ${({ theme, isOpen }) => {
     return css`
-      .fcLinkTitleBtn {
+      .footer-column__btn {
         padding: 8px 16px;
         margin: 0;
         width: 100%;
@@ -18,13 +18,17 @@ const FooterColumnStyled = styled.div`
           display: none;
         }
       }
-      .fcLinkTitle {
+      .footer-column__title {
         display: none;
         @media ${theme.mq.laptop} {
           display: block;
         }
       }
-      .fcSubLinksWrapper {
+      .footer-column__icon path {
+        fill: ${theme?.colors?.kimberly};
+        margin-left: 8px;
+      }
+      .footer-column__sub-links {
         display: flex;
         flex-direction: column;
         max-height: 0;
@@ -41,11 +45,7 @@ const FooterColumnStyled = styled.div`
           margin-top: 24px;
         }
       }
-      .fcIcon path {
-        fill: ${theme?.colors?.kimberly};
-        margin-left: 8px;
-      }
-      .fcSubLink {
+      .footer-column__sub-link {
         color: ${theme?.colors?.charcoal};
         padding: 8px 16px;
         text-decoration: none;

@@ -5,7 +5,7 @@ const YoutubeEmbedStyled = styled.div`
     return css`
       max-width: 840px;
       width: 100%;
-      .ytWrapper {
+      .youtube__wrapper {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
         height: 0;

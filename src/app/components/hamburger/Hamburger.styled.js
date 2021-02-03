@@ -10,7 +10,7 @@ const HamburgerStyled = styled.button`
       border: none;
       padding: 0;
       margin: 0;
-      .hbWrapper {
+      .hamburger__wrapper {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -18,7 +18,7 @@ const HamburgerStyled = styled.button`
         width: 24px;
         cursor: pointer;
       }
-      .hbLayer {
+      .hamburger__layer {
         display: block;
         width: 100%;
         border-radius: 4px;
@@ -30,7 +30,7 @@ const HamburgerStyled = styled.button`
           margin-bottom: 6px;
         }
       }
-      .hbLayer {
+      .hamburger__layer {
         &:nth-child(1) {
           animation: ease 0.7s top-2 forwards;
         }
@@ -43,7 +43,7 @@ const HamburgerStyled = styled.button`
       }
       ${isOpen &&
         css`
-          .hbLayer {
+          .hamburger__layer {
             &:nth-child(1) {
               animation: ease 0.7s top forwards;
             }

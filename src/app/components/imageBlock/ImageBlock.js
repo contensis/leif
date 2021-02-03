@@ -15,11 +15,16 @@ const ImageBlock = ({ className, image, title, text }) => {
   if (!image) return null;
   return (
     <ImageBlockStyled className={className}>
-      <div className="ibImageWrapper">
-        <Image className="ibImage" image={image} width={840} height={480} />
+      <div className="image-block__wrapper">
+        <Image
+          className="image-block__image"
+          image={image}
+          width={840}
+          height={480}
+        />
       </div>
-      <p className="ibTitle">{title}</p>
-      <p className="ibText">{text}</p>
+      <p className="image-block__title">{title}</p>
+      <p className="image-block__text">{text}</p>
     </ImageBlockStyled>
   );
 };

@@ -12,8 +12,8 @@ import Icon from '../icon/Icon';
 const BackButton = ({ className, label }) => {
   return (
     <BackButtonStyled className={className}>
-      <Icon className="bbIcon" type="arrow" />
-      <span className="bbText">{label}</span>
+      <Icon className="back-button__icon" type="arrow" />
+      <span className="back-button__text">{label}</span>
     </BackButtonStyled>
   );
 };

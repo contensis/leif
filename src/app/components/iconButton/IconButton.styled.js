@@ -10,7 +10,7 @@ const IconButtonStyled = styled.button`
       border: none;
       margin: 0;
       padding: 0;
-      .ibWrapper {
+      .icon-btn__wrapper {
         position: absolute;
         top: 50%;
         left: 50%;

@@ -6,14 +6,14 @@ const RatingStyled = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      .rStar {
+      .rating__star {
         path {
           fill: ${theme?.colors?.seashell};
         }
       }
       ${rating !== 0 &&
         css`
-          .rStar:nth-child(-n + ${rating}) {
+          .rating__star:nth-child(-n + ${rating}) {
             path {
               fill: ${theme?.colors?.supernova};
             }

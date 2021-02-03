@@ -3,18 +3,18 @@ import styled, { css } from 'styled-components';
 const RelatedContentStyled = styled.div`
   ${({ theme }) => {
     return css`
-      .rcTitle {
+      .related-content__title {
         text-align: center;
         margin: 0;
       }
-      .rcResults {
+      .related-content__results {
         display: flex;
         flex-direction: column-reverse;
         @media ${theme.mq.laptop} {
           display: block;
         }
       }
-      .rcResultsWrapper {
+      .related-content__results-wrapper {
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -27,7 +27,7 @@ const RelatedContentStyled = styled.div`
           align-items: stretch;
         }
       }
-      .rcCard {
+      .related-content__card {
         padding: 8px;
         &:not(:last-child) {
           margin-bottom: 40px;
@@ -40,7 +40,7 @@ const RelatedContentStyled = styled.div`
           }
         }
       }
-      .rcLink {
+      .related-content__link {
         display: block;
         margin: 40px auto 0;
         @media ${theme.mq.laptop} {

@@ -4,13 +4,13 @@ const CTABannerStyled = styled.div`
   ${() => {
     return css`
       text-align: center;
-      .ctaTitle {
+      .cta-banner__title {
         margin-top: 24px;
       }
-      .ctaText {
+      .cta-banner__text {
         margin: 16px 0 0 0;
       }
-      .ctaLink {
+      .cta-banner__link {
         margin-top: 40px;
       }
     `;

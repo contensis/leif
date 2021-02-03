@@ -5,13 +5,13 @@ const AuthorStyled = styled.div`
     return css`
       display: flex;
       align-items: center;
-      .aPhoto {
+      .author__photo {
         height: 40px;
         width: 40px;
         border-radius: 50%;
         object-fit: cover;
       }
-      .aPerson {
+      .author__person {
         margin-left: 8px;
         font-family: ${theme?.typeStyles?.fontFamily?.headings};
         ${theme?.typeStyles?.h6};

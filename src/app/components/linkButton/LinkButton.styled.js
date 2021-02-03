@@ -18,7 +18,7 @@ const LinkButtonStyled = styled.a`
       &:hover {
         background-color: ${theme?.button?.primary?.solid?.hover?.background};
       }
-      .lbArrow path {
+      .link-btn__arrow path {
         stroke: ${
           isHollow ? theme?.button?.hollow?.color : theme?.button?.solid?.color
         };
@@ -40,7 +40,7 @@ const LinkButtonStyled = styled.a`
               ? theme?.button?.secondary?.hollow?.hover.background
               : theme?.button?.secondary?.solid?.hover.background};
           }
-          .lbArrow path {
+          .link-btn__arrow path {
             stroke: ${isHollow
               ? theme?.button?.secondary?.hollow?.color
               : theme?.button?.secondary?.solid?.color};
@@ -55,7 +55,7 @@ const LinkButtonStyled = styled.a`
           &:hover {
             background-color: ${theme?.button?.white?.hollow?.hover.background};
           }
-          .lbArrow path {
+          .link-btn__arrow path {
             stroke: ${theme?.button?.white?.hollow?.color};
           }
         `}
@@ -70,7 +70,7 @@ const LinkButtonStyled = styled.a`
             border: ${isHollow || type === 'white'
               ? theme?.button?.disabled?.hollow?.border
               : theme?.button?.disabled?.solid?.border};
-            .lbArrow path {
+            .link-btn__arrow path {
               stroke: ${isHollow || type === 'white'
                 ? theme?.button?.disabled?.hollow?.color
                 : theme?.button?.disabled?.solid?.color};
@@ -93,7 +93,7 @@ const LinkButtonStyled = styled.a`
             display: flex;
             justify-content: center;
             align-items: center;
-            .lbArrow {
+            .link-btn__arrow {
               margin-left: 8px;
             }
           `}

@@ -16,15 +16,18 @@ const FooterColumn = ({ className, title, links }) => {
   if (!links || links.length < 1) return null;
   return (
     <FooterColumnStyled className={className} isOpen={isOpen}>
-      <button className="fcLinkTitleBtn" onClick={() => setIsOpen(!isOpen)}>
+      <button className="footer-column__btn" onClick={() => setIsOpen(!isOpen)}>
         {title}
-        <Icon className="fcIcon" type={`chevron${isOpen ? 'Up' : 'Down'}`} />
+        <Icon
+          className="footer-column__icon"
+          type={`chevron${isOpen ? 'Up' : 'Down'}`}
+        />
       </button>
-      <h5 className="fcLinkTitle">{title}</h5>
-      <div className="fcSubLinksWrapper">
+      <h5 className="footer-column__title">{title}</h5>
+      <div className="footer-column__sub-links">
         {links.map(l => {
           return (
-            <a className="fcSubLink" key={l.title} href={l.uri}>
+            <a className="footer-column__sub-link" key={l.title} href={l.uri}>
               {l.title}
             </a>
           );

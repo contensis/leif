@@ -6,7 +6,7 @@ const ImageBlockStyled = styled.div`
     return css`
       text-align: center;
       overflow: hidden;
-      .ibImageWrapper {
+      .image-block__wrapper {
         max-width: 840px;
         width: 100%;
         margin: 0 auto;
@@ -30,16 +30,16 @@ const ImageBlockStyled = styled.div`
           }
         }
       }
-      .ibImage {
+      .image-block__image {
         display: block;
         max-width: 100%;
       }
-      .ibTitle {
+      .image-block__title {
         margin: 24px 0 0 0;
         font-family: ${theme?.typeStyles?.fontFamily?.headings};
         ${theme?.typeStyles?.h6};
       }
-      .ibText {
+      .image-block__text {
         margin: 8px 0 0 0;
         color: ${theme?.colors?.kimberly};
         ${theme?.typeStyles?.smallCopy};

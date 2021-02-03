@@ -20,7 +20,7 @@ const IconButton = ({ className, type, text }) => {
       type="button"
       onClick={() => setIsOpen(!isOpen)}
     >
-      <div className="ibWrapper">
+      <div className="icon-btn__wrapper">
         {!isOpen && (
           <>
             <Icon type={type} />

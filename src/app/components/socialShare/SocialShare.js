@@ -23,7 +23,7 @@ const SocialShare = ({ className }) => {
         if (!s) return null;
         return (
           <a
-            className={`ssIcon ss${s.title}`}
+            className={`social-share__icon social-share__${s.title}`}
             href={`${s.path}${sharePath}`}
             title={`Share on ${s.title}`}
             key={`${s.title}-${idx}`}
@@ -33,7 +33,11 @@ const SocialShare = ({ className }) => {
           </a>
         );
       })}
-      <button className="ssCopy" type="button" onClick={() => copy(sharePath)}>
+      <button
+        className="social-share__copy"
+        type="button"
+        onClick={() => copy(sharePath)}
+      >
         <Icon type="link" />
         <VisuallyHidden text="Copy link" />
       </button>

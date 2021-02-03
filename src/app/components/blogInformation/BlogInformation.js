@@ -17,13 +17,17 @@ import dateWithSuffix from '~/utils/dateWithSuffix';
 const BlogInformation = ({ className, person, readTime, date }) => {
   return (
     <BlogInformationStyled className={className}>
-      <div className="biAuthor">
+      <div className="blog-info__author">
         <Author person={person} />
-        <SocialShare className="biSocials" />
+        <SocialShare className="blog-info__socials" />
       </div>
-      <div className="biInfo">
-        {date && <span className="biDate">{dateWithSuffix(date)}</span>}
-        {readTime && <span className="biReadTime">{readTime} min read</span>}
+      <div className="blog-info__wrapper">
+        {date && (
+          <span className="blog-info__date">{dateWithSuffix(date)}</span>
+        )}
+        {readTime && (
+          <span className="blog-info__readtime">{readTime} min read</span>
+        )}
       </div>
     </BlogInformationStyled>
   );

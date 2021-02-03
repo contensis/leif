@@ -16,10 +16,10 @@ const Header = ({ className }) => {
   return (
     <HeaderStyled className={className}>
       <a href="/">
-        <img className="hLogo" src={logo} alt="Leif" />
+        <img className="header__logo" src={logo} alt="Leif" />
         <VisuallyHidden text="Home" />
       </a>
-      <div className="hActions">
+      <div className="header__actions">
         <IconButton type="search" text="Search site" />
         <IconButton type="pot" text="Basket" />
         <Hamburger />

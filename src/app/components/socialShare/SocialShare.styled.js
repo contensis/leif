@@ -6,7 +6,7 @@ const SocialShareStyled = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
-      .ssIcon {
+      .social-share__icon {
         margin-right: 32px;
         display: inline-block;
         line-height: 0;
@@ -14,7 +14,7 @@ const SocialShareStyled = styled.div`
           fill: ${theme?.colors?.hazel};
         }
       }
-      .ssCopy {
+      .social-share__copy {
         line-height: 0;
         display: inline-block;
         background-color: transparent;
@@ -26,8 +26,8 @@ const SocialShareStyled = styled.div`
           fill: none;
         }
       }
-      .ssIcon,
-      .ssCopy {
+      .social-share__icon,
+      .social-share__copy {
         transition: opacity 100ms ease-in-out;
         &:hover {
           opacity: 50%;

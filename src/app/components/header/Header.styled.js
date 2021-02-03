@@ -6,10 +6,10 @@ const Header = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .hLogo {
+      .header__logo {
         align-self: center;
       }
-      .hActions {
+      .header__actions {
         background: ${theme?.colors?.white};
         filter: drop-shadow(0px 16px 24px rgba(56, 33, 146, 0.07));
       }

@@ -15,10 +15,10 @@ const BackButtonStyled = styled.button`
       &:hover {
         text-decoration: none;
       }
-      .bbText {
+      .back-button__text {
         margin-left: 8px;
       }
-      .bbIcon {
+      .back-button__icon {
         path {
           stroke: ${theme?.colors?.kimberly};
         }

@@ -32,36 +32,40 @@ const Card = ({
     case 'blog':
       return (
         <CardStyled className={className} type={type} href="#" title={title}>
-          <h3 className="cTitle">{title}</h3>
+          <h3 className="card__title">{title}</h3>
           <img
-            className="cThumbnail"
+            className="card__thumbnail"
             src={image.asset.sys.uri}
             alt={image.asset.altText}
           />
-          {text && <p className="cText">{text}</p>}
-          <div className="cDetails">
+          {text && <p className="card__text">{text}</p>}
+          <div className="card__details">
             {date && (
-              <span className="cDate">{dateWithSuffix(date, 'dd MMM')}</span>
+              <span className="card__date">
+                {dateWithSuffix(date, 'dd MMM')}
+              </span>
             )}
-            {readTime && <span className="cReadTime">{readTime} min read</span>}
+            {readTime && (
+              <span className="card__readtime">{readTime} min read</span>
+            )}
           </div>
         </CardStyled>
       );
     case 'product':
       return (
         <CardStyled className={className} type={type} href="#" title={title}>
-          <div className="cThumbnailWrapper">
+          <div className="card__thumbnail-wrapper">
             <img
-              className="cThumbnail"
+              className="card__thumbnail"
               src={image.asset.sys.uri}
               alt={image.asset.altText}
             />
-            <Icon type="tag" className="cTag" />
+            <Icon type="tag" className="card__tag" />
           </div>
-          <div className="cContent">
-            <h3 className="cTitle">{title}</h3>
-            {price && <span className="cPrice">£{price}</span>}
-            <Rating className="cRating" rating={rating} />
+          <div className="card__content">
+            <h3 className="card__title">{title}</h3>
+            {price && <span className="card__price">£{price}</span>}
+            <Rating className="card__rating" rating={rating} />
           </div>
         </CardStyled>
       );

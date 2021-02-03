@@ -12,11 +12,11 @@ import YoutubeEmbedStyled from './YoutubeEmbed.styled';
 
 const YoutubeEmbed = ({ className, title, src }) => {
   const ID = getVideoID(src);
-  const iframeMarkup = `<iframe className="ytEmbed" title="${title}" src="https://www.youtube.com/embed/${ID}" frameborder="0" allowfullscreen></iframe>`;
+  const iframeMarkup = `<iframe className="youtube__embed" title="${title}" src="https://www.youtube.com/embed/${ID}" frameborder="0" allowfullscreen></iframe>`;
   return (
     <YoutubeEmbedStyled className={className}>
       <div
-        className="ytWrapper"
+        className="youtube__wrapper"
         dangerouslySetInnerHTML={{ __html: iframeMarkup }}
       />
     </YoutubeEmbedStyled>

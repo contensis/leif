@@ -12,15 +12,15 @@ const CardStyled = styled.a`
       &:hover {
         box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
       }
-      .cTitle {
+      .card__title {
         margin: 0;
         color: ${theme?.colors?.martinique};
       }
-      .cText {
+      .card__text {
         color: ${theme?.colors?.charcoal};
         margin: 24px 0 0 0;
       }
-      .cThumbnail {
+      .card__thumbnail {
         border-radius: 4px;
         display: block;
         object-fit: cover;
@@ -29,20 +29,20 @@ const CardStyled = styled.a`
         css`
           max-width: 400px;
           width: 100%;
-          .cThumbnail {
+          .card__thumbnail {
             width: 368px;
             height: 304px;
             margin-top: 24px;
           }
-          .cTitle {
+          .card__title {
             ${theme?.typeStyles?.h4};
           }
-          .cDetails {
+          .card__details {
             margin-top: 24px;
             color: ${theme?.colors?.kimberly};
             ${theme?.typeStyles?.smallCopy};
           }
-          .cDate {
+          .card__date {
             position: relative;
             padding-right: 8px;
             margin-right: 8px;
@@ -66,15 +66,15 @@ const CardStyled = styled.a`
           min-height: 488px;
           box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
           text-align: center;
-          .cTitle {
+          .card__title {
             margin-top: 24px;
             ${theme?.typeStyles?.h5};
           }
-          .cThumbnail {
+          .card__thumbnail {
             width: 256px;
             height: 280px;
           }
-          .cThumbnailWrapper {
+          .card__thumbnail-wrapper {
             position: relative;
             &:before {
               content: '';
@@ -87,7 +87,7 @@ const CardStyled = styled.a`
               background: ${theme?.colors?.white};
             }
           }
-          .cTag {
+          .card__tag {
             position: absolute;
             height: 16px;
             width: 16px;
@@ -97,12 +97,12 @@ const CardStyled = styled.a`
               fill: ${theme?.colors?.hazel};
             }
           }
-          .cPrice,
-          .cRating {
+          .card__price,
+          .card__rating {
             display: block;
             margin-top: 16px;
           }
-          .cPrice {
+          .card__price {
             color: ${theme?.colors?.kimberly};
             font-family: ${theme?.typeStyles?.fontFamily?.headings};
             ${theme?.typeStyles?.h5};

@@ -14,8 +14,12 @@ const Author = ({ className, person }) => {
 
   return (
     <AuthorStyled className={className}>
-      <img className="aPhoto" src={photo.asset.sys.uri} alt={photo.altText} />
-      <span className="aPerson">
+      <img
+        className="author__photo"
+        src={photo.asset.sys.uri}
+        alt={photo.altText}
+      />
+      <span className="author__person">
         By {person.firstName} {person.lastName}
       </span>
     </AuthorStyled>

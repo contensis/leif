@@ -12,13 +12,13 @@ import RatingStyled from './Rating.styled';
 const Rating = ({ className, rating }) => {
   const stars = [];
   for (let i = 0; i < 5; i++) {
-    stars.push(`rStar-${i}`);
+    stars.push(`star__${i}`);
   }
   return (
     <RatingStyled className={className} rating={rating}>
       {stars &&
         stars.map(s => {
-          return <Icon key={s} type="star" className="rStar" />;
+          return <Icon key={s} type="star" className="rating__star" />;
         })}
     </RatingStyled>
   );

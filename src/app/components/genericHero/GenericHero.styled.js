@@ -15,10 +15,10 @@ const GenericHeroStyled = styled.div`
         align-items: flex-end;
         text-align: left;
       }
-      .ghBack {
+      .generic-hero__back {
         margin-bottom: 104px;
       }
-      .ghTitle {
+      .generic-hero__title {
         position: relative;
         flex-basis: calc(50% - 40px);
         padding-top: 24px;
@@ -42,7 +42,7 @@ const GenericHeroStyled = styled.div`
           }
         }
       }
-      .ghImage {
+      .generic-hero__image {
         display: block;
         max-width: 510px;
         width: 100%;

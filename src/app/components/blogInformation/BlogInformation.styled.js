@@ -7,7 +7,7 @@ const BlogInformationStyled = styled.div`
       @media ${theme.mq.laptop} {
         text-align: left;
       }
-      .biAuthor {
+      .blog-info__author {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,13 +15,13 @@ const BlogInformationStyled = styled.div`
           justify-content: space-between;
         }
       }
-      .biSocials {
+      .blog-info__socials {
         display: none;
         @media ${theme.mq.laptop} {
           display: flex;
         }
       }
-      .biInfo {
+      .blog-info__wrapper {
         margin-top: 24px;
         color: ${theme?.colors?.kimberly};
         ${theme?.typeStyles?.smallCopy};
@@ -29,11 +29,11 @@ const BlogInformationStyled = styled.div`
           margin-top: 16px;
         }
       }
-      .biInfo,
-      .biDate {
+      .blog-info__readtime,
+      .blog-info__date {
         display: inline-block;
       }
-      .biDate {
+      .blog-info__date {
         position: relative;
         padding-right: 8px;
         margin-right: 8px;

@@ -17,10 +17,10 @@ const Hamburger = ({ className }) => {
       onClick={() => setIsOpen(!isOpen)}
       isOpen={isOpen}
     >
-      <div className="hbWrapper">
-        <span className="hbLayer" />
-        <span className="hbLayer" />
-        <span className="hbLayer" />
+      <div className="hamburger__wrapper">
+        <span className="hamburger__layer" />
+        <span className="hamburger__layer" />
+        <span className="hamburger__layer" />
       </div>
       <VisuallyHidden text="Open menu" />
     </HamburgerStyled>

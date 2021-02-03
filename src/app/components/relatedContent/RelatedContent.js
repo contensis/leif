@@ -16,16 +16,16 @@ const RelatedContent = ({ className, title, results, link }) => {
   if (!results || results.length < 1) return null;
   return (
     <RelatedContentStyled className={className}>
-      {title && <h3 className="rcTitle">{title}</h3>}
-      <div className="rcResults">
-        <div className="rcResultsWrapper">
+      {title && <h3 className="related-content__title">{title}</h3>}
+      <div className="related-content__results">
+        <div className="related-content__results-wrapper">
           {results.map((res, idx) => {
             if (!res) return null;
             const type = res && res.sys && res.sys.contentTypeId;
             return (
               <Card
                 key={`${res.title}-${idx}`}
-                className="rcCard"
+                className="related-content__card"
                 type={type}
                 title={res.title}
                 text={res.text}
@@ -40,7 +40,7 @@ const RelatedContent = ({ className, title, results, link }) => {
           <LinkButton
             type={link.type}
             isHollow
-            className="rcLink"
+            className="related-content__link"
             label={link.label}
             href={link.href}
           />

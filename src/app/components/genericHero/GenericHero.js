@@ -17,11 +17,11 @@ const BlogHero = ({ className, title /*, image */ }) => {
   return (
     <BlogHeroStyled className={className}>
       <div>
-        <BackButton className="ghBack" label="Blogs" />
-        <h1 className="ghTitle">{title}</h1>
+        <BackButton className="generic-hero__back" label="Blogs" />
+        <h1 className="generic-hero__title">{title}</h1>
       </div>
       {/* <Image /> */}
-      <img src={hero} alt="Women at desk" className="ghImage" />
+      <img src={hero} alt="Women at desk" className="generic-hero__image" />
     </BlogHeroStyled>
   );
 };

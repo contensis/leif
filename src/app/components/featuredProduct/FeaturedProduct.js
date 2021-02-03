@@ -16,14 +16,18 @@ import Card from '../card/Card';
 const FeaturedProduct = ({ className, title, text, link, product }) => {
   return (
     <FeaturedProductStyled className={className}>
-      <div className="fpContent">
-        <div className="fpContentWrapper">
-          <h3 className="fpTitle">{title}</h3>
-          <p className="fpText">{text}</p>
-          <LinkButton className="fpBtn" label={link.label} href={link.href} />
+      <div className="featured-product__content">
+        <div className="featured-product__content-wrapper">
+          <h3 className="featured-product__title">{title}</h3>
+          <p className="featured-product__text">{text}</p>
+          <LinkButton
+            className="featured-product__btn"
+            label={link.label}
+            href={link.href}
+          />
         </div>
         <Card
-          className="fpCard"
+          className="featured-product__card"
           type="product"
           image={product.image}
           title={product.title}

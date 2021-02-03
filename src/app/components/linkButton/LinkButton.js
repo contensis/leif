@@ -46,7 +46,7 @@ const LinkButton = ({
       onClick={e => _handleClick(e)}
     >
       {label}
-      {hasArrow && <Icon type="arrowRight" className="lbArrow" />}
+      {hasArrow && <Icon type="arrowRight" className="link-btn__arrow" />}
     </LinkButtonStyled>
   );
 };

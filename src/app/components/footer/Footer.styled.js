@@ -14,7 +14,7 @@ const FooterStyled = styled.div`
         align-items: stretch;
         flex-direction: row;
       }
-      .fLeftCol {
+      .footer__left-column {
         max-width: 370px;
         width: 100%;
         text-align: center;
@@ -42,13 +42,13 @@ const FooterStyled = styled.div`
           }
         }
       }
-      .fIconsWrapper {
+      .footer__icons-wrapper {
         margin-top: 40px;
         @media ${theme.mq.laptop} {
           margin-top: 24px;
         }
       }
-      .fIconLink {
+      .footer__icon-link {
         &:not(:last-child) {
           margin-right: 32px;
         }
@@ -59,14 +59,14 @@ const FooterStyled = styled.div`
           }
         }
       }
-      .fLinks {
+      .footer__links {
         width: 100%;
         @media ${theme.mq.laptop} {
           display: flex;
           flex-wrap: wrap;
         }
       }
-      .fLinksColumn {
+      .footer__links-column {
         &:not(:last-child) {
           margin-bottom: 40px;
         }
