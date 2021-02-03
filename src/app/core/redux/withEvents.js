@@ -5,7 +5,7 @@ import { queryParams, routeParams } from '../util/navigation';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
 import { ContentTypes, ListingPages } from '../schema';
 
-import transformations from '~/features/search/transformations';
+import transformations from '~/components/search/transformations';
 
 export default {
   onRouteLoad: function* onRouteLoad({
