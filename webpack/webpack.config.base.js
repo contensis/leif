@@ -12,7 +12,7 @@ module.exports = {
   },
   externals: ['oidc-client'],
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       '~': path.resolve(__dirname, '../src/app'),
       '-': path.resolve(__dirname, '../'),
@@ -23,6 +23,8 @@ module.exports = {
   },
   module: {
     rules: [
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         enforce: 'pre',
         test: /\.jsx?$/,

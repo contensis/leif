@@ -7,8 +7,8 @@ storiesOf('Features | Global', module).add(
   'Blog Information',
   () => {
     const person = {
-      firstName: 'Lego',
-      lastName: 'Man',
+      firstName: 'John',
+      lastName: 'Smith',
       photo: {
         alt: 'Lego man',
         asset: {

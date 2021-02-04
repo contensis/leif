@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BlogInformationStyled from './BlogInformation.styled';
-import Author from '../author/Author';
+import { Author } from '../author/Author';
 import SocialShare from '../socialShare/SocialShare';
 
 import dateWithSuffix from '~/utils/dateWithSuffix';
