@@ -2,7 +2,7 @@ import React from 'react';
 
 import AuthorStyled from './Author.styled';
 
-interface PersonObject {
+export interface PersonObject {
   firstName: string;
   lastName: string;
   photo: {
