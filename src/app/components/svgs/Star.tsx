@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Star = props => (
+interface Props {
+  props?: any
+}
+
+const Star: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

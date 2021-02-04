@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const RatingStyled = styled.div`
+interface Props {
+  rating: string,
+}
+
+const RatingStyled = styled.div<Props>`
   ${({ theme, rating }) => {
     return css`
       display: flex;
@@ -11,7 +15,7 @@ const RatingStyled = styled.div`
           fill: ${theme?.colors?.seashell};
         }
       }
-      ${rating !== 0 &&
+      ${rating !== '0' &&
         css`
           .rating__star:nth-child(-n + ${rating}) {
             path {

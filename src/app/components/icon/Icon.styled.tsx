@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 
-const IconStyled = styled.svg`
+interface Props {
+  className?: string,
+  as: any,
+  transform?: any,
+}
+
+const IconStyled = styled.svg<Props>`
   ${() => {
     return css``;
   }};

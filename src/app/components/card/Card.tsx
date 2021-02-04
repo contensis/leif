@@ -3,21 +3,30 @@ import React from 'react';
 import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
-import dateWithSuffix from '~/utils/dateWithSuffix';
+import dateWithSuffix from '../../utils/dateWithSuffix';
 
-/**
- * @param {object} props
- * @param {string} props.type
- * @param {string} props.title
- * @param {string} props.text
- * @param {object} props.image
- * @param {number} props.readTime
- * @param {string} props.date
- * @param {number} props.price
- * @param {number} props.rating
- */
+interface ImageObject {
+  asset: {
+    altText: string,
+    sys: {
+      uri: string
+    }
+  }
+}
 
-const Card = ({
+interface Props {
+  className?: string,
+  type: string,
+  title: string,
+  text?: string,
+  image: ImageObject,
+  date?: string,
+  readTime?: string,
+  price?: string,
+  rating?: string,
+}
+
+const Card: React.FC<Props> = ({
   className,
   type,
   title,
@@ -42,7 +51,7 @@ const Card = ({
           <div className="card__details">
             {date && (
               <span className="card__date">
-                {dateWithSuffix(date, 'dd MMM')}
+                {dateWithSuffix(date)}
               </span>
             )}
             {readTime && (

@@ -3,13 +3,13 @@ import React from 'react';
 import Icon from '../icon/Icon';
 import RatingStyled from './Rating.styled';
 
-/**
- * @param {object} props
- * @param {string} props.className
- * @param {number} props.rating 0 - 5
- */
 
-const Rating = ({ className, rating }) => {
+interface Props {
+  className?: string,
+  rating: string,
+}
+
+const Rating: React.FC<Props> = ({ className, rating }) => {
   const stars = [];
   for (let i = 0; i < 5; i++) {
     stars.push(`star__${i}`);

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Facebook = props => (
+interface Props {
+  props?: any
+}
+
+const Facebook: React.FC<Props> = props => (
   <svg
     width="8"
     height="15"

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Link = props => (
+interface Props {
+  props?: any
+}
+
+const Link: React.FC<Props> = props => (
   <svg
     width="18"
     height="18"

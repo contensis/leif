@@ -1,6 +1,10 @@
 import React from 'react';
 
-const LinkedIn = props => (
+interface Props {
+  props?: any
+}
+
+const LinkedIn: React.FC<Props> = props => (
   <svg
     width="16"
     height="16"

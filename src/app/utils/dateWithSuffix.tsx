@@ -1,6 +1,6 @@
-import formatDate from '~/utils/formatDate';
+import formatDate from '../utils/formatDate';
 
-const daySuffix = i => {
+const daySuffix = ( i: number ) => {
   var j = i % 10,
     k = i % 100;
   if (j == 1 && k != 11) {
@@ -16,9 +16,10 @@ const daySuffix = i => {
   // https://stackoverflow.com/questions/13627308/add-st-nd-rd-and-th-ordinal-suffix-to-a-number/13627586
 };
 
-export default date => {
+
+export default (date: string) => {
   const dateDay = formatDate(date, 'd');
   const dateMonth = formatDate(date, 'MMM');
-  date = `${daySuffix(dateDay)} ${dateMonth}`;
+  date = `${daySuffix(parseInt(dateDay))} ${dateMonth}`;
   return date;
 };

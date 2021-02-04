@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Arrow = props => (
+interface Props {
+  props?: any
+}
+
+const Arrow: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

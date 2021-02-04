@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Cross = props => (
+interface Props {
+  props?: any
+}
+
+const Cross: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

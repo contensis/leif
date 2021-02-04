@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const CardStyled = styled.a`
+interface Props {
+  type: string,
+}
+
+const CardStyled = styled.a<Props>`
   ${({ theme, type }) => {
     return css`
       display: block;

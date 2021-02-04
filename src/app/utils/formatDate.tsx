@@ -18,7 +18,7 @@
 //t > abbreviated AM / PM, e.g. A or P
 //tt > AM / PM, e.g. AM or PM
 
-const formatDate = (date, format = 'dd MMMM yyyy') => {
+const formatDate = (date: string, format: string = 'dd MMMM yyyy') => {
   if (!date) return null;
   const dateObj = new Date(date);
   const dateString = date.toString().split('T');
@@ -65,17 +65,17 @@ const formatDate = (date, format = 'dd MMMM yyyy') => {
     .replace(MONTH[0], monthsLong[parseInt(month, 10)])
     .replace(MONTH[1], monthsShort[parseInt(month, 10)])
     .replace(MONTH[2], month)
-    .replace(MONTH[3], parseInt(month, 10))
+    .replace(MONTH[3], parseInt(month, 10).toString())
     .replace(DAY[0], daysLong[dayNameInt])
     .replace(DAY[1], daysShort[dayNameInt])
     .replace(DAY[2], day)
-    .replace(DAY[3], parseInt(day, 10))
+    .replace(DAY[3], parseInt(day, 10).toString())
     .replace(HOUR24[0], hour)
-    .replace(HOUR24[1], parseInt(hour, 10))
+    .replace(HOUR24[1], parseInt(hour, 10).toString())
     .replace(HOUR12[0], parseHour(hour))
-    .replace(HOUR12[1], parseInt(parseHour(hour), 10))
+    .replace(HOUR12[1], parseInt(parseHour(hour), 10).toString())
     .replace(MINUTE[0], minute)
-    .replace(MINUTE[1], parseInt(minute, 10))
+    .replace(MINUTE[1], parseInt(minute, 10).toString())
     .replace(TF[0], parseTF(hour))
     .replace(TF[1], parseTF(hour).slice(0, -1));
 
@@ -126,11 +126,11 @@ const daysLong = [
   'Saturday',
 ];
 
-const parseHour = hour => {
+const parseHour = (hour: any) => {
   return hour > 12 ? hour - 12 : hour;
 };
 
-const parseTF = hour => {
+const parseTF = (hour: any) => {
   return hour > 11 ? 'PM' : 'AM';
 };
 

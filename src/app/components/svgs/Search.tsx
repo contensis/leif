@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Search = props => (
+interface Props {
+  props?: any
+}
+
+const Search: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

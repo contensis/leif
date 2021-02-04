@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Tag = props => (
+interface Props {
+  props?: any
+}
+
+const Tag: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

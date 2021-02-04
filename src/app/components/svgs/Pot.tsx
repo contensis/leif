@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Pot = props => (
+interface Props {
+  props?: any
+}
+
+const Pot: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

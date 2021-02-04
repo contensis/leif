@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Twitter = props => (
+interface Props {
+  props?: any
+}
+
+const Twitter: React.FC<Props> = props => (
   <svg
     width="16"
     height="14"

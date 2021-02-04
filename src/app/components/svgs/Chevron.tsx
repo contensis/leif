@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Chevron = props => (
+interface Props {
+  props?: any
+}
+
+const Chevron: React.FC<Props> = props => (
   <svg
     width="24"
     height="24"

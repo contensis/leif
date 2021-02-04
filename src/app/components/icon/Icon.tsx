@@ -14,13 +14,12 @@ import Star from '../svgs/Star';
 import Tag from '../svgs/Tag';
 import Twitter from '../svgs/Twitter';
 
-/**
- * @param {object} props
- * @param {string} props.className
- * @param {string} props.type
- */
+interface Props {
+  className?: string,
+  type: string,
+}
 
-const Icon = ({ className, type }) => {
+const Icon: React.FC<Props> = ({ className, type }) => {
   switch (type) {
     case 'facebook':
       return <IconStyled className={className} as={Facebook} />;

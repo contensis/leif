@@ -7,10 +7,13 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
   ],
+  // rules: [{ test: /\.tsx?$/, loader: 'ts-loader' },],
   webpackFinal: config => {
     config.module.rules.push({
+      // test: /\.tsx?$/,
+      // use: ['ts-loader'],
       resolve: {
-        extensions: ['.js', '.jsx', '.json', '.md'],
+        extensions: ['ts', 'tsx', '.js', '.jsx', '.json', '.md'],
         alias: {
           '~': path.resolve(__dirname, '../src/app'),
           app: path.resolve(__dirname, '../src/app'),
