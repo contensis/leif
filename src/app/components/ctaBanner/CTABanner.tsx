@@ -7,6 +7,7 @@ import Image, { ImageObject } from '../image/Image';
 interface CTAObject {
   label: string;
   uri: string;
+  type: string,
 }
 
 interface Props {
@@ -36,6 +37,7 @@ const CTABanner: React.FC<Props> = ({
         className="cta-banner__link"
         label={cta.label}
         href={cta.uri}
+        type={cta.type}
       />
     </CTABannerStyled>
   );

@@ -1,43 +1,44 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
 
 import CTABanner from './CTABanner';
 
 import tempImage from './assets/laptop-and-plant.png';
 
-storiesOf('Features | Global', module).add(
-  'CTA Banner',
-  () => {
-    const cta = {
-      label: 'Sign up',
-      uri: 'www.contensis.com',
-    };
-
-    const image = {
-      asset: {
-        altText: 'Laptop and plant',
-        sys: {
-          uri: tempImage,
-        },
+export default {
+  title: 'Global/Components/CTABanner',
+  component: CTABanner,
+  argTypes: {
+    btnType: {
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'white'
+        ],
       },
-    };
-
-    return (
-      <CTABanner
-        image={image}
-        title={text('CTA Title', 'CTA title can span multiple lines')}
-        text={text(
-          'CTA Text',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.'
-        )}
-        cta={cta}
-      />
-    );
-  },
-  {
-    knobs: {
-      escapeHTML: false,
     },
+    btnLabel: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
+}
+
+const Template = ({ btnType = "primary", btnLabel = 'Find out more', ...args }) => {
+  const cta = {
+    type: btnType,
+    label: btnLabel,
+    href: '#'
   }
-);
+  return <CTABanner cta={cta} {...args} />;
+};
+
+
+export const Primary = Template.bind({});
+Primary.args = {
+  title: 'CTA title can span multiple lines',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  image: tempImage,
+}
