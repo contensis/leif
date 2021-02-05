@@ -5,7 +5,6 @@ export default {
   title: 'Global/Components/Card',
   component: Card,
 }
-
 const Template = (args) => <Card {...args} />;
 
 const dataObject = {

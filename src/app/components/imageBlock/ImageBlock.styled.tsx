@@ -32,6 +32,9 @@ const ImageBlockStyled = styled.div`
       .image-block__image {
         display: block;
         max-width: 100%;
+        max-height: 480px;
+        width: 100%;
+        object-fit: cover;
       }
       .image-block__title {
         margin: 24px 0 0 0;

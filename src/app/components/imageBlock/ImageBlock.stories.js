@@ -1,35 +1,23 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
 
 import ImageBlock from './ImageBlock';
 
-storiesOf('Features | Global', module).add(
-  'Image Block',
-  () => {
-    const image = {
-      altText: 'Picsum Photo',
-      asset: {
-        sys: {
-          uri: 'https://picsum.photos/id/305/840/480',
-        },
-      },
-    };
+export default {
+  title: 'Global/Components/ImageBlock',
+  component: ImageBlock,
+}
 
-    return (
-      <ImageBlock
-        image={image}
-        title={text('Image title', 'Optional image title')}
-        text={text(
-          'Image text',
-          'Image accreditation and information can span multiple lines.'
-        )}
-      />
-    );
-  },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
+const Template = args => <ImageBlock {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  title: 'Optional image title',
+  text: 'Image accreditation and information can span multiple lines.',
+  image: {
+    asset: {
+      sys: {
+        uri: 'https://source.unsplash.com/6hgrfOJhr74'
+      }
+    }
   }
-);
+}
