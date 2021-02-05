@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  props?: any
+  props?: any;
 }
 
 const Chevron: React.FC<Props> = props => (

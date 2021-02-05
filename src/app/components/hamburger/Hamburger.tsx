@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 
 import HamburgerStyled from './Hamburger.styled';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-
 interface Props {
-  className?: string,
+  className?: string;
 }
 
 const Hamburger: React.FC<Props> = ({ className }) => {

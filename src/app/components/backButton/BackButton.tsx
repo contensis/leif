@@ -4,8 +4,8 @@ import BackButtonStyled from './BackButton.styled';
 import Icon from '../icon/Icon';
 
 interface Props {
-  className?: string,
-  label: string,
+  className?: string;
+  label: string;
 }
 
 const BackButton: React.FC<Props> = ({ className, label }) => {

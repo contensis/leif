@@ -3,3 +3,4 @@
 /docs
 \.*
 /src/contensis-delivery-api
+/**/*.d.ts

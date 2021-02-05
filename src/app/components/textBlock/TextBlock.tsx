@@ -1,12 +1,10 @@
 import React from 'react';
 
 import TextBlockStyled from './TextBlock.styled';
-
 interface Props {
-  className?: string,
-  text: string,
+  className?: string;
+  text: string;
 }
-
 
 const TextBlock: React.FC<Props> = ({ className, text, }) => {
   return (

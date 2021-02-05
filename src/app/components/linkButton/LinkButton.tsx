@@ -2,16 +2,15 @@ import React from 'react';
 
 import LinkButtonStyled from './LinkButton.styled';
 import Icon from '../icon/Icon';
-
 interface Props {
-  className?: string,
-  type?: string,
-  isHollow?: boolean,
-  isDisabled?: boolean, 
-  hasArrow?: boolean,
-  label: string,
-  href: string,
-  onClick?: Function,
+  className?: string;
+  type?: string;
+  isHollow?: boolean;
+  isDisabled?: boolean; 
+  hasArrow?: boolean;
+  label: string;
+  href: string;
+  onClick?: Function;
 }
 
 const LinkButton: React.FC<Props> = ({

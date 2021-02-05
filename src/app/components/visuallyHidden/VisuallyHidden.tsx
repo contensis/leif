@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import VisuallyHiddenStyled from './VisuallyHidden.styled';
 
 interface Props {
-  text?: string,
-  children?: any,
+  text?: string;
+  children?: any;
 }
 
 const VisuallyHidden: React.FC <Props> = ({ text, children }) => {

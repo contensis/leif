@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Link as PageLink } from 'react-router-dom';
-
 interface Props {
-  className: string,
-  children: any,
-  download?: any,
-  onClick?: Function,
-  openInNewWindow: boolean,
-  title: string,
-  uri: string,
+  className: string;
+  children: any;
+  download?: any;
+  onClick?: Function;
+  openInNewWindow: boolean;
+  title: string;
+  uri: string;
 }
 
 const Link: React.FC<Props> = ({

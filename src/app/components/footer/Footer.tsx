@@ -4,17 +4,17 @@ import FooterStyled from './Footer.styled';
 import Icon from '../icon/Icon';
 import FooterColumn from '../footerColumn/FooterColumn';
 
-// import logo from '~/assets/logo-dark.png';
+import logo from '~/assets/logo-dark.png';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 interface DataObject {
-  title: string,
-  links: Object[],
+  title: string;
+  links: Object[];
 }
 
 interface Props {
-  className?: string,
-  data: any[] | any,
+  className?: string;
+  data: any[] | any;
 }
 
 const Footer: React.FC<Props> = ({ className, data }) => {
@@ -23,7 +23,7 @@ const Footer: React.FC<Props> = ({ className, data }) => {
     <FooterStyled className={className}>
       <div className="footer__left-column">
         <a href="/" title="Home">
-          {/* <img className="footer__logo" src={logo} alt="Leif" /> */}
+          <img className="footer__logo" src={logo} alt="Leif" />
           <VisuallyHidden text="Home" />
         </a>
         <div className="footer__icons-wrapper">

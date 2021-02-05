@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-// import shape from './assets/featured-product.svg';
-/* background-image: url(${shape}); */
+import shape from './assets/featured-product.svg';
 
 const FeaturedProductStyled = styled.div`
   ${({ theme }) => {
@@ -38,6 +37,7 @@ const FeaturedProductStyled = styled.div`
           right: -80px;
           height: 100%;
           width: 100%;
+          background-image: url(${shape});.
           background-repeat: no-repeat;
           background-size: contain;
         }

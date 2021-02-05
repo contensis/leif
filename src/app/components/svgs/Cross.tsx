@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  props?: any
+  props?: any;
 }
 
 const Cross: React.FC<Props> = props => (

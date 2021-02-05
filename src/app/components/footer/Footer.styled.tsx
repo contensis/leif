@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-// import shape from './assets/footer-shape.svg';
-/* background-image: url(${shape}); */
+import shape from './assets/footer-shape.svg';
 
 const FooterStyled = styled.div`
   ${({ theme }) => {
@@ -32,6 +31,7 @@ const FooterStyled = styled.div`
           left: -142px;
           height: 100%;
           width: 100%;
+          background-image: url(${shape});
           background-repeat: no-repeat;
         }
         @media ${theme.mq.laptop} {

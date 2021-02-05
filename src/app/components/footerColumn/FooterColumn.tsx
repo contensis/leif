@@ -4,14 +4,14 @@ import Icon from '../icon/Icon';
 import FooterColumnStyled from './FooterColumn.styled';
 
 interface LinkObject {
-  title: string,
-  uri: string,
+  title: string;
+  uri: string;
 }
 
 interface Props {
-  className?: string,
-  title: string,
-  links: any[] | any,
+  className?: string;
+  title: string;
+  links: any[] | any;
 }
 
 const FooterColumn: React.FC<Props> = ({ className, title, links }) => {

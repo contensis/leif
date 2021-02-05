@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-
 interface Props {
-  isOpen: boolean,
+  isOpen: boolean;
 }
 
 const HamburgerStyled = styled.button<Props>`

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const TextBlockStyled = styled.div`
+const LeadParagraphStyled = styled.div`
   ${({ theme }) => {
     return css`
       ${theme?.typeStyles?.h4};
@@ -9,4 +9,4 @@ const TextBlockStyled = styled.div`
   }}
 `;
 
-export default TextBlockStyled;
+export default LeadParagraphStyled;

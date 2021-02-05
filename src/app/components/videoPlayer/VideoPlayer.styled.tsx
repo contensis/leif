@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  name: string,
+  name: string;
 }
 
 const VideoPlayerStyled = styled.video<Props>`

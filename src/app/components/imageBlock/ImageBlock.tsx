@@ -4,10 +4,10 @@ import ImageBlockStyled from './ImageBlock.styled';
 import Image, { ImageObject } from '../image/Image';
 
 interface Props {
-  className: string,
-  image: ImageObject,
-  title: string,
-  text: string,
+  className: string;
+  image: ImageObject;
+  title: string;
+  text: string;
 }
 
 const ImageBlock: React.FC<Props> = ({ className, image, title, text }) => {

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  type: string,
-  isHollow: boolean,
-  hasArrow: boolean,
-  isDisabled: boolean,
+  type: string;
+  isHollow: boolean;
+  hasArrow: boolean;
+  isDisabled: boolean;
 }
 
 const LinkButtonStyled = styled.a<Props>`

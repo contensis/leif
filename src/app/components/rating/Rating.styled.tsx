@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  rating: string,
+  rating: string;
 }
 
 const RatingStyled = styled.div<Props>`

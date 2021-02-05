@@ -6,32 +6,26 @@ import LinkButton from '../linkButton/LinkButton';
 import { ImageObject } from '../image/Image'
 
 interface LinkObject {
-  type: string,
-  label: string,
-  href: string,
+  type: string;
+  label: string;
+  href: string;
 }
 
 interface MappedResObject {
   sys: {
-    contentTypeId: string,
+    contentTypeId: string;
   },
-  title: string,
-  text: string,
-  image: ImageObject
-  readTime: string,
-  date: string,
+  title: string;
+  text: string;
+  image: ImageObject;
+  readTime: string;
+  date: string;
 }
-
-interface ResultsObject  {
-  length: number,
-  map: Function,
-}
-
 interface Props {
-  className?: string,
-  title?: string,
-  results: ResultsObject,
-  link?: LinkObject
+  className?: string;
+  title?: string;
+  results: any[] | any;
+  link?: LinkObject;
 }
 
 const RelatedContent: React.FC<Props> = ({ className, title, results, link }) => {

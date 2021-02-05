@@ -5,8 +5,8 @@ import RatingStyled from './Rating.styled';
 
 
 interface Props {
-  className?: string,
-  rating: string,
+  className?: string;
+  rating: string;
 }
 
 const Rating: React.FC<Props> = ({ className, rating }) => {

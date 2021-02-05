@@ -6,10 +6,10 @@ import SocialShare from '../socialShare/SocialShare';
 import dateWithSuffix from '../../utils/dateWithSuffix'
 
 interface Props {
-  className?: string,
-  person: PersonObject,
-  readTime: string,
-  date: string,
+  className?: string;
+  person: PersonObject;
+  readTime: string;
+  date: string;
 }
 
 

@@ -13,6 +13,7 @@ module.exports = {
     'prettier/react',
     'prettier/flowtype',
     'plugin:flowtype/recommended',
+    'optionalChaining',
   ],
   env: {
     browser: true,
@@ -36,12 +37,14 @@ module.exports = {
     },
   },
   rules: {
+    "flowtype/no-types-missing-file-annotation": 0,
     'react/prop-types': 0,
     'react/require-default-props': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-debugger': 0,
     'no-alert': 0,
+    "disallowArithmeticOperators": true,
     'no-console': [
       'error',
       {

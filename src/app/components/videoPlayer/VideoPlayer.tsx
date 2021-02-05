@@ -2,14 +2,13 @@ import React from 'react';
 
 import VideoPlayerStyled from './VideoPlayer.styled';
 import YoutubeEmbed from '../youtubeEmbed/YoutubeEmbed';
-
 interface Props {
-  className?: string,
-  title: string,
-  type: string
-  hasControls: boolean,
-  externalURL: string,
-  internalVideo: string,
+  className?: string;
+  title: string;
+  type: string;
+  hasControls: boolean;
+  externalURL: string;
+  internalVideo: string;
 }
 
 const VideoPlayer: React.FC<Props> = ({

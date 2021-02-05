@@ -4,26 +4,25 @@ import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
 import dateWithSuffix from '../../utils/dateWithSuffix';
-
 interface ImageObject {
   asset: {
-    altText: string,
+    altText: string;
     sys: {
-      uri: string
-    }
-  }
+      uri: string;
+    };
+  };
 }
 
 interface Props {
-  className?: string,
-  type: string,
-  title: string,
-  text?: string,
-  image: ImageObject,
-  date?: string,
-  readTime?: string,
-  price?: string,
-  rating?: string,
+  className?: string;
+  type: string;
+  title: string;
+  text?: string;
+  image: ImageObject;
+  date?: string;
+  readTime?: string;
+  price?: string;
+  rating?: string;
 }
 
 const Card: React.FC<Props> = ({
@@ -49,11 +48,7 @@ const Card: React.FC<Props> = ({
           />
           {text && <p className="card__text">{text}</p>}
           <div className="card__details">
-            {date && (
-              <span className="card__date">
-                {dateWithSuffix(date)}
-              </span>
-            )}
+            {date && <span className="card__date">{dateWithSuffix(date)}</span>}
             {readTime && (
               <span className="card__readtime">{readTime} min read</span>
             )}

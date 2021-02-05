@@ -1,21 +1,21 @@
-import React, { Children } from 'react';
+import React from 'react';
 
 import CTABannerStyled from './CTABanner.styled';
 import LinkButton from '../linkButton/LinkButton';
-import  Image,  { ImageObject } from '../image/Image';
+import Image, { ImageObject } from '../image/Image';
 
 interface CTAObject {
-  label: string,
-  uri: string,
+  label: string;
+  uri: string;
 }
 
 interface Props {
-  className?: string,
-  image: ImageObject,
-  title: string,
-  text: string,
-  cta: CTAObject,
-  headingLevel: number,
+  className?: string;
+  image: ImageObject;
+  title: string;
+  text: string;
+  cta: CTAObject;
+  headingLevel: number;
 }
 
 const CTABanner: React.FC<Props> = ({
@@ -24,9 +24,9 @@ const CTABanner: React.FC<Props> = ({
   title,
   text,
   cta,
-  headingLevel = 3,
+  // headingLevel = 3,
 }) => {
-  // const Heading = `h${headingLevel}`; TODO: 
+  // const Heading = `h${headingLevel}`; TODO:
   return (
     <CTABannerStyled className={className}>
       <Image className="cta-banner__image" image={image} />

@@ -8,7 +8,7 @@ import copy from 'copy-to-clipboard';
 import { socials } from './utils';
 
 interface Props {
-  className?: string,
+  className?: string;
 }
 
 const SocialShare: React.FC<Props> = ({ className }) => {

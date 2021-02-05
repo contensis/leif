@@ -15,8 +15,8 @@ import Tag from '../svgs/Tag';
 import Twitter from '../svgs/Twitter';
 
 interface Props {
-  className?: string,
-  type: string,
+  className?: string;
+  type: string;
 }
 
 const Icon: React.FC<Props> = ({ className, type }) => {

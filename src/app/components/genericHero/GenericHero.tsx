@@ -1,14 +1,13 @@
 import React from 'react';
 
 import BlogHeroStyled from './GenericHero.styled';
-// import hero from './assets/women-at-desk.png';
+import hero from './assets/shape.svg';
 
-import BackButton from '../backButton/BackButton';
+import BackButton from '~/components/backButton/BackButton';
 // import Image from '~/features/image';
-
 interface Props {
-  className?: string,
-  title: string,
+  className?: string;
+  title: string;
 }
 
 const BlogHero: React.FC<Props> = ({ className, title /*, image */ }) => {
@@ -19,7 +18,7 @@ const BlogHero: React.FC<Props> = ({ className, title /*, image */ }) => {
         <h1 className="generic-hero__title">{title}</h1>
       </div>
       {/* <Image /> */}
-      {/* <img src={hero} alt="Women at desk" className="generic-hero__image" /> */}
+      <img src={hero} alt="Women at desk" className="generic-hero__image" />
     </BlogHeroStyled>
   );
 };

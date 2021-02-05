@@ -2,11 +2,10 @@ import React from 'react';
 
 import getVideoID from './utils/getVideoID';
 import YoutubeEmbedStyled from './YoutubeEmbed.styled';
-
 interface Props {
-  className?: string,
-  title: string,
-  src: string,
+  className?: string;
+  title: string;
+  src: string;
 }
 
 const YoutubeEmbed: React.FC<Props> = ({ className, title, src }) => {

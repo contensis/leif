@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-// import shape from './assets/image-block-shape.svg';
-// background-image: url(${shape});
+import shape from './assets/image-block-shape.svg';
 
 const ImageBlockStyled = styled.div`
   ${({ theme }) => {
@@ -20,6 +19,7 @@ const ImageBlockStyled = styled.div`
           right: -50%;
           width: 100%;
           height: 100%;
+          background-image: url(${shape});
           background-repeat: no-repeat;
         }
         @media ${theme.mq.tablet} {
