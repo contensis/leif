@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link as PageLink } from 'react-router-dom';
+import { Link as PageLink } from 'react-router-dom';
 interface Props {
   className: string;
   children: any;
@@ -30,16 +30,15 @@ const Link: React.FC<Props> = ({
 
   if (newWindow != '_blank' && uri && uri.startsWith('/')) {
     return (
-      // <PageLink
-      //   className={className}
-      //   download={download}
-      //   onClick={onClick}
-      //   title={title}
-      //   to={uri}
-      // >
-      //   {children}
-      // </PageLink>
-      <span>{children}</span>
+      <PageLink
+        className={className}
+        download={download}
+        onClick={e => onClick(e)}
+        title={title}
+        to={uri}
+      >
+        {children}
+      </PageLink>
     );
   } else {
     return (
