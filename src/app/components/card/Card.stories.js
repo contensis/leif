@@ -1,39 +1,42 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
-
 import Card from './Card';
 
-import tempImage from '../genericHero/assets/women-at-desk.png';
+export default {
+  title: 'Global/Components/Card',
+  component: Card,
+}
 
-storiesOf('Features | Global', module).add(
-  'Card',
-  () => {
-    const image = {
+const Template = (args) => <Card {...args} />;
+
+const dataObject = {
+  title: 'Title can span multiple lines of text',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  image: {
       asset: {
-        altText: 'Cacti',
         sys: {
-          uri: tempImage,
-        },
-      },
-    };
-    return (
-      <Card
-        type="blog"
-        title={text('Blog Card Title', 'Title can span multiple lines of text')}
-        text={text(
-          'Blog Card Text',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.'
-        )}
-        image={image}
-        readTime={2}
-        date={new Date().toISOString()}
-      />
-    );
+          uri: 'https://source.unsplash.com/TRAF_LhFCUs',
+      }
+    }
   },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
-  }
-);
+  date: new Date().toISOString(),
+  readTime: 4,
+}
+
+export const BlogCard = Template.bind({});
+BlogCard.args = { 
+  type: 'blog',
+  title: dataObject.title,
+  text: dataObject.text,
+  image: dataObject.image,
+  date: dataObject.date,
+  readTime: dataObject.readTime,
+};
+
+export const Product = Template.bind({});
+Product.args = { 
+  type: 'product',
+  title: dataObject.title,
+  image: dataObject.image,
+  price: 32,
+  rating: 4
+};

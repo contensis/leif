@@ -43,8 +43,8 @@ const Card: React.FC<Props> = ({
           <h3 className="card__title">{title}</h3>
           <img
             className="card__thumbnail"
-            src={image.asset.sys.uri}
-            alt={image.asset.altText}
+            src={image?.asset?.sys?.uri}
+            alt={image?.asset?.altText}
           />
           {text && <p className="card__text">{text}</p>}
           <div className="card__details">
@@ -61,8 +61,8 @@ const Card: React.FC<Props> = ({
           <div className="card__thumbnail-wrapper">
             <img
               className="card__thumbnail"
-              src={image.asset.sys.uri}
-              alt={image.asset.altText}
+              src={image?.asset?.sys?.uri}
+              alt={image?.asset?.altText}
             />
             <Icon type="tag" className="card__tag" />
           </div>
