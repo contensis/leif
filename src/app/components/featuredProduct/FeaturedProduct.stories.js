@@ -4,42 +4,51 @@ import { text } from '@storybook/addon-knobs';
 
 import FeaturedProduct from './FeaturedProduct';
 
-storiesOf('Features | Global', module).add(
-  'Featured Product',
-  () => {
-    const link = {
-      label: 'Find out more',
-      href: '#',
-    };
-    const product = {
-      image: {
-        asset: {
-          altText: 'Plant',
-          sys: {
-            uri: 'https://source.unsplash.com/UcfKYTan-LU',
-          },
-        },
+export default {
+  title: 'Global/Components/FeaturedProduct',
+  component: FeaturedProduct,
+  argTypes: {
+    rating: {
+      control: {
+        type: 'select',
+        options: [
+          '1', 
+          '2', 
+          '3',
+          '4',
+          '5',
+        ],
       },
-      title: 'Product listing can span multiple lines',
-      tag: 'Plant',
-      price: 35,
-      rating: 4,
-    };
-    return (
-      <FeaturedProduct
-        title={text('Product title', 'Featured product banner title')}
-        text={text(
-          'Product text',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.'
-        )}
-        link={link}
-        product={product}
-      />
-    );
-  },
-  {
-    knobs: {
-      escapeHTML: false,
     },
+    price: {
+      type: 'text',
+    },
+  },
+}
+
+const Template = ({ rating = 3, price = 2, ...args }) => {
+  const product = {
+    title: 'Product listing can span multiple lines',
+    image: {
+      asset: {
+        altText: 'Plant',
+        sys: {
+          uri: 'https://source.unsplash.com/UcfKYTan-LU'
+        }
+      }
+    },
+    price: price,
+    rating: rating
   }
-);
+  return <FeaturedProduct {...args} product={product} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = { 
+  title: 'Featured product banner title',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.',
+  link: {
+    label: 'Find out more',
+    href: '#',
+  },
+};
