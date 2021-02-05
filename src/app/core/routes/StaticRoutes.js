@@ -1,7 +1,7 @@
 // import React from 'react';
 import Loadable from 'react-loadable';
 import { Loading } from './Loading';
-import Home from '~/pages/Home/home.page';
+import Home from '~/pages/Home/home.page.js';
 
 export default [
   {
@@ -15,7 +15,7 @@ export default [
     exact: false,
     fetchNode: false,
     component: Loadable({
-      loader: () => import('~/pages/Search/search.page'),
+      loader: () => import('~/pages/Search/search.page.js'),
       loading: Loading,
     }),
   },
@@ -26,7 +26,7 @@ export default [
     exact: true,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "notfound" */ '~/pages/NotFound'),
+        import(/* webpackChunkName: "notfound" */ '~/pages/NotFound.js'),
       loading: Loading,
     }),
   },
@@ -35,7 +35,7 @@ export default [
     exact: true,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "zeninfo" */ '~/pages/VersionInfo'),
+        import(/* webpackChunkName: "zeninfo" */ '~/pages/VersionInfo.js'),
       loading: Loading,
     }),
   },
