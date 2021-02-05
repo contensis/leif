@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import shape from './assets/quote-shape.svg';
 
 const QuoteBlockStyled = styled.blockquote`
   ${({ theme }) => {
@@ -20,7 +19,7 @@ const QuoteBlockStyled = styled.blockquote`
         left: 0;
         height: 100%;
         width: 100%;
-        background-image: url(${shape});
+        background-image: url('./assets/quote-shape.svg');
         background-repeat: repeat-y;
       }
     `;
