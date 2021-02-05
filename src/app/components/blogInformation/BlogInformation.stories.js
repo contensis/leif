@@ -1,35 +1,39 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import BlogInformation from './BlogInformation';
 
-storiesOf('Features | Global', module).add(
-  'Blog Information',
-  () => {
-    const person = {
-      firstName: 'John',
-      lastName: 'Smith',
-      photo: {
-        alt: 'Lego man',
+export default {
+  title: 'Global/Components/BlogInformation',
+  component: BlogInformation,
+  argTypes: {
+    firstName: {
+      control: {
+        type: 'text',
+      },
+    },
+    lastName: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
+}
+const Template = ({ firstName = 'John', lastName = 'Smith', ...args }) => {
+  const person = {
+    firstName: firstName,
+    lastName: lastName,
+    photo: {
         asset: {
           sys: {
             uri: 'https://randomuser.me/api/portraits/med/lego/6.jpg',
           },
         },
-      },
-    };
-
-    return (
-      <BlogInformation
-        person={person}
-        readTime={2}
-        date={new Date().toISOString()}
-      />
-    );
-  },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
+    }
   }
-);
+    return <BlogInformation person={person} {...args} />
+};
+export const Primary = Template.bind({});
+Primary.args = { 
+  readTime: 7,
+  date: new Date().toISOString(),
+};
