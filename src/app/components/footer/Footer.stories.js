@@ -1,104 +1,40 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-// import { text } from '@storybook/addon-knobs';
 
 import Footer from './Footer';
 
-storiesOf('Features | Global', module).add(
-  'Footer',
-  () => {
-    const data = [
-      {
-        title: 'Title one',
-        links: [
-          {
-            title: 'Link one',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link two',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link three',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link four',
-            uri: 'www.google.co.uk',
-          },
-        ],
-      },
-      {
-        title: 'Title two',
-        links: [
-          {
-            title: 'Link one',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link two',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link three',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link four',
-            uri: 'www.google.co.uk',
-          },
-        ],
-      },
-      {
-        title: 'Title three',
-        links: [
-          {
-            title: 'Link one',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link two',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link three',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link four',
-            uri: 'www.google.co.uk',
-          },
-        ],
-      },
-      {
-        title: 'Title four',
-        links: [
-          {
-            title: 'Link one',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link two',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link three',
-            uri: 'www.google.co.uk',
-          },
-          {
-            title: 'Link four',
-            uri: 'www.google.co.uk',
-          },
-        ],
-      },
-    ];
+export default {
+  title: 'Global/Components/Footer',
+  component: Footer,
+}
 
-    return <Footer data={data} />;
-  },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
+const Template = () => {
+  const dataArray = [];
+  const data = {
+    title: 'Title one',
+    links: [
+      {
+        title: 'Link one',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link two',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link three',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link four',
+        uri: 'www.google.co.uk',
+      },
+    ],
+  };
+  for (let i = 0; dataArray.length < 4; i++){
+    dataArray.push(data);
   }
-);
+  return <Footer data={dataArray} />;
+};
+
+export const Primary = Template.bind({});

@@ -4,18 +4,13 @@ import { text } from '@storybook/addon-knobs';
 
 import GenericHero from './GenericHero';
 
-storiesOf('Features | Global', module).add(
-  'Generic Hero',
-  () => {
-    return (
-      <GenericHero
-        title={text('Title', 'Title can span multiple lines of text')}
-      />
-    );
-  },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
-  }
-);
+export default {
+  title: 'Global/Components/GenericHero',
+  component: GenericHero,
+}
+
+const Template = args => <GenericHero {...args} />;
+export const Primary = Template.bind({});
+Primary.args = { 
+  title: 'Blog title can span multiple lines of text',
+};

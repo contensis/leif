@@ -3,14 +3,13 @@ import { storiesOf } from '@storybook/react';
 
 import SocialShare from './SocialShare';
 
-storiesOf('Features | Global', module).add(
-  'Social Share',
-  () => {
-    return <SocialShare />;
-  },
-  {
-    knobs: {
-      escapeHTML: false,
-    },
-  }
-);
+export default {
+  title: 'Global/Components/SocialShare',
+  component: SocialShare,
+}
+
+const Template = () => {
+  return <SocialShare  />;
+};
+
+export const Primary = Template.bind({});
