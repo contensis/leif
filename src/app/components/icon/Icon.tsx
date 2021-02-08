@@ -13,6 +13,12 @@ import Search from '../svgs/Search';
 import Star from '../svgs/Star';
 import Tag from '../svgs/Tag';
 import Twitter from '../svgs/Twitter';
+import Minus from '../svgs/Minus';
+import Plus from '../svgs/Plus';
+import Kebab from '../svgs/Kebab';
+import Plant from '../svgs/Plant';
+import Sort from '../svgs/Sort';
+import Tick from '../svgs/Tick';
 
 interface Props {
   className?: string;
@@ -69,6 +75,18 @@ const Icon: React.FC<Props> = ({ className, type }) => {
           as={Arrow}
         />
       );
+    case 'minus':
+      return <IconStyled className={className} as={Minus} />;
+    case 'plus':
+      return <IconStyled className={className} as={Plus} />;
+    case 'kebab':
+      return <IconStyled className={className} as={Kebab} />;
+    case 'plant':
+      return <IconStyled className={className} as={Plant} />;
+    case 'sort':
+      return <IconStyled className={className} as={Sort} />;
+    case 'tick':
+      return <IconStyled className={className} as={Tick} />;
     default:
       return null;
   }

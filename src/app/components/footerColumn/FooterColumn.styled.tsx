@@ -28,7 +28,7 @@ const FooterColumnStyled = styled.div<Props>`
         }
       }
       .footer-column__icon path {
-        fill: ${theme?.colors?.kimberly};
+        fill: ${theme?.colors?.secondary_light};
         margin-left: 8px;
       }
       .footer-column__sub-links {
@@ -49,7 +49,7 @@ const FooterColumnStyled = styled.div<Props>`
         }
       }
       .footer-column__sub-link {
-        color: ${theme?.colors?.charcoal};
+        color: ${theme?.colors?.neutral_charcoal};
         padding: 8px 16px;
         text-decoration: none;
         &:hover {

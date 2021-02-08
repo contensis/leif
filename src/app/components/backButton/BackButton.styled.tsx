@@ -10,7 +10,7 @@ const BackButtonStyled = styled.button`
       border: none;
       font-family: inherit;
       font-size: inherit;
-      color: ${theme?.colors?.kimberly};
+      color: ${theme?.colors?.secondary_light};
       cursor: pointer;
       &:hover {
         text-decoration: none;
@@ -20,7 +20,7 @@ const BackButtonStyled = styled.button`
       }
       .back-button__icon {
         path {
-          stroke: ${theme?.colors?.kimberly};
+          stroke: ${theme?.colors?.secondary_light};
         }
       }
     `;

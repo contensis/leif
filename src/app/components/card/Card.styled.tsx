@@ -9,7 +9,7 @@ const CardStyled = styled.a<Props>`
       display: block;
       text-decoration: none;
       padding: 16px;
-      background: ${theme?.colors?.white};
+      background: ${theme?.colors?.neutral_white}};
       border-radius: 8px;
       transition: box-shadow 200ms ease-out;
       &:hover {
@@ -17,10 +17,10 @@ const CardStyled = styled.a<Props>`
       }
       .card__title {
         margin: 0;
-        color: ${theme?.colors?.martinique};
+        color: ${theme?.colors?.secondary};
       }
       .card__text {
-        color: ${theme?.colors?.charcoal};
+        color: ${theme?.colors?.neutral_charcoal};
         margin: 24px 0 0 0;
       }
       .card__thumbnail {
@@ -42,7 +42,7 @@ const CardStyled = styled.a<Props>`
           }
           .card__details {
             margin-top: 24px;
-            color: ${theme?.colors?.kimberly};
+            color: ${theme?.colors?.secondary_light};
             ${theme?.typeStyles?.smallCopy};
           }
           .card__date {
@@ -54,7 +54,7 @@ const CardStyled = styled.a<Props>`
               position: absolute;
               top: 50%;
               right: -2px;
-              background-color: ${theme?.colors?.keppel};
+              background-color: ${theme?.colors?.primary_light};
               border-radius: 50%;
               transform: translateY(-50%);
               height: 4px;
@@ -87,7 +87,7 @@ const CardStyled = styled.a<Props>`
               left: 8px;
               bottom: 24px;
               border-radius: 50%;
-              background: ${theme?.colors?.white};
+              background: ${theme?.colors?.neutral_white}};
             }
           }
           .card__tag {
@@ -97,7 +97,7 @@ const CardStyled = styled.a<Props>`
             left: 12px;
             bottom: 28px;
             path {
-              fill: ${theme?.colors?.hazel};
+              fill: ${theme?.colors?.secondary_lighter};
             }
           }
           .card__price,
@@ -106,7 +106,7 @@ const CardStyled = styled.a<Props>`
             margin-top: 16px;
           }
           .card__price {
-            color: ${theme?.colors?.kimberly};
+            color: ${theme?.colors?.secondary_light};
             font-family: ${theme?.typeStyles?.fontFamily?.headings};
             ${theme?.typeStyles?.h5};
           }

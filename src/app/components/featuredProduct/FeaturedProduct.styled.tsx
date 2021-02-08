@@ -26,7 +26,7 @@ const FeaturedProductStyled = styled.div`
           height: 80%;
           left: 0;
           top: 0;
-          background-color: ${theme?.colors?.seashell};
+          background-color: ${theme?.colors?.neutral_lightgrey};
         }
         &:before {
           content: '';
@@ -71,7 +71,7 @@ const FeaturedProductStyled = styled.div`
       }
       .featured-product__text {
         ${theme?.typeStyles?.cardCopy};
-        color: ${theme?.colors?.martinique};
+        color: ${theme?.colors?.secondary};
         margin: 24px 0 0 0;
       }
       .featured-product__btn {

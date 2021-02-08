@@ -43,7 +43,7 @@ const ImageBlockStyled = styled.div`
       }
       .image-block__text {
         margin: 8px 0 0 0;
-        color: ${theme?.colors?.kimberly};
+        color: ${theme?.colors?.secondary_light};
         ${theme?.typeStyles?.smallCopy};
       }
     `;

@@ -11,7 +11,7 @@ const SocialShareStyled = styled.div`
         display: inline-block;
         line-height: 0;
         svg path {
-          fill: ${theme?.colors?.hazel};
+          fill: ${theme?.colors?.secondary_lighter};
         }
       }
       .social-share__copy {
@@ -22,7 +22,7 @@ const SocialShareStyled = styled.div`
         margin: 0;
         padding: 0;
         svg path {
-          stroke: ${theme?.colors?.hazel};
+          stroke: ${theme?.colors?.secondary_lighter};
           fill: none;
         }
       }

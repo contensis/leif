@@ -23,7 +23,7 @@ const BlogInformationStyled = styled.div`
       }
       .blog-info__wrapper {
         margin-top: 24px;
-        color: ${theme?.colors?.kimberly};
+        color: ${theme?.colors?.secondary_light};
         ${theme?.typeStyles?.smallCopy};
         @media ${theme.mq.tablet} {
           margin-top: 16px;
@@ -42,7 +42,7 @@ const BlogInformationStyled = styled.div`
           position: absolute;
           top: 50%;
           right: -2px;
-          background-color: ${theme?.colors?.keppel};
+          background-color: ${theme?.colors?.primary_light};
           border-radius: 50%;
           transform: translateY(-50%);
           height: 4px;

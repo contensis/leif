@@ -10,7 +10,7 @@ const Header = styled.div`
         align-self: center;
       }
       .header__actions {
-        background: ${theme?.colors?.white};
+        background: ${theme?.colors?.neutral_white};
         filter: drop-shadow(0px 16px 24px rgba(56, 33, 146, 0.07));
       }
     `;

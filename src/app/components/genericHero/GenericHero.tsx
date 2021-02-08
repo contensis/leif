@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BlogHeroStyled from './GenericHero.styled';
-import hero from './assets/shape.svg';
+import hero from './assets/women-at-desk.png';
 
 import BackButton from '~/components/backButton/BackButton';
 // import Image from '~/features/image';

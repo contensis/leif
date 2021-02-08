@@ -30,13 +30,13 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${fontBase.fontSize};
     font-weight: ${fontWeight.regular};
     line-height: ${fontBase.lineHeight};
-    color: ${colors.charcoal};
+    color: ${colors.neutral_charcoal};
   }
   h1,h2,h3,h4,h5,h6 {
     margin:0;
     font-family: ${fontFamily.headings};
     font-weight: ${fontWeight.bold};
-    color: ${colors.martinique};
+    color: ${colors.secondary};
   }
   h1 {
     ${typeStyles.h1}
@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
   a:focus, button:focus{
     outline-offset: 4px;
     outline: auto;
-    outline-color: ${colors?.sapphire};
+    outline-color: ${colors?.link};
     outline-width: medium;
   }
 `;

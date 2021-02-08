@@ -4,7 +4,7 @@ const QuoteBlockStyled = styled.blockquote`
   ${({ theme }) => {
     return css`
       ${theme?.typeStyles?.h4};
-      color: ${theme?.colors?.kimberly};
+      color: ${theme?.colors?.secondary_light};
       font-family: ${theme?.typeStyles?.fontFamily?.headings};
       position: relative;
       max-width: 482px;

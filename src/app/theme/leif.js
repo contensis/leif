@@ -5,33 +5,33 @@ import { typeStyles } from './global/typography';
 export const defaultTheme = {
   colors: {
     ...colors,
-    heading: colors.martinique,
-    text: colors.charcoal,
-    link: colors.sapphire,
+    heading: colors.secondary,
+    text: colors.neutral_charcoal,
+    link: colors.link,
   },
   button: {
     primary: {
       solid: {
-        background: colors.riptide,
-        color: colors.martinique,
+        background: colors.primary_lighter,
+        color: colors.secondary,
         hover: {
-          background: colors.keppel,
+          background: colors.primary_light,
         },
       },
     },
     secondary: {
       solid: {
-        color: colors.riptide,
-        background: colors.martinique,
+        color: colors.primary_lighter,
+        background: colors.secondary,
         border: 'transparent',
         hover: {
           background: colors.mirage,
         },
       },
       hollow: {
-        color: colors.martinique,
+        color: colors.secondary,
         background: 'transparent',
-        border: colors.martinique,
+        border: colors.secondary,
         hover: {
           background: 'rgba(195, 198, 222, .2)',
         },
@@ -39,9 +39,9 @@ export const defaultTheme = {
     },
     white: {
       hollow: {
-        color: colors.white,
+        color: colors.neutral_white,
         background: 'transparent',
-        border: colors.white,
+        border: colors.neutral_white,
         hover: {
           background: 'rgba(255, 255, 255, .2)',
         },
@@ -49,13 +49,13 @@ export const defaultTheme = {
     },
     disabled: {
       solid: {
-        background: colors.seashell,
-        color: colors.white,
+        background: colors.neutral_lightgrey,
+        color: colors.neutral_white,
         border: 'transparent',
       },
       hollow: {
-        color: colors.seashell,
-        border: colors.seashell,
+        color: colors.neutral_lightgrey,
+        border: colors.neutral_lightgrey,
         background: 'transparent',
       },
     },

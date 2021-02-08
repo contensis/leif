@@ -44,8 +44,7 @@ const Template = ({type = 'blog', ...args}) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  title: 'Blog title can span multiple lines of text',
-  text: 'Image accreditation and information can span multiple lines.',
+  title: 'Related blogs',
   link: {
     label: 'View all blogs',
     href: '#',
