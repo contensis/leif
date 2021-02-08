@@ -3,7 +3,6 @@ import React from 'react';
 import Icon from '../icon/Icon';
 import RatingStyled from './Rating.styled';
 
-
 interface Props {
   className?: string;
   rating: string;
