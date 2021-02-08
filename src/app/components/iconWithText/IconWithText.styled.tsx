@@ -2,14 +2,25 @@ import styled, { css } from 'styled-components';
 
 const IconWithTextStyled = styled.div`
   ${({ theme }) => {
-  return css`
+    return css`
       text-align: center;
+      @media ${theme.mq.tablet} {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+      }
       .icon-with-text__icon {
         height: 40px;
-        width: 40px;
+        max-width: 40px;
+        width: 100%;
       }
       .icon-with-text__wrapper {
-        margin-top: 28px;
+        margin-top: 24px;
+        @media ${theme.mq.tablet} {
+          margin: 0 0 0 24px;
+        }
       }
       .icon-with-text__title { 
         margin: 0;
