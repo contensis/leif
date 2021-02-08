@@ -2,7 +2,7 @@ import React from 'react';
 import BlogPost from './blogPost.page';
 
 export default {
-  title: 'Global/Page/BlogPost',
+  title: 'Blog/Page/BlogPost',
   component: BlogPost,
 }
 
