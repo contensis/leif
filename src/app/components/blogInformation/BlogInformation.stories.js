@@ -15,8 +15,7 @@ export default {
 }
 const Template = ({ name = 'John Smith', ...args }) => {
   const person = {
-    firstName: firstName,
-    lastName: lastName,
+    name: name,
     photo: {
         asset: {
           sys: {

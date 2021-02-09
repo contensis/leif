@@ -9,12 +9,7 @@ export default {
   title: 'Global/Components/QuoteBlock',
   component: QuoteBlock,
   argTypes: {
-    firstName: {
-      control: {
-        type: 'text',
-      },
-    },
-    lastName: {
+    name: {
       control: {
         type: 'text',
       },
@@ -45,10 +40,9 @@ export default {
   },
 }
 
-const Template = ({ showRating, showAuthor, rating = '4', firstName = 'Jane', lastName = 'Doe', ...args }) => {
+const Template = ({ showRating, showAuthor, rating = '4', name = 'Jane Doe', ...args }) => {
   const PersonObject = {
-    firstName: firstName,
-    lastName: lastName,
+    name: name,
     photo: {
       asset: {
         sys: {
