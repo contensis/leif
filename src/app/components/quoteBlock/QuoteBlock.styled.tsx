@@ -22,6 +22,15 @@ const QuoteBlockStyled = styled.blockquote`
         background-image: url('./assets/quote-shape.svg');
         background-repeat: repeat-y;
       }
+      .quote-block__details {
+        margin-top: 16px;
+      }
+      .quote-block__rating {
+        justify-content: flex-start;
+      }
+      .quote-block__person {
+        margin-top: 16px;
+      }
     `;
   }}
 `;

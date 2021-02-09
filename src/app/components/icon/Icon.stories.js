@@ -13,7 +13,7 @@ const IconDictionary = [
   'chevron',
   'cross',
   'facebook',
-  'linkedIn',
+  'linkedin',
   'link',
   'pot',
   'search',
@@ -53,7 +53,18 @@ const IconDictionary = [
 
 const Template = () => {
   return IconDictionary.map((icon, idx) => {
-    return <Icon key={`${icon}-${idx}`} type={icon} hasDefaultStyles />;
+    return (
+      <div style={{
+        display: 'inline-flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginLeft: '16px'
+      }}
+      >
+        <Icon key={`${icon}-${idx}`} type={icon} hasDefaultStyles />
+        <span>{icon}</span>
+      </div>
+    )
   })
 };
 
