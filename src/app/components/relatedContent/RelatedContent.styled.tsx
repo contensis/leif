@@ -29,6 +29,7 @@ const RelatedContentStyled = styled.div`
       }
       .related-content__card {
         padding: 8px;
+        width: 30%;
         &:not(:last-child) {
           margin-bottom: 40px;
         }

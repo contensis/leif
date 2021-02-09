@@ -12,4 +12,13 @@ export default [
       loading: Loading,
     }),
   },
+  {
+    contentTypeID: 'blogPost',
+    component: Loadable({
+      loader: () => {
+        return import('~/pages/BlogPost/blogPost.page.js');
+      },
+      loading: Loading,
+    }),
+  },
 ];

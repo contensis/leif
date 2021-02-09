@@ -4,6 +4,7 @@ const BlogInformationStyled = styled.div`
   ${({ theme }) => {
     return css`
       text-align: center;
+      width: 100%;
       @media ${theme.mq.laptop} {
         text-align: left;
       }

@@ -15,7 +15,10 @@ interface ProductInformation {
 
 interface ProductObject {
   thumbnailImage: ImageObject;
-  title: string;
+  entryTitle: string;
+  sys: {
+    contentTypeId: string;
+  }
   tag?: string;
   productInformation: ProductInformation;
   rating?: string;
@@ -50,9 +53,9 @@ const FeaturedProduct: React.FC<Props> = ({
         </div>
         <Card
           className="featured-product__card"
-          type="product"
+          type={product.sys.contentTypeId}
           image={product.thumbnailImage}
-          title={product.title}
+          title={product.entryTitle}
           price={product.productInformation.price}
           rating={product.rating}
         />

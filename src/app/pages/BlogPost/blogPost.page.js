@@ -8,6 +8,7 @@ import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import Composer from '~/components/composer/composer';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
+import BlogPostStyled from './blogPost.page.styled';
 
 const BlogPost = ({ entry }) => {
   const ctaObject = {
@@ -52,10 +53,14 @@ const BlogPost = ({ entry }) => {
     <>
       <Header />
       <BlogHero title={entry.entryTitle} image={entry.primaryImage} />
-      <BlogInformation person={entry.author} readTime="2mins" date={entry.sys.version.published} />
-      <LeadParagraph text={entry.leadParagraph} />
-      <Composer fields={entry.postBody} />
-      <CTABanner title={entry.callToAction.title} text={entry.callToAction.message} image={entry.callToAction.image} cta={ctaObject} />
+      <main>
+        <BlogPostStyled>
+          <BlogInformation person={entry.author} readTime="2" date={entry.sys.version.published} />
+          <LeadParagraph text={entry.leadParagraph} />
+          <Composer fields={entry.postBody} />
+          <CTABanner title={entry.callToAction.title} text={entry.callToAction.message} image={entry.callToAction.image} cta={ctaObject} />
+        </BlogPostStyled>
+      </main>
       <RelatedContent title='Related blogs' results={entry.relatedBlogs} link={relatedContentLinkObject} />
       <Footer data={dummyFooterDataArray} />
     </>

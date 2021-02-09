@@ -3,8 +3,7 @@ import React from 'react';
 import AuthorStyled from './Author.styled';
 
 export interface PersonObject {
-  firstName: string;
-  lastName: string;
+  name: string;
   photo: {
     altText: string;
     asset: {
@@ -32,7 +31,7 @@ export const Author: React.FC<Props> = ({ className, person }) => {
         alt={photo.altText}
       />
       <span className="author__person">
-        By {person.firstName} {person.lastName}
+        By {person.name}
       </span>
     </AuthorStyled>
   );

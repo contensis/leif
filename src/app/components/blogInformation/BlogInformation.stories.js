@@ -6,19 +6,14 @@ export default {
   title: 'Blog/Components/BlogInformation',
   component: BlogInformation,
   argTypes: {
-    firstName: {
-      control: {
-        type: 'text',
-      },
-    },
-    lastName: {
+    name: {
       control: {
         type: 'text',
       },
     },
   },
 }
-const Template = ({ firstName = 'John', lastName = 'Smith', ...args }) => {
+const Template = ({ name = 'John Smith', ...args }) => {
   const person = {
     firstName: firstName,
     lastName: lastName,
