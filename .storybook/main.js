@@ -17,8 +17,7 @@ module.exports = {
         alias: {
           '~': path.resolve(__dirname, '../src/app'),
           app: path.resolve(__dirname, '../src/app'),
-          'react-dom': '@hot-loader/react-dom',
-          '@zengenti/contensis-react-base': 'zengenti-isomorphic-base',
+          'react-dom': '@hot-loader/react-dom'
         },
       },
     });

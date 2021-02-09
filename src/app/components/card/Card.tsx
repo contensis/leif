@@ -21,7 +21,7 @@ interface Props {
   image: ImageObject;
   date?: string;
   readTime?: string;
-  price?: string;
+  price?: number;
   rating?: string;
 }
 

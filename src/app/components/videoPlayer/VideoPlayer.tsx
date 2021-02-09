@@ -7,8 +7,8 @@ interface Props {
   title: string;
   type: string;
   hasControls: boolean;
-  externalURL: string;
-  internalVideo: string;
+  externalURL?: string;
+  internalVideo?: string;
 }
 
 const VideoPlayer: React.FC<Props> = ({

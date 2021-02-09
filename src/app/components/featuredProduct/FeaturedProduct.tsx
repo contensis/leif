@@ -7,15 +7,18 @@ import Card from '../card/Card';
 
 interface LinkObject {
   href: string;
-  label: string;
+  label: string;}
+interface ProductInformation {
+  price: number;
+  Sku: string;
 }
 
 interface ProductObject {
-  image: ImageObject;
+  thumbnailImage: ImageObject;
   title: string;
-  tag: string;
-  price: string;
-  rating: string;
+  tag?: string;
+  productInformation: ProductInformation;
+  rating?: string;
 }
 
 interface Props {
@@ -48,9 +51,9 @@ const FeaturedProduct: React.FC<Props> = ({
         <Card
           className="featured-product__card"
           type="product"
-          image={product.image}
+          image={product.thumbnailImage}
           title={product.title}
-          price={product.price}
+          price={product.productInformation.price}
           rating={product.rating}
         />
       </div>
