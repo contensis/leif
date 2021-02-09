@@ -121,6 +121,7 @@
     "patch-package": "^6.2.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
+    "react-focus-lock": "^2.5.0",
     "react-helmet": "^6.1.0",
     "react-slick": "^0.28.0",
     "sitemap": "^6.1.0",

@@ -25,7 +25,7 @@ export const defaultTheme = {
         background: colors.secondary,
         border: 'transparent',
         hover: {
-          background: colors.mirage,
+          background: colors.secondary_dark,
         },
       },
       hollow: {

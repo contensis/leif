@@ -10,11 +10,12 @@ import SlickArrow from '../slickArrow/SlickArrow';
 import Icon from '../icon/Icon';
 
 interface Props {
+  className?: string;
   slides: any[] | any;
   hasNav?: boolean
 }
 
-const SlickSlider: React.FC<Props> = ({ slides, hasNav = false }) => {
+const SlickSlider: React.FC<Props> = ({ className, slides, hasNav = false }) => {
   if (!slides) return null;
 
   const [nav1, setNav1] = useState(null);
@@ -29,26 +30,54 @@ const SlickSlider: React.FC<Props> = ({ slides, hasNav = false }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     accessibility: true,
-    centerMode: false,
+    adaptiveHeight: false,
     swipeToSlide: true,
     asNavFor: '.slider-nav',
     nextArrow: <SlickArrow type="chevronRight" />,
     prevArrow: <SlickArrow type="chevronLeft" />,
   };
 
+
   const settingsThumbs = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 2,
     arrows: false,
     centerMode: true,
+    centerPadding: '12px',
+    adaptiveHeight: false,
     slidesToScroll: 1,
     swipeToSlide: true,
     focusOnSelect: true,
     asNavFor: '.slider-for',
-    centerPadding: '12px'
-  }
+    responsive: [
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 481,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1700,
+        settings: {
+          slidesToShow: 6,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     if (hasNav) {
@@ -66,7 +95,7 @@ const SlickSlider: React.FC<Props> = ({ slides, hasNav = false }) => {
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
           />
         </Helmet>
-        <SlickSliderStyled>
+        <SlickSliderStyled className={className}>
         <Slider
           {...settings}
           asNavFor={nav2}
@@ -74,7 +103,7 @@ const SlickSlider: React.FC<Props> = ({ slides, hasNav = false }) => {
           className="slider-for"
         >
           {slides.map((slide: any, idx: number) => {
-            return <Slide key={idx} image={slide} className="slick__slide" />
+            return <Slide key={idx} image={slide} className="slick__main-slide" />
           })}
         </Slider>
         {hasNav && (

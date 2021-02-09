@@ -3,15 +3,26 @@ import styled, { css } from 'styled-components';
 const SlickSliderStyled = styled.div`
   ${({ theme }) => {
   return css`
-    .slick__slide {
+    .slider-nav {
+      margin-top: 24px;
+    }
+    .slick__main-slide {
       display: block;
-      height: 648px;
+      height: 320px;
       width: 100%;
+      @media ${theme.mq.laptop} {
+        height: 648px;
+      }
     }
     .slick__slide-thumbnail {
-      max-width: 102px;
-      width: 100%;
       height: 96px;
+    }
+    .slick-track {
+      display: flex !important;
+    }
+    .slick-slide {
+      height: inherit !important;
+      padding: 0 12px;
     }
     .slick-arrow {
       padding: 0;
@@ -31,10 +42,16 @@ const SlickSliderStyled = styled.div`
       }
     }
     .slick-prev {
-      left: 40px;
+      left: 16px;
+      @media ${theme.mq.laptop} {
+        left: 40px;
+      }
     }
     .slick-next {
-      right: 40px;
+      right: 16px;
+      @media ${theme.mq.laptop} {
+        right: 40px;
+      }
     }
     `;
   }}
