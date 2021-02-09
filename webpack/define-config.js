@@ -50,6 +50,7 @@ const url = urls(ALIAS, PROJECT);
 
 const SERVERS = {
   alias: ALIAS,
+  api: url.api,
   internalVip: INTERNAL_VIP,
   cms: url.cms,
   web: url.liveWeb,
@@ -84,6 +85,7 @@ const development = {
   SERVERS,
   VERSION: packagejson.version,
   CONTENSIS_VERSION,
+  WSFED_LOGIN: false,
 };
 
 const production = {

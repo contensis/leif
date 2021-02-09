@@ -100,7 +100,7 @@
     "webpack-module-nomodule-plugin": "^0.3.1",
     "webpack-modules": "^1.0.0",
     "webpack-node-externals": "1.7.2",
-    "zengenti-buildstartup-package": "0.0.13"
+    "zengenti-buildstartup-package": "^0.0.13"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
@@ -110,7 +110,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.7",
-    "@zengenti/contensis-react-base": "^1.0.0",
+    "@zengenti/contensis-react-base": "^2.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
@@ -128,7 +128,6 @@
     "styled-normalize": "^8.0.7",
     "typescript": "^4.1.3",
     "url-loader": "^2.0.0",
-    "zengenti-forms-package": "^1.0.11",
-    "zengenti-isomorphic-base": "git+https://gitlab+deploy-token-2:xAprxEv22QDzmu6UtKUb@gitlab.zengenti.com/ps-projects/zengenti-base/zen-base.git#isomorphic-base"
+    "zengenti-search-package": "git+https://gitlab+deploy-token-5:XKRGRE1p2PrFAxnWwLNz@gitlab.zengenti.com/zengenti-packages/search.git#develop"
   }
 }

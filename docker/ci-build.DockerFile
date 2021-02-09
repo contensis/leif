@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 COPY package.json .
 COPY package-lock.json .
 COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
-COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
-#COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
+# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
+# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 RUN npm install --production --loglevel error
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 

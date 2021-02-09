@@ -36,7 +36,6 @@ const plugins = {
         alias: {
           '~': './src/app',
           '-': './',
-          '@zengenti/contensis-react-base': 'zengenti-isomorphic-base',
         },
         cwd: 'packagejson',
       },

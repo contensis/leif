@@ -1,7 +1,6 @@
 import {
   navigation,
   routing,
-  user,
   version,
 } from '@zengenti/contensis-react-base/redux';
 
@@ -26,18 +25,6 @@ export const {
   SET_ROUTE,
   CALL_HISTORY_METHOD,
 } = routing.types;
-
-export const {
-  UPDATE_USER,
-  LOGIN_USER,
-  LOGOUT_USER,
-  VALIDATE_USER,
-  TOGGLE_LOGIN_MODE,
-  CREATE_USER_ACCOUNT,
-  CHANGE_USER_PASSWORD,
-  FORGOT_USER_PASSWORD,
-  SET_RECAPTCHA_KEY,
-} = user.types;
 
 const ACTION_PREFIX = '@CORE/';
 export const ROUTE_WILL_LOAD = `${ACTION_PREFIX}ROUTE_WILL_LOAD`;
