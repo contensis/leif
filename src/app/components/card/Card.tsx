@@ -37,7 +37,7 @@ const Card: React.FC<Props> = ({
   rating,
 }) => {
   switch (type) {
-    case 'blog':
+    case 'blogPost':
       return (
         <CardStyled className={className} type={type} href="#" title={title}>
           <h3 className="card__title">{title}</h3>
@@ -55,7 +55,8 @@ const Card: React.FC<Props> = ({
           </div>
         </CardStyled>
       );
-    case 'product':
+    case 'plant':
+    case 'pot':
       return (
         <CardStyled className={className} type={type} href="#" title={title}>
           <div className="card__thumbnail-wrapper">

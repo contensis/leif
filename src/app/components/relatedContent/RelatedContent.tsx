@@ -14,12 +14,14 @@ interface LinkObject {
 interface MappedResObject {
   sys: {
     contentTypeId: string;
+    version: {
+      published: string
+    }
   },
-  title: string;
-  text: string;
-  image: ImageObject;
-  readTime: string;
-  date: string;
+  entryTitle: string;
+  entryDescription: string;
+  thumbnailImage: ImageObject;
+  readTime?: string;
 }
 interface Props {
   className?: string;
@@ -40,14 +42,14 @@ const RelatedContent: React.FC<Props> = ({ className, title, results, link }) =>
             const type = res && res.sys && res.sys.contentTypeId;
             return (
               <Card
-                key={`${res.title}-${idx}`}
+                key={`${res.entryTitle}-${idx}`}
                 className="related-content__card"
                 type={type}
-                title={res.title}
-                text={res.text}
-                image={res.image}
+                title={res.entryTitle}
+                text={res.entryDescription}
+                image={res.thumbnailImage}
                 readTime={res.readTime}
-                date={res.date}
+                date={res.sys.version.published}
               />
             );
           })}

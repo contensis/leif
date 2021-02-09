@@ -4,7 +4,6 @@ import ImageBlock from '~/components/imageBlock/ImageBlock';
 import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
 import FeaturedProduct from '~/components/featuredProduct/FeaturedProduct';
 import VideoPlayer from '~/components/videoPlayer/VideoPlayer';
-import CTABanner from '~/components/ctaBanner/CTABanner';
 
 interface Props {
   fields: any | any[];
