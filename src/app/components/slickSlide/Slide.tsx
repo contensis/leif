@@ -13,7 +13,7 @@ const Slide: React.FC<Props> = ({ className, image }) => {
 
   return (
     <SlideStyled className={className}>
-      <Image image={image} />
+      <Image image={image} className="slide__image" />
     </SlideStyled>
   );
 };

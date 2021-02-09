@@ -12,7 +12,7 @@ export const defaultTheme = {
   button: {
     primary: {
       solid: {
-        background: colors.primary_lighter,
+        background: colors.primary,
         color: colors.secondary,
         hover: {
           background: colors.primary_light,
@@ -21,7 +21,7 @@ export const defaultTheme = {
     },
     secondary: {
       solid: {
-        color: colors.primary_lighter,
+        color: colors.primary,
         background: colors.secondary,
         border: 'transparent',
         hover: {
