@@ -3,7 +3,7 @@ import React from 'react';
 import SlickSlider from './SlickSlider';
 
 export default {
-  title: 'Product/Components/SlickSlider',
+  title: 'Global/Components/SlickSlider',
   component: SlickSlider,
 }
 

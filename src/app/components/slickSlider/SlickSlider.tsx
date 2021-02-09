@@ -46,7 +46,7 @@ const SlickSlider: React.FC<Props> = ({ slides, hasNav = false }) => {
     slidesToScroll: 1,
     swipeToSlide: true,
     focusOnSelect: true,
-    asNavFor: '.slider-for'
+    asNavFor: '.slider-for',
     centerPadding: '12px'
   }
 
