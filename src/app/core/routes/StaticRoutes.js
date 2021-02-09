@@ -19,6 +19,15 @@ export default [
       loading: Loading,
     }),
   },
+  {
+    path: '/blogs/blogPost',
+    exact: false,
+    fetchNode: false,
+    component: Loadable({
+      loader: () => import('~/pages/BlogPost/blogPost.page.js'),
+      loading: Loading,
+    }),
+  },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {
@@ -35,7 +44,7 @@ export default [
     exact: true,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "zeninfo" */ '~/pages/VersionInfo.js'),
+        import(/* webpackChunkName: "zeninfo" */ '~/pages/VersionInfo'),
       loading: Loading,
     }),
   },

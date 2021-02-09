@@ -24,6 +24,7 @@ const CLIENT_DEV_CONFIG = {
   devtool: 'source-map',
   module: {
     rules: [
+      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         enforce: 'pre',
         test: /\.jsx?$/,
