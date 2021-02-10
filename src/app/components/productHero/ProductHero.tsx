@@ -19,6 +19,7 @@ interface Props {
   title: string;
   text?: string;
   price: number;
+  options?: any,
 }
 
 interface WrapperProps {
@@ -34,16 +35,26 @@ const ProductHero: React.FC<Props> = ({
   title,
   text,
   price,
+  options,
 }) => {
   let [quantity, updateQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [activeOption, setActiveOption] = useState(0);
 
   const ProductHeroWrapper: React.FC<WrapperProps> = ({
     condition,
     wrapper,
     children,
   }) => (condition ? wrapper(children) : children);
+
+  const _handleClick = (e: any, type: string) => {
+    e.preventDefault(); 
+    if (type === 'increase') {
+      updateQuantity((quantity += 1));
+    } else {
+      updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
+    }
+  }
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
@@ -54,6 +65,15 @@ const ProductHero: React.FC<Props> = ({
             {children}
             <FocusLock>
               <div className="product-hero__modal">
+                <div className="product-hero__modal-slider">
+                  <SlickSlider
+                    slides={slides}
+                    hasNav
+                    hasScrollImage
+                    swipeToSlide={false}
+                    draggable={false}
+                  />
+                </div>
                 <button
                   type="button"
                   className="product-hero__modal-close"
@@ -68,20 +88,22 @@ const ProductHero: React.FC<Props> = ({
       >
         <BackButton label="All products" />
         <div className="product-hero__content">
-          <div className="product-hero__slider-wrapper">
-            <SlickSlider
-              slides={slides}
-              hasNav
-              className="product-hero__slider"
-            />
-            <button
-              type="button"
-              className="product-hero__slider-fullsize"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <Icon type="fullSize" />
-            </button>
-          </div>
+          {!isModalOpen && (
+            <div className="product-hero__slider-wrapper">
+              <SlickSlider
+                slides={slides}
+                hasNav
+                className="product-hero__slider"
+              />
+              <button
+                type="button"
+                className="product-hero__slider-fullsize"
+                onClick={() => setIsModalOpen(true)}
+              >
+                <Icon type="fullSize" />
+              </button>
+            </div>
+          )}
           <div className="product-hero__wrapper">
             <div className="product-hero__socials-wrapper">
               <Rating rating={rating} />
@@ -91,26 +113,18 @@ const ProductHero: React.FC<Props> = ({
             {text && <p className="product-hero__text">{text}</p>}
             <span className="product-hero__price">£{price}</span>
             <div className="product-hero__options">
-              <LinkButton
-                label="Option one"
-                href="#"
-                type="secondary"
-                className="product-hero__option"
-              />
-              <LinkButton
-                label="Option two"
-                href="#"
-                type="secondary"
-                isHollow
-                className="product-hero__option"
-              />
-              <LinkButton
-                label="Option three"
-                href="#"
-                type="secondary"
-                isHollow
-                className="product-hero__option"
-              />
+              {options && options.map((opt:any, idx:number) => {
+                return (
+                  <LinkButton
+                  label={opt.title}
+                  href="#"
+                  type="secondary"
+                  isHollow={activeOption === idx ? false : true}
+                  className="product-hero__option"
+                  onClick={() => setActiveOption(idx)}
+                  />
+                )
+              })}
             </div>
             <div className="product-hero__input-wrapper">
               <Input
@@ -123,14 +137,12 @@ const ProductHero: React.FC<Props> = ({
                 <InputControl
                   className="product-hero__input-minus"
                   type="minus"
-                  onClick={() =>
-                    updateQuantity(quantity === 0 ? 0 : (quantity -= 1))
-                  }
+                  onClick={e => _handleClick(e, 'decrease')}
                 />
                 <InputControl
                   className="product-hero__input-plus"
                   type="plus"
-                  onClick={() => updateQuantity((quantity += 1))}
+                  onClick={e => _handleClick(e, 'increase')}
                 />
               </div>
             </div>

@@ -36,7 +36,7 @@ const ProductHeroStyled = styled.div<Props>`
     }
     .product-hero__slider-fullsize {
       position: absolute;
-      right: 16px;
+      right: 28px;
       bottom: 136px;
       width: 40px;
       height: 40px;
@@ -79,7 +79,7 @@ const ProductHeroStyled = styled.div<Props>`
     }
     .product-hero__options {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
       @media ${theme.mq.desktop} {
         justify-content: flex-start;
@@ -134,29 +134,59 @@ const ProductHeroStyled = styled.div<Props>`
     /* Modal Styles */
     ${isModalOpen && css`
       .product-hero__modal {
-        background-color: ${theme?.colors?.neutral_black};
-        opacity: .8;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:before {
+          content: '';
+          background-color: ${theme?.colors?.neutral_white};
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
       }
-      .product-hero__slider-wrapper {
-        z-index: 2;
-        max-width: 100%;
+      .product-hero__modal-slider {
+        width: 100%;
       }
       .product-hero__modal-close {
         position: absolute;
         right: 16px;
-        top: 16px;
+        top: 66px;
         z-index: 99;
         padding:0;
         border: none;
         background: none;
         line-height: 0;
-        svg path {
-          stroke: ${theme?.colors?.neutral_white};
+        transition: opacity 100ms ease-in-out;
+        &:hover {
+          opacity: .8;
+        }
+      }
+      .slider-for {
+        max-width: 1060px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .slider-nav {
+        max-width: 730px;
+        width: 100%;
+        margin: 24px auto 0;
+      }
+      .slick-next {
+        @media ${theme.mq.largeDesktop} {
+          right: -52px !important;
+        }
+      }
+      .slick-prev {
+        @media ${theme.mq.largeDesktop} {
+          left: -52px !important;
         }
       }
     `}

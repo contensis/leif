@@ -30,7 +30,7 @@ const SocialShareStyled = styled.div`
       .social-share__copy {
         transition: opacity 100ms ease-in-out;
         &:hover {
-          opacity: 50%;
+          opacity: .8;
         }
       }
     `;

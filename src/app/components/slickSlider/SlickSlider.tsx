@@ -1,21 +1,30 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
 import Slider from 'react-slick';
 
 import SlickSliderStyled from './SlickSlider.styled';
-import Slide from '../slickSlide/Slide';
-import SlickArrow from '../slickArrow/SlickArrow';
-import Icon from '../icon/Icon';
+import Slide from '~/components/slickSlide/Slide';
+import SlickArrow from '~/components/slickArrow/SlickArrow';
 
 interface Props {
   className?: string;
   slides: any[] | any;
-  hasNav?: boolean
+  hasNav?: boolean;
+  hasScrollImage?: boolean;
+  swipeToSlide?: boolean;
+  draggable?: boolean;
 }
 
-const SlickSlider: React.FC<Props> = ({ className, slides, hasNav = false }) => {
+const SlickSlider: React.FC<Props> = ({
+  className,
+  slides,
+  hasNav = false,
+  hasScrollImage,
+  swipeToSlide = true,
+  draggable = true,
+}) => {
   if (!slides) return null;
 
   const [nav1, setNav1] = useState(null);
@@ -31,12 +40,12 @@ const SlickSlider: React.FC<Props> = ({ className, slides, hasNav = false }) => 
     slidesToScroll: 1,
     accessibility: true,
     adaptiveHeight: false,
-    swipeToSlide: true,
+    swipeToSlide: swipeToSlide,
+    draggable: draggable,
     asNavFor: '.slider-nav',
     nextArrow: <SlickArrow type="chevronRight" />,
     prevArrow: <SlickArrow type="chevronLeft" />,
   };
-
 
   const settingsThumbs = {
     dots: false,
@@ -45,7 +54,6 @@ const SlickSlider: React.FC<Props> = ({ className, slides, hasNav = false }) => 
     slidesToShow: 2,
     arrows: false,
     centerMode: true,
-    centerPadding: '12px',
     adaptiveHeight: false,
     slidesToScroll: 1,
     swipeToSlide: true,
@@ -87,39 +95,52 @@ const SlickSlider: React.FC<Props> = ({ className, slides, hasNav = false }) => 
   }, [slider1, slider2]);
 
   return (
-      <>
-        <Helmet>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-        </Helmet>
-        <SlickSliderStyled className={className}>
+    <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+      </Helmet>
+      <SlickSliderStyled className={className}>
         <Slider
           {...settings}
           asNavFor={nav2}
-          ref={slider => (setSlider1(slider))}
+          ref={slider => setSlider1(slider)}
           className="slider-for"
         >
           {slides.map((slide: any, idx: number) => {
-            return <Slide key={idx} image={slide} className="slick__main-slide" />
+            return (
+              <Slide
+                key={idx}
+                image={slide}
+                hasScrollImage={hasScrollImage}
+                className="slick__main-slide"
+              />
+            );
           })}
         </Slider>
         {hasNav && (
           <Slider
-          {...settingsThumbs}
+            {...settingsThumbs}
             asNavFor={nav1}
-            ref={slider => (setSlider2(slider))}
+            ref={slider => setSlider2(slider)}
             className="slider-nav"
           >
             {slides.map((slide: any, idx: number) => {
-              return <Slide key={idx} image={slide} className="slick__slide-thumbnail" />
+              return (
+                <Slide
+                  key={idx}
+                  image={slide}
+                  className="slick__slide-thumbnail"
+                />
+              );
             })}
           </Slider>
         )}
-        </SlickSliderStyled>
-      </>
+      </SlickSliderStyled>
+    </>
   );
 };
 

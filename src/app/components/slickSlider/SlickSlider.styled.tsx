@@ -40,6 +40,10 @@ const SlickSliderStyled = styled.div`
       svg path {
         fill: ${theme?.colors?.primary};
       }
+      transition: opacity 100ms ease-in-out;
+      &:hover {
+        opacity: .8;
+      }
     }
     .slick-prev {
       left: 16px;

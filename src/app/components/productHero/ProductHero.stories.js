@@ -65,4 +65,15 @@ Primary.args = {
   title: "Product title can span multiple lines",
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.",
   price: 34,
+  options: [
+    {
+      title: 'Option one',
+    },
+    {
+      title: 'Option two',
+    },
+    {
+      title: 'Option three',
+    }
+  ]
 }
