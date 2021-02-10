@@ -5,7 +5,7 @@ FROM mhart/alpine-node:12
 
 WORKDIR /usr/src/app
 COPY package.json .
-COPY package-lock.json .
+# COPY package-lock.json .
 COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base

@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install libglu1 -y
 WORKDIR /usr/src/app
 COPY package.json .
-COPY package-lock.json .
+# COPY package-lock.json .
 COPY patches /usr/src/app/patches
 RUN npm install -g mocha
 RUN npm install --loglevel error
