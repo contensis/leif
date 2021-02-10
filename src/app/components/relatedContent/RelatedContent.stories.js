@@ -10,18 +10,18 @@ export default {
       control: {
         type: 'select',
         options: [
-          'blog',
+          'blogPost',
         ]
       },
     },
   },
 }
 
-const Template = ({type = 'blog', ...args}) => {
+const Template = ({type = 'blogPost', ...args}) => {
   const result = {
-    title: 'Blog title can span multiple lines of text',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
-    image: {
+    entryTitle: 'Blog title can span multiple lines of text',
+    entryDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+    thumbnailImage: {
       asset: {
         sys: {
           uri: 'https://source.unsplash.com/6hgrfOJhr74'
@@ -30,8 +30,10 @@ const Template = ({type = 'blog', ...args}) => {
     },
     sys: {
       contentTypeId: type,
+      version: {
+        published: new Date().toISOString(),
+      }
     },
-    date: new Date().toISOString(),
     readTime: 7,
   }
 

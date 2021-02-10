@@ -28,17 +28,22 @@ export default {
 
 const Template = ({ rating = 3, price = 2, ...args }) => {
   const product = {
-    title: 'Product listing can span multiple lines',
-    image: {
+    entryTitle: 'Product listing can span multiple lines',
+    thumbnailImage: {
       asset: {
         altText: 'Plant',
         sys: {
           uri: 'https://source.unsplash.com/UcfKYTan-LU'
         }
-      }
+      },
     },
-    price: price,
-    rating: rating
+    productInformation: {
+      price: price,
+    },
+    rating: rating,
+      sys: {
+      contentTypeId: 'plant',
+      },
   }
   return <FeaturedProduct {...args} product={product} />;
 };

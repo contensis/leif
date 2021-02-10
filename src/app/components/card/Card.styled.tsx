@@ -28,7 +28,7 @@ const CardStyled = styled.a<Props>`
         display: block;
         object-fit: cover;
       }
-      ${type === 'blog' &&
+      ${type === 'blogPost' &&
         css`
           max-width: 400px;
           width: 100%;
@@ -62,7 +62,7 @@ const CardStyled = styled.a<Props>`
             }
           }
         `}
-      ${type === 'product' &&
+      ${(type === 'plant' || type === 'pot') &&
         css`
           max-width: 288px;
           width: 100%;
@@ -87,7 +87,7 @@ const CardStyled = styled.a<Props>`
               left: 8px;
               bottom: 24px;
               border-radius: 50%;
-              background: ${theme?.colors?.neutral_white}};
+              background: ${theme?.colors?.neutral_white};
             }
           }
           .card__tag {

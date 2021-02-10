@@ -23,7 +23,7 @@ const dataObject = {
 
 export const BlogCard = Template.bind({});
 BlogCard.args = { 
-  type: 'blog',
+  type: 'blogPost',
   title: dataObject.title,
   text: dataObject.text,
   image: dataObject.image,
@@ -33,7 +33,7 @@ BlogCard.args = {
 
 export const Product = Template.bind({});
 Product.args = { 
-  type: 'product',
+  type: 'plant',
   title: dataObject.title,
   image: dataObject.image,
   price: 32,
