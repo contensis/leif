@@ -1,4 +1,3 @@
-
 ARG builder_image
 FROM ${builder_image} as basebuilder
 FROM mhart/alpine-node:12
