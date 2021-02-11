@@ -4,11 +4,11 @@ RUN apt-get update
 RUN apt-get install libglu1 -y
 WORKDIR /usr/src/app
 COPY package.json .
-# COPY package-lock.json .
+COPY yard.lock .
 COPY patches /usr/src/app/patches
 RUN yarn global add mocha
 RUN yarn --loglevel error
-# RUN yarn run postinstall
+RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 

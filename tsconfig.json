@@ -10,13 +10,10 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true, // disallow implicit any type
     "moduleResolution": "node",
-    "baseUrl": " .",
+    "baseUrl": ".",
     "paths": {
       "~/*": [
         "./src/app/*"
-      ],
-      "%/*": [
-        "./src/contensis-react-base/*"
       ],
       "-/*": [
         "./*"
