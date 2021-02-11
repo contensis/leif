@@ -85,7 +85,7 @@ const CLIENT_LEGACY_CONFIG = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         include: [
           path.resolve('src'),
           // These dependencies have es6 syntax which ie11 doesn't like.
@@ -137,7 +137,7 @@ const CLIENT_PROD_CONFIG = {
       name: false,
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/]|[\\/]src[\\/]contensis-react-base[\\/]/,
           name: 'vendor',
           chunks: 'initial',
         },
@@ -181,7 +181,7 @@ const SERVER_PROD_CONFIG = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         include: [
           path.resolve('src'),
           // These dependencies have es6 syntax which ie11 doesn't like.

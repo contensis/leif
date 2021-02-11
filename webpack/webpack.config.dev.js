@@ -24,10 +24,9 @@ const CLIENT_DEV_CONFIG = {
   devtool: 'source-map',
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: [
           {
@@ -40,7 +39,7 @@ const CLIENT_DEV_CONFIG = {
         ],
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',

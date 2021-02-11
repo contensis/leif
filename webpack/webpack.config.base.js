@@ -22,11 +22,9 @@ module.exports = {
   },
   module: {
     rules: [
-      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         enforce: 'pre',
-        test: /\.js$|jsx/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: [
           {
@@ -39,7 +37,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.m?jsx?$/,
+        test: /\.(t|j)sx?$/,
         include: [
           path.resolve('src'),
           // These dependencies have es6 syntax which ie11 doesn't like.

@@ -12,6 +12,7 @@ const presets = {
       },
     ],
     '@babel/preset-react',
+    ["@babel/preset-typescript", { "allExtensions": true, "isTSX": true }],
   ],
   modern: [
     [
@@ -24,6 +25,7 @@ const presets = {
       },
     ],
     ['@babel/preset-react', { loose: true }],
+    ["@babel/preset-typescript", { "allExtensions": true, "isTSX": true }],
   ],
 };
 
