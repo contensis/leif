@@ -49,91 +49,92 @@ interface Props {
   hasDefaultStyles?: boolean;
 }
 
-const Icon: React.FC<Props> = ({ className, type, hasDefaultStyles = false, }) => {
+const Icon: React.FC<Props> = ({ className, type, }, props) => {
+  const { ...rest } = props;
   switch (type) {
     case 'facebook':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Facebook} />;
+      return <IconStyled {...rest} className={className} as={Facebook} />;
     case 'twitter':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Twitter} />;
+      return <IconStyled {...rest} className={className} as={Twitter} />;
     case 'linkedin':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={LinkedIn} />;
+      return <IconStyled {...rest} className={className} as={LinkedIn} />;
     case 'link':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Link} />;
+      return <IconStyled {...rest} className={className} as={Link} />;
     case 'pot':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Pot} />;
+      return <IconStyled {...rest} className={className} as={Pot} />;
     case 'search':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Search} />;
+      return <IconStyled {...rest} className={className} as={Search} />;
     case 'cross':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Cross} />;
+      return <IconStyled {...rest} className={className} as={Cross} />;
     case 'tag':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Tag} />;
+      return <IconStyled {...rest} className={className} as={Tag} />;
     case 'star':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Star} />;
+      return <IconStyled {...rest} className={className} as={Star} />;
     case 'minus':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Minus} />;
+      return <IconStyled {...rest} className={className} as={Minus} />;
     case 'plus':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Plus} />;
+      return <IconStyled {...rest} className={className} as={Plus} />;
     case 'kebab':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Kebab} />;
+      return <IconStyled {...rest} className={className} as={Kebab} />;
     case 'plant':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Plant} />;
+      return <IconStyled {...rest} className={className} as={Plant} />;
     case 'sort':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Sort} />;
+      return <IconStyled {...rest} className={className} as={Sort} />;
     case 'tick':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Tick} />;
+      return <IconStyled {...rest} className={className} as={Tick} />;
     case 'account':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Account} />;
+      return <IconStyled {...rest} className={className} as={Account} />;
     case 'basket':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Basket} />;
+      return <IconStyled {...rest} className={className} as={Basket} />;
     case 'block':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Block} />;
+      return <IconStyled {...rest} className={className} as={Block} />;
     case 'calendar':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Calendar} />;
+      return <IconStyled {...rest} className={className} as={Calendar} />;
     case 'chat':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Chat} />;
+      return <IconStyled {...rest} className={className} as={Chat} />;
     case 'clock':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Clock} />;
+      return <IconStyled {...rest} className={className} as={Clock} />;
     case 'cloudy':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Cloudy} />;
+      return <IconStyled {...rest} className={className} as={Cloudy} />;
     case 'code':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Code} />;
+      return <IconStyled {...rest} className={className} as={Code} />;
     case 'delete':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Delete} />;
+      return <IconStyled {...rest} className={className} as={Delete} />;
     case 'edit':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Edit} />;
+      return <IconStyled {...rest} className={className} as={Edit} />;
     case 'figma':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Figma} />;
+      return <IconStyled {...rest} className={className} as={Figma} />;
     case 'filter':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Filter} />;
+      return <IconStyled {...rest} className={className} as={Filter} />;
     case 'fullSize':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={FullSize} />;
+      return <IconStyled {...rest} className={className} as={FullSize} />;
     case 'humidity':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Humidity} />;
+      return <IconStyled {...rest} className={className} as={Humidity} />;
     case 'information':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Information} />;
+      return <IconStyled {...rest} className={className} as={Information} />;
     case 'leif':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Leif} />;
+      return <IconStyled {...rest} className={className} as={Leif} />;
     case 'location':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Location} />;
+      return <IconStyled {...rest} className={className} as={Location} />;
     case 'play':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Play} />;
+      return <IconStyled {...rest} className={className} as={Play} />;
     case 'product':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Product} />;
+      return <IconStyled {...rest} className={className} as={Product} />;
     case 'question':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Question} />;
+      return <IconStyled {...rest} className={className} as={Question} />;
     case 'storybook':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Storybook} />;
+      return <IconStyled {...rest} className={className} as={Storybook} />;
     case 'wateringCan':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={WateringCan} />;
+      return <IconStyled {...rest} className={className} as={WateringCan} />;
     case 'wheelbarrow':
-      return <IconStyled hasDefaultStyles={hasDefaultStyles} className={className} as={Wheelbarrow} />;
+      return <IconStyled {...rest} className={className} as={Wheelbarrow} />;
     case 'chevron':
     case 'chevronDown':
     case 'chevronUp':
     case 'chevronLeft':
     case 'chevronRight':
       return (
-        <IconStyled hasDefaultStyles={hasDefaultStyles}
+        <IconStyled {...rest}
           className={className}
           as={Chevron}
           transform={
@@ -151,7 +152,7 @@ const Icon: React.FC<Props> = ({ className, type, hasDefaultStyles = false, }) =
     case 'arrowLeft':
     case 'arrow':
       return (
-        <IconStyled hasDefaultStyles={hasDefaultStyles}
+        <IconStyled {...rest}
           className={className}
           transform={type === 'arrowRight' ? 'scale(-1,1)' : ''}
           as={Arrow}
