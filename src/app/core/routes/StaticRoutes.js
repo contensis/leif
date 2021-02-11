@@ -5,26 +5,11 @@ import Home from '~/pages/Home/home.page.js';
 
 export default [
   {
-    path: '/',
-    exact: true,
-    fetchNode: true,
-    component: Home,
-  },
-  {
     path: '/search/:facet?',
     exact: false,
     fetchNode: false,
     component: Loadable({
       loader: () => import('~/pages/Search/search.page.js'),
-      loading: Loading,
-    }),
-  },
-  {
-    path: '/blogs/blogPost',
-    exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/BlogPost/blogPost.page.js'),
       loading: Loading,
     }),
   },
