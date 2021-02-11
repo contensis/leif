@@ -16,8 +16,8 @@ COPY src /usr/src/app/src
 COPY webpack /usr/src/app/webpack
 COPY babel.config.js .
 COPY .env* ./
-COPY .tsconfig.json .
-COPY .jsconfig.json .
+COPY tsconfig.json .
+COPY jsconfig.json .
 COPY .eslintignore .
 COPY .eslintrc.js .
 COPY .nvmrc .
