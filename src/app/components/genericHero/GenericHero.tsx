@@ -16,8 +16,9 @@ const BlogHero: React.FC<Props> = ({ className, title, image }) => {
         <BackButton className="generic-hero__back" label="Blogs" />
         <h1 className="generic-hero__title">{title}</h1>
       </div>
-      
-      {image && image.asset && <Image image={image} />}
+      {image && (
+        <Image image={image} className="generic-hero__image" />
+      )}
     </BlogHeroStyled>
   );
 };

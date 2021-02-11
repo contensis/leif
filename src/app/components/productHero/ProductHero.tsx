@@ -11,6 +11,7 @@ import BackButton from '~/components/backButton/BackButton';
 import SocialShare from '~/components/socialShare/SocialShare';
 import Icon from '~/components/icon/Icon'
 import FocusLock from 'react-focus-lock';
+import { isClient } from '~/utils/isClient';
 
 interface Props {
   className?: string;
@@ -55,6 +56,20 @@ const ProductHero: React.FC<Props> = ({
       updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
     }
   }
+
+    const rootExists = () => {
+      return document.getElementById('app-root');
+    };
+    if (isClient()) {
+      if (rootExists()) {
+        const rootEl = document.getElementById('app-root');
+        if (isModalOpen) {
+          rootEl.classList.add('no-scroll');
+        } else {
+          rootEl.classList.remove('no-scroll');
+        }
+      }
+    }
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>

@@ -68,6 +68,9 @@ const GlobalStyle = createGlobalStyle`
     outline-color: ${colors?.link};
     outline-width: medium;
   }
+  .no-scroll {
+    overflow: hidden;
+  }
 `;
 
 export default GlobalStyle;

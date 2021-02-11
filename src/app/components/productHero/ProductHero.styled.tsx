@@ -92,9 +92,7 @@ const ProductHeroStyled = styled.div<Props>`
       margin-top: 32px;
       flex-basis: calc(154px - 24px);
       padding: 8px 16px;
-      &:not(:first-child) {
-        margin-left: 24px;
-      }
+      margin-left: 12px;
     }
     .product-hero__input-wrapper {
       text-align: left;
@@ -158,7 +156,7 @@ const ProductHeroStyled = styled.div<Props>`
       .product-hero__modal-close {
         position: absolute;
         right: 16px;
-        top: 66px;
+        top: 16px;
         z-index: 99;
         padding:0;
         border: none;
@@ -167,6 +165,9 @@ const ProductHeroStyled = styled.div<Props>`
         transition: opacity 100ms ease-in-out;
         &:hover {
           opacity: .8;
+        }
+        @media ${theme.mq.largeDesktop} {
+          top: 66px;
         }
       }
       .slider-for {

@@ -40,5 +40,11 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: 'CTA title can span multiple lines',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
-  image: tempImage,
+  image: {
+    asset: {
+      sys: {
+        uri: tempImage,
+      }
+    }
+  }
 }
