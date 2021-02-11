@@ -36,7 +36,7 @@ const ProductHeroStyled = styled.div<Props>`
     }
     .product-hero__slider-fullsize {
       position: absolute;
-      right: 28px;
+      right: 16px;
       bottom: 136px;
       width: 40px;
       height: 40px;
@@ -76,6 +76,7 @@ const ProductHeroStyled = styled.div<Props>`
       margin-top: 24px;
       ${theme?.typeStyles?.h3};
       font-family: ${theme?.typeStyles?.fontFamily?.headings};
+      color: ${theme?.colors?.secondary};
     }
     .product-hero__options {
       display: flex;
@@ -89,10 +90,15 @@ const ProductHeroStyled = styled.div<Props>`
       ${theme?.typeStyles?.smallCopy};
       font-family: ${theme?.typeStyles?.fontFamily?.default};
       font-weight: 400;
-      margin-top: 32px;
       flex-basis: calc(154px - 24px);
       padding: 8px 16px;
-      margin-left: 12px;
+      margin: 32px 12px 0;
+      @media ${theme.mq.desktop} {
+        margin: 24px 0 0;
+        &:not(:first-child) {
+          margin-left: 24px;
+        }
+      }
     }
     .product-hero__input-wrapper {
       text-align: left;
@@ -182,12 +188,12 @@ const ProductHeroStyled = styled.div<Props>`
       }
       .slick-next {
         @media ${theme.mq.largeDesktop} {
-          right: -52px !important;
+          right: -80px !important;
         }
       }
       .slick-prev {
         @media ${theme.mq.largeDesktop} {
-          left: -52px !important;
+          left: -80px !important;
         }
       }
     `}

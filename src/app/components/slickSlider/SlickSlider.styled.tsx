@@ -5,6 +5,9 @@ const SlickSliderStyled = styled.div`
   return css`
     .slider-nav {
       margin-top: 24px;
+      .slick-slide {
+        padding: 0 12px;
+      }
     }
     .slick__main-slide {
       display: block;
@@ -22,7 +25,6 @@ const SlickSliderStyled = styled.div`
     }
     .slick-slide {
       height: inherit !important;
-      padding: 0 12px;
     }
     .slick-arrow {
       padding: 0;

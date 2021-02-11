@@ -10,6 +10,10 @@ const InputControlStyled = styled.button`
     border-radius: 50%;
     background-color: ${theme?.colors?.neutral_lightgrey};
     position: relative;
+    transition: opacity 100ms ease-in-out;
+    &:hover {
+      opacity: .8;
+    }
     svg {
       position: absolute;
       top: 50%;
