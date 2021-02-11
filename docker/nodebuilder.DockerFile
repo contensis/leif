@@ -6,9 +6,9 @@ WORKDIR /usr/src/app
 COPY package.json .
 # COPY package-lock.json .
 COPY patches /usr/src/app/patches
-RUN npm install -g mocha
-RUN npm install --loglevel error
-RUN npm run postinstall
+RUN yarn global add mocha
+RUN yarn --loglevel error
+RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 
@@ -24,7 +24,7 @@ COPY .nvmrc .
 COPY .prettierignore .
 COPY .prettierrc .
 COPY .stylelintrc .
-RUN npm run build
+RUN yarn run build
 RUN mocha --timeout=5000 dist/server/start.js -tests
 COPY version.json /usr/src/app/dist/static/version.json
 RUN cat /usr/src/app/dist/static/version.json
