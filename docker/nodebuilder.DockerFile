@@ -8,7 +8,7 @@ COPY package.json .
 COPY patches /usr/src/app/patches
 RUN yarn global add mocha
 RUN yarn --loglevel error
-RUN yarn run postinstall
+# RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 
