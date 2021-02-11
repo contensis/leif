@@ -33,6 +33,7 @@ ZengentiAppServer.start(
       fragment: 'dist/index_fragment.html',
     },
     allowedGroups: ALLOWED_GROUPS /* global ALLOWED_GROUPS */,
+    versionData: 'dist/static/version.json',
   },
   // Configure any server-side features such as sitemap or REST api's
   ServerFeatures
