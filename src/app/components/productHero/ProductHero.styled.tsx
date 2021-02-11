@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-
+// import shape from './assets/product-hero-shape.svg';
 interface Props {
   isModalOpen: boolean,
+
 }
 
 const ProductHeroStyled = styled.div<Props>`
