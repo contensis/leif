@@ -9,13 +9,11 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: [
-          'blogPost',
-        ]
+        options: ['blogPost'],
       },
     },
   },
-}
+};
 
 const Template = ({type = 'blogPost', ...args}) => {
   const result = {
@@ -25,7 +23,7 @@ const Template = ({type = 'blogPost', ...args}) => {
     thumbnailImage: {
       asset: {
         sys: {
-          uri: 'https://source.unsplash.com/iz_j6rv3vQk',
+          uri: 'https://source.unsplash.com/m2J105CzEAU',
         },
       },
     },
@@ -47,6 +45,7 @@ const Template = ({type = 'blogPost', ...args}) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
+  type: 'blogPost',
   title: 'Related blogs',
   link: {
     label: 'View all blogs',

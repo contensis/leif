@@ -37,7 +37,7 @@ const VideoPlayer = ({
         break;
     }
   }
-  return <>{VideoContent}</>;
+  return <>{VideoContent(type)}</>;
 };
 
 export default VideoPlayer;

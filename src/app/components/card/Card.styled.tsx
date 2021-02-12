@@ -112,6 +112,24 @@ const CardStyled = styled.a`
             ${theme?.typeStyles?.h5};
           }
         `}
+        ${type === 'explore' && css`
+          .card__thumbnail {
+            max-width: 236px;
+            height: 256px;
+            @media ${theme.mq.desktop} {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
+          .card__title {
+            margin: 24px 0 0;
+          }
+          margin: 0 8px 32px;
+          @media ${theme.mq.desktop} {
+            max-width: 290px;
+            width: 100%;
+          }
+        `}
     `;
   }};
 `;
