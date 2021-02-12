@@ -20,22 +20,23 @@ export default {
 const Template = ({type = 'blogPost', ...args}) => {
   const result = {
     entryTitle: 'Blog title can span multiple lines of text',
-    entryDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+    entryDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
     thumbnailImage: {
       asset: {
         sys: {
-          uri: 'https://source.unsplash.com/6hgrfOJhr74'
-        }
-      }
+          uri: 'https://source.unsplash.com/iz_j6rv3vQk',
+        },
+      },
     },
     sys: {
       contentTypeId: type,
       version: {
         published: new Date().toISOString(),
-      }
+      },
     },
     readTime: 7,
-  }
+  };
 
   const results = [];
   for (let i = 0; results.length < 3; i++) {

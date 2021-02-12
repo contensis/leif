@@ -12,13 +12,13 @@ const Template = (args) => <RelatedLinks {...args} />;
     image: {
       asset: {
         sys: {
-          uri: 'https://source.unsplash.com/6hgrfOJhr74'
-        }
-      }
+          uri: 'https://source.unsplash.com/FV_PxCqgtwc',
+        },
+      },
     },
-  }
+  };
   const links = [];
-  for (let i = 0; links.length < 3; i++) {
+  for (let i = 0; links.length < 4; i++) {
     links.push(link);
   }
 
