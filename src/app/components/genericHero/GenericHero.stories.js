@@ -1,7 +1,6 @@
 import React from 'react';
 
 import GenericHero from './GenericHero';
-import tempImage from './assets/women-at-desk.png';
 
 export default {
   title: 'Global/Components/GenericHero',
@@ -15,7 +14,7 @@ Primary.args = {
   image: {
     asset: {
       sys: {
-        uri: tempImage,
+        uri: 'https://source.unsplash.com/XqFEu8J-s0M',
       }
     }
   }

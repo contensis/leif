@@ -109,6 +109,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@storybook/addon-a11y": "^6.1.9",
     "@storybook/addon-knobs": "^6.1.15",
+    "@testing-library/dom": "^7.29.4",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4",

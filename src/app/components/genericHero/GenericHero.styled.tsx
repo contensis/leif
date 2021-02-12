@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import shape from './assets/shape.svg';
 
 const GenericHeroStyled = styled.div`
   ${({ theme }) => {
@@ -31,7 +30,7 @@ const GenericHeroStyled = styled.div`
           position: absolute;
           top: -80px;
           left: 0;
-          background-image: url(${shape});
+          background-image: url('/static/img/svgs/generic-hero-shape.svg');
           background-repeat: no-repeat;
           background-position: top center;
         }
