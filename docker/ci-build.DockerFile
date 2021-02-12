@@ -3,12 +3,12 @@ FROM ${builder_image} as basebuilder
 FROM mhart/alpine-node:12
 
 WORKDIR /usr/src/app
-COPY package.json .
-COPY yarn.lock .
+##COPY package.json .
+#COPY yarn.lock .
 COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
-RUN yarn --production --loglevel error
+#RUN yarn --production --loglevel error
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 
 # Standard classic start script, will start the server with the environment started last 
