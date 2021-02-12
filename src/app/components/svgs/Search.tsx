@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Search: React.FC<Props> = props => (
+const Search = (props:Props) => (
   <svg
     width="24"
     height="24"

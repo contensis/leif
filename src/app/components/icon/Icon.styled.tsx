@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
+  theme: any,
   className?: string;
   as: any;
   transform?: any;
   hasDefaultStyles?: boolean;
 }
 
-const IconStyled = styled.svg<Props>`
-  ${({ theme, hasDefaultStyles }) => {
+const IconStyled = styled.svg`
+  ${({ theme, hasDefaultStyles }:Props) => {
   return css`
   ${hasDefaultStyles && css`
       height: 40px;

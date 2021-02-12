@@ -10,10 +10,10 @@ interface Props {
   hasArrow?: boolean;
   label: string;
   href: string;
-  onClick?: Function;
+  onClick?: (ev:any) => void;
 }
 
-const LinkButton: React.FC<Props> = ({
+const LinkButton = ({
   className,
   type = 'primary',
   isHollow = false,
@@ -22,10 +22,10 @@ const LinkButton: React.FC<Props> = ({
   label,
   href,
   onClick,
-}) => {
+}: Props) => {
   const _handleClick = (e:any) => {
     e.preventDefault();
-    if (!isDisabled) {
+    if (!isDisabled && onClick) {
       onClick(e);
     } else {
       return;

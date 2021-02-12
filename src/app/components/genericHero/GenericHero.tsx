@@ -9,7 +9,7 @@ interface Props {
   image?: any;
 }
 
-const BlogHero: React.FC<Props> = ({ className, title, image }) => {
+const BlogHero = ({ className, title, image }: Props) => {
   return (
     <BlogHeroStyled className={className}>
       <div>

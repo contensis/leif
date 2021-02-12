@@ -3,22 +3,22 @@ import InputStyled from './Input.styled';
 
 interface Props {
   className?: string,
-  type?: string,
+  type?: string | undefined,
   id: string,
   label: string;
   placeholder?: string;
   defaultValue?: number | string;
 }
 
-const Input: React.FC<Props> = ({
+const Input =({
   className,
   type = 'text',
-  defaultValue = null,
+  defaultValue = '',
   id,
   label,
   placeholder,
-}) => {
-  const [value, setValue] = useState(defaultValue);
+}: Props) => {
+  const [value, setValue] = useState(defaultValue || '');
 
   useEffect(() => {
     if (defaultValue) {

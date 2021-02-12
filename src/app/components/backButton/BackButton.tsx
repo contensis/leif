@@ -8,7 +8,7 @@ interface Props {
   label: string;
 }
 
-const BackButton: React.FC<Props> = ({ className, label }) => {
+const BackButton = ({ className, label }: Props) => {
   return (
     <BackButtonStyled className={className}>
       <Icon className="back-button__icon" type="arrow" />

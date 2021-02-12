@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
-interface Props {
-  type: string;
-}
 
-const IconButtonStyled = styled.button<Props>`
+const IconButtonStyled = styled.button`
   ${() => {
     return css`
       position: relative;

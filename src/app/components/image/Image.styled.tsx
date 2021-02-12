@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ImageStyled = styled.img`
-  max-width: 100%;
+  ${() => {
+  return css`
+        max-width: 100%;
+      `;
+  }};
 `;
 
 export default ImageStyled;

@@ -8,7 +8,7 @@ import { ImageObject } from '../image/Image'
 interface LinkObject {
   type: string;
   label: string;
-  href: string;
+  uri: string;
 }
 
 interface MappedResObject {
@@ -30,14 +30,14 @@ interface Props {
   link?: LinkObject;
 }
 
-const RelatedContent: React.FC<Props> = ({ className, title, results, link }) => {
+const RelatedContent = ({ className, title, results, link }: Props) => {
   if (!results || results.length < 1) return null;
   return (
     <RelatedContentStyled className={className}>
       {title && <h3 className="related-content__title">{title}</h3>}
       <div className="related-content__results">
         <div className="related-content__results-wrapper">
-          {results.map((res: MappedResObject, idx:number) => {
+          {results.map((res: MappedResObject, idx: number) => {
             if (!res) return null;
             const type = res && res.sys && res.sys.contentTypeId;
             return (
@@ -60,7 +60,7 @@ const RelatedContent: React.FC<Props> = ({ className, title, results, link }) =>
             isHollow
             className="related-content__link"
             label={link.label}
-            href={link.href}
+            href={link.uri}
           />
         )}
       </div>

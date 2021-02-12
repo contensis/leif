@@ -6,8 +6,8 @@ interface Props {
   hasScrollImage?: boolean;
 }
 
-const SlideStyled = styled.div<Props>`
-  ${({ hasScrollImage, image }) => {
+const SlideStyled = styled.div`
+  ${({ hasScrollImage, image }: Props) => {
   const imageUrl = image?.asset?.sys?.uri;
   return css`
     height: 100%;

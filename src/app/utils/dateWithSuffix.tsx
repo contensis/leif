@@ -20,6 +20,8 @@ const daySuffix = ( i: number ) => {
 export default (date: string) => {
   const dateDay = formatDate(date, 'd');
   const dateMonth = formatDate(date, 'MMM');
-  date = `${daySuffix(parseInt(dateDay))} ${dateMonth}`;
+  if (dateDay && dateMonth) {
+    date = `${daySuffix(parseInt(dateDay))} ${dateMonth}`;
+  }
   return date;
 };

@@ -29,7 +29,7 @@ interface WrapperProps {
   children?: any,
 }
 
-const ProductHero: React.FC<Props> = ({
+const ProductHero = ({
   className,
   slides,
   rating,
@@ -37,7 +37,7 @@ const ProductHero: React.FC<Props> = ({
   text,
   price,
   options,
-}) => {
+}: Props) => {
   let [quantity, updateQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeOption, setActiveOption] = useState(0);
@@ -64,10 +64,10 @@ const ProductHero: React.FC<Props> = ({
       if (rootExists()) {
         const rootEl = document.getElementById('app-root');
         if (isModalOpen) {
-          rootEl.classList.add('no-scroll');
+          rootEl?.classList.add('no-scroll');
         } else {
-          rootEl.classList.remove('no-scroll');
-        }
+          rootEl?.classList.remove('no-scroll');
+        } 
       }
     }
 

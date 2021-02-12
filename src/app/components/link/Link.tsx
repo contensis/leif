@@ -5,13 +5,13 @@ interface Props {
   className: string;
   children: any;
   download?: any;
-  onClick?: Function;
+  onClick?: (ev:any) => void;
   openInNewWindow: boolean;
   title: string;
   uri: string;
 }
 
-const Link: React.FC<Props> = ({
+const Link = ({
   className = '',
   children,
   download,
@@ -19,7 +19,7 @@ const Link: React.FC<Props> = ({
   openInNewWindow,
   title,
   uri,
-}) => {
+}: Props) => {
   className += ' Link';
   if (!uri) {
     return <span className={className}>{children}</span>;
@@ -28,12 +28,19 @@ const Link: React.FC<Props> = ({
   let newWindow = openInNewWindow ? '_blank' : '_self';
   uri = encodeURI(uri);
 
+  const _handleClick = (e:any) => {
+    e.preventDefault();
+    if (onClick) {
+      onClick(e)
+    }
+  }
+
   if (newWindow != '_blank' && uri && uri.startsWith('/')) {
     return (
       <PageLink
         className={className}
         download={download}
-        onClick={e => onClick(e)}
+        onClick={e => _handleClick(e)}
         title={title}
         to={uri}
       >
@@ -46,7 +53,7 @@ const Link: React.FC<Props> = ({
         className={className}
         download={download}
         href={uri}
-        onClick={e => onClick(e)}
+        onClick={e => _handleClick(e)}
         target={newWindow}
         title={title}
         rel="noopener noreferrer"
@@ -55,16 +62,6 @@ const Link: React.FC<Props> = ({
       </a>
     );
   }
-};
-
-Link.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
-  download: PropTypes.string,
-  onClick: PropTypes.func,
-  openInNewWindow: PropTypes.bool,
-  title: PropTypes.string,
-  uri: PropTypes.string,
 };
 
 export default Link;

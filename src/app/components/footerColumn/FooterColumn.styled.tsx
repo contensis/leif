@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 interface Props {
-  isOpen: boolean,
+  theme: any;
+  isOpen: boolean;
 }
 
-const FooterColumnStyled = styled.div<Props>`
-  ${({ theme, isOpen }) => {
+const FooterColumnStyled = styled.div`
+  ${({ theme, isOpen }: Props) => {
     return css`
       .footer-column__btn {
         padding: 8px 16px;

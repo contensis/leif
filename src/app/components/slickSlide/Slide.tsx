@@ -8,7 +8,7 @@ interface Props {
   hasScrollImage?: boolean
 }
 
-const Slide: React.FC<Props> = ({ className, image, hasScrollImage }) => {
+const Slide = ({ className, image, hasScrollImage }: Props) => {
   if (!image) return null;
 
   return (

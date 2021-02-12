@@ -11,7 +11,7 @@ interface Props {
   className?: string;
 }
 
-const SocialShare: React.FC<Props> = ({ className }) => {
+const SocialShare = ({ className }: Props) => {
   if (!socials || socials.length < 1) return null;
   // TODO:
   const sharePath = 'publicUrl+currentPath';

@@ -17,20 +17,20 @@ interface Props {
   draggable?: boolean;
 }
 
-const SlickSlider: React.FC<Props> = ({
+const SlickSlider = ({
   className,
   slides,
   hasNav = false,
   hasScrollImage,
   swipeToSlide = true,
   draggable = true,
-}) => {
+}: Props) => {
   if (!slides) return null;
 
-  const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
-  const [slider1, setSlider1] = useState(null);
-  const [slider2, setSlider2] = useState(null);
+  const [nav1, setNav1] = useState<any>(null);
+  const [nav2, setNav2] = useState<any>(null);
+  const [slider1, setSlider1] = useState<any>(null);
+  const [slider2, setSlider2] = useState<any>(null);
 
   const settings = {
     dots: false,

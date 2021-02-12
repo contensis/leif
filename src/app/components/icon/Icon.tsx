@@ -49,7 +49,7 @@ interface Props {
   hasDefaultStyles?: boolean;
 }
 
-const Icon: React.FC<Props> = ({ className, type, }, props) => {
+const Icon = ({ className, type }: Props, props:any) => {
   const { ...rest } = props;
   switch (type) {
     case 'facebook':
@@ -134,7 +134,8 @@ const Icon: React.FC<Props> = ({ className, type, }, props) => {
     case 'chevronLeft':
     case 'chevronRight':
       return (
-        <IconStyled {...rest}
+        <IconStyled
+          {...rest}
           className={className}
           as={Chevron}
           transform={
@@ -152,7 +153,8 @@ const Icon: React.FC<Props> = ({ className, type, }, props) => {
     case 'arrowLeft':
     case 'arrow':
       return (
-        <IconStyled {...rest}
+        <IconStyled
+          {...rest}
           className={className}
           transform={type === 'arrowRight' ? 'scale(-1,1)' : ''}
           as={Arrow}

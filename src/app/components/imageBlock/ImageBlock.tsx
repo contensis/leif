@@ -10,7 +10,7 @@ interface Props {
   text?: string;
 }
 
-const ImageBlock: React.FC<Props> = ({ className, image, title, text }) => {
+const ImageBlock = ({ className, image, title, text }:Props) => {
   if (!image) return null;
   return (
     <ImageBlockStyled className={className}>

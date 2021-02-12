@@ -6,7 +6,7 @@ interface Props {
   text: string;
 }
 
-const TextBlock: React.FC<Props> = ({ className, text, }) => {
+const TextBlock = ({ className, text, }: Props) => {
   return (
     <TextBlockStyled
       className={className}

@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Sort: React.FC<Props> = props => (
+const Sort = (props:Props) => (
   <svg
     width="24"
     height="24"

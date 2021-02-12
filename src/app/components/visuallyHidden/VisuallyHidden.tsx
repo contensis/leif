@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import VisuallyHiddenStyled from './VisuallyHidden.styled';
 
@@ -8,18 +7,13 @@ interface Props {
   children?: any;
 }
 
-const VisuallyHidden: React.FC <Props> = ({ text, children }) => {
+const VisuallyHidden = ({ text, children }: Props) => {
   return (
     <VisuallyHiddenStyled>
       {text}
       {children}
     </VisuallyHiddenStyled>
   );
-};
-
-VisuallyHidden.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default VisuallyHidden;

@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-const Header: React.FC<Props> = ({ className }) => {
+const Header = ({ className }: Props) => {
   return (
     <HeaderStyled className={className}>
       <a href="/">

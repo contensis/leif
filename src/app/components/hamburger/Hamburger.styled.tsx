@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
 interface Props {
+  theme: any;
   isOpen: boolean;
 }
 
-const HamburgerStyled = styled.button<Props>`
-  ${({ isOpen }) => {
+const HamburgerStyled = styled.button`
+  ${({ theme, isOpen }: Props) => {
     return css`
       width: 80px;
       height: 80px;
-      background: #77e8c6;
+      background: ${theme?.colors?.primary};
       position: relative;
       border: none;
       padding: 0;
@@ -26,7 +27,7 @@ const HamburgerStyled = styled.button<Props>`
         width: 100%;
         border-radius: 4px;
         height: 2px;
-        background: #2b2f51;
+        background: ${theme?.colors?.secondary};
         transition: all 0.3s;
         position: relative;
         &:not(:last-child) {

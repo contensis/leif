@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
+  theme: any;
   rating: string;
 }
 
-const RatingStyled = styled.div<Props>`
-  ${({ theme, rating }) => {
+const RatingStyled = styled.div`
+  ${({ theme, rating }: Props) => {
     return css`
       display: flex;
       align-items: center;

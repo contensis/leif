@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Twitter: React.FC<Props> = props => (
+const Twitter = (props:Props) => (
   <svg
     width="16"
     height="14"

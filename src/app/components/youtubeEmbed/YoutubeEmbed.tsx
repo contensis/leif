@@ -5,10 +5,11 @@ import YoutubeEmbedStyled from './YoutubeEmbed.styled';
 interface Props {
   className?: string;
   title: string;
-  src: string;
+  src: string | undefined;
 }
 
-const YoutubeEmbed: React.FC<Props> = ({ className, title, src }) => {
+const YoutubeEmbed = ({ className, title, src }: Props) => {
+  if (!src) return null;
   const ID = getVideoID(src);
   const iframeMarkup = `<iframe className="youtube__embed" title="${title}" src="https://www.youtube.com/embed/${ID}" frameborder="0" allowfullscreen></iframe>`;
   return (

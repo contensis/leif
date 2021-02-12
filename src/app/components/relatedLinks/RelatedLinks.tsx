@@ -8,7 +8,7 @@ interface Props {
   links: any[];
 }
 
-const RelatedLinks: React.FC<Props> = ({ className, title, links }) => {
+const RelatedLinks = ({ className, title, links }: Props) => {
   if (!links || links.length < 1) return null;
   return (
     <RelatedLinksStyled className={className}>

@@ -10,7 +10,7 @@ interface Props {
   text?: string;
 }
 
-const IconButton: React.FC<Props> = ({ className, type = "button", icon, text }) => {
+const IconButton = ({ className, type = "button", icon, text }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

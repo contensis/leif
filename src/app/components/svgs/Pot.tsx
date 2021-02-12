@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Pot: React.FC<Props> = props => (
+const Pot = (props:Props) => (
   <svg
     width="24"
     height="24"

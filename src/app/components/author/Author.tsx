@@ -19,7 +19,7 @@ interface Props {
   person: PersonObject;
 }
 
-export const Author: React.FC<Props> = ({ className, person }) => {
+export const Author = ({ className, person }: Props) => {
   if (!person) return null;
   const photo = person.photo;
 

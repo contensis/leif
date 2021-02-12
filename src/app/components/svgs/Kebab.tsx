@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Kebab: React.FC<Props> = props => (
+const Kebab = (props:Props) => (
   <svg
     width="24"
     height="24"

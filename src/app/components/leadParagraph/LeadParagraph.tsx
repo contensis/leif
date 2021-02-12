@@ -6,7 +6,7 @@ interface Props {
   text: string;
 }
 
-const LeadParagraph: React.FC<Props> = ({ className, text }) => {
+const LeadParagraph = ({ className, text }: Props) => {
   return (
     <LeadParagraphStyled
       className={className}

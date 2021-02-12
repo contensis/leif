@@ -9,7 +9,7 @@ interface Props {
   fields: any | any[];
 }
 
-const Composer: React.FC<Props> = ({ fields }) => {
+const Composer = ({ fields }: Props) => {
   if (!fields) return null;
 
   return fields.map((field:any, idx:number) => {
@@ -40,7 +40,7 @@ const Composer: React.FC<Props> = ({ fields }) => {
       }
       case 'video': {
         return (
-          <VideoPlayer title={field.value.entryTitle} hasControls={true} type={field.value.source} externalURL={field.value.externalURL} internalVideo={field.value.internalVideo && field.value.internalVideo.asset.sys.uri } key={idx} />
+          <VideoPlayer title={field.value.entryTitle} hasControls={true} type={field.value.source} externalURL={field.value?.externalURL} internalVideo={field.value?.internalVideo && field.value?.internalVideo?.asset?.sys?.uri } key={idx} />
         );
       }    
     }

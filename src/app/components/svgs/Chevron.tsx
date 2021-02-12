@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Chevron: React.FC<Props> = props => (
+const Chevron = (props:Props) => (
   <svg
     width="24"
     height="24"

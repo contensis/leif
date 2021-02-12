@@ -10,7 +10,7 @@ interface Props {
   author?: PersonObject
 }
 
-const QuoteBlock: React.FC<Props> = ({ className, quote, rating, author }) => {
+const QuoteBlock = ({ className, quote, rating, author }: Props) => {
   return (
     <QuoteBlockStyled className={className}>
       &quot;{quote}&quot;

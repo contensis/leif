@@ -9,7 +9,7 @@ interface Props {
   text?: string;
 }
 
-const IconWithText: React.FC<Props> = ({ icon, title, text }) => {
+const IconWithText = ({ icon, title, text }: Props) => {
   return (
     <IconWithTextStyled>
       <Icon type={icon} className="icon-with-text__icon"/>

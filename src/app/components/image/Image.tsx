@@ -21,12 +21,12 @@ interface Props {
   width?: number;
 }
 
-const Image: React.FC <Props> = ({ className, image, crop = true, height, width }) => {
+const Image = ({ className, image, crop = true, height, width }: Props) => {
   if (!image || !image.asset || !image.asset.sys) {
     return null;
   }
 
-  let src = cropImage(image.asset.sys.uri, width, height, crop);
+  let src: string = cropImage(image.asset.sys.uri, width, height, crop);
 
   const altText = image.altText
     ? image.altText

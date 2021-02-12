@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Block: React.FC<Props> = props => (
+const Block = (props:Props) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M22.5 7.5V18L12 22.5L1.5 18V7.5L12 12L22.5 7.5Z" stroke="#2B2F51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M12 22.5V12" stroke="#2B2F51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

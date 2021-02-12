@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Storybook: React.FC<Props> = props => (
+const Storybook = (props:Props) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g clip-path="url(#clip0)">
       <path d="M3.25 3V21.3C3.25999 21.8283 3.47929 22.3311 3.85973 22.6979C4.24018 23.0646 4.75065 23.2654 5.279 23.256H19.485C19.749 23.26 20.0039 23.1595 20.1941 22.9762C20.3843 22.793 20.4942 22.542 20.5 22.278V6.753C20.5 6.35518 20.342 5.97364 20.0607 5.69234C19.7794 5.41104 19.3978 5.253 19 5.253H18.25" stroke="#2B2F51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

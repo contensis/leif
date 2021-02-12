@@ -13,7 +13,7 @@ interface Props {
 }
 
 
-const BlogInformation: React.FC<Props> = ({ className, person, readTime, date }) => {
+const BlogInformation = ({ className, person, readTime, date }: Props) => {
   return (
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">

@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Delete: React.FC<Props> = props => (
+const Delete = (props:Props) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M1.5 4.5H22.5" stroke="#2B2F51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M14.25 1.5H9.75C8.92157 1.5 8.25 2.17157 8.25 3V4.5H15.75V3C15.75 2.17157 15.0784 1.5 14.25 1.5Z" stroke="#2B2F51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

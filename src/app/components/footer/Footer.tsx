@@ -17,7 +17,7 @@ interface Props {
   data: any[] | any;
 }
 
-const Footer: React.FC<Props> = ({ className, data }) => {
+const Footer = ({ className, data }: Props) => {
   if (!data || data.length < 1) return null;
   return (
     <FooterStyled className={className}>

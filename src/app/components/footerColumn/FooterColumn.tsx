@@ -14,7 +14,7 @@ interface Props {
   links: any[] | any;
 }
 
-const FooterColumn: React.FC<Props> = ({ className, title, links }) => {
+const FooterColumn = ({ className, title, links }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   if (!links || links.length < 1) return null;

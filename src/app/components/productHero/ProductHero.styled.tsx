@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 // import shape from './assets/product-hero-shape.svg';
 interface Props {
-  isModalOpen: boolean,
-
+  theme: any;
+  isModalOpen: boolean;
 }
 
-const ProductHeroStyled = styled.div<Props>`
-  ${({ theme, isModalOpen }) => {
+const ProductHeroStyled = styled.div`
+  ${({ theme, isModalOpen }: Props) => {
   return css`
     .product-hero__content {
       text-align: center;

@@ -49,7 +49,7 @@ Primary.args = {
   title: 'Related blogs',
   link: {
     label: 'View all blogs',
-    href: '#',
+    uri: '#',
     type: 'secondary',
   }
 }

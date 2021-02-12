@@ -25,7 +25,7 @@ interface Props {
   rating?: string;
 }
 
-const Card: React.FC<Props> = ({
+const Card = ({
   className,
   type,
   title,
@@ -35,7 +35,7 @@ const Card: React.FC<Props> = ({
   date,
   price,
   rating,
-}) => {
+}: Props) => {
   switch (type) {
     case 'blogPost':
       return (

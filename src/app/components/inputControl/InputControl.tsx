@@ -9,7 +9,7 @@ interface Props {
   onClick: (ev:any) => void;
 }
 
-const InputControl: React.FC<Props> = ({ className, type, onClick }) => {
+const InputControl = ({ className, type, onClick }: Props) => {
   return (
     <InputControlStyled className={className} onClick={onClick}>
       <Icon type={type} />

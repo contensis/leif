@@ -32,13 +32,13 @@ interface Props {
   product: ProductObject;
 }
 
-const FeaturedProduct: React.FC<Props> = ({
+const FeaturedProduct = ({
   className,
   title,
   text,
   link,
   product,
-}) => {
+}: Props) => {
   return (
     <FeaturedProductStyled className={className}>
       <div className="featured-product__content">

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 interface Props {
+  theme: any,
   type: string,
 }
 
-const CardStyled = styled.a<Props>`
-  ${({ theme, type }) => {
+const CardStyled = styled.a`
+  ${({ theme, type }: Props) => {
     return css`
       display: block;
       text-decoration: none;

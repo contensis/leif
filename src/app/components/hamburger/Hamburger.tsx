@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const Hamburger: React.FC<Props> = ({ className }) => {
+const Hamburger = ({ className }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <HamburgerStyled

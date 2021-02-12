@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
+  theme: any;
   type: string;
   isHollow: boolean;
   hasArrow: boolean;
   isDisabled: boolean;
 }
 
-const LinkButtonStyled = styled.a<Props>`
-  ${({ theme, type, isHollow, hasArrow, isDisabled }) => {
+const LinkButtonStyled = styled.a`
+  ${({ theme, type, isHollow, hasArrow, isDisabled }: Props) => {
     return css`
       ${theme?.typeStyles?.h5};
       font-family: ${theme?.typeStyles?.fontFamily?.headings};

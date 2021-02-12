@@ -16,18 +16,9 @@ interface Props {
   title: string;
   text: string;
   cta: CTAObject;
-  headingLevel: number;
 }
 
-const CTABanner: React.FC<Props> = ({
-  className,
-  image,
-  title,
-  text,
-  cta,
-  // headingLevel = 3,
-}) => {
-  // const Heading = `h${headingLevel}`; TODO:
+const CTABanner = ({className, image, title, text, cta }: Props) => {
   return (
     <CTABannerStyled className={className}>
       <Image className="cta-banner__image" image={image} />

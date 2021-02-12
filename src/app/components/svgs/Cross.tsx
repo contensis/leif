@@ -4,7 +4,7 @@ interface Props {
   props?: any;
 }
 
-const Cross: React.FC<Props> = props => (
+const Cross = (props:Props) => (
   <svg
     width="24"
     height="24"

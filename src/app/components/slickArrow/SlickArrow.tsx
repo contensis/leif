@@ -7,7 +7,7 @@ interface Props {
   type: string;
 }
 
-const SlickArrow: React.FC<Props> = ({ className, type, onClick }) => {
+const SlickArrow = ({ className, type, onClick }: Props) => {
   return (
     <button
       className={className}
