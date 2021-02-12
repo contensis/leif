@@ -68,6 +68,47 @@ const GlobalStyle = createGlobalStyle`
     outline-color: ${colors?.link};
     outline-width: medium;
   }
+  table {
+    width: 730px;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  thead {
+    ${typeStyles.h5}
+    color: ${colors.secondary};
+    font-family: ${fontFamily.headings};
+  }
+  td {
+    width: 220px;
+    padding: 16px;
+  }
+  tbody {
+    ${typeStyles.cardCopy};
+    tr:nth-of-type(odd) {
+      background-color: rgba(119, 232, 198, 0.1);
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 24px 0;
+    padding: 0 0 0 20px;
+    li {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: -20px;
+        background-image: url('/static/img/svgs/bullet-point-icon.svg');
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 12px;
+      }
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
+    }
+  }
   .no-scroll {
     overflow: hidden;
   }

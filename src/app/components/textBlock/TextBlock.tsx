@@ -6,11 +6,18 @@ interface Props {
   text: string;
 }
 
-const TextBlock = ({ className, text, }: Props) => {
+const TextBlock = ({ className, text }: Props) => {
   return (
     <TextBlockStyled
       className={className}
-      dangerouslySetInnerHTML={{ __html: text }}
+      dangerouslySetInnerHTML={{
+        __html: text
+          .replace(
+            /<table/g,
+            '<div class="text-block__table" tabindex="0"><table'
+          )
+          .replace(/<\/table>/g, '</table></div>'),
+      }}
     />
   );
 };
