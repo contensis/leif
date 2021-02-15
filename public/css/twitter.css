@@ -1,0 +1,57 @@
+.timeline-TweetList-tweet {
+  border: none !important;
+}
+.timeline-Tweet  {
+  padding: 0 !important;
+}
+.timeline-Tweet:hover {
+  background-color: #fff!important;
+}
+.timeline-Tweet-actions {
+  display: none;
+}
+.timeline-Tweet-brand  {
+  display: none !important;
+}
+.timeline-Body {
+  border: none !important;
+}
+.timeline-Tweet-media, .timeline-Tweet-text {
+  margin: 0 0 24px 0 !important;
+}
+.timeline-Tweet-text {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: inherit;
+  font-family: inherit;
+  white-space: inherit !important;
+}
+.timeline-Tweet-author {
+  margin-bottom: 24px !important;
+  padding-left: 48px !important;
+}
+.TweetAuthor-name {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #333333 !important;
+}
+.TweetAuthor-avatar {
+  width: 40px !important;
+  height: 40px !important;
+}
+.tweetAuthor-screenName {
+  font-size: 14px !important;
+  line-height: 16px !important;
+  color: #2B2F51 !important;
+  font-weight: 400 !important;
+}
+.timeline-Tweet-metadata {
+  margin: 0 0 0 8px !important;
+  float: none !important;
+  width: 100%; 
+}
+.timeline-Tweet-timestamp {
+  font-size: 14px !important;
+  line-height: 16px !important;
+  color: #6E729B !important;
+}
