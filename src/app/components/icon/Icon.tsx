@@ -151,12 +151,22 @@ const Icon = ({ className, type }: Props, props:any) => {
       );
     case 'arrowRight':
     case 'arrowLeft':
+    case 'arrowUp':
+    case 'arrowDown':
     case 'arrow':
       return (
         <IconStyled
           {...rest}
           className={className}
-          transform={type === 'arrowRight' ? 'scale(-1,1)' : ''}
+          transform={
+            type === 'arrowDown'
+              ? 'rotate(-90)'
+              : type === 'arrowUp'
+              ? 'rotate(90)'
+              : type === 'arrowRight'
+              ? 'scale(-1,1)'
+              : ''
+          }
           as={Arrow}
         />
       );
