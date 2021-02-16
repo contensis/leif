@@ -1,25 +1,18 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import ProductHero from './ProductHero';
+import ProductHero, { Props } from './ProductHero';
 
 export default {
   title: 'Product/Components/ProductHero',
   component: ProductHero,
-  argTypes: {
-    rating: {
-      control: {
-        type: 'select',
-        options: [
-          '1', 
-          '2', 
-          '3',
-          '4',
-          '5',
-        ],
-      },
-    },
-  },
-}
+} as Meta;
+
+const Template: Story<Props> = args => {
+  return (
+    <ProductHero {...args} />
+  );
+};
 
 const SlidesArray = [];
 const ImageDictionary = [
@@ -34,7 +27,7 @@ const ImageDictionary = [
   'hDyO6rr3kqk'
 ]
 
-const MakeSlide = (i) => {
+const MakeSlide = (i:number) => {
   return {
     asset: {
       altText: 'Plant',
@@ -49,22 +42,13 @@ for (let i = 0; SlidesArray.length < 8; i++) {
   SlidesArray.push(MakeSlide(i));
 }
 
-const Template = ({ rating, ...args }) => {
-  return (
-    <ProductHero
-      {...args}
-      rating={rating}
-      slides={SlidesArray}
-    />
-  );
-};
-
 export const Primary = Template.bind({});
 Primary.args = {
-  rating: 4,
+  rating: '4',
   title: "Product title can span multiple lines",
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.",
   price: 34,
+  slides: SlidesArray,
   options: [
     {
       title: 'Option one',

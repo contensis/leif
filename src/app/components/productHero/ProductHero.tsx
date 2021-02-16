@@ -11,9 +11,9 @@ import BackButton from '../backButton/BackButton';
 import SocialShare from '../socialShare/SocialShare';
 import Icon from '../icon/Icon'
 import FocusLock from 'react-focus-lock';
-import { isClient } from '~/utils/isClient';
+import { isClient } from '../../utils/isClient';
 
-interface Props {
+export interface Props {
   className?: string;
   slides: any[] | any;
   rating?: string;

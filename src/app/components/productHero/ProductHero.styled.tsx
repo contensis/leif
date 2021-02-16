@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-// import shape from './assets/product-hero-shape.svg';
 interface Props {
   theme: any;
   isModalOpen: boolean;
