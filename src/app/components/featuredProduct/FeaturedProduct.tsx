@@ -10,7 +10,7 @@ interface LinkObject {
   label: string;}
 interface ProductInformation {
   price: number;
-  Sku: string;
+  Sku?: string;
 }
 
 interface ProductObject {
@@ -24,7 +24,7 @@ interface ProductObject {
   rating?: string;
 }
 
-interface Props {
+export interface Props {
   className?: string;
   title: string;
   text: string;

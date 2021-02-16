@@ -6,7 +6,7 @@ import Explore, { Props } from './Explore';
 export default {
   title: 'Content/Components/Explore',
   component: Explore,
-};
+} as Meta;
 
 const Template: Story<Props> = args => {
   return <Explore {...args} />;
