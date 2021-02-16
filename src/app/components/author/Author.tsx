@@ -5,7 +5,7 @@ import AuthorStyled from './Author.styled';
 export interface PersonObject {
   name: string;
   photo: {
-    altText: string;
+    altText?: string;
     asset: {
       sys: {
         uri: string;
@@ -13,13 +13,12 @@ export interface PersonObject {
     };
   };
 }
-
 interface Props {
   className?: string;
   person: PersonObject;
 }
 
-export const Author = ({ className, person }: Props) => {
+const Author = ({ className, person }: Props) => {
   if (!person) return null;
   const photo = person.photo;
 
@@ -36,3 +35,5 @@ export const Author = ({ className, person }: Props) => {
     </AuthorStyled>
   );
 };
+
+export default Author;

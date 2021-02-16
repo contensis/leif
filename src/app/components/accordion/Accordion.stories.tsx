@@ -8,16 +8,17 @@ export default {
   component: Accordion,
 } as Meta;
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = args => {
   return <Accordion {...args} />;
 };
 
 const items = [];
 const item = {
   title: 'Accordion title',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing vitae aliquam volutpat nibh duis enim mi nibh.t tortor.'
-}
-for (let i = 0; items.length < 4; i++){
+  text:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing vitae aliquam volutpat nibh duis enim mi nibh.t tortor.',
+};
+for (let i = 0; items.length < 4; i++) {
   items.push(item);
 }
 

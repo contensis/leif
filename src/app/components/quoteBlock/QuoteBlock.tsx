@@ -1,5 +1,5 @@
 import React from 'react';
-import { Author, PersonObject } from '../author/Author';
+import Author,  { PersonObject } from '../author/Author';
 import Rating from '../rating/Rating';
 
 import QuoteBlockStyled from './QuoteBlock.styled';
