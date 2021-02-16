@@ -2,7 +2,7 @@ import React from 'react';
 
 import LinkButtonStyled from './LinkButton.styled';
 import Icon from '../icon/Icon';
-interface Props {
+export interface Props {
   className?: string;
   type?: string;
   isHollow?: boolean;

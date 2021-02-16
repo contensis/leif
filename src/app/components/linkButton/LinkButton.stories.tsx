@@ -1,6 +1,7 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import LinkButton from './LinkButton';
+import LinkButton, { Props } from './LinkButton';
 
 export default {
   title: 'Global/Components/LinkButton',
@@ -10,16 +11,16 @@ export default {
       control: {
         type: 'select',
         options: [
-          'primary', 
-          'secondary', 
+          'primary',
+          'secondary',
           'white'
         ],
       },
     },
   },
-}
+} as Meta;
 
-const Template = ({ type, ...args }) => {
+const Template: Story<Props> = ({ type, ...args }) => {
   return <LinkButton type={type} {...args} />;
 };
 
