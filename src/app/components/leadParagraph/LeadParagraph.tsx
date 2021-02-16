@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LeadParagraphStyled from './LeadParagraph.styled';
-interface Props {
+export interface Props {
   className?: string;
   text: string;
 }
