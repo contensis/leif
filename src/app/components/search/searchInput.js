@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 const SearchInput = ({
   searchTerm,

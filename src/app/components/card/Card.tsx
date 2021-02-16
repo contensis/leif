@@ -1,10 +1,10 @@
 import React from 'react';
 
 import CardStyled from './Card.styled';
-import Icon from '~/components/icon/Icon';
-import Rating from '~/components/rating/Rating';
+import Icon from '../icon/Icon';
+import Rating from '../rating/Rating';
 import dateWithSuffix from '~/utils/dateWithSuffix';
-import Image, { ImageObject } from '~/components/image/Image'
+import Image, { ImageObject } from '../image/Image'
 interface Props {
   className?: string;
   type: string;

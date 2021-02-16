@@ -1,9 +1,9 @@
 import React from 'react';
-import TextBlock from '~/components/textBlock/TextBlock';
-import ImageBlock from '~/components/imageBlock/ImageBlock';
-import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
-import FeaturedProduct from '~/components/featuredProduct/FeaturedProduct';
-import VideoPlayer from '~/components/videoPlayer/VideoPlayer';
+import TextBlock from '../textBlock/TextBlock';
+import ImageBlock from '../imageBlock/ImageBlock';
+import QuoteBlock from '../quoteBlock/QuoteBlock';
+import FeaturedProduct from '../featuredProduct/FeaturedProduct';
+import VideoPlayer from '../videoPlayer/VideoPlayer';
 
 interface Props {
   fields: any | any[];

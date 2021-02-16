@@ -29,7 +29,6 @@ const Link = ({
   uri = encodeURI(uri);
 
   const _handleClick = (e:any) => {
-    e.preventDefault();
     if (onClick) {
       onClick(e)
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import BlogHeroStyled from './GenericHero.styled';
-import BackButton from '~/components/backButton/BackButton';
-import Image from '~/components/image/Image';
+import BackButton from '../backButton/BackButton';
+import Image from '../image/Image';
 interface Props {
   className?: string;
   title: string;

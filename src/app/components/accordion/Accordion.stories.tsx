@@ -1,12 +1,14 @@
 import React from 'react';
 
-import Accordion from './Accordion';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import Accordion, { Props } from './Accordion';
 
 export default {
   title: 'Content/Components/Accordion',
   component: Accordion,
-};
-const Template = (args) => {
+} as Meta;
+
+const Template: Story<Props> = (args) => {
   return <Accordion {...args} />;
 };
 

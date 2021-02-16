@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import ProductHeroStyled from './ProductHero.styled';
 
-import SlickSlider from '~/components/slickSlider/SlickSlider';
-import LinkButton from '~/components/linkButton/LinkButton';
-import Rating from '~/components/rating/Rating';
-import Input from '~/components/input/Input';
-import InputControl from '~/components/inputControl/InputControl';
-import BackButton from '~/components/backButton/BackButton';
-import SocialShare from '~/components/socialShare/SocialShare';
-import Icon from '~/components/icon/Icon'
+import SlickSlider from '../slickSlider/SlickSlider';
+import LinkButton from '../linkButton/LinkButton';
+import Rating from '../rating/Rating';
+import Input from '../input/Input';
+import InputControl from '../inputControl/InputControl';
+import BackButton from '../backButton/BackButton';
+import SocialShare from '../socialShare/SocialShare';
+import Icon from '../icon/Icon'
 import FocusLock from 'react-focus-lock';
 import { isClient } from '~/utils/isClient';
 

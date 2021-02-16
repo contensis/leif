@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import SlideStyled from './Slide.styled';
-import Image, { ImageObject } from '~/components/image/Image';
+import Image, { ImageObject } from '../image/Image';
 interface Props {
   className?: string;
   image: ImageObject;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '~/components/card/Card';
+import Card from '../card/Card';
 import ExploreStyled from './Explore.styled';
 
 interface Props {

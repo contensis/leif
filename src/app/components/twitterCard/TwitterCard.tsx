@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 import TwitterCardStyled from './TwitterCard.styled';
-import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 import CustomizeTwitterWidget from '../../utils/customTwitterWidget';
 import Icon from '../icon/Icon';

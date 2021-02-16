@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from '~/components/header/Header';
-import Footer from '~/components/footer/Footer';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
-import BlogHero from '~/components/genericHero/GenericHero';
-import BlogInformation from '~/components/blogInformation/BlogInformation';
-import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-import Composer from '~/components/composer/composer';
-import CTABanner from '~/components/ctaBanner/CTABanner';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
+import BlogHero from '../../components/genericHero/GenericHero';
+import BlogInformation from '../../components/blogInformation/BlogInformation';
+import LeadParagraph from '../../components/leadParagraph/LeadParagraph';
+import Composer from '../../components/composer/composer';
+import CTABanner from '../../components/ctaBanner/CTABanner';
+import RelatedContent from '../../components/relatedContent/RelatedContent';
 import BlogPostStyled from './blogPost.page.styled';
 import TwitterCard from '../../components/twitterCard/TwitterCard';
 

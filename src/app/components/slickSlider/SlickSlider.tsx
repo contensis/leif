@@ -5,8 +5,8 @@ import Helmet from 'react-helmet';
 import Slider from 'react-slick';
 
 import SlickSliderStyled from './SlickSlider.styled';
-import Slide from '~/components/slickSlide/Slide';
-import SlickArrow from '~/components/slickArrow/SlickArrow';
+import Slide from '../slickSlide/Slide';
+import SlickArrow from '../slickArrow/SlickArrow';
 
 interface Props {
   className?: string;

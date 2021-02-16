@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from '~/components/link/Link';
+import Link from '../../components/link/Link';
 
 const Homepage = ({ entry }) => (
   <>
     <h1>Hello world {entry && entry.entryTitle}</h1>
-    <Link path="/zenInfo">ZenInfo</Link>
+    <Link uri="/zenInfo">ZenInfo</Link>
   </>
 );
 

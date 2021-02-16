@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import AccordionStyled from './Accordion.styled';
-import AccordionItem from '~/components/accordionItem/AccordionItem';
+import AccordionItem from '../accordionItem/AccordionItem';
 
-interface Props {
+export interface Props {
   className?: string;
   items: any;
   title?: string;

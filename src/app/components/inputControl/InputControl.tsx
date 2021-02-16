@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icon from '~/components/icon/Icon';
+import Icon from '../icon/Icon';
 import InputControlStyled from './InputControl.styled';
 
 interface Props {
