@@ -1,6 +1,7 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Callout from './Callout';
+import Callout, { Props } from './Callout';
 
 export default {
   title: 'Content/Components/Callout',
@@ -13,9 +14,9 @@ export default {
       },
     },
   },
-};
+} as Meta;
 
-const Template = ({ type, ...args }) => {
+const Template: Story<Props> = ({ type, ...args }) => {
   return <Callout {...args} type={type} />;
 };
 
