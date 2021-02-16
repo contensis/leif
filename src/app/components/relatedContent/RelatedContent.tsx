@@ -3,7 +3,7 @@ import Card from '../card/Card';
 
 import RelatedContentStyled from './RelatedContent.styled';
 import LinkButton from '../linkButton/LinkButton';
-import { ImageObject } from '../image/Image'
+import { ImageObject } from '../image/Image';
 
 interface LinkObject {
   type: string;
@@ -15,15 +15,15 @@ interface MappedResObject {
   sys: {
     contentTypeId: string;
     version: {
-      published: string
-    }
-  },
+      published: string;
+    };
+  };
   entryTitle: string;
   entryDescription: string;
   thumbnailImage: ImageObject;
   readTime?: string;
 }
-interface Props {
+export interface Props {
   className?: string;
   title?: string;
   results: any[] | any;

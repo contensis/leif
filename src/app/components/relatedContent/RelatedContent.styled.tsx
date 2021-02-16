@@ -29,12 +29,13 @@ const RelatedContentStyled = styled.div`
       }
       .related-content__card {
         padding: 8px;
-        width: 30%;
+        max-width: 368px;
+        width: 100%;
         &:not(:last-child) {
           margin-bottom: 40px;
         }
         @media ${theme.mq.laptop} {
-        padding: 16px
+          padding: 16px
           margin: 16px;
           &:not(:last-child) {
             margin: 16px;
