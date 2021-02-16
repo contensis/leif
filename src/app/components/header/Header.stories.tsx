@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react/types-6-0';
 
 import Header from './Header';
 
@@ -8,6 +8,6 @@ export default {
   component: Header,
 } as Meta;
 
-const Template: Story = () => <Header />;
+const Template = () => <Header />;
 
 export const Primary = Template.bind({});
