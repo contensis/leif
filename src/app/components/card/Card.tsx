@@ -3,9 +3,9 @@ import React from 'react';
 import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
-import dateWithSuffix from '~/utils/dateWithSuffix';
+import dateWithSuffix from '../../utils/dateWithSuffix';
 import Image, { ImageObject } from '../image/Image'
-interface Props {
+export interface Props {
   className?: string;
   type: string;
   title: string;

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import cropImage from '../..//utils/cropImage';
+import cropImage from '../../utils/cropImage';
 import ImageStyled from './Image.styled';
 export interface ImageObject {
-  altText: string;
-  caption: string;
+  altText?: string;
+  caption?: string;
   asset: {
-    entryTitle: string;
-    altText: string;
+    entryTitle?: string;
+    altText?: string;
     sys: {
       uri: string;
     }
