@@ -2,7 +2,7 @@ import React from 'react';
 
 import VideoPlayerStyled from './VideoPlayer.styled';
 import YoutubeEmbed from '../youtubeEmbed/YoutubeEmbed';
-interface Props {
+export interface Props {
   className?: string;
   title: string;
   type: string;

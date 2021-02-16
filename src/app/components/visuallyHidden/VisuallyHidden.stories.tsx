@@ -1,13 +1,14 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import VisuallyHidden from './VisuallyHidden';
+import VisuallyHidden, { Props } from './VisuallyHidden';
 
 export default {
   title: 'Global/Components/VisuallyHidden',
   component: VisuallyHidden,
-}
+} as Meta
 
-const Template = args => {
+const Template: Story<Props> = args => {
   return (
     <>
       <button>

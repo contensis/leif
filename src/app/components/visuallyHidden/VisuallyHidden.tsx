@@ -2,7 +2,7 @@ import React from 'react';
 
 import VisuallyHiddenStyled from './VisuallyHidden.styled';
 
-interface Props {
+export interface Props {
   text?: string;
   children?: any;
 }

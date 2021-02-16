@@ -7,7 +7,7 @@ import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import CustomizeTwitterWidget from '../../utils/customTwitterWidget';
 import Icon from '../icon/Icon';
 
-interface Props {
+export interface Props {
   twitterHandle: string,
 }
 
