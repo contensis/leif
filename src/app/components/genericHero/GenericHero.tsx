@@ -3,7 +3,7 @@ import React from 'react';
 import BlogHeroStyled from './GenericHero.styled';
 import BackButton from '../backButton/BackButton';
 import Image from '../image/Image';
-interface Props {
+export interface Props {
   className?: string;
   title: string;
   image?: any;
