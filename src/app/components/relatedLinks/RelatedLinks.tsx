@@ -2,7 +2,7 @@ import React from 'react';
 import RelatedLinksStyled from './RelatedLinks.styled';
 import Image from '../image/Image';
 
-interface Props {
+export interface Props {
   className?: string;
   title?: string;
   links: any[];

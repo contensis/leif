@@ -15,6 +15,7 @@ const RelatedLinksStyled = styled.div`
       object-fit: cover;
     }
     .related-links__link {
+      color: ${theme?.colors?.secondary};
       display: flex;
       align-items: flex-start;
       text-decoration: none;
@@ -23,7 +24,6 @@ const RelatedLinksStyled = styled.div`
       }
     }
     .related-links__link-title {
-      color: ${theme?.colors?.secondary};
       font-family: ${theme?.typeStyles?.fontFamily?.headings};
       ${theme?.typeStyles?.h5};
       display: block;
