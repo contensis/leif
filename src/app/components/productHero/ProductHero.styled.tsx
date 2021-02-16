@@ -29,9 +29,29 @@ const ProductHeroStyled = styled.div`
     }
     .product-hero__slider-wrapper {
       position: relative;
+      &:before {
+        content: '';
+        background-image: url('/static/img/svgs/product-hero-shape.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -40px;
+        right: -30%;
+        height: 80px;
+        max-width: 220px;
+        width: 100%;
+        z-index: 1;
+      }
+      @media ${theme.mq.tablet} {
+        &:before {
+          right: 0;
+        }
+      }
       @media ${theme.mq.desktop} {
         max-width: 50%;
         width: 100%;
+        &:before {
+          right: 70px;
+        }
       }
     }
     .product-hero__slider-fullsize {
