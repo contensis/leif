@@ -1,20 +1,28 @@
 import styled, { css } from 'styled-components';
 
+interface Props {
+  theme?: any;
+  align?: string;
+}
+
 const ImageBlockStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, align }: Props) => {
     return css`
-      text-align: center;
+      text-align: ${align};
       overflow: hidden;
+      max-width: 840px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 0 0 0;
+      @media ${theme.mq.tablet} {
+        padding: 32px 32px 0 0;
+      }
       .image-block__wrapper {
-        max-width: 840px;
-        width: 100%;
-        margin: 0 auto;
         position: relative;
-        padding: 32px 0 0 0;
         &:before {
           content: '';
           position: absolute;
-          top: 0;
+          top: -32px;
           right: -50%;
           width: 100%;
           height: 100%;
@@ -22,9 +30,8 @@ const ImageBlockStyled = styled.div`
           background-repeat: no-repeat;
         }
         @media ${theme.mq.tablet} {
-          padding: 32px 32px 0 0;
           &:before {
-            right: 0;
+            right: -32px;
             background-position: top right;
           }
         }

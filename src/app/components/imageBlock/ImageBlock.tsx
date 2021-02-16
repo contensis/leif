@@ -8,12 +8,13 @@ export interface Props {
   image: ImageObject;
   title?: string;
   text?: string;
+  align?: string;
 }
 
-const ImageBlock = ({ className, image, title, text }:Props) => {
+const ImageBlock = ({ className, image, title, text, align = "center" }:Props) => {
   if (!image) return null;
   return (
-    <ImageBlockStyled className={className}>
+    <ImageBlockStyled className={className} align={align}>
       <div className="image-block__wrapper">
         <Image
           className="image-block__image"
