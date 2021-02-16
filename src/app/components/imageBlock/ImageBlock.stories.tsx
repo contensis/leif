@@ -1,13 +1,14 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import ImageBlock from './ImageBlock';
+import ImageBlock, { Props } from './ImageBlock';
 
 export default {
   title: 'Global/Components/ImageBlock',
   component: ImageBlock,
-}
+} as Meta;
 
-const Template = args => <ImageBlock {...args} />;
+const Template: Story<Props> = args => <ImageBlock {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

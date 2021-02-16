@@ -3,7 +3,7 @@ import React from 'react';
 import ImageBlockStyled from './ImageBlock.styled';
 import Image, { ImageObject } from '../image/Image';
 
-interface Props {
+export interface Props {
   className?: string;
   image: ImageObject;
   title?: string;

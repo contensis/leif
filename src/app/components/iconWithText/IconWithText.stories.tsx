@@ -6,19 +6,19 @@ import IconWithText, { Props } from './IconWithText';
 export default {
   title: 'Product/Components/IconWithText',
   component: IconWithText,
-    argTypes: {
+  argTypes: {
     icon: {
       control: {
         type: 'select',
         options: [
-          'cloudy', 
-          'wateringCan', 
+          'cloudy',
+          'wateringCan',
           'humidity'
         ],
       },
     },
   },
-}
+} as Meta;
 
 const Template: Story<Props> = ({icon, ...args}) => {
   return <IconWithText icon={icon} {...args} />;
