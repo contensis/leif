@@ -1,7 +1,7 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import IconWithText from './IconWithText';
+import IconWithText, { Props } from './IconWithText';
 
 export default {
   title: 'Product/Components/IconWithText',
@@ -20,7 +20,7 @@ export default {
   },
 }
 
-const Template = ({icon, ...args}) => {
+const Template: Story<Props> = ({icon, ...args}) => {
   return <IconWithText icon={icon} {...args} />;
 };
 

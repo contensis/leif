@@ -3,7 +3,7 @@ import Icon from '../icon/Icon';
 
 import IconWithTextStyled from './IconWithText.styled';
 
-interface Props {
+export interface Props {
   icon: string;
   title: string;
   text?: string;
