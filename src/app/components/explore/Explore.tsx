@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../card/Card';
 import ExploreStyled from './Explore.styled';
 
-interface Props {
+export interface Props {
   className?: string;
   title?: string;
   results: any;
