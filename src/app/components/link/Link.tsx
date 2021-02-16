@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as PageLink } from 'react-router-dom';
-interface Props {
+export interface Props {
   className: string;
   children: any;
   download?: any;
