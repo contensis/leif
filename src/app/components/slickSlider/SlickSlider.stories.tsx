@@ -1,11 +1,16 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import SlickSlider from './SlickSlider';
+import SlickSlider, { Props } from './SlickSlider';
 
 export default {
   title: 'Global/Components/SlickSlider',
   component: SlickSlider,
-}
+} as Meta;
+
+const Template: Story<Props> = args => {
+  return <SlickSlider {...args} />;
+};
 
 const SlidesArray = [];
 
@@ -18,30 +23,25 @@ const ImageDictionary = [
   'UcfKYTan-LU',
   'GQD3Av_9A88',
   '5sF6NrB1MEg',
-  'hDyO6rr3kqk'
-]
+  'hDyO6rr3kqk',
+];
 
-const MakeSlide = (i) => {
+const MakeSlide = (i: number) => {
   return {
     asset: {
       altText: 'Plant',
       sys: {
-        uri: `https://source.unsplash.com/${ImageDictionary[i]}`
-      }
-    }
-  }
-}
+        uri: `https://source.unsplash.com/${ImageDictionary[i]}`,
+      },
+    },
+  };
+};
 
 for (let i = 0; SlidesArray.length < 8; i++) {
   SlidesArray.push(MakeSlide(i));
 }
 
-const Template = () => {
-  return (
-    <SlickSlider
-      slides={SlidesArray}
-    />
-  );
-};
-
 export const Primary = Template.bind({});
+Primary.args = {
+  slides: SlidesArray,
+};

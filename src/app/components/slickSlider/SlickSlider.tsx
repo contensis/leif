@@ -8,7 +8,7 @@ import SlickSliderStyled from './SlickSlider.styled';
 import Slide from '../slickSlide/Slide';
 import SlickArrow from '../slickArrow/SlickArrow';
 
-interface Props {
+export interface Props {
   className?: string;
   slides: any[] | any;
   hasNav?: boolean;
