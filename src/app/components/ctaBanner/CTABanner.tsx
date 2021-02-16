@@ -7,18 +7,18 @@ import Image, { ImageObject } from '../image/Image';
 interface CTAObject {
   label: string;
   uri: string;
-  type: string,
+  type: string;
 }
 
-interface Props {
+export interface Props {
   className?: string;
   image: ImageObject;
   title: string;
   text: string;
-  cta: CTAObject;
+  cta?: CTAObject;
 }
 
-const CTABanner = ({className, image, title, text, cta }: Props) => {
+const CTABanner = ({ className, image, title, text, cta }: Props) => {
   return (
     <CTABannerStyled className={className}>
       <Image className="cta-banner__image" image={image} />

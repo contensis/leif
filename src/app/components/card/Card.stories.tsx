@@ -6,7 +6,7 @@ import Card, { Props } from './Card';
 export default {
   title: 'Global/Components/Card',
   component: Card,
-};
+} as Meta;
 const Template: Story<Props> = args => <Card {...args} />;
 
 const dataObject = {
