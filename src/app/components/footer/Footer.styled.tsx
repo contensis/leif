@@ -54,7 +54,7 @@ const FooterStyled = styled.div`
         &:hover {
           svg path {
             transition: opacity 100ms ease-in-out;
-            opacity: 50%;
+            opacity: 0.8;
           }
         }
       }

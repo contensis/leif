@@ -4,7 +4,6 @@ import FooterStyled from './Footer.styled';
 import Icon from '../icon/Icon';
 import FooterColumn from '../footerColumn/FooterColumn';
 
-import logo from '~/assets/logo-dark.png';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 interface DataObject {
@@ -12,7 +11,7 @@ interface DataObject {
   links: Object[];
 }
 
-interface Props {
+export interface Props {
   className?: string;
   data: any[] | any;
 }
@@ -23,7 +22,7 @@ const Footer = ({ className, data }: Props) => {
     <FooterStyled className={className}>
       <div className="footer__left-column">
         <a href="/" title="Home">
-          <img className="footer__logo" src={logo} alt="Leif" />
+          <img className="footer__logo" src='/static/img/logos/logo-dark.png' alt="Leif" />
           <VisuallyHidden text="Home" />
         </a>
         <div className="footer__icons-wrapper">
