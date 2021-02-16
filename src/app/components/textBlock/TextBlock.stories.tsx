@@ -1,13 +1,14 @@
 import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import TextBlock from './TextBlock';
+import TextBlock, { Props } from './TextBlock';
 
 export default {
   title: 'Global/Components/TextBlock',
   component: TextBlock,
-};
+} as Meta;
 
-const Template = args => <TextBlock {...args} />;
+const Template: Story<Props> = args => <TextBlock {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   text: `

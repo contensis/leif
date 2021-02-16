@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TextBlockStyled from './TextBlock.styled';
-interface Props {
+export interface Props {
   className?: string;
   text: string;
 }
