@@ -27,7 +27,7 @@
     "prebuild:storybook": "yarn run test:generate-output",
     "storybook": "start-storybook -s ./dist -p 6006",
     "storybook-ci": "start-storybook --ci -p 6006",
-    "storybook-static": "build-storybook -c .storybook -o .out",
+    "storybook-static": "build-storybook -s ./dist -c .storybook -o .out",
     "build-storybook": "build-storybook",
     "tsc": "tsc",
     "build:tsc": "yarn run tsc"
