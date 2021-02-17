@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # When we auto increment the version, we should remove that as part of the copy to ensure the cache is maintained. i.e strip the version number before copying the file.
 COPY package.json .
 # COPY package-lock.json .
-RUN npm install
+RUN yarn
 COPY .storybook /usr/src/app/.storybook
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
@@ -22,4 +22,5 @@ COPY .prettierignore .
 COPY .prettierrc .
 COPY .stylelintrc .
 
-RUN npm run storybook-static
+RUN yarn run build 
+RUN yarn run storybook-static
