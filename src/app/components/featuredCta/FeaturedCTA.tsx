@@ -11,6 +11,7 @@ export interface Props {
   text: string;
   cta: LinkButtonProps;
   align?: 'right' | 'left';
+  hasSVG?: true | false;
 }
 
 const FeaturedCTA = ({
@@ -19,12 +20,14 @@ const FeaturedCTA = ({
   title,
   text,
   cta,
-  align = "left",
+  align = 'left',
+  hasSVG = false
 }: Props) => {
   return (
-    <FeaturedCTAStyled className={className} align={align}>
+    <FeaturedCTAStyled className={className} align={align} hasSVG={hasSVG}>
       <Image image={image} className="featured-cta__image" />
-        <div className="featured-cta__content">
+      <div className="featured-cta__content">
+        <div className="featured-cta__wrapper">
           <h3 className="featured-cta__title">{title}</h3>
           <div
             className="featured-cta__text"
@@ -32,6 +35,7 @@ const FeaturedCTA = ({
           />
           <LinkButton {...cta} className="featured-cta__link" hasArrow />
         </div>
+      </div>
     </FeaturedCTAStyled>
   );
 };
