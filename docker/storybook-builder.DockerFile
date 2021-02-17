@@ -15,12 +15,15 @@ COPY public /usr/src/app/public
 COPY src /usr/src/app/src
 COPY webpack /usr/src/app/webpack
 COPY babel.config.js .
-COPY .env .
+COPY .env* ./
 COPY .eslintignore .
+COPY .eslintrc.js .
 COPY .nvmrc .
 COPY .prettierignore .
 COPY .prettierrc .
 COPY .stylelintrc .
+COPY tsconfig.json .
+COPY jsconfig.json .
 
 RUN yarn run build 
 RUN yarn run storybook-static
