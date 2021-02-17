@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 interface Props {
-  theme: any,
-  type: string,
+  theme: any;
+  type: string;
+  hasText: boolean;
 }
 
 const CardStyled = styled.a`
-  ${({ theme, type }: Props) => {
+  ${({ theme, type, hasText }: Props) => {
     return css`
       display: block;
       text-decoration: none;
@@ -129,6 +130,26 @@ const CardStyled = styled.a`
             max-width: 290px;
             width: 100%;
           }
+        `}
+        ${type === 'content' && css`
+          display: flex;
+          flex-direction: column;
+          max-width: 288px;
+          width: 100%;
+          padding: 16px 16px 24px;
+          .card__title {
+            margin: 0 0 24px 0;
+          }
+          .card__thumbnail {
+            height: 256px
+          }
+          ${!hasText && css`
+            flex-direction: column-reverse; 
+            padding: 24px 16px;
+            .card__title {
+              margin: 24px 0 0 0;
+            }
+          `}
         `}
     `;
   }};

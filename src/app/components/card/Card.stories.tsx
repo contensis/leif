@@ -34,11 +34,20 @@ BlogCard.args = {
   readTime: dataObject.readTime,
 };
 
-export const Product = Template.bind({});
-Product.args = {
+export const ProductCard = Template.bind({});
+ProductCard.args = {
   type: 'plant',
   title: dataObject.title,
   image: dataObject.image,
   price: 32,
   rating: '4',
+};
+
+
+export const ContentCard = Template.bind({});
+ContentCard.args = {
+  type: 'content',
+  title: dataObject.title,
+  text: dataObject.text,
+  image: dataObject.image,
 };

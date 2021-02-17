@@ -32,7 +32,7 @@ const Card = ({
     switch (type) {
       case 'blogPost':
         return (
-          <CardStyled className={className} type={type} href="#" title={title}>
+          <>
             <h3 className="card__title">{title}</h3>
             <img
               className="card__thumbnail"
@@ -46,12 +46,12 @@ const Card = ({
                 <span className="card__readtime">{readTime} min read</span>
               )}
             </div>
-          </CardStyled>
+          </>
         );
       case 'plant':
       case 'pot':
         return (
-          <CardStyled className={className} type={type} href="#" title={title}>
+          <>
             <div className="card__thumbnail-wrapper">
               <img
                 className="card__thumbnail"
@@ -65,23 +65,42 @@ const Card = ({
               {price && <span className="card__price">£{price}</span>}
               <Rating className="card__rating" rating={rating} />
             </div>
-          </CardStyled>
+          </>
         );
       case 'explore': {
         return (
-          <CardStyled className={className} type={type} href="#" title={title}>
+          <>
             <Image
               className="card__thumbnail"
               image={image} />
             {title && <h4 className="card__title">{title}</h4>}
-          </CardStyled>
+          </>
+        )
+      }
+      case 'content': {
+        return (
+          <>
+            <h4 className="card__title">{title}</h4>
+            <Image
+              className="card__thumbnail"
+              image={image} />
+            {text && <p className="card__text">{text}</p>}
+          </>
         )
       }
       default:
         break;
     }
   }
-  return <>{CardData(type)}</>
+  return (
+    <CardStyled
+      className={className}
+      type={type} href="#"
+      title={title}
+      hasText={text ? true : false}>
+      {CardData(type)}
+    </CardStyled>
+  )
 };
 
 export default Card;
