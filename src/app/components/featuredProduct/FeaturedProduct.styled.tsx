@@ -79,6 +79,11 @@ const FeaturedProductStyled = styled.div`
       }
       .featured-product__card {
         margin-top: 24px;
+        &:hover {
+          .card__title {
+            text-decoration: underline;
+          }
+        }
         @media ${theme.mq.laptop} {
           margin: 0;
         }

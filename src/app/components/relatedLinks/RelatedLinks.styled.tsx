@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components';
 const RelatedLinksStyled = styled.div`
   ${({ theme }) => {
   return css`
+    ul li {
+      &:before {
+        display: none;
+      }
+    }
     .related-links__title {
       ${theme.typeStyles?.h4}
       margin-bottom: 40px;
