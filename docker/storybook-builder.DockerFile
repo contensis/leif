@@ -25,5 +25,4 @@ COPY .stylelintrc .
 COPY tsconfig.json .
 COPY jsconfig.json .
 
-RUN yarn run build 
 RUN yarn run storybook-static
