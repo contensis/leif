@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
 import Slider from 'react-slick';
 
 import SlickSliderStyled from './SlickSlider.styled';
-import Slide from '../slickSlide/Slide';
 import SlickArrow from '../slickArrow/SlickArrow';
+
+import Slide from '../slickSlide/Slide';
+import TestimonialCard from '../testimonialCard/TestimonialCard';
 
 export interface Props {
   className?: string;
@@ -15,6 +16,8 @@ export interface Props {
   hasScrollImage?: boolean;
   swipeToSlide?: boolean;
   draggable?: boolean;
+  type?: 'default' | 'testimonial';
+  afterChangeFunc?: (currentSlide:number) => void;
 }
 
 const SlickSlider = ({
@@ -24,8 +27,10 @@ const SlickSlider = ({
   hasScrollImage,
   swipeToSlide = true,
   draggable = true,
+  type = 'default',
+  afterChangeFunc,
 }: Props) => {
-  if (!slides) return null;
+  if (!slides || slides.length < 1) return null;
 
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
@@ -33,6 +38,7 @@ const SlickSlider = ({
   const [slider2, setSlider2] = useState<any>(null);
 
   const settings = {
+    afterChange: afterChangeFunc,
     dots: false,
     infinite: true,
     speed: 500,
@@ -111,14 +117,29 @@ const SlickSlider = ({
           className="slider-for"
         >
           {slides.map((slide: any, idx: number) => {
-            return (
-              <Slide
-                key={idx}
-                image={slide}
-                hasScrollImage={hasScrollImage}
-                className="slick__main-slide"
-              />
-            );
+            switch (type) {
+              case 'testimonial': {
+                return (
+                  <TestimonialCard
+                    key={idx}
+                    className="slick__testimonial-slide"
+                    {...slide}
+                  />
+                );
+              }
+              case 'default': {
+                return (
+                  <Slide
+                    key={idx}
+                    image={slide}
+                    hasScrollImage={hasScrollImage}
+                    className="slick__main-slide"
+                  />
+                );
+              }
+              default:
+                break;
+            }
           })}
         </Slider>
         {hasNav && (
@@ -142,10 +163,6 @@ const SlickSlider = ({
       </SlickSliderStyled>
     </>
   );
-};
-
-SlickSlider.propTypes = {
-  slides: PropTypes.array,
 };
 
 export default SlickSlider;

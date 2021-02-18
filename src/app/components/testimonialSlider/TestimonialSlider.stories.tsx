@@ -1,14 +1,14 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 
-import TestimonialSlider from './TestimonialSlider';
+import TestimonialSlider, { Props } from './TestimonialSlider';
 
 export default {
   title: 'Landing/Components/TestimonialSlider',
   component: TestimonialSlider,
 } as Meta;
 
-const Template = args => {
+const Template: Story<Props> = args => {
   return <TestimonialSlider {...args} />;
 };
 
@@ -32,7 +32,8 @@ for (let i = 0; testimonials.length < 3; i++) {
   testimonials.push(testimonial);
 }
 
-export const Primary = Template.bind({
+export const Primary = Template.bind({});
+Primary.args = {
   testimonials: testimonials,
   bgImage: 'https://source.unsplash.com/c4Ccpa8sMlI',
-});
+};

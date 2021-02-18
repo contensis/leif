@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AuthorStyled from './Author.styled';
-
+import Image from '../image/Image';
 export interface PersonObject {
   name: string;
   photo: {
@@ -24,11 +24,7 @@ const Author = ({ className, person }: Props) => {
 
   return (
     <AuthorStyled className={className}>
-      <img
-        className="author__photo"
-        src={photo.asset.sys.uri}
-        alt={photo.altText}
-      />
+      <Image image={photo} className="author__photo" />
       <span className="author__person">
         By {person.name}
       </span>

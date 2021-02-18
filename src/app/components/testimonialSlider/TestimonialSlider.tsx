@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import SlickSlider from '../slickSlider/SlickSlider';
 import TestimonialSliderStyled from './TestimonialSlider.styled';
 
-interface Props {
+export interface Props {
   className?: string;
   testimonials: any;
   bgImage?: string;
@@ -10,9 +11,24 @@ interface Props {
 
 const TestimonialSlider = ({ className, testimonials, bgImage }: Props) => {
   if (!testimonials || testimonials.length < 1) return null;
+
+  const [currentSlide, setCurrentSlide] = useState<number>(1);
+  const updateCurrentSlide = (currentSlide:number) => {
+    setCurrentSlide(currentSlide + 1);
+  };
+  const maxSlides = testimonials?.length;
+
   return (
     <TestimonialSliderStyled className={className} bgImage={bgImage}>
-      {/* <Slider type="testimonial" slides={testimonials} /> */}
+      <div className="testimonial-slider__wrapper">
+        <SlickSlider
+          type="testimonial"
+          slides={testimonials}
+          className="testimonial-slider__slider"
+          afterChangeFunc={updateCurrentSlide}
+        />
+        <div className="testimonial__pagination">{currentSlide} &#47; {maxSlides}</div>
+      </div>
     </TestimonialSliderStyled>
   );
 };
