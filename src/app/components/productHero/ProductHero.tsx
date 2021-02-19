@@ -162,7 +162,7 @@ const ProductHero = ({
               </div>
             </div>
             <LinkButton
-              hasArrow
+              icon="arrowRight"
               label="Add to pot"
               href="#"
               className="product-hero__btn"

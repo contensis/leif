@@ -4,14 +4,15 @@ import RelatedLinks from '../relatedLinks/RelatedLinks';
 import CardRowStyled from './CardRow.styled';
 
 export interface Props {
+  className?: string;
   results: any;
   relatedLinks: any;
 }
 
-const CardRow = ({ results, relatedLinks }: Props) => {
+const CardRow = ({ className, results, relatedLinks }: Props) => {
   if (!results || results.length < 1) return null;
   return (
-    <CardRowStyled>
+    <CardRowStyled className={className}>
       <div className="card-row__cards">
         {results.map((res: any, idx: number) => {
           return (

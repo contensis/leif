@@ -38,5 +38,5 @@ Primary.args = {
   onClick: dataObject.onClick,
   isHollow: false,
   isDisabled: false,
-  hasArrow: false,
+  icon: 'arrowRight',
 };

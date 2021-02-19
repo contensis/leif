@@ -4,12 +4,12 @@ interface Props {
   theme: any;
   type: string;
   isHollow: boolean;
-  hasArrow: boolean;
+  hasIcon: boolean;
   isDisabled: boolean;
 }
 
 const LinkButtonStyled = styled.a`
-  ${({ theme, type, isHollow, hasArrow, isDisabled }: Props) => {
+  ${({ theme, type, isHollow, hasIcon, isDisabled }: Props) => {
     return css`
       ${theme?.typeStyles?.h5};
       font-family: ${theme?.typeStyles?.fontFamily?.headings};
@@ -96,7 +96,7 @@ const LinkButtonStyled = styled.a`
               cursor: not-allowed;
             }
           `}
-        ${hasArrow &&
+        ${hasIcon &&
           css`
             display: flex;
             justify-content: center;

@@ -7,7 +7,7 @@ export interface Props {
   type?: string;
   isHollow?: boolean;
   isDisabled?: boolean; 
-  hasArrow?: boolean;
+  icon?: any;
   label: string;
   href: string;
   onClick?: (ev:any) => void;
@@ -18,7 +18,7 @@ const LinkButton = ({
   type = 'primary',
   isHollow = false,
   isDisabled = false,
-  hasArrow = false,
+  icon,
   label,
   href,
   onClick,
@@ -38,13 +38,13 @@ const LinkButton = ({
       type={type}
       isHollow={isHollow}
       isDisabled={isDisabled}
-      hasArrow={hasArrow}
+      hasIcon={icon ? true : false}
       title={label}
       href={href}
       onClick={e => _handleClick(e)}
     >
       {label}
-      {hasArrow && <Icon type="arrowRight" className="link-btn__arrow" />}
+      {icon && <Icon type={icon} className="link-btn__arrow" />}
     </LinkButtonStyled>
   );
 };

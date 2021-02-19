@@ -34,14 +34,12 @@ const Card = ({
         return (
           <>
             <h3 className="card__title">{title}</h3>
-            <img
-              className="card__thumbnail"
-              src={image?.asset?.sys?.uri}
-              alt={image?.asset?.altText}
-            />
+            <Image className="card__thumbnail" image={image} />
             {text && <p className="card__text">{text}</p>}
             <div className="card__details">
-              {date && <span className="card__date">{dateWithSuffix(date)}</span>}
+              {date && (
+                <span className="card__date">{dateWithSuffix(date)}</span>
+              )}
               {readTime && (
                 <span className="card__readtime">{readTime} min read</span>
               )}
@@ -53,11 +51,7 @@ const Card = ({
         return (
           <>
             <div className="card__thumbnail-wrapper">
-              <img
-                className="card__thumbnail"
-                src={image?.asset?.sys?.uri}
-                alt={image?.asset?.altText}
-              />
+              <Image className="card__thumbnail"image={image} />
               <Icon type="tag" className="card__tag" />
             </div>
             <div className="card__content">

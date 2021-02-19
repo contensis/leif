@@ -8,6 +8,9 @@ import SlickArrow from '../slickArrow/SlickArrow';
 
 import Slide from '../slickSlide/Slide';
 import TestimonialCard from '../testimonialCard/TestimonialCard';
+import Card from '../card/Card';
+
+import { sizesNoUnit } from '../../theme/global/layout';
 
 export interface Props {
   className?: string;
@@ -16,8 +19,10 @@ export interface Props {
   hasScrollImage?: boolean;
   swipeToSlide?: boolean;
   draggable?: boolean;
-  type?: 'default' | 'testimonial';
-  afterChangeFunc?: (currentSlide:number) => void;
+  type?: 'default' | 'testimonial' | 'card';
+  slidesToShow?: number;
+  responsive?: any;
+  afterChangeFunc?: (currentSlide: number) => void;
 }
 
 const SlickSlider = ({
@@ -29,6 +34,8 @@ const SlickSlider = ({
   draggable = true,
   type = 'default',
   afterChangeFunc,
+  slidesToShow = 1,
+  responsive,
 }: Props) => {
   if (!slides || slides.length < 1) return null;
 
@@ -42,7 +49,7 @@ const SlickSlider = ({
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     accessibility: true,
     adaptiveHeight: false,
@@ -51,6 +58,7 @@ const SlickSlider = ({
     asNavFor: '.slider-nav',
     nextArrow: <SlickArrow type="chevronRight" />,
     prevArrow: <SlickArrow type="chevronLeft" />,
+    responsive: responsive,
   };
 
   const settingsThumbs = {
@@ -67,25 +75,25 @@ const SlickSlider = ({
     asNavFor: '.slider-for',
     responsive: [
       {
-        breakpoint: 320,
+        breakpoint: sizesNoUnit['mobile'],
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 481,
+        breakpoint: sizesNoUnit['tablet'],
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: sizesNoUnit['laptop'],
         settings: {
           slidesToShow: 4,
         },
       },
       {
-        breakpoint: 1700,
+        breakpoint: sizesNoUnit['xlargeDesktop'],
         settings: {
           slidesToShow: 6,
         },
@@ -126,6 +134,9 @@ const SlickSlider = ({
                     {...slide}
                   />
                 );
+              }
+              case 'card': {
+                return <Card className="slick__product-slide" {...slide} />;
               }
               case 'default': {
                 return (

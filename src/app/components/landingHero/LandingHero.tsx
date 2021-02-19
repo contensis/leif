@@ -1,6 +1,8 @@
 import React from 'react';
+
+import HeroContent from '../heroContent/HeroContent';
 import Image, { ImageObject } from '../image/Image';
-import LinkButton, { Props as LinkButtonProps } from '../linkButton/LinkButton';
+import { Props as LinkButtonProps } from '../linkButton/LinkButton';
 
 import LandingHeroStyled from './LandingHero.styled';
 
@@ -26,16 +28,7 @@ const LandingHero = ({
         <div className="image-hero__image-overlay" />
       </div>
       <div className="image-hero__content">
-        <h1 className="image-hero__title">{title}</h1>
-        <p className="image-hero__text">{text}</p>
-        {cta && (
-          <LinkButton
-            className="image-hero__btn"
-            href={cta.href}
-            label={cta.label}
-            hasArrow
-          />
-        )}
+        <HeroContent title={title} text={text} cta={cta} btnIcon='arrowRight' />
       </div>
     </LandingHeroStyled>
   );

@@ -33,7 +33,7 @@ const FeaturedCTA = ({
             className="featured-cta__text"
             dangerouslySetInnerHTML={{ __html: text }}
           />
-          <LinkButton {...cta} className="featured-cta__link" hasArrow />
+          <LinkButton {...cta} className="featured-cta__link" icon="arrowRight" />
         </div>
       </div>
     </FeaturedCTAStyled>
