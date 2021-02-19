@@ -6,9 +6,9 @@ import HeroContentStyled from './HeroContent.styled';
 interface Props {
   className?: string;
   title: string;
-  text: string;
-  cta: any;
-  btnIcon: string;
+  text?: string;
+  cta?: any;
+  btnIcon?: string;
 }
 
 const HeroContent = ({ className, title, text, cta, btnIcon }: Props) => {
