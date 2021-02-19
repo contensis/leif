@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BackButtonStyled from './BackButton.styled';
+import BackButtonStyled from './BackButton.styled'
 import Icon from '../icon/Icon';
 
 interface Props {

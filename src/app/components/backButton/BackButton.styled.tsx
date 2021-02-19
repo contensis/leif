@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const BackButtonStyled = styled.button`
   ${({ theme }) => {
     return css`
-      display: inline-flex;
+      display: flex;
       align-items: center;
       text-decoration: underline;
       background: transparent;
