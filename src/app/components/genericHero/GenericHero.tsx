@@ -7,13 +7,14 @@ export interface Props {
   className?: string;
   title: string;
   image?: any;
+  link?: any;
 }
 
-const BlogHero = ({ className, title, image }: Props) => {
+const BlogHero = ({ className, title, image, link }: Props) => {
   return (
     <BlogHeroStyled className={className}>
       <div>
-        <BackButton className="generic-hero__back" label="Blogs" />
+        {link && <BackButton className="generic-hero__back" label={link.label} />}
         <h1 className="generic-hero__title">{title}</h1>
       </div>
       {image && (

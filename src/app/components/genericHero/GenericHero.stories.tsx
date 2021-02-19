@@ -12,6 +12,10 @@ const Template: Story<Props> = args => <GenericHero {...args} />;
 export const Primary = Template.bind({});
 Primary.args = { 
   title: 'Blog title can span multiple lines of text',
+  link: {
+    label: 'Blogs',
+    href: '#',
+  },
   image: {
     asset: {
       sys: {
