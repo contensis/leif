@@ -3,8 +3,8 @@ import React from 'react';
 import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
-import dateWithSuffix from '../../utils/dateWithSuffix';
 import Image, { ImageObject } from '../image/Image'
+import BlogDetail from '../blogDetail/BlogDetail';
 export interface Props {
   className?: string;
   type: string;
@@ -37,12 +37,7 @@ const Card = ({
             <Image className="card__thumbnail" image={image} />
             {text && <p className="card__text">{text}</p>}
             <div className="card__details">
-              {date && (
-                <span className="card__date">{dateWithSuffix(date)}</span>
-              )}
-              {readTime && (
-                <span className="card__readtime">{readTime} min read</span>
-              )}
+              <BlogDetail date={date} readTime={readTime} />
             </div>
           </>
         );

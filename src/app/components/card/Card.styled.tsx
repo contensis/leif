@@ -47,22 +47,6 @@ const CardStyled = styled.a`
             color: ${theme?.colors?.secondary_light};
             ${theme?.typeStyles?.smallCopy};
           }
-          .card__date {
-            position: relative;
-            padding-right: 8px;
-            margin-right: 8px;
-            &:before {
-              content: '';
-              position: absolute;
-              top: 50%;
-              right: -2px;
-              background-color: ${theme?.colors?.primary_light};
-              border-radius: 50%;
-              transform: translateY(-50%);
-              height: 4px;
-              width: 4px;
-            }
-          }
         `}
       ${(type === 'plant' || type === 'pot') &&
         css`

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as PageLink } from 'react-router-dom';
 export interface Props {
-  className: string;
+  className?: string;
   children: any;
   download?: any;
   onClick?: (ev:any) => void;
-  openInNewWindow: boolean;
+  openInNewWindow?: boolean;
   title: string;
   uri: string;
 }

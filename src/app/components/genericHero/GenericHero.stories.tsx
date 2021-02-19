@@ -12,8 +12,11 @@ const Template: Story<Props> = args => <GenericHero {...args} />;
 export const Primary = Template.bind({});
 Primary.args = { 
   title: 'Blog title can span multiple lines of text',
+  backLink: {
+    label: 'Back'
+  },
   link: {
-    label: 'Blogs',
+    label: 'Read more',
     href: '#',
   },
   image: {
@@ -22,5 +25,9 @@ Primary.args = {
         uri: 'https://source.unsplash.com/XqFEu8J-s0M',
       }
     }
+  },
+  detail: {
+    readTime: 4,
+    date: new Date().toISOString(),
   }
 };
