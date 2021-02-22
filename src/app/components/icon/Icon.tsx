@@ -42,6 +42,7 @@ import Question from '../svgs/Question';
 import Storybook from '../svgs/Storybook';
 import WateringCan from '../svgs/WateringCan';
 import Wheelbarrow from '../svgs/Wheelbarrow';
+import VideoPlay from '../svgs/VideoPlay';
 
 interface Props {
   className?: string;
@@ -128,6 +129,8 @@ const Icon = ({ className, type }: Props, props:any) => {
       return <IconStyled {...rest} className={className} as={WateringCan} />;
     case 'wheelbarrow':
       return <IconStyled {...rest} className={className} as={Wheelbarrow} />;
+    case 'videoPlay':
+      return <IconStyled {...rest} className={className} as={VideoPlay} />;
     case 'chevron':
     case 'chevronDown':
     case 'chevronUp':

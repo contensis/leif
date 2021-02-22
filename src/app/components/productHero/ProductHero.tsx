@@ -10,9 +10,10 @@ import InputControl from '../inputControl/InputControl';
 import BackButton from '../backButton/BackButton';
 import SocialShare from '../socialShare/SocialShare';
 import Icon from '../icon/Icon'
+import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
-import { isClient } from '../../utils/isClient';
-
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
+import { BodyLockScroll } from '../../utils/bodyLockScroll';
 export interface Props {
   className?: string;
   slides: any[] | any;
@@ -21,12 +22,6 @@ export interface Props {
   text?: string;
   price: number;
   options?: any,
-}
-
-interface WrapperProps {
-  condition: any,
-  wrapper?: any,
-  children?: any,
 }
 
 const ProductHero = ({
@@ -42,12 +37,6 @@ const ProductHero = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeOption, setActiveOption] = useState(0);
 
-  const ProductHeroWrapper: React.FC<WrapperProps> = ({
-    condition,
-    wrapper,
-    children,
-  }) => (condition ? wrapper(children) : children);
-
   const _handleClick = (e: any, type: string) => {
     e.preventDefault(); 
     if (type === 'increase') {
@@ -56,24 +45,11 @@ const ProductHero = ({
       updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
     }
   }
-
-    const rootExists = () => {
-      return document.getElementById('app-root');
-    };
-    if (isClient()) {
-      if (rootExists()) {
-        const rootEl = document.getElementById('app-root');
-        if (isModalOpen) {
-          rootEl?.classList.add('no-scroll');
-        } else {
-          rootEl?.classList.remove('no-scroll');
-        } 
-      }
-    }
+  BodyLockScroll(isModalOpen);
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
-      <ProductHeroWrapper
+      <Wrapper
         condition={isModalOpen}
         wrapper={(children: any) => (
           <>
@@ -95,6 +71,7 @@ const ProductHero = ({
                   onClick={() => setIsModalOpen(false)}
                 >
                   <Icon type="cross" />
+                  <VisuallyHidden text="Close" />
                 </button>
               </div>
             </FocusLock>
@@ -115,6 +92,7 @@ const ProductHero = ({
                 className="product-hero__slider-fullsize"
                 onClick={() => setIsModalOpen(true)}
               >
+              <VisuallyHidden text="Open image slider fullscreen" />
                 <Icon type="fullSize" />
               </button>
             </div>
@@ -169,7 +147,7 @@ const ProductHero = ({
             />
           </div>
         </div>
-      </ProductHeroWrapper>
+      </Wrapper>
     </ProductHeroStyled>
   );
 };

@@ -6,7 +6,7 @@ export interface Props {
   className?: string;
   title: string;
   type: string;
-  hasControls: boolean;
+  hasControls?: boolean;
   externalURL?: string | undefined;
   internalVideo?: string | undefined;
 }
@@ -26,7 +26,6 @@ const VideoPlayer = ({
       case 'Internal':
         return (
           <VideoPlayerStyled
-            className={className}
             controls={hasControls}
             name="media"
           >
@@ -37,7 +36,7 @@ const VideoPlayer = ({
         break;
     }
   }
-  return <>{VideoContent(type)}</>;
+  return <div className={className}>{VideoContent(type)}</div>;
 };
 
 export default VideoPlayer;

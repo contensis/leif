@@ -4,35 +4,63 @@ interface Props {
   theme?: any;
   align: string;
   hasSVG: boolean;
+  isModalOpen?: boolean;
 }
 
 const FeaturedCTAStyled = styled.div`
-  ${({ theme, align, hasSVG }: Props) => {
+  ${({ theme, align, hasSVG, isModalOpen }: Props) => {
   return css`
     position: relative;
     overflow-x: hidden;
     padding-bottom: 120px;
     @media ${theme.mq.laptop} {
-      display: flex;
+      display: ${isModalOpen ? 'block' : 'flex'};
       align-items: center;
       flex-direction: ${align === 'left' ? 'row' : 'row-reverse'}
       height: 800px;
       padding-bottom: 0;
     }  
+    .featured-cta__image-wrapper {
+      position: relative;
+    }
     .featured-cta__image {
       height: 440px;
       width: 100%;
       object-fit: cover;
       @media ${theme.mq.laptop} {
         height: auto;
-        width: 50%;
+      }
+    }
+    .featured-cta__video-player > div:first-child {
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .featured-cta__video-btn-close {
+      background: transparent;
+      padding: 0;
+      border: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .featured-cta__video-btn-open {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      background: transparent;
+      padding: 0;
+      transition: opacity 100ms ease-in-out;
+      &:hover {
+        opacity: .8;
       }
     }
     .featured-cta__content {
       background-color: ${theme?.colors?.neutral_white};
       position: relative;
       padding: 40px 16px;
-      margin: -50% 0 0 0;
+      margin: -24% 0 0 0;
       margin-${align}: 32px;
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
       border-radius: ${align === "left" ? '8px 0 0 0' : '0 8px 0 0'};

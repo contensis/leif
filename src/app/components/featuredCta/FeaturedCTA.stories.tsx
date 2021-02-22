@@ -12,6 +12,11 @@ const Template: Story<Props> = args => <FeaturedCTA {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
+  video: {
+    title: 'Bean Time-Lapse - 25 days | Soil cross section',
+    type: 'YouTube',
+    externalURL: 'https://youtu.be/w77zPAtVTuI',
+  },
   image: {
     asset: {
       sys: {
