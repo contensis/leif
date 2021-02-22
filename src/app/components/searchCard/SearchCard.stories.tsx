@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Card, { Props } from './Card';
+import SearchCard, { Props } from './SearchCard';
 
 export default {
-  title: 'Global/Components/Card',
-  component: Card,
+  title: 'Search/Components/SearchCard',
+  component: SearchCard,
 } as Meta;
-const Template: Story<Props> = args => <Card {...args} />;
+const Template: Story<Props> = args => <SearchCard {...args} />;
 
 const dataObject = {
   title: 'Title can span multiple lines of text',
@@ -22,6 +22,7 @@ const dataObject = {
   },
   date: new Date().toISOString(),
   readTime: '4',
+  price: 35,
 };
 
 export const Blog = Template.bind({});
@@ -33,21 +34,16 @@ Blog.args = {
   date: dataObject.date,
   readTime: dataObject.readTime,
 };
-
+export const Global = Template.bind({});
+Global.args = {
+  title: dataObject.title,
+  text: dataObject.text,
+};
 export const Product = Template.bind({});
 Product.args = {
-  type: 'plant',
-  title: dataObject.title,
-  image: dataObject.image,
-  price: 32,
-  rating: '4',
-};
-
-
-export const Content = Template.bind({});
-Content.args = {
-  type: 'content',
+  type: 'pot',
   title: dataObject.title,
   text: dataObject.text,
   image: dataObject.image,
+  price: dataObject.price,
 };
