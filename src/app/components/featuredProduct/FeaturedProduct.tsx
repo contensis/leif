@@ -7,7 +7,8 @@ import Card from '../card/Card';
 
 interface LinkObject {
   href: string;
-  label: string;}
+  label: string;
+}
 interface ProductInformation {
   price: number;
   Sku?: string;

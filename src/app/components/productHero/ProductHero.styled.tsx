@@ -7,6 +7,7 @@ interface Props {
 const ProductHeroStyled = styled.div`
   ${({ theme, isModalOpen }: Props) => {
   return css`
+    overflow-x: hidden;
     .product-hero__content {
       text-align: center;
       @media ${theme.mq.desktop} {
