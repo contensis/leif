@@ -7,7 +7,7 @@ interface Props {
 
 const SearchCardStyled = styled.a`
   ${({ theme, type }: Props) => {
-  return css`
+    return css`
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -33,7 +33,7 @@ const SearchCardStyled = styled.a`
       margin: 0 0 8px 0;
     }
     .search-card__text {
-      display: none;
+      display: ${!type ? 'block' : 'none'};
       color: ${theme?.colors?.neutral_charcoal};
       margin: 0 0 8px 0;
       @media ${theme.mq.laptop} {
