@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Icon from '../icon/Icon';
 
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
@@ -9,28 +9,44 @@ export interface Props {
   options: any;
   label: string;
   id: string;
+  type?: 'default' | 'sort';
 }
 
-const Dropdown = ({ className, options, label, id }: Props) => {
+const Dropdown = ({
+  className,
+  type = 'default',
+  options,
+  label,
+  id,
+}: Props) => {
   if (!options || options.length < 1) return null;
+  const [value, setValue] = useState<string>('');
+
   return (
-    <DropdownStyled className={className}>
+    <DropdownStyled className={className} type={type}>
       <VisuallyHidden>
         <label htmlFor={id}>{label}</label>
       </VisuallyHidden>
-      <select name={id} id={id}>
-        <option value="" selected disabled hidden>
-          {label}
-        </option>
+      <select
+        name={id}
+        id={id}
+        onChange={(e: any) => setValue(e.target.value)}
+      >
+        <option defaultValue={label} hidden>{label}</option>
         {options.map((opt: any, idx: number) => {
+          const hasPrefix = value === opt.value && type === 'sort';
           return (
             <option key={idx} value={opt.value}>
+              {hasPrefix && 'Sort by: '}
               {opt.label}
             </option>
           );
         })}
       </select>
-      <Icon type="chevronDown" className="dropdown__icon" />
+      <Icon
+        type={type === 'sort' ? 'sort' : 'chevronDown'}
+        className="dropdown__icon"
+      />
     </DropdownStyled>
   );
 };

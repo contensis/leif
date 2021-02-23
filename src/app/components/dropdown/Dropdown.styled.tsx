@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 
+interface Props {
+  theme?: any;
+  type: string;
+}
+
 const DropdownStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, type }: Props) => {
   return css`
     position: relative;
     max-width: 400px;
@@ -29,6 +34,12 @@ const DropdownStyled = styled.div`
       width: 24px;
       height: 24px;
     }
+    ${type === 'sort' && css`
+      .dropdown__icon {
+        height: 18px;
+        width: 18px;
+      }
+    `}
   `;
   }};
 `;
