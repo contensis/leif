@@ -77,7 +77,8 @@ const FeaturedCTAStyled = styled.div`
       @media ${theme.mq.laptop} {
         position: relative;
         display: flex;
-        align-items: center;
+        align-items: center
+        justify-content: ${align === 'left' ? 'flex-start' : 'flex-end'};
         width: 100%;
         height: 100%;
         border-radius: 0;
