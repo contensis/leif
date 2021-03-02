@@ -13,7 +13,7 @@ import Icon from '../icon/Icon'
 import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-import { BodyLockScroll } from '../../utils/bodyLockScroll';
+import { _noScroll } from '../../utils/noScroll';
 export interface Props {
   className?: string;
   slides: any[] | any;
@@ -45,7 +45,7 @@ const ProductHero = ({
       updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
     }
   }
-  BodyLockScroll(isModalOpen);
+  _noScroll(isModalOpen);
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>

@@ -2,8 +2,9 @@ import { Map } from 'immutable';
 import { TOGGLE_SEARCH, SET_DEVICE_TYPE, SET_SCREEN_SIZE } from './types';
 
 let initialState = Map({
-  showSearch: false,
   screenSize: null,
+  device: null,
+  showSearch: false,
 });
 
 export default (state = initialState, action) => {

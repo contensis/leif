@@ -111,6 +111,17 @@ const GlobalStyle = createGlobalStyle`
   }
   .no-scroll {
     overflow: hidden;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2B2F51;
+      opacity: 0.25;
+    }
   }
 `;
 

@@ -1,6 +1,6 @@
 import { takeEvery, call, select, put } from 'redux-saga/effects';
 
-import { selectShowSearch } from '~/core/redux/custom/ui/selectors';
+import { selectIsSearchOpen } from '~/core/redux/custom/ui/selectors';
 
 import { ROUTE_WILL_LOAD } from '../../types';
 
@@ -12,15 +12,14 @@ export const UISagas = [
 ];
 
 function* handleUIState() {
-  const searchVisible = yield select(selectShowSearch);
-  if (searchVisible) {
-    yield call(closeSearch);
+  const iaSearchVisible = yield select(selectIsSearchOpen);
+  if (iaSearchVisible) {
+    yield call(toggleSearch);
   }
-  //always triggered
   yield call(getDeviceType);
 }
 
-function* closeSearch() {
+function* toggleSearch() {
   yield put({
     type: TOGGLE_SEARCH,
     value: false,
@@ -29,7 +28,7 @@ function* closeSearch() {
 
 function* getDeviceType() {
   if (typeof window !== 'undefined') {
-    //check for visualViewport support (Firefox)
+    // Check for visualViewport support (Firefox)
     const visualViewportSupported =
       window && typeof window.visualViewport !== 'undefined' ? true : false;
     if (visualViewportSupported) {

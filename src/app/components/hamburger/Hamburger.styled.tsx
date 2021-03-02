@@ -7,13 +7,17 @@ interface Props {
 const HamburgerStyled = styled.button`
   ${({ theme, isOpen }: Props) => {
     return css`
-      width: 80px;
-      height: 80px;
+      width: 64px;
+      height: 64px;
       background: ${theme?.colors?.primary};
       position: relative;
       border: none;
       padding: 0;
       margin: 0;
+      @media ${theme.mq.laptop} {
+        height: 80px;
+        width: 80px;
+      }
       .hamburger__wrapper {
         position: absolute;
         top: 50%;

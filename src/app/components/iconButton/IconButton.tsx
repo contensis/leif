@@ -8,16 +8,24 @@ interface Props {
   type?: "button" | "submit" | "reset";
   icon: string;
   text?: string;
+  _func?: () => void;
 }
 
-const IconButton = ({ className, type = "button", icon, text }: Props) => {
+const IconButton = ({ className, type = "button", icon, text, _func, }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  const _handleClick = () => {
+    setIsOpen(!isOpen);
+    if (_func) {
+      _func()
+    }
+  }
 
   return (
     <IconButtonStyled
       className={className}
       type={type}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => _handleClick()}
     >
       <div className="icon-btn__wrapper">
         {!isOpen && (

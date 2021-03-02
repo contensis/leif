@@ -8,7 +8,7 @@ import Icon from '../icon/Icon';
 import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-import { BodyLockScroll } from '../../utils/bodyLockScroll';
+import { _noScroll } from '../../utils/noScroll';
 
 
 export interface Props {
@@ -34,13 +34,13 @@ const FeaturedCTA = ({
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const hasVideo = video?.externalURL || video?.internalVideo;
-  BodyLockScroll(isModalOpen);
+  _noScroll(isModalOpen);
 
   return (
     <FeaturedCTAStyled className={className} align={align} hasSVG={hasSVG} isModalOpen={isModalOpen}>
       <Wrapper
         condition={isModalOpen}
-        wrapper={(children:any) => (
+        wrapper={() => (
           <>
             <FocusLock>
               <div className="featured-cta__video-player-wrapper">

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import Header from './Header';
+import HeaderContainer from './Header.container';
 
 export default {
   title: 'Global/Components/Header',
-  component: Header,
+  component: HeaderContainer,
 } as Meta;
 
-const Template = () => <Header />;
+const Template = () => <HeaderContainer />;
 
 export const Primary = Template.bind({});
