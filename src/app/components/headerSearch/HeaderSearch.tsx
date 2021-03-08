@@ -11,14 +11,14 @@ import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   placeholder?: string;
-  isOpen?: boolean;
+  isSearchOpen?: boolean;
   _toggleSearch: (val: boolean) => void;
 }
 
 const HeaderSearch = ({
   className,
   placeholder,
-  isOpen = false,
+  isSearchOpen = false,
   _toggleSearch,
 }: Props) => {  
   const ref = useRef();
@@ -40,9 +40,9 @@ const HeaderSearch = ({
         />
       </div>
       <IconButton
-        icon={isOpen ? 'cross' : 'search'}
-        _func={() => _toggleSearch(!isOpen)}
-        text={`${isOpen ? 'Close' : 'Open'} Search site`}
+        icon={isSearchOpen ? 'cross' : 'search'}
+        _func={() => _toggleSearch(!isSearchOpen)}
+        text={`${isSearchOpen ? 'Close' : 'Open'} Search site`}
       />
     </HeaderSearchStyled>
   );

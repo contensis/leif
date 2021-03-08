@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 interface Props {
   theme: any;
-  isOpen: boolean;
+  isToggled: boolean;
 }
 
-const HamburgerStyled = styled.button`
-  ${({ theme, isOpen }: Props) => {
+const HamburgerStyled = styled.div`
+  ${({ theme, isToggled }: Props) => {
     return css`
       width: 64px;
       height: 64px;
@@ -49,7 +49,7 @@ const HamburgerStyled = styled.button`
           animation: ease 0.7s bottom-2 forwards;
         }
       }
-      ${isOpen &&
+      ${isToggled &&
         css`
           .hamburger__layer {
             &:nth-child(1) {

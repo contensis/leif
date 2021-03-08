@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 
-export const selectDeviceType = state => state.getIn(['ui', 'device']);
 export const selectIsSearchOpen = state => state.getIn(['ui', 'showSearch']);
+export const selectIsMenuOpen = state => state.getIn(['ui', 'showMenu']);
+
+export const selectDeviceType = state => state.getIn(['ui', 'device']);
 export const selectScreenSize = state => state.getIn(['ui', 'screenSize']);
 
 export const makeSelectDeviceType = () => {

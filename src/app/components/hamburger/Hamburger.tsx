@@ -4,16 +4,14 @@ import HamburgerStyled from './Hamburger.styled';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 interface Props {
   className?: string;
+  isToggled?: boolean;
 }
 
-const Hamburger = ({ className }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Hamburger = ({ className, isToggled = false, }: Props) => {
   return (
     <HamburgerStyled
       className={className}
-      type="button"
-      onClick={() => setIsOpen(!isOpen)}
-      isOpen={isOpen}
+      isToggled={isToggled}
     >
       <div className="hamburger__wrapper">
         <span className="hamburger__layer" />

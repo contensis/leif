@@ -2,22 +2,32 @@ import React from 'react';
 
 import HeaderStyled from './Header.styled';
 
-import Hamburger from '../hamburger/Hamburger';
 import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
 import HeaderSearch from '../headerSearch/HeaderSearch';
 import { _noScroll } from '../../utils/noScroll';
+import Navigation from '../navigation/Navigation';
 export interface Props {
   className?: string;
-  _toggleSearch: (val:boolean) => void;
+  navigation: any;
+  _toggleSearch: (val: boolean) => void;
   isSearchOpen: boolean;
+  _toggleMenu: (val: boolean) => void;
+  isMenuOpen: boolean;
 }
 
-const Header = ({ className, isSearchOpen, _toggleSearch }: Props) => {
-  _noScroll(isSearchOpen);
-  
+const Header = ({
+  className,
+  isSearchOpen,
+  _toggleSearch,
+  isMenuOpen,
+  _toggleMenu,
+  navigation,
+}: Props) => {
+  _noScroll(isSearchOpen || isMenuOpen);
+
   return (
     <HeaderStyled className={className} isSearchOpen={isSearchOpen}>
       <Wrapper
@@ -28,7 +38,7 @@ const Header = ({ className, isSearchOpen, _toggleSearch }: Props) => {
             <FocusLock className="focus-lock">
               <HeaderSearch
                 className="header__search"
-                isOpen={isSearchOpen}
+                isSearchOpen={isSearchOpen}
                 _toggleSearch={_toggleSearch}
               />
             </FocusLock>
@@ -51,7 +61,11 @@ const Header = ({ className, isSearchOpen, _toggleSearch }: Props) => {
             _func={() => _toggleSearch(!isSearchOpen)}
           />
           <IconButton icon="pot" text="Basket" />
-          <Hamburger />
+          <Navigation
+            isMenuOpen={isMenuOpen}
+            _toggleMenu={_toggleMenu}
+            navigation={navigation}
+          />
         </div>
       </Wrapper>
     </HeaderStyled>

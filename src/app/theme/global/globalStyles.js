@@ -104,8 +104,8 @@ const GlobalStyle = createGlobalStyle`
         width: 12px;
         height: 12px;
       }
-      &:not(:first-child) {
-        margin-top: 24px;
+      &:not(:last-child) {
+        margin-bottom: 24px;
       }
     }
   }
