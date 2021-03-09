@@ -33,7 +33,7 @@ const FooterStyled = styled.div`
           left: -142px;
           height: 100%;
           width: 100%;
-          background-image: url('/static/img/svgs/assets/footer-shape.svg');
+          background-image: url('/static/img/svgs/footer-shape.svg');
           background-repeat: no-repeat;
         }
         @media ${theme.mq.laptop} {
