@@ -7,7 +7,7 @@ import LeadParagraph from '../../components/leadParagraph/LeadParagraph';
 import Composer from '../../components/composer/Composer';
 import CTABanner from '../../components/ctaBanner/CTABanner';
 import RelatedContent from '../../components/relatedContent/RelatedContent';
-import TwitterCard from '../../components/twitterCard/TwitterCard';
+// import TwitterCard from '../../components/twitterCard/TwitterCard';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';

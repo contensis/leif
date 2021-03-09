@@ -26,9 +26,9 @@ const HeaderStyled = styled.div`
       }
         .header__logo {
           align-self: center;
-          padding-left: 16px;
+          padding: 16px 0 0 80px;
           @media ${theme.mq.laptop} {
-            padding-left: 80px;
+            padding: 24px 0 0 80px
           }
         }
         .header__actions {
