@@ -35,7 +35,8 @@ const HeaderSearch = ({
         />
       </div>
       <IconButton
-        icon={isSearchOpen ? 'cross' : 'search'}
+        isToggled={isSearchOpen}
+        icon='search'
         _func={() => _toggleSearch(!isSearchOpen)}
         text={`${isSearchOpen ? 'Close' : 'Open'} Search site`}
       />

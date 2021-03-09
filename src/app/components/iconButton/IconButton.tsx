@@ -9,17 +9,22 @@ interface Props {
   icon: string;
   text?: string;
   _func?: () => void;
+  isToggled?: boolean;
 }
 
-const IconButton = ({ className, type = "button", icon, text, _func, }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  
+const IconButton = ({
+  className,
+  type = 'button',
+  icon,
+  text,
+  _func,
+  isToggled = false,
+}: Props) => {
   const _handleClick = () => {
-    setIsOpen(!isOpen);
     if (_func) {
-      _func()
+      _func();
     }
-  }
+  };
 
   return (
     <IconButtonStyled
@@ -28,13 +33,13 @@ const IconButton = ({ className, type = "button", icon, text, _func, }: Props) =
       onClick={() => _handleClick()}
     >
       <div className="icon-btn__wrapper">
-        {!isOpen && (
+        {!isToggled && (
           <>
             <Icon type={icon} />
             <VisuallyHidden text={text} />
           </>
         )}
-        {isOpen && <Icon type="cross" />}
+        {isToggled && <Icon type="cross" />}
       </div>
     </IconButtonStyled>
   );

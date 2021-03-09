@@ -34,6 +34,7 @@ const BasketMenu = ({
         icon="pot"
         text="Basket"
         className="basket-menu__btn"
+        isToggled={isBasketOpen}
         _func={() => {
           _toggleSearch(false),
           _toggleBasket(!isBasketOpen);

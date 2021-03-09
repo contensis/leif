@@ -78,6 +78,7 @@ const Header = ({
             className="header__search-icon"
             icon="search"
             text="Search site"
+            isToggled={isSearchOpen}
             _func={() => _toggleSearch(!isSearchOpen)}
           />
           <BasketMenu
