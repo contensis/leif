@@ -1,12 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import HeaderSearchStyled from './HeaderSearch.styled';
 
 import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-
-// Hooks
-import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
 export interface Props {
   className?: string;
@@ -21,11 +18,9 @@ const HeaderSearch = ({
   isSearchOpen = false,
   _toggleSearch,
 }: Props) => {  
-  const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleSearch(false));
 
   return (
-    <HeaderSearchStyled className={className} ref={ref}>
+    <HeaderSearchStyled className={className}>
       <div className="header-search__input-wrapper">
         <VisuallyHidden>
           <label htmlFor="header-search">Search site:</label>

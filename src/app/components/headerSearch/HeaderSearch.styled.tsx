@@ -3,20 +3,24 @@ import styled, { css } from 'styled-components';
 const HeaderSearchStyled = styled.div`
   ${({ theme }) => {
   return css`
-      max-width: 570px;
       width: 100%;
-      height: 64px;
       display: flex;
       align-items: center;
+    .header-search__input-wrapper {
+      position: relative;
+      height: 64px;
+      max-width: 570px;
+      width: 100%;
       @media ${theme.mq.laptop} {
         height: 80px;
-      }
-    .header-search__input-wrapper, 
-    .header-search__input  {
-      width: 100%;
-      height: 100%;
+      } 
     }
     .header-search__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       font-size: inherit;
       font-family: inherit;
       color: ${theme?.colors?.neutral_white};
@@ -37,6 +41,9 @@ const HeaderSearchStyled = styled.div`
       }
       :-moz-placeholder {
         color: ${theme?.colors?.secondary_light};
+      }
+      @media ${theme.mq.laptop} {
+        max-width: 570px;
       }
     }
   `;

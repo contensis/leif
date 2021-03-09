@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import HeaderStyled from './Header.styled';
 
@@ -9,6 +9,10 @@ import Wrapper from '../wrapper/Wrapper';
 import HeaderSearch from '../headerSearch/HeaderSearch';
 import { _noScroll } from '../../utils/noScroll';
 import Navigation from '../navigation/Navigation';
+import BasketMenu from '../basketMenu/BasketMenu';
+
+// Hooks
+import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   navigation: any;
@@ -16,6 +20,8 @@ export interface Props {
   isSearchOpen: boolean;
   _toggleMenu: (val: boolean) => void;
   isMenuOpen: boolean;
+  _toggleBasket: (val: boolean) => void;
+  isBasketOpen: boolean;
 }
 
 const Header = ({
@@ -25,11 +31,15 @@ const Header = ({
   isMenuOpen,
   _toggleMenu,
   navigation,
+  _toggleBasket,
+  isBasketOpen,
 }: Props) => {
-  _noScroll(isSearchOpen || isMenuOpen);
+  _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
+  const ref = useRef();
+  _useOnClickOutside(ref, () => _toggleSearch(false));
 
   return (
-    <HeaderStyled className={className} isSearchOpen={isSearchOpen}>
+    <HeaderStyled className={className} isSearchOpen={isSearchOpen} ref={ref}>
       <Wrapper
         condition={isSearchOpen}
         wrapper={(children: any) => (
@@ -39,6 +49,17 @@ const Header = ({
               <HeaderSearch
                 className="header__search"
                 isSearchOpen={isSearchOpen}
+                _toggleSearch={_toggleSearch}
+              />
+              <BasketMenu
+                isBasketOpen={isBasketOpen}
+                _toggleBasket={_toggleBasket}
+                _toggleSearch={_toggleSearch}
+              />
+              <Navigation
+                isMenuOpen={isMenuOpen}
+                _toggleMenu={_toggleMenu}
+                navigation={navigation}
                 _toggleSearch={_toggleSearch}
               />
             </FocusLock>
@@ -60,11 +81,16 @@ const Header = ({
             text="Search site"
             _func={() => _toggleSearch(!isSearchOpen)}
           />
-          <IconButton icon="pot" text="Basket" />
+          <BasketMenu
+            isBasketOpen={isBasketOpen}
+            _toggleBasket={_toggleBasket}
+            _toggleSearch={_toggleSearch}
+          />
           <Navigation
             isMenuOpen={isMenuOpen}
             _toggleMenu={_toggleMenu}
             navigation={navigation}
+            _toggleSearch={_toggleSearch}
           />
         </div>
       </Wrapper>

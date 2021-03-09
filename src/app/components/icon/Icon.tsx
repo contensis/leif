@@ -50,7 +50,7 @@ interface Props {
   hasDefaultStyles?: boolean;
 }
 
-const Icon = ({ className, type }: Props, props:any) => {
+const Icon = ({ className, type }: Props, props: any) => {
   const { ...rest } = props;
   switch (type) {
     case 'facebook':
@@ -141,38 +141,41 @@ const Icon = ({ className, type }: Props, props:any) => {
           {...rest}
           className={className}
           as={Chevron}
-          transform={
-            type === 'chevronUp'
-              ? 'scale(1,-1)'
-              : type === 'chevronLeft'
-              ? 'rotate(90)'
-              : type === 'chevronRight'
-              ? 'rotate(-90)'
-              : ''
-          }
+          style={{
+            transform:
+              type === 'chevronUp'
+                ? 'scale(1,-1)'
+                : type === 'chevronLeft'
+                ? 'rotate(90deg)'
+                : type === 'chevronRight'
+                ? 'rotate(-90deg)'
+                : '',
+          }}
         />
       );
     case 'arrowRight':
     case 'arrowLeft':
     case 'arrowUp':
     case 'arrowDown':
-    case 'arrow':
+    case 'arrow': {
       return (
         <IconStyled
           {...rest}
           className={className}
-          transform={
-            type === 'arrowDown'
-              ? 'rotate(-90)'
-              : type === 'arrowUp'
-              ? 'rotate(90)'
-              : type === 'arrowRight'
-              ? 'scale(-1,1)'
-              : ''
-          }
+          style={{
+            transform:
+              type == 'arrowDown'
+                ? 'rotate(-90deg)'
+                : type === 'arrowUp'
+                ? 'rotate(90deg)'
+                : type === 'arrowRight'
+                ? 'scale(-1,1)'
+                : '',
+          }}
           as={Arrow}
         />
       );
+    }
     default:
       return null;
   }

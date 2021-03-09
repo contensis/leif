@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   theme?: any;
+  ref?: any;
   showSecondMenu: boolean;
 }
 
@@ -15,7 +16,7 @@ const NavigationStyled = styled.div`
       border: none;
       background: transparent;
       position: relative;
-      z-index: 999;
+      z-index: 9;
     }
     .nav-menu__wrapper {
       display: flex;
@@ -85,7 +86,11 @@ const NavigationStyled = styled.div`
         display: none;
       }
     }
+    .nav-menu__level-one {
+      animation: slideIn 200ms;
+    }
     ${showSecondMenu && css`
+      animation: slideIn 200ms;
       .nav-menu__level-one {
         display: none;
         @media ${theme.mq.laptop} {
@@ -98,6 +103,15 @@ const NavigationStyled = styled.div`
       .nav-menu__item {
         ${theme?.typeStyles?.h4};
         color: ${theme?.colors?.neutral_charcoal};
+      }
+    }
+    @keyframes slideIn {
+      from {
+        margin-right: -370px;
+        animation-timing-function: ease-in;
+      }
+      to {
+        animation-timing-function: ease-out;
       }
     }
   `;

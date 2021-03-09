@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Hamburger from '../hamburger/Hamburger';
 import Icon from '../icon/Icon';
 
 import NavigationStyled from './Navigation.styled';
 
+// Hooks
+import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   navigation: any;
   isMenuOpen: boolean;
   _toggleMenu: (val: boolean) => void;
+  _toggleSearch: (val: boolean) => void;
 }
 
 interface MenuProps {
@@ -20,7 +23,10 @@ const Navigation = ({
   navigation,
   isMenuOpen,
   _toggleMenu,
+  _toggleSearch,
 }: Props) => {
+  const ref = useRef();
+  _useOnClickOutside(ref, () => _toggleMenu(false));
 
   const [activeMenu, setActiveMenu] = useState<string>('');
   const [showSecondMenu, setShowSecondMenu] = useState<boolean>(false);
@@ -65,10 +71,15 @@ const Navigation = ({
   };
 
   return (
-    <NavigationStyled className={className} showSecondMenu={showSecondMenu}>
+    <NavigationStyled
+      className={className}
+      showSecondMenu={showSecondMenu}
+      ref={ref}
+    >
       <button
         type="button"
         onClick={() => {
+          _toggleSearch(false);
           _toggleMenu(!isMenuOpen);
           setShowSecondMenu(false);
           setActiveMenu('');

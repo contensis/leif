@@ -46,15 +46,15 @@ const HeaderStyled = styled.div`
         }
         ${isSearchOpen &&
         css`
-          margin-right: -250px;
+          margin-right: -122px;
           @media ${theme.mq.laptop} {
             margin-right: 0;
           }
           .header__search {
             justify-content: flex-end;
-            margin-right: 250px;
+            margin-right: 0;
             @media ${theme.mq.laptop} {
-              margin-right: 160px;
+              margin-right: 0;
             }
           }
         `}
