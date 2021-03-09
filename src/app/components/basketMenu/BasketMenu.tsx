@@ -40,14 +40,14 @@ const BasketMenu = ({
         }}
       />
       {isBasketOpen && (
-        <div className="basket-menu__content">
-          <Icon className="basket-menu__icon" type="wheelbarrow" />
-          <p className="basket-menu__text">Your basket is empty</p>
-          <LinkButton
-            label="Browse our products"
-            href="/products"
-            icon="arrowRight"
-          />
+        <div className="basket-menu__content-wrapper">
+            <Icon className="basket-menu__icon" type="wheelbarrow" />
+            <p className="basket-menu__text">Your basket is empty</p>
+            <LinkButton
+              label="Browse our products"
+              href="/products"
+              icon="arrowRight"
+              />
         </div>
       )}
     </BasketMenuStyled>

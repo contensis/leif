@@ -19,8 +19,6 @@ const ImageBlock = ({ className, image, title, text, align = "center" }:Props) =
         <Image
           className="image-block__image"
           image={image}
-          width={840}
-          height={480}
         />
       </div>
       <p className="image-block__title">{title}</p>

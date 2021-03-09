@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components';
 
 const FooterStyled = styled.div`
   ${({ theme }) => {
-    return css`
+  return css`
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
       text-align: center;
       display: flex;
       align-items: center;

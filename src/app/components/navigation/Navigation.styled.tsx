@@ -10,6 +10,7 @@ const NavigationStyled = styled.div`
   ${({ theme, showSecondMenu }: Props) => {
   return css`
     position: relative;
+    height: 80px;
     .nav__btn {
       margin: 0;
       padding: 0;

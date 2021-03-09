@@ -11,12 +11,14 @@ const GenericHeroStyled = styled(Link)`
   ${({ theme, type, hasLink }: Props) => {
   return css`
     margin: 0 auto;
+    padding-top: 74px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     text-decoration: none;
     @media ${theme.mq.desktop} {
+      padding-top: 0;
       flex-direction:row;
       align-items: center;
       text-align: left;

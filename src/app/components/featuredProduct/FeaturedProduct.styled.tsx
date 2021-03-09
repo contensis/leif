@@ -41,7 +41,7 @@ const FeaturedProductStyled = styled.div`
           background-size: contain;
         }
         @media ${theme.mq.laptop} {
-          margin-bottom: 80px;
+          margin: 54px auto 32px;
           padding: 0 0 0 40px;
           justify-content: space-between;
           flex-direction: row;

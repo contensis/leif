@@ -16,7 +16,7 @@ export default [
     contentTypeID: 'blogPost',
     component: Loadable({
       loader: () => {
-        return import('~/pages/BlogPost/blogPost.page.js');
+        return import('~/pages/BlogPost/BlogPost.page');
       },
       loading: Loading,
     }),

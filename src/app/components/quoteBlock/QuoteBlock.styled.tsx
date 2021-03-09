@@ -10,7 +10,7 @@ const QuoteBlockStyled = styled.blockquote`
       max-width: 482px;
       width: 100%;
       padding: 0 0 0 28px;
-      margin: 0;
+      margin: 0 auto;
       overflow-wrap: break-word;
       &:before {
         content: '';

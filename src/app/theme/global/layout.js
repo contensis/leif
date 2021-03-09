@@ -78,9 +78,47 @@ breakpointMap.forEach((value, key) => {
   mq[key] = `only screen and (min-width: ${value}px)`;
 });
 
+const baseSize = 8;
+export const region = {
+  full: {
+    width: '100%',
+  },
+  default: {
+    width: '1200px',
+  },
+  large: {
+    width: '1060px',
+  },
+  medium: {
+    width: '840px'
+  },
+  small: {
+    width: '620px',
+  },
+  margin: {
+    default: baseSize * 5 + 'px', // 40px
+    small: baseSize * 4 + 'px', // 32px
+    medium: baseSize * 7 + 'px', // 56px
+    large: baseSize * 12 + 'px', // 96px
+    xlarge: baseSize * 16 + 'px', // 128px
+    none: '0',
+    auto: 'auto',
+  },
+  padding: {
+    default: baseSize * 3 + 'px', // 24px
+    small: baseSize * 2 + 'px', // 16px
+    medium: baseSize * 3 + 'px', // 24px
+    large: baseSize * 4 + 'px', // 32px
+    xlarge: baseSize * 5 + 'px', // 40px
+    xxlarge: baseSize * 10 + 'px', // 80px
+    none: '0',
+  },
+};
+
 export default {
   breakpointMap,
   sizes,
+  region,
   sizesNoUnit,
   mq,
 };

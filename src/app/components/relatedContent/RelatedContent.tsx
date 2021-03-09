@@ -19,7 +19,7 @@ interface MappedResObject {
     };
   };
   entryTitle: string;
-  entryDescription: string;
+  kicker: string;
   thumbnailImage: ImageObject;
   readTime?: string;
 }
@@ -46,7 +46,7 @@ const RelatedContent = ({ className, title, results, link }: Props) => {
                 className="related-content__card"
                 type={type}
                 title={res.entryTitle}
-                text={res.entryDescription}
+                text={res.kicker}
                 image={res.thumbnailImage}
                 readTime={res.readTime}
                 date={res.sys.version.published}

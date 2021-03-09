@@ -11,7 +11,7 @@ const BasketMenuStyled = styled.div`
   return css`
     display: flex;
     flex-direction: row-reverse;
-    .basket-menu__content {
+    .basket-menu__content-wrapper {
       display: none;
       margin-top: 80px;
       width: 100%;
@@ -27,21 +27,24 @@ const BasketMenuStyled = styled.div`
     }
     ${isBasketOpen && css`
       animation: slideIn 200ms;
+      background-color: ${theme?.colors?.neutral_white};
+      height: 100vh;
+      width: 320px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      @media ${theme.mq.laptop} {
+        width: 370px;
+      }
       .basket-menu__btn {
         position: absolute;
         right: 0;
         top: 0;
         z-index: 99;
       }
-      .basket-menu__content {
+      .basket-menu__content-wrapper {
         display: flex;
       }
-      background-color: ${theme?.colors?.neutral_white};
-      height: 100vh;
-      width: 370px;
-      position: absolute;
-      top: 0;
-      right: 0;
     `}
       @keyframes slideIn {
         from {

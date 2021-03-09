@@ -42,9 +42,8 @@ const Header = ({
     <HeaderStyled className={className} isSearchOpen={isSearchOpen} ref={ref}>
       <Wrapper
         condition={isSearchOpen}
-        wrapper={(children: any) => (
+        wrapper={() => (
           <>
-            {children}
             <FocusLock className="focus-lock">
               <HeaderSearch
                 className="header__search"

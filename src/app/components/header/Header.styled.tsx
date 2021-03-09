@@ -7,14 +7,17 @@ interface Props {
 
 const HeaderStyled = styled.div`
   ${({ theme, isSearchOpen }: Props) => {
-    return css`
+  return css`
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: relative;
-      margin-right: 0;
       z-index: 9;
       transition: margin-right 280ms ease;
+      @media ${theme.mq.laptop} {
+        margin-bottom: 40px;
+      }
       .header__search-input {
         display: none;
         background-color: ${theme?.colors?.secondary};
@@ -23,8 +26,15 @@ const HeaderStyled = styled.div`
       }
         .header__logo {
           align-self: center;
+          padding-left: 16px;
+          @media ${theme.mq.laptop} {
+            padding-left: 80px;
+          }
         }
         .header__actions {
+          position: fixed;
+          top:0;
+          right: 0;
           display: flex;
           align-items: stretch;
           background: ${theme?.colors?.neutral_white};
@@ -45,7 +55,9 @@ const HeaderStyled = styled.div`
           justify-content: flex-end;
         }
         ${isSearchOpen &&
-        css`
+  css`
+          position: relative;
+          top: 40px;
           margin-right: -122px;
           @media ${theme.mq.laptop} {
             margin-right: 0;
