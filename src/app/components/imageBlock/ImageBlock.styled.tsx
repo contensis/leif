@@ -26,7 +26,7 @@ const ImageBlockStyled = styled.div`
           right: -50%;
           width: 100%;
           height: 100%;
-          background-image: url('/static/img/svgs/image-block-shape.svg');
+          background-image: url('/static/img/svgs/shapes/image-block-shape.svg');
           background-repeat: no-repeat;
         }
         @media ${theme.mq.tablet} {

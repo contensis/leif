@@ -47,7 +47,11 @@ const Card = ({
           <>
             <div className="card__thumbnail-wrapper">
               <Image className="card__thumbnail" image={image} />
-              <Icon type="tag" className="card__tag" />
+              <Icon
+                type="product-solid"
+                className="card__tag"
+                color="#6E729B"
+              />
             </div>
             <div className="card__content">
               <h3 className="card__title">{title}</h3>

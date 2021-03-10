@@ -99,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
         position: absolute;
         top: 8px;
         left: -20px;
-        background-image: url('/static/img/svgs/bullet-point-icon.svg');
+        background-image: url('/static/img/svgs/icons/bullet-point-icon.svg');
         background-repeat: no-repeat;
         width: 12px;
         height: 12px;

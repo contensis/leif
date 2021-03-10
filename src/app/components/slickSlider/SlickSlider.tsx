@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Slider from 'react-slick';
 
 import SlickSliderStyled from './SlickSlider.styled';
@@ -37,8 +37,6 @@ const SlickSlider = ({
   slidesToShow = 1,
   responsive,
 }: Props) => {
-  if (!slides || slides.length < 1) return null;
-
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
   const [slider1, setSlider1] = useState<any>(null);
@@ -56,8 +54,8 @@ const SlickSlider = ({
     swipeToSlide: swipeToSlide,
     draggable: draggable,
     asNavFor: '.slider-nav',
-    nextArrow: <SlickArrow type="chevronRight" />,
-    prevArrow: <SlickArrow type="chevronLeft" />,
+    nextArrow: <SlickArrow type="chevron-right" />,
+    prevArrow: <SlickArrow type="chevron-left" />,
     responsive: responsive,
   };
 
@@ -106,8 +104,9 @@ const SlickSlider = ({
       setNav1(slider1);
       setNav2(slider2);
     }
-  }, [slider1, slider2]);
+  }, [hasNav, slider1, slider2]);
 
+  if (!slides || slides.length < 1) return null;
   return (
     <>
       <Helmet>

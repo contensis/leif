@@ -2,6 +2,8 @@ import React from 'react';
 
 import LinkButtonStyled from './LinkButton.styled';
 import Icon from '../icon/Icon';
+import { iconColor } from '../../utils/iconColor';
+
 export interface Props {
   className?: string;
   type?: string;
@@ -44,7 +46,13 @@ const LinkButton = ({
       onClick={e => _handleClick(e)}
     >
       {label}
-      {icon && <Icon type={icon} className="link-btn__icon" />}
+      {icon && (
+        <Icon
+          type={icon}
+          className="link-btn__icon"
+          color={iconColor(type, isHollow, isDisabled)}
+        />
+      )}
     </LinkButtonStyled>
   );
 };

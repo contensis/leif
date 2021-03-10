@@ -36,7 +36,7 @@ const FeaturedProductStyled = styled.div`
           right: -80px;
           height: 100%;
           width: 100%;
-          background-image: url('/static/img/svgs/featured-product-shape.svg');
+          background-image: url('/static/img/svgs/shapes/featured-product-shape.svg');
           background-repeat: no-repeat;
           background-size: contain;
         }

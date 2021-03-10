@@ -9,7 +9,7 @@ interface Props {
 
 const FeaturedCTAStyled = styled.div`
   ${({ theme, align, hasSVG, isModalOpen }: Props) => {
-  return css`
+    return css`
     position: relative;
     overflow-x: hidden;
     padding-bottom: 120px;
@@ -63,11 +63,11 @@ const FeaturedCTAStyled = styled.div`
       margin: -24% 0 0 0;
       margin-${align}: 32px;
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
-      border-radius: ${align === "left" ? '8px 0 0 0' : '0 8px 0 0'};
+      border-radius: ${align === 'left' ? '8px 0 0 0' : '0 8px 0 0'};
       &:before {
         display: ${hasSVG ? 'block' : 'none'};
         content: '';
-        background-image: url('/static/img/svgs/generic-hero-shape.svg');
+        background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
         height: 80px;
         width: 100%;
         position: absolute;

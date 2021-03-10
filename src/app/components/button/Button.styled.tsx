@@ -27,11 +27,6 @@ const ButtonStyled = styled.button`
       &:hover {
         background-color: ${theme.button.primary.solid.hover.background};
       }
-      .btn__icon path {
-        stroke: ${
-          isHollow ? theme.button.hollow.color : theme.button.solid.color
-        };
-      }
       ${btnTheme === 'secondary' &&
         css`
           background-color: ${isHollow
@@ -49,11 +44,6 @@ const ButtonStyled = styled.button`
               ? theme.button.secondary.hollow.hover.background
               : theme.button.secondary.solid.hover.background};
           }
-          .btn__icon path {
-            stroke: ${isHollow
-              ? theme.button.secondary.hollow.color
-              : theme.button.secondary.solid.color};
-          }
         `}
       ${btnTheme === 'white' &&
         css`
@@ -63,9 +53,6 @@ const ButtonStyled = styled.button`
           border-color: ${theme.button.white.hollow.border};
           &:hover {
             background-color: ${theme.button.white.hollow.hover.background};
-          }
-          .btn__icon path {
-            stroke: ${theme.button.white.hollow.color};
           }
         `}
         ${isDisabled &&
@@ -79,11 +66,6 @@ const ButtonStyled = styled.button`
             border: ${isHollow || btnTheme === 'white'
               ? theme.button.disabled.hollow.border
               : theme.button.disabled.solid.border};
-            .btn__icon path {
-              stroke: ${isHollow || btnTheme === 'white'
-                ? theme.button.disabled.hollow.color
-                : theme.button.disabled.solid.color};
-            }
             &:hover {
               background: ${isHollow || btnTheme === 'white'
                 ? theme.button.disabled.hollow.background

@@ -41,7 +41,7 @@ const GenericHeroStyled = styled(Link)`
           position: absolute;
           top: -80px;
           left: 0;
-          background-image: url('/static/img/svgs/generic-hero-shape.svg');
+          background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
           background-repeat: no-repeat;
           background-position: top center;
         }

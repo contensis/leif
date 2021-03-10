@@ -32,7 +32,7 @@ const ProductHeroStyled = styled.div`
         position: relative;
         &:before {
           content: '';
-          background-image: url('/static/img/svgs/product-hero-shape.svg');
+          background-image: url('/static/img/svgs/shapes/product-hero-shape.svg');
           background-repeat: no-repeat;
           position: absolute;
           top: -40px;

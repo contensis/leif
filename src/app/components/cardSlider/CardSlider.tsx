@@ -49,7 +49,7 @@ const CardSlider = ({ className, title, text, cta, image, slides }: Props) => {
           title={title}
           text={text}
           cta={cta}
-          btnIcon="tag"
+          btnIcon="product"
         />
         <div className="card-slider__slider">
           <SlickSlider

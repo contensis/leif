@@ -41,7 +41,7 @@ const TestimonialSliderStyled = styled.div`
           height: 160px;
           width: 12px;
           transform: rotate(90deg);
-          background-image: url('/static/img/svgs/quote-block-shape.svg');
+          background-image: url('/static/img/svgs/shapes/quote-block-shape.svg');
           background-repeat: no-repeat;
         }
         @media ${theme.mq.desktop} {

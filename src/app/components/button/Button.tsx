@@ -2,11 +2,12 @@ import React from 'react';
 
 import ButtonStyled from './Button.styled';
 import Icon from '../icon/Icon';
+import { iconColor } from '../../utils/iconColor';
 
 export interface Props {
   className?: string;
   btnTheme?: string;
-  type?: "submit" | 'reset' | "button";
+  type?: 'submit' | 'reset' | 'button';
   isHollow?: boolean;
   isDisabled?: boolean;
   icon?: any;
@@ -16,7 +17,7 @@ export interface Props {
 
 const Button = ({
   className,
-  type = "button",
+  type = 'button',
   btnTheme = 'primary',
   isHollow = false,
   isDisabled = false,
@@ -44,7 +45,13 @@ const Button = ({
       onClick={e => _handleClick(e)}
     >
       {label}
-      {icon && <Icon type={icon} className="btn__icon" />}
+      {icon && (
+        <Icon
+          type={icon}
+          className="btn__icon"
+          color={iconColor(type, isHollow, isDisabled)}
+        />
+      )}
     </ButtonStyled>
   );
 };

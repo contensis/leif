@@ -18,7 +18,14 @@ const Rating = ({ className, rating }: Props) => {
     <RatingStyled className={className} rating={rating}>
       {stars &&
         stars.map(s => {
-          return <Icon key={s} type="star" className="rating__star" />;
+          return (
+            <Icon
+              key={s}
+              type="star"
+              className="rating__star"
+              color="#FFC805"
+            />
+          );
         })}
     </RatingStyled>
   );

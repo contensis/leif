@@ -23,7 +23,7 @@ const LeadParagraphStyled = styled.div`
             top: -24px;
             left: 50%;
             transform: translateX(-50%);
-            background-image: url('/static/img/svgs/generic-hero-shape.svg');
+            background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
             width: 220px;
             height: 80px;
           }

@@ -88,12 +88,13 @@ const CardStyled = styled.a`
             width: 16px;
             left: 12px;
             bottom: 28px;
-            path {
-              fill: ${theme.colors.secondary_lighter};
-            }
           }
-          .card__price,
           .card__rating {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+          }
+          .card__price {
             display: block;
             margin-top: 16px;
           }

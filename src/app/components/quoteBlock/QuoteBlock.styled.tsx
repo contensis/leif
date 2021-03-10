@@ -19,7 +19,7 @@ const QuoteBlockStyled = styled.blockquote`
         left: 0;
         height: 100%;
         width: 100%;
-        background-image: url('/static/img/svgs/quote-block-shape.svg');
+        background-image: url('/static/img/svgs/shapes/quote-block-shape.svg');
         background-repeat: repeat-y;
       }
       .quote-block__details {
