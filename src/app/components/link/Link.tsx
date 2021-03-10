@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Link as PageLink } from 'react-router-dom';
 export interface Props {
   className?: string;
   children: any;
   download?: any;
-  onClick?: (ev:any) => void;
+  onClick?: (ev: any) => void;
   openInNewWindow?: boolean;
   title: string;
   uri: string;
@@ -28,11 +28,11 @@ const Link = ({
   let newWindow = openInNewWindow ? '_blank' : '_self';
   uri = encodeURI(uri);
 
-  const _handleClick = (e:any) => {
+  const _handleClick = (e: any) => {
     if (onClick) {
-      onClick(e)
+      onClick(e);
     }
-  }
+  };
 
   if (newWindow != '_blank' && uri && uri.startsWith('/')) {
     return (

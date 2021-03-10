@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
   a:focus, button:focus{
     outline-offset: 4px;
     outline: auto;
-    outline-color: ${colors?.link};
+    outline-color: ${colors.link};
     outline-width: medium;
   }
   table {

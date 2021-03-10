@@ -51,7 +51,7 @@ const CardSliderStyled = styled.div`
       .card-slider__hero-content {
         svg path {
           fill: none;
-          stroke: ${theme?.colors?.secondary};
+          stroke: ${theme.colors.secondary};
         }
         @media ${theme.mq.desktop} {
           max-width: 520px;

@@ -8,7 +8,7 @@ const InputControlStyled = styled.button`
     height: 40px;
     border: none;
     border-radius: 50%;
-    background-color: ${theme?.colors?.neutral_lightgrey};
+    background-color: ${theme.colors.neutral_lightgrey};
     position: relative;
     transition: opacity 100ms ease-in-out;
     &:hover {
@@ -20,7 +20,7 @@ const InputControlStyled = styled.button`
       left: 50%;
       transform: translate(-50%, -50%);
       path {
-        fill: ${theme?.colors?.secondary};
+        fill: ${theme.colors.secondary};
       }
     }
   `;

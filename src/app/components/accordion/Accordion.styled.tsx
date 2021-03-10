@@ -11,11 +11,11 @@ const AccordionStyled = styled.div`
         margin-bottom: 40px;
       }
       .accordion__title {
-        ${theme?.typeStyles?.h4};
+        ${theme.typeStyles.h4};
       }
       .accordion__btn {
         text-decoration: underline;
-        color: ${theme?.colors?.link};
+        color: ${theme.colors.link};
         background-color: transparent;
         border: none;
         padding: 0;
@@ -30,9 +30,9 @@ const AccordionStyled = styled.div`
         }
       }
       .accordion-item__button {
-        ${theme?.typeStyles?.h5};
-        font-family: ${theme?.typeStyles?.fontFamily?.headings};
-        color: ${theme?.colors?.secondary};
+        ${theme.typeStyles.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        color: ${theme.colors.secondary};
         background-color: rgba(195, 198, 222, 0.2);
         border: none;
         border-radius: 4px;

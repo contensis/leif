@@ -36,7 +36,7 @@ const RegionWrapper = ({
   }
 };
 
-const _generateMargin = (margin:string) => {
+const _generateMargin = (margin: string) => {
   const mqArray = [
     sizesNoUnit.mobile,
     sizesNoUnit.laptop,
@@ -46,8 +46,7 @@ const _generateMargin = (margin:string) => {
 
   let regionMargin;
   if (margin && Array.isArray(margin)) {
-    regionMargin = margin.map((m:string, idx:number) => {
-      console.info({ m })
+    regionMargin = margin.map((m: string, idx: number) => {
       const currentMediaQuery = mqArray[idx];
       if (idx === 0) {
         return css`
@@ -71,18 +70,18 @@ const _generateMargin = (margin:string) => {
 
 const Region = styled(RegionWrapper)`
   ${({ theme, margin, width, padding = 'default' }: RegionWrapperProps) => {
-    return css`        
-        ${_generateMargin(margin)};
-        display: block;
-        position: relative;
-        box-sizing: content-box;
-        max-width: ${theme.region[width].width};
-        ${padding !== 'none' &&
-          css`
-            padding-left: ${theme.region.padding[padding]};
-            padding-right: ${theme.region.padding[padding]};
-          `}
-      `;
+    return css`
+      ${_generateMargin(margin)};
+      display: block;
+      position: relative;
+      box-sizing: content-box;
+      max-width: ${theme.region[width].width};
+      ${padding !== 'none' &&
+        css`
+          padding-left: ${theme.region.padding[padding]};
+          padding-right: ${theme.region.padding[padding]};
+        `}
+    `;
   }};
 `;
 

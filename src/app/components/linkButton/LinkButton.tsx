@@ -6,11 +6,11 @@ export interface Props {
   className?: string;
   type?: string;
   isHollow?: boolean;
-  isDisabled?: boolean; 
+  isDisabled?: boolean;
   icon?: any;
   label: string;
   href: string;
-  onClick?: (ev:any) => void;
+  onClick?: (ev: any) => void;
 }
 
 const LinkButton = ({
@@ -23,7 +23,7 @@ const LinkButton = ({
   href,
   onClick,
 }: Props) => {
-  const _handleClick = (e:any) => {
+  const _handleClick = (e: any) => {
     e.preventDefault();
     if (!isDisabled && onClick) {
       onClick(e);

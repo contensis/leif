@@ -11,15 +11,18 @@ export interface Props {
   align?: string;
 }
 
-const ImageBlock = ({ className, image, title, text, align = "center" }:Props) => {
+const ImageBlock = ({
+  className,
+  image,
+  title,
+  text,
+  align = 'center',
+}: Props) => {
   if (!image) return null;
   return (
     <ImageBlockStyled className={className} align={align}>
       <div className="image-block__wrapper">
-        <Image
-          className="image-block__image"
-          image={image}
-        />
+        <Image className="image-block__image" image={image} />
       </div>
       <p className="image-block__title">{title}</p>
       <p className="image-block__text">{text}</p>

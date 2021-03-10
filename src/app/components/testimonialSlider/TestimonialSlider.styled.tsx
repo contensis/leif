@@ -7,7 +7,7 @@ interface Props {
 
 const TestimonialSliderStyled = styled.div`
   ${({ theme, bgImage }: Props) => {
-  return css`
+    return css`
       background-image: url(${bgImage});
       background-size: cover;
       background-position: center;
@@ -19,7 +19,7 @@ const TestimonialSliderStyled = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: ${theme.colors?.secondary};
+        background-color: ${theme.colors.secondary};
         opacity: ${bgImage ? '.9' : '1'};
       }
       @media ${theme.mq.desktop} {
@@ -52,8 +52,8 @@ const TestimonialSliderStyled = styled.div`
       }
       .testimonial__pagination {
         text-align: center;
-        color: ${theme?.colors?.primary};
-        ${theme?.typeStyles?.smallCopy};
+        color: ${theme.colors.primary};
+        ${theme.typeStyles.smallCopy};
         position: absolute;
         bottom: 132px;
         left: 50%;
@@ -65,12 +65,13 @@ const TestimonialSliderStyled = styled.div`
           transform: unset;
         }
       }
-      .slick-next, .slick-prev {
+      .slick-next,
+      .slick-prev {
         bottom: 64px;
         top: auto;
-        background-color: ${theme?.colors?.neutral_white};
+        background-color: ${theme.colors.neutral_white};
         svg path {
-          fill:  ${theme.colors?.secondary};
+          fill: ${theme.colors.secondary};
         }
         @media ${theme.mq.desktop} {
           bottom: auto;

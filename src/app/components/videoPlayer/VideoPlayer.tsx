@@ -19,23 +19,20 @@ const VideoPlayer = ({
   externalURL,
   internalVideo,
 }: Props) => {
-  const VideoContent = (type:string) => {
+  const VideoContent = (type: string) => {
     switch (type) {
       case 'YouTube':
         return <YoutubeEmbed title={title} src={externalURL} />;
       case 'Internal':
         return (
-          <VideoPlayerStyled
-            controls={hasControls}
-            name="media"
-          >
+          <VideoPlayerStyled controls={hasControls} name="media">
             <source src={internalVideo} type="video/mp4" />
           </VideoPlayerStyled>
         );
       default:
         break;
     }
-  }
+  };
   return <div className={className}>{VideoContent(type)}</div>;
 };
 

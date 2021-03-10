@@ -12,15 +12,19 @@ export interface Props {
 
 const ContentHero = ({ className, title, image }: Props) => {
   if (!image) return null;
-  const bgImage = image?.asset?.sys?.uri;
+  const bgImage = image.asset.sys.uri;
   return (
     <ContentHeroStyled className={className} bgImage={bgImage}>
       <div className="content-hero__content">
-        <BackButton label="Landing page" className="content-hero__back-btn"/>
+        <BackButton
+          label="Landing page"
+          className="content-hero__back-btn"
+          color="#fff"
+        />
         <h1 className="content-hero__title">{title}</h1>
       </div>
     </ContentHeroStyled>
-  )
-}
+  );
+};
 
 export default ContentHero;

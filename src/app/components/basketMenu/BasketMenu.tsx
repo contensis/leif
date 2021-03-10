@@ -36,19 +36,18 @@ const BasketMenu = ({
         className="basket-menu__btn"
         isToggled={isBasketOpen}
         _func={() => {
-          _toggleSearch(false),
-          _toggleBasket(!isBasketOpen);
+          _toggleSearch(false), _toggleBasket(!isBasketOpen);
         }}
       />
       {isBasketOpen && (
         <div className="basket-menu__content-wrapper">
-            <Icon className="basket-menu__icon" type="wheelbarrow" />
-            <p className="basket-menu__text">Your basket is empty</p>
-            <LinkButton
-              label="Browse our products"
-              href="/products"
-              icon="arrowRight"
-              />
+          <Icon className="basket-menu__icon" type="wheelbarrow" />
+          <p className="basket-menu__text">Your basket is empty</p>
+          <LinkButton
+            label="Browse our products"
+            href="/products"
+            icon="arrow-right"
+          />
         </div>
       )}
     </BasketMenuStyled>

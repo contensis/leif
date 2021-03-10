@@ -11,7 +11,7 @@ const CardStyled = styled.a`
       display: block;
       text-decoration: none;
       padding: 16px;
-      background: ${theme?.colors?.neutral_white}};
+      background: ${theme.colors.neutral_white}};
       border-radius: 8px;
       transition: box-shadow 200ms ease-out;
       &:hover {
@@ -19,10 +19,10 @@ const CardStyled = styled.a`
       }
       .card__title {
         margin: 0;
-        color: ${theme?.colors?.secondary};
+        color: ${theme.colors.secondary};
       }
       .card__text {
-        color: ${theme?.colors?.neutral_charcoal};
+        color: ${theme.colors.neutral_charcoal};
         margin: 24px 0 0 0;
       }
       .card__thumbnail {
@@ -40,12 +40,12 @@ const CardStyled = styled.a`
             margin-top: 24px;
           }
           .card__title {
-            ${theme?.typeStyles?.h4};
+            ${theme.typeStyles.h4};
           }
           .card__details {
             margin-top: 24px;
-            color: ${theme?.colors?.secondary_light};
-            ${theme?.typeStyles?.smallCopy};
+            color: ${theme.colors.secondary_light};
+            ${theme.typeStyles.smallCopy};
           }
         `}
       ${(type === 'plant' || type === 'pot') &&
@@ -54,7 +54,7 @@ const CardStyled = styled.a`
           width: 100%;
           min-height: 488px;
           box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
-          color: ${theme?.colors?.secondary};
+          color: ${theme.colors.secondary};
           text-align: center;
           &:hover {
             .card__title {
@@ -63,7 +63,7 @@ const CardStyled = styled.a`
           }
           .card__title {
             margin-top: 24px;
-            ${theme?.typeStyles?.h5};
+            ${theme.typeStyles.h5};
           }
           .card__thumbnail {
             width: 256px;
@@ -79,7 +79,7 @@ const CardStyled = styled.a`
               left: 8px;
               bottom: 24px;
               border-radius: 50%;
-              background: ${theme?.colors?.neutral_white};
+              background: ${theme.colors.neutral_white};
             }
           }
           .card__tag {
@@ -89,7 +89,7 @@ const CardStyled = styled.a`
             left: 12px;
             bottom: 28px;
             path {
-              fill: ${theme?.colors?.secondary_lighter};
+              fill: ${theme.colors.secondary_lighter};
             }
           }
           .card__price,
@@ -98,49 +98,52 @@ const CardStyled = styled.a`
             margin-top: 16px;
           }
           .card__price {
-            color: ${theme?.colors?.secondary_light};
-            font-family: ${theme?.typeStyles?.fontFamily?.headings};
-            ${theme?.typeStyles?.h5};
+            color: ${theme.colors.secondary_light};
+            font-family: ${theme.typeStyles.fontFamily.headings};
+            ${theme.typeStyles.h5};
           }
         `}
-        ${type === 'explore' && css`
-          .card__thumbnail {
-            max-width: 236px;
-            height: 256px;
-            @media ${theme.mq.desktop} {
-              width: 100%;
-              max-width: 100%;
+        ${type === 'explore' &&
+          css`
+            .card__thumbnail {
+              max-width: 236px;
+              height: 256px;
+              @media ${theme.mq.desktop} {
+                width: 100%;
+                max-width: 100%;
+              }
             }
-          }
-          .card__title {
-            margin: 24px 0 0;
-          }
-          margin: 0 8px 32px;
-          @media ${theme.mq.desktop} {
-            max-width: 290px;
-            width: 100%;
-          }
-        `}
-        ${type === 'content' && css`
-          display: flex;
-          flex-direction: column;
-          max-width: 288px;
-          width: 100%;
-          padding: 16px 16px 24px;
-          .card__title {
-            margin: 0 0 24px 0;
-          }
-          .card__thumbnail {
-            height: 256px
-          }
-          ${!hasText && css`
-            flex-direction: column-reverse; 
-            padding: 24px 16px;
             .card__title {
-              margin: 24px 0 0 0;
+              margin: 24px 0 0;
+            }
+            margin: 0 8px 32px;
+            @media ${theme.mq.desktop} {
+              max-width: 290px;
+              width: 100%;
             }
           `}
-        `}
+        ${type === 'content' &&
+          css`
+            display: flex;
+            flex-direction: column;
+            max-width: 288px;
+            width: 100%;
+            padding: 16px 16px 24px;
+            .card__title {
+              margin: 0 0 24px 0;
+            }
+            .card__thumbnail {
+              height: 256px;
+            }
+            ${!hasText &&
+              css`
+                flex-direction: column-reverse;
+                padding: 24px 16px;
+                .card__title {
+                  margin: 24px 0 0 0;
+                }
+              `}
+          `}
     `;
   }};
 `;

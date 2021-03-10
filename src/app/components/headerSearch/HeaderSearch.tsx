@@ -17,8 +17,7 @@ const HeaderSearch = ({
   placeholder,
   isSearchOpen = false,
   _toggleSearch,
-}: Props) => {  
-
+}: Props) => {
   return (
     <HeaderSearchStyled className={className}>
       <div className="header-search__input-wrapper">
@@ -36,7 +35,7 @@ const HeaderSearch = ({
       </div>
       <IconButton
         isToggled={isSearchOpen}
-        icon='search'
+        icon="search"
         _func={() => _toggleSearch(!isSearchOpen)}
         text={`${isSearchOpen ? 'Close' : 'Open'} Search site`}
       />

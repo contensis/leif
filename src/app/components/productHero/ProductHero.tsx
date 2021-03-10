@@ -9,7 +9,7 @@ import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';
 import BackButton from '../backButton/BackButton';
 import SocialShare from '../socialShare/SocialShare';
-import Icon from '../icon/Icon'
+import Icon from '../icon/Icon';
 import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
@@ -21,7 +21,7 @@ export interface Props {
   title: string;
   text?: string;
   price: number;
-  options?: any,
+  options?: any;
 }
 
 const ProductHero = ({
@@ -38,13 +38,13 @@ const ProductHero = ({
   const [activeOption, setActiveOption] = useState(0);
 
   const _handleClick = (e: any, type: string) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (type === 'increase') {
       updateQuantity((quantity += 1));
     } else {
       updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
     }
-  }
+  };
   _noScroll(isModalOpen);
 
   return (
@@ -92,8 +92,8 @@ const ProductHero = ({
                 className="product-hero__slider-fullsize"
                 onClick={() => setIsModalOpen(true)}
               >
-              <VisuallyHidden text="Open image slider fullscreen" />
-                <Icon type="fullSize" />
+                <VisuallyHidden text="Open image slider fullscreen" />
+                <Icon type="full-size" />
               </button>
             </div>
           )}
@@ -106,18 +106,20 @@ const ProductHero = ({
             {text && <p className="product-hero__text">{text}</p>}
             <span className="product-hero__price">£{price}</span>
             <div className="product-hero__options">
-              {options && options.map((opt:any, idx:number) => {
-                return (
-                  <LinkButton
-                  label={opt.title}
-                  href="#"
-                  type="secondary"
-                  isHollow={activeOption === idx ? false : true}
-                  className="product-hero__option"
-                  onClick={() => setActiveOption(idx)}
-                  />
-                )
-              })}
+              {options &&
+                options.map((opt: any, idx: number) => {
+                  return (
+                    <LinkButton
+                      key={idx}
+                      label={opt.title}
+                      href="#"
+                      type="secondary"
+                      isHollow={activeOption === idx ? false : true}
+                      className="product-hero__option"
+                      onClick={() => setActiveOption(idx)}
+                    />
+                  );
+                })}
             </div>
             <div className="product-hero__input-wrapper">
               <Input

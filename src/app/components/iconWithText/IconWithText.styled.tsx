@@ -22,11 +22,11 @@ const IconWithTextStyled = styled.div`
           margin: 0 0 0 24px;
         }
       }
-      .icon-with-text__title { 
+      .icon-with-text__title {
         margin: 0;
-        ${theme?.typeStyles?.h5};
-        font-family: ${theme?.typeStyles?.fontFamily?.headings};
-        color: ${theme?.colors?.secondary};
+        ${theme.typeStyles.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        color: ${theme.colors.secondary};
       }
       .icon-with-text__text {
         margin: 8px 0 0 0;

@@ -10,8 +10,8 @@ export interface ImageObject {
     altText?: string;
     sys: {
       uri: string;
-    }
-  }
+    };
+  };
 }
 interface Props {
   className?: string;

@@ -14,13 +14,7 @@ export interface Props {
   cta?: LinkButtonProps;
 }
 
-const LandingHero = ({
-  className,
-  image,
-  title,
-  text,
-  cta,
-}: Props) => {
+const LandingHero = ({ className, image, title, text, cta }: Props) => {
   return (
     <LandingHeroStyled className={className}>
       <div className="image-hero__image-wrapper">
@@ -28,7 +22,7 @@ const LandingHero = ({
         <div className="image-hero__image-overlay" />
       </div>
       <div className="image-hero__content">
-        <HeroContent title={title} text={text} cta={cta} btnIcon='arrowRight' />
+        <HeroContent title={title} text={text} cta={cta} btnIcon="arrowRight" />
       </div>
     </LandingHeroStyled>
   );

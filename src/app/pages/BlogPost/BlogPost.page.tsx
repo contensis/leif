@@ -13,23 +13,30 @@ import RelatedContent from '../../components/relatedContent/RelatedContent';
 import MainLayout from '../../layout/MainLayout';
 import Region from '~/layout/Region';
 
-
 interface Props {
   entry: any;
 }
 
-const BlogPost = ({ entry }:Props) => {
+const BlogPost = ({ entry }: Props) => {
   const ctaObject = {
     label: entry.callToAction.buttonText,
-    uri: entry.callToAction.linkToInternalContent && entry.callToAction.linkToInternalContent.sys.uri ? entry.callToAction.linkToInternalContent.sys.uri : (!entry.callToAction.linkToInternalContent || !entry.callToAction.linkToInternalContent.sys.uri) && entry.callToAction.linkToExternalURL ? entry.callToAction.linkToExternalURL : "/",
-    type: "primary"
-  }
+    uri:
+      entry.callToAction.linkToInternalContent &&
+      entry.callToAction.linkToInternalContent.sys.uri
+        ? entry.callToAction.linkToInternalContent.sys.uri
+        : (!entry.callToAction.linkToInternalContent ||
+            !entry.callToAction.linkToInternalContent.sys.uri) &&
+          entry.callToAction.linkToExternalURL
+        ? entry.callToAction.linkToExternalURL
+        : '/',
+    type: 'primary',
+  };
 
   const relatedContentLinkObject = {
-    label: "View all blogs",
-    uri: "/blogs",
-    type: "secondary"
-  }
+    label: 'View all blogs',
+    uri: '/blogs',
+    type: 'secondary',
+  };
 
   return (
     <MainLayout>
@@ -65,6 +72,5 @@ const BlogPost = ({ entry }:Props) => {
     </MainLayout>
   );
 };
-
 
 export default BlogPost;

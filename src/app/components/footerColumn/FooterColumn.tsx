@@ -24,12 +24,12 @@ const FooterColumn = ({ className, title, links }: Props) => {
         {title}
         <Icon
           className="footer-column__icon"
-          type={`chevron${isOpen ? 'Up' : 'Down'}`}
+          type={`chevron-${isOpen ? 'up' : 'down'}`}
         />
       </button>
       <h5 className="footer-column__title">{title}</h5>
       <div className="footer-column__sub-links">
-        {links.map((l:LinkObject) => {
+        {links.map((l: LinkObject) => {
           return (
             <a className="footer-column__sub-link" key={l.title} href={l.uri}>
               {l.title}

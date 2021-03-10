@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import FeaturedCTAStyled from './FeaturedCTA.styled';
 import Image, { ImageObject } from '../image/Image';
 import LinkButton, { Props as LinkButtonProps } from '../linkButton/LinkButton';
-import VideoPlayer, { Props as VideoPlayerProps } from '../videoPlayer/VideoPlayer';
+import VideoPlayer, {
+  Props as VideoPlayerProps,
+} from '../videoPlayer/VideoPlayer';
 import Icon from '../icon/Icon';
 import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import { _noScroll } from '../../utils/noScroll';
-
 
 export interface Props {
   className?: string;
@@ -30,14 +31,19 @@ const FeaturedCTA = ({
   cta,
   video,
   align = 'left',
-  hasSVG = false
+  hasSVG = false,
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const hasVideo = video?.externalURL || video?.internalVideo;
+  const hasVideo = video.externalURL || video.internalVideo;
   _noScroll(isModalOpen);
 
   return (
-    <FeaturedCTAStyled className={className} align={align} hasSVG={hasSVG} isModalOpen={isModalOpen}>
+    <FeaturedCTAStyled
+      className={className}
+      align={align}
+      hasSVG={hasSVG}
+      isModalOpen={isModalOpen}
+    >
       <Wrapper
         condition={isModalOpen}
         wrapper={() => (
@@ -52,7 +58,12 @@ const FeaturedCTA = ({
                   <Icon type="cross" />
                   <VisuallyHidden text="Close" />
                 </button>
-                <VideoPlayer className="featured-cta__video-player" title={video?.title} type={video?.type} externalURL={video?.externalURL} />
+                <VideoPlayer
+                  className="featured-cta__video-player"
+                  title={video.title}
+                  type={video.type}
+                  externalURL={video.externalURL}
+                />
               </div>
             </FocusLock>
           </>
@@ -67,7 +78,7 @@ const FeaturedCTA = ({
               onClick={() => setIsModalOpen(true)}
             >
               <VisuallyHidden text="Open video modal" />
-              <Icon type="videoPlay" />
+              <Icon type="video-play" />
             </button>
           )}
         </div>

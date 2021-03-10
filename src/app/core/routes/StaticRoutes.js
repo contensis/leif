@@ -1,7 +1,7 @@
 // import React from 'react';
 import Loadable from 'react-loadable';
 import { Loading } from './Loading';
-import Home from '~/pages/Home/home.page.js';
+// import Home from '~/pages/Home/home.page.js';
 
 export default [
   {

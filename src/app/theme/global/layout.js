@@ -90,7 +90,7 @@ export const region = {
     width: '1060px',
   },
   medium: {
-    width: '840px'
+    width: '840px',
   },
   small: {
     width: '620px',

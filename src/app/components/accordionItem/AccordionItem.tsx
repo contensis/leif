@@ -42,7 +42,7 @@ const AccordionItem = ({
         {title}
         <Icon
           className="accordion-item__icon"
-          type={isOpen ? 'arrowUp' : 'arrowDown'}
+          type={isOpen ? 'arrow-up' : 'arrow-down'}
         />
       </button>
       {isOpen && <div className="accordion-item__panel">{text}</div>}

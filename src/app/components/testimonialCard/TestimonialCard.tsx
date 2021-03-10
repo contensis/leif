@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TestimonialCard = ({ className, quote, person }: Props) => {
-  const avatar = person?.photo;
+  const avatar = person.photo;
   return (
     <TestimonialCardStyled className={className}>
       <p className="testimonial-card__quote">{quote}</p>

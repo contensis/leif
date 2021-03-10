@@ -7,7 +7,7 @@ export interface Props {
   type?: 'default' | 'center';
 }
 
-const LeadParagraph = ({ className, type = "default", text }: Props) => {
+const LeadParagraph = ({ className, type = 'default', text }: Props) => {
   return (
     <LeadParagraphStyled
       className={className}

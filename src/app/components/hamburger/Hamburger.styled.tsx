@@ -9,7 +9,7 @@ const HamburgerStyled = styled.div`
     return css`
       width: 64px;
       height: 64px;
-      background: ${theme?.colors?.primary};
+      background: ${theme.colors.primary};
       position: relative;
       border: none;
       padding: 0;
@@ -31,7 +31,7 @@ const HamburgerStyled = styled.div`
         width: 100%;
         border-radius: 4px;
         height: 2px;
-        background: ${theme?.colors?.secondary};
+        background: ${theme.colors.secondary};
         transition: all 0.3s;
         position: relative;
         &:not(:last-child) {

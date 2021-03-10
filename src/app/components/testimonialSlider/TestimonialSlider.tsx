@@ -13,10 +13,10 @@ const TestimonialSlider = ({ className, testimonials, bgImage }: Props) => {
   if (!testimonials || testimonials.length < 1) return null;
 
   const [currentSlide, setCurrentSlide] = useState<number>(1);
-  const updateCurrentSlide = (currentSlide:number) => {
+  const updateCurrentSlide = (currentSlide: number) => {
     setCurrentSlide(currentSlide + 1);
   };
-  const maxSlides = testimonials?.length;
+  const maxSlides = testimonials.length;
 
   return (
     <TestimonialSliderStyled className={className} bgImage={bgImage}>
@@ -27,7 +27,9 @@ const TestimonialSlider = ({ className, testimonials, bgImage }: Props) => {
           className="testimonial-slider__slider"
           afterChangeFunc={updateCurrentSlide}
         />
-        <div className="testimonial__pagination">{currentSlide} &#47; {maxSlides}</div>
+        <div className="testimonial__pagination">
+          {currentSlide} &#47; {maxSlides}
+        </div>
       </div>
     </TestimonialSliderStyled>
   );

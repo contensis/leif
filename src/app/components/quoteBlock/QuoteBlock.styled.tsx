@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 const QuoteBlockStyled = styled.blockquote`
   ${({ theme }) => {
     return css`
-      ${theme?.typeStyles?.h4};
-      color: ${theme?.colors?.secondary_light};
-      font-family: ${theme?.typeStyles?.fontFamily?.headings};
+      ${theme.typeStyles.h4};
+      color: ${theme.colors.secondary_light};
+      font-family: ${theme.typeStyles.fontFamily.headings};
       position: relative;
       max-width: 482px;
       width: 100%;

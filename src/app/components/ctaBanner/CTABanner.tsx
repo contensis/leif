@@ -15,7 +15,7 @@ export interface Props {
   image: ImageObject;
   title: string;
   text: string;
-  cta?: CTAObject;
+  cta: CTAObject;
 }
 
 const CTABanner = ({ className, image, title, text, cta }: Props) => {

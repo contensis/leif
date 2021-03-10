@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const AuthorStyled = styled.div`
-  ${({ theme }) => { 
+  ${({ theme }) => {
     return css`
       display: flex;
       align-items: center;
@@ -13,8 +13,8 @@ const AuthorStyled = styled.div`
       }
       .author__person {
         margin-left: 8px;
-        font-family: ${theme.typeStyles?.fontFamily?.headings};
-        ${theme.typeStyles?.h6};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        ${theme.typeStyles.h6};
       }
     `;
   }};

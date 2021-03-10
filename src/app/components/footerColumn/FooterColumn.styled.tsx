@@ -16,8 +16,8 @@ const FooterColumnStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: ${theme?.typeStyles?.fontFamily?.headings};
-        ${theme?.typeStyles?.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        ${theme.typeStyles.h5};
         @media ${theme.mq.laptop} {
           display: none;
         }
@@ -29,7 +29,7 @@ const FooterColumnStyled = styled.div`
         }
       }
       .footer-column__icon path {
-        fill: ${theme?.colors?.secondary_light};
+        fill: ${theme.colors.secondary_light};
         margin-left: 8px;
       }
       .footer-column__sub-links {
@@ -50,7 +50,7 @@ const FooterColumnStyled = styled.div`
         }
       }
       .footer-column__sub-link {
-        color: ${theme?.colors?.neutral_charcoal};
+        color: ${theme.colors.neutral_charcoal};
         padding: 8px 16px;
         text-decoration: none;
         &:hover {

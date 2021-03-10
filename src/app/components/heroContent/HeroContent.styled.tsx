@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 
 const HeroContentStyled = styled.div`
   ${({ theme }) => {
-  return css`
+    return css`
       text-align: center;
-      background-color: ${theme?.colors?.neutral_white};
+      background-color: ${theme.colors.neutral_white};
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
       border-radius: 8px 8px 0px 0px;
       position: relative;
@@ -25,13 +25,13 @@ const HeroContentStyled = styled.div`
       .hero-content__text {
         margin: 24px 0 0 0;
       }
-        .hero-content__btn {
+      .hero-content__btn {
         margin: 40px auto 0;
         @media ${theme.mq.desktop} {
           margin: 40px 0 0;
         }
       }
-  `;
+    `;
   }}
 `;
 

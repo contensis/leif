@@ -13,14 +13,14 @@ const RatingStyled = styled.div`
       justify-content: center;
       .rating__star {
         path {
-          fill: ${theme?.colors?.neutral_lightgrey};
+          fill: ${theme.colors.neutral_lightgrey};
         }
       }
       ${rating !== '0' &&
         css`
           .rating__star:nth-child(-n + ${rating}) {
             path {
-              fill: ${theme?.colors?.warning};
+              fill: ${theme.colors.warning};
             }
           }
         `}

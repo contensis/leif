@@ -57,7 +57,7 @@ const FeaturedCTAStyled = styled.div`
       }
     }
     .featured-cta__content {
-      background-color: ${theme?.colors?.neutral_white};
+      background-color: ${theme.colors.neutral_white};
       position: relative;
       padding: 40px 16px;
       margin: -24% 0 0 0;

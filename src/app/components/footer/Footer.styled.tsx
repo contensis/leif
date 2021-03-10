@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const FooterStyled = styled.div`
   ${({ theme }) => {
-  return css`
+    return css`
       max-width: 1440px;
       width: 100%;
       margin: 0 auto;
@@ -45,6 +45,9 @@ const FooterStyled = styled.div`
         }
       }
       .footer__icons-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         margin-top: 40px;
         @media ${theme.mq.laptop} {
           margin-top: 24px;

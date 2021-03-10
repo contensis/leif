@@ -54,7 +54,7 @@ const Navigation = ({
               }}
             >
               {NAVIGATION[menuKey].displayName}
-              <Icon type="arrowRight" />
+              <Icon type="arrow-right" color="#77E8C6" />
             </button>
           </li>
         );
@@ -103,7 +103,7 @@ const Navigation = ({
                     setActiveMenu('');
                   }}
                 >
-                  <Icon type="arrowLeft" />
+                  <Icon type="arrow-left" />
                 </button>
               </li>
               <Menu level={2} />

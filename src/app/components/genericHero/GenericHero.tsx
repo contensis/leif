@@ -26,7 +26,7 @@ const GenericHero = ({
   detail,
   type = 'default',
 }: Props) => {
-  const linkUri = link?.href;
+  const linkUri = link && link.href;
   const hasLink = linkUri ? true : false;
   return (
     <GenericHeroStyled
@@ -35,16 +35,20 @@ const GenericHero = ({
       hasLink={hasLink}
       title={title}
       uri={linkUri}
-      >
+    >
       <div className="generic-hero__content">
-        {(backLink && !hasLink) && (
+        {backLink && !hasLink && (
           <BackButton className="generic-hero__back" label={backLink.label} />
         )}
         <h1 className="generic-hero__title">{title}</h1>
         {text && <p>{text}</p>}
         {detail && (
           <div className="generic-hero__detail">
-            {detail.price && <span className="generic-hero__detail-price">£{detail.price}</span>}
+            {detail.price && (
+              <span className="generic-hero__detail-price">
+                £{detail.price}
+              </span>
+            )}
             <BlogDetail date={detail.date} readTime={detail.readTime} />
           </div>
         )}

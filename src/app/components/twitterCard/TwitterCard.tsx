@@ -8,7 +8,7 @@ import CustomizeTwitterWidget from '../../utils/customTwitterWidget';
 import Icon from '../icon/Icon';
 
 export interface Props {
-  twitterHandle: string,
+  twitterHandle: string;
 }
 
 const TwitterCard = ({ twitterHandle }: Props) => {
@@ -17,8 +17,8 @@ const TwitterCard = ({ twitterHandle }: Props) => {
       url: '/static/css/twitter.css',
     };
     CustomizeTwitterWidget(options);
-  }, [])
-    
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -39,7 +39,7 @@ const TwitterCard = ({ twitterHandle }: Props) => {
         >
           <VisuallyHidden text={`Tweets by ${twitterHandle}`} />
         </a>
-        <Icon type="twitter" className="twitter-card__icon"/>
+        <Icon type="twitter" className="twitter-card__icon" color="#12B4D9" />
       </TwitterCardStyled>
     </>
   );

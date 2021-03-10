@@ -11,52 +11,49 @@ interface Props {
   children: any;
 }
 
-const MainLayout = ({
-  className,
-  children,
-}: Props) => {
+const MainLayout = ({ className, children }: Props) => {
   const dispatch = useDispatch();
+  /* eslint-disable */
   useEffect(() => {
     window.addEventListener('resize', () => {
       dispatch({ type: BROWSER_RESIZE });
     });
   }, []);
+  /* eslint-enable */
 
-    const dummyFooterDataArray = [];
-    const dummyFooterDataObject = {
-      title: 'Title one',
-      links: [
-        {
-          title: 'Link one',
-          uri: 'www.google.co.uk',
-        },
-        {
-          title: 'Link two',
-          uri: 'www.google.co.uk',
-        },
-        {
-          title: 'Link three',
-          uri: 'www.google.co.uk',
-        },
-        {
-          title: 'Link four',
-          uri: 'www.google.co.uk',
-        },
-      ],
-    };
-    for (let i = 0; dummyFooterDataArray.length < 4; i++) {
-      dummyFooterDataArray.push(dummyFooterDataObject);
-    }
-
-
+  const dummyFooterDataArray = [];
+  const dummyFooterDataObject = {
+    title: 'Title one',
+    links: [
+      {
+        title: 'Link one',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link two',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link three',
+        uri: 'www.google.co.uk',
+      },
+      {
+        title: 'Link four',
+        uri: 'www.google.co.uk',
+      },
+    ],
+  };
+  for (let i = 0; dummyFooterDataArray.length < 4; i++) {
+    dummyFooterDataArray.push(dummyFooterDataObject);
+  }
 
   return (
     <>
       {/* <SkipToContent /> */}
       <Header />
-        <main id="main" className={className}>
-          {children}
-        </main>
+      <main id="main" className={className}>
+        {children}
+      </main>
       <Footer data={dummyFooterDataArray} />
     </>
   );

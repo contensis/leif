@@ -1,4 +1,9 @@
-const cropImage = (originalSrc: string, width?: number, height?: number, crop: boolean = true): string => {
+const cropImage = (
+  originalSrc: string,
+  width?: number,
+  height?: number,
+  crop: boolean = true
+): string => {
   let src = originalSrc;
 
   if (src.indexOf('picsum.photos') > -1) return src;

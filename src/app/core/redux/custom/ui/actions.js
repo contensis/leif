@@ -3,7 +3,7 @@ import {
   TOGGLE_SEARCH,
   TOGGLE_MENU,
   TOGGLE_BASKET,
-  BROWSER_RESIZE
+  BROWSER_RESIZE,
 } from './types';
 
 export const toggleSearch = value => action(TOGGLE_SEARCH, { value });

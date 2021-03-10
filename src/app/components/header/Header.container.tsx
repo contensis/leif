@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
-import { toggleSearch, toggleMenu, toggleBasket } from '../../core/redux/custom/ui/actions';
+import {
+  toggleSearch,
+  toggleMenu,
+  toggleBasket,
+} from '../../core/redux/custom/ui/actions';
 import {
   selectIsSearchOpen,
   selectIsMenuOpen,

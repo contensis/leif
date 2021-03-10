@@ -16,7 +16,14 @@ const HeroContent = ({ className, title, text, cta, btnIcon }: Props) => {
     <HeroContentStyled className={className}>
       <h2 className="hero-content__title">{title}</h2>
       <p className="hero-content__text">{text}</p>
-      {cta && <LinkButton className="hero-content__btn" icon={btnIcon} label={cta.label} href={cta.href} />}
+      {cta && (
+        <LinkButton
+          className="hero-content__btn"
+          icon={btnIcon}
+          label={cta.label}
+          href={cta.href}
+        />
+      )}
     </HeroContentStyled>
   );
 };

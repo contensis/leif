@@ -27,7 +27,7 @@ const SocialShare = ({ className }: Props) => {
             title={`Share on ${s.title}`}
             key={`${s.title}-${idx}`}
           >
-            <Icon type={s.icon} />
+            <Icon type={s.icon} color="#C3C6DE" />
             <VisuallyHidden text={`Share on ${s.title}`} />
           </a>
         );
@@ -37,7 +37,7 @@ const SocialShare = ({ className }: Props) => {
         type="button"
         onClick={() => copy(sharePath)}
       >
-        <Icon type="link" />
+        <Icon type="link" color="#C3C6DE" />
         <VisuallyHidden text="Copy link" />
       </button>
     </SocialShareStyled>

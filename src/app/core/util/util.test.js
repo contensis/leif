@@ -1,15 +1,15 @@
 //could use --json and --jsonOutputFile=<filename> to output test results for using in CI
-import isNonEmptyArray from '~/core/util/isNonEmptyArray';
-import truncateString from '~/core/util/truncateString';
+// import isNonEmptyArray from '../../core/util/isNonEmptyArray';
+import truncateString from '../..//core/util/truncateString';
 import { getHumanReadableDate } from '~/core/util/dateHelper';
-describe('#isNonEmptyArray', function() {
-  it('should return true/false depending on whether input is a non-empty array or not.', function() {
-    expect(isNonEmptyArray(['hello'])).toBe(true);
-    expect(isNonEmptyArray([])).toBe(false);
-    expect(isNonEmptyArray(5)).toBe(false);
-    expect(isNonEmptyArray(new Map([['hello', 'world']]))).toBe(false);
-  });
-});
+// describe('#isNonEmptyArray', function() {
+//   it('should return true/false depending on whether input is a non-empty array or not.', function() {
+//     expect(isNonEmptyArray(['hello'])).toBe(true);
+//     expect(isNonEmptyArray([])).toBe(false);
+//     expect(isNonEmptyArray(5)).toBe(false);
+//     expect(isNonEmptyArray(new Map([['hello', 'world']]))).toBe(false);
+//   });
+// });
 
 describe('#truncateString', function() {
   it('should return the same string if truncation size is smaller than the string size', function() {

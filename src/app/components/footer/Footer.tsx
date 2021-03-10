@@ -22,7 +22,11 @@ const Footer = ({ className, data }: Props) => {
     <FooterStyled className={className}>
       <div className="footer__left-column">
         <a href="/" title="Home">
-          <img className="footer__logo" src='/static/img/logos/logo-dark.png' alt="Leif" />
+          <img
+            className="footer__logo"
+            src="/static/img/logos/logo-dark.png"
+            alt="Leif"
+          />
           <VisuallyHidden text="Home" />
         </a>
         <div className="footer__icons-wrapper">
@@ -41,7 +45,7 @@ const Footer = ({ className, data }: Props) => {
         </div>
       </div>
       <div className="footer__links">
-        {data.map((d:DataObject, idx:number) => {
+        {data.map((d: DataObject, idx: number) => {
           if (!d || !d.links || d.links.length < 1) return null;
           return (
             <FooterColumn

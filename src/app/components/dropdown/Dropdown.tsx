@@ -27,12 +27,10 @@ const Dropdown = ({
       <VisuallyHidden>
         <label htmlFor={id}>{label}</label>
       </VisuallyHidden>
-      <select
-        name={id}
-        id={id}
-        onChange={(e: any) => setValue(e.target.value)}
-      >
-        <option defaultValue={label} hidden>{label}</option>
+      <select name={id} id={id} onChange={(e: any) => setValue(e.target.value)}>
+        <option defaultValue={label} hidden>
+          {label}
+        </option>
         {options.map((opt: any, idx: number) => {
           const hasPrefix = value === opt.value && type === 'sort';
           return (
@@ -44,7 +42,7 @@ const Dropdown = ({
         })}
       </select>
       <Icon
-        type={type === 'sort' ? 'sort' : 'chevronDown'}
+        type={type === 'sort' ? 'sort' : 'chevron-down'}
         className="dropdown__icon"
       />
     </DropdownStyled>
