@@ -4,70 +4,45 @@ import React from 'react';
 import BlogHero from '../../components/genericHero/GenericHero';
 import BlogInformation from '../../components/blogInformation/BlogInformation';
 import LeadParagraph from '../../components/leadParagraph/LeadParagraph';
-import Composer from '../../components/composer/Composer';
+import Composer from '../../components/composer/ComposerWrapper';
 import CTABanner from '../../components/ctaBanner/CTABanner';
 import RelatedContent from '../../components/relatedContent/RelatedContent';
-// import TwitterCard from '../../components/twitterCard/TwitterCard';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
 import Region from '~/layout/Region';
 
 interface Props {
-  entry: any;
+  mappedEntry: any;
 }
 
-const BlogPost = ({ entry }: Props) => {
-  const ctaObject = {
-    label: entry.callToAction.buttonText,
-    uri:
-      entry.callToAction.linkToInternalContent &&
-      entry.callToAction.linkToInternalContent.sys.uri
-        ? entry.callToAction.linkToInternalContent.sys.uri
-        : (!entry.callToAction.linkToInternalContent ||
-            !entry.callToAction.linkToInternalContent.sys.uri) &&
-          entry.callToAction.linkToExternalURL
-        ? entry.callToAction.linkToExternalURL
-        : '/',
-    type: 'primary',
-  };
-
-  const relatedContentLinkObject = {
-    label: 'View all blogs',
-    uri: '/blogs',
-    type: 'secondary',
-  };
-
+const BlogPost = ({
+  mappedEntry: {
+    blogInformationProps,
+    blogHeroProps,
+    ctaBannerProps,
+    leadParagraphProps,
+    contentComposerProps,
+    relatedContentProps,
+  } = {},
+}: Props) => {
   return (
     <MainLayout>
       <Region width="large" margin="none">
-        <BlogHero title={entry.entryTitle} image={entry.primaryImage} />
+        <BlogHero {...blogHeroProps} />
       </Region>
       <Region width="small" margin="default">
-        <BlogInformation
-          person={entry.author}
-          readTime="2"
-          date={entry.sys.version.published}
-        />
+        <BlogInformation {...blogInformationProps} />
       </Region>
       <Region width="small" margin="default">
-        <LeadParagraph text={entry.leadParagraph} />
+        <LeadParagraph {...leadParagraphProps} />
       </Region>
-      <Composer fields={entry.postBody} />
+      <Composer items={contentComposerProps} />
       <Region width="small" margin="large">
-        <CTABanner
-          title={entry.callToAction.title}
-          text={entry.callToAction.message}
-          image={entry.callToAction.image}
-          cta={ctaObject}
-        />
+        <CTABanner {...ctaBannerProps} />
       </Region>
       <Region width="default" margin="default">
-        <RelatedContent
-          title="Related blogs"
-          results={entry.relatedBlogs}
-          link={relatedContentLinkObject}
-        />
+        <RelatedContent {...relatedContentProps} />
       </Region>
     </MainLayout>
   );

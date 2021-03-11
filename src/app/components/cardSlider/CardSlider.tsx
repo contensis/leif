@@ -3,7 +3,7 @@ import React from 'react';
 import CardSliderStyled from './CardSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
 import { sizesNoUnit } from '../../theme/global/layout';
-import Image, { ImageObject } from '../image/Image';
+import Image from '../image/Image';
 import HeroContent from '../heroContent/HeroContent';
 
 export interface Props {
@@ -11,11 +11,20 @@ export interface Props {
   title: string;
   text: string;
   cta?: any;
-  image: ImageObject;
+  imageUri: string;
+  imageAlt: string;
   slides: any;
 }
 
-const CardSlider = ({ className, title, text, cta, image, slides }: Props) => {
+const CardSlider = ({
+  className,
+  title,
+  text,
+  cta,
+  imageUri,
+  imageAlt,
+  slides,
+}: Props) => {
   if (!slides || slides.length < 1) return null;
   const responsive = [
     {
@@ -40,7 +49,7 @@ const CardSlider = ({ className, title, text, cta, image, slides }: Props) => {
   return (
     <CardSliderStyled className={className}>
       <div className="card-slider__image-wrapper">
-        <Image image={image} className="card-slider__image" />
+        <Image path={imageUri} alt={imageAlt} className="card-slider__image" />
         <div className="card-slider__image-overlay" />
       </div>
       <div className="card-slider__content-wrapper">

@@ -15,16 +15,18 @@ const RelatedLinks = ({ className, title, links }: Props) => {
       {title && <h3 className="related-links__title">{title}</h3>}
       <ul>
         {links.map((link, idx) => {
+          const { title, imageUri, imageAlt } = link || {};
           return (
             <li key={idx}>
-              <a className="related-links__link" href="#">
+              <a className="related-links__link" href="#link">
                 <Image
                   className="related-links__image"
-                  image={link.image}
+                  path={imageUri}
+                  alt={imageAlt}
                   width={74}
                   height={80}
                 />
-                <span className="related-links__link-title">{link.title}</span>
+                <span className="related-links__link-title">{title}</span>
               </a>
             </li>
           );

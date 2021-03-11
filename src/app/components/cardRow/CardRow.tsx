@@ -20,9 +20,7 @@ const CardRow = ({ className, results, relatedLinks }: Props) => {
               key={idx}
               className="card-row__card"
               type="content"
-              title={res.title}
-              text={res.text}
-              image={res.image}
+              {...res}
             />
           );
         })}

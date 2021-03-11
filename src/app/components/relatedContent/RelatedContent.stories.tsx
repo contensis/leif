@@ -13,22 +13,12 @@ const Template: Story<Props> = args => {
 };
 
 const result = {
-  entryTitle: 'Blog title can span multiple lines of text',
-  entryDescription:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
-  thumbnailImage: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/m2J105CzEAU',
-      },
-    },
-  },
-  sys: {
-    contentTypeId: 'blogPost',
-    version: {
-      published: new Date().toISOString(),
-    },
-  },
+  type: 'blog',
+  title: 'Blog title can span multiple lines of text',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  imageUri: 'https://source.unsplash.com/m2J105CzEAU',
+  imageAlt: 'Unsplash image',
+  date: new Date().toISOString(),
   readTime: 7,
 };
 const resultsArray = [];
@@ -39,10 +29,8 @@ for (let i = 0; resultsArray.length < 3; i++) {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Related blogs',
-  link: {
-    label: 'View all blogs',
-    uri: '#',
-    type: 'secondary',
-  },
+  linkLabel: 'View all blogs',
+  linkUri: '#',
+  linkType: 'secondary',
   results: resultsArray,
 };

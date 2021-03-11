@@ -29,13 +29,9 @@ const ImageDictionary = [
 
 const MakeSlide = (i:number) => {
   return {
-    asset: {
-      altText: 'Plant',
-      sys: {
-        uri: `https://source.unsplash.com/${ImageDictionary[i]}`
-      }
-    }
-  }
+    imageUri: `https://source.unsplash.com/${ImageDictionary[i]}`,
+    imageAlt: 'Plant',
+  };
 }
 
 for (let i = 0; SlidesArray.length < 8; i++) {

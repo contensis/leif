@@ -14,7 +14,8 @@ import { _noScroll } from '../../utils/noScroll';
 
 export interface Props {
   className?: string;
-  image: ImageObject;
+  imageUri: string;
+  imageAlt: string;
   title: string;
   text: string;
   cta: LinkButtonProps;
@@ -25,7 +26,8 @@ export interface Props {
 
 const FeaturedCTA = ({
   className,
-  image,
+  imageUri,
+  imageAlt,
   title,
   text,
   cta,
@@ -55,7 +57,7 @@ const FeaturedCTA = ({
                   className="featured-cta__video-btn-close"
                   onClick={() => setIsModalOpen(false)}
                 >
-                  <Icon type="cross" />
+                  <Icon type="close" />
                   <VisuallyHidden text="Close" />
                 </button>
                 <VideoPlayer
@@ -70,7 +72,11 @@ const FeaturedCTA = ({
         )}
       >
         <div className="featured-cta__image-wrapper">
-          <Image image={image} className="featured-cta__image" />
+          <Image
+            path={imageUri}
+            alt={imageAlt}
+            className="featured-cta__image"
+          />
           {hasVideo && (
             <button
               type="button"
@@ -78,7 +84,7 @@ const FeaturedCTA = ({
               onClick={() => setIsModalOpen(true)}
             >
               <VisuallyHidden text="Open video modal" />
-              <Icon type="video-play" />
+              <Icon type="video-play" width={64} height={55} />
             </button>
           )}
         </div>
@@ -92,7 +98,7 @@ const FeaturedCTA = ({
             <LinkButton
               {...cta}
               className="featured-cta__link"
-              icon="arrowRight"
+              icon="arrow-right"
             />
           </div>
         </div>

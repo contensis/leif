@@ -16,14 +16,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   readTime: '7',
   date: new Date().toISOString(),
-  person: {
-    name: 'John Smith',
-    photo: {
-      asset: {
-        sys: {
-          uri: 'https://source.unsplash.com/c_GmwfHBDzk',
-        },
-      },
-    },
-  },
+  name: 'John Smith',
+  photo: 'https://source.unsplash.com/c_GmwfHBDzk'
 };

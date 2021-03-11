@@ -11,7 +11,7 @@ export interface Props {
   text?: string;
   backLink?: any;
   link?: any;
-  image?: any;
+  imageProps?: any;
   detail?: any;
   type?: 'default' | 'center';
 }
@@ -22,7 +22,7 @@ const GenericHero = ({
   text,
   backLink,
   link,
-  image,
+  imageProps,
   detail,
   type = 'default',
 }: Props) => {
@@ -63,7 +63,7 @@ const GenericHero = ({
           />
         )}
       </div>
-      {image && <Image image={image} className="generic-hero__image" />}
+      {imageProps && <Image {...imageProps} className="generic-hero__image" />}
     </GenericHeroStyled>
   );
 };

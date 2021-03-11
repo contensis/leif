@@ -17,13 +17,7 @@ const Explore = ({ className, title, results }: Props) => {
       <div className="explore__results">
         {results.map((res: any, idx: number) => {
           return (
-            <Card
-              key={idx}
-              type="explore"
-              title={res.title}
-              image={res.image}
-              className="explore__card"
-            />
+            <Card key={idx} type="explore" className="explore__card" {...res} />
           );
         })}
       </div>

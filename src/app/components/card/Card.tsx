@@ -3,14 +3,15 @@ import React from 'react';
 import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
-import Image, { ImageObject } from '../image/Image';
+import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 export interface Props {
   className?: string;
   type: string;
   title: string;
   text?: string;
-  image: ImageObject;
+  imageUri: string;
+  imageAlt: string;
   date?: string;
   readTime?: string;
   price?: number;
@@ -22,7 +23,8 @@ const Card = ({
   type,
   title,
   text,
-  image,
+  imageUri,
+  imageAlt,
   readTime,
   date,
   price,
@@ -30,27 +32,30 @@ const Card = ({
 }: Props) => {
   const CardData = (type: string) => {
     switch (type) {
-      case 'blogPost':
+      case 'blog':
         return (
           <>
             <h3 className="card__title">{title}</h3>
-            <Image className="card__thumbnail" image={image} />
+            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
             {text && <p className="card__text">{text}</p>}
             <div className="card__details">
               <BlogDetail date={date} readTime={readTime} />
             </div>
           </>
         );
-      case 'plant':
-      case 'pot':
+      case 'product':
         return (
           <>
             <div className="card__thumbnail-wrapper">
-              <Image className="card__thumbnail" image={image} />
+              <Image
+                className="card__thumbnail"
+                path={imageUri}
+                alt={imageAlt}
+              />
               <Icon
                 type="product-solid"
                 className="card__tag"
-                color="#6E729B"
+                color="#C3C6DE"
               />
             </div>
             <div className="card__content">
@@ -63,7 +68,7 @@ const Card = ({
       case 'explore': {
         return (
           <>
-            <Image className="card__thumbnail" image={image} />
+            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
             {title && <h4 className="card__title">{title}</h4>}
           </>
         );
@@ -72,7 +77,7 @@ const Card = ({
         return (
           <>
             <h4 className="card__title">{title}</h4>
-            <Image className="card__thumbnail" image={image} />
+            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
             {text && <p className="card__text">{text}</p>}
           </>
         );

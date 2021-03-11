@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchCardStyled from './SearchCard.styled';
-import Image, { ImageObject } from '../image/Image';
+import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 
 export interface Props {
@@ -9,7 +9,8 @@ export interface Props {
   type: string;
   title: string;
   text?: string;
-  image: ImageObject;
+  imageUri: string;
+  imageAlt: string;
   date?: string;
   readTime?: string;
   price?: number;
@@ -20,17 +21,22 @@ const SearchCard = ({
   type,
   title,
   text,
-  image,
+  imageUri,
+  imageAlt,
   readTime,
   date,
   price,
 }: Props) => {
   const SearchCard = (type: string) => {
     switch (type) {
-      case 'blogPost':
+      case 'blog':
         return (
           <>
-            <Image image={image} className="search-card__image" />
+            <Image
+              path={imageUri}
+              alt={imageAlt}
+              className="search-card__image"
+            />
             <div className="search-card__content">
               <h2>{title}</h2>
               <p className="search-card__text">{text}</p>
@@ -42,11 +48,14 @@ const SearchCard = ({
             </div>
           </>
         );
-      case 'plant':
-      case 'pot':
+      case 'product':
         return (
           <>
-            <Image image={image} className="search-card__image" />
+            <Image
+              path={imageUri}
+              alt={imageAlt}
+              className="search-card__image"
+            />
             <div className="search-card__content">
               <h2>{title}</h2>
               <span className="search-card__detail">£{price}</span>

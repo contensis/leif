@@ -3,11 +3,12 @@ import Icon from '../icon/Icon';
 
 interface Props {
   className?: string;
-  onClick?: (ev: any) => void;
   type: string;
+  color: string;
+  onClick?: (ev: any) => void;
 }
 
-const SlickArrow = ({ className, type, onClick }: Props) => {
+const SlickArrow = ({ className, type, color, onClick }: Props) => {
   return (
     <button
       className={className}
@@ -15,7 +16,7 @@ const SlickArrow = ({ className, type, onClick }: Props) => {
       onClick={onClick}
       aria-label={`${type === 'chevron-left' ? 'left' : 'right'} slide`}
     >
-      <Icon type={type} color="#77E8C6" />
+      <Icon type={type} color={color} />
     </button>
   );
 };

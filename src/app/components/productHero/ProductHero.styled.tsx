@@ -61,19 +61,21 @@ const ProductHeroStyled = styled.div`
         bottom: 136px;
         width: 40px;
         height: 40px;
-        padding: 10px;
+        padding: 0;
         background-color: ${theme.colors.neutral_white};
         border-radius: 50%;
         border: none;
-        @media ${theme.mq.desktop} {
-          width: 64px;
-          height: 64px;
-          padding: 20px;
-        }
         transition: opacity 100ms ease-in-out;
         &:hover {
           opacity: 0.8;
         }
+        @media ${theme.mq.desktop} {
+          width: 64px;
+          height: 64px;
+        }
+      }
+      .product-hero__slider-fullsize-icon {
+        margin: 0 auto;
       }
       .product-hero__slider-fullsize svg {
         position: absolute;

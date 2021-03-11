@@ -2,38 +2,24 @@ import React from 'react';
 
 import FeaturedProductStyled from './FeaturedProduct.styled';
 import LinkButton from '../linkButton/LinkButton';
-import { ImageObject } from '../image/Image';
 import Card from '../card/Card';
-
-interface LinkObject {
-  href: string;
-  label: string;
-}
-interface ProductInformation {
-  price: number;
-  Sku?: string;
-}
-
-interface ProductObject {
-  thumbnailImage: ImageObject;
-  entryTitle: string;
-  sys: {
-    contentTypeId: string;
-  };
-  tag?: string;
-  productInformation: ProductInformation;
-  rating?: string;
-}
-
 export interface Props {
   className?: string;
   title: string;
   text: string;
-  link: LinkObject;
-  product: ProductObject;
+  linkUri: string;
+  linkLabel: string;
+  product: any;
 }
 
-const FeaturedProduct = ({ className, title, text, link, product }: Props) => {
+const FeaturedProduct = ({
+  className,
+  title,
+  text,
+  linkUri,
+  linkLabel,
+  product,
+}: Props) => {
   return (
     <FeaturedProductStyled className={className}>
       <div className="featured-product__content">
@@ -42,18 +28,11 @@ const FeaturedProduct = ({ className, title, text, link, product }: Props) => {
           <p className="featured-product__text">{text}</p>
           <LinkButton
             className="featured-product__btn"
-            label={link.label}
-            href={link.href}
+            label={linkLabel}
+            href={linkUri}
           />
         </div>
-        <Card
-          className="featured-product__card"
-          type={product.sys.contentTypeId}
-          image={product.thumbnailImage}
-          title={product.entryTitle}
-          price={product.productInformation.price}
-          rating={product.rating}
-        />
+        <Card className="featured-product__card" {...product} />
       </div>
     </FeaturedProductStyled>
   );

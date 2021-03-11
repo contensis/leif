@@ -7,6 +7,7 @@ export interface Props {
 }
 
 const TextBlock = ({ className, text }: Props) => {
+  if (!text) return null;
   return (
     <TextBlockStyled
       className={className}

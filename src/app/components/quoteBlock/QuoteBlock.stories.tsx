@@ -16,14 +16,6 @@ Primary.args = {
   quote:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem ridiculus ipsum ac neque, quis morbi. Maecenas ullamcorper iaculis ipsum porttitor. In vitae orci sapien egestas quis senectus.',
   rating: '3',
-  author: {
-    name: 'Jane Doe',
-    photo: {
-      asset: {
-        sys: {
-          uri: 'https://source.unsplash.com/ROJFuWCsfmA',
-        },
-      },
-    },
-  },
+  name: 'Jane Doe',
+  photo: 'https://source.unsplash.com/ROJFuWCsfmA',
 };

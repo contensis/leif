@@ -30,7 +30,7 @@ const CardStyled = styled.a`
         display: block;
         object-fit: cover;
       }
-      ${type === 'blogPost' &&
+      ${type === 'blog' &&
         css`
           max-width: 400px;
           width: 100%;
@@ -48,7 +48,7 @@ const CardStyled = styled.a`
             ${theme.typeStyles.smallCopy};
           }
         `}
-      ${(type === 'plant' || type === 'pot') &&
+      ${type === 'product' &&
         css`
           max-width: 288px;
           width: 100%;

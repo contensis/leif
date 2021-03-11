@@ -118,7 +118,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.7",
-    "@zengenti/contensis-react-base": "^2.0.1",
+    "@zengenti/contensis-react-base": "^2.1.1",
     "awesome-typescript-loader": "^5.2.1",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",

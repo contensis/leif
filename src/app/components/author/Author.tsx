@@ -2,30 +2,19 @@ import React from 'react';
 
 import AuthorStyled from './Author.styled';
 import Image from '../image/Image';
-export interface PersonObject {
-  name: string;
-  photo: {
-    altText?: string;
-    asset: {
-      sys: {
-        uri: string;
-      };
-    };
-  };
-}
 interface Props {
   className?: string;
-  person: PersonObject;
+  photo: string;
+  name: string;
 }
 
-const Author = ({ className, person }: Props) => {
-  if (!person) return null;
-  const photo = person.photo;
+const Author = ({ className, name, photo }: Props) => {
+  if (!photo || !name) return null;
 
   return (
     <AuthorStyled className={className}>
-      <Image image={photo} className="author__photo" />
-      <span className="author__person">By {person.name}</span>
+      <Image path={photo} alt={name} className="author__photo" />
+      <span className="author__person">By {name}</span>
     </AuthorStyled>
   );
 };

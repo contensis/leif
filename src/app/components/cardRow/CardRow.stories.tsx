@@ -13,13 +13,8 @@ const Template: Story<Props> = args => <CardRow {...args} />;
 const relatedLinks = [];
 const relatedLink = {
   title: 'Related link title can span multiple lines',
-  image: { 
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/TRAF_LhFCUs',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/TRAF_LhFCUs',
+  imageAlt: 'Unsplash',
 };
 
 for (let i = 0; relatedLinks.length < 3; i++) {
@@ -29,13 +24,8 @@ for (let i = 0; relatedLinks.length < 3; i++) {
 const results = [];
 const result = {
   title: 'Card title can span multiple lines',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/UcfKYTan-LU',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/UcfKYTan-LU',
+  imageAlt: 'Unsplash',
 };
 for (let i = 0; results.length < 2; i++) {
   results.push(result);

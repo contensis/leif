@@ -10,14 +10,13 @@ export interface Props {
 }
 
 const TestimonialSlider = ({ className, testimonials, bgImage }: Props) => {
-  if (!testimonials || testimonials.length < 1) return null;
-
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const updateCurrentSlide = (currentSlide: number) => {
     setCurrentSlide(currentSlide + 1);
   };
   const maxSlides = testimonials.length;
 
+  if (!testimonials || testimonials.length < 1) return null;
   return (
     <TestimonialSliderStyled className={className} bgImage={bgImage}>
       <div className="testimonial-slider__wrapper">
@@ -26,6 +25,7 @@ const TestimonialSlider = ({ className, testimonials, bgImage }: Props) => {
           slides={testimonials}
           className="testimonial-slider__slider"
           afterChangeFunc={updateCurrentSlide}
+          arrowColor="#2B2F51"
         />
         <div className="testimonial__pagination">
           {currentSlide} &#47; {maxSlides}

@@ -12,13 +12,8 @@ const Template: Story<Props> = args => <RelatedLinks {...args} />;
 
 const link = {
   title: 'Related link title can span multiple lines',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/FV_PxCqgtwc',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/FV_PxCqgtwc',
+  imageAlt: 'Unsplash image',
 };
 const links = [];
 for (let i = 0; links.length < 4; i++) {

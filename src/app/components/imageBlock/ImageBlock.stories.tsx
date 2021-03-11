@@ -15,10 +15,7 @@ Primary.args = {
   title: 'Optional image title',
   text: 'Image accreditation and information can span multiple lines.',
   image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/6hgrfOJhr74'
-      }
-    }
+    path: 'https://source.unsplash.com/6hgrfOJhr74',
+    alt: 'Unsplash Image'
   }
 }

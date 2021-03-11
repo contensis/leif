@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 
 import SlideStyled from './Slide.styled';
-import Image, { ImageObject } from '../image/Image';
+import Image from '../image/Image';
 interface Props {
   className?: string;
-  image: ImageObject;
-  hasScrollImage?: boolean
+  imageUri: string;
+  imageAlt: string;
+  hasScrollImage?: boolean;
 }
 
-const Slide = ({ className, image, hasScrollImage }: Props) => {
-  if (!image) return null;
+const Slide = ({ className, imageUri, imageAlt, hasScrollImage }: Props) => {
+  if (!imageUri) return null;
 
   return (
     <SlideStyled
       className={className}
       hasScrollImage={hasScrollImage}
-      image={image}
+      imageUri={imageUri}
     >
-      {!hasScrollImage && <Image image={image} className="slide__image" />}
+      {!hasScrollImage && (
+        <Image path={imageUri} alt={imageAlt} className="slide__image" />
+      )}
       {hasScrollImage && (
-        <div
-          className="slide__bg-image-wrapper"
-        >
+        <div className="slide__bg-image-wrapper">
           <div className="slide__bg-image" />
         </div>
       )}

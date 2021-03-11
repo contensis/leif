@@ -10,7 +10,6 @@ interface Props {
 
 const LinkButtonStyled = styled.a`
   ${({ theme, type, isHollow, hasIcon, isDisabled }: Props) => {
-    console.info({ theme });
     return css`
       ${theme.typeStyles.h5};
       font-family: ${theme.typeStyles.fontFamily.headings};

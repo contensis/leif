@@ -70,7 +70,7 @@ const ProductHero = ({
                   className="product-hero__modal-close"
                   onClick={() => setIsModalOpen(false)}
                 >
-                  <Icon type="cross" />
+                  <Icon type="close" />
                   <VisuallyHidden text="Close" />
                 </button>
               </div>
@@ -93,7 +93,10 @@ const ProductHero = ({
                 onClick={() => setIsModalOpen(true)}
               >
                 <VisuallyHidden text="Open image slider fullscreen" />
-                <Icon type="full-size" />
+                <Icon
+                  type="full-size"
+                  className="product-hero__slider-fullsize-icon"
+                />
               </button>
             </div>
           )}

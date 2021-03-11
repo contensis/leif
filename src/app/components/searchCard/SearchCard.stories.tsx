@@ -13,13 +13,8 @@ const dataObject = {
   title: 'Title can span multiple lines of text',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/TRAF_LhFCUs',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/TRAF_LhFCUs',
+  imageAlt: 'Unsplash image',
   date: new Date().toISOString(),
   readTime: '4',
   price: 35,
@@ -27,10 +22,11 @@ const dataObject = {
 
 export const Blog = Template.bind({});
 Blog.args = {
-  type: 'blogPost',
+  type: 'blog',
   title: dataObject.title,
   text: dataObject.text,
-  image: dataObject.image,
+  imageUri: dataObject.imageUri,
+  imageAlt: dataObject.imageAlt,
   date: dataObject.date,
   readTime: dataObject.readTime,
 };
@@ -41,9 +37,10 @@ Global.args = {
 };
 export const Product = Template.bind({});
 Product.args = {
-  type: 'pot',
+  type: 'product',
   title: dataObject.title,
   text: dataObject.text,
-  image: dataObject.image,
+  imageUri: dataObject.imageUri,
+  imageAlt: dataObject.imageAlt,
   price: dataObject.price,
 };

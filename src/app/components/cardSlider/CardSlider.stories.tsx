@@ -41,15 +41,9 @@ const MakeSlide = (i: number) => {
     title: 'Product listing can span multiple lines',
     price: 35,
     rating: '4',
-    type: 'plant',
-    image: {
-      asset: {
-        altText: 'Plant',
-        sys: {
-          uri: `https://source.unsplash.com/${ImageDictionary[i]}`,
-        },
-      },
-    },
+    type: 'product',
+    imageUri: `https://source.unsplash.com/${ImageDictionary[i]}`,
+    imageAlt: 'Unsplash image',
   };
 };
 
@@ -66,13 +60,7 @@ Primary.args = {
     label: 'Shop now',
     href: '#',
   },
-  image: {
-    asset: {
-      altText: 'Plant',
-      sys: {
-        uri: 'https://source.unsplash.com/7d7OR-RvufU',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/7d7OR-RvufU',
+  imageAlt: 'Unsplash image',
   slides: SlidesArray,
 };

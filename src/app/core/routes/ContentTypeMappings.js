@@ -1,6 +1,9 @@
-//import React from 'react';
 import Loadable from 'react-loadable';
 import { Loading } from './Loading';
+
+import mapJson from '../../core/util/json-mapper';
+
+import { blogPostPropsMapping } from '../../pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
 
 export default [
   {
@@ -20,5 +23,7 @@ export default [
       },
       loading: Loading,
     }),
+    linkDepth: 1,
+    entryMapper: ({ entry }) => mapJson(entry, blogPostPropsMapping),
   },
 ];

@@ -22,6 +22,7 @@ export interface Props {
   type?: 'default' | 'testimonial' | 'card';
   slidesToShow?: number;
   responsive?: any;
+  arrowColor?: string;
   afterChangeFunc?: (currentSlide: number) => void;
 }
 
@@ -36,6 +37,7 @@ const SlickSlider = ({
   afterChangeFunc,
   slidesToShow = 1,
   responsive,
+  arrowColor = '#77E8C6',
 }: Props) => {
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
@@ -54,8 +56,8 @@ const SlickSlider = ({
     swipeToSlide: swipeToSlide,
     draggable: draggable,
     asNavFor: '.slider-nav',
-    nextArrow: <SlickArrow type="chevron-right" />,
-    prevArrow: <SlickArrow type="chevron-left" />,
+    nextArrow: <SlickArrow type="chevron-right" color={arrowColor} />,
+    prevArrow: <SlickArrow type="chevron-left" color={arrowColor} />,
     responsive: responsive,
   };
 
@@ -141,9 +143,9 @@ const SlickSlider = ({
                 return (
                   <Slide
                     key={idx}
-                    image={slide}
                     hasScrollImage={hasScrollImage}
                     className="slick__main-slide"
+                    {...slide}
                   />
                 );
               }
@@ -163,7 +165,7 @@ const SlickSlider = ({
               return (
                 <Slide
                   key={idx}
-                  image={slide}
+                  {...slide}
                   className="slick__slide-thumbnail"
                 />
               );

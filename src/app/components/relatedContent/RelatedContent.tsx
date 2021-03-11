@@ -3,41 +3,30 @@ import Card from '../card/Card';
 
 import RelatedContentStyled from './RelatedContent.styled';
 import LinkButton from '../linkButton/LinkButton';
-import { ImageObject } from '../image/Image';
-
-interface LinkObject {
-  type: string;
-  label: string;
-  uri: string;
-}
-
-interface MappedResObject {
-  sys: {
-    contentTypeId: string;
-    version: {
-      published: string;
-    };
-  };
-  entryTitle: string;
-  kicker: string;
-  thumbnailImage: ImageObject;
-  readTime?: string;
-}
 export interface Props {
   className?: string;
   title?: string;
   results: any[] | any;
-  link?: LinkObject;
+  linkUri?: string;
+  linkLabel: string;
+  linkType?: string;
 }
 
-const RelatedContent = ({ className, title, results, link }: Props) => {
+const RelatedContent = ({
+  className,
+  title,
+  results,
+  linkUri,
+  linkLabel,
+  linkType = 'secondary',
+}: Props) => {
   if (!results || results.length < 1) return null;
   return (
     <RelatedContentStyled className={className}>
       {title && <h3 className="related-content__title">{title}</h3>}
       <div className="related-content__results">
         <div className="related-content__results-wrapper">
-          {results.map((res: MappedResObject, idx: number) => {
+          {results.map((res: any, idx: number) => {
             if (!res) return null;
             const type = res && res.sys && res.sys.contentTypeId;
             return (
@@ -45,22 +34,18 @@ const RelatedContent = ({ className, title, results, link }: Props) => {
                 key={`${res.entryTitle}-${idx}`}
                 className="related-content__card"
                 type={type}
-                title={res.entryTitle}
-                text={res.kicker}
-                image={res.thumbnailImage}
-                readTime={res.readTime}
-                date={res.sys.version.published}
+                {...res}
               />
             );
           })}
         </div>
-        {link && (
+        {linkUri && (
           <LinkButton
-            type={link.type}
+            type={linkType}
             isHollow
             className="related-content__link"
-            label={link.label}
-            href={link.uri}
+            label={linkLabel}
+            href={linkUri}
           />
         )}
       </div>

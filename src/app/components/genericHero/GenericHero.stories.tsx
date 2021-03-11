@@ -10,24 +10,21 @@ export default {
 
 const Template: Story<Props> = args => <GenericHero {...args} />;
 export const Primary = Template.bind({});
-Primary.args = { 
+Primary.args = {
   title: 'Blog title can span multiple lines of text',
   backLink: {
-    label: 'Back'
+    label: 'Back',
   },
   link: {
     label: 'Read more',
     href: '#',
   },
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/XqFEu8J-s0M',
-      }
-    }
+  imageProps: {
+    path: 'https://source.unsplash.com/XqFEu8J-s0M',
+    alt: 'Unsplash Image',
   },
   detail: {
     readTime: 4,
     date: new Date().toISOString(),
-  }
+  },
 };

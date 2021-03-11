@@ -17,16 +17,9 @@ Primary.args = {
   title: 'CTA title can span multiple lines',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/9Z1KRIfpBTM',
-      },
-    },
-  },
-  cta: {
-    type: 'primary',
-    label: 'Find out more',
-    uri: '#',
-  },
+  imageUri: 'https://source.unsplash.com/9Z1KRIfpBTM',
+  imageAlt: "Unsplash image",
+  btnType: 'primary',
+  btnText: 'Find out more',
+  btnLink: '#',
 };

@@ -14,13 +14,8 @@ const Template: Story<Props> = args => {
 
 const result = {
   title: 'Card title can span multiple lines',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/m2J105CzEAU',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/m2J105CzEAU',
+  imageAlt: 'Unsplash Image',
 };
 
 const results = [];

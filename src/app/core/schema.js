@@ -63,12 +63,9 @@ export const VersionStatus = {
 };
 
 export const ContentTypes = {
-  contentPage: 'contentPage',
-  landingPage: 'landingPage',
-  listingPage: 'listingPage',
-  category: 'category',
-  article: 'article',
-  person: 'person',
+  blog: 'blogPost',
+  plant: 'plant',
+  pot: 'pot',
 };
 
 export const WebpageFormats = {};
@@ -79,16 +76,15 @@ export const FilterExpressionTypes = {
 };
 
 export const CardTypes = {
-  Event: 'Event',
-  News: 'News',
-  Profile: 'Profile',
-  Webpage: 'Webpage',
+  Blog: 'blog',
+  Product: 'product',
+  Explore: 'explore',
+  Content: 'content',
 };
 
 export const Listings = {
-  events: 'events',
-  news: 'news',
-  categoryArticles: 'categoryArticles',
+  blogListing: 'blogListing',
+  productsListing: 'productsListing',
 };
 
 export const ListingPages = {
@@ -97,12 +93,6 @@ export const ListingPages = {
 
 export const SearchFacets = {
   all: 'all',
-  products: 'products',
-  help: 'helpandsupport',
-  caseStudies: 'casestudies',
-  partners: 'partners',
-  news: 'news',
-  pages: 'pages',
 };
 
 export const SearchFilters = {
@@ -124,5 +114,9 @@ export const RoutingFields = [
 ];
 
 export const ComposerComponents = {
-  //Insert composer components
+  markup: 'markup',
+  image: 'image',
+  blockQuote: 'blockQuote',
+  featuredProduct: 'featuredProduct',
+  video: 'video',
 };

@@ -2,33 +2,39 @@ import React from 'react';
 
 import CTABannerStyled from './CTABanner.styled';
 import LinkButton from '../linkButton/LinkButton';
-import Image, { ImageObject } from '../image/Image';
-
-interface CTAObject {
-  label: string;
-  uri: string;
-  type: string;
-}
+import Image from '../image/Image';
 
 export interface Props {
   className?: string;
-  image: ImageObject;
+  imageUri: string;
+  imageAlt: string;
   title: string;
   text: string;
-  cta: CTAObject;
+  btnText: string;
+  btnLink: string;
+  btnType: string;
 }
 
-const CTABanner = ({ className, image, title, text, cta }: Props) => {
+const CTABanner = ({
+  className,
+  imageUri,
+  imageAlt,
+  title,
+  text,
+  btnText,
+  btnLink,
+  btnType,
+}: Props) => {
   return (
     <CTABannerStyled className={className}>
-      <Image className="cta-banner__image" image={image} />
+      <Image className="cta-banner__image" path={imageUri} alt={imageAlt} />
       <h3 className="cta-banner__title">{title}</h3>
       <p className="cta-banner__text">{text}</p>
       <LinkButton
         className="cta-banner__link"
-        label={cta.label}
-        href={cta.uri}
-        type={cta.type}
+        label={btnText}
+        href={btnLink}
+        type={btnType}
       />
     </CTABannerStyled>
   );

@@ -13,29 +13,18 @@ const Template: Story<Props> = args => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = { 
+Primary.args = {
   title: 'Featured product banner title',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.',
-  link: {
-    label: 'Find out more',
-    href: '#',
-  },
+  text:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.',
+  linkLabel: 'Find out more',
+  linkUri: '#',
   product: {
-    entryTitle: 'Product listing can span multiple lines',
-    thumbnailImage: {
-      asset: {
-        altText: 'Plant',
-        sys: {
-          uri: 'https://source.unsplash.com/UcfKYTan-LU'
-        }
-      },
-    },
-    productInformation: {
-      price: 63,
-    },
+    title: 'Product listing can span multiple lines',
+    imageUri: 'https://source.unsplash.com/UcfKYTan-LU',
+    imageAlt: 'Unsplash image',
+    price: 63,
     rating: '4',
-    sys: {
-      contentTypeId: 'plant',
-    },
-  }
+    type: 'product',
+  },
 };

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 import {
-  HalveticaFontFace,
+  HelveticaFontFace,
   fontFamily,
   fontWeight,
   fontBase,
@@ -12,7 +12,7 @@ import {
 import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
-  ${HalveticaFontFace};
+  ${HelveticaFontFace};
   /* Normalize / Reset css */
   ${normalize}
 	*,

@@ -16,16 +16,8 @@ const testimonials = [];
 const testimonial = {
   quote:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna ut amet, ac id facilisis quisque quam viverra tincidunt. Placerat morbi nulla diam porttitor augue vel sit mattis vulputate. Viverra dictum morbi rutrum in sed cras in sit illet ez forza arenas illes.',
-  person: {
-    name: 'John Smith',
-    photo: {
-      asset: {
-        sys: {
-          uri: 'https://source.unsplash.com/c_GmwfHBDzk',
-        },
-      },
-    },
-  },
+  name: 'John Smith',
+  photo: 'https://source.unsplash.com/c_GmwfHBDzk',
 };
 
 for (let i = 0; testimonials.length < 3; i++) {
