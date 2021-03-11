@@ -37,7 +37,9 @@ WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
 COPY patches /usr/src/app/patches
+RUN find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 RUN yarn global add mocha
+RUN yarn cache clean -all
 RUN yarn
 #RUN npm install --loglevel error
 # RUN npm run postinstall
