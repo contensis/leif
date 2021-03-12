@@ -39,7 +39,6 @@
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/node": "^7.4.5",
-    "@babel/runtime": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
@@ -110,6 +109,7 @@
     "zengenti-buildstartup-package": "^0.0.13"
   },
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
     "@storybook/addon-a11y": "^6.1.9",
     "@storybook/addon-knobs": "^6.1.15",
     "@testing-library/dom": "^7.29.4",
