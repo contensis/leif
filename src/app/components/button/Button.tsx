@@ -27,6 +27,7 @@ const Button = ({
 }: Props) => {
   const _handleClick = (e: any) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!isDisabled && onClick) {
       onClick(e);
     } else {

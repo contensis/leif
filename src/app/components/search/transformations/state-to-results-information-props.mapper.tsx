@@ -1,7 +1,7 @@
 import { selectors } from '@zengenti/contensis-react-base/search';
 import { fromJS } from 'immutable';
 
-import { default as mapJson } from '~/core/util/json-mapper';
+import { default as mapJson } from '../../../core/util/json-mapper';
 
 const {
   getCurrent,

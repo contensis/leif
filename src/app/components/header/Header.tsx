@@ -36,7 +36,9 @@ const Header = ({
 }: Props) => {
   _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleSearch(false));
+  if (isSearchOpen) {
+    _useOnClickOutside(ref, () => _toggleSearch(false));
+  }
 
   return (
     <HeaderStyled className={className} isSearchOpen={isSearchOpen} ref={ref}>

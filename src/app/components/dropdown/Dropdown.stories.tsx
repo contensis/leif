@@ -12,8 +12,8 @@ const Template: Story<Props> = args => <Dropdown {...args} />;
 
 const MakeOption = (i: number) => {
   return {
-    value: `category-${i}`,
-    label: `Category ${i}`,
+    title: `category-${i}`,
+    key: `Category ${i}`,
   };
 };
 
@@ -24,7 +24,7 @@ for (let i = 0; options.length < 4; i++) {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  options: options,
-  label: 'Browse by category',
-  id: 'category',
+  filters: options,
+  title: 'Browse by category',
+  filterGroupKey: 'category',
 };

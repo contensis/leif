@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import RelatedContent, { Props } from './RelatedContent';
+import dateWithSuffix from '../../utils/dateWithSuffix';
 
 export default {
   title: 'Global/Components/RelatedContent',
@@ -15,10 +16,11 @@ const Template: Story<Props> = args => {
 const result = {
   type: 'blog',
   title: 'Blog title can span multiple lines of text',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  text:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/m2J105CzEAU',
   imageAlt: 'Unsplash image',
-  date: new Date().toISOString(),
+  date: dateWithSuffix(new Date().toISOString()),
   readTime: 7,
 };
 const resultsArray = [];

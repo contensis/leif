@@ -1,42 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Icon from '../icon/Icon';
 
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import DropdownStyled from './Dropdown.styled';
 
 export interface Props {
+  key?: number;
   className?: string;
-  options: any;
-  label: string;
-  id: string;
+  filterGroupKey: string;
+  filters: any;
+  updateSelectedFilters: (filterGroupKey: string, key: number) => void;
+  clearFilters: () => void;
+  title: string;
   type?: 'default' | 'sort';
 }
 
 const Dropdown = ({
   className,
+  filterGroupKey,
+  filters,
+  updateSelectedFilters,
+  // clearFilters,
+  title,
   type = 'default',
-  options,
-  label,
-  id,
 }: Props) => {
-  if (!options || options.length < 1) return null;
-  const [value, setValue] = useState<string>('');
+  if (!filters || filters.length < 1) return null;
+
+  const _handleFilterSelect = (key: number) => {
+    // clearFilters();
+    updateSelectedFilters(filterGroupKey, key);
+  };
 
   return (
     <DropdownStyled className={className} type={type}>
       <VisuallyHidden>
-        <label htmlFor={id}>{label}</label>
+        <label htmlFor={title}>{title}</label>
       </VisuallyHidden>
-      <select name={id} id={id} onChange={(e: any) => setValue(e.target.value)}>
-        <option defaultValue={label} hidden>
-          {label}
-        </option>
-        {options.map((opt: any, idx: number) => {
-          const hasPrefix = value === opt.value && type === 'sort';
+      <select
+        name={title}
+        id={filterGroupKey}
+        onChange={(e: any) => _handleFilterSelect(e.target.value)}
+        onBlur={(e: any) => _handleFilterSelect(e.target.value)}
+      >
+        <option defaultValue={title}>{title}</option>
+        {filters.map((filter: any, idx: number) => {
           return (
-            <option key={idx} value={opt.value}>
-              {hasPrefix && 'Sort by: '}
-              {opt.label}
+            <option key={idx} value={filter.key}>
+              {filter.title}
             </option>
           );
         })}

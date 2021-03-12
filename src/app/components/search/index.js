@@ -1,4 +1,4 @@
-export { default as config } from './search.config.js';
+export { default as config } from './search.config';
 
 // import ListingContainer from './listing.container';
 // export default ListingContainer;

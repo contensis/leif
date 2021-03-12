@@ -1,21 +1,29 @@
-import { ContentTypes, CardTypes } from '~/core/schema';
+import { ContentTypes, CardTypes } from '../../../core/schema';
 
-import { mapEntries } from '~/core/util/json-mapper';
-import { selectCurrentPath } from '~/core/redux/selectors';
+import dateWithSuffix from '../../../utils/dateWithSuffix';
+
+import { mapEntries } from '../../../core/util/json-mapper';
+import { selectCurrentPath } from '../../../core/redux/selectors';
 
 const baseMapping = {
   title: 'entryTitle',
   text: 'kicker',
+  uri: {
+    $path: 'sys',
+    $formatting: (sys: any) => sys.uri,
+  },
 };
 
 export const blogCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Blog,
   imageUri: {
-    $path: ['primaryImage.asset.sys.uri'],
+    $path: 'primaryImage',
+    $formatting: (img: any) =>
+      img && img.asset && img.asset.sys && img.asset.sys.uri,
   },
   readTime: 'readTime',
-  date: 'sys.version.published',
+  date: ({ sys }: any) => dateWithSuffix(sys.version.published),
   imageAlt: [
     'primaryImage.altText',
     'primaryImage.caption',
@@ -29,7 +37,9 @@ export const productCardMapping = {
   title: 'product.productName',
   price: 'product.productInformation.price',
   imageUri: {
-    $path: ['product.thumbnailImage.asset.sys.uri'],
+    $path: 'product.thumbnailImage',
+    $formatting: (img: any) =>
+      img && img.asset && img.asset.sys && img.asset.sys.uri,
   },
   imageAlt: [
     'product.thumbnailImage.altText',
@@ -46,7 +56,6 @@ export const mappers = {
 
 const mapEntriesToResults = (entries: any, context?: string, state?: any) => {
   let sourceArray = entries;
-  // debugger;
   if (context === 'listings') {
     const currentPath = selectCurrentPath(state);
     sourceArray = entries.map((e: any) => ({ ...e, currentPath }));

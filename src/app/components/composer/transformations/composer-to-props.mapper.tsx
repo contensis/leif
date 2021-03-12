@@ -1,7 +1,7 @@
 import mapJson from '../../../core/util/json-mapper';
 
 import { imagePropsMapping } from '../../../components/image/transformations/image.component-to-props.mapper';
-import { productCardMapping } from '../../../components/card/transformations/entry-to-card-props.mapper';
+import { productCardMapping } from '../../../components/search/transformations/entry-to-card-props.mapper';
 import { ComposerComponents } from '../../../core/schema';
 
 // TODO: Each component to have their own mapping?

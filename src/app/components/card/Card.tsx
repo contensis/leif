@@ -16,6 +16,7 @@ export interface Props {
   readTime?: string;
   price?: number;
   rating?: string;
+  uri: string;
 }
 
 const Card = ({
@@ -29,6 +30,7 @@ const Card = ({
   date,
   price,
   rating,
+  uri,
 }: Props) => {
   const CardData = (type: string) => {
     switch (type) {
@@ -90,7 +92,7 @@ const Card = ({
     <CardStyled
       className={className}
       type={type}
-      href="#"
+      href={uri}
       title={title}
       hasText={text ? true : false}
     >

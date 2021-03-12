@@ -22,7 +22,9 @@ const BasketMenu = ({
   _toggleSearch,
 }: Props) => {
   const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleBasket(false));
+  if (isBasketOpen) {
+    _useOnClickOutside(ref, () => _toggleBasket(false));
+  }
 
   return (
     <BasketMenuStyled

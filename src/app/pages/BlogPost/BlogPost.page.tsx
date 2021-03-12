@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import BlogHero from '../../components/genericHero/GenericHero';
+import GenericHero from '../../components/genericHero/GenericHero';
 import BlogInformation from '../../components/blogInformation/BlogInformation';
 import LeadParagraph from '../../components/leadParagraph/LeadParagraph';
 import Composer from '../../components/composer/ComposerWrapper';
@@ -29,7 +29,7 @@ const BlogPost = ({
   return (
     <MainLayout>
       <Region width="large" margin="none">
-        <BlogHero {...blogHeroProps} />
+        <GenericHero {...blogHeroProps} />
       </Region>
       <Region width="small" margin="default">
         <BlogInformation {...blogInformationProps} />

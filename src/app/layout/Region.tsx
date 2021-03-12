@@ -10,6 +10,7 @@ interface RegionWrapperProps {
   padding?: 'default' | 'small' | 'medium' | 'large' | 'xlarge' | 'none';
   margin: 'default' | 'small' | 'medium' | 'large' | 'xlarge' | 'none';
   width: 'default' | 'full' | 'large' | 'medium' | 'small';
+  align?: 'left' | 'center' | 'right';
   children: any;
 }
 
@@ -20,8 +21,9 @@ const RegionWrapper = ({
   margin,
   width = 'default',
   padding = 'default',
+  align = 'left',
 }: RegionWrapperProps) => {
-  const props = { className, margin, width, padding };
+  const props = { className, margin, width, padding, align };
   switch (type) {
     case 'header':
       return <header {...props}>{children}</header>;
@@ -69,13 +71,20 @@ const _generateMargin = (margin: string) => {
 };
 
 const Region = styled(RegionWrapper)`
-  ${({ theme, margin, width, padding = 'default' }: RegionWrapperProps) => {
+  ${({
+    theme,
+    margin,
+    width,
+    padding = 'default',
+    align,
+  }: RegionWrapperProps) => {
     return css`
       ${_generateMargin(margin)};
       display: block;
       position: relative;
       box-sizing: content-box;
       max-width: ${theme.region[width].width};
+      text-align: ${align};
       ${padding !== 'none' &&
         css`
           padding-left: ${theme.region.padding[padding]};

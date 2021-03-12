@@ -2,7 +2,6 @@ export const DataFormats = {
   entry: 'entry',
   webpage: 'webpage',
 };
-
 const sys = {
   contentTypeId: 'sys.contentTypeId',
   dataFormat: 'sys.dataFormat',
@@ -17,14 +16,14 @@ const sys = {
 
 export const Fields = {
   entryTitle: 'entryTitle',
-  keywords: 'keywords',
-  metaContent: 'metaContent',
-  standfirst: 'standfirst',
   image: 'image',
+  primaryImage: 'primaryImage',
   sys,
   contentTypeId: 'sys.contentTypeId',
   wildcard: '*',
   body: 'body',
+  summary: 'kicker',
+  readTime: 'readTime',
 };
 
 export const BaseFields = [
@@ -35,22 +34,11 @@ export const BaseFields = [
   Fields.sys.published,
 ];
 
-export const ArticleFields = [
-  Fields.standfirst,
-  Fields.image,
-  Fields.category,
-  Fields.academic,
-  Fields.publishOverride,
-  Fields.body,
-  Fields.readingTime,
-];
-
-export const ArticleCardFields = [
-  Fields.standfirst,
-  Fields.image,
-  Fields.category,
-  Fields.academic,
-  Fields.publishOverride,
+export const BlogFields = [
+  Fields.summary,
+  Fields.primaryImage,
+  Fields.sys.published,
+  Fields.readTime,
 ];
 
 export const Projects = {
@@ -64,11 +52,12 @@ export const VersionStatus = {
 
 export const ContentTypes = {
   blog: 'blogPost',
+  blogListing: 'blogListing',
+  category: 'category',
+  person: 'person',
   plant: 'plant',
   pot: 'pot',
 };
-
-export const WebpageFormats = {};
 
 export const FilterExpressionTypes = {
   contentType: 'contentType',
@@ -83,12 +72,12 @@ export const CardTypes = {
 };
 
 export const Listings = {
-  blogListing: 'blogListing',
-  productsListing: 'productsListing',
+  blog: 'blogListing',
+  product: 'productsListing',
 };
 
 export const ListingPages = {
-  [ContentTypes.category]: Listings.categoryArticles,
+  [ContentTypes.blogListing]: Listings.blog,
 };
 
 export const SearchFacets = {
@@ -119,4 +108,10 @@ export const ComposerComponents = {
   blockQuote: 'blockQuote',
   featuredProduct: 'featuredProduct',
   video: 'video',
+};
+
+export const BlogFilters = {
+  category: 'category',
+  author: 'author',
+  // datePublished: Fields.sys.published,
 };

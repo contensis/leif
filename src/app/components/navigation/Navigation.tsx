@@ -26,7 +26,9 @@ const Navigation = ({
   _toggleSearch,
 }: Props) => {
   const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleMenu(false));
+  if (isMenuOpen) {
+    _useOnClickOutside(ref, () => _toggleMenu(false));
+  }
 
   const [activeMenu, setActiveMenu] = useState<string>('');
   const [showSecondMenu, setShowSecondMenu] = useState<boolean>(false);

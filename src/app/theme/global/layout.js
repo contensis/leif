@@ -1,3 +1,5 @@
+const baseSize = 8;
+
 /**
  * Defines valid keys to use when referring to media query breakpoints
  *
@@ -78,7 +80,6 @@ breakpointMap.forEach((value, key) => {
   mq[key] = `only screen and (min-width: ${value}px)`;
 });
 
-const baseSize = 8;
 export const region = {
   full: {
     width: '100%',
@@ -115,7 +116,18 @@ export const region = {
   },
 };
 
+export const spacing = {
+  tiny: baseSize / 2 + 'px',
+  x_small: baseSize + 'px',
+  small: baseSize * 2 + 'px',
+  medium: baseSize * 3 + 'px',
+  large: baseSize * 4 + 'px',
+  x_large: baseSize * 5 + 'px',
+  xx_large: baseSize * 16 + 'px',
+};
+
 export default {
+  spacing,
   breakpointMap,
   sizes,
   region,

@@ -10,7 +10,7 @@ export interface Props {
   isHollow?: boolean;
   isDisabled?: boolean;
   icon?: any;
-  label: string;
+  label?: string;
   href: string;
   onClick?: (ev: any) => void;
 }
@@ -25,6 +25,7 @@ const LinkButton = ({
   href,
   onClick,
 }: Props) => {
+  if (!label || !href) return null;
   const _handleClick = (e: any) => {
     e.preventDefault();
     if (!isDisabled && onClick) {

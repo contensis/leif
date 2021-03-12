@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 
 import FiltersStyled from './Filters.styled';
 
@@ -8,12 +8,19 @@ import Button from '../button/Button';
 export interface Props {
   className?: string;
   filters: any;
+  updateSelectedFilters: (filterGroupKey: string, key: number) => void;
+  clearFilters: () => void;
 }
 
-const Filters = ({ className, filters }: Props) => {
-  if (!filters || filters.length < 1) return null;
-  const [showFilters, setShowFilters] = useState(false);
+const Filters = ({
+  className,
+  filters,
+  updateSelectedFilters,
+  clearFilters,
+}: Props) => {
+  const [showFilters, setShowFilters] = useState<boolean>(false);
 
+  if (!filters || filters.length < 1) return null;
   return (
     <FiltersStyled className={className} showFilters={showFilters}>
       <Button
@@ -23,35 +30,19 @@ const Filters = ({ className, filters }: Props) => {
         onClick={() => setShowFilters(!showFilters)}
       />
       <div className="filters__wrapper">
-        {filters.map((filter: any, idx: number) => {
-          const type = filter.type;
-          switch (type) {
-            case 'dropdown': {
-              return (
-                <Dropdown
-                  key={idx}
-                  className="filter__dropdown"
-                  options={filter.options}
-                  label={filter.label}
-                  id={filter.id}
-                />
-              );
-            }
-            case 'sort': {
-              return (
-                <Dropdown
-                  key={idx}
-                  type="sort"
-                  className="filter__dropdown"
-                  options={filter.options}
-                  label={filter.label}
-                  id={filter.id}
-                />
-              );
-            }
-            default:
-              break;
-          }
+        {Object.keys(filters).map((fKey, idx) => {
+          return (
+            <Dropdown
+              className="filter__dropdown"
+              key={idx}
+              clearFilters={clearFilters}
+              filterGroupKey={fKey}
+              filters={filters[fKey].items}
+              title={filters[fKey].title}
+              updateSelectedFilters={updateSelectedFilters}
+              // isSingleFilter={Object.keys(filters).length === 1}
+            />
+          );
         })}
       </div>
     </FiltersStyled>

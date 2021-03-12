@@ -5,7 +5,7 @@ import { queryParams, routeParams } from '../util/navigation';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
 import { ContentTypes, ListingPages } from '../schema';
 
-import transformations from '~/components/search/transformations';
+import transformations from '../../components/search/transformations';
 
 export default {
   onRouteLoad: function* onRouteLoad({
@@ -35,14 +35,13 @@ export default {
       ...queryParams(location && location.search),
     };
 
-    const { sys: { contentTypeId, id } = {} } = entry || {}; // Desturucture the elements from entry.sys in a null-safe way
+    const { sys: { contentTypeId } = {} } = entry || {}; // Desturucture the elements from entry.sys in a null-safe way
 
     let triggerListing = false;
     // To give the Content Type pages with Listings
     // the right parameters to drive them
     switch (contentTypeId) {
-      case ContentTypes.category:
-        params.category = id;
+      case ContentTypes.blogListing:
         triggerListing = true;
         break;
       default:
@@ -64,6 +63,7 @@ export default {
     // if (!siteConfig) {
     //   yield put({ type: GET_SITE_CONFIG });
     // }
+
     yield triggerListing &&
       Object.keys(ListingPages).includes(contentTypeId) &&
       setRouteFilters({

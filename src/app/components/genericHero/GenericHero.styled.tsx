@@ -1,14 +1,12 @@
 import styled, { css } from 'styled-components';
-
-import Link from '../link/Link';
 interface Props {
   theme?: any;
   type: string;
-  hasLink: boolean;
+  isListingPage: boolean;
 }
 
-const GenericHeroStyled = styled(Link)`
-  ${({ theme, type, hasLink }: Props) => {
+const GenericHeroStyled = styled.div`
+  ${({ theme, type, isListingPage }: Props) => {
     return css`
       margin: 0 auto;
       padding-top: 74px;
@@ -51,6 +49,9 @@ const GenericHeroStyled = styled(Link)`
           }
         }
       }
+      .generic-hero__text {
+        color: ${theme.colors.neutral_charcoal};
+      }
       .generic-hero__image {
         display: block;
         max-width: 510px;
@@ -65,7 +66,22 @@ const GenericHeroStyled = styled(Link)`
         color: ${theme.colors.secondary_light};
       }
       .generic-hero__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ${theme.typeStyles.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        text-align: center;
+        color: ${theme.colors.secondary};
         margin: 24px auto 0;
+        padding: 16px 24px;
+        max-width: 288px;
+        width: 100%;
+        border: 1px solid ${theme.colors.secondary};
+        border-radius: 4px;
+        > div:first-child {
+          margin-left: 10px;
+        }
         @media ${theme.mq.desktop} {
           margin: 24px 0 0 0;
         }
@@ -94,26 +110,43 @@ const GenericHeroStyled = styled(Link)`
             }
           }
         `}
-      ${hasLink &&
-        css`
-          flex-direction: column-reverse;
-          .generic-hero__title {
-            margin-top: 98px;
-            @media ${theme.mq.desktop} {
-              margin: 0;
-            }
-          }
-          .generic-hero__image {
+      a {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        @media ${theme.mq.desktop} {
+          padding-top: 0;
+          flex-direction: row;
+          align-items: center;
+          text-align: left;
+        }
+        .generic-hero__title {
+          margin-top: 98px;
+          @media ${theme.mq.desktop} {
             margin: 0;
           }
-          &:hover {
-            .generic-hero__title {
-              text-decoration: underline;
-            }
-            .generic-hero__btn {
-              background-color: rgba(195, 198, 222, 0.2);
-            }
+        }
+        .generic-hero__image {
+          margin: 0 0 16px 0;
+          @media ${theme.mq.desktop} {
+            margin: 0;
           }
+        }
+        &:hover {
+          .generic-hero__title {
+            text-decoration: underline;
+          }
+          .generic-hero__btn {
+            background-color: rgba(195, 198, 222, 0.2);
+          }
+        }
+      }
+      ${isListingPage &&
+        css`
+          padding-top: 0;
         `}
     `;
   }};

@@ -1,15 +1,18 @@
-import mapJson, { mapComposer } from '../../../core/util/json-mapper';
+import { mapComposer } from '../../../core/util/json-mapper';
 
 import { ctaBannerPropsMapping } from '../../../components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 import { composerPropsMapping } from '../../../components/composer/transformations/composer-to-props.mapper';
-import { imagePropsMapping } from '../../../components/image/transformations/image.component-to-props.mapper';
-import mapEntriesToResults from '../../..//components/card/transformations/entry-to-card-props.mapper';
+import mapEntriesToResults from '../../../components/search/transformations/entry-to-card-props.mapper';
 
 export const blogPostPropsMapping = {
   blogHeroProps: {
     title: 'entryTitle',
-    imageProps: ({ primaryImage }: any) =>
-      mapJson(primaryImage, imagePropsMapping),
+    imageUri: {
+      $path: 'primaryImage',
+      $formatting: (img: any) =>
+        img && img.asset && img.asset.sys && img.asset.sys.uri,
+    },
+    imageAlt: ['image.altText', 'image.caption', 'image.asset.title'],
   },
   blogInformationProps: {
     photo: {

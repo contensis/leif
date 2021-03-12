@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import GenericHero, { Props } from './GenericHero';
+import dateWithSuffix from '../../utils/dateWithSuffix';
 
 export default {
   title: 'Global/Components/GenericHero',
@@ -15,16 +16,9 @@ Primary.args = {
   backLink: {
     label: 'Back',
   },
-  link: {
-    label: 'Read more',
-    href: '#',
-  },
-  imageProps: {
-    path: 'https://source.unsplash.com/XqFEu8J-s0M',
-    alt: 'Unsplash Image',
-  },
-  detail: {
-    readTime: 4,
-    date: new Date().toISOString(),
-  },
+  linkLabel: 'Read more',
+  imageUri: 'https://source.unsplash.com/XqFEu8J-s0M',
+  imageAlt: 'Unsplash Image',
+  readTime: 4,
+  date: dateWithSuffix(new Date().toISOString()),
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import BlogDetailStyled from './BlogDetail.styled';
-import dateWithSuffix from '../../utils/dateWithSuffix';
 
 interface Props {
   className?: string;
@@ -10,12 +9,10 @@ interface Props {
 }
 
 const BlogDetail = ({ className, date, readTime }: Props) => {
-  if (!date && !readTime) return null;
+  if (!date) return null;
   return (
     <BlogDetailStyled className={className}>
-      {date && (
-        <span className="blog-details__date">{dateWithSuffix(date)}</span>
-      )}
+      {date && <span className="blog-details__date">{date}</span>}
       {readTime && (
         <span className="blog-details__readtime">{readTime} min read</span>
       )}

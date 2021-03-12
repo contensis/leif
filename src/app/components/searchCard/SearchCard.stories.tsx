@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import SearchCard, { Props } from './SearchCard';
+import dateWithSuffix from '../../utils/dateWithSuffix';
 
 export default {
   title: 'Search/Components/SearchCard',
@@ -15,7 +16,7 @@ const dataObject = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/TRAF_LhFCUs',
   imageAlt: 'Unsplash image',
-  date: new Date().toISOString(),
+  date: dateWithSuffix(new Date().toISOString()),
   readTime: '4',
   price: 35,
 };
