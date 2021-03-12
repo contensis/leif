@@ -42,7 +42,7 @@ RUN yarn global add mocha
 RUN yarn cache clean -all
 RUN yarn
 #RUN npm install --loglevel error
-# RUN npm run postinstall
+RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 
