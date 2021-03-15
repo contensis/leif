@@ -10,7 +10,7 @@ COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 #RUN yarn --production --loglevel error
-RUN yarn run postinstall
+# RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 
 # Standard classic start script, will start the server with the environment started last 
