@@ -10,7 +10,7 @@ import RelatedContent from '../../components/relatedContent/RelatedContent';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
-import Region from '~/layout/Region';
+import Region from '../../layout/Region';
 
 interface Props {
   mappedEntry: any;

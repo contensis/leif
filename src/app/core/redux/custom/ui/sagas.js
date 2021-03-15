@@ -1,6 +1,6 @@
 import { takeEvery, call, select, put } from 'redux-saga/effects';
 
-import { selectIsSearchOpen } from '~/core/redux/custom/ui/selectors';
+import { selectIsSearchOpen } from './selectors';
 
 import { ROUTE_WILL_LOAD } from '../../types';
 

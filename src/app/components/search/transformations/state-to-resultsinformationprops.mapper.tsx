@@ -11,16 +11,16 @@ const {
   getPaging,
 } = selectors.selectListing;
 
-const listingTitle = state => getListing(state).get('title');
-const totalCount = state => getTotalCount(state);
+const listingTitle = (state: any) => getListing(state).get('title');
+const totalCount = (state: any) => getTotalCount(state);
 
 const searchSummaryTemplate = {
-  currentListing: state => getCurrent(state),
-  currentPageCount: state => getResults(state).size,
+  currentListing: (state: any) => getCurrent(state),
+  currentPageCount: (state: any) => getResults(state).size,
   listingTitle,
-  noResultsText: state =>
+  noResultsText: (state: any) =>
     totalCount(state) === 0 ? `No results were found` : '',
-  resultsText: state => {
+  resultsText: (state: any) => {
     const { pageIndex, pageSize, totalCount, pagesLoaded } = getPaging(
       state
     ).toJS();
@@ -29,11 +29,11 @@ const searchSummaryTemplate = {
     let end = start + (pagesLoaded.length * pageSize || pageSize) - 1;
     if (end > totalCount) end = totalCount;
 
-    return `${start} - ${end} of ${totalCount} results`;
+    return `Showing <span>${start} - ${end} of ${totalCount}</span> results`;
   },
 };
 
-const mapStateToResultsInformation = state =>
+const mapStateToResultsInformation = (state: any) =>
   fromJS(mapJson(state, searchSummaryTemplate)).toJS();
 
 export default mapStateToResultsInformation;

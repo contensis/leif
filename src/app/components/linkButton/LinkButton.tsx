@@ -27,7 +27,6 @@ const LinkButton = ({
 }: Props) => {
   if (!label || !href) return null;
   const _handleClick = (e: any) => {
-    e.preventDefault();
     if (!isDisabled && onClick) {
       onClick(e);
     } else {

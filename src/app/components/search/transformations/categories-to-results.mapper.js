@@ -1,5 +1,5 @@
-import { ContentTypes } from '~/core/schema';
-import { mapEntries } from '~/core/util/json-mapper';
+import { ContentTypes } from '../../../core/schema';
+import { mapEntries } from '../../../core/util/json-mapper';
 
 const categoryMapping = {
   title: 'entryTitle',

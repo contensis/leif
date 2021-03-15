@@ -1,4 +1,4 @@
-import { FreeTextWeights } from '~/core/schema';
+import { FreeTextWeights } from '../../../core/schema';
 
 export const base = [
   { fieldId: 'entryTitle', weight: FreeTextWeights.title },

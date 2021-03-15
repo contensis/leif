@@ -1,6 +1,7 @@
 import { Op, Query } from 'contensis-delivery-api';
-import { cachedSearch } from '~/core/util/ContensisDeliveryApi';
-import { dynamicSort } from '~/core/util/helpers';
+import { cachedSearch } from '../../../app/core/util/ContensisDeliveryApi';
+import { dynamicSort } from '../../../app/core/util/helpers';
+
 import { streamToPromise, SitemapStream } from 'sitemap';
 
 /* global PUBLIC_URI */

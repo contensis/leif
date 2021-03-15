@@ -1,5 +1,5 @@
 import { Op, OrderBy } from 'contensis-delivery-api';
-import { Fields, ContentTypes, DataFormats } from '~/core/schema';
+import { Fields, ContentTypes, DataFormats } from '../../core/schema';
 import {
   fixFreeTextForElastic,
   extractQuotedPhrases,

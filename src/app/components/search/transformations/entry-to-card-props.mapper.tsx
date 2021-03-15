@@ -7,7 +7,7 @@ import { selectCurrentPath } from '../../../core/redux/selectors';
 
 const baseMapping = {
   title: 'entryTitle',
-  text: 'kicker',
+  text: ['kicker', 'leadParagraph'],
   uri: {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,

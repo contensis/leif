@@ -16,6 +16,7 @@ const sys = {
 
 export const Fields = {
   entryTitle: 'entryTitle',
+  leadParagraph: 'leadParagraph',
   image: 'image',
   primaryImage: 'primaryImage',
   sys,
@@ -33,6 +34,8 @@ export const BaseFields = [
   Fields.sys.uri,
   Fields.sys.published,
 ];
+
+export const ContentFields = [Fields.leadParagraph];
 
 export const BlogFields = [
   Fields.summary,
@@ -84,6 +87,8 @@ export const ListingPages = {
 
 export const SearchFacets = {
   all: 'all',
+  blog: 'blog',
+  product: 'product',
 };
 
 export const SearchFilters = {

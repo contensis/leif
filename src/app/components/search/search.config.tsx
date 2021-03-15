@@ -1,14 +1,13 @@
 import {
   Listings,
-  // ResourceFields,
   ContentTypes,
-  RoutingFields,
   SearchFacets,
-  // BaseFields,
+  BaseFields,
   // FreeTextWeights,
   // DefaultWeightedSearchQueryFields,
   Fields,
   BlogFields,
+  ContentFields,
 } from '../../core/schema';
 
 // Filters
@@ -20,19 +19,37 @@ export default {
   tabs: [{ id: 0 }],
   facets: {
     [SearchFacets.all]: {
+      // tabId: 0,
       title: 'All results',
+      projectId: 'leif',
       queryParams: {
+        loadMorePaging: true,
         contentTypeIds: [
           ContentTypes.blog,
           ContentTypes.contentPage,
           ContentTypes.product,
         ],
-        fields: [...RoutingFields],
+        fields: [...BaseFields, ...BlogFields, ...ContentFields],
         orderBy: [Fields.entryTitle],
         linkDepth: 1,
-        pageSize: 12,
+        pageSize: 10,
         // weightedSearchFields: [...weightedFieldsBase],
       },
+      filters: {},
+    },
+
+    [SearchFacets.blog]: {
+      title: 'Blogs',
+      queryParams: {
+        loadMorePaging: true,
+        contentTypeIds: [ContentTypes.blog],
+        fields: [...BaseFields, ...BlogFields],
+        orderBy: [Fields.entryTitle],
+        linkDepth: 1,
+        pageSize: 10,
+        // weightedSearchFields: [...WeightedFields.base],
+      },
+      filters: BlogFilters,
     },
   },
   listings: {
@@ -42,7 +59,7 @@ export default {
       queryParams: {
         loadMorePaging: true,
         contentTypeIds: [ContentTypes.blog],
-        fields: [...RoutingFields, ...BlogFields],
+        fields: [...BaseFields, ...BlogFields],
         orderBy: ['-sys.version.published'],
         pageSize: 9,
       },

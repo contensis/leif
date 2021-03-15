@@ -14,6 +14,7 @@ export interface Props {
   date?: string;
   readTime?: string;
   price?: number;
+  uri: string;
 }
 
 const SearchCard = ({
@@ -26,6 +27,7 @@ const SearchCard = ({
   readTime,
   date,
   price,
+  uri,
 }: Props) => {
   const SearchCard = (type: string) => {
     switch (type) {
@@ -73,7 +75,12 @@ const SearchCard = ({
     }
   };
   return (
-    <SearchCardStyled className={className} type={type} title={title} href="#">
+    <SearchCardStyled
+      className={className}
+      type={type}
+      title={title}
+      href={uri}
+    >
       {SearchCard(type)}
     </SearchCardStyled>
   );

@@ -6,7 +6,7 @@ import FeaturedProduct from '../featuredProduct/FeaturedProduct';
 import VideoPlayer from '../videoPlayer/VideoPlayer';
 import Region from '~/layout/Region';
 
-import { ComposerComponents } from '~/core/schema';
+import { ComposerComponents } from '../../core/schema';
 
 const Composer = (props: any) => {
   const RenderComponent = (props: any) => {

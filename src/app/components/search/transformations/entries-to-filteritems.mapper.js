@@ -1,5 +1,5 @@
-import { mapEntries } from '~/core/util/json-mapper';
-import { Fields, ContentTypes } from '~/core/schema';
+import { mapEntries } from '../../../core/util/json-mapper';
+import { Fields, ContentTypes } from '../../../core/schema';
 // *** FILTER ITEM MAPPING ***
 // Base mapping, fields that are the same across all mappings
 // to save repeating these elements in every mapper, spread this

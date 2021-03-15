@@ -2,9 +2,9 @@ import { List, fromJS } from 'immutable';
 import queryString from 'query-string';
 import { selectors } from '@zengenti/contensis-react-base/search';
 
-import { default as mapJson } from '~/core/util/json-mapper';
-import { removeEmptyAttributes } from '~/core/util/helpers';
-import { selectCurrentPath } from '~/core/redux/selectors';
+import { default as mapJson } from '../../../core/util/json-mapper';
+import { removeEmptyAttributes } from '../../../core/util/helpers';
+import { selectCurrentPath } from '../../../core/redux/selectors';
 
 const {
   getSelectedFilters,
