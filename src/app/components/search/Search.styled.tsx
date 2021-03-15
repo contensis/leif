@@ -51,10 +51,16 @@ const SearchStyled = styled.div`
         ${theme.typeStyles.smallCopy};
         font-family: ${theme.typeStyles.fontFamily.default};
         max-width: 130px;
+        max-width: 288px;
         width: 100%;
-        padding: 8px 16px;
-        &:not(:last-child) {
-          margin-right: 24px;
+        margin: 24px 0 0 0;
+        @media ${theme.mq.desktop} {
+          max-width: 130px;
+          padding: 8px 16px;
+          margin: 0;
+          &:not(:last-child) {
+            margin: 0 24px 0 0;
+          }
         }
       }
       .search__results {

@@ -11,7 +11,7 @@ const FiltersStyled = styled.div`
       .filters__toggle-btn {
         max-width: 288px;
         margin: 0 auto;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           display: none;
         }
       }
@@ -21,7 +21,7 @@ const FiltersStyled = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           display: flex;
           justify-content: flex-start;
           flex-direction: row;
@@ -31,7 +31,7 @@ const FiltersStyled = styled.div`
         max-width: 288px;
         width: 100%;
         margin: 24px 0 0 0;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           margin: 0;
           &:not(:last-child) {
             margin-right: 40px;

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { withSearch } from '@zengenti/contensis-react-base/search';
 
 // Redux
-import { makeSelectDeviceType } from '../../core/redux/custom/ui/selectors';
+import { selectScreenSize } from '../../core/redux/custom/ui/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
@@ -40,16 +40,16 @@ const SearchContainer = ({
   searchTerm,
   results,
   updatePageIndex,
-  // updateCurrentFacet,
+  updateCurrentFacet,
   updateSelectedFilters,
   paging,
-  // currentFacet,
+  currentFacet,
   clearFilters,
-  // tabsAndFacets,
+  tabsAndFacets,
   filters,
 }: Props) => {
   const hasResults = results && results.length > 0;
-  // const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
+  const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
   /* eslint-disable */
@@ -77,17 +77,17 @@ const SearchContainer = ({
       ? false
       : pageIndex < pageCount - 1;
 
-  const selectDeviceType = useSelector(makeSelectDeviceType);
-  const device = useSelector(selectDeviceType);
-  const isDesktop = device === 'laptop' ? true : false;
+  const screenSize = useSelector(selectScreenSize);
+  const isDesktop = screenSize >= 1024 ? true : false;
 
-  // const facetsArray = Object.keys(facets).map(key => facets[key]);
-  // facetsArray.map(facet => (facet.type = 'facet'));
-
-  // const filtersArray = Object.keys(filters).map(key => filters[key]);
-
-  // const facetsAndFilters = { ...facetsArray, ...filtersArray };
-  // console.info({ facetsAndFilters });
+  // Turning the Filters Object into a Array
+  const filtersArray = Object.keys(filters).map(key => filters[key]);
+  // Turning the Facets Object into a Array
+  // Adding a 'Type' to each Facet Object.
+  const facetsArray = Object.keys(facets).map(key => facets[key]);
+  facetsArray.map(facet => (facet.type = 'facet'));
+  // Combining the Facets and Filter Arrays into one Object.
+  const facetsAndFilters = { ...facets, ...filtersArray };
 
   return (
     <MainLayout>
@@ -95,12 +95,12 @@ const SearchContainer = ({
         <SearchStyled className={className}>
           <h1 className="search__title">Search results</h1>
           <div className="search__header">
-            {/* <Filters
+            <Filters
               className="search__facets"
               filters={isDesktop ? facets : facetsAndFilters}
               currentFacet={currentFacet}
               updateCurrentFacet={updateCurrentFacet}
-            /> */}
+            />
             <SearchInput searchTerm={searchTerm} _func={_handleSearchSubmit} />
           </div>
           {hasResults && (

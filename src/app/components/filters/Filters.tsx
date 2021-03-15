@@ -22,53 +22,42 @@ const Filters = ({
   clearFilters,
   updateCurrentFacet,
   currentFacet,
-  type = 'dropdown',
 }: Props) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
-  const _RenderFilters = (type: string) => {
-    switch (type) {
-      case 'facet':
-        return (
-          <>
-            {Object.keys(filters).map((fKey, idx) => {
-              const totalCount =
-                filters[fKey].results && filters[fKey].results.length;
-              const label = filters[fKey].title;
-              return (
-                <Button
-                  className="filter__facet"
-                  key={idx}
-                  onClick={() => updateCurrentFacet(fKey)}
-                  btnTheme="secondary"
-                  label={`${label} (${totalCount})`}
-                  isHollow={currentFacet !== fKey}
-                />
-              );
-            })}
-          </>
-        );
-      case 'dropdown':
-      default:
-        return (
-          <>
-            {Object.keys(filters).map((fKey, idx) => {
-              return (
-                <Dropdown
-                  className="filter__dropdown"
-                  key={idx}
-                  clearFilters={clearFilters}
-                  filterGroupKey={fKey}
-                  filters={filters[fKey].items}
-                  title={filters[fKey].title}
-                  updateSelectedFilters={updateSelectedFilters}
-                  // isSingleFilter={Object.keys(filters).length === 1}
-                />
-              );
-            })}
-          </>
-        );
-    }
+  const _RenderFilters = () => {
+    return Object.keys(filters).map((fKey: any, idx: number) => {
+      switch (filters[fKey].type) {
+        case 'facet': {
+          const totalCount =
+            filters[fKey].results && filters[fKey].results.length;
+          const label = filters[fKey].title;
+          return (
+            <Button
+              className="filter__facet"
+              key={idx}
+              onClick={() => updateCurrentFacet(fKey)}
+              btnTheme="secondary"
+              label={`${label} (${totalCount})`}
+              isHollow={currentFacet !== fKey}
+            />
+          );
+        }
+        case 'dropdown':
+        default:
+          return (
+            <Dropdown
+              className="filter__dropdown"
+              key={idx}
+              clearFilters={clearFilters}
+              filterGroupKey={fKey}
+              filters={filters[fKey].items}
+              title={filters[fKey].title}
+              updateSelectedFilters={updateSelectedFilters}
+            />
+          );
+      }
+    });
   };
 
   if (!filters || filters.length < 1) return null;
@@ -80,7 +69,7 @@ const Filters = ({
         icon="filter"
         onClick={() => setShowFilters(!showFilters)}
       />
-      <div className="filters__wrapper">{_RenderFilters(type)}</div>
+      <div className="filters__wrapper">{_RenderFilters()}</div>
     </FiltersStyled>
   );
 };
