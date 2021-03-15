@@ -11,7 +11,7 @@ interface Props {
   filters?: any;
   facets?: any;
   paging?: any;
-  updateSelectedFilters: (ev: any) => void;
+  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
   updatePageIndex: (ev: number) => void;
   clearFilters: () => void;
 }

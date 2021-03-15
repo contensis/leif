@@ -3,11 +3,11 @@ import {
   // ResourceFields,
   ContentTypes,
   RoutingFields,
-  // SearchFacets,
+  SearchFacets,
   // BaseFields,
   // FreeTextWeights,
   // DefaultWeightedSearchQueryFields,
-  // Fields,
+  Fields,
   BlogFields,
 } from '../../core/schema';
 
@@ -18,7 +18,23 @@ import BlogFilters from './filters/blog';
 // and is used to drive the how the site search works
 export default {
   tabs: [{ id: 0 }],
-  facets: {},
+  facets: {
+    [SearchFacets.all]: {
+      title: 'All results',
+      queryParams: {
+        contentTypeIds: [
+          ContentTypes.blog,
+          ContentTypes.contentPage,
+          ContentTypes.product,
+        ],
+        fields: [...RoutingFields],
+        orderBy: [Fields.entryTitle],
+        linkDepth: 1,
+        pageSize: 12,
+        // weightedSearchFields: [...weightedFieldsBase],
+      },
+    },
+  },
   listings: {
     [Listings.blog]: {
       title: 'Blogs',

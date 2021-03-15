@@ -9,7 +9,7 @@ export interface Props {
   className?: string;
   filterGroupKey: string;
   filters: any;
-  updateSelectedFilters: (filterGroupKey: string, key: number) => void;
+  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
   clearFilters: () => void;
   title: string;
   type?: 'default' | 'sort';
@@ -24,13 +24,15 @@ const Dropdown = ({
   title,
   type = 'default',
 }: Props) => {
-  if (!filters || filters.length < 1) return null;
+  // useEffect(() => {
+  //   clearFilters();
+  // }, []);
 
-  const _handleFilterSelect = (key: number) => {
-    // clearFilters();
+  const _handleFilterSelect = (key: string) => {
     updateSelectedFilters(filterGroupKey, key);
   };
 
+  if (!filters || filters.length < 1) return null;
   return (
     <DropdownStyled className={className} type={type}>
       <VisuallyHidden>
@@ -40,7 +42,7 @@ const Dropdown = ({
         name={title}
         id={filterGroupKey}
         onChange={(e: any) => _handleFilterSelect(e.target.value)}
-        onBlur={(e: any) => _handleFilterSelect(e.target.value)}
+        onBlur={(e: any) => e.preventDefault()}
       >
         <option defaultValue={title}>{title}</option>
         {filters.map((filter: any, idx: number) => {

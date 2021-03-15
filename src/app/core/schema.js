@@ -52,6 +52,8 @@ export const VersionStatus = {
 
 export const ContentTypes = {
   blog: 'blogPost',
+  contentPage: 'contentPage',
+  product: 'product',
   blogListing: 'blogListing',
   category: 'category',
   person: 'person',
@@ -113,5 +115,5 @@ export const ComposerComponents = {
 export const BlogFilters = {
   category: 'category',
   author: 'author',
-  // datePublished: Fields.sys.published,
+  date: 'date',
 };

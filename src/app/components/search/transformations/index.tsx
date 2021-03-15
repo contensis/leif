@@ -1,10 +1,12 @@
 import mapEntriesToResults from './entry-to-card-props.mapper';
 import mapStateToResultsInformation from './state-to-results-information-props.mapper';
+import mapStateToSearchUri from './state-to-searchuri';
+import mapEntriesToFilterItems from './entries-to-filteritems.mapper';
 
 export default {
   results: mapEntriesToResults,
   resultsInfo: mapStateToResultsInformation,
-  // filterItems: mapEntriesToFilterItems,
-  // navigate: mapStateToSearchUri,
+  navigate: mapStateToSearchUri,
+  filterItems: mapEntriesToFilterItems,
   // categories: mapCategoriesToResults,
 };

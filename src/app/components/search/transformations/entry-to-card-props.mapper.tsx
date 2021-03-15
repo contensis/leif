@@ -23,7 +23,8 @@ export const blogCardMapping = {
       img && img.asset && img.asset.sys && img.asset.sys.uri,
   },
   readTime: 'readTime',
-  date: ({ sys }: any) => dateWithSuffix(sys.version.published),
+  date: ({ sys }: any) =>
+    dateWithSuffix(sys && sys.version && sys.version.published),
   imageAlt: [
     'primaryImage.altText',
     'primaryImage.caption',
@@ -49,6 +50,7 @@ export const productCardMapping = {
 };
 
 export const mappers = {
+  [ContentTypes.contentPage]: baseMapping,
   [ContentTypes.plant]: productCardMapping,
   [ContentTypes.pot]: productCardMapping,
   [ContentTypes.blog]: blogCardMapping,
