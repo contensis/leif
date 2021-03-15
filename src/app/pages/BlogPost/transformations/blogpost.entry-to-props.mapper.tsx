@@ -31,9 +31,18 @@ export const blogPostPropsMapping = {
   contentComposerProps: ({ postBody }: any) =>
     mapComposer(postBody, composerPropsMapping),
   relatedContentProps: {
-    title: 'Related blogs',
+    title: {
+      $path: 'relatedContentTitle',
+      $default: () => 'Read now',
+    },
     results: ({ relatedBlogs }: any) => mapEntriesToResults(relatedBlogs),
-    linkUri: '/blogs',
-    linkLabel: 'View all blogs',
+    linkUri: {
+      $path: 'relatedContentLink',
+      $default: () => '/blog',
+    },
+    linkLabel: {
+      $path: 'relatedContentLinkLabel',
+      $default: () => 'View all blogs',
+    },
   },
 };
