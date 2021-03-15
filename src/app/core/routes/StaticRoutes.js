@@ -9,7 +9,7 @@ export default [
     exact: false,
     fetchNode: false,
     component: Loadable({
-      loader: () => import('~/pages/Search/search.page'),
+      loader: () => import('~/pages/Search/Search.page'),
       loading: Loading,
     }),
   },
