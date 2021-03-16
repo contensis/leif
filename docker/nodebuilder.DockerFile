@@ -29,6 +29,7 @@
 # COPY version.json /usr/src/app/dist/static/version.json
 # RUN cat /usr/src/app/dist/static/version.json
 FROM node:12 as builder
+RUN apk add --no-cache git
 # The following prevents errors when cwebp is installing.
 RUN apt-get update
 RUN apt-get install libglu1 -y
@@ -37,7 +38,7 @@ WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
 COPY patches /usr/src/app/patches
-RUN rm -rf node_modules
+RUN yarn upgrade
 RUN yarn global add mocha
 RUN yarn cache clean -all
 RUN yarn
