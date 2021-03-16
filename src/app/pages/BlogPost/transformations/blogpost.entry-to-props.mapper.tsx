@@ -13,6 +13,14 @@ export const blogPostPropsMapping = {
         img && img.asset && img.asset.sys && img.asset.sys.uri,
     },
     imageAlt: ['image.altText', 'image.caption', 'image.asset.title'],
+    backLinkUri: {
+      $path: 'backLinkUri',
+      $default: '/blog',
+    },
+    backLinkLabel: {
+      $path: 'backLinkLabel',
+      $default: 'Blogs',
+    },
   },
   blogInformationProps: {
     photo: {

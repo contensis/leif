@@ -7,11 +7,18 @@ interface Props {
   className?: string;
   label: string;
   color?: string;
+  uri: string;
 }
 
-const BackButton = ({ className, label, color = '#6E729B' }: Props) => {
+const BackButton = ({
+  className,
+  label = 'Back',
+  uri,
+  color = '#6E729B',
+}: Props) => {
+  if (!uri) return null;
   return (
-    <BackButtonStyled className={className}>
+    <BackButtonStyled className={className} href={uri}>
       <Icon className="back-button__icon" type="arrow-left" color={color} />
       <span className="back-button__text">{label}</span>
     </BackButtonStyled>

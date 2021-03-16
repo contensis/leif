@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const BackButtonStyled = styled.button`
+const BackButtonStyled = styled.a`
   ${({ theme }) => {
     return css`
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      text-decoration: underline;
       background: transparent;
       border: none;
       font-family: inherit;
@@ -13,10 +12,13 @@ const BackButtonStyled = styled.button`
       color: ${theme.colors.secondary_light};
       cursor: pointer;
       &:hover {
-        text-decoration: none;
+        .back-button__text {
+          text-decoration: none;
+        }
       }
       .back-button__text {
         margin-left: 8px;
+        text-decoration: underline;
       }
       .back-button__icon {
         height: 24px;

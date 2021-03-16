@@ -9,7 +9,6 @@ export interface Props {
   className?: string;
   title: string;
   text?: string;
-  backLink?: any;
   linkUri?: string;
   linkLabel?: string;
   imageUri: string;
@@ -18,6 +17,8 @@ export interface Props {
   readTime?: number;
   date?: string;
   isListingPage?: boolean;
+  backLinkLabel?: string;
+  backLinkUri?: string;
   type?: 'default' | 'center';
 }
 
@@ -25,7 +26,8 @@ const GenericHero = ({
   className,
   title,
   text,
-  backLink,
+  backLinkLabel,
+  backLinkUri,
   linkUri,
   linkLabel,
   imageUri,
@@ -51,8 +53,12 @@ const GenericHero = ({
         wrapper={(children: any) => <a href={linkUri}>{children}</a>}
       >
         <div className="generic-hero__content">
-          {backLink && !linkUri && (
-            <BackButton className="generic-hero__back" label={backLink.label} />
+          {backLinkUri && !linkUri && (
+            <BackButton
+              className="generic-hero__back"
+              label={backLinkLabel}
+              uri={backLinkUri}
+            />
           )}
           <h1 className="generic-hero__title">{title}</h1>
           {text && <p className="generic-hero__text">{text}</p>}
