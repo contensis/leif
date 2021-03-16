@@ -40,9 +40,11 @@ const Card = ({
             <h3 className="card__title">{title}</h3>
             <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
             {text && <p className="card__text">{text}</p>}
-            <div className="card__details">
-              <BlogDetail date={date} readTime={readTime} />
-            </div>
+            <BlogDetail
+              className="card__details"
+              date={date}
+              readTime={readTime}
+            />
           </>
         );
       case 'product':

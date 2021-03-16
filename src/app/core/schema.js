@@ -17,13 +17,14 @@ const sys = {
 export const Fields = {
   entryTitle: 'entryTitle',
   leadParagraph: 'leadParagraph',
+  summary: 'summary',
   image: 'image',
   primaryImage: 'primaryImage',
   sys,
   contentTypeId: 'sys.contentTypeId',
   wildcard: '*',
   body: 'body',
-  summary: 'kicker',
+  kicker: 'kicker',
   readTime: 'readTime',
 };
 
@@ -39,6 +40,7 @@ export const ContentFields = [Fields.leadParagraph];
 
 export const BlogFields = [
   Fields.summary,
+  Fields.kicker,
   Fields.primaryImage,
   Fields.sys.published,
   Fields.readTime,
