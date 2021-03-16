@@ -2,7 +2,7 @@ ARG builder_image
 FROM ${builder_image} as basebuilder
 FROM mhart/alpine-node:12
 
-# RUN apk add --no-cache git
+RUN apk add --no-cache git
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
