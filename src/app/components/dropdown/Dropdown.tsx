@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '../icon/Icon';
 
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
@@ -24,9 +24,12 @@ const Dropdown = ({
   title,
   type = 'default',
 }: Props) => {
-  // useEffect(() => {
-  //   clearFilters();
-  // }, []);
+  const [activeFilter, setActiveFilter] = useState(title);
+
+  useEffect(() => {
+    const selectedFilter = filters.find((x: any) => x.isSelected);
+    setActiveFilter(selectedFilter && selectedFilter.key);
+  }, [filters]);
 
   const _handleFilterSelect = (key: string) => {
     updateSelectedFilters(filterGroupKey, key);
@@ -43,8 +46,9 @@ const Dropdown = ({
         id={filterGroupKey}
         onChange={(e: any) => _handleFilterSelect(e.target.value)}
         onBlur={(e: any) => e.preventDefault()}
+        value={activeFilter}
       >
-        <option defaultValue={title}>{title}</option>
+        <option value={title}>{title}</option>
         {filters.map((filter: any, idx: number) => {
           return (
             <option key={idx} value={filter.key}>
