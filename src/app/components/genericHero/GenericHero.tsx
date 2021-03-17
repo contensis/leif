@@ -51,7 +51,11 @@ const GenericHero = ({
     >
       <ConditionalLink
         condition={linkUri}
-        wrapper={(children: any) => <a href={linkUri}>{children}</a>}
+        wrapper={(children: any) => (
+          <a href={linkUri} className="generic-hero__link-wrapper">
+            {children}
+          </a>
+        )}
       >
         <div className="generic-hero__content">
           {backLinkUri && !linkUri && (

@@ -28,7 +28,8 @@ const Dropdown = ({
 
   useEffect(() => {
     const selectedFilter = filters.find((x: any) => x.isSelected);
-    setActiveFilter(selectedFilter && selectedFilter.key);
+    const activeFilter = selectedFilter && selectedFilter.key;
+    setActiveFilter(activeFilter);
   }, [filters]);
 
   const _handleFilterSelect = (key: string) => {
@@ -46,7 +47,7 @@ const Dropdown = ({
         id={filterGroupKey}
         onChange={(e: any) => _handleFilterSelect(e.target.value)}
         onBlur={(e: any) => e.preventDefault()}
-        value={activeFilter}
+        value={activeFilter || title}
       >
         <option value={title}>{title}</option>
         {filters.map((filter: any, idx: number) => {

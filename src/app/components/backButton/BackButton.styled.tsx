@@ -12,13 +12,10 @@ const BackButtonStyled = styled.a`
       color: ${theme.colors.secondary_light};
       cursor: pointer;
       &:hover {
-        .back-button__text {
-          text-decoration: none;
-        }
+        text-decoration: none;
       }
       .back-button__text {
         margin-left: 8px;
-        text-decoration: underline;
       }
       .back-button__icon {
         height: 24px;

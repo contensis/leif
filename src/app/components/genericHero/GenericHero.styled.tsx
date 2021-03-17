@@ -110,7 +110,7 @@ const GenericHeroStyled = styled.div`
             }
           }
         `}
-      a {
+      .generic-hero__link-wrapper {
         margin: 0 auto;
         display: flex;
         flex-direction: column-reverse;
