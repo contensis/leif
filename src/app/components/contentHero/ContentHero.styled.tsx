@@ -34,7 +34,7 @@ const ContentHeroStyled = styled.div`
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding: 16px 16px 0;
         @media ${theme.mq.desktop} {
           padding: 16px 80px 0;
@@ -42,6 +42,8 @@ const ContentHeroStyled = styled.div`
       }
       .content-hero__back-btn {
         color: ${theme.colors.neutral_white};
+        align-self: flex-start;
+        margin-bottom: auto;
       }
       .content-hero__title {
         background-color: ${theme.colors.neutral_white};

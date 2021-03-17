@@ -17,6 +17,7 @@ const ContentHero = ({ className, title, image }: Props) => {
     <ContentHeroStyled className={className} bgImage={bgImage}>
       <div className="content-hero__content">
         <BackButton
+          uri="/landing"
           label="Landing page"
           className="content-hero__back-btn"
           color="#fff"
