@@ -144,6 +144,10 @@ const GenericHeroStyled = styled.div`
           }
         }
       }
+      .generic-hero__content {
+        display: flex;
+        flex-direction: column;
+      }
       ${isListingPage &&
         css`
           padding-top: 0;
