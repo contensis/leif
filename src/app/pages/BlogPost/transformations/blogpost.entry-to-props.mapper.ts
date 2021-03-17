@@ -1,8 +1,8 @@
-import { mapComposer } from '../../../core/util/json-mapper';
+import { mapComposer } from '~/core/util/json-mapper';
 
-import { ctaBannerPropsMapping } from '../../../components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
-import { composerPropsMapping } from '../../../components/composer/transformations/composer-to-props.mapper';
-import mapEntriesToResults from '../../../components/search/transformations/entry-to-card-props.mapper';
+import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
+import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
+import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 export const blogPostPropsMapping = {
   blogHeroProps: {

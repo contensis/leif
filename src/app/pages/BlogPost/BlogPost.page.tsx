@@ -1,31 +1,29 @@
 import React from 'react';
 
 // Components
-import GenericHero from '../../components/genericHero/GenericHero';
-import BlogInformation from '../../components/blogInformation/BlogInformation';
-import LeadParagraph from '../../components/leadParagraph/LeadParagraph';
-import Composer from '../../components/composer/ComposerWrapper';
-import CTABanner from '../../components/ctaBanner/CTABanner';
-import RelatedContent from '../../components/relatedContent/RelatedContent';
+import GenericHero from '~/components/genericHero/GenericHero';
+import BlogInformation from '~/components/blogInformation/BlogInformation';
+import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
+import Composer from '~/components/composer/ComposerWrapper';
+import CTABanner from '~/components/ctaBanner/CTABanner';
+import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Layout
-import MainLayout from '../../layout/MainLayout';
-import Region from '../../layout/Region';
+import MainLayout from '~/layout/MainLayout';
+import Region from '~/layout/Region';
 
-interface Props {
-  mappedEntry: any;
-}
+// Models
+import { Props } from './BlogPost.d';
 
-const BlogPost = ({
-  mappedEntry: {
+const BlogPost = ({ mappedEntry }: Props) => {
+  const {
     blogInformationProps,
     blogHeroProps,
     ctaBannerProps,
     leadParagraphProps,
     contentComposerProps,
     relatedContentProps,
-  } = {},
-}: Props) => {
+  } = mappedEntry || {};
   return (
     <MainLayout>
       <Region width="large" margin="none">

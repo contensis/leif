@@ -5,6 +5,7 @@ import BackButton from '../backButton/BackButton';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 import Icon from '../icon/Icon';
+
 export interface Props {
   className?: string;
   title: string;
