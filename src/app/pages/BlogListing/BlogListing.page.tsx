@@ -9,6 +9,7 @@ import Region from '../../layout/Region';
 import BlogListing from '../../components/blogListing/BlogListing';
 import ListingContainer from '../../components/listing/Listing.container';
 import CTABanner from '../../components/ctaBanner/CTABanner';
+import BlogListingStyled from './BlogListing.styled';
 
 interface Props {
   mappedEntry: any;
@@ -19,18 +20,18 @@ const BlogListingPage = ({
 }: Props) => {
   return (
     <MainLayout>
-      <Region width="large" margin="medium" align="center">
+      <BlogListingStyled>
         <h1 className="blog-listing__title">{title}</h1>
-      </Region>
-      <Region width="large" margin="large">
-        <GenericHero {...featuredBlogProps} />
-      </Region>
-      <ListingContainer>
-        <BlogListing />
-      </ListingContainer>
-      <Region width="small" margin="large">
-        <CTABanner {...ctaBannerProps} />
-      </Region>
+        <Region width="large" margin="none">
+          <GenericHero {...featuredBlogProps} />
+        </Region>
+        <ListingContainer>
+          <BlogListing />
+        </ListingContainer>
+        <Region width="small" margin="large">
+          <CTABanner {...ctaBannerProps} />
+        </Region>
+      </BlogListingStyled>
     </MainLayout>
   );
 };

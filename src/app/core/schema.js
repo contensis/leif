@@ -122,5 +122,4 @@ export const ComposerComponents = {
 export const BlogFilters = {
   category: 'category',
   author: 'author',
-  date: 'date',
 };

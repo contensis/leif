@@ -6,8 +6,19 @@ const BlogListingStyled = styled.div`
       .blog-listing__filters {
         max-width: 1280px;
         width: 100%;
-        margin: 0 auto;
         padding: 0 16px;
+        margin: 64px auto 0;
+        @media ${theme.mq.desktop} {
+          margin-top: 104px;
+        }
+      }
+      .filters__wrapper {
+        justify-content: center;
+      }
+      .filter__dropdown {
+        @media ${theme.mq.desktop} {
+          max-width: 400px;
+        }
       }
       .blog-listing__results {
         max-width: 1280px;

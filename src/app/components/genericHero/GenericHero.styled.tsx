@@ -147,6 +147,9 @@ const GenericHeroStyled = styled.div`
       ${isListingPage &&
         css`
           padding-top: 0;
+          @media ${theme.mq.desktop} {
+            padding-top: 74px;
+          }
         `}
     `;
   }};

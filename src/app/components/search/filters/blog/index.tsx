@@ -17,10 +17,4 @@ export default {
     isSingleSelect: true,
     items: [],
   },
-  [BlogFilters.date]: {
-    title: 'Browse by date published',
-    fieldId: 'sys.published',
-    isSelected: false,
-    items: [],
-  },
 };
