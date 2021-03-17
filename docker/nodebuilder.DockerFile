@@ -35,12 +35,10 @@ RUN apt-get update
 RUN apt-get install libglu1 -y
 RUN apt-get upgrade -y
 WORKDIR /usr/src/app
+RUN npm install -g mocha
 COPY package.json .
 COPY yarn.lock .
 COPY patches /usr/src/app/patches
-RUN yarn upgrade
-RUN yarn global add mocha
-RUN yarn cache clean -all
 RUN yarn
 #RUN npm install --loglevel error
 RUN yarn run postinstall
