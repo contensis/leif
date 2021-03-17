@@ -39,8 +39,17 @@ const GenericHero = ({
   isListingPage = false,
   type = 'default',
 }: Props) => {
-  const ConditionalLink = ({ condition, wrapper, children }) =>
-    condition ? wrapper(children) : children;
+  interface ConditionalLinkProps {
+    condition?: boolean;
+    wrapper: any;
+    children: any;
+  }
+
+  const ConditionalLink = ({
+    condition,
+    wrapper,
+    children,
+  }: ConditionalLinkProps) => (condition ? wrapper(children) : children);
 
   return (
     <GenericHeroStyled

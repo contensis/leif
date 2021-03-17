@@ -5,7 +5,7 @@ import Icon from '../icon/Icon';
 
 interface Props {
   className?: string;
-  label: string;
+  label?: string;
   color?: string;
   uri: string;
 }

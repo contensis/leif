@@ -2,22 +2,20 @@ import React from 'react';
 
 // Components
 import GenericHero from '../../components/genericHero/GenericHero';
+import BlogListing from '../../components/blogListing/BlogListing';
+import ListingContainer from '../../components/listing/Listing.container';
+import CTABanner from '../../components/ctaBanner/CTABanner';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
 import Region from '../../layout/Region';
-import BlogListing from '../../components/blogListing/BlogListing';
-import ListingContainer from '../../components/listing/Listing.container';
-import CTABanner from '../../components/ctaBanner/CTABanner';
 import BlogListingStyled from './BlogListing.styled';
 
-interface Props {
-  mappedEntry: any;
-}
+// Models
+import { Props } from './BlogListing.d';
 
-const BlogListingPage = ({
-  mappedEntry: { title, featuredBlogProps, ctaBannerProps } = {},
-}: Props) => {
+const BlogListingPage = ({ mappedEntry }: Props) => {
+  const { title, featuredBlogProps, ctaBannerProps } = mappedEntry || {};
   return (
     <MainLayout>
       <BlogListingStyled>
