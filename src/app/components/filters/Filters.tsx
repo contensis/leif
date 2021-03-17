@@ -8,9 +8,9 @@ import Button from '../button/Button';
 export interface Props {
   className?: string;
   filters: any;
-  updateSelectedFilters?: (filterGroupKey: string, key: number) => void;
-  clearFilters?: () => void;
-  updateCurrentFacet?: (fKey: string) => void;
+  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
+  clearFilters: () => void;
+  updateCurrentFacet: (fKey: string) => void;
   currentFacet?: string;
   type?: 'dropdown' | 'facet';
 }

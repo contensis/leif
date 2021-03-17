@@ -80,14 +80,11 @@ const SearchContainer = ({
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 
-  // Turning the Filters Object into a Array
-  const filtersArray = Object.keys(filters).map(key => filters[key]);
-  // Turning the Facets Object into a Array
   // Adding a 'Type' to each Facet Object.
   const facetsArray = Object.keys(facets).map(key => facets[key]);
   facetsArray.map(facet => (facet.type = 'facet'));
   // Combining the Facets and Filter Arrays into one Object.
-  const facetsAndFilters = { ...facets, ...filtersArray };
+  const facetsAndFilters = { ...facets, ...filters };
 
   return (
     <MainLayout>
@@ -100,6 +97,8 @@ const SearchContainer = ({
               filters={isDesktop ? facets : facetsAndFilters}
               currentFacet={currentFacet}
               updateCurrentFacet={updateCurrentFacet}
+              updateSelectedFilters={updateSelectedFilters}
+              clearFilters={clearFilters}
             />
             <SearchInput searchTerm={searchTerm} _func={_handleSearchSubmit} />
           </div>
@@ -120,6 +119,7 @@ const SearchContainer = ({
                     className="search__filters"
                     filters={filters}
                     updateSelectedFilters={updateSelectedFilters}
+                    updateCurrentFacet={updateCurrentFacet}
                     clearFilters={clearFilters}
                   />
                 )}
