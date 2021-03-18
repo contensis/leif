@@ -10,6 +10,7 @@ export interface Props {
   filterGroupKey: string;
   filters: any;
   updateSelectedFilters: (filterGroupKey: string, key: string) => void;
+  _setHasDropdownFiltersSelected: (val: boolean) => void;
   clearFilters: () => void;
   title: string;
   type?: 'default' | 'sort';
@@ -20,20 +21,23 @@ const Dropdown = ({
   filterGroupKey,
   filters,
   updateSelectedFilters,
-  // clearFilters,
+  _setHasDropdownFiltersSelected,
   title,
   type = 'default',
 }: Props) => {
   const [activeFilter, setActiveFilter] = useState(title);
 
+  /* eslint-disable */
   useEffect(() => {
     const selectedFilter = filters.find((x: any) => x.isSelected);
     const activeFilter = selectedFilter && selectedFilter.key;
     setActiveFilter(activeFilter);
   }, [filters]);
+  /* eslint-enable */
 
   const _handleFilterSelect = (key: string) => {
     updateSelectedFilters(filterGroupKey, key);
+    _setHasDropdownFiltersSelected(true);
   };
 
   if (!filters || filters.length < 1) return null;

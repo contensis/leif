@@ -7,6 +7,9 @@ export const selectIsBasketOpen = state => state.getIn(['ui', 'showBasket']);
 export const selectDeviceType = state => state.getIn(['ui', 'device']);
 export const selectScreenSize = state => state.getIn(['ui', 'screenSize']);
 
+export const selectHasDropdownFiltersSelected = state =>
+  state.getIn(['ui', 'hasDropdownFiltersSelected']);
+
 export const makeSelectDeviceType = () => {
   return createSelector(
     [selectScreenSize],

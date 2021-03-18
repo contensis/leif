@@ -5,6 +5,10 @@ import FiltersStyled from './Filters.styled';
 import Dropdown from '../dropdown/Dropdown';
 import Button from '../button/Button';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { selectHasDropdownFiltersSelected } from '../../core/redux/custom/ui/selectors';
+import { setHasDropdownFiltersSelected } from '../../core/redux/custom/ui/actions';
+
 export interface Props {
   className?: string;
   filters: any;
@@ -12,7 +16,7 @@ export interface Props {
   clearFilters: () => void;
   updateCurrentFacet: (fKey: string) => void;
   currentFacet?: string;
-  type?: 'dropdown' | 'facet';
+  hasResetBtn?: boolean;
 }
 
 const Filters = ({
@@ -22,8 +26,17 @@ const Filters = ({
   clearFilters,
   updateCurrentFacet,
   currentFacet,
+  hasResetBtn = false,
 }: Props) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
+  const _setHasDropdownFiltersSelected = (val: boolean) => {
+    dispatch(setHasDropdownFiltersSelected(val));
+  };
+  const hasDropdownFiltersSelected = useSelector(
+    selectHasDropdownFiltersSelected
+  );
 
   const _RenderFilters = () => {
     return Object.keys(filters).map((fKey: any, idx: number) => {
@@ -54,6 +67,7 @@ const Filters = ({
               filters={filters[fKey].items}
               title={filters[fKey].title}
               updateSelectedFilters={updateSelectedFilters}
+              _setHasDropdownFiltersSelected={_setHasDropdownFiltersSelected}
             />
           );
       }
@@ -69,7 +83,21 @@ const Filters = ({
         icon="filter"
         onClick={() => setShowFilters(!showFilters)}
       />
-      <div className="filters__wrapper">{_RenderFilters()}</div>
+      <div className="filters__wrapper">
+        {_RenderFilters()}
+        {hasResetBtn && hasDropdownFiltersSelected && currentFacet !== 'all' && (
+          <Button
+            btnTheme="secondary"
+            className="filters__reset-btn"
+            label="Reset filters"
+            isHollow={true}
+            onClick={() => {
+              clearFilters();
+              _setHasDropdownFiltersSelected(false);
+            }}
+          />
+        )}
+      </div>
     </FiltersStyled>
   );
 };

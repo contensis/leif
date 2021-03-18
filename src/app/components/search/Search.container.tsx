@@ -95,6 +95,7 @@ const SearchContainer = ({
             <Filters
               className="search__facets"
               filters={isDesktop ? facets : facetsAndFilters}
+              hasResetBtn={isDesktop ? false : true}
               currentFacet={currentFacet}
               updateCurrentFacet={updateCurrentFacet}
               updateSelectedFilters={updateSelectedFilters}
@@ -120,7 +121,9 @@ const SearchContainer = ({
                     filters={filters}
                     updateSelectedFilters={updateSelectedFilters}
                     updateCurrentFacet={updateCurrentFacet}
+                    currentFacet={currentFacet}
                     clearFilters={clearFilters}
+                    hasResetBtn={true}
                   />
                 )}
               </div>

@@ -38,6 +38,16 @@ const FiltersStyled = styled.div`
           }
         }
       }
+      .filters__reset-btn {
+        ${theme.typeStyles.smallCopy};
+        font-family: ${theme.typeStyles.fontFamily.default};
+        max-width: 132px;
+        padding: 8px 16px;
+        margin-top: 24px;
+        @media ${theme.mq.desktop} {
+          margin-top: 0;
+        }
+      }
     `;
   }};
 `;

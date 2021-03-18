@@ -13,6 +13,7 @@ interface Props {
   paging?: any;
   updateSelectedFilters: (filterGroupKey: string, key: string) => void;
   updatePageIndex: (ev: number) => void;
+  updateCurrentFacet: () => void;
   clearFilters: () => void;
 }
 
@@ -21,6 +22,7 @@ const BlogListing = ({
   filters,
   updateSelectedFilters,
   updatePageIndex,
+  updateCurrentFacet,
   paging,
   clearFilters,
 }: Props) => {
@@ -54,7 +56,9 @@ const BlogListing = ({
         className="blog-listing__filters"
         filters={filters}
         updateSelectedFilters={updateSelectedFilters}
+        updateCurrentFacet={updateCurrentFacet}
         clearFilters={clearFilters}
+        hasResetBtn={true}
       />
       <div className="blog-listing__results">
         {results.map((res: any, idx: number) => (

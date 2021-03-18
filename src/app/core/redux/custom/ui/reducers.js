@@ -5,6 +5,7 @@ import {
   TOGGLE_BASKET,
   SET_DEVICE_TYPE,
   SET_SCREEN_SIZE,
+  HAS_DROPDOWN_FILTERS_SELECTED,
 } from './types';
 
 let initialState = Map({
@@ -13,6 +14,7 @@ let initialState = Map({
   showSearch: false,
   showMenu: false,
   showBasket: false,
+  hasDropdownFiltersSelected: false,
 });
 
 export default (state = initialState, action) => {
@@ -27,6 +29,8 @@ export default (state = initialState, action) => {
       return state.setIn(['device'], action.value);
     case SET_SCREEN_SIZE:
       return state.set('screenSize', action.value);
+    case HAS_DROPDOWN_FILTERS_SELECTED:
+      return state.set('hasDropdownFiltersSelected', action.value);
     default:
       return state;
   }
