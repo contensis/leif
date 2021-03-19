@@ -5,9 +5,11 @@ export const featuredProductMapping = {
     ...productCardMapping,
   },
   cardType: 'product.sys.contentTypeId',
-  linkUri: 'externalButtonLink',
-  linkLabel: 'buttonText',
   title: 'title',
   text: 'summary',
-  link: ['product.sys.uri', 'externalButtonLink', '/shop'],
+  linkLabel: 'buttonText',
+  linkUri: {
+    $path: ['product.sys.uri', 'externalButtonLink'],
+    $default: '/shop',
+  },
 };
