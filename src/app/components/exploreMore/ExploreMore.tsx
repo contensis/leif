@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Card from '../card/Card';
-import ExploreStyled from './Explore.styled';
+import ExploreMoreStyled from './ExploreMore.styled';
 
 export interface Props {
   className?: string;
@@ -9,10 +9,10 @@ export interface Props {
   results: any;
 }
 
-const Explore = ({ className, title, results }: Props) => {
+const ExploreMore = ({ className, title, results }: Props) => {
   if (!results || results.length < 1) return null;
   return (
-    <ExploreStyled className={className}>
+    <ExploreMoreStyled className={className}>
       {title && <h3 className="explore__title">{title}</h3>}
       <div className="explore__results">
         {results.map((res: any, idx: number) => {
@@ -21,8 +21,8 @@ const Explore = ({ className, title, results }: Props) => {
           );
         })}
       </div>
-    </ExploreStyled>
+    </ExploreMoreStyled>
   );
 };
 
-export default Explore;
+export default ExploreMore;

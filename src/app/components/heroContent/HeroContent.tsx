@@ -6,22 +6,30 @@ import HeroContentStyled from './HeroContent.styled';
 interface Props {
   className?: string;
   title: string;
-  text?: string;
-  cta?: any;
+  summary?: string;
+  ctaLink: string;
+  ctaText: string;
   btnIcon?: string;
 }
 
-const HeroContent = ({ className, title, text, cta, btnIcon }: Props) => {
+const HeroContent = ({
+  className,
+  title,
+  summary,
+  ctaLink,
+  ctaText,
+  btnIcon,
+}: Props) => {
   return (
     <HeroContentStyled className={className}>
       <h2 className="hero-content__title">{title}</h2>
-      <p className="hero-content__text">{text}</p>
-      {cta && (
+      <p className="hero-content__summary">{summary}</p>
+      {ctaLink && (
         <LinkButton
           className="hero-content__btn"
           icon={btnIcon}
-          label={cta.label}
-          href={cta.href}
+          label={ctaText}
+          href={ctaLink}
         />
       )}
     </HeroContentStyled>

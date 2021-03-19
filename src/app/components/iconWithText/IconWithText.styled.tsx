@@ -8,13 +8,17 @@ const IconWithTextStyled = styled.div`
         text-align: left;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
       }
       .icon-with-text__icon {
+        margin: 0 auto;
         height: 40px;
         max-width: 40px;
         width: 100%;
+        @media ${theme.mq.tablet} {
+          margin: 0;
+        }
       }
       .icon-with-text__wrapper {
         margin-top: 24px;

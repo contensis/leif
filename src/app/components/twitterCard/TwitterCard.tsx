@@ -1,47 +1,32 @@
-import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import React from 'react';
 
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 import TwitterCardStyled from './TwitterCard.styled';
-import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-
-import CustomizeTwitterWidget from '../../utils/customTwitterWidget';
 import Icon from '../icon/Icon';
 
 export interface Props {
-  twitterHandle: string;
+  tweet: string;
 }
 
-const TwitterCard = ({ twitterHandle }: Props) => {
-  useEffect(() => {
-    var options = {
-      url: '/static/css/twitter.css',
-    };
-    CustomizeTwitterWidget(options);
-  }, []);
+const TwitterCard = ({ tweet }: Props) => {
+  if (!tweet) return null;
+  const regExp = new RegExp('(?<=status/)(.*)');
+
+  const matches = tweet.match(regExp);
+  const tweetId = matches && matches[0];
 
   return (
-    <>
-      <Helmet>
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charSet="utf-8"
-        />
-      </Helmet>
-      <TwitterCardStyled>
-        <a
-          className="twitter-timeline"
-          data-width="399"
-          data-height="544"
-          data-tweet-limit="1"
-          data-chrome="noheader nofooter"
-          href={`https://twitter.com/${twitterHandle}?ref_src=twsrc%5Etfw`}
-        >
-          <VisuallyHidden text={`Tweets by ${twitterHandle}`} />
-        </a>
-        <Icon type="twitter" className="twitter-card__icon" color="#12B4D9" />
-      </TwitterCardStyled>
-    </>
+    <TwitterCardStyled>
+      {tweetId && <TwitterTweetEmbed tweetId={tweetId} />}
+      {!tweetId && (
+        <div className="twitter-card__error">
+          <Icon type="twitter" className="twitter-card__icon" color="#12B4D9" />
+          <h3 className="twitter-card__error-message">
+            Uh oh. Something went wrong!
+          </h3>
+        </div>
+      )}
+    </TwitterCardStyled>
   );
 };
 

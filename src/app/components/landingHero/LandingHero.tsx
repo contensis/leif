@@ -2,7 +2,6 @@ import React from 'react';
 
 import HeroContent from '../heroContent/HeroContent';
 import Image from '../image/Image';
-import { Props as LinkButtonProps } from '../linkButton/LinkButton';
 
 import LandingHeroStyled from './LandingHero.styled';
 
@@ -11,8 +10,9 @@ export interface Props {
   imageUri: string;
   imageAlt: string;
   title: string;
-  text: string;
-  cta?: LinkButtonProps;
+  summary: string;
+  ctaLink: string;
+  ctaText: string;
 }
 
 const LandingHero = ({
@@ -20,8 +20,9 @@ const LandingHero = ({
   imageUri,
   imageAlt,
   title,
-  text,
-  cta,
+  summary,
+  ctaLink,
+  ctaText,
 }: Props) => {
   return (
     <LandingHeroStyled className={className}>
@@ -32,8 +33,9 @@ const LandingHero = ({
       <div className="image-hero__content">
         <HeroContent
           title={title}
-          text={text}
-          cta={cta}
+          summary={summary}
+          ctaLink={ctaLink}
+          ctaText={ctaText}
           btnIcon="arrow-right"
         />
       </div>

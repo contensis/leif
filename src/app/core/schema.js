@@ -113,10 +113,15 @@ export const RoutingFields = [
 
 export const ComposerComponents = {
   markup: 'markup',
+  iconList: 'iconList',
+  callout: 'callout',
+  textBlock: 'textBlock',
   image: 'image',
   blockQuote: 'blockQuote',
   featuredProduct: 'featuredProduct',
   video: 'video',
+  accordionList: 'accordionList',
+  twitterEmbed: 'twitterEmbed',
 };
 
 export const BlogFilters = {

@@ -11,5 +11,5 @@ export default {
 const Template: Story<Props> = args => <TwitterCard {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
-  twitterHandle: 'AmazingPlants',
+  tweet: 'https://twitter.com/CNN/status/1372831221168926723',
 };

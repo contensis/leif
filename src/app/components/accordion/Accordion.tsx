@@ -10,7 +10,6 @@ export interface Props {
 }
 
 const Accordion = ({ className, items, title }: Props) => {
-  if (!items || items.length < 1) return null;
   const [isAllOpen, setIsAllOpen] = useState<boolean>(false);
   const [wrapperAccordions, setWrapperAccordions] = useState<any>();
   const btnText = isAllOpen ? 'Close all' : 'Open all';
@@ -49,11 +48,13 @@ const Accordion = ({ className, items, title }: Props) => {
 
   useEffect(() => {
     if (wrapperAccordions) {
-      setIsAllOpen(wrapperAccordions.every((item:any) => item.isOpen === true));
+      setIsAllOpen(
+        wrapperAccordions.every((item: any) => item.isOpen === true)
+      );
     }
   }, [wrapperAccordions]);
 
-  
+  if (!items || items.length < 1) return null;
   return (
     <AccordionStyled className={className}>
       <div className="accordion__header">
@@ -70,8 +71,9 @@ const Accordion = ({ className, items, title }: Props) => {
         wrapperAccordions.map((item: any, idx: number) => {
           return (
             <AccordionItem
+              key={idx}
               title={item.title}
-              text={item.text}
+              content={item.content}
               pOpen={item.isOpen}
               _handleToggle={_handleToggle}
               idx={idx}

@@ -22,7 +22,7 @@ const HeroContentStyled = styled.div`
         max-width: 590px;
         width: 100%;
       }
-      .hero-content__text {
+      .hero-content__summary {
         margin: 24px 0 0 0;
       }
       .hero-content__btn {

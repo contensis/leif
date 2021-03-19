@@ -93,6 +93,9 @@ export const region = {
   medium: {
     width: '840px',
   },
+  msmall: {
+    width: '730px',
+  },
   small: {
     width: '620px',
   },

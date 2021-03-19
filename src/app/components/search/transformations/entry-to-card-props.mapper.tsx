@@ -22,7 +22,6 @@ export const blogCardMapping = {
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
   },
-  readTime: 'readTime',
   date: ({ sys }: any) =>
     dateWithSuffix(sys && sys.version && sys.version.published),
   imageAlt: [

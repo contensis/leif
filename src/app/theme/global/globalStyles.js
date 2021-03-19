@@ -72,20 +72,24 @@ const GlobalStyle = createGlobalStyle`
     width: 730px;
     border-spacing: 0;
     border-collapse: collapse;
+    margin: 80px 0;
+    border: ${colors.neutral_white};
   }
-  thead {
-    ${typeStyles.h5}
-    color: ${colors.secondary};
-    font-family: ${fontFamily.headings};
-  }
-  td {
+  td, th {
     width: 220px;
     padding: 16px;
+    text-align: left;
   }
   tbody {
     ${typeStyles.cardCopy};
-    tr:nth-of-type(odd) {
+    tr:nth-of-type(even) {
       background-color: rgba(119, 232, 198, 0.1);
+    }
+    tr:first-child {
+      ${typeStyles.h5};
+      color: ${colors.secondary};
+      font-family: ${fontFamily.headings};
+      background-color: ${colors.neutral_white};
     }
   }
   ul {

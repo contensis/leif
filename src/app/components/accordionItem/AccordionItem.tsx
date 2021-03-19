@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AccordionStyled from '../accordion/Accordion.styled';
 import Icon from '../icon/Icon';
-// import AccordionStyled from '';
+import TextBlock from '../textBlock/TextBlock';
 
 interface Props {
   className?: string;
   title: string;
-  text: string;
+  content: string;
   idx: number;
   pOpen: any;
   _handleToggle: (idx: number) => void;
@@ -15,7 +15,7 @@ interface Props {
 const AccordionItem = ({
   className,
   title,
-  text,
+  content,
   idx,
   pOpen,
   _handleToggle,
@@ -29,7 +29,7 @@ const AccordionItem = ({
 
   useEffect(() => {
     setIsOpen(pOpen);
-  });
+  }, [pOpen]);
 
   return (
     <AccordionStyled className={className}>
@@ -45,7 +45,7 @@ const AccordionItem = ({
           type={isOpen ? 'arrow-up' : 'arrow-down'}
         />
       </button>
-      {isOpen && <div className="accordion-item__panel">{text}</div>}
+      {isOpen && <TextBlock className="accordion-item__panel" text={content} />}
     </AccordionStyled>
   );
 };

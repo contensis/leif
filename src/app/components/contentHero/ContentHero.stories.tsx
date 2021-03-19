@@ -15,11 +15,5 @@ const Template: Story<Props> = args => {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Content page title can span multiple lines',
-  image: {
-    asset: {
-      sys: {
-        uri: 'https://source.unsplash.com/00fCk2lZn1c',
-      },
-    },
-  },
+  imageUri: 'https://source.unsplash.com/00fCk2lZn1c',
 };

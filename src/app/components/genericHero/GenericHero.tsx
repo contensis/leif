@@ -20,7 +20,7 @@ export interface Props {
   isListingPage?: boolean;
   backLinkLabel?: string;
   backLinkUri?: string;
-  type?: 'default' | 'center';
+  type?: 'Full width' | 'Two column';
 }
 
 const GenericHero = ({
@@ -37,7 +37,7 @@ const GenericHero = ({
   readTime,
   date,
   isListingPage = false,
-  type = 'default',
+  type = 'Two column',
 }: Props) => {
   interface ConditionalLinkProps {
     condition?: boolean;

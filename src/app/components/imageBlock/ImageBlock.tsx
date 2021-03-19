@@ -6,6 +6,8 @@ import Image from '../image/Image';
 export interface Props {
   className?: string;
   image: any;
+  alt?: string;
+  path: string;
   title?: string;
   text?: string;
   align?: string;
@@ -13,16 +15,17 @@ export interface Props {
 
 const ImageBlock = ({
   className,
-  image,
+  alt,
+  path,
   title,
   text,
   align = 'center',
 }: Props) => {
-  if (!image) return null;
+  if (!path) return null;
   return (
     <ImageBlockStyled className={className} align={align}>
       <div className="image-block__wrapper">
-        <Image className="image-block__image" {...image} />
+        <Image className="image-block__image" alt={alt} path={path} />
       </div>
       <p className="image-block__title">{title}</p>
       <p className="image-block__text">{text}</p>

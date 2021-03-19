@@ -90,7 +90,7 @@ const GenericHeroStyled = styled.div`
         font-family: ${theme.typeStyles.fontFamily.headings};
         ${theme.typeStyles.h5};
       }
-      ${type === 'center' &&
+      ${type === 'Full width' &&
         css`
           @media ${theme.mq.desktop} {
             flex-direction: column;

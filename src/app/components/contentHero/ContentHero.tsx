@@ -1,20 +1,18 @@
 import React from 'react';
 
 import ContentHeroStyled from './ContentHero.styled';
-import { ImageObject } from '../image/Image';
 import BackButton from '../backButton/BackButton';
 
 export interface Props {
   className?: string;
   title: string;
-  image: ImageObject;
+  imageUri: string;
 }
 
-const ContentHero = ({ className, title, image }: Props) => {
-  if (!image) return null;
-  const bgImage = image.asset.sys.uri;
+const ContentHero = ({ className, title, imageUri }: Props) => {
+  if (!imageUri) return null;
   return (
-    <ContentHeroStyled className={className} bgImage={bgImage}>
+    <ContentHeroStyled className={className} bgImage={imageUri}>
       <div className="content-hero__content">
         <BackButton
           uri="/landing"

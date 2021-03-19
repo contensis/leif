@@ -1,21 +1,19 @@
 import styled, { css } from 'styled-components';
 
 const TwitterCardStyled = styled.div`
-  ${() => {
+  ${({ theme }) => {
     return css`
       max-width: 399px;
       width: 100%;
-      margin: 24px auto;
-      position: relative;
-      box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
-      border: 1px solid #f1f1f1 !important;
-      background-color: #fff;
-      padding: 24px 16px;
-      border-radius: 4px;
+      margin: 0 auto;
       .twitter-card__icon {
-        position: absolute;
-        top: 54px;
-        right: 10px;
+        margin: 0 auto 8px;
+      }
+      .twitter-card__error {
+        text-align: center;
+      }
+      .twitter-card__error-message {
+        ${theme.typeStyles.h5};
       }
     `;
   }};
