@@ -1,15 +1,15 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Explore, { Props } from './ExploreMore';
+import PromotedContent, { Props } from './PromotedContent';
 
 export default {
-  title: 'Content/Components/Explore',
-  component: Explore,
+  title: 'Content/Components/PromotedContent',
+  component: PromotedContent,
 } as Meta;
 
 const Template: Story<Props> = args => {
-  return <Explore {...args} />;
+  return <PromotedContent {...args} />;
 };
 
 const result = {

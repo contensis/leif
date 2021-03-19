@@ -6,7 +6,7 @@ import RelatedLinks from '~/components/relatedLinks/RelatedLinks';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
-import ExploreMore from '~/components/exploreMore/ExploreMore';
+import ExploreMore from '~/components/promotedContent/PromotedContent';
 
 // Utils
 import { RenderHero } from '../../utils/renderHero';
@@ -26,7 +26,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
     relatedLinksProps,
     contentComposerProps,
     ctaBannerProps,
-    exploreMoreProps,
+    promotedContentProps,
   } = mappedEntry || {};
   return (
     <MainLayout>
@@ -55,7 +55,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
           )}
         </Region>
         <Region width="full" margin="default">
-          <ExploreMore {...exploreMoreProps} />
+          <ExploreMore {...promotedContentProps} />
         </Region>
       </ContentPageStyled>
     </MainLayout>

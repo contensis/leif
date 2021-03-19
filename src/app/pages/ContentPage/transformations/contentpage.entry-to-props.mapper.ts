@@ -2,7 +2,7 @@ import mapJson, { mapComposer } from '~/core/util/json-mapper';
 import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import { relatedLinksMapper } from '~/components/relatedLinks/transformations/relatedlinks.entry-to-card.mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
-import { exploreMoreMapper } from '~/components/exploreMore/transformations/exploremore.component-to-props.mapper';
+import { promotedContentMapper } from '~/components/promotedContent/transformations/promotedContent.component-to-props.mapper';
 
 export const contentPagePropsMapping = {
   contentHeroProps: {
@@ -45,14 +45,14 @@ export const contentPagePropsMapping = {
   ctaBannerProps: {
     ...ctaBannerPropsMapping,
   },
-  exploreMoreProps: {
+  promotedContentProps: {
     title: {
-      $path: 'relatedContentTitle',
+      $path: 'promotedContentTitle',
       $default: () => 'Explore more',
     },
-    results: ({ relatedContent }: any) => {
-      return relatedContent.map((link: any) => {
-        return mapJson(link, exploreMoreMapper);
+    results: ({ promotedContent }: any) => {
+      return promotedContent.map((link: any) => {
+        return mapJson(link, promotedContentMapper);
       });
     },
   },

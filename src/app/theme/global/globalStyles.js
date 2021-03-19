@@ -69,16 +69,17 @@ const GlobalStyle = createGlobalStyle`
     outline-width: medium;
   }
   table {
-    width: 730px;
+    width: 730px !important;
+    margin: 80px 0;
     border-spacing: 0;
     border-collapse: collapse;
-    margin: 80px 0;
-    border: ${colors.neutral_white};
+    border: none;
   }
   td, th {
-    width: 220px;
+    width: 220px !important;
     padding: 16px;
     text-align: left;
+    border: 1px solid ${colors.neutral_white};
   }
   tbody {
     ${typeStyles.cardCopy};

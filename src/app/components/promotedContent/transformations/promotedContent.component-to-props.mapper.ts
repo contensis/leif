@@ -1,4 +1,4 @@
-export const exploreMoreMapper = {
+export const promotedContentMapper = {
   title: 'entryTitle',
   imageUri: {
     $path: ['primaryImage', 'thumbnailImage'],
