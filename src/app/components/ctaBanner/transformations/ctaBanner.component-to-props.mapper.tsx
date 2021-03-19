@@ -1,7 +1,3 @@
-// import mapJson from '../../../core/util/json-mapper';
-
-// import { imagePropsMapping } from '../../../components/image/transformations/image.component-to-props.mapper';
-
 export const ctaBannerPropsMapping = {
   title: 'callToAction.title',
   text: 'callToAction.message',

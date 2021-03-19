@@ -4,10 +4,10 @@ import Composer from './Composer';
 
 export interface Props {
   items: any;
-  isLandingPage?: boolean;
+  isContentPage?: boolean;
 }
 
-const ComposerWrapper = ({ items, isLandingPage = false }: Props) => {
+const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
   if (!items || !Array.isArray(items)) return null;
 
   return (
@@ -17,7 +17,7 @@ const ComposerWrapper = ({ items, isLandingPage = false }: Props) => {
         return (
           <Composer
             key={idx}
-            isLandingPage={isLandingPage}
+            isContentPage={isContentPage}
             {...componentProps}
           />
         );
