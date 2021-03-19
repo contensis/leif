@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
+import Link from '../link/Link';
 interface Props {
   theme: any;
   type: string;
   hasText: boolean;
 }
 
-const CardStyled = styled.a`
+const CardStyled = styled(Link)`
   ${({ theme, type, hasText }: Props) => {
     return css`
       display: block;

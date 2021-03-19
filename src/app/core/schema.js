@@ -122,6 +122,7 @@ export const ComposerComponents = {
   video: 'video',
   accordionList: 'accordionList',
   twitterEmbed: 'twitterEmbed',
+  contentBlockRow: 'contentBlockRow',
 };
 
 export const BlogFilters = {

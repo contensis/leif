@@ -10,6 +10,7 @@ import Callout from '../callout/Callout';
 import IconList from '../iconList/IconList';
 import Accordion from '../accordion/Accordion';
 import TwitterCard from '../twitterCard/TwitterCard';
+import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
 
 // Layout
 import Region from '~/layout/Region';
@@ -22,6 +23,13 @@ const Composer = (props: any) => {
     const { isContentPage } = props;
 
     switch (props._type) {
+      case ComposerComponents.contentBlockRow: {
+        return (
+          <Region width="full" margin="large">
+            <ContentBlockRow {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.twitterEmbed: {
         return (
           <Region width={isContentPage ? 'msmall' : 'small'} margin="medium">

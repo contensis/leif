@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 
 const LandingPageStyled = styled.div`
   ${() => {
-    return css``;
+    return css`
+      padding-bottom: 120px;
+    `;
   }};
 `;
 

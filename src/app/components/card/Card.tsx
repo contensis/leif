@@ -94,9 +94,9 @@ const Card = ({
     <CardStyled
       className={className}
       type={type}
-      href={uri}
-      title={title}
       hasText={text ? true : false}
+      uri={uri}
+      title={title}
     >
       {CardData(type)}
     </CardStyled>
