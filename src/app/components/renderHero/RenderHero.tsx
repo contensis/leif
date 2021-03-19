@@ -7,12 +7,9 @@ import ContentHero from '~/components/contentHero/ContentHero';
 import GenericHero from '~/components/genericHero/GenericHero';
 import LandingHero from '~/components/landingHero/LandingHero';
 
-export const RenderHero = (props: any) => {
+export const _RenderFunc = (props: any) => {
   if (!props) return null;
-  const { type, summary } = props;
-  const _type = summary ? 'Landing hero' : type;
-
-  switch (_type) {
+  switch (props.type) {
     case 'Landing hero':
       return <LandingHero {...props} />;
     case 'Image as background':
@@ -27,3 +24,9 @@ export const RenderHero = (props: any) => {
       );
   }
 };
+
+const RenderHero = (props: any) => {
+  return <>{_RenderFunc(props)}</>;
+};
+
+export default RenderHero;

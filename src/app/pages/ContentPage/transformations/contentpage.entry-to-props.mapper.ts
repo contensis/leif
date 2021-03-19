@@ -3,32 +3,10 @@ import { composerPropsMapping } from '~/components/composer/transformations/comp
 import { relatedLinksMapper } from '~/components/relatedLinks/transformations/relatedlinks.entry-to-card.mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 import { promotedContentMapper } from '~/components/promotedContent/transformations/promotedContent.component-to-props.mapper';
+import { renderHeroPropsMapper } from '~/components/renderHero/transformations/renderhero.components-to-props.mapper';
 
 export const contentPagePropsMapping = {
-  contentHeroProps: {
-    title: 'entryTitle',
-    summary: 'hero.summary',
-    type: 'hero.layoutType',
-    imageUri: {
-      $path: 'hero.image',
-      $formatting: (img: any) =>
-        img && img.asset && img.asset.sys && img.asset.sys.uri,
-    },
-    imageAlt: {
-      $path: 'hero.image',
-      $formatting: (img: any) =>
-        (img && img.asset && img.asset.title) || img.altText || img.caption,
-    },
-    ctaText: 'hero.linkText',
-    ctaLink: {
-      $path: 'hero',
-      $formatting: (hero: any) =>
-        (hero.linkToInternalContent &&
-          hero.linkToInternalContent.sys &&
-          hero.linkToInternalContent.sys.uri) ||
-        hero.linkToExternalContent,
-    },
-  },
+  contentHeroProps: { ...renderHeroPropsMapper },
   leadParagraphProps: {
     text: 'leadParagraph',
   },

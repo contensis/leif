@@ -22,6 +22,7 @@ export interface Props {
   isMenuOpen: boolean;
   _toggleBasket: (val: boolean) => void;
   isBasketOpen: boolean;
+  isLight: boolean;
 }
 
 const Header = ({
@@ -33,6 +34,7 @@ const Header = ({
   navigation,
   _toggleBasket,
   isBasketOpen,
+  isLight,
 }: Props) => {
   _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
@@ -41,7 +43,12 @@ const Header = ({
   }
 
   return (
-    <HeaderStyled className={className} isSearchOpen={isSearchOpen} ref={ref}>
+    <HeaderStyled
+      className={className}
+      isSearchOpen={isSearchOpen}
+      ref={ref}
+      isLight={isLight}
+    >
       <Wrapper
         condition={isSearchOpen}
         wrapper={() => (
@@ -70,7 +77,11 @@ const Header = ({
         <a href="/" className="header__logo-link">
           <img
             className="header__logo"
-            src="/static/img/logos/logo-dark.png"
+            src={
+              isLight
+                ? '/static/img/logos/logo-light.png'
+                : '/static/img/logos/logo-dark.png'
+            }
             alt="Leif"
           />
           <VisuallyHidden text="Home" />

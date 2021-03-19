@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const LandingHeroStyled = styled.div`
   ${({ theme }) => {
     return css`
+      margin-top: -84px;
       position: relative;
       .image-hero__image-wrapper {
         position: relative;

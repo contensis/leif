@@ -8,6 +8,7 @@ interface Props {
 const ContentHeroStyled = styled.div`
   ${({ theme, bgImage }: Props) => {
     return css`
+      margin-top: -84px;
       position: relative;
       background-image: url(${bgImage});
       background-repeat: no-repeat;
@@ -43,7 +44,9 @@ const ContentHeroStyled = styled.div`
       .content-hero__back-btn {
         color: ${theme.colors.neutral_white};
         align-self: flex-start;
-        margin-bottom: auto;
+        position: absolute;
+        top: 124px;
+        left: auto;
       }
       .content-hero__title {
         background-color: ${theme.colors.neutral_white};

@@ -9,9 +9,10 @@ import Footer from '../components/footer/Footer';
 interface Props {
   className?: string;
   children: any;
+  isLight?: boolean;
 }
 
-const MainLayout = ({ className, children }: Props) => {
+const MainLayout = ({ className, children, isLight = false }: Props) => {
   const dispatch = useDispatch();
   /* eslint-disable */
   useEffect(() => {
@@ -50,7 +51,7 @@ const MainLayout = ({ className, children }: Props) => {
   return (
     <>
       {/* <SkipToContent /> */}
-      <Header />
+      <Header isLight={isLight} />
       <main id="main" className={className}>
         {children}
       </main>

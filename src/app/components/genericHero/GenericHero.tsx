@@ -20,7 +20,7 @@ export interface Props {
   isListingPage?: boolean;
   backLinkLabel?: string;
   backLinkUri?: string;
-  type?: 'Full width' | 'Two column';
+  type?: 'Full width' | 'Two column' | 'Landing hero' | 'Image as background';
 }
 
 const GenericHero = ({

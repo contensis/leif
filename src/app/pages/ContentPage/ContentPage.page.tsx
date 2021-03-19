@@ -7,9 +7,7 @@ import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import ExploreMore from '~/components/promotedContent/PromotedContent';
-
-// Utils
-import { RenderHero } from '../../utils/renderHero';
+import RenderHero from '~/components/renderHero/RenderHero';
 
 // Layout
 import ContentPageStyled from './ContentPage.styled';
@@ -28,10 +26,12 @@ const ContentPage = ({ mappedEntry }: Props) => {
     ctaBannerProps,
     promotedContentProps,
   } = mappedEntry || {};
+  const { type } = contentHeroProps;
+  const isLight = type === 'Landing hero' || type === 'Image as background';
   return (
-    <MainLayout>
+    <MainLayout isLight={isLight}>
       <ContentPageStyled>
-        {RenderHero(contentHeroProps)}
+        <RenderHero {...contentHeroProps} />
         <Region
           className="content-page__body-content"
           margin="none"

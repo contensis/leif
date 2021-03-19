@@ -7,6 +7,7 @@ export interface Props {
   className?: string;
   title: string;
   imageUri: string;
+  type?: 'Full width' | 'Two column' | 'Landing hero' | 'Image as background';
 }
 
 const ContentHero = ({ className, title, imageUri }: Props) => {

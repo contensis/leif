@@ -13,6 +13,7 @@ export interface Props {
   summary: string;
   ctaLink: string;
   ctaText: string;
+  type?: 'Full width' | 'Two column' | 'Landing hero' | 'Image as background';
 }
 
 const LandingHero = ({

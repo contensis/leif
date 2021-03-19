@@ -3,10 +3,11 @@ interface Props {
   theme?: any;
   ref?: any;
   isSearchOpen: boolean;
+  isLight: boolean;
 }
 
 const HeaderStyled = styled.div`
-  ${({ theme, isSearchOpen }: Props) => {
+  ${({ theme, isSearchOpen, isLight }: Props) => {
     return css`
       margin-bottom: 24px;
       display: flex;
@@ -16,7 +17,7 @@ const HeaderStyled = styled.div`
       z-index: 9;
       transition: margin-right 280ms ease;
       @media ${theme.mq.laptop} {
-        margin-bottom: 40px;
+        margin-bottom: ${isLight ? '0px' : '40px'};
       }
       .header__search-input {
         display: none;

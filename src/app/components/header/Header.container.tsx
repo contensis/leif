@@ -24,6 +24,7 @@ const HeaderContainer = ({
   navigation,
   _toggleBasket,
   isBasketOpen,
+  isLight,
 }: Props) => {
   return (
     <Header
@@ -35,6 +36,7 @@ const HeaderContainer = ({
       navigation={navigation}
       _toggleBasket={_toggleBasket}
       isBasketOpen={isBasketOpen}
+      isLight={isLight}
     />
   );
 };

@@ -2,9 +2,7 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-
-// Utils
-// import { RenderHero } from '../../utils/renderHero';
+import RenderHero from '~/components/renderHero/RenderHero';
 
 // Layout
 import LandingPageStyled from './LandingPage.styled';
@@ -15,15 +13,16 @@ import Region from '~/layout/Region';
 import { Props } from './LandingPage.d';
 
 const LandingPage = ({ mappedEntry }: Props) => {
-  const {
-    // contentHeroProps,
-    leadParagraphProps,
-  } = mappedEntry || {};
+  const { landingPageHeroProps, leadParagraphProps } = mappedEntry || {};
+  console.info({ mappedEntry });
+
+  const { type } = landingPageHeroProps;
+  const isLight = type === 'Landing hero' || type === 'Image as background';
   return (
-    <MainLayout>
+    <MainLayout isLight={isLight}>
       <LandingPageStyled>
-        {/* {RenderHero(contentHeroProps)} */}
-        <Region margin="none" width="msmall">
+        <RenderHero {...landingPageHeroProps} />
+        <Region margin="large" width="medium">
           <LeadParagraph {...leadParagraphProps} />
         </Region>
       </LandingPageStyled>

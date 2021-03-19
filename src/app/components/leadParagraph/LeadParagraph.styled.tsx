@@ -14,13 +14,12 @@ const LeadParagraphStyled = styled.div`
         css`
           text-align: center;
           color: ${theme.colors.secondary_light};
-          padding-top: 80px;
-          margin-top: 24px;
+          padding-top: 96px;
           position: relative;
           &:before {
             content: '';
             position: absolute;
-            top: -24px;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
             background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
