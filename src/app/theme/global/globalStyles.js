@@ -70,7 +70,6 @@ const GlobalStyle = createGlobalStyle`
   }
   table {
     width: 730px !important;
-    margin: 80px 0;
     border-spacing: 0;
     border-collapse: collapse;
     border: none;
