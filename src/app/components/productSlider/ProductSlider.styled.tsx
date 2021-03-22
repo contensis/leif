@@ -62,7 +62,7 @@ const CardSliderStyled = styled.div`
         max-width: 810px;
         width: 100%;
         @media ${theme.mq.desktop} {
-          margin-left: 630px;
+          margin: 0 0 0 630px;
         }
       }
       .slick-slide {

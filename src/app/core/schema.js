@@ -16,6 +16,8 @@ const sys = {
 
 export const Fields = {
   entryTitle: 'entryTitle',
+  productTitle: 'productName',
+  productType: 'type',
   leadParagraph: 'leadParagraph',
   summary: 'summary',
   image: 'image',
@@ -25,7 +27,6 @@ export const Fields = {
   wildcard: '*',
   body: 'body',
   kicker: 'kicker',
-  readTime: 'readTime',
 };
 
 export const BaseFields = [
@@ -38,12 +39,13 @@ export const BaseFields = [
 
 export const ContentFields = [Fields.leadParagraph];
 
+export const ProductFields = [Fields.productTitle, Fields.productType];
+
 export const BlogFields = [
   Fields.summary,
   Fields.kicker,
   Fields.primaryImage,
   Fields.sys.published,
-  Fields.readTime,
 ];
 
 export const Projects = {
@@ -123,6 +125,7 @@ export const ComposerComponents = {
   accordionList: 'accordionList',
   twitterEmbed: 'twitterEmbed',
   contentBlockRow: 'contentBlockRow',
+  productSlider: 'productSlider',
 };
 
 export const BlogFilters = {

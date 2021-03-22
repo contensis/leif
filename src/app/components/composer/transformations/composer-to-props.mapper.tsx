@@ -6,6 +6,7 @@ import { featuredProductMapping } from '~/components/featuredProduct/transformat
 import { videoPropsMapping } from '~/components/videoPlayer/transformations/videoplayer.component-to-props.mapper';
 import { accordionPropsMapping } from '~/components/accordion/transformations/accordion.component-to-props.mapper';
 import { contentBlockRowPropsMapping } from '~/components/contentBlockRow/transformations/contentblockrow.component-to-props.mapper';
+import { productSliderPropsMapping } from '~/components/productSlider/transformations/productslider.component-to-props.mapper';
 
 export const composerPropsMapping = {
   [ComposerComponents.textBlock]: { text: '.' },
@@ -18,5 +19,8 @@ export const composerPropsMapping = {
   [ComposerComponents.featuredProduct]: { ...featuredProductMapping },
   [ComposerComponents.video]: { ...videoPropsMapping },
   [ComposerComponents.accordionList]: { ...accordionPropsMapping },
-  [ComposerComponents.contentBlockRow]: { ...contentBlockRowPropsMapping },
+  [ComposerComponents.productSlider]: { ...productSliderPropsMapping },
+  [ComposerComponents.contentBlockRow]: {
+    ...contentBlockRowPropsMapping,
+  },
 };

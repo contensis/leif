@@ -3,6 +3,7 @@ import { mapComposer } from '~/core/util/json-mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import dateWithSuffix from '~/utils/dateWithSuffix';
 
 export const blogPostPropsMapping = {
   blogHeroProps: {
@@ -13,22 +14,19 @@ export const blogPostPropsMapping = {
         img && img.asset && img.asset.sys && img.asset.sys.uri,
     },
     imageAlt: ['image.altText', 'image.caption', 'image.asset.title'],
-    backLinkUri: {
-      $path: 'backLinkUri',
-      $default: '/blog',
-    },
-    backLinkLabel: {
-      $path: 'backLinkLabel',
-      $default: 'Blogs',
-    },
+    backLinkUri: () => '/blog',
+    backLinkLabel: () => 'Blogs',
   },
   blogInformationProps: {
     photo: {
-      $path: 'author.photo.asset.sys.uri',
+      $path: 'author.photo',
+      $formatting: (img: any) =>
+        img && img.asset && img.asset.sys && img.asset.sys.uri,
+      $default: '/image-library/default-images/leif-fallback.png',
     },
     name: 'author.name',
-    readTime: 'readTime',
-    data: 'sys.version.published',
+    date: ({ sys }: any) =>
+      dateWithSuffix(sys && sys.version && sys.version.published),
   },
   leadParagraphProps: {
     text: 'leadParagraph',
@@ -39,18 +37,9 @@ export const blogPostPropsMapping = {
   contentComposerProps: ({ postBody }: any) =>
     mapComposer(postBody, composerPropsMapping),
   relatedContentProps: {
-    title: {
-      $path: 'relatedContentTitle',
-      $default: () => 'Read now',
-    },
+    title: () => 'Read now',
     results: ({ relatedBlogs }: any) => mapEntriesToResults(relatedBlogs),
-    linkUri: {
-      $path: 'relatedContentLink',
-      $default: () => '/blog',
-    },
-    linkLabel: {
-      $path: 'relatedContentLinkLabel',
-      $default: () => 'View all blogs',
-    },
+    linkUri: () => '/blog',
+    linkLabel: () => 'View all blogs',
   },
 };

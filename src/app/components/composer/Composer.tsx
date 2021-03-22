@@ -11,6 +11,7 @@ import IconList from '../iconList/IconList';
 import Accordion from '../accordion/Accordion';
 import TwitterCard from '../twitterCard/TwitterCard';
 import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
+import ProductSlider from '../productSlider/ProductSlider';
 
 // Layout
 import Region from '~/layout/Region';
@@ -23,6 +24,13 @@ const Composer = (props: any) => {
     const { isContentPage } = props;
 
     switch (props._type) {
+      case ComposerComponents.productSlider: {
+        return (
+          <Region width="full" margin="large">
+            <ProductSlider {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.contentBlockRow: {
         return (
           <Region width="full" margin="large">

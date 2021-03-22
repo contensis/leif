@@ -8,6 +8,7 @@ import {
   Fields,
   BlogFields,
   ContentFields,
+  ProductFields,
 } from '../../core/schema';
 
 // Filters
@@ -19,7 +20,7 @@ export default {
   tabs: [{ id: 0 }],
   facets: {
     [SearchFacets.all]: {
-      // tabId: 0,
+      tabId: 0,
       title: 'All results',
       projectId: 'leif',
       queryParams: {
@@ -37,7 +38,6 @@ export default {
       },
       filters: {},
     },
-
     [SearchFacets.blog]: {
       title: 'Blogs',
       queryParams: {
@@ -64,6 +64,24 @@ export default {
         pageSize: 9,
       },
       filters: BlogFilters,
+    },
+  },
+  minilist: {
+    productSlider: {
+      title: 'Product Slider',
+      queryParams: {
+        contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
+        fields: [...BaseFields, ...ProductFields],
+        orderBy: ['-sys.version.published'],
+        pageSize: 10,
+        // customWhere: [
+        //   {
+        //     field: 'type',
+        //     equalTo: 'productsByFilter',
+        //   },
+        // ],
+        // weightedSearchFields: [...WeightedFields.base],
+      },
     },
   },
 };

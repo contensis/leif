@@ -137,7 +137,9 @@ const SlickSlider = ({
                 );
               }
               case 'card': {
-                return <Card className="slick__product-slide" {...slide} />;
+                return (
+                  <Card key={idx} className="slick__product-slide" {...slide} />
+                );
               }
               case 'default': {
                 return (

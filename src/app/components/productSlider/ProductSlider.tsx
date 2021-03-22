@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import CardSliderStyled from './CardSlider.styled';
+import { useMinilist } from '@zengenti/contensis-react-base/search';
+import mappers from '../search/transformations';
+
+import ProductSliderStyled from './ProductSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
 import { sizesNoUnit } from '../../theme/global/layout';
 import Image from '../image/Image';
@@ -9,23 +12,24 @@ import HeroContent from '../heroContent/HeroContent';
 export interface Props {
   className?: string;
   title: string;
-  text: string;
-  cta?: any;
-  imageUri: string;
-  imageAlt: string;
-  slides: any;
+  summary: string;
+  ctaLink: string;
+  ctaText: string;
+  bgImageUri: string;
+  curatedProducts: any;
 }
 
-const CardSlider = ({
+const ProductSlider = ({
   className,
   title,
-  text,
-  cta,
-  imageUri,
-  imageAlt,
-  slides,
+  summary,
+  ctaLink,
+  ctaText,
+  bgImageUri,
+  curatedProducts,
+  productsByFilter,
 }: Props) => {
-  if (!slides || slides.length < 1) return null;
+  // if (!slides || slides.length < 1) return null;
   const responsive = [
     {
       breakpoint: sizesNoUnit['tablet'],
@@ -46,18 +50,30 @@ const CardSlider = ({
       },
     },
   ];
+
+  const [minilistOptions, setOptions] = useState<any>();
+  useEffect(() => {
+    setOptions({
+      id: 'productSlider',
+      mapper: mappers.results,
+    });
+  }, []);
+  const { results } = useMinilist(minilistOptions);
+
+  console.info({ title, summary, curatedProducts, productsByFilter, results });
   return (
-    <CardSliderStyled className={className}>
+    <ProductSliderStyled className={className}>
       <div className="card-slider__image-wrapper">
-        <Image path={imageUri} alt={imageAlt} className="card-slider__image" />
+        <Image path={bgImageUri} alt="Leif" className="card-slider__image" />
         <div className="card-slider__image-overlay" />
       </div>
       <div className="card-slider__content-wrapper">
         <HeroContent
           className="card-slider__hero-content"
           title={title}
-          text={text}
-          cta={cta}
+          summary={summary}
+          ctaLink={ctaLink}
+          ctaText={ctaText}
           btnIcon="product"
         />
         <div className="card-slider__slider">
@@ -65,13 +81,13 @@ const CardSlider = ({
             type="card"
             slidesToShow={3}
             responsive={responsive}
-            slides={slides}
+            slides={curatedProducts}
             className="card-slider__slide"
           />
         </div>
       </div>
-    </CardSliderStyled>
+    </ProductSliderStyled>
   );
 };
 
-export default CardSlider;
+export default ProductSlider;

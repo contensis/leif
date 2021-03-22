@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import CardSlider, { Props } from './CardSlider';
+import ProductSlider, { Props } from './ProductSlider';
 
 export default {
-  title: 'Landing/Components/CardSlider',
-  component: CardSlider,
+  title: 'Landing/Components/ProductSlider',
+  component: ProductSlider,
 } as Meta;
 
 const Template: Story<Props> = args => {
@@ -17,7 +17,7 @@ const Template: Story<Props> = args => {
         margin: '0 auto',
       }}
     >
-      <CardSlider {...args} />
+      <ProductSlider {...args} />
     </div>
   );
 };
@@ -54,13 +54,10 @@ for (let i = 0; SlidesArray.length < 8; i++) {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Bringing life to your home',
-  text:
+  summary:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lacus, elit a diam eget enim venenatis. Nibh quis facilisis et hendrerit eu nisl.',
-  cta: {
-    label: 'Shop now',
-    href: '#',
-  },
-  imageUri: 'https://source.unsplash.com/7d7OR-RvufU',
-  imageAlt: 'Unsplash image',
-  slides: SlidesArray,
+  ctaLink: '/',
+  ctaText: 'Shop now',
+  bgImageUri: 'https://source.unsplash.com/7d7OR-RvufU',
+  curatedProducts: SlidesArray,
 };

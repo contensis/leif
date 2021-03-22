@@ -24,10 +24,7 @@ export const contentPagePropsMapping = {
     ...ctaBannerPropsMapping,
   },
   promotedContentProps: {
-    title: {
-      $path: 'promotedContentTitle',
-      $default: () => 'Explore more',
-    },
+    title: () => 'Explore more',
     results: ({ promotedContent }: any) => {
       return promotedContent.map((link: any) => {
         return mapJson(link, promotedContentMapper);

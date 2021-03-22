@@ -7,10 +7,7 @@ export const landingPagePropsMapping = {
   landingPageHeroProps: { ...renderHeroPropsMapper },
   leadParagraphProps: {
     text: 'leadParagraph',
-    type: {
-      $path: 'type',
-      $default: 'center',
-    },
+    type: () => 'center',
   },
   contentComposerProps: ({ bodyContent }: any) =>
     mapComposer(bodyContent, composerPropsMapping),

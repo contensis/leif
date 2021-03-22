@@ -34,17 +34,19 @@ export const blogCardMapping = {
 export const productCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Product,
-  title: 'product.productName',
-  price: 'product.productInformation.price',
+  title: ['productName'],
+  price: 'productInformation.price',
+  productType: 'type.entryTitle',
   imageUri: {
-    $path: 'product.thumbnailImage',
+    $path: ['thumbnailImage', 'externalCardImage'],
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $default: '/image-library/default-images/leif-fallback.png',
   },
   imageAlt: [
-    'product.thumbnailImage.altText',
-    'product.thumbnailImage.caption',
-    'product.thumbnailImage.asset.title',
+    'thumbnailImage.altText',
+    'thumbnailImage.caption',
+    'thumbnailImage.asset.title',
   ],
 };
 
