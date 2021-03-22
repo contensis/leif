@@ -18,15 +18,23 @@ import Region from '~/layout/Region';
 
 // Schema
 import { ComposerComponents } from '../../core/schema';
+import PromotionalBlock from '../promotionalBlock/PromotionalBlock';
 
 const Composer = (props: any) => {
   const RenderComponent = (props: any) => {
     const { isContentPage } = props;
 
     switch (props._type) {
+      case ComposerComponents.promotionalBlock: {
+        return (
+          <Region width="full" margin="none">
+            <PromotionalBlock {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.productSlider: {
         return (
-          <Region width="full" margin="large">
+          <Region width="full" margin="none">
             <ProductSlider {...props} />
           </Region>
         );

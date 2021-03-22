@@ -1,14 +1,37 @@
 import styled, { css } from 'styled-components';
 
+interface Props {
+  theme?: any;
+  bgImageUri: string;
+}
+
 const CardSliderStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, bgImageUri }: Props) => {
     return css`
       position: relative;
-      overflow-x: hidden;
-      .card-slider__image-wrapper {
-        position: relative;
+      padding-top: 200px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(${bgImageUri});
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      @media ${theme.mq.desktop} {
+        overflow-x: hidden;
+        padding: 156px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
       }
       .card-slider__image {
+        display: none;
         height: 480px;
         width: 100%;
         object-fit: cover;
@@ -17,7 +40,7 @@ const CardSliderStyled = styled.div`
           height: 800px;
         }
       }
-      .card-slider__image-overlay {
+      .card-slider__overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -36,33 +59,24 @@ const CardSliderStyled = styled.div`
           );
         }
       }
-      .card-slider__content-wrapper {
-        @media ${theme.mq.desktop} {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          width: 100%;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-        }
-      }
       .card-slider__hero-content {
-        svg path {
-          fill: none;
-          stroke: ${theme.colors.secondary};
-        }
+        margin: 0 16px;
         @media ${theme.mq.desktop} {
           max-width: 520px;
+          width: 100%;
+          margin: 0;
+          position: relative;
+          top: unset;
+          left: unset;
+          transform: unset;
         }
       }
       .card-slider__slider {
         margin: 40px auto 0;
-        max-width: 810px;
-        width: 100%;
         @media ${theme.mq.desktop} {
-          margin: 0 0 0 630px;
+          padding: 0 0 0 80px;
+          margin: 0;
+          width: 50%;
         }
       }
       .slick-slide {

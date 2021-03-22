@@ -7,7 +7,7 @@ interface Props {
   isModalOpen?: boolean;
 }
 
-const FeaturedCTAStyled = styled.div`
+const PromotionalBlockStyled = styled.div`
   ${({ theme, align, hasSVG, isModalOpen }: Props) => {
     return css`
     position: relative;
@@ -16,20 +16,21 @@ const FeaturedCTAStyled = styled.div`
     @media ${theme.mq.laptop} {
       display: ${isModalOpen ? 'block' : 'flex'};
       align-items: center;
-      flex-direction: ${align === 'left' ? 'row' : 'row-reverse'}
+      flex-direction: ${align === 'left' ? 'row' : 'row-reverse'};
       height: 800px;
       padding-bottom: 0;
     }  
     .featured-cta__image-wrapper {
       position: relative;
+      height: 100%;
+      @media ${theme.mq.laptop} {
+        flex-basis: 50%;
+      }
     }
     .featured-cta__image {
-      height: 440px;
+      height: 100%;
       width: 100%;
       object-fit: cover;
-      @media ${theme.mq.laptop} {
-        height: auto;
-      }
     }
     .featured-cta__video-player > div:first-child {
       margin: 0 auto;
@@ -57,6 +58,7 @@ const FeaturedCTAStyled = styled.div`
       }
     }
     .featured-cta__content {
+      text-align: ${align === 'left' ? 'right' : 'left'};
       background-color: ${theme.colors.neutral_white};
       position: relative;
       padding: 40px 16px;
@@ -75,9 +77,11 @@ const FeaturedCTAStyled = styled.div`
         ${align === 'left' ? 'right' : 'left'}: 0;
       }
       @media ${theme.mq.laptop} {
+        text-align: left;
+        flex-basis: 50%;
         position: relative;
         display: flex;
-        align-items: center
+        align-items: center;
         justify-content: ${align === 'left' ? 'flex-start' : 'flex-end'};
         width: 100%;
         height: 100%;
@@ -96,7 +100,10 @@ const FeaturedCTAStyled = styled.div`
       }
     }
     .featured-cta__link {
-      margin-top: 24px;
+      margin: ${align === 'left' ? '24px 0 0 auto' : '24px auto 0 0'};
+      @media ${theme.mq.laptop} {
+        margin: 24px 0 0 0;
+      }
     }
     .featured-cta__title {
       margin: 0 0 16px 0;
@@ -110,4 +117,4 @@ const FeaturedCTAStyled = styled.div`
   }};
 `;
 
-export default FeaturedCTAStyled;
+export default PromotionalBlockStyled;

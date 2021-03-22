@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import FeaturedCTAStyled from './FeaturedCTA.styled';
-import Image, { ImageObject } from '../image/Image';
-import LinkButton, { Props as LinkButtonProps } from '../linkButton/LinkButton';
+import PromotionalBlockStyled from './PromotionalBlock.styled';
+import Image from '../image/Image';
+import LinkButton from '../linkButton/LinkButton';
 import VideoPlayer, {
   Props as VideoPlayerProps,
 } from '../videoPlayer/VideoPlayer';
@@ -18,29 +18,31 @@ export interface Props {
   imageAlt: string;
   title: string;
   text: string;
-  cta: LinkButtonProps;
+  ctaLink: string;
+  ctaText: string;
   align?: 'right' | 'left';
   hasSVG?: true | false;
   video: VideoPlayerProps;
 }
 
-const FeaturedCTA = ({
+const PromotionalBlock = ({
   className,
   imageUri,
   imageAlt,
   title,
   text,
-  cta,
+  ctaLink,
+  ctaText,
   video,
   align = 'left',
   hasSVG = false,
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const hasVideo = video.externalURL || video.internalVideo;
+  const hasVideo = video && (video.externalURL || video.internalVideo);
   _noScroll(isModalOpen);
 
   return (
-    <FeaturedCTAStyled
+    <PromotionalBlockStyled
       className={className}
       align={align}
       hasSVG={hasSVG}
@@ -95,16 +97,19 @@ const FeaturedCTA = ({
               className="featured-cta__text"
               dangerouslySetInnerHTML={{ __html: text }}
             />
-            <LinkButton
-              {...cta}
-              className="featured-cta__link"
-              icon="arrow-right"
-            />
+            {ctaLink && (
+              <LinkButton
+                className="featured-cta__link"
+                icon="arrow-right"
+                label={ctaText}
+                href={ctaLink}
+              />
+            )}
           </div>
         </div>
       </Wrapper>
-    </FeaturedCTAStyled>
+    </PromotionalBlockStyled>
   );
 };
 
-export default FeaturedCTA;
+export default PromotionalBlock;

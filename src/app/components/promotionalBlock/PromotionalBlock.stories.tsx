@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import FeaturedCTA, { Props } from './FeaturedCTA';
+import PromotionalBlock, { Props } from './PromotionalBlock';
 
 export default {
-  title: 'Landing/Components/FeaturedCTA',
-  component: FeaturedCTA,
+  title: 'Landing/Components/PromotionalBlock',
+  component: PromotionalBlock,
 } as Meta;
 
-const Template: Story<Props> = args => <FeaturedCTA {...args} />;
+const Template: Story<Props> = args => <PromotionalBlock {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -27,8 +27,6 @@ Primary.args = {
     <li>Lorem ipsum dolor sit amet, consectetur adipiscing.</li>
     </ul>
     `,
-  cta: {
-    label: 'Find out more',
-    href: '#',
-  },
+  ctaLink: "/",
+  ctaText: 'Find out more',
 };

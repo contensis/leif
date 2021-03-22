@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React /*, { useState, useEffect }*/ from 'react';
 
-import { useMinilist } from '@zengenti/contensis-react-base/search';
-import mappers from '../search/transformations';
+// import { useMinilist } from '@zengenti/contensis-react-base/search';
+// import mappers from '../search/transformations';
 
 import ProductSliderStyled from './ProductSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
 import { sizesNoUnit } from '../../theme/global/layout';
-import Image from '../image/Image';
 import HeroContent from '../heroContent/HeroContent';
 
 export interface Props {
@@ -27,7 +26,6 @@ const ProductSlider = ({
   ctaText,
   bgImageUri,
   curatedProducts,
-  productsByFilter,
 }: Props) => {
   // if (!slides || slides.length < 1) return null;
   const responsive = [
@@ -51,40 +49,34 @@ const ProductSlider = ({
     },
   ];
 
-  const [minilistOptions, setOptions] = useState<any>();
-  useEffect(() => {
-    setOptions({
-      id: 'productSlider',
-      mapper: mappers.results,
-    });
-  }, []);
-  const { results } = useMinilist(minilistOptions);
+  // const [minilistOptions, setOptions] = useState<any>();
+  // useEffect(() => {
+  //   setOptions({
+  //     id: 'productSlider',
+  //     mapper: mappers.results,
+  //   });
+  // }, []);
+  // const { results } = useMinilist(minilistOptions);
 
-  console.info({ title, summary, curatedProducts, productsByFilter, results });
   return (
-    <ProductSliderStyled className={className}>
-      <div className="card-slider__image-wrapper">
-        <Image path={bgImageUri} alt="Leif" className="card-slider__image" />
-        <div className="card-slider__image-overlay" />
-      </div>
-      <div className="card-slider__content-wrapper">
-        <HeroContent
-          className="card-slider__hero-content"
-          title={title}
-          summary={summary}
-          ctaLink={ctaLink}
-          ctaText={ctaText}
-          btnIcon="product"
+    <ProductSliderStyled className={className} bgImageUri={bgImageUri}>
+      <div className="card-slider__overlay" />
+      <HeroContent
+        className="card-slider__hero-content"
+        title={title}
+        summary={summary}
+        ctaLink={ctaLink}
+        ctaText={ctaText}
+        btnIcon="product"
+      />
+      <div className="card-slider__slider">
+        <SlickSlider
+          type="card"
+          slidesToShow={3}
+          responsive={responsive}
+          slides={curatedProducts}
+          className="card-slider__slide"
         />
-        <div className="card-slider__slider">
-          <SlickSlider
-            type="card"
-            slidesToShow={3}
-            responsive={responsive}
-            slides={curatedProducts}
-            className="card-slider__slide"
-          />
-        </div>
       </div>
     </ProductSliderStyled>
   );

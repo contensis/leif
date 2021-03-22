@@ -126,6 +126,7 @@ export const ComposerComponents = {
   twitterEmbed: 'twitterEmbed',
   contentBlockRow: 'contentBlockRow',
   productSlider: 'productSlider',
+  promotionalBlock: 'promotionalBlock',
 };
 
 export const BlogFilters = {
