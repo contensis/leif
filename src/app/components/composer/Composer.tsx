@@ -12,19 +12,27 @@ import Accordion from '../accordion/Accordion';
 import TwitterCard from '../twitterCard/TwitterCard';
 import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
 import ProductSlider from '../productSlider/ProductSlider';
+import PromotionalBlock from '../promotionalBlock/PromotionalBlock';
+import RelatedContent from '../relatedContent/RelatedContent';
 
 // Layout
 import Region from '~/layout/Region';
 
 // Schema
 import { ComposerComponents } from '../../core/schema';
-import PromotionalBlock from '../promotionalBlock/PromotionalBlock';
 
 const Composer = (props: any) => {
   const RenderComponent = (props: any) => {
     const { isContentPage } = props;
 
     switch (props._type) {
+      case ComposerComponents.featuredBlogPosts: {
+        return (
+          <Region width="full" margin="large">
+            <RelatedContent {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.promotionalBlock: {
         return (
           <Region width="full" margin="none">

@@ -121,6 +121,7 @@ export const ComposerComponents = {
   image: 'image',
   blockQuote: 'blockQuote',
   featuredProduct: 'featuredProduct',
+  featuredBlogPosts: 'featuredBlogPosts',
   video: 'video',
   accordionList: 'accordionList',
   twitterEmbed: 'twitterEmbed',
