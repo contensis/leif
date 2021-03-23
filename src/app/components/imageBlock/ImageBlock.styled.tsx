@@ -43,13 +43,8 @@ const ImageBlockStyled = styled.div`
         width: 100%;
         object-fit: cover;
       }
-      .image-block__title {
-        margin: 24px 0 0 0;
-        font-family: ${theme.typeStyles.fontFamily.headings};
-        ${theme.typeStyles.h6};
-      }
       .image-block__text {
-        margin: 8px 0 0 0;
+        margin: 24px 0 0 0;
         color: ${theme.colors.secondary_light};
         ${theme.typeStyles.smallCopy};
       }

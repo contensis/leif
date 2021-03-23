@@ -1,40 +1,42 @@
 import styled, { css } from 'styled-components';
 
+interface Props {
+  hasContentCentered: boolean;
+}
+
 const ContentPageStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, hasContentCentered }: Props) => {
     return css`
       padding-bottom: 120px;
-      .generic-hero__region {
-        max-width: 1160px;
-      }
       .content-page__body-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 64px;
-        @media ${theme.mq.desktop} {
-          margin-top: 80px;
-          flex-direction: row;
+        margin-top: ${hasContentCentered ? '40px' : '64px'};
+        @media ${theme.mq.largeDesktop} {
+          display: flex;
+          justify-content: ${hasContentCentered ? 'center' : 'flex-start'};
+          margin: ${hasContentCentered ? '40px 0 0 0' : '40px 0 0 110px'};
         }
       }
       .content-page__related-links {
-        width: 100%;
-        padding: 0 16px;
-        @media ${theme.mq.desktop} {
-          max-width: 290px;
-          margin-left: 104px;
+        margin: 0 auto;
+        max-width: 730px;
+        @media ${theme.mq.largeDesktop} {
+          margin: 0 0 0 110px;
+          max-width: 340px;
+          width: 100%;
         }
       }
       .content-page__social-share {
         margin-bottom: 40px;
         display: none;
-        @media ${theme.mq.desktop} {
+        @media ${theme.mq.largeDesktop} {
           display: block;
         }
       }
       .image-block__title,
       .image-block__text {
-        text-align: left;
+        @media ${theme.mq.largeDesktop} {
+          text-align: left;
+        }
       }
     `;
   }};

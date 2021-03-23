@@ -6,9 +6,8 @@ import Image from '../image/Image';
 export interface Props {
   className?: string;
   image: any;
-  alt?: string;
+  alt: string;
   path: string;
-  title?: string;
   text?: string;
   align?: string;
 }
@@ -17,7 +16,6 @@ const ImageBlock = ({
   className,
   alt,
   path,
-  title,
   text,
   align = 'center',
 }: Props) => {
@@ -27,8 +25,7 @@ const ImageBlock = ({
       <div className="image-block__wrapper">
         <Image className="image-block__image" alt={alt} path={path} />
       </div>
-      <p className="image-block__title">{title}</p>
-      <p className="image-block__text">{text}</p>
+      {text && <p className="image-block__text">{text}</p>}
     </ImageBlockStyled>
   );
 };

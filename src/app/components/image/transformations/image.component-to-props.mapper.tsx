@@ -3,7 +3,6 @@ import mapJson from '../../../core/util/json-mapper';
 export const imagePropsMapping = {
   alt: ['altText', 'caption', 'asset.title'],
   id: 'asset.sys.id',
-  title: ['asset.altText', 'altText'],
   text: 'caption',
   caption: 'caption',
   path: {

@@ -3,10 +3,10 @@ import { composerPropsMapping } from '~/components/composer/transformations/comp
 import { relatedLinksMapper } from '~/components/relatedLinks/transformations/relatedlinks.entry-to-card.mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 import { promotedContentMapper } from '~/components/promotedContent/transformations/promotedContent.component-to-props.mapper';
-import { renderHeroPropsMapper } from '~/components/renderHero/transformations/renderhero.components-to-props.mapper';
+import { contentHeroPropsMapper } from '~/components/contentHero/transformations/contenthero.component-to-props.mapper';
 
 export const contentPagePropsMapping = {
-  contentHeroProps: { ...renderHeroPropsMapper },
+  contentHeroProps: { ...contentHeroPropsMapper },
   leadParagraphProps: {
     text: 'leadParagraph',
   },

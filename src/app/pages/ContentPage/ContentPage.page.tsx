@@ -7,7 +7,7 @@ import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import ExploreMore from '~/components/promotedContent/PromotedContent';
-import RenderHero from '~/components/renderHero/RenderHero';
+import ContentHero from '~/components/contentHero/ContentHero';
 
 // Layout
 import ContentPageStyled from './ContentPage.styled';
@@ -26,18 +26,15 @@ const ContentPage = ({ mappedEntry }: Props) => {
     ctaBannerProps,
     promotedContentProps,
   } = mappedEntry || {};
-  const { type } = contentHeroProps;
-  const isLight = type === 'Landing hero' || type === 'Image as background';
+
+  const { bgImageUri, hasIllustration } = contentHeroProps;
+  const isLight = bgImageUri ? true : false;
+
   return (
     <MainLayout isLight={isLight}>
-      <ContentPageStyled>
-        <RenderHero {...contentHeroProps} />
-        <Region
-          className="content-page__body-content"
-          margin="none"
-          padding="none"
-          width="full"
-        >
+      <ContentPageStyled hasContentCentered={hasIllustration || !bgImageUri}>
+        <ContentHero {...contentHeroProps} />
+        <div className="content-page__body-content">
           <div className="content-page__content">
             <Region margin="none" width="msmall">
               <LeadParagraph {...leadParagraphProps} />
@@ -53,7 +50,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
               <RelatedLinks {...relatedLinksProps} />
             </aside>
           )}
-        </Region>
+        </div>
         <Region width="full" margin="default">
           <ExploreMore {...promotedContentProps} />
         </Region>
