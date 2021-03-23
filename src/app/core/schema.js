@@ -122,6 +122,7 @@ export const ComposerComponents = {
   blockQuote: 'blockQuote',
   featuredProduct: 'featuredProduct',
   featuredBlogPosts: 'featuredBlogPosts',
+  featuredReviews: 'featuredReviews',
   video: 'video',
   accordionList: 'accordionList',
   twitterEmbed: 'twitterEmbed',

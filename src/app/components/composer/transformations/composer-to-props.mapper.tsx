@@ -9,6 +9,7 @@ import { contentBlockRowPropsMapping } from '~/components/contentBlockRow/transf
 import { productSliderPropsMapping } from '~/components/productSlider/transformations/productslider.component-to-props.mapper';
 import { promotionalBlockPropsMapping } from '~/components/promotionalBlock/transformations/promotionalblock.component-to-props.mapper';
 import { featuredBlogPostPropsMapping } from '~/components/relatedContent/transformations/relatedcontent.component-to-props.mapper';
+import { featuredReviewsPropsMapping } from '~/components/testimonialSlider/transformations/testimonialslider.component-to-props.mapper';
 
 export const composerPropsMapping = {
   [ComposerComponents.textBlock]: { text: '.' },
@@ -22,7 +23,12 @@ export const composerPropsMapping = {
   [ComposerComponents.video]: { ...videoPropsMapping },
   [ComposerComponents.accordionList]: { ...accordionPropsMapping },
   [ComposerComponents.productSlider]: { ...productSliderPropsMapping },
-  [ComposerComponents.featuredBlogPosts]: { ...featuredBlogPostPropsMapping },
+  [ComposerComponents.featuredBlogPosts]: {
+    ...featuredBlogPostPropsMapping,
+  },
+  [ComposerComponents.featuredReviews]: {
+    ...featuredReviewsPropsMapping,
+  },
   [ComposerComponents.promotionalBlock]: {
     ...promotionalBlockPropsMapping,
   },

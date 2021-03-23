@@ -14,6 +14,7 @@ import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
 import ProductSlider from '../productSlider/ProductSlider';
 import PromotionalBlock from '../promotionalBlock/PromotionalBlock';
 import RelatedContent from '../relatedContent/RelatedContent';
+import TestimonialSlider from '../testimonialSlider/TestimonialSlider';
 
 // Layout
 import Region from '~/layout/Region';
@@ -26,6 +27,13 @@ const Composer = (props: any) => {
     const { isContentPage } = props;
 
     switch (props._type) {
+      case ComposerComponents.featuredReviews: {
+        return (
+          <Region width="full" margin="large">
+            <TestimonialSlider {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.featuredBlogPosts: {
         return (
           <Region width="full" margin="large">

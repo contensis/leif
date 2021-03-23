@@ -5,10 +5,8 @@ export const productSliderPropsMapping = {
   summary: 'summary',
   ctaLink: () => '/shop',
   ctaText: () => 'Shop now',
-  bgImageUri: {
-    $path: 'backgroundImage',
-    $default: '/image-library/default-images/product-slider-background.png',
-  },
+  bgImageUri: () =>
+    '/image-library/default-images/product-slider-background.png',
   curatedProducts: ({ curatedProducts }: any) =>
     mapEntriesToResults(curatedProducts),
   productsByFilter: 'productsByFilter.entryTitle',
