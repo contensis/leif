@@ -19,7 +19,6 @@ const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
       for (let i = 0; i < promoComponentArray.length; i++) {
         const isEven = i % 2 === 0 ? true : false;
         item.align = isEven ? 'left' : 'right';
-        item.hasSVG = isEven ? true : false;
       }
     }
   });

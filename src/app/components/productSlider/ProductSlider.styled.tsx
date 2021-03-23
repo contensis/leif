@@ -9,7 +9,7 @@ const CardSliderStyled = styled.div`
   ${({ theme, bgImageUri }: Props) => {
     return css`
       position: relative;
-      padding-top: 200px;
+      padding: 200px 0 80px;
       &:before {
         content: '';
         position: absolute;
@@ -87,6 +87,9 @@ const CardSliderStyled = styled.div`
       }
       .slick__product-slide {
         margin-left: 40px;
+      }
+      .slick-list {
+        padding: 32px 0;
       }
       .slick-next {
         display: none !important;

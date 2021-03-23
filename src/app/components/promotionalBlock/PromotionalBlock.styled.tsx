@@ -3,12 +3,11 @@ import styled, { css } from 'styled-components';
 interface Props {
   theme?: any;
   align: string;
-  hasSVG: boolean;
   isModalOpen?: boolean;
 }
 
 const PromotionalBlockStyled = styled.div`
-  ${({ theme, align, hasSVG, isModalOpen }: Props) => {
+  ${({ theme, align, isModalOpen }: Props) => {
     return css`
     position: relative;
     overflow-x: hidden;
@@ -23,6 +22,18 @@ const PromotionalBlockStyled = styled.div`
     .featured-cta__image-wrapper {
       position: relative;
       height: 100%;
+      &:before {
+        display: ${align === 'right' ? 'block' : 'none'};
+        content: '';
+        background-image: url('/static/img/svgs/shapes/promotional-block-white-shape.svg');
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
       @media ${theme.mq.laptop} {
         flex-basis: 50%;
       }
@@ -67,14 +78,16 @@ const PromotionalBlockStyled = styled.div`
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
       border-radius: ${align === 'left' ? '8px 0 0 0' : '0 8px 0 0'};
       &:before {
-        display: ${hasSVG ? 'block' : 'none'};
+        display: ${align === 'left' ? 'block' : 'none'};
         content: '';
-        background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
-        height: 80px;
+        background-image: url('/static/img/svgs/shapes/promotional-block-shape.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        height: 100%;
         width: 100%;
         position: absolute;
         bottom: -120px;
-        ${align === 'left' ? 'right' : 'left'}: 0;
+        right: 0;
       }
       @media ${theme.mq.laptop} {
         text-align: left;

@@ -21,7 +21,6 @@ export interface Props {
   ctaLink: string;
   ctaText: string;
   align?: 'right' | 'left';
-  hasSVG?: true | false;
   video: VideoPlayerProps;
 }
 
@@ -35,7 +34,6 @@ const PromotionalBlock = ({
   ctaText,
   video,
   align = 'left',
-  hasSVG = false,
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const hasVideo = video && (video.externalURL || video.internalVideo);
@@ -45,7 +43,6 @@ const PromotionalBlock = ({
     <PromotionalBlockStyled
       className={className}
       align={align}
-      hasSVG={hasSVG}
       isModalOpen={isModalOpen}
     >
       <Wrapper
