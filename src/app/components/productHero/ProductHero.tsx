@@ -160,7 +160,7 @@ const ProductHero = ({
             </div>
             <Button
               icon="arrow-right"
-              label="Add to pot"
+              label="Add to barrow"
               onClick={() => {
                 _addToBasket(id, activeOption, title, quantity);
               }}
