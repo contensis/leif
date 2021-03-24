@@ -1,0 +1,2 @@
+const ACTION_PREFIX = '@BASKET/';
+export const ADD_TO_BASKET = `${ACTION_PREFIX}ADD_TO_BASKET`;

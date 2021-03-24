@@ -6,13 +6,14 @@ import Icon from '../icon/Icon';
 import LinkButton from '../linkButton/LinkButton';
 
 // Hooks
-import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
 interface Props {
   className?: string;
   _toggleBasket: (val: boolean) => void;
   _toggleSearch: (val: boolean) => void;
   isBasketOpen: boolean;
+  basket: any;
 }
 
 const BasketMenu = ({
@@ -20,11 +21,11 @@ const BasketMenu = ({
   isBasketOpen,
   _toggleBasket,
   _toggleSearch,
+  basket,
 }: Props) => {
   const ref = useRef();
-  if (isBasketOpen) {
-    _useOnClickOutside(ref, () => _toggleBasket(false));
-  }
+
+  console.info({ basket });
 
   return (
     <BasketMenuStyled

@@ -5,7 +5,7 @@ import Icon from '../icon/Icon';
 import NavigationStyled from './Navigation.styled';
 
 // Hooks
-import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   navigation: any;
@@ -26,9 +26,6 @@ const Navigation = ({
   _toggleSearch,
 }: Props) => {
   const ref = useRef();
-  if (isMenuOpen) {
-    _useOnClickOutside(ref, () => _toggleMenu(false));
-  }
 
   const [activeMenu, setActiveMenu] = useState<string>('');
   const [showSecondMenu, setShowSecondMenu] = useState<boolean>(false);

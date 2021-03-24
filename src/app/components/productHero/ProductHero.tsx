@@ -14,28 +14,40 @@ import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import { _noScroll } from '../../utils/noScroll';
+import Button from '../button/Button';
 export interface Props {
   className?: string;
+  id: any;
   slides: any[] | any;
   rating?: string;
   title: string;
   text?: string;
   price: number;
   options?: any;
+  basket: any;
+  _addToBasket: (
+    id: number,
+    opt: string,
+    title: string,
+    quantity: number
+  ) => void;
 }
 
 const ProductHero = ({
   className,
+  id,
   slides,
   rating,
   title,
   text,
   price,
   options,
+  basket,
+  _addToBasket,
 }: Props) => {
-  let [quantity, updateQuantity] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeOption, setActiveOption] = useState(0);
+  let [quantity, updateQuantity] = useState<number>(1);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [activeOption, setActiveOption] = useState<string>('opt-1');
 
   const _handleClick = (e: any, type: string) => {
     e.preventDefault();
@@ -46,6 +58,8 @@ const ProductHero = ({
     }
   };
   _noScroll(isModalOpen);
+
+  console.info({ basket });
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
@@ -78,7 +92,7 @@ const ProductHero = ({
           </>
         )}
       >
-        <BackButton label="All products" />
+        <BackButton label="All products" uri="/" />
         <div className="product-hero__content">
           {!isModalOpen && (
             <div className="product-hero__slider-wrapper">
@@ -117,9 +131,9 @@ const ProductHero = ({
                       label={opt.title}
                       href="#"
                       type="secondary"
-                      isHollow={activeOption === idx ? false : true}
+                      isHollow={activeOption === opt.key ? false : true}
                       className="product-hero__option"
-                      onClick={() => setActiveOption(idx)}
+                      onClick={() => setActiveOption(opt.key)}
                     />
                   );
                 })}
@@ -144,10 +158,12 @@ const ProductHero = ({
                 />
               </div>
             </div>
-            <LinkButton
-              icon="arrowRight"
+            <Button
+              icon="arrow-right"
               label="Add to pot"
-              href="#"
+              onClick={() => {
+                _addToBasket(id, activeOption, title, quantity);
+              }}
               className="product-hero__btn"
             />
           </div>

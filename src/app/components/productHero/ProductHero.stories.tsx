@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import ProductHero, { Props } from './ProductHero';
+import ProductHero from './ProductHero.container';
+import { Props } from './ProductHero';
+import { _UUID } from '../../utils/UUID';
 
 export default {
   title: 'Product/Components/ProductHero',
@@ -40,20 +42,25 @@ for (let i = 0; SlidesArray.length < 8; i++) {
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: _UUID(),
   rating: '4',
-  title: "Product title can span multiple lines",
-  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.",
+  title: 'Product title can span multiple lines',
+  text:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.',
   price: 34,
   slides: SlidesArray,
   options: [
     {
       title: 'Option one',
+      key: 'opt-1',
     },
     {
       title: 'Option two',
+      key: 'opt-2',
     },
     {
       title: 'Option three',
-    }
-  ]
-}
+      key: 'opt-3',
+    },
+  ],
+};

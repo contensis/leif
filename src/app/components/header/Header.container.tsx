@@ -12,6 +12,7 @@ import {
   selectIsMenuOpen,
   selectIsBasketOpen,
 } from '../../core/redux/custom/ui/selectors';
+import { selectBasket } from '../../core/redux/custom/basket/selectors';
 
 import Header, { Props } from './Header';
 
@@ -25,6 +26,7 @@ const HeaderContainer = ({
   _toggleBasket,
   isBasketOpen,
   isLight,
+  basket,
 }: Props) => {
   return (
     <Header
@@ -37,6 +39,7 @@ const HeaderContainer = ({
       _toggleBasket={_toggleBasket}
       isBasketOpen={isBasketOpen}
       isLight={isLight}
+      basket={basket}
     />
   );
 };
@@ -46,6 +49,7 @@ const mapStateToProps = (state: any) => {
     isSearchOpen: selectIsSearchOpen(state),
     isMenuOpen: selectIsMenuOpen(state),
     isBasketOpen: selectIsBasketOpen(state),
+    basket: selectBasket(state),
   };
 };
 

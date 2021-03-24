@@ -23,6 +23,7 @@ export interface Props {
   _toggleBasket: (val: boolean) => void;
   isBasketOpen: boolean;
   isLight: boolean;
+  basket: any;
 }
 
 const Header = ({
@@ -35,12 +36,11 @@ const Header = ({
   _toggleBasket,
   isBasketOpen,
   isLight,
+  basket,
 }: Props) => {
   _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
-  if (isSearchOpen) {
-    _useOnClickOutside(ref, () => _toggleSearch(false));
-  }
+  _useOnClickOutside(ref, () => _toggleSearch(false));
 
   return (
     <HeaderStyled
@@ -63,6 +63,7 @@ const Header = ({
                 isBasketOpen={isBasketOpen}
                 _toggleBasket={_toggleBasket}
                 _toggleSearch={_toggleSearch}
+                basket={basket}
               />
               <Navigation
                 isMenuOpen={isMenuOpen}
@@ -98,6 +99,7 @@ const Header = ({
             isBasketOpen={isBasketOpen}
             _toggleBasket={_toggleBasket}
             _toggleSearch={_toggleSearch}
+            basket={basket}
           />
           <Navigation
             isMenuOpen={isMenuOpen}
