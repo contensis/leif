@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import InputStyled from './Input.styled';
 
 interface Props {
-  className?: string,
-  type?: string | undefined,
-  id: string,
+  className?: string;
+  type?: string | undefined;
+  id: string;
   label: string;
   placeholder?: string;
   defaultValue?: number | string;
 }
 
-const Input =({
+const Input = ({
   className,
   type = 'text',
   defaultValue = '',
@@ -24,7 +24,7 @@ const Input =({
     if (defaultValue) {
       setValue(defaultValue);
     }
-  }, [defaultValue])
+  }, [defaultValue]);
 
   return (
     <InputStyled className={className}>

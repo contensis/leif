@@ -31,8 +31,8 @@ const ImageDictionary = [
 
 const MakeSlide = (i:number) => {
   return {
-    imageUri: `https://source.unsplash.com/${ImageDictionary[i]}`,
-    imageAlt: 'Plant',
+    path: `https://source.unsplash.com/${ImageDictionary[i]}`,
+    alt: 'Plant',
   };
 }
 

@@ -42,7 +42,6 @@ const ProductHero = ({
   text,
   price,
   options,
-  basket,
   _addToBasket,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
@@ -59,8 +58,6 @@ const ProductHero = ({
   };
   _noScroll(isModalOpen);
 
-  console.info({ basket });
-
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
       <Wrapper
@@ -73,8 +70,8 @@ const ProductHero = ({
                 <div className="product-hero__modal-slider">
                   <SlickSlider
                     slides={slides}
-                    hasNav
-                    hasScrollImage
+                    hasNav={true}
+                    hasScrollImage={true}
                     swipeToSlide={false}
                     draggable={false}
                   />
