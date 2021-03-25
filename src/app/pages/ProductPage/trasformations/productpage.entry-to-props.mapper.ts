@@ -26,7 +26,10 @@ export const productPagePropsMapping = {
   },
   relatedProductsProps: {
     title: () => 'Matching pots',
-    results: ({ matchingPots }: any) => mapEntriesToResults(matchingPots),
+    results: ({ matchingPots }: any) => {
+      if (!matchingPots || matchingPots.length < 1) return null;
+      return mapEntriesToResults(matchingPots);
+    },
     linkUri: () => '/product',
     linkLabel: () => 'View all products',
   },

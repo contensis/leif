@@ -14,7 +14,6 @@ function* _ensureInitialised() {
   const basketCookie = CookieHelper.GetCookie('basket');
   if (basketCookie) {
     const parsedBasketCookie = JSON.parse(basketCookie);
-    console.info({ parsedBasketCookie });
     yield put({
       type: INITIALISED_BASKET,
       value: parsedBasketCookie,

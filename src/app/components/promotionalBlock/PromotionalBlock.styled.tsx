@@ -83,7 +83,7 @@ const PromotionalBlockStyled = styled.div`
         background-image: url('/static/img/svgs/shapes/promotional-block-shape.svg');
         background-repeat: no-repeat;
         background-position: bottom;
-        height: 100%;
+        height:  120px;
         width: 100%;
         position: absolute;
         bottom: -120px;

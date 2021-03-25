@@ -120,7 +120,7 @@ const CardStyled = styled(Link)`
             }
             margin: 0 8px 32px;
             @media ${theme.mq.desktop} {
-              max-width: 290px;
+              max-width: 322px;
               width: 100%;
             }
           `}

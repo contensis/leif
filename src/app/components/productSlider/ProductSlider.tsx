@@ -27,16 +27,35 @@ const ProductSlider = ({
   bgImageUri,
   curatedProducts,
 }: Props) => {
-  // if (!slides || slides.length < 1) return null;
+  if (!curatedProducts || curatedProducts.length < 1) return null;
   const responsive = [
     {
       breakpoint: sizesNoUnit['tablet'],
       settings: {
         slidesToShow: 1,
+        centerMode: true,
       },
     },
     {
       breakpoint: sizesNoUnit['laptop'],
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: sizesNoUnit['desktop'],
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: sizesNoUnit['mediumDesktop'],
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: sizesNoUnit['largeDesktop'],
       settings: {
         slidesToShow: 2,
       },
@@ -48,15 +67,6 @@ const ProductSlider = ({
       },
     },
   ];
-
-  // const [minilistOptions, setOptions] = useState<any>();
-  // useEffect(() => {
-  //   setOptions({
-  //     id: 'productSlider',
-  //     mapper: mappers.results,
-  //   });
-  // }, []);
-  // const { results } = useMinilist(minilistOptions);
 
   return (
     <ProductSliderStyled className={className} bgImageUri={bgImageUri}>

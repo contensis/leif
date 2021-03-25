@@ -80,13 +80,7 @@ const CardSliderStyled = styled.div`
         }
       }
       .slick-slide {
-        width: unset !important;
-        > div:first-child {
-          width: max-content;
-        }
-      }
-      .slick__product-slide {
-        margin-left: 40px;
+        padding: 0 8px;
       }
       .slick-list {
         padding: 32px 0;
@@ -101,7 +95,7 @@ const CardSliderStyled = styled.div`
         display: none !important;
         @media ${theme.mq.desktop} {
           display: block !important;
-          left: -80px !important;
+          left: -72px !important;
         }
       }
     `;

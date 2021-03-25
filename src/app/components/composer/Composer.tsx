@@ -50,7 +50,7 @@ const Composer = (props: any) => {
       }
       case ComposerComponents.productSlider: {
         return (
-          <Region width="full" margin="none">
+          <Region width="full" margin="none" padding="none">
             <ProductSlider {...props} />
           </Region>
         );

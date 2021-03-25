@@ -14,7 +14,7 @@ export const contentHeroPropsMapper = {
   },
   isFullWidth: {
     $path: 'title',
-    $formatting: (title: string) => (title.length > 64 ? true : false),
+    $formatting: (title: string) => (title.length >= 42 ? true : false),
     $default: false,
   },
   heroIllustrationAlt: 'heroIllustration',

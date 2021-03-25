@@ -3,7 +3,7 @@ const baseSize = 8;
 /**
  * Defines valid keys to use when referring to media query breakpoints
  *
- * @typedef {'base'|'mobile'|'tablet'|'laptop'|'desktop'|'largeDesktop'|'xlargeDesktop'} screenSizeKeys
+ * @typedef {'base'|'mobile'|'tablet'|'laptop'|'desktop'| 'mediumDesktop'| 'largeDesktop'|'xlargeDesktop'} screenSizeKeys
  */
 
 /**
@@ -13,6 +13,7 @@ const baseSize = 8;
  * @property {number} [tablet]
  * @property {number} [laptop]
  * @property {number} [desktop]
+ * @property {string} [mediumDesktop]
  * @property {number} [largeDesktop]
  * @property {number} [xlargeDesktop]
  */
@@ -24,6 +25,7 @@ const baseSize = 8;
  * @property {string} [tablet]
  * @property {string} [laptop]
  * @property {string} [desktop]
+ * @property {string} [mediumDesktop]
  * @property {string} [largeDesktop]
  * @property {string} [xlargeDesktop]
  */
@@ -40,6 +42,7 @@ export const breakpointMap = new Map([
   ['tablet', 481],
   ['laptop', 768],
   ['desktop', 1024],
+  ['mediumDesktop', 1200],
   ['largeDesktop', 1440],
   ['xlargeDesktop', 1700],
 ]);

@@ -61,11 +61,13 @@ const SlickSlider = ({
     responsive: responsive,
   };
 
+  const thumbsSlidesToShow =
+    slides.length >= 6 ? 6 : slides.length === 1 ? 2 : slides.length;
   const settingsThumbs = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: thumbsSlidesToShow,
     arrows: false,
     centerMode: true,
     adaptiveHeight: false,
@@ -77,7 +79,7 @@ const SlickSlider = ({
       {
         breakpoint: sizesNoUnit['mobile'],
         settings: {
-          slidesToShow: 2,
+          slidesToShow: slides.length >= 2 ? 2 : 1,
         },
       },
       {

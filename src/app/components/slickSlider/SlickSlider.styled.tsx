@@ -5,6 +5,9 @@ const SlickSliderStyled = styled.div`
     return css`
       .slider-nav {
         margin-top: 24px;
+        .slick-cloned {
+          display: none !important;
+        }
         .slick-track {
           margin-left: auto;
         }

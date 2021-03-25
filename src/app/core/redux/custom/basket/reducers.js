@@ -10,9 +10,7 @@ let initialState = Map({
 export default (state = initialState, action) => {
   switch (action.type) {
     case INITIALISED_BASKET:
-      console.info({ action });
       if (action.value) {
-        console.info(action.value);
         return state
           .set('products', fromJS(action.value))
           .set('isInitialised', true);

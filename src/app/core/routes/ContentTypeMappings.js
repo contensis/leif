@@ -65,6 +65,17 @@ export default [
     linkDepth: 1,
     entryMapper: ({ entry }) => mapJson(entry, productPagePropsMapping),
   },
+  {
+    contentTypeID: 'pot',
+    component: Loadable({
+      loader: () => {
+        return import('~/pages/ProductPage/ProductPage.page');
+      },
+      loading: Loading,
+    }),
+    linkDepth: 1,
+    entryMapper: ({ entry }) => mapJson(entry, productPagePropsMapping),
+  },
   // Listing Pages
   {
     contentTypeID: 'blogListing',
