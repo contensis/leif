@@ -1,1 +1,2 @@
-export const selectBasket = state => state.getIn(['basket']);
+export const selectProductsInBasket = state =>
+  state.getIn(['basket', 'products']);

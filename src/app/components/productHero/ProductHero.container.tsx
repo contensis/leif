@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 import { addToBasket } from '../../core/redux/custom/basket/actions';
-import { selectBasket } from '../../core/redux/custom/basket/selectors';
+import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
 import ProductHero, { Props } from './ProductHero';
 
@@ -37,7 +37,7 @@ const ProductHeroContainer = ({
 
 const mapStateToProps = (state: any) => {
   return {
-    basket: selectBasket(state),
+    basket: selectProductsInBasket(state),
   };
 };
 

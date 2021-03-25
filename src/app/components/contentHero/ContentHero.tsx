@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContentHeroStyled from './ContentHero.styled';
 import BackButton from '../backButton/BackButton';
-import Region from '../../layout/MainLayout';
+import Region from '../../layout/Region';
 import GenericHero from '../genericHero/GenericHero';
 
 export interface Props {

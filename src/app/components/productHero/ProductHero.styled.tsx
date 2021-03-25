@@ -162,14 +162,8 @@ const ProductHeroStyled = styled.div`
       ${isModalOpen &&
         css`
           .product-hero__modal {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
+            z-index: 99;
             &:before {
               content: '';
               background-color: ${theme.colors.neutral_white};
@@ -182,11 +176,15 @@ const ProductHeroStyled = styled.div`
           }
           .product-hero__modal-slider {
             width: 100%;
+            padding: 32px 0 0 0;
+            @media ${theme.mq.largeDesktop} {
+              padding: 0;
+            }
           }
           .product-hero__modal-close {
             position: absolute;
-            right: 16px;
-            top: 16px;
+            right: 0;
+            top: 0;
             z-index: 99;
             padding: 0;
             border: none;
@@ -197,7 +195,7 @@ const ProductHeroStyled = styled.div`
               opacity: 0.8;
             }
             @media ${theme.mq.largeDesktop} {
-              top: 66px;
+              right: 16px;
             }
           }
           .slider-for {

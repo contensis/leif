@@ -67,7 +67,7 @@ const CardStyled = styled(Link)`
             ${theme.typeStyles.h5};
           }
           .card__thumbnail {
-            width: 256px;
+            width: 100%;
             height: 280px;
           }
           .card__thumbnail-wrapper {

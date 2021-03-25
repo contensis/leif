@@ -25,7 +25,8 @@ const BasketMenu = ({
 }: Props) => {
   const ref = useRef();
 
-  console.info({ basket });
+  const basketArray = Object.keys(basket).map(key => basket[key]);
+  const hasItemsInBasket = basketArray && basketArray.length >= 1;
 
   return (
     <BasketMenuStyled
@@ -45,10 +46,24 @@ const BasketMenu = ({
       {isBasketOpen && (
         <div className="basket-menu__content-wrapper">
           <Icon className="basket-menu__icon" type="wheelbarrow" />
-          <p className="basket-menu__text">Your basket is empty</p>
+          {!hasItemsInBasket && (
+            <p className="basket-menu__text">Your basket is empty</p>
+          )}
+          {hasItemsInBasket && (
+            <div className="basket-menu__items-wrapper">
+              {basketArray.map((item, idx) => {
+                return (
+                  <div key={idx}>
+                    <span>{item.product_title}</span>
+                    <span>Quantity: {item.quantity}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
           <LinkButton
-            label="Browse our products"
-            href="/products"
+            label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
+            href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
             icon="arrow-right"
           />
         </div>

@@ -65,7 +65,7 @@ const SlickSlider = ({
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 6,
     arrows: false,
     centerMode: true,
     adaptiveHeight: false,
@@ -83,19 +83,19 @@ const SlickSlider = ({
       {
         breakpoint: sizesNoUnit['tablet'],
         settings: {
-          slidesToShow: 3,
+          slidesToShow: slides.length >= 3 ? 3 : 2,
         },
       },
       {
         breakpoint: sizesNoUnit['laptop'],
         settings: {
-          slidesToShow: 4,
+          slidesToShow: slides.length >= 4 ? 4 : 2,
         },
       },
       {
         breakpoint: sizesNoUnit['xlargeDesktop'],
         settings: {
-          slidesToShow: 6,
+          slidesToShow: slides.length >= 6 ? 6 : 2,
         },
       },
     ],

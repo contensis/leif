@@ -11,6 +11,14 @@ const BasketMenuStyled = styled.div`
     return css`
       display: flex;
       flex-direction: row-reverse;
+      .basket-menu__items-wrapper {
+        width: 100%;
+        max-width: 256px;
+        margin: 24px 0;
+        span {
+          display: block;
+        }
+      }
       .basket-menu__content-wrapper {
         display: none;
         margin-top: 80px;

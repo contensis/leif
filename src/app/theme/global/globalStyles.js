@@ -125,6 +125,14 @@ const GlobalStyle = createGlobalStyle`
       height: 100%;
       background: #2B2F51;
       opacity: 0.25;
+      z-index: 9;
+    }
+  }
+  .white {
+    &:before {
+      background: #fff;
+      opacity: 1;
+      z-index: 99;
     }
   }
 `;

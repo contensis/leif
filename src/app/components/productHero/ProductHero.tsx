@@ -11,10 +11,11 @@ import BackButton from '../backButton/BackButton';
 import SocialShare from '../socialShare/SocialShare';
 import Icon from '../icon/Icon';
 import Wrapper from '../wrapper/Wrapper';
-import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-import { _noScroll } from '../../utils/noScroll';
 import Button from '../button/Button';
+import FocusLock from 'react-focus-lock';
+import { _noScroll } from '~/utils/noScroll';
+
 export interface Props {
   className?: string;
   id: any;
@@ -56,15 +57,15 @@ const ProductHero = ({
       updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
     }
   };
-  _noScroll(isModalOpen);
+
+  _noScroll(isModalOpen, true);
 
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
       <Wrapper
         condition={isModalOpen}
-        wrapper={(children: any) => (
+        wrapper={() => (
           <>
-            {children}
             <FocusLock>
               <div className="product-hero__modal">
                 <div className="product-hero__modal-slider">
@@ -95,7 +96,7 @@ const ProductHero = ({
             <div className="product-hero__slider-wrapper">
               <SlickSlider
                 slides={slides}
-                hasNav
+                hasNav={true}
                 className="product-hero__slider"
               />
               <button

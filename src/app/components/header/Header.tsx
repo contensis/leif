@@ -12,7 +12,7 @@ import Navigation from '../navigation/Navigation';
 import BasketMenu from '../basketMenu/BasketMenu';
 
 // Hooks
-import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   navigation: any;
@@ -40,7 +40,6 @@ const Header = ({
 }: Props) => {
   _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleSearch(false));
 
   return (
     <HeaderStyled

@@ -5,6 +5,9 @@ const SlickSliderStyled = styled.div`
     return css`
       .slider-nav {
         margin-top: 24px;
+        .slick-track {
+          margin-left: auto;
+        }
         .slick-slide {
           padding: 0 12px;
         }

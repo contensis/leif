@@ -12,7 +12,7 @@ import {
   selectIsMenuOpen,
   selectIsBasketOpen,
 } from '../../core/redux/custom/ui/selectors';
-import { selectBasket } from '../../core/redux/custom/basket/selectors';
+import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
 import Header, { Props } from './Header';
 
@@ -49,7 +49,7 @@ const mapStateToProps = (state: any) => {
     isSearchOpen: selectIsSearchOpen(state),
     isMenuOpen: selectIsMenuOpen(state),
     isBasketOpen: selectIsBasketOpen(state),
-    basket: selectBasket(state),
+    basket: selectProductsInBasket(state),
   };
 };
 
