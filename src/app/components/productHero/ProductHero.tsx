@@ -14,7 +14,7 @@ import Wrapper from '../wrapper/Wrapper';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
-import { _noScroll } from '~/utils/noScroll';
+import { _noScroll } from '../../utils/noScroll';
 
 export interface Props {
   className?: string;
