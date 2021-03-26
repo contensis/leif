@@ -1,7 +1,7 @@
 export const contentHeroPropsMapper = {
   hasIllustration: {
     $path: ['heroImage', 'heroIllustration'],
-    $formatting: (hero: any) => (hero.asset ? false : true),
+    $formatting: (hero: any) => (hero.asset || hero === 'None' ? false : true),
     $default: false,
   },
   heroIllustrationUri: {
