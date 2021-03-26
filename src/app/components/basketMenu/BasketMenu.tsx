@@ -53,9 +53,12 @@ const BasketMenu = ({
             <div className="basket-menu__items-wrapper">
               {basketArray.map((item, idx) => {
                 return (
-                  <div key={idx}>
-                    <span>{item.product_title}</span>
-                    <span>Quantity: {item.quantity}</span>
+                  <div key={idx} className="basket-menu__item">
+                    <div>
+                      <span>{item.product_title}</span>
+                      <span>Quantity: {item.quantity}</span>
+                    </div>
+                    <Icon type="delete" />
                   </div>
                 );
               })}

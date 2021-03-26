@@ -13,6 +13,7 @@ export const contentPagePropsMapping = {
   relatedLinksProps: {
     title: 'relatedLinksTitle',
     links: ({ relatedLinks }: any) => {
+      if (!relatedLinks || relatedLinks.length < 1) return null;
       return relatedLinks.map((link: any) => {
         return mapJson(link, relatedLinksMapper);
       });

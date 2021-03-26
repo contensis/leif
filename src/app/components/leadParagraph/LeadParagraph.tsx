@@ -8,6 +8,7 @@ export interface Props {
 }
 
 const LeadParagraph = ({ className, type = 'default', text }: Props) => {
+  if (!text) return null;
   return (
     <LeadParagraphStyled
       className={className}

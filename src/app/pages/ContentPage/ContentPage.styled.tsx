@@ -17,9 +17,11 @@ const ContentPageStyled = styled.div`
         }
       }
       .content-page__related-links {
+        padding: 0 16px;
         margin: 0 auto;
         max-width: 730px;
         @media ${theme.mq.largeDesktop} {
+          padding: 0;
           margin: 0 0 0 110px;
           max-width: 340px;
           width: 100%;
