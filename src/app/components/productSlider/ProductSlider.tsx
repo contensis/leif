@@ -3,7 +3,7 @@ import React from 'react';
 import ProductSliderStyled from './ProductSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
 import HeroContent from '../heroContent/HeroContent';
-import { _useApiHook } from '~/utils/hooks/useApiHook';
+import { _useApiHook } from '../../utils/hooks/useApiHook';
 import mapEntriesToResults from '../search/transformations/entry-to-card-props.mapper';
 import { _createResponsiveSettings } from './utils/reponsiveSettings';
 

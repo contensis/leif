@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Op, Query } from 'contensis-delivery-api';
-import { cachedSearch } from '~/core/util/ContensisDeliveryApi';
+import { cachedSearch } from '../../core/util/ContensisDeliveryApi';
 
 const getProducts = async (filter: string) => {
   const query = new Query(

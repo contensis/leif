@@ -1,5 +1,5 @@
 import React from 'react';
-import mapJson from '~/core/util/json-mapper';
+import mapJson from '../../core/util/json-mapper';
 import RelatedLinksStyled from './RelatedLinks.styled';
 import { relatedLinksMapper } from './transformations/relatedlinks.entry-to-card.mapper';
 import Image from '../image/Image';
