@@ -1,12 +1,11 @@
-import React /*, { useState, useEffect }*/ from 'react';
-
-// import { useMinilist } from '@zengenti/contensis-react-base/search';
-// import mappers from '../search/transformations';
+import React from 'react';
 
 import ProductSliderStyled from './ProductSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
-import { sizesNoUnit } from '../../theme/global/layout';
 import HeroContent from '../heroContent/HeroContent';
+import { _useApiHook } from '~/utils/hooks/useApiHook';
+import mapEntriesToResults from '../search/transformations/entry-to-card-props.mapper';
+import { _createResponsiveSettings } from './utils/reponsiveSettings';
 
 export interface Props {
   className?: string;
@@ -15,7 +14,9 @@ export interface Props {
   ctaLink: string;
   ctaText: string;
   bgImageUri: string;
-  curatedProducts: any;
+  products: any;
+  filter: string;
+  hasFilter: boolean;
 }
 
 const ProductSlider = ({
@@ -25,69 +26,76 @@ const ProductSlider = ({
   ctaLink,
   ctaText,
   bgImageUri,
-  curatedProducts,
+  products,
+  filter,
+  hasFilter = false,
 }: Props) => {
-  if (!curatedProducts || curatedProducts.length < 1) return null;
-  const responsive = [
-    {
-      breakpoint: sizesNoUnit['tablet'],
-      settings: {
-        slidesToShow: 1,
-        centerMode: true,
-      },
-    },
-    {
-      breakpoint: sizesNoUnit['laptop'],
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: sizesNoUnit['desktop'],
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: sizesNoUnit['mediumDesktop'],
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-    {
-      breakpoint: sizesNoUnit['largeDesktop'],
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: sizesNoUnit['xlargeDesktop'],
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-  ];
+  const _RenderProductSlider = (hasFilter: boolean) => {
+    switch (hasFilter) {
+      case true: {
+        const mappedProducts = mapEntriesToResults(_useApiHook(filter));
+        if (!mappedProducts || mappedProducts.length < 1) return null;
+        return (
+          <>
+            <div className="card-slider__overlay" />
+            <HeroContent
+              className="card-slider__hero-content"
+              title={title}
+              summary={summary}
+              ctaLink={ctaLink}
+              ctaText={ctaText}
+              btnIcon="product"
+            />
+            <div className="card-slider__slider">
+              <SlickSlider
+                type="card"
+                slidesToShow={
+                  mappedProducts.length >= 3
+                    ? 3
+                    : mappedProducts.length === 2
+                    ? 2
+                    : 1
+                }
+                responsive={_createResponsiveSettings(mappedProducts.length)}
+                slides={mappedProducts}
+                className="card-slider__slide"
+              />
+            </div>
+          </>
+        );
+      }
+      case false:
+      default: {
+        if (!products || products.length < 1) return null;
+        return (
+          <>
+            <div className="card-slider__overlay" />
+            <HeroContent
+              className="card-slider__hero-content"
+              title={title}
+              summary={summary}
+              ctaLink={ctaLink}
+              ctaText={ctaText}
+              btnIcon="product"
+            />
+            <div className="card-slider__slider">
+              <SlickSlider
+                type="card"
+                slidesToShow={products.length >= 3 ? 3 : 2}
+                responsive={_createResponsiveSettings(products.length)}
+                slides={products}
+                className="card-slider__slide"
+              />
+            </div>
+          </>
+        );
+      }
+    }
+  };
 
   return (
     <ProductSliderStyled className={className} bgImageUri={bgImageUri}>
-      <div className="card-slider__overlay" />
-      <HeroContent
-        className="card-slider__hero-content"
-        title={title}
-        summary={summary}
-        ctaLink={ctaLink}
-        ctaText={ctaText}
-        btnIcon="product"
-      />
-      <div className="card-slider__slider">
-        <SlickSlider
-          type="card"
-          slidesToShow={3}
-          responsive={responsive}
-          slides={curatedProducts}
-          className="card-slider__slide"
-        />
-      </div>
+      {_RenderProductSlider(hasFilter)}
     </ProductSliderStyled>
   );
 };

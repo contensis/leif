@@ -1,16 +1,16 @@
-export const promotionalBlockPropsMapping = {
+export const promotedProductPropsMapping = {
   title: 'productName',
   text: 'description',
   imageUri: {
     $path: 'thumbnailImage',
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
-    $default: '/image-library/default-images/leif-fallback.png',
+    $default: () => '/image-library/default-images/leif-fallback.png',
   },
   ctaLink: {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,
-    $default: '/shop',
+    $default: () => '/shop',
   },
   ctaText: () => 'Find out more',
 };

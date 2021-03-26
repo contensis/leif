@@ -1,17 +1,14 @@
 export const relatedLinksMapper = {
-  title: 'entryTitle',
+  title: 'displayName',
+  path: 'path',
   imageUri: {
-    $path: 'primaryImage',
+    $path: 'entry.primaryImage',
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
   },
   imageAlt: {
-    $path: 'primaryImage',
+    $path: 'entry.primaryImage',
     $formatting: (img: any) =>
       (img && img.altText) || img.caption || (img.asset && img.asset.title),
-  },
-  uri: {
-    $path: 'sys',
-    $formatting: (sys: any) => sys.uri,
   },
 };

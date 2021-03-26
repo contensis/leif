@@ -3,10 +3,11 @@ interface Props {
   theme?: any;
   type: string;
   isListingPage: boolean;
+  hasPaddingTop: boolean;
 }
 
 const GenericHeroStyled = styled.div`
-  ${({ theme, type, isListingPage }: Props) => {
+  ${({ theme, type, isListingPage, hasPaddingTop }: Props) => {
     return css`
       margin: 0 auto;
       padding-top: 74px;
@@ -16,9 +17,10 @@ const GenericHeroStyled = styled.div`
       text-align: center;
       text-decoration: none;
       @media ${theme.mq.desktop} {
-        padding-top: 0;
+        padding-top: ${hasPaddingTop ? '74px' : '0'};
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         text-align: left;
       }
       .generic-hero__back {
@@ -50,6 +52,7 @@ const GenericHeroStyled = styled.div`
         }
       }
       .generic-hero__text {
+        margin: 16px 0 0 0;
         color: ${theme.colors.neutral_charcoal};
       }
       .generic-hero__image {
@@ -112,6 +115,7 @@ const GenericHeroStyled = styled.div`
         `}
       .generic-hero__link-wrapper {
         margin: 0 auto;
+        width: 100%;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
@@ -129,12 +133,6 @@ const GenericHeroStyled = styled.div`
             margin: 0;
           }
         }
-        .generic-hero__image {
-          margin: 0 0 16px 0;
-          @media ${theme.mq.desktop} {
-            margin: 0;
-          }
-        }
         &:hover {
           .generic-hero__title {
             text-decoration: underline;
@@ -143,10 +141,24 @@ const GenericHeroStyled = styled.div`
             background-color: rgba(195, 198, 222, 0.2);
           }
         }
+        .generic-hero__image {
+          margin-bottom: 16px;
+          @media ${theme.mq.desktop} {
+            margin-bottom: 0;
+          }
+        }
       }
       .generic-hero__content {
         display: flex;
         flex-direction: column;
+        max-width: 520px;
+        width: 100%;
+      }
+      .generic-hero__link {
+        margin: 24px auto 16px;
+        @media ${theme.mq.desktop} {
+          margin: 24px 0 0;
+        }
       }
       ${isListingPage &&
         css`
@@ -154,7 +166,7 @@ const GenericHeroStyled = styled.div`
           @media ${theme.mq.desktop} {
             padding-top: 74px;
           }
-        `}
+        `};
     `;
   }};
 `;

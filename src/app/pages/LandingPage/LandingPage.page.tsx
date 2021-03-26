@@ -2,9 +2,9 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-import RenderHero from '~/components/renderHero/RenderHero';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
+import LandingHero from '~/components/landingHero/LandingHero';
 
 // Layout
 import LandingPageStyled from './LandingPage.styled';
@@ -21,14 +21,14 @@ const LandingPage = ({ mappedEntry }: Props) => {
     contentComposerProps,
     ctaBannerProps,
   } = mappedEntry || {};
-  console.info({ mappedEntry });
 
-  const { type } = landingPageHeroProps;
-  const isLight = type === 'Landing hero' || type === 'Image as background';
+  const { imageUri } = landingPageHeroProps;
+  const isLight = imageUri ? true : false;
+
   return (
     <MainLayout isLight={isLight}>
       <LandingPageStyled>
-        <RenderHero {...landingPageHeroProps} />
+        <LandingHero {...landingPageHeroProps} />
         <Region margin="large" width="medium">
           <LeadParagraph {...leadParagraphProps} />
         </Region>

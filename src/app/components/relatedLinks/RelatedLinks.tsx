@@ -1,24 +1,32 @@
 import React from 'react';
+import mapJson from '~/core/util/json-mapper';
 import RelatedLinksStyled from './RelatedLinks.styled';
+import { relatedLinksMapper } from './transformations/relatedlinks.entry-to-card.mapper';
 import Image from '../image/Image';
 
 export interface Props {
   className?: string;
   title?: string;
-  links: any[];
+  links?: any;
 }
 
-const RelatedLinks = ({ className, title, links }: Props) => {
+const RelatedLinks = ({
+  className,
+  title = 'Related  links',
+  links,
+}: Props) => {
   if (!links || links.length < 1) return null;
+
   return (
     <RelatedLinksStyled className={className}>
       {title && <h3 className="related-links__title">{title}</h3>}
       <ul>
-        {links.map((link, idx) => {
-          const { title, uri, imageUri, imageAlt } = link || {};
+        {links.map((link: any, idx: number) => {
+          const mappedRes = mapJson(link, relatedLinksMapper);
+          const { title, path, imageUri, imageAlt } = mappedRes || {};
           return (
             <li key={idx}>
-              <a className="related-links__link" href={uri}>
+              <a className="related-links__link" href={path}>
                 <Image
                   className="related-links__image"
                   path={imageUri}

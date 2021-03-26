@@ -21,7 +21,7 @@ export const blogCardMapping = {
     $path: 'primaryImage',
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
-    $default: '/image-library/default-images/leif-fallback.png',
+    $default: () => '/image-library/default-images/leif-fallback.png',
   },
   date: ({ sys }: any) =>
     dateWithSuffix(sys && sys.version && sys.version.published),
@@ -42,7 +42,7 @@ export const productCardMapping = {
     $path: ['thumbnailImage', 'externalCardImage'],
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
-    $default: '/image-library/default-images/leif-fallback.png',
+    $default: () => '/image-library/default-images/leif-fallback.png',
   },
   imageAlt: [
     'thumbnailImage.altText',

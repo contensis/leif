@@ -7,8 +7,8 @@ interface Props {
   className?: string;
   title: string;
   summary?: string;
-  ctaLink: string;
-  ctaText: string;
+  ctaLink?: string;
+  ctaText?: string;
   btnIcon?: string;
 }
 
@@ -23,7 +23,7 @@ const HeroContent = ({
   return (
     <HeroContentStyled className={className}>
       <h2 className="hero-content__title">{title}</h2>
-      <p className="hero-content__summary">{summary}</p>
+      {summary && <p className="hero-content__summary">{summary}</p>}
       {ctaLink && (
         <LinkButton
           className="hero-content__btn"

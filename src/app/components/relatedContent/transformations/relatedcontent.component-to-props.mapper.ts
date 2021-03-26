@@ -6,6 +6,6 @@ export const featuredBlogPostPropsMapping = {
   linkLabel: 'buttonText',
   linkUri: {
     $path: ['linkToInternalContent.sys.uri', 'linkToExternalURL'],
-    $default: '/blog',
+    $default: () => '/blog',
   },
 };

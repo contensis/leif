@@ -1,10 +1,10 @@
 import { mapComposer } from '~/core/util/json-mapper';
 import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
-import { renderHeroPropsMapper } from '~/components/renderHero/transformations/renderhero.components-to-props.mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
+import { landingHeroPropsMapper } from '~/components/landingHero/transformations/landinghero-component-to-props.mapper';
 
 export const landingPagePropsMapping = {
-  landingPageHeroProps: { ...renderHeroPropsMapper },
+  landingPageHeroProps: { ...landingHeroPropsMapper },
   leadParagraphProps: {
     text: 'leadParagraph',
     type: () => 'center',

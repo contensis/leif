@@ -31,6 +31,15 @@ const SlickSliderStyled = styled.div`
       }
       .slick-slide {
         height: inherit !important;
+        @media ${theme.mq.desktop} {
+          width: unset !important;
+        }
+      }
+      .slick__product-slide {
+        margin: 0 auto;
+        @media ${theme.mq.desktop} {
+          margin: 0;
+        }
       }
       .slick-arrow {
         padding: 0;

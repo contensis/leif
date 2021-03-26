@@ -127,8 +127,10 @@ export const ComposerComponents = {
   accordionList: 'accordionList',
   twitterEmbed: 'twitterEmbed',
   contentBlockRow: 'contentBlockRow',
+  promotedProduct: 'promotedProduct',
   productSlider: 'productSlider',
-  promotionalBlock: 'promotionalBlock',
+  curatedProductSlider: 'curatedProductSlider',
+  filteredProductSlider: 'filteredProductSlider',
 };
 
 export const BlogFilters = {

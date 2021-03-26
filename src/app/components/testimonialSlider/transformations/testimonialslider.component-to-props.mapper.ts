@@ -7,7 +7,7 @@ const testimonialPropsMapping = {
     $path: 'person.photo',
     $formatting: (photo: any) =>
       photo.asset && photo.asset.sys && photo.asset.sys.uri,
-    $default: '/image-library/default-images/leif-fallback.png',
+    $default: () => '/image-library/default-images/leif-fallback.png',
   },
 };
 

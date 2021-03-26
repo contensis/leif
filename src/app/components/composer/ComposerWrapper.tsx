@@ -14,7 +14,7 @@ const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
   const promoComponentArray: number[] = [];
 
   items.forEach((item, idx) => {
-    if (item._type === ComposerComponents.promotionalBlock) {
+    if (item._type === ComposerComponents.promotedProduct) {
       promoComponentArray.push(idx);
       for (let i = 0; i < promoComponentArray.length; i++) {
         const isEven = i % 2 === 0 ? true : false;

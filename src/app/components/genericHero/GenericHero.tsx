@@ -5,13 +5,14 @@ import BackButton from '../backButton/BackButton';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 import Icon from '../icon/Icon';
+import LinkButton from '../linkButton/LinkButton';
 
 export interface Props {
   className?: string;
   title: string;
   text?: string;
-  linkUri?: string;
-  linkLabel?: string;
+  ctaLink?: string;
+  ctaText?: string;
   imageUri: string;
   imageAlt: string;
   price?: string;
@@ -20,7 +21,8 @@ export interface Props {
   isListingPage?: boolean;
   backLinkLabel?: string;
   backLinkUri?: string;
-  type?: 'Full width' | 'Two column' | 'Landing hero' | 'Image as background';
+  isRenderedAsLink?: boolean;
+  type?: 'Full width' | 'Two column';
 }
 
 const GenericHero = ({
@@ -29,14 +31,15 @@ const GenericHero = ({
   text,
   backLinkLabel,
   backLinkUri,
-  linkUri,
-  linkLabel,
+  ctaLink,
+  ctaText,
   imageUri,
   imageAlt,
   price,
   readTime,
   date,
   isListingPage = false,
+  isRenderedAsLink = false,
   type = 'Two column',
 }: Props) => {
   interface ConditionalLinkProps {
@@ -57,17 +60,18 @@ const GenericHero = ({
       type={type}
       title={title}
       isListingPage={isListingPage}
+      hasPaddingTop={!backLinkUri}
     >
       <ConditionalLink
-        condition={linkUri}
+        condition={isRenderedAsLink}
         wrapper={(children: any) => (
-          <a href={linkUri} className="generic-hero__link-wrapper">
+          <a href={ctaLink} className="generic-hero__link-wrapper">
             {children}
           </a>
         )}
       >
         <div className="generic-hero__content">
-          {backLinkUri && !linkUri && (
+          {backLinkUri && !ctaLink && (
             <BackButton
               className="generic-hero__back"
               label={backLinkLabel}
@@ -76,17 +80,31 @@ const GenericHero = ({
           )}
           <h1 className="generic-hero__title">{title}</h1>
           {text && <p className="generic-hero__text">{text}</p>}
-          <div className="generic-hero__detail">
-            {price && (
-              <span className="generic-hero__detail-price">£{price}</span>
-            )}
-            {date && <BlogDetail date={date} readTime={readTime} />}
-          </div>
-          {linkLabel && (
-            <span className="generic-hero__btn">
-              {linkLabel}
-              <Icon type="arrow-right" color="#2B2F51" />
-            </span>
+          {(price || date) && (
+            <div className="generic-hero__detail">
+              {price && (
+                <span className="generic-hero__detail-price">£{price}</span>
+              )}
+              {date && <BlogDetail date={date} readTime={readTime} />}
+            </div>
+          )}
+          {ctaLink && (
+            <>
+              {isRenderedAsLink && (
+                <span className="generic-hero__btn">
+                  {ctaText}
+                  <Icon type="arrow-right" color="#2B2F51" />
+                </span>
+              )}
+              {!isRenderedAsLink && (
+                <LinkButton
+                  className="generic-hero__link"
+                  icon="arrow-right"
+                  label={ctaText}
+                  href={ctaLink}
+                />
+              )}
+            </>
           )}
         </div>
         {imageUri && (

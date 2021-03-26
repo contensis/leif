@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-import RelatedLinks from '~/components/relatedLinks/RelatedLinks';
+import RelatedLinks from '~/components/relatedLinks/RelatedLinks.container';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
@@ -21,7 +21,6 @@ const ContentPage = ({ mappedEntry }: Props) => {
   const {
     contentHeroProps,
     leadParagraphProps,
-    relatedLinksProps,
     contentComposerProps,
     ctaBannerProps,
     promotedContentProps,
@@ -44,12 +43,10 @@ const ContentPage = ({ mappedEntry }: Props) => {
               <CTABanner {...ctaBannerProps} />
             </Region>
           </div>
-          {relatedLinksProps && (
-            <aside className="content-page__related-links">
-              <SocialShare className="content-page__social-share" />
-              <RelatedLinks {...relatedLinksProps} />
-            </aside>
-          )}
+          <aside className="content-page__related-links">
+            <SocialShare className="content-page__social-share" />
+            <RelatedLinks />
+          </aside>
         </div>
         <Region width="full" margin="default">
           <ExploreMore {...promotedContentProps} />

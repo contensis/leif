@@ -8,7 +8,6 @@ import { Props as PromotedContentProps } from '~/components/promotedContent/Prom
 export interface MappedProps {
   contentHeroProps: ContentHeroProps;
   leadParagraphProps: LeadParagraphProps;
-  relatedLinksProps: RelatedLinksProps;
   contentComposerProps: any;
   ctaBannerProps: CTABannerProps,
   promotedContentProps: PromotedContentProps;

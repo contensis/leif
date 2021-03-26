@@ -5,7 +5,7 @@ import { Props as LeadParagraphProps } from '~/components/leadParagraph/LeadPara
 import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
 
 export interface MappedProps {
-  landingPageHeroProps: GenericHeroProps | ContentHeroProps | LandingHeroProps;
+  landingPageHeroProps: LandingHeroProps | GenericHeroProps;
   leadParagraphProps: LeadParagraphProps;
   contentComposerProps: any;
   ctaBannerProps: CTABannerProps,

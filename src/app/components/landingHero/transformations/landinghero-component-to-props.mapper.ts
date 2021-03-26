@@ -1,4 +1,4 @@
-export const contentHeroPropsMapper = {
+export const landingHeroPropsMapper = {
   hasIllustration: {
     $path: ['heroImage', 'heroIllustration'],
     $formatting: (hero: any) => (hero.asset || hero === 'None' ? false : true),
@@ -12,17 +12,19 @@ export const contentHeroPropsMapper = {
       return `/static/img/illustrations/${type}.png`;
     },
   },
-  isFullWidth: {
-    $path: 'title',
-    $formatting: (title: string) => (title.length >= 42 ? true : false),
-    $default: () => false,
-  },
   heroIllustrationAlt: 'heroIllustration',
-  bgImageUri: {
+  imageUri: {
     $path: 'heroImage',
     $formatting: (img: any) => {
       return img && img.asset && img.asset.sys && img.asset.sys.uri;
     },
   },
+  imageAlt: ['altText', 'caption', 'asset.title'],
   title: 'title',
+  summary: 'summary',
+  ctaLink: {
+    $path: 'callToActionDestination',
+    $formatting: (link: any) => link && link.sys && link.sys.uri,
+  },
+  ctaText: 'callToActionText',
 };

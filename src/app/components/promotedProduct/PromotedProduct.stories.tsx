@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import PromotionalBlock, { Props } from './PromotionalBlock';
+import PromotedProduct, { Props } from './PromotedProduct';
 
 export default {
-  title: 'Landing/Components/PromotionalBlock',
-  component: PromotionalBlock,
+  title: 'Landing/Components/PromotedProduct',
+  component: PromotedProduct,
 } as Meta;
 
-const Template: Story<Props> = args => <PromotionalBlock {...args} />;
+const Template: Story<Props> = args => <PromotedProduct {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

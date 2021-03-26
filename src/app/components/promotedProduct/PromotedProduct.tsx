@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import PromotionalBlockStyled from './PromotionalBlock.styled';
+import PromotionalBlockStyled from './PromotedProduct.styled';
 import Image from '../image/Image';
 import LinkButton from '../linkButton/LinkButton';
 import VideoPlayer, {

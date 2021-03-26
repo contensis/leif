@@ -22,7 +22,7 @@ export const blogPostPropsMapping = {
       $path: 'author.photo',
       $formatting: (img: any) =>
         img && img.asset && img.asset.sys && img.asset.sys.uri,
-      $default: '/image-library/default-images/leif-fallback.png',
+      $default: () => '/image-library/default-images/leif-fallback.png',
     },
     name: 'author.name',
     date: ({ sys }: any) =>

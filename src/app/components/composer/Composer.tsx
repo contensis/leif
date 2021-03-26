@@ -12,7 +12,7 @@ import Accordion from '../accordion/Accordion';
 import TwitterCard from '../twitterCard/TwitterCard';
 import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
 import ProductSlider from '../productSlider/ProductSlider';
-import PromotionalBlock from '../promotionalBlock/PromotionalBlock';
+import PromotionalBlock from '../promotedProduct/PromotedProduct';
 import RelatedContent from '../relatedContent/RelatedContent';
 import TestimonialSlider from '../testimonialSlider/TestimonialSlider';
 
@@ -41,14 +41,16 @@ const Composer = (props: any) => {
           </Region>
         );
       }
-      case ComposerComponents.promotionalBlock: {
+      case ComposerComponents.promotedProduct: {
         return (
           <Region width="full" margin="none">
             <PromotionalBlock {...props} />
           </Region>
         );
       }
-      case ComposerComponents.productSlider: {
+      case ComposerComponents.productSlider:
+      case ComposerComponents.curatedProductSlider:
+      case ComposerComponents.filteredProductSlider: {
         return (
           <Region width="full" margin="none" padding="none">
             <ProductSlider {...props} />

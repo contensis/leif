@@ -6,10 +6,13 @@ import { featuredProductMapping } from '~/components/featuredProduct/transformat
 import { videoPropsMapping } from '~/components/videoPlayer/transformations/videoplayer.component-to-props.mapper';
 import { accordionPropsMapping } from '~/components/accordion/transformations/accordion.component-to-props.mapper';
 import { contentBlockRowPropsMapping } from '~/components/contentBlockRow/transformations/contentblockrow.component-to-props.mapper';
-import { productSliderPropsMapping } from '~/components/productSlider/transformations/productslider.component-to-props.mapper';
-import { promotionalBlockPropsMapping } from '~/components/promotionalBlock/transformations/promotionalblock.component-to-props.mapper';
+import { promotedProductPropsMapping } from '~/components/promotedProduct/transformations/promotedproduct.component-to-props.mapper';
 import { featuredBlogPostPropsMapping } from '~/components/relatedContent/transformations/relatedcontent.component-to-props.mapper';
 import { featuredReviewsPropsMapping } from '~/components/testimonialSlider/transformations/testimonialslider.component-to-props.mapper';
+import {
+  curatedProductSliderPropsMapping,
+  filteredProductSliderPropsMapping,
+} from '~/components/productSlider/transformations/productslider.component-to-props.mapper';
 
 export const composerPropsMapping = {
   [ComposerComponents.textBlock]: { text: '.' },
@@ -22,15 +25,20 @@ export const composerPropsMapping = {
   [ComposerComponents.featuredProduct]: { ...featuredProductMapping },
   [ComposerComponents.video]: { ...videoPropsMapping },
   [ComposerComponents.accordionList]: { ...accordionPropsMapping },
-  [ComposerComponents.productSlider]: { ...productSliderPropsMapping },
+  [ComposerComponents.curatedProductSlider]: {
+    ...curatedProductSliderPropsMapping,
+  },
+  [ComposerComponents.filteredProductSlider]: {
+    ...filteredProductSliderPropsMapping,
+  },
   [ComposerComponents.featuredBlogPosts]: {
     ...featuredBlogPostPropsMapping,
   },
   [ComposerComponents.featuredReviews]: {
     ...featuredReviewsPropsMapping,
   },
-  [ComposerComponents.promotionalBlock]: {
-    ...promotionalBlockPropsMapping,
+  [ComposerComponents.promotedProduct]: {
+    ...promotedProductPropsMapping,
   },
   [ComposerComponents.contentBlockRow]: {
     ...contentBlockRowPropsMapping,

@@ -6,18 +6,16 @@ export const blogListingPropsMapping = {
   featuredBlogProps: {
     title: 'featuredBlog.entryTitle',
     text: 'featuredBlog.kicker',
+    isRenderedAsLink: () => true,
     date: ({ sys }: any) => dateWithSuffix(sys.version.published),
-    linkUri: {
-      $path: 'featuredBlog.sys',
-      $formatting: (sys: any) => sys.uri,
+    ctaLink: {
+      $path: 'featuredBlog',
+      $formatting: (blog: any) => blog && blog.sys && blog.sys.uri,
     },
-    linkLabel: {
-      $path: 'linkLabel',
-      $default: () => 'Read now',
-    },
+    ctaText: () => 'Read now',
     isListingPage: {
       $path: 'isListingPage',
-      $default: () => 'Read now',
+      $default: () => () => 'Read now',
     },
     imageUri: {
       $path: 'featuredBlog.primaryImage',
