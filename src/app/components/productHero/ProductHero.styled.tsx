@@ -84,10 +84,10 @@ const ProductHeroStyled = styled.div`
         transform: translate(-50%, -50%);
       }
       .product-hero__wrapper {
-        max-width: 520px;
-        width: 100%;
         margin-top: 40px;
         @media ${theme.mq.desktop} {
+          max-width: 520px;
+          width: 100%;
           margin: 0 0 0 40px;
         }
       }
@@ -123,8 +123,8 @@ const ProductHeroStyled = styled.div`
         width: 100%;
         @media ${theme.mq.desktop} {
           margin: 24px 0 0;
-          &:not(:first-child) {
-            margin-left: 24px;
+          &:not(:last-child) {
+            margin-right: 24px;
           }
         }
       }

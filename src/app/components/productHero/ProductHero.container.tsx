@@ -42,7 +42,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     _addToBasket: (
-      id: number,
+      id: string,
       productTitle: string,
       quantity: number,
       activeVariant: VariantProps

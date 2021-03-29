@@ -15,6 +15,16 @@ const BasketItemStyled = styled.div`
         ${theme.typeStyles.cardCopy};
         font-family: ${theme.typeStyles.fontFamily.headings};
       }
+      .basket-item__remove-btn {
+        background: transparent;
+        border: none;
+        transition: background-color 200ms ease-out;
+        &:hover {
+          div {
+            background-color: ${theme.colors.error};
+          }
+        }
+      }
     `;
   }};
 `;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import IconButton from '../iconButton/IconButton';
 import BasketMenuStyled from './BasketMenu.styled';
@@ -9,11 +9,13 @@ import BasketItem from '../basketItem/BasketItem';
 // Hooks
 import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
+// Utils
+import { isEmptyObj } from '../../utils/isEmptyObj';
 export interface Props {
   className?: string;
   _toggleBasket: (val: boolean) => void;
   _toggleSearch: (val: boolean) => void;
-  _removeFromBasket: (id: number, sku: string, quantity: number) => void;
+  _removeFromBasket: (id: string, sku: string, quantity: number) => void;
   isBasketOpen: boolean;
   basket: any;
 }
@@ -40,15 +42,31 @@ const BasketMenu = ({
   let TOTAL_PRICE = 0;
   const BASKET_ARRAY = Object.keys(basket).map(key => {
     const BASKET_ITEMS: BasketItemProps[] = [];
-    const ITEMS = [basket[key]];
-    ITEMS.forEach(el => {
-      if (!el) return null;
-      Object.keys(el).map(key => BASKET_ITEMS.push(el[key]));
-    });
+    if (isEmptyObj(basket[key]) === false) {
+      const ITEMS = [basket[key]];
+      ITEMS.forEach(el => {
+        if (!el) return null;
+        Object.keys(el).map(key => {
+          BASKET_ITEMS.push(el[key]);
+        });
+      });
+    }
     return BASKET_ITEMS;
   });
 
-  const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
+  const [hasItemsInBasket, setHasItemsInBasket] = useState(false);
+
+  useEffect(() => {
+    if (BASKET_ARRAY && BASKET_ARRAY.length >= 1) {
+      BASKET_ARRAY.map(i => {
+        if (!i || i.length < 1) {
+          setHasItemsInBasket(false);
+        } else {
+          setHasItemsInBasket(true);
+        }
+      });
+    }
+  }, [BASKET_ARRAY]);
 
   return (
     <BasketMenuStyled

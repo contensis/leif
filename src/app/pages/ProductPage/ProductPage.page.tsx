@@ -21,7 +21,6 @@ const ProductPage = ({ mappedEntry }: Props) => {
     iconListProps,
     relatedProductsProps,
   } = mappedEntry || {};
-  console.info({ mappedEntry });
   return (
     <MainLayout>
       <ProductPageStyled>

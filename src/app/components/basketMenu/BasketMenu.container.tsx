@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch: any) => {
     _toggleMenu: (val: boolean) => dispatch(toggleMenu(val)),
     _toggleBasket: (val: boolean) => dispatch(toggleBasket(val)),
     _removeFromBasket: (
-      id: number,
+      id: string,
       sku: string,
       price: number,
       quantity: number

@@ -36,7 +36,7 @@ export interface Props {
   variants: VariantProps[];
   basket: any;
   _addToBasket: (
-    id: number,
+    id: string,
     productTitle: string,
     quantity: number,
     activeVariant: VariantProps
@@ -56,7 +56,9 @@ const ProductHero = ({
   let [quantity, updateQuantity] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const [activeVariant, setActiveVariant] = useState<VariantProps>(variants[0]);
+  const [activeVariant, setActiveVariant] = useState<VariantProps>(
+    variants && variants[0]
+  );
   const { price } = activeVariant || {};
 
   const _handleClick = (e: any, type: string) => {
@@ -144,7 +146,10 @@ const ProductHero = ({
                         activeVariant.sku === variant.sku ? false : true
                       }
                       className="product-hero__option"
-                      onClick={() => setActiveVariant(variant)}
+                      onClick={() => {
+                        setActiveVariant(variant);
+                        updateQuantity(1);
+                      }}
                     />
                   );
                 })}
