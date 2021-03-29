@@ -65,6 +65,17 @@ export default {
       },
       filters: BlogFilters,
     },
+    [Listings.product]: {
+      title: 'Products',
+      projectId: 'leif',
+      queryParams: {
+        loadMorePaging: true,
+        contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
+        fields: [...BaseFields, ...ProductFields],
+        orderBy: ['-sys.version.published'],
+        pageSize: 9,
+      },
+    },
   },
   minilist: {
     productSlider: {

@@ -8,6 +8,7 @@ import { contentPagePropsMapping } from '../../pages/ContentPage/transformations
 import { landingPagePropsMapping } from '../../pages/LandingPage/transformations/landingpage.entry-to-props.mapper';
 import { blogPostPropsMapping } from '../../pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
 import { blogListingPropsMapping } from '../../pages/BlogListing/transformations/bloglisting.entry-to-props.mapper';
+import { productListingPropsMapping } from '../../pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
 import { productPagePropsMapping } from '../../pages/ProductPage/trasformations/productpage.entry-to-props.mapper';
 
 export default [
@@ -87,5 +88,16 @@ export default [
     }),
     linkDepth: 1,
     entryMapper: ({ entry }) => mapJson(entry, blogListingPropsMapping),
+  },
+  {
+    contentTypeID: 'productListing',
+    component: Loadable({
+      loader: () => {
+        return import('~/pages/ProductListing/ProductListing.page');
+      },
+      loading: Loading,
+    }),
+    linkDepth: 1,
+    entryMapper: ({ entry }) => mapJson(entry, productListingPropsMapping),
   },
 ];

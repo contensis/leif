@@ -62,6 +62,7 @@ export const ContentTypes = {
   contentPage: 'contentPage',
   product: 'product',
   blogListing: 'blogListing',
+  productListing: 'productListing',
   category: 'category',
   person: 'person',
   plant: 'plant',
@@ -87,6 +88,7 @@ export const Listings = {
 
 export const ListingPages = {
   [ContentTypes.blogListing]: Listings.blog,
+  [ContentTypes.productListing]: Listings.product,
 };
 
 export const SearchFacets = {

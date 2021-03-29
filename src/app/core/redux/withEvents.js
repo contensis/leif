@@ -44,6 +44,9 @@ export default {
       case ContentTypes.blogListing:
         triggerListing = true;
         break;
+      case ContentTypes.productListing:
+        triggerListing = true;
+        break;
       default:
         break;
     }
