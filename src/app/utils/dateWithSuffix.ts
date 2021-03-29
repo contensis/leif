@@ -1,4 +1,4 @@
-import formatDate from '../utils/formatDate';
+import formatDate from './formatDate';
 
 const daySuffix = (i: number) => {
   var j = i % 10,
