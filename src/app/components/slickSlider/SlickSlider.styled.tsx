@@ -5,9 +5,6 @@ const SlickSliderStyled = styled.div`
     return css`
       .slider-nav {
         margin-top: 24px;
-        .slick-cloned {
-          display: none !important;
-        }
         .slick-track {
           margin-left: auto;
         }
@@ -31,9 +28,6 @@ const SlickSliderStyled = styled.div`
       }
       .slick-slide {
         height: inherit !important;
-        @media ${theme.mq.desktop} {
-          width: unset !important;
-        }
       }
       .slick__product-slide {
         margin: 0 auto;

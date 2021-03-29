@@ -4,16 +4,26 @@ import IconButton from '../iconButton/IconButton';
 import BasketMenuStyled from './BasketMenu.styled';
 import Icon from '../icon/Icon';
 import LinkButton from '../linkButton/LinkButton';
+import BasketItem from '../basketItem/BasketItem';
 
 // Hooks
-// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
-interface Props {
+export interface Props {
   className?: string;
   _toggleBasket: (val: boolean) => void;
   _toggleSearch: (val: boolean) => void;
+  _removeFromBasket: (id: number, sku: string, quantity: number) => void;
   isBasketOpen: boolean;
   basket: any;
+}
+
+export interface BasketItemProps {
+  title: string;
+  id: string;
+  quantity: number;
+  sku: string;
+  price: number;
 }
 
 const BasketMenu = ({
@@ -21,12 +31,24 @@ const BasketMenu = ({
   isBasketOpen,
   _toggleBasket,
   _toggleSearch,
+  _removeFromBasket,
   basket,
 }: Props) => {
   const ref = useRef();
+  _useOnClickOutside(ref, () => _toggleBasket(false));
 
-  const basketArray = Object.keys(basket).map(key => basket[key]);
-  const hasItemsInBasket = basketArray && basketArray.length >= 1;
+  let TOTAL_PRICE = 0;
+  const BASKET_ARRAY = Object.keys(basket).map(key => {
+    const BASKET_ITEMS: BasketItemProps[] = [];
+    const ITEMS = [basket[key]];
+    ITEMS.forEach(el => {
+      if (!el) return null;
+      Object.keys(el).map(key => BASKET_ITEMS.push(el[key]));
+    });
+    return BASKET_ITEMS;
+  });
+
+  const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
 
   return (
     <BasketMenuStyled
@@ -51,17 +73,21 @@ const BasketMenu = ({
           )}
           {hasItemsInBasket && (
             <div className="basket-menu__items-wrapper">
-              {basketArray.map((item, idx) => {
-                return (
-                  <div key={idx} className="basket-menu__item">
-                    <div>
-                      <span>{item.product_title}</span>
-                      <span>Quantity: {item.quantity}</span>
-                    </div>
-                    <Icon type="delete" />
-                  </div>
-                );
-              })}
+              {BASKET_ARRAY &&
+                BASKET_ARRAY.map((item: any[]) => {
+                  if (!item || item.length < 1) return null;
+                  return item.map((product: BasketItemProps, idx: number) => {
+                    TOTAL_PRICE += product.price * product.quantity;
+                    return (
+                      <BasketItem
+                        key={idx}
+                        {...product}
+                        _removeFromBasket={_removeFromBasket}
+                      />
+                    );
+                  });
+                })}
+              <span>Total: £{TOTAL_PRICE.toFixed(2)}</span>
             </div>
           )}
           <LinkButton

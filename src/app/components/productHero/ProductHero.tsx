@@ -16,6 +16,16 @@ import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
 import { _noScroll } from '../../utils/noScroll';
 
+export interface VariantProps {
+  variantTitle: string;
+  sku: string;
+  price: number;
+  diameter: number;
+  height: number;
+  potDiameterCM?: number;
+  heightCM?: number;
+}
+
 export interface Props {
   className?: string;
   id: any;
@@ -23,14 +33,13 @@ export interface Props {
   rating?: string;
   title: string;
   text?: string;
-  price: number;
-  options?: any;
+  variants: VariantProps[];
   basket: any;
   _addToBasket: (
     id: number,
-    opt: string,
-    title: string,
-    quantity: number
+    productTitle: string,
+    quantity: number,
+    activeVariant: VariantProps
   ) => void;
 }
 
@@ -41,13 +50,14 @@ const ProductHero = ({
   rating,
   title,
   text,
-  price,
-  options,
+  variants,
   _addToBasket,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [activeOption, setActiveOption] = useState<string>('opt-1');
+
+  const [activeVariant, setActiveVariant] = useState<VariantProps>(variants[0]);
+  const { price } = activeVariant || {};
 
   const _handleClick = (e: any, type: string) => {
     e.preventDefault();
@@ -60,6 +70,7 @@ const ProductHero = ({
 
   _noScroll(isModalOpen, true);
 
+  if (!variants || variants.length < 1) return null;
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
       <Wrapper
@@ -120,18 +131,20 @@ const ProductHero = ({
             <h1 className="product-hero__title">{title}</h1>
             {text && <p className="product-hero__text">{text}</p>}
             <span className="product-hero__price">£{price}</span>
-            <div className="product-hero__options">
-              {options &&
-                options.map((opt: any, idx: number) => {
+            <div className="product-hero__variant">
+              {variants &&
+                variants.map((variant: VariantProps, idx: number) => {
                   return (
                     <LinkButton
                       key={idx}
-                      label={opt.title}
+                      label={variant.variantTitle}
                       href="#"
                       type="secondary"
-                      isHollow={activeOption === opt.key ? false : true}
+                      isHollow={
+                        activeVariant.sku === variant.sku ? false : true
+                      }
                       className="product-hero__option"
-                      onClick={() => setActiveOption(opt.key)}
+                      onClick={() => setActiveVariant(variant)}
                     />
                   );
                 })}
@@ -160,7 +173,7 @@ const ProductHero = ({
               icon="arrow-right"
               label="Add to barrow"
               onClick={() => {
-                _addToBasket(id, activeOption, title, quantity);
+                _addToBasket(id, title, quantity, activeVariant);
               }}
               className="product-hero__btn"
             />

@@ -5,7 +5,7 @@ import { toJS } from '../../core/util/ToJs';
 import { addToBasket } from '../../core/redux/custom/basket/actions';
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
-import ProductHero, { Props } from './ProductHero';
+import ProductHero, { Props, VariantProps } from './ProductHero';
 
 const ProductHeroContainer = ({
   className,
@@ -14,8 +14,7 @@ const ProductHeroContainer = ({
   rating,
   title,
   text,
-  price,
-  options,
+  variants,
   basket,
   _addToBasket,
 }: Props) => {
@@ -29,8 +28,7 @@ const ProductHeroContainer = ({
       rating={rating}
       title={title}
       text={text}
-      price={price}
-      options={options}
+      variants={variants}
     />
   );
 };
@@ -43,8 +41,12 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    _addToBasket: (id: number, opt: string, title: string, quantity: number) =>
-      dispatch(addToBasket(id, opt, title, quantity)),
+    _addToBasket: (
+      id: number,
+      productTitle: string,
+      quantity: number,
+      activeVariant: VariantProps
+    ) => dispatch(addToBasket(id, productTitle, quantity, activeVariant)),
   };
 };
 

@@ -9,7 +9,7 @@ import Wrapper from '../wrapper/Wrapper';
 import HeaderSearch from '../headerSearch/HeaderSearch';
 import { _noScroll } from '../../utils/noScroll';
 import Navigation from '../navigation/Navigation';
-import BasketMenu from '../basketMenu/BasketMenu';
+import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
 // import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
@@ -20,10 +20,8 @@ export interface Props {
   isSearchOpen: boolean;
   _toggleMenu: (val: boolean) => void;
   isMenuOpen: boolean;
-  _toggleBasket: (val: boolean) => void;
   isBasketOpen: boolean;
   isLight: boolean;
-  basket: any;
 }
 
 const Header = ({
@@ -33,10 +31,8 @@ const Header = ({
   isMenuOpen,
   _toggleMenu,
   navigation,
-  _toggleBasket,
   isBasketOpen,
   isLight,
-  basket,
 }: Props) => {
   _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
@@ -58,12 +54,7 @@ const Header = ({
                 isSearchOpen={isSearchOpen}
                 _toggleSearch={_toggleSearch}
               />
-              <BasketMenu
-                isBasketOpen={isBasketOpen}
-                _toggleBasket={_toggleBasket}
-                _toggleSearch={_toggleSearch}
-                basket={basket}
-              />
+              <BasketMenu />
               <Navigation
                 isMenuOpen={isMenuOpen}
                 _toggleMenu={_toggleMenu}
@@ -94,12 +85,7 @@ const Header = ({
             isToggled={isSearchOpen}
             _func={() => _toggleSearch(!isSearchOpen)}
           />
-          <BasketMenu
-            isBasketOpen={isBasketOpen}
-            _toggleBasket={_toggleBasket}
-            _toggleSearch={_toggleSearch}
-            basket={basket}
-          />
+          <BasketMenu />
           <Navigation
             isMenuOpen={isMenuOpen}
             _toggleMenu={_toggleMenu}

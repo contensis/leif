@@ -19,16 +19,6 @@ const BasketMenuStyled = styled.div`
           display: block;
         }
       }
-      .basket-menu__item {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        &:not(:last-child) {
-          border-bottom: 2px solid ${theme.colors.neutral_lightgrey};
-          padding-bottom: 8px;
-          margin-bottom: 8px;
-        }
-      }
       .basket-menu__content-wrapper {
         display: none;
         margin-top: 80px;

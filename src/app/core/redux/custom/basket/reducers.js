@@ -1,6 +1,6 @@
 import { Map, fromJS } from 'immutable';
 
-import { ADD_TO_BASKET, INITIALISED_BASKET } from './types';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, INITIALISED_BASKET } from './types';
 
 let initialState = Map({
   products: fromJS({}),
@@ -18,9 +18,27 @@ export default (state = initialState, action) => {
         return state.set('isInitialised', true);
       }
     case ADD_TO_BASKET: {
-      return state
-        .setIn(['products', action.id, 'product_title'], fromJS(action.title))
-        .setIn(['products', action.id, 'quantity'], action.quantity);
+      const { variantTitle, price, sku } = action.activeVariant;
+      const hasSku = !!state.getIn(['products', action.id, sku]);
+
+      if (hasSku) {
+        const { quantity } = action || {};
+        return state.setIn(['products', action.id, sku, 'quantity'], quantity);
+      } else {
+        const title = `${action.productTitle} - ${variantTitle}`;
+
+        return state
+          .setIn(['products', action.id, sku, 'title'], fromJS(title))
+          .setIn(['products', action.id, sku, 'id'], action.id)
+          .setIn(['products', action.id, sku, 'sku'], sku)
+          .setIn(['products', action.id, sku, 'quantity'], action.quantity)
+          .setIn(['products', action.id, sku, 'price'], price);
+      }
+    }
+    case REMOVE_FROM_BASKET: {
+      const { id, sku } = action || {};
+
+      return state.deleteIn(['products', id, sku]);
     }
     default:
       return state;

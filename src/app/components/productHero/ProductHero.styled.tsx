@@ -84,6 +84,8 @@ const ProductHeroStyled = styled.div`
         transform: translate(-50%, -50%);
       }
       .product-hero__wrapper {
+        max-width: 520px;
+        width: 100%;
         margin-top: 40px;
         @media ${theme.mq.desktop} {
           margin: 0 0 0 40px;
@@ -105,6 +107,7 @@ const ProductHeroStyled = styled.div`
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
         @media ${theme.mq.desktop} {
           justify-content: flex-start;
         }
@@ -116,6 +119,8 @@ const ProductHeroStyled = styled.div`
         flex-basis: calc(154px - 24px);
         padding: 8px 16px;
         margin: 32px 12px 0;
+        max-width: 154px;
+        width: 100%;
         @media ${theme.mq.desktop} {
           margin: 24px 0 0;
           &:not(:first-child) {

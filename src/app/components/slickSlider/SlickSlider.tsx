@@ -61,8 +61,7 @@ const SlickSlider = ({
     responsive: responsive,
   };
 
-  const thumbsSlidesToShow =
-    slides.length >= 6 ? 6 : slides.length === 1 ? 2 : slides.length;
+  const thumbsSlidesToShow = slides.length >= 6 ? 6 : 2;
   const settingsThumbs = {
     dots: false,
     infinite: true,
@@ -79,19 +78,19 @@ const SlickSlider = ({
       {
         breakpoint: sizesNoUnit['mobile'],
         settings: {
-          slidesToShow: slides.length >= 2 ? 2 : 1,
+          slidesToShow: slides.length >= 6 ? 2 : 1,
         },
       },
       {
         breakpoint: sizesNoUnit['tablet'],
         settings: {
-          slidesToShow: slides.length >= 3 ? 3 : 2,
+          slidesToShow: slides.length >= 6 ? 3 : 2,
         },
       },
       {
         breakpoint: sizesNoUnit['laptop'],
         settings: {
-          slidesToShow: slides.length >= 4 ? 4 : 2,
+          slidesToShow: slides.length >= 6 ? 4 : 2,
         },
       },
       {
