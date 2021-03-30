@@ -49,7 +49,7 @@ const BlogListing = ({
       ? false
       : pageIndex < pageCount - 1;
 
-  if (!results || results.length < 1) return null;
+  const hasResults = results && results.length >= 1;
   return (
     <BlogListingStyled>
       <Filters
@@ -61,9 +61,16 @@ const BlogListing = ({
         hasResetBtn={true}
       />
       <div className="blog-listing__results">
-        {results.map((res: any, idx: number) => (
-          <Card key={idx} {...res} />
-        ))}
+        {hasResults &&
+          results.map((res: any, idx: number) => (
+            <Card key={idx} {...res} className="blog-listing__result" />
+          ))}
+        {!hasResults && (
+          <div className="no-results">
+            <h3>Sorry! No results found :(</h3>
+            <p>Maybe try selecting another filter?</p>
+          </div>
+        )}
       </div>
       {hasLoadMore && (
         <Button

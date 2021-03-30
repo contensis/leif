@@ -14,7 +14,7 @@ export interface Props {
   imageAlt: string;
   date?: string;
   readTime?: string;
-  price?: number;
+  price: number[];
   rating?: string;
   uri: string;
 }
@@ -47,7 +47,8 @@ const Card = ({
             />
           </>
         );
-      case 'product':
+      case 'product': {
+        const priceText = price.length > 1 ? `${Math.min(...price)}+` : price;
         return (
           <>
             <div className="card__thumbnail-wrapper">
@@ -64,11 +65,12 @@ const Card = ({
             </div>
             <div className="card__content">
               <h3 className="card__title">{title}</h3>
-              {price && <span className="card__price">£{price}</span>}
+              {priceText && <span className="card__price">£{priceText}</span>}
               <Rating className="card__rating" rating={rating} />
             </div>
           </>
         );
+      }
       case 'explore': {
         return (
           <>

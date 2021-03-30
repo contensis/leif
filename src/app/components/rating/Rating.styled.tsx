@@ -19,9 +19,7 @@ const RatingStyled = styled.div`
       ${rating !== '0' &&
         css`
           .rating__star:nth-child(-n + ${rating}) {
-            path {
-              fill: ${theme.colors.warning};
-            }
+            background-color: ${theme.colors.warning};
           }
         `}
     `;

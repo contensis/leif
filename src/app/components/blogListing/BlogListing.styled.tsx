@@ -56,6 +56,9 @@ const BlogListingStyled = styled.div`
       .blog-listing__load-more {
         margin: 0 auto;
       }
+      .no-results {
+        text-align: center;
+      }
     `;
   }};
 `;

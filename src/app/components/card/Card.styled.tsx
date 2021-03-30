@@ -54,10 +54,10 @@ const CardStyled = styled(Link)`
           max-width: 288px;
           width: 100%;
           min-height: 488px;
-          box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
           color: ${theme.colors.secondary};
           text-align: center;
           &:hover {
+            box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
             .card__title {
               text-decoration: underline;
             }

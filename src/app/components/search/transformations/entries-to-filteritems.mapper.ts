@@ -15,6 +15,7 @@ const base = {
 export const mappers = {
   [ContentTypes.category]: base,
   [ContentTypes.person]: base,
+  [ContentTypes.plantType]: base,
 };
 const mapEntriesToFilterItems = entries => mapEntries(entries, mappers);
 export default mapEntriesToFilterItems;

@@ -2,15 +2,28 @@ import { imagePropsMapping } from '~/components/image/transformations/image.comp
 import mapJson from '~/core/util/json-mapper';
 import { VariantProps } from '../ProductHero';
 
-const variantPropsMapping = {
+const plantPropsMapping = {
   sku: 'sku',
   price: 'price',
   height: 'heightCM',
   diameter: 'potDiameterCM',
+  internalDiameterCM: 'internalDiameterCM',
+  externalDiameterCM: 'externalDiameterCM',
+  externalHeightCM: 'externalHeightCM',
   variantTitle: {
     $path: '.',
-    $formatting: ({ potDiameterCM, heightCM }: VariantProps) =>
-      `${potDiameterCM} x ${heightCM}cm`,
+    $formatting: ({
+      potDiameterCM,
+      heightCM,
+      externalDiameterCM,
+      externalHeightCM,
+    }: VariantProps) => {
+      if (potDiameterCM && heightCM) {
+        return `${potDiameterCM} x ${heightCM}cm`;
+      } else if (externalDiameterCM && externalHeightCM) {
+        return `${externalDiameterCM} x ${externalHeightCM}cm`;
+      }
+    },
   },
 };
 
@@ -25,9 +38,9 @@ export const productHeroPropsMapping = {
     },
   },
   variants: {
-    $path: 'plantVariant',
+    $path: ['plantVariant', 'potVariant'],
     $formatting: (variant: any) => {
-      return mapJson(variant, variantPropsMapping);
+      return mapJson(variant, plantPropsMapping);
     },
   },
 };

@@ -11,10 +11,6 @@ const ProductPageStyled = styled.div`
         @media ${theme.mq.laptop} {
           max-width: 100% !important;
           flex-basis: calc(620px - 32px);
-          box-shadow: none;
-          &:hover {
-            box-shadow: 0px 16px 24px rgb(56 33 146 / 7%);
-          }
         }
       }
     `;

@@ -24,7 +24,7 @@ const Footer = ({ className, data }: Props) => {
         <a href="/" title="Home">
           <img
             className="footer__logo"
-            src="/static/img/logos/logo-dark.png"
+            src="/static/img/logos/logo-dark.svg"
             alt="Leif"
           />
           <VisuallyHidden text="Home" />

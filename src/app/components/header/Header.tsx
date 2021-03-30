@@ -70,8 +70,8 @@ const Header = ({
             className="header__logo"
             src={
               isLight
-                ? '/static/img/logos/logo-light.png'
-                : '/static/img/logos/logo-dark.png'
+                ? '/static/img/logos/logo-light.svg'
+                : '/static/img/logos/logo-dark.svg'
             }
             alt="Leif"
           />

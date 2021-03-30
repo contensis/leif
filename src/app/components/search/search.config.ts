@@ -5,6 +5,7 @@ import {
   BaseFields,
   // FreeTextWeights,
   // DefaultWeightedSearchQueryFields,
+  ReviewFields,
   Fields,
   BlogFields,
   ContentFields,
@@ -12,7 +13,7 @@ import {
 } from '../../core/schema';
 
 // Filters
-import BlogFilters from './filters/blog';
+import { BlogFilters, ProductFilters } from './filters';
 
 // The config defined here is loaded into initialState
 // and is used to drive the how the site search works
@@ -75,23 +76,40 @@ export default {
         orderBy: ['-sys.version.published'],
         pageSize: 9,
       },
+      filters: ProductFilters,
     },
   },
   minilist: {
-    productSlider: {
-      title: 'Product Slider',
+    featuredProduct: {
+      title: 'Featured Product',
       queryParams: {
         contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
         fields: [...BaseFields, ...ProductFields],
         orderBy: ['-sys.version.published'],
-        pageSize: 10,
-        // customWhere: [
-        //   {
-        //     field: 'type',
-        //     equalTo: 'productsByFilter',
-        //   },
-        // ],
-        // weightedSearchFields: [...WeightedFields.base],
+        pageSize: 1,
+        linkDepth: 1,
+        customWhere: [
+          {
+            field: 'isFeatured',
+            equalTo: true,
+          },
+        ],
+      },
+    },
+    reviews: {
+      title: 'Reviews',
+      queryParams: {
+        contentTypeIds: [ContentTypes.review],
+        fields: [...BaseFields, ...ReviewFields],
+        orderBy: ['-sys.version.published'],
+        pageSize: 1,
+        linkDepth: 2,
+        customWhere: [
+          {
+            field: 'rating',
+            equalTo: '4 stars',
+          },
+        ],
       },
     },
   },

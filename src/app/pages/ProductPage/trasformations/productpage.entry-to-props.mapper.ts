@@ -20,7 +20,7 @@ export const productPagePropsMapping = {
       if (!matchingPots || matchingPots.length < 1) return null;
       return mapEntriesToResults(matchingPots);
     },
-    linkUri: () => '/product',
+    linkUri: () => '/products-shop',
     linkLabel: () => 'View all products',
   },
 };

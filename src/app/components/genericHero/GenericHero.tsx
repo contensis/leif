@@ -15,7 +15,7 @@ export interface Props {
   ctaText?: string;
   imageUri: string;
   imageAlt: string;
-  price?: string;
+  price?: number[];
   readTime?: number;
   date?: string;
   isListingPage?: boolean;
@@ -54,6 +54,9 @@ const GenericHero = ({
     children,
   }: ConditionalLinkProps) => (condition ? wrapper(children) : children);
 
+  const priceText =
+    price && price.length > 1 ? `${Math.min(...price)}+` : price;
+
   return (
     <GenericHeroStyled
       className={className}
@@ -80,10 +83,10 @@ const GenericHero = ({
           )}
           <h1 className="generic-hero__title">{title}</h1>
           {text && <p className="generic-hero__text">{text}</p>}
-          {(price || date) && (
+          {(priceText || date) && (
             <div className="generic-hero__detail">
-              {price && (
-                <span className="generic-hero__detail-price">£{price}</span>
+              {priceText && (
+                <span className="generic-hero__detail-price">£{priceText}</span>
               )}
               {date && <BlogDetail date={date} readTime={readTime} />}
             </div>

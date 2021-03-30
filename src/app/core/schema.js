@@ -16,6 +16,8 @@ const sys = {
 
 export const Fields = {
   entryTitle: 'entryTitle',
+  entryDescription: 'entryDescription',
+  description: 'description',
   productTitle: 'productName',
   productType: 'type',
   leadParagraph: 'leadParagraph',
@@ -27,6 +29,14 @@ export const Fields = {
   wildcard: '*',
   body: 'body',
   kicker: 'kicker',
+  potVariant: 'potVariant',
+  plantVariant: 'plantVariant',
+  headline: 'headline',
+  quote: 'text',
+  rating: 'rating',
+  person: 'person',
+  personName: 'person.name',
+  personPhoto: 'person.photo',
 };
 
 export const BaseFields = [
@@ -39,7 +49,22 @@ export const BaseFields = [
 
 export const ContentFields = [Fields.leadParagraph];
 
-export const ProductFields = [Fields.productTitle, Fields.productType];
+export const ReviewFields = [
+  Fields.quote,
+  Fields.rating,
+  Fields.person,
+  Fields.personName,
+  Fields.personPhoto,
+];
+
+export const ProductFields = [
+  Fields.primaryImage,
+  Fields.productTitle,
+  Fields.description,
+  Fields.productType,
+  Fields.plantVariant,
+  Fields.potVariant,
+];
 
 export const BlogFields = [
   Fields.summary,
@@ -67,6 +92,8 @@ export const ContentTypes = {
   person: 'person',
   plant: 'plant',
   pot: 'pot',
+  plantType: 'plantType',
+  review: 'review',
 };
 
 export const FilterExpressionTypes = {
@@ -138,4 +165,9 @@ export const ComposerComponents = {
 export const BlogFilters = {
   category: 'category',
   author: 'author',
+};
+
+export const ProductFilters = {
+  plantType: 'plantType',
+  species: 'species',
 };

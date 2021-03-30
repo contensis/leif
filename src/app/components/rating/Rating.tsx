@@ -14,6 +14,7 @@ const Rating = ({ className, rating }: Props) => {
   for (let i = 0; i < 5; i++) {
     stars.push(`star__${i}`);
   }
+
   return (
     <RatingStyled className={className} rating={rating}>
       {stars &&
@@ -23,7 +24,7 @@ const Rating = ({ className, rating }: Props) => {
               key={s}
               type="star"
               className="rating__star"
-              color="#FFC805"
+              color="#F1F1F1"
             />
           );
         })}

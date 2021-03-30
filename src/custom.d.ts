@@ -9,3 +9,4 @@ declare module "*.png" {
 }
 
 declare module 'react-twitter-embed';
+declare module '@zengenti/contensis-react-base/search';

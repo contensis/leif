@@ -22,6 +22,9 @@ export interface VariantProps {
   price: number;
   diameter: number;
   height: number;
+  internalDiameterCM?: number;
+  externalDiameterCM?: number;
+  externalHeightCM?: number;
   potDiameterCM?: number;
   heightCM?: number;
 }
@@ -103,7 +106,7 @@ const ProductHero = ({
           </>
         )}
       >
-        <BackButton label="All products" uri="/" />
+        <BackButton label="All products" uri="/products-shop" />
         <div className="product-hero__content">
           {!isModalOpen && (
             <div className="product-hero__slider-wrapper">
