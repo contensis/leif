@@ -12,14 +12,14 @@ import Region from '~/layout/Region';
 import { Props } from './ProductPage.d';
 import TextBlock from '~/components/textBlock/TextBlock';
 import IconList from '~/components/iconList/IconList';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
+import PromotedContent from '~/components/promotedContent/PromotedContent';
 
 const ProductPage = ({ mappedEntry }: Props) => {
   const {
     productHeroProps,
     textBlockProps,
     iconListProps,
-    relatedProductsProps,
+    matchingProductsProps,
   } = mappedEntry || {};
   return (
     <MainLayout>
@@ -36,7 +36,7 @@ const ProductPage = ({ mappedEntry }: Props) => {
           </Region>
         </div>
         <Region width="full" margin="large">
-          <RelatedContent {...relatedProductsProps} />
+          <PromotedContent {...matchingProductsProps} />
         </Region>
       </ProductPageStyled>
     </MainLayout>

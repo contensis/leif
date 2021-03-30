@@ -1,6 +1,10 @@
 import { Map, fromJS } from 'immutable';
 
+// Types
 import { ADD_TO_BASKET, REMOVE_FROM_BASKET, INITIALISED_BASKET } from './types';
+
+// Utils
+import { _countObjectProperties } from '../../../../utils/countObjectProperties';
 
 let initialState = Map({
   products: fromJS({}),
@@ -37,8 +41,13 @@ export default (state = initialState, action) => {
     }
     case REMOVE_FROM_BASKET: {
       const { id, sku } = action || {};
+      const currentProductObject = state.getIn(['products', id]).toJS();
 
-      return state.deleteIn(['products', id, sku]);
+      if (_countObjectProperties(currentProductObject) === 1) {
+        return state.deleteIn(['products', id]);
+      } else {
+        return state.deleteIn(['products', id, sku]);
+      }
     }
     default:
       return state;

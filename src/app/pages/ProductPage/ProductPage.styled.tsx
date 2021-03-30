@@ -7,7 +7,12 @@ const ProductPageStyled = styled.div`
       .product-page__content {
         max-width: 840px;
       }
-      .related-content__card {
+      .promoted-content__results {
+        @media ${theme.mq.laptop} {
+          padding: 0 0 32px 0;
+        }
+      }
+      .promoted-content__card {
         @media ${theme.mq.laptop} {
           max-width: 100% !important;
           flex-basis: calc(620px - 32px);

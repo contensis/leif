@@ -14,7 +14,7 @@ export const productPagePropsMapping = {
       $formatting: (condition: any) => mapJson(condition, iconPropsMapping),
     },
   },
-  relatedProductsProps: {
+  matchingProductsProps: {
     title: () => 'Matching pots',
     results: ({ matchingPots }: any) => {
       if (!matchingPots || matchingPots.length < 1) return null;

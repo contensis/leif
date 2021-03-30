@@ -24,8 +24,29 @@ export const BlogFilters = {
 };
 
 export const ProductFilters = {
-  [Product.plantType]: {
+  [Product.contentTypeId]: {
     title: 'Browse product types',
+    contentTypeId: [ContentTypes.pot, ContentTypes.plant],
+    fieldId: 'sys.contentTypeId',
+    isSelected: false,
+    isSingleSelect: true,
+    items: [
+      {
+        key: 'pot',
+        title: 'Pot',
+        path: 'pot',
+        isSelected: false,
+      },
+      {
+        key: 'plant',
+        title: 'Plant',
+        path: 'plant',
+        isSelected: false,
+      },
+    ],
+  },
+  [Product.plantType]: {
+    title: 'Browse plant types',
     contentTypeId: ContentTypes.plantType,
     fieldId: 'type.sys.id',
     isSelected: false,

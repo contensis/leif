@@ -6,7 +6,7 @@ import RelatedLinks from '~/components/relatedLinks/RelatedLinks.container';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
-import ExploreMore from '~/components/promotedContent/PromotedContent';
+import PromotedContent from '~/components/promotedContent/PromotedContent';
 import ContentHero from '~/components/contentHero/ContentHero';
 
 // Layout
@@ -49,7 +49,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
           </aside>
         </div>
         <Region width="full" margin="default">
-          <ExploreMore {...promotedContentProps} />
+          <PromotedContent {...promotedContentProps} />
         </Region>
       </ContentPageStyled>
     </MainLayout>

@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-const ExploreStyled = styled.div`
+const PromotedContentStyled = styled.div`
   ${({ theme }) => {
     return css`
-      .explore__title {
+      .promoted-content__title {
         text-align: center;
         margin-bottom: 34px;
       }
-      .explore__results {
+      .promoted-content__results {
         display: flex;
         justify-content: flex-start;
         overflow-x: scroll;
@@ -16,8 +16,15 @@ const ExploreStyled = styled.div`
           overflow-x: auto;
         }
       }
+      .promoted-content__link {
+        margin: 80px auto 0;
+        display: block;
+        @media ${theme.mq.desktop} {
+          margin-top: 40px;
+        }
+      }
     `;
   }};
 `;
 
-export default ExploreStyled;
+export default PromotedContentStyled;

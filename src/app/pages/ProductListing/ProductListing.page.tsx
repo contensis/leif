@@ -40,8 +40,6 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
   const { results: reviews } = useMinilist(reviewOptions);
 
-  console.info({ reviews });
-
   return (
     <MainLayout>
       <ProductListingStyled>
@@ -54,9 +52,15 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
         <ListingContainer>
           <ProductListing />
         </ListingContainer>
-        {reviews.map((review: any, idx: number) => (
-          <QuoteBlock key={idx} {...review} />
-        ))}
+        <Region width="small" margin="none">
+          {reviews.map((review: any, idx: number) => (
+            <QuoteBlock
+              className="product-listing__quote"
+              key={idx}
+              {...review}
+            />
+          ))}
+        </Region>
       </ProductListingStyled>
     </MainLayout>
   );

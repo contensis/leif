@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import IconButton from '../iconButton/IconButton';
 import BasketMenuStyled from './BasketMenu.styled';
@@ -54,19 +54,7 @@ const BasketMenu = ({
     return BASKET_ITEMS;
   });
 
-  const [hasItemsInBasket, setHasItemsInBasket] = useState(false);
-
-  useEffect(() => {
-    if (BASKET_ARRAY && BASKET_ARRAY.length >= 1) {
-      BASKET_ARRAY.map(i => {
-        if (!i || i.length < 1) {
-          setHasItemsInBasket(false);
-        } else {
-          setHasItemsInBasket(true);
-        }
-      });
-    }
-  }, [BASKET_ARRAY]);
+  const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
 
   return (
     <BasketMenuStyled
