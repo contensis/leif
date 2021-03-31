@@ -19,9 +19,10 @@ function* _ensureInitialised() {
   }
 
   if (basket) {
+    const parsedBasketObj = JSON.parse(basket);
     yield put({
       type: INITIALISED_BASKET,
-      value: JSON.parse(basket),
+      value: parsedBasketObj,
     });
   } else {
     yield put({ type: INITIALISED_BASKET });
