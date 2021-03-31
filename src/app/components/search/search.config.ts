@@ -107,7 +107,7 @@ export default {
         customWhere: [
           {
             field: 'rating',
-            equalTo: '4 stars',
+            equalTo: '5 stars',
           },
         ],
       },
