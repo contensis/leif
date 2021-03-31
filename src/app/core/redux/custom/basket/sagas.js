@@ -1,9 +1,10 @@
 import { takeEvery, select, put } from 'redux-saga/effects';
 import { selectProductsInBasket } from '../basket/selectors';
 
-import { CookieHelper } from '../../../../utils/cookies.class';
 import { ADD_TO_BASKET, REMOVE_FROM_BASKET, INITIALISED_BASKET } from './types';
 import { ROUTE_WILL_LOAD } from '../../types';
+
+import { isClient } from '../../../../utils/isClient';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),
@@ -12,12 +13,15 @@ export const BasketSagas = [
 ];
 
 function* _ensureInitialised() {
-  const basketCookie = CookieHelper.GetCookie('basket');
-  if (basketCookie) {
-    const parsedBasketCookie = JSON.parse(basketCookie);
+  let basket = {};
+  if (isClient()) {
+    basket = window.localStorage.getItem('basket');
+  }
+
+  if (basket) {
     yield put({
       type: INITIALISED_BASKET,
-      value: parsedBasketCookie,
+      value: JSON.parse(basket),
     });
   } else {
     yield put({ type: INITIALISED_BASKET });
@@ -26,7 +30,8 @@ function* _ensureInitialised() {
 
 function* _updateCookie() {
   const products = yield select(selectProductsInBasket);
-  if (products) {
-    CookieHelper.SetCookie('basket', products);
+
+  if (isClient() && products) {
+    window.localStorage.setItem('basket', JSON.stringify(products));
   }
 }
