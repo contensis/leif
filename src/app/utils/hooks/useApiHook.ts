@@ -13,6 +13,7 @@ const getProducts = async (filter: string) => {
     ),
     Op.equalTo('type.entryTitle', filter)
   );
+  query.pageSize = 10;
   try {
     return await cachedSearch.search(query, 1, 'leif');
   } catch (error) {

@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   theme?: any;
-  ref?: any;
   isBasketOpen: boolean;
 }
 

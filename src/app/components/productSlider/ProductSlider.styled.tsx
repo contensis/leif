@@ -30,6 +30,12 @@ const CardSliderStyled = styled.div`
         align-items: center;
         justify-content: space-between;
       }
+      .slick-slide {
+        width: 290px !important;
+      }
+      .slick__product-slide {
+        box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
+      }
       .card-slider__image {
         display: none;
         height: 480px;

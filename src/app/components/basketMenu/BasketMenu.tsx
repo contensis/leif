@@ -7,7 +7,7 @@ import LinkButton from '../linkButton/LinkButton';
 import BasketItem from '../basketItem/BasketItem';
 
 // Hooks
-// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
 // Utils
 import { isEmptyObj } from '../../utils/isEmptyObj';
@@ -37,7 +37,7 @@ const BasketMenu = ({
   basket,
 }: Props) => {
   const ref = useRef();
-  // _useOnClickOutside(ref, () => _toggleBasket(false));
+  _useOnClickOutside(ref, () => _toggleBasket(false));
 
   let TOTAL_PRICE = 0;
   const BASKET_ARRAY = Object.keys(basket).map(key => {
@@ -57,11 +57,7 @@ const BasketMenu = ({
   const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
 
   return (
-    <BasketMenuStyled
-      className={className}
-      isBasketOpen={isBasketOpen}
-      ref={ref}
-    >
+    <BasketMenuStyled className={className} isBasketOpen={isBasketOpen}>
       <IconButton
         icon="pot"
         text="Basket"
@@ -72,7 +68,7 @@ const BasketMenu = ({
         }}
       />
       {isBasketOpen && (
-        <div className="basket-menu__content-wrapper">
+        <div className="basket-menu__content-wrapper" ref={ref}>
           <Icon className="basket-menu__icon" type="wheelbarrow" />
           {!hasItemsInBasket && (
             <p className="basket-menu__text">Your basket is empty</p>
@@ -98,7 +94,7 @@ const BasketMenu = ({
           )}
           <LinkButton
             label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-            href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
+            href={`${hasItemsInBasket ? '/checkout' : '/products-shop'}`}
             icon="arrow-right"
           />
         </div>
