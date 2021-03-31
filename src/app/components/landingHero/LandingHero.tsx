@@ -8,15 +8,15 @@ import LandingHeroStyled from './LandingHero.styled';
 
 export interface Props {
   className?: string;
-  imageUri: string;
-  imageAlt: string;
+  imageUri?: string;
+  imageAlt?: string;
   title: string;
-  summary: string;
+  summary?: string;
   ctaLink?: string;
   ctaText?: string;
-  hasIllustration: boolean;
-  heroIllustrationUri: string;
-  heroIllustrationAlt: string;
+  hasIllustration?: boolean;
+  heroIllustrationUri?: string;
+  heroIllustrationAlt?: string;
 }
 
 const LandingHero = ({

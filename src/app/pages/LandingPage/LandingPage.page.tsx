@@ -13,6 +13,7 @@ import Region from '~/layout/Region';
 
 // Models
 import { Props } from './LandingPage.d';
+import CardRow from '~/components/cardRow/CardRow';
 
 const LandingPage = ({ mappedEntry }: Props) => {
   const {
@@ -20,6 +21,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
     leadParagraphProps,
     contentComposerProps,
     ctaBannerProps,
+    relatedContentProps,
   } = mappedEntry || {};
 
   const { imageUri } = landingPageHeroProps;
@@ -29,6 +31,9 @@ const LandingPage = ({ mappedEntry }: Props) => {
     <MainLayout isLight={isLight}>
       <LandingPageStyled>
         <LandingHero {...landingPageHeroProps} />
+        <Region margin="large" width="full">
+          <CardRow {...relatedContentProps} />
+        </Region>
         <Region margin="large" width="medium">
           <LeadParagraph {...leadParagraphProps} />
         </Region>

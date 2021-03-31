@@ -1,7 +1,6 @@
 import { sizesNoUnit } from '../../../theme/global/layout';
 
 export const _createResponsiveSettings = (length: number) => {
-  console.info({ length });
   return [
     {
       breakpoint: sizesNoUnit['tablet'],

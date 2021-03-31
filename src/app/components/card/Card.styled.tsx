@@ -141,8 +141,11 @@ const CardStyled = styled(Link)`
               css`
                 flex-direction: column-reverse;
                 padding: 24px 16px;
+                .card__thumbnail {
+                  margin: 0 0 24px;
+                }
                 .card__title {
-                  margin: 24px 0 0 0;
+                  margin: 0 0 auto 0;
                 }
               `}
           `}
