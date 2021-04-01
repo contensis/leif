@@ -17,7 +17,7 @@ export default [
     contentTypeID: 'homepage',
     component: Loadable({
       loader: () => {
-        return import('~/pages/Home/home.page');
+        return import('~/pages/Home/Home.page');
       },
       loading: Loading,
     }),
