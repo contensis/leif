@@ -20,13 +20,13 @@ export const reviewBlockMapping = {
   quote: 'text',
   photo: {
     $path: 'person',
-    $formatting: (person: any) => console.info({ person }),
+    $formatting: (person: any) =>
+      person &&
+      person.photo &&
+      person.photo.asset &&
+      person.photo.asset.sys &&
+      person.photo.asset.sys.uri,
     $default: () => '/image-library/default-images/leif-fallback.png',
-    // person &&
-    // person.photo &&
-    // person.photo.asset &&
-    // person.photo.asset.sys &&
-    // person.photo.asset.sys.uri,
   },
   name: 'person.entryTitle',
   rating: {

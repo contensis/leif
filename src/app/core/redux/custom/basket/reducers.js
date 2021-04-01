@@ -15,22 +15,18 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case INITIALISED_BASKET:
       if (action.value) {
-        return state
-          .set('products', JSON.parse(action.value))
-          .set('isInitialised', true);
+        return state.set('products', action.value).set('isInitialised', true);
       } else {
         return state.set('isInitialised', true);
       }
     case ADD_TO_BASKET: {
       const { variantTitle, price, sku } = action.activeVariant;
       const hasSku = !!state.getIn(['products', action.id, sku]);
-
       if (hasSku) {
         const { quantity } = action || {};
         return state.setIn(['products', action.id, sku, 'quantity'], quantity);
       } else {
         const title = `${action.productTitle} - ${variantTitle}`;
-
         return state
           .setIn(['products', action.id, sku, 'title'], fromJS(title))
           .setIn(['products', action.id, sku, 'id'], action.id)
@@ -42,7 +38,6 @@ export default (state = initialState, action) => {
     case REMOVE_FROM_BASKET: {
       const { id, sku } = action || {};
       const currentProductObject = state.getIn(['products', id]).toJS();
-
       if (_countObjectProperties(currentProductObject) === 1) {
         return state.deleteIn(['products', id]);
       } else {

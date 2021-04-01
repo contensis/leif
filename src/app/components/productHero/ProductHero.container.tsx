@@ -13,7 +13,7 @@ const ProductHeroContainer = ({
   className,
   id,
   slides,
-  rating,
+  review,
   title,
   text,
   variants,
@@ -31,7 +31,7 @@ const ProductHeroContainer = ({
       _setActiveVariant={_setActiveVariant}
       activeVariant={activeVariant}
       slides={slides}
-      rating={rating}
+      review={review}
       title={title}
       text={text}
       variants={variants}

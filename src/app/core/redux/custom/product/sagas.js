@@ -1,0 +1,41 @@
+import { takeEvery, select, put } from 'redux-saga/effects';
+
+import { SET_ENTRY } from '../../types';
+
+import { SET_PRODUCT_REVIEWS } from './types';
+import { selectCurrentPath, selectRouteEntryID } from '../../selectors';
+
+import { Op, Query } from 'contensis-delivery-api';
+import { cachedSearch } from '../../../util/ContensisDeliveryApi';
+
+import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+
+export const ProductSagas = [takeEvery(SET_ENTRY, _getReviews)];
+
+function* _getReviews() {
+  const currentPath = yield select(selectCurrentPath);
+  if (currentPath && currentPath.includes('/products-shop/')) {
+    const productId = yield select(selectRouteEntryID);
+    if (productId) {
+      try {
+        const expressions = [
+          Op.and(
+            Op.equalTo('sys.versionStatus', 'published'),
+            Op.or(Op.equalTo('sys.contentTypeId', 'review'))
+          ),
+          Op.equalTo('product.sys.id', productId),
+        ];
+        const query = new Query(...expressions);
+        query.pageSize = 1;
+        const payload = yield cachedSearch.search(query, 1, 'leif');
+        const { items } = payload || {};
+        yield put({
+          type: SET_PRODUCT_REVIEWS,
+          value: mapEntriesToResults(items),
+        });
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+  }
+}

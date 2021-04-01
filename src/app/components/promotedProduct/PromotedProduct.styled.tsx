@@ -11,7 +11,6 @@ const PromotionalBlockStyled = styled.div`
   ${({ theme, align, isModalOpen, hasTrending }: Props) => {
     return css`
     position: relative;
-    overflow-x: hidden;
     padding-bottom: 120px;
     @media ${theme.mq.laptop} {
       display: ${isModalOpen ? 'block' : 'flex'};

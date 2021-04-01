@@ -10,11 +10,16 @@ const PromotedContentStyled = styled.div`
       .promoted-content__results {
         display: flex;
         justify-content: flex-start;
-        overflow-x: scroll;
+        overflow-x: auto;
+        white-space: nowrap;
         @media ${theme.mq.desktop} {
           justify-content: center;
           overflow-x: auto;
         }
+      }
+      .promoted-content__card {
+        max-width: auto;
+        min-width: 288px;
       }
       .promoted-content__link {
         margin: 80px auto 0;

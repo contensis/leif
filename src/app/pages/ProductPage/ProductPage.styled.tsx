@@ -18,6 +18,11 @@ const ProductPageStyled = styled.div`
           flex-basis: calc(620px - 32px);
         }
       }
+      .product-page__quote {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+      }
     `;
   }};
 `;

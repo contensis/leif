@@ -6,7 +6,6 @@ const TrendingStyled = styled.div`
       display: flex;
       align-items: center;
       overflow-x: scroll;
-      height: 40px;
       width: 100%;
       @media ${theme.mq.laptop} {
         overflow-x: auto;

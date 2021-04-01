@@ -41,7 +41,7 @@ export interface Props {
   className?: string;
   id: any;
   slides: any[] | any;
-  rating?: string;
+  review?: string;
   title: string;
   text?: string;
   variants: VariantProps[];
@@ -60,13 +60,13 @@ const ProductHero = ({
   className,
   id,
   slides,
-  rating,
   title,
   text,
   variants,
   _addToBasket,
   activeVariant,
   _setActiveVariant,
+  review,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -147,7 +147,7 @@ const ProductHero = ({
           )}
           <div className="product-hero__wrapper">
             <div className="product-hero__socials-wrapper">
-              <Rating rating={rating} />
+              <Rating {...review} />
               <SocialShare className="product-hero__socials" />
             </div>
             <h1 className="product-hero__title">{title}</h1>

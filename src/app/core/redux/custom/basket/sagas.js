@@ -8,12 +8,12 @@ import { isClient } from '../../../../utils/isClient';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),
-  takeEvery(ADD_TO_BASKET, _updateCookie),
-  takeEvery(REMOVE_FROM_BASKET, _updateCookie),
+  takeEvery(ADD_TO_BASKET, _updateLocalStorage),
+  takeEvery(REMOVE_FROM_BASKET, _updateLocalStorage),
 ];
 
 function* _ensureInitialised() {
-  let basket = null;
+  let basket = {};
   if (isClient()) {
     basket = window.localStorage.getItem('basket');
   }
@@ -21,17 +21,19 @@ function* _ensureInitialised() {
   if (basket) {
     yield put({
       type: INITIALISED_BASKET,
-      value: basket,
+      value: JSON.parse(basket),
     });
   } else {
     yield put({ type: INITIALISED_BASKET });
   }
 }
 
-function* _updateCookie() {
+function* _updateLocalStorage() {
   const products = yield select(selectProductsInBasket);
 
-  if (isClient() && products) {
-    window.localStorage.setItem('basket', JSON.stringify(products));
+  if (isClient()) {
+    if (products) {
+      window.localStorage.setItem('basket', JSON.stringify(products));
+    }
   }
 }
