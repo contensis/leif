@@ -2,13 +2,12 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   theme?: any;
-  bgImageUri?: string;
 }
 
 const TestimonialSliderStyled = styled.div`
-  ${({ theme, bgImageUri }: Props) => {
+  ${({ theme }: Props) => {
     return css`
-      background-image: url(${bgImageUri});
+      background-image: url('/static/img/backgrounds/testimonial-slider-background.jpeg');
       background-size: cover;
       background-position: center;
       position: relative;
@@ -20,7 +19,7 @@ const TestimonialSliderStyled = styled.div`
         width: 100%;
         height: 100%;
         background-color: ${theme.colors.secondary};
-        opacity: ${bgImageUri ? '.9' : '1'};
+        opacity: 0.9;
       }
       @media ${theme.mq.desktop} {
         display: flex;

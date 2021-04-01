@@ -12,8 +12,6 @@ const testimonialPropsMapping = {
 };
 
 export const featuredReviewsPropsMapping = {
-  bgImageUri: () =>
-    '/static/img/backgrounds/testimonial-slider-background.jpeg',
   testimonials: {
     $path: '.',
     $formatting: (testimonial: any) =>

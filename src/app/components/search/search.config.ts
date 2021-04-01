@@ -112,5 +112,23 @@ export default {
         ],
       },
     },
+    latestReviews: {
+      title: 'Latest reviews',
+      queryParams: {
+        contentTypeIds: [ContentTypes.review],
+        fields: [...BaseFields, ...ReviewFields],
+        orderBy: ['-sys.version.published'],
+        pageSize: 3,
+      },
+    },
+    latestBlogs: {
+      title: 'Latest blogs',
+      queryParams: {
+        contentTypeIds: [ContentTypes.blog],
+        fields: [...BaseFields, ...BlogFields],
+        orderBy: ['-sys.version.published'],
+        pageSize: 3,
+      },
+    },
   },
 };

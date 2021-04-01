@@ -6,10 +6,9 @@ import TestimonialSliderStyled from './TestimonialSlider.styled';
 export interface Props {
   className?: string;
   testimonials: any;
-  bgImageUri?: string;
 }
 
-const TestimonialSlider = ({ className, testimonials, bgImageUri }: Props) => {
+const TestimonialSlider = ({ className, testimonials }: Props) => {
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const updateCurrentSlide = (currentSlide: number) => {
     setCurrentSlide(currentSlide + 1);
@@ -18,7 +17,7 @@ const TestimonialSlider = ({ className, testimonials, bgImageUri }: Props) => {
 
   if (!testimonials || testimonials.length < 1) return null;
   return (
-    <TestimonialSliderStyled className={className} bgImageUri={bgImageUri}>
+    <TestimonialSliderStyled className={className}>
       <div className="testimonial-slider__wrapper">
         <SlickSlider
           type="testimonial"
