@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import LandingHero from '~/components/landingHero/LandingHero';
 import Composer from '~/components/composer/ComposerWrapper';
 import TestimonialSlider from '~/components/testimonialSlider/TestimonialSlider';
+import CTABanner from '~/components/ctaBanner/CTABanner';
 
 // Layout
 import MainLayout from '~/layout/MainLayout';
@@ -18,7 +19,8 @@ import { Props } from './Home.d';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 const Home = ({ mappedEntry }: Props) => {
-  const { homeHeroProps, contentComposerProps } = mappedEntry || {};
+  const { homeHeroProps, contentComposerProps, ctaBannerProps } =
+    mappedEntry || {};
 
   const [latestReviewsOptions, setLatestReviewsOptions] = useState<any>();
   const [latestBlogsOptions, setLatestBlogsOptions] = useState<any>();
@@ -52,6 +54,9 @@ const Home = ({ mappedEntry }: Props) => {
           linkUri="/blog"
           linkLabel="View all blogs"
         />
+      </Region>
+      <Region margin="xlarge" width="msmall">
+        <CTABanner {...ctaBannerProps} />
       </Region>
     </MainLayout>
   );
