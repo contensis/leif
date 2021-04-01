@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case INITIALISED_BASKET:
       if (action.value) {
         return state
-          .set('products', fromJS(action.value))
+          .set('products', JSON.parse(action.value))
           .set('isInitialised', true);
       } else {
         return state.set('isInitialised', true);

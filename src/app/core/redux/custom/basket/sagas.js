@@ -13,16 +13,15 @@ export const BasketSagas = [
 ];
 
 function* _ensureInitialised() {
-  let basket = {};
+  let basket = null;
   if (isClient()) {
     basket = window.localStorage.getItem('basket');
   }
 
   if (basket) {
-    const parsedBasketObj = JSON.parse(basket);
     yield put({
       type: INITIALISED_BASKET,
-      value: parsedBasketObj,
+      value: basket,
     });
   } else {
     yield put({ type: INITIALISED_BASKET });
