@@ -9,7 +9,7 @@ interface Props {
 const HeaderStyled = styled.div`
   ${({ theme, isSearchOpen, isLight }: Props) => {
     return css`
-      margin-bottom: 24px;
+      margin-bottom: ${isLight ? '0px' : '24px'};
       display: flex;
       align-items: center;
       justify-content: space-between;

@@ -10,6 +10,7 @@ interface Props {
   ctaLink?: string;
   ctaText?: string;
   btnIcon?: string;
+  headingLevel?: number;
 }
 
 const HeroContent = ({
@@ -19,10 +20,13 @@ const HeroContent = ({
   ctaLink,
   ctaText,
   btnIcon,
+  headingLevel = 2,
 }: Props) => {
+  const Heading = `h${headingLevel}`;
+
   return (
     <HeroContentStyled className={className}>
-      <h2 className="hero-content__title">{title}</h2>
+      <Heading className="hero-content__title">{title}</Heading>
       {summary && <p className="hero-content__summary">{summary}</p>}
       {ctaLink && (
         <LinkButton

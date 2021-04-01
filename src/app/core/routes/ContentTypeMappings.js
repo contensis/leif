@@ -9,17 +9,20 @@ import { landingPagePropsMapping } from '../../pages/LandingPage/transformations
 import { blogPostPropsMapping } from '../../pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
 import { blogListingPropsMapping } from '../../pages/BlogListing/transformations/bloglisting.entry-to-props.mapper';
 import { productListingPropsMapping } from '../../pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
-import { productPagePropsMapping } from '../../pages/ProductPage/trasformations/productpage.entry-to-props.mapper';
+import { productPagePropsMapping } from '../../pages/ProductPage/transformations/productpage.entry-to-props.mapper';
+import { homepageHeroProps } from '../../pages/Home/transformations/homepage.entry-to-props.mapper';
 
 export default [
   {
     contentTypeID: 'homepage',
     component: Loadable({
       loader: () => {
-        return import('~/pages/Home/home.page.js');
+        return import('~/pages/Home/home.page');
       },
       loading: Loading,
     }),
+    linkDepth: 1,
+    entryMapper: ({ entry }) => mapJson(entry, homepageHeroProps),
   },
   // Content Pages
   {

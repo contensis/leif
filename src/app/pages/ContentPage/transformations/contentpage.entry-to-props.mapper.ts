@@ -9,8 +9,12 @@ export const contentPagePropsMapping = {
   leadParagraphProps: {
     text: 'leadParagraph',
   },
-  contentComposerProps: ({ bodyContent }: any) =>
-    mapComposer(bodyContent, composerPropsMapping),
+  contentComposerProps: ({ bodyContent }: any) => {
+    return {
+      items: mapComposer(bodyContent, composerPropsMapping),
+      isContentPage: true,
+    };
+  },
   ctaBannerProps: {
     ...ctaBannerPropsMapping,
   },

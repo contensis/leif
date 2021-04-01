@@ -17,6 +17,7 @@ export interface Props {
   hasIllustration?: boolean;
   heroIllustrationUri?: string;
   heroIllustrationAlt?: string;
+  headingLevel?: number;
 }
 
 const LandingHero = ({
@@ -30,6 +31,7 @@ const LandingHero = ({
   hasIllustration,
   heroIllustrationUri,
   heroIllustrationAlt,
+  headingLevel = 1,
 }: Props) => {
   const _RenderHero = (hasIllustration: boolean) => {
     switch (hasIllustration) {
@@ -64,6 +66,7 @@ const LandingHero = ({
                 summary={summary}
                 ctaLink={ctaLink}
                 ctaText={ctaText}
+                headingLevel={headingLevel}
                 btnIcon="arrow-right"
               />
             </div>

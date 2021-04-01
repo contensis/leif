@@ -6,9 +6,14 @@ import Composer from './Composer';
 export interface Props {
   items: any;
   isContentPage?: boolean;
+  isHomepage?: boolean;
 }
 
-const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
+const ComposerWrapper = ({
+  items,
+  isContentPage = false,
+  isHomepage = false,
+}: Props) => {
   if (!items || !Array.isArray(items)) return null;
 
   const promoComponentArray: number[] = [];
@@ -19,6 +24,7 @@ const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
       for (let i = 0; i < promoComponentArray.length; i++) {
         const isEven = i % 2 === 0 ? true : false;
         item.align = isEven ? 'left' : 'right';
+        item.hasTrending = isEven && isHomepage ? true : false;
       }
     }
   });

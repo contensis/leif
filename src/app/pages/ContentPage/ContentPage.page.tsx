@@ -38,7 +38,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
             <Region margin="none" width="msmall">
               <LeadParagraph {...leadParagraphProps} />
             </Region>
-            <Composer items={contentComposerProps} isContentPage={true} />
+            <Composer {...contentComposerProps} />
             <Region margin="large" width="msmall">
               <CTABanner {...ctaBannerProps} />
             </Region>

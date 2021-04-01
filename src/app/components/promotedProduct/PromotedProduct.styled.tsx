@@ -4,10 +4,11 @@ interface Props {
   theme?: any;
   align: string;
   isModalOpen?: boolean;
+  hasTrending?: boolean;
 }
 
 const PromotionalBlockStyled = styled.div`
-  ${({ theme, align, isModalOpen }: Props) => {
+  ${({ theme, align, isModalOpen, hasTrending }: Props) => {
     return css`
     position: relative;
     overflow-x: hidden;
@@ -19,7 +20,7 @@ const PromotionalBlockStyled = styled.div`
       height: 800px;
       padding-bottom: 0;
     }  
-    .featured-cta__image-wrapper {
+    .promoted-product__image-wrapper {
       position: relative;
       height: 100%;
       &:before {
@@ -38,16 +39,16 @@ const PromotionalBlockStyled = styled.div`
         flex-basis: 50%;
       }
     }
-    .featured-cta__image {
+    .promoted-product__image {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
-    .featured-cta__video-player > div:first-child {
+    .promoted-product__video-player > div:first-child {
       margin: 0 auto;
       padding: 40px 0;
     }
-    .featured-cta__video-btn-close {
+    .promoted-product__video-btn-close {
       background: transparent;
       padding: 0;
       border: none;
@@ -55,7 +56,7 @@ const PromotionalBlockStyled = styled.div`
       right: 0;
       top: 0;
     }
-    .featured-cta__video-btn-open {
+    .promoted-product__video-btn-open {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -68,27 +69,40 @@ const PromotionalBlockStyled = styled.div`
         opacity: .8;
       }
     }
-    .featured-cta__content {
-      text-align: ${align === 'left' ? 'right' : 'left'};
-      background-color: ${theme.colors.neutral_white};
-      position: relative;
-      padding: 40px 16px;
+    .promoted-product__content {
+      display: flex; 
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100%;
       margin: -24% 0 0 0;
       margin-${align}: 32px;
-      box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
-      border-radius: ${align === 'left' ? '8px 0 0 0' : '0 8px 0 0'};
       &:before {
         display: ${align === 'left' ? 'block' : 'none'};
         content: '';
         background-image: url('/static/img/svgs/shapes/promotional-block-shape.svg');
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: bottom right;
         height:  120px;
         width: 100%;
         position: absolute;
         bottom: -120px;
         right: 0;
       }
+      @media ${theme.mq.laptop} {
+        margin: ${align === 'left' ? '0 0 0 8%' : '0 8% 0 0'};
+          &:before {
+          bottom: 0;
+        }
+      }
+    }
+    .promoted-product__content--text {
+      text-align: ${align === 'left' ? 'right' : 'left'};
+      background-color: ${theme.colors.neutral_white};
+      position: relative;
+      padding: 40px 16px;
+      box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
+      border-radius: ${align === 'left' ? '8px 0 0 0' : '0 8px 0 0'};
       @media ${theme.mq.laptop} {
         text-align: left;
         flex-basis: 50%;
@@ -101,31 +115,44 @@ const PromotionalBlockStyled = styled.div`
         border-radius: 0;
         box-shadow: none;
         padding: 0;
-        margin: ${align === 'left' ? '0 0 0 8%' : '0 8% 0 0'};
-        &:before {
-          bottom: 0;
-        }
       }
     }
-    .featured-cta__wrapper {
+    .promoted-product__wrapper {
       @media ${theme.mq.laptop} {
         max-width: 400px;
       }
     }
-    .featured-cta__link {
+    .promoted-product__link {
       margin: ${align === 'left' ? '24px 0 0 auto' : '24px auto 0 0'};
       @media ${theme.mq.laptop} {
         margin: 24px 0 0 0;
       }
     }
-    .featured-cta__title {
+    .promoted-product__title {
       margin: 0 0 16px 0;
     }
-    .featured-cta__text {
+    .promoted-product__text {
       p, ul {
         margin: 0 0 16px 0;
       }
     }
+    .promoted-product__trending {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @media ${theme.mq.laptop} {
+        position: unset;
+        top: unset;
+        left: unset;
+      }
+    } 
+    ${hasTrending &&
+      css`
+        padding-top: 80px;
+        @media ${theme.mq.laptop} {
+          padding-top: 0;
+        }
+      `}
   `;
   }};
 `;
