@@ -2,6 +2,33 @@ import { imagePropsMapping } from '~/components/image/transformations/image.comp
 import mapJson from '~/core/util/json-mapper';
 import { VariantProps } from '../ProductHero';
 
+const matchingPotsPropsMapping = {
+  type: () => 'product',
+  title: 'entryTitle',
+  imageUri: {
+    $path: 'primaryImage',
+    $formatting: (img: any) =>
+      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $default: () => '/image-library/default-images/leif-fallback.png',
+  },
+  imageAlt: {
+    $path: 'primaryImage',
+    $formatting: (img: any) =>
+      (img && img.altText) || img.caption || (img.asset && img.asset.title),
+    $default: () => 'Leif logo',
+  },
+  price: {
+    $path: ['plantVariant', 'potVariant'],
+    $formatting: (v: any) => {
+      return v.price;
+    },
+  },
+  uri: {
+    $path: 'sys',
+    $formatting: (sys: any) => sys && sys.uri,
+  },
+};
+
 const plantPropsMapping = {
   sku: 'sku',
   price: 'price',
@@ -10,6 +37,11 @@ const plantPropsMapping = {
   internalDiameterCM: 'internalDiameterCM',
   externalDiameterCM: 'externalDiameterCM',
   externalHeightCM: 'externalHeightCM',
+  matchingPots: {
+    $path: 'matchingPots',
+    $formatting: (matchingPots: any) =>
+      mapJson(matchingPots, matchingPotsPropsMapping),
+  },
   variantTitle: {
     $path: '.',
     $formatting: ({

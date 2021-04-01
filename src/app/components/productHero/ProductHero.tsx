@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ProductHeroStyled from './ProductHero.styled';
 
@@ -16,6 +16,13 @@ import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
 import { _noScroll } from '../../utils/noScroll';
 
+export interface MatchingPotsProps {
+  type: string;
+  title: string;
+  imageUri: string;
+  imageAlt: string;
+  price: number[];
+}
 export interface VariantProps {
   variantTitle: string;
   sku: string;
@@ -27,6 +34,7 @@ export interface VariantProps {
   externalHeightCM?: number;
   potDiameterCM?: number;
   heightCM?: number;
+  matchingPots: MatchingPotsProps;
 }
 
 export interface Props {
@@ -37,6 +45,8 @@ export interface Props {
   title: string;
   text?: string;
   variants: VariantProps[];
+  activeVariant: VariantProps[];
+  _setActiveVariant: (value: VariantProps) => void;
   basket: any;
   _addToBasket: (
     id: string,
@@ -55,13 +65,20 @@ const ProductHero = ({
   text,
   variants,
   _addToBasket,
+  activeVariant,
+  _setActiveVariant,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const [activeVariant, setActiveVariant] = useState<VariantProps>(
-    variants && variants[0]
-  );
+  /* eslint-disable */
+  useEffect(() => {
+    if (variants && variants.length >= 1) {
+      _setActiveVariant(variants[0]);
+    }
+  }, []);
+  /* eslint-enable */
+
   const { price } = activeVariant || {};
 
   const _handleClick = (e: any, type: string) => {
@@ -150,7 +167,7 @@ const ProductHero = ({
                       }
                       className="product-hero__option"
                       onClick={() => {
-                        setActiveVariant(variant);
+                        _setActiveVariant(variant);
                         updateQuantity(1);
                       }}
                     />
