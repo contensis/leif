@@ -118,6 +118,7 @@ export default {
         contentTypeIds: [ContentTypes.review],
         fields: [...BaseFields, ...ReviewFields],
         orderBy: ['-sys.version.published'],
+        linkDepth: 2,
         pageSize: 3,
       },
     },

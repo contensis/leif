@@ -35,8 +35,8 @@ export const Fields = {
   quote: 'text',
   rating: 'rating',
   person: 'person',
-  personName: 'person.name',
-  personPhoto: 'person.photo',
+  name: 'name',
+  photo: 'photo',
 };
 
 export const BaseFields = [
@@ -53,8 +53,8 @@ export const ReviewFields = [
   Fields.quote,
   Fields.rating,
   Fields.person,
-  Fields.personName,
-  Fields.personPhoto,
+  Fields.photo,
+  Fields.name,
 ];
 
 export const ProductFields = [
