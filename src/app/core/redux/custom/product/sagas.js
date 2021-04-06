@@ -1,12 +1,12 @@
 import { takeEvery, select, put } from 'redux-saga/effects';
 
-import { SET_ENTRY } from '../../types';
-
-import { SET_PRODUCT_REVIEWS } from './types';
-import { selectCurrentPath, selectRouteEntryID } from '../../selectors';
-
 import { Op, Query } from 'contensis-delivery-api';
 import { cachedSearch } from '../../../util/ContensisDeliveryApi';
+
+import { SET_ENTRY } from '../../types';
+import { SET_PRODUCT_REVIEWS } from './types';
+
+import { selectCurrentPath, selectRouteEntryID } from '../../selectors';
 
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 

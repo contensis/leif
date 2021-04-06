@@ -15,7 +15,7 @@ export interface Props {
   className?: string;
   _toggleBasket: (val: boolean) => void;
   _toggleSearch: (val: boolean) => void;
-  _removeFromBasket: (id: string, sku: string, quantity: number) => void;
+  _removeFromBasket: (id: string, sku: string) => void;
   isBasketOpen: boolean;
   basket: any;
 }

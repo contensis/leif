@@ -10,7 +10,7 @@ export interface Props {
   quantity: number;
   id: string;
   sku: string;
-  _removeFromBasket: (id: string, sku: string, quantity: number) => void;
+  _removeFromBasket: (id: string, sku: string) => void;
 }
 
 const BasketItem = ({
@@ -32,7 +32,7 @@ const BasketItem = ({
       <button
         type="button"
         className="basket-item__remove-btn"
-        onClick={() => _removeFromBasket(id, sku, quantity)}
+        onClick={() => _removeFromBasket(id, sku)}
       >
         <Icon type="delete" color="#2B2F51" />
         <VisuallyHidden text={`Remove ${title} from basket`} />
