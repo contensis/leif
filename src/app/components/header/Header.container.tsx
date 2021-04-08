@@ -16,8 +16,6 @@ const HeaderContainer = ({
   isSearchOpen,
   _toggleSearch,
   isMenuOpen,
-  _toggleMenu,
-  navigation,
   isBasketOpen,
   isLight,
 }: Props) => {
@@ -27,8 +25,6 @@ const HeaderContainer = ({
       isSearchOpen={isSearchOpen}
       _toggleSearch={_toggleSearch}
       isMenuOpen={isMenuOpen}
-      _toggleMenu={_toggleMenu}
-      navigation={navigation}
       isBasketOpen={isBasketOpen}
       isLight={isLight}
     />

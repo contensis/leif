@@ -11,13 +11,17 @@ const NavigationStyled = styled.div`
     return css`
       position: relative;
       height: 80px;
-      .nav__btn {
+      .nav__btn-open,
+      .nav__btn-close {
         margin: 0;
         padding: 0;
         border: none;
         background: transparent;
-        position: relative;
-        z-index: 9;
+      }
+      .nav__btn-close {
+        position: absolute;
+        right: 0;
+        top: 0;
       }
       .nav-menu__wrapper {
         display: flex;
@@ -68,7 +72,7 @@ const NavigationStyled = styled.div`
           text-decoration: underline;
         }
       }
-      .nav-menu__item--active {
+      .active {
         color: ${theme.colors.primary};
         box-shadow: inset 6px 0px 0px ${theme.colors.primary};
         padding: 0 0 0 16px;

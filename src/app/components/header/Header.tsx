@@ -8,17 +8,15 @@ import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
 import HeaderSearch from '../headerSearch/HeaderSearch';
 import { _noScroll } from '../../utils/noScroll';
-import Navigation from '../navigation/Navigation';
+import Navigation from '../navigation/Navigation.container';
 import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
 // import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
-  navigation: any;
   _toggleSearch: (val: boolean) => void;
   isSearchOpen: boolean;
-  _toggleMenu: (val: boolean) => void;
   isMenuOpen: boolean;
   isBasketOpen: boolean;
   isLight: boolean;
@@ -29,8 +27,6 @@ const Header = ({
   isSearchOpen,
   _toggleSearch,
   isMenuOpen,
-  _toggleMenu,
-  navigation,
   isBasketOpen,
   isLight,
 }: Props) => {
@@ -55,12 +51,7 @@ const Header = ({
                 _toggleSearch={_toggleSearch}
               />
               <BasketMenu />
-              <Navigation
-                isMenuOpen={isMenuOpen}
-                _toggleMenu={_toggleMenu}
-                navigation={navigation}
-                _toggleSearch={_toggleSearch}
-              />
+              <Navigation />
             </FocusLock>
           </>
         )}
@@ -86,12 +77,7 @@ const Header = ({
             _func={() => _toggleSearch(!isSearchOpen)}
           />
           <BasketMenu />
-          <Navigation
-            isMenuOpen={isMenuOpen}
-            _toggleMenu={_toggleMenu}
-            navigation={navigation}
-            _toggleSearch={_toggleSearch}
-          />
+          <Navigation />
         </div>
       </Wrapper>
     </HeaderStyled>
