@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
-import { selectCurrentNodeChildren } from '../../core/redux/custom/navigation/selectors';
+import { selectCurrentNodeChildren } from '../../core/redux/custom/routing/selectors';
 
 import RelatedLinks, { Props } from './RelatedLinks';
 

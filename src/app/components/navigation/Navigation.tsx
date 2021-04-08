@@ -39,7 +39,7 @@ const Navigation = ({
 
   if (!hasNavigationTree) return false;
 
-  const navObject = _generateNavigation(navigation);
+  const navObject: any = _generateNavigation(navigation);
 
   // Generates the <Menu /> component
   const Menu = ({ level = 1 }: MenuProps) => {

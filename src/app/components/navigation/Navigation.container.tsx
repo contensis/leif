@@ -11,8 +11,8 @@ import { toggleSearch, toggleMenu } from '../../core/redux/custom/ui/actions';
 
 //  Selectors
 import { selectIsMenuOpen } from '../../core/redux/custom/ui/selectors';
-import { selectNavigationRootChildren } from '~/core/redux/custom/navigation/selectors';
-import { hasNavigationTree } from '~/core/redux/selectors';
+import { selectNavigationRootChildren } from '../../core/redux/custom/routing/selectors';
+import { hasNavigationTree } from '../../core/redux/selectors';
 
 // Component & Props
 import Navigation, { Props } from './Navigation';

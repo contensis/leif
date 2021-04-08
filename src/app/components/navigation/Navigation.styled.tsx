@@ -41,6 +41,7 @@ const NavigationStyled = styled.div`
         margin: 0;
         padding: 112px 24px 0;
         background-color: ${theme.colors.secondary};
+        position: relative;
         li {
           width: 100%;
           &:before {
