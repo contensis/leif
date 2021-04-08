@@ -1,8 +1,10 @@
 export const ctaBannerPropsMapping = {
-  title: 'callToAction.title',
-  text: 'callToAction.message',
+  title: 'callToAction.entryTitle',
+  text: 'callToAction.entryDescription',
   imageUri: {
-    $path: ['callToAction.image.asset.sys.uri'],
+    $path: 'callToAction.image',
+    $formatting: (image: any) =>
+      image && image.asset && image.asset.sys && image.asset.sys.uri,
   },
   imageAlt: [
     'callToAction.image.altText',
@@ -10,9 +12,9 @@ export const ctaBannerPropsMapping = {
     'callToAction.image.asset.title',
   ],
   btnText: 'callToAction.buttonText',
-  btnLink: [
-    'callToAction.linkToInternalContent.sys.uri',
-    'callToAction.linkToExternalURL',
-  ],
+  btnLink: {
+    $path: 'callToAction.buttonLink',
+    $formatting: (link: any) => link && link.sys && link.sys.uri,
+  },
   btnType: 'primary',
 };
