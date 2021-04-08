@@ -5,6 +5,8 @@ import ProductListingStyled from './ProductListing.styled';
 import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
+import { useSelector } from 'react-redux';
+import { selectCurrentLocationQueryStringParams } from '../../core/redux/custom/routing/selectors';
 
 interface Props {
   results?: any;
@@ -28,6 +30,29 @@ const ProductListing = ({
 }: Props) => {
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
+  let potFilters: any = {};
+  let plantFilters: any = {};
+  let defaultFilters: any = {};
+
+  Object.keys(filters).map((fKey: any) => {
+    switch (fKey) {
+      case 'colour': {
+        potFilters[fKey] = filters[fKey];
+        break;
+      }
+      case 'plantType': {
+        plantFilters[fKey] = filters[fKey];
+        break;
+      }
+      default: {
+        plantFilters[fKey] = filters[fKey];
+        potFilters[fKey] = filters[fKey];
+        defaultFilters[fKey] = filters[fKey];
+        break;
+      }
+    }
+  });
+
   /* eslint-disable */
   useEffect(() => {
     if (typeof window != 'undefined') {
@@ -43,6 +68,29 @@ const ProductListing = ({
     updatePageIndex(pageIndex);
   };
 
+  const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
+  const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
+
+  // Get the Search Query Params
+  const queryString = useSelector(selectCurrentLocationQueryStringParams);
+  const queryStringParams = new URLSearchParams(queryString);
+  // Get the contentTypeId Params
+  const contentTypeIdValue = queryStringParams.get('contentTypeId');
+
+  // Depending on the contentTypeIdValue toggle the correct filters
+  useEffect(() => {
+    if (contentTypeIdValue === 'pot') {
+      setIsPlantFilterSelected(false);
+      setIsPotFilterSelected(true);
+    } else if (contentTypeIdValue === 'plant') {
+      setIsPlantFilterSelected(true);
+      setIsPotFilterSelected(false);
+    } else {
+      setIsPotFilterSelected(false);
+      setIsPlantFilterSelected(false);
+    }
+  }, [contentTypeIdValue]);
+
   const { pageIndex, pageCount } = paging;
   const hasLoadMore =
     pageIndex === null || pageCount === null
@@ -54,7 +102,13 @@ const ProductListing = ({
     <ProductListingStyled>
       <Filters
         className="product-listing__filters"
-        filters={filters}
+        filters={
+          isPotFilterSelected
+            ? potFilters
+            : isPlantFilterSelected
+            ? plantFilters
+            : defaultFilters
+        }
         updateSelectedFilters={updateSelectedFilters}
         updateCurrentFacet={updateCurrentFacet}
         clearFilters={clearFilters}

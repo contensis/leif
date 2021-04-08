@@ -42,7 +42,7 @@ const BasketMenu = ({
   let TOTAL_PRICE = 0;
   const BASKET_ARRAY = Object.keys(basket).map(key => {
     const BASKET_ITEMS: BasketItemProps[] = [];
-    if (isEmptyObj(basket[key]) === false) {
+    if (!isEmptyObj(basket[key])) {
       const ITEMS = [basket[key]];
       ITEMS.forEach(el => {
         if (!el) return null;

@@ -34,13 +34,11 @@ export const ProductFilters = {
       {
         key: 'pot',
         title: 'Pot',
-        path: 'pot',
         isSelected: false,
       },
       {
         key: 'plant',
         title: 'Plant',
-        path: 'plant',
         isSelected: false,
       },
     ],
@@ -52,5 +50,54 @@ export const ProductFilters = {
     isSelected: false,
     isSingleSelect: true,
     items: [],
+  },
+  [Product.colour]: {
+    title: 'Browse by colour',
+    contentTypeId: ContentTypes.pot,
+    fieldId: 'colour',
+    isSelected: false,
+    isSingleSelect: true,
+    items: [
+      {
+        key: 'white',
+        title: 'White',
+        isSelected: false,
+      },
+      {
+        key: 'grey',
+        title: 'Grey',
+        isSelected: false,
+      },
+      {
+        key: 'brown',
+        title: 'Brown',
+        isSelected: false,
+      },
+    ],
+  },
+  [Product.productSize]: {
+    title: 'Browse by size',
+    contentTypeId: [ContentTypes.pot, ContentTypes.plant],
+    fieldId: 'plantVariant.height',
+    isSelected: false,
+    isSingleSelect: true,
+    fieldOperator: 'between',
+    items: [
+      {
+        key: '0,30',
+        title: 'Small',
+        isSelected: false,
+      },
+      {
+        key: '31,60',
+        title: 'Medium',
+        isSelected: false,
+      },
+      {
+        key: '61,2000000',
+        title: 'Large',
+        isSelected: false,
+      },
+    ],
   },
 };

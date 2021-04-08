@@ -13,7 +13,7 @@ const ProductListingStyled = styled.div`
         }
       }
       .filters__wrapper {
-        justify-content: flex-start;
+        justify-content: center;
       }
       .filter__dropdown {
         @media ${theme.mq.desktop} {

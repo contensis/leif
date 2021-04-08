@@ -3,3 +3,7 @@ export const selectCurrentNodeChildren = state =>
 
 export const selectNavigationRootChildren = state =>
   state.getIn(['navigation', 'root', 'children']);
+
+export const selectCurrentLocationQueryStringParams = state => {
+  return state.getIn(['routing', 'location', 'search']);
+};

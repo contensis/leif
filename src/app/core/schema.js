@@ -170,5 +170,6 @@ export const BlogFilters = {
 export const ProductFilters = {
   plantType: 'plantType',
   contentTypeId: 'contentTypeId',
-  species: 'species',
+  productSize: 'productSize',
+  colour: 'colour',
 };
