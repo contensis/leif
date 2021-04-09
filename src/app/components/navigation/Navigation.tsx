@@ -39,7 +39,7 @@ const Navigation = ({
 
   if (!hasNavigationTree) return false;
 
-  // Generates a more human readble navigation object
+  // Generates a more human readable navigation object
   const navObject: any = _generateNavigation(navigation);
 
   // Generates the <Menu /> component
