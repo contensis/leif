@@ -85,6 +85,7 @@ export const VersionStatus = {
 export const ContentTypes = {
   blog: 'blogPost',
   contentPage: 'contentPage',
+  landingPage: 'landingPage',
   product: 'product',
   blogListing: 'blogListing',
   productListing: 'productListing',
@@ -95,6 +96,15 @@ export const ContentTypes = {
   plantType: 'plantType',
   review: 'review',
 };
+
+export const SearchContentTypes = [
+  ContentTypes.blog,
+  ContentTypes.contentPage,
+  ContentTypes.landingPage,
+  ContentTypes.product,
+  ContentTypes.blogListing,
+  ContentTypes.productListing,
+];
 
 export const FilterExpressionTypes = {
   contentType: 'contentType',

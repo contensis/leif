@@ -3,11 +3,14 @@ import { takeEvery, select, put } from 'redux-saga/effects';
 import { Op, Query } from 'contensis-delivery-api';
 import { cachedSearch } from '../../../util/ContensisDeliveryApi';
 
+// Types
 import { SET_ENTRY } from '../../types';
 import { SET_PRODUCT_REVIEWS } from './types';
 
+// Selectors
 import { selectCurrentPath, selectRouteEntryID } from '../../selectors';
 
+// Mappers
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 export const ProductSagas = [takeEvery(SET_ENTRY, _getReviews)];

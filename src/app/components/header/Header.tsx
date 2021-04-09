@@ -6,8 +6,9 @@ import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
-import HeaderSearch from '../headerSearch/HeaderSearch';
 import { _noScroll } from '../../utils/noScroll';
+
+import HeaderSearch from '../headerSearch/HeaderSearch.container';
 import Navigation from '../navigation/Navigation.container';
 import BasketMenu from '../basketMenu/BasketMenu.container';
 
@@ -45,11 +46,7 @@ const Header = ({
         wrapper={() => (
           <>
             <FocusLock className="focus-lock">
-              <HeaderSearch
-                className="header__search"
-                isSearchOpen={isSearchOpen}
-                _toggleSearch={_toggleSearch}
-              />
+              <HeaderSearch className="header__search" />
               <BasketMenu />
               <Navigation />
             </FocusLock>

@@ -4,12 +4,14 @@ import { config } from '../../components/search';
 import UIReducers from './custom/ui/reducers';
 import BasketReducers from './custom/basket/reducers';
 import ProductReducers from './custom/product/reducers';
+import liveSearchReducers from './custom/liveSearch/reducers';
 
 const featureReducers = {
   search: SearchReducer(config),
   ui: UIReducers,
   basket: BasketReducers,
   product: ProductReducers,
+  liveSearch: liveSearchReducers,
 };
 
 export default { ...featureReducers };

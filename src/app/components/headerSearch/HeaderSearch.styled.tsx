@@ -46,6 +46,26 @@ const HeaderSearchStyled = styled.div`
           max-width: 570px;
         }
       }
+      .header-search__results {
+        margin-top: 80px;
+        padding: 24px;
+        background-color: ${theme.colors.neutral_white};
+        box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
+        h2 {
+          color: ${theme.colors.neutral_charcoal};
+          ${theme.typeStyles.h5};
+        }
+        .search-card__text {
+          display: none;
+        }
+        a {
+          &:not(:last-child) {
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid ${theme.colors.neutral_lightgrey};
+          }
+        }
+      }
     `;
   }};
 `;

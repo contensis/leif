@@ -4,20 +4,29 @@ import HeaderSearchStyled from './HeaderSearch.styled';
 
 import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
+import SearchCard from '../searchCard/SearchCard';
 
 export interface Props {
   className?: string;
   placeholder?: string;
   isSearchOpen?: boolean;
   _toggleSearch: (val: boolean) => void;
+  _setSearchTerm: (val: string) => void;
+  results?: any;
 }
 
 const HeaderSearch = ({
   className,
   placeholder,
-  isSearchOpen = false,
+  isSearchOpen,
   _toggleSearch,
+  _setSearchTerm,
+  results,
 }: Props) => {
+  const _handleChange = (val: string) => {
+    _setSearchTerm(val);
+  };
+
   return (
     <HeaderSearchStyled className={className}>
       <div className="header-search__input-wrapper">
@@ -31,7 +40,15 @@ const HeaderSearch = ({
           name="Header Search"
           placeholder={placeholder}
           aria-label="Search site"
+          onChange={(e: any) => _handleChange(e.target.value)}
         />
+        {results && results.length >= 1 && (
+          <div className="header-search__results">
+            {results.map((res: any, idx: number) => (
+              <SearchCard key={idx} {...res} />
+            ))}
+          </div>
+        )}
       </div>
       <IconButton
         isToggled={isSearchOpen}
