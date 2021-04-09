@@ -15,6 +15,18 @@ export default {
   }) {
     yield put({ type: ROUTE_WILL_LOAD, path, location });
     // Set params for routing saga
+
+    const preventScrollTop = path => {
+      if (!path) return null;
+      switch (true) {
+        case path.includes('/products/shop'):
+        case path.includes('/blog'):
+          return true;
+        default:
+          return false;
+      }
+    };
+
     return {
       customNavigation: {
         ancestors: false,
@@ -22,6 +34,8 @@ export default {
         siblings: false,
         tree: true,
       },
+
+      preventScrollTop: preventScrollTop(path),
     };
   },
   onRouteLoaded: function* onRouteLoaded({
