@@ -22,6 +22,7 @@ const NavigationStyled = styled.div`
         position: absolute;
         right: 0;
         top: 0;
+        z-index: 9;
       }
       .nav-menu__wrapper {
         display: flex;
@@ -29,6 +30,8 @@ const NavigationStyled = styled.div`
         position: absolute;
         right: 0;
         top: 0;
+        height: 100vh;
+        background-color: ${theme.colors.secondary};
       }
       .nav-menu__items {
         display: flex;
@@ -40,7 +43,6 @@ const NavigationStyled = styled.div`
         height: 100vh;
         margin: 0;
         padding: 112px 24px 0;
-        background-color: ${theme.colors.secondary};
         position: relative;
         li {
           width: 100%;
@@ -105,6 +107,23 @@ const NavigationStyled = styled.div`
         .nav-menu__item {
           ${theme.typeStyles.h4};
           color: ${theme.colors.neutral_charcoal};
+        }
+      }
+      .nav__socials {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 64px;
+        left: 32px;
+        a {
+          display: block;
+          transition: opacity 200ms ease-in;
+          &:not(:last-child) {
+            margin-right: 32px;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
         }
       }
       @keyframes slideIn {

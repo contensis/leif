@@ -94,7 +94,7 @@ const BasketMenu = ({
           )}
           <LinkButton
             label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-            href={`${hasItemsInBasket ? '/checkout' : '/products-shop'}`}
+            href={`${hasItemsInBasket ? '/checkout' : '/products/shop'}`}
             icon="arrow-right"
           />
         </div>

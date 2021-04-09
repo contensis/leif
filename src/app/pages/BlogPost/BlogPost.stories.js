@@ -1186,9 +1186,9 @@ const Template = () => {
                   isPublished: true,
                   availableLanguages: ['en-GB'],
                   contentTypeId: 'pot',
-                  allUris: ['/products-shop/pots/vit-mid-sized-white-pot'],
+                  allUris: ['/products/shop/pots/vit-mid-sized-white-pot'],
                   language: 'en-GB',
-                  uri: '/products-shop/pots/vit-mid-sized-white-pot',
+                  uri: '/products/shop/pots/vit-mid-sized-white-pot',
                   version: {
                     publishedBy: 'r.bromley',
                     createdBy: 'r.bromley',
@@ -1242,9 +1242,9 @@ const Template = () => {
               isPublished: true,
               availableLanguages: ['en-GB'],
               contentTypeId: 'plant',
-              allUris: ['/products-shop/plants/canary-island-date-palm'],
+              allUris: ['/products/shop/plants/canary-island-date-palm'],
               language: 'en-GB',
-              uri: '/products-shop/plants/canary-island-date-palm',
+              uri: '/products/shop/plants/canary-island-date-palm',
               version: {
                 publishedBy: 'j.moore',
                 createdBy: 'r.bromley',

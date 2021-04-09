@@ -15,7 +15,7 @@ export const productPagePropsMapping = {
   },
   matchingProductsProps: {
     title: () => 'Matching pots',
-    linkUri: () => '/products-shop',
+    linkUri: () => '/products/shop',
     linkLabel: () => 'View all products',
   },
 };

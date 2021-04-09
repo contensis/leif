@@ -39,6 +39,7 @@ const Navigation = ({
 
   if (!hasNavigationTree) return false;
 
+  // Generates a more human readble navigation object
   const navObject: any = _generateNavigation(navigation);
 
   // Generates the <Menu /> component
@@ -128,6 +129,17 @@ const Navigation = ({
               <Menu level={2} />
             </ul>
           )}
+          <div className="nav__socials">
+            <a href="https://en-gb.facebook.com/">
+              <Icon type="facebook" color="#C3C6DE" />
+            </a>
+            <a href="https://twitter.com/">
+              <Icon type="twitter" color="#C3C6DE" />
+            </a>
+            <a href="https://uk.linkedin.com/">
+              <Icon type="linkedin" color="#C3C6DE" />
+            </a>
+          </div>
         </div>
       )}
     </NavigationStyled>
