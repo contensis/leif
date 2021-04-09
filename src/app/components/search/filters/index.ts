@@ -75,10 +75,10 @@ export const ProductFilters = {
       },
     ],
   },
-  [Product.productSize]: {
-    title: 'Browse by size',
-    contentTypeId: [ContentTypes.pot, ContentTypes.plant],
-    fieldId: 'plantVariant.height',
+  [Product.potSize]: {
+    title: 'Browse by pot size',
+    contentTypeId: ContentTypes.pot,
+    fieldId: 'potVariant.externalHeightCM',
     isSelected: false,
     isSingleSelect: true,
     fieldOperator: 'between',
@@ -95,6 +95,31 @@ export const ProductFilters = {
       },
       {
         key: '61,2000000',
+        title: 'Large',
+        isSelected: false,
+      },
+    ],
+  },
+  [Product.plantSize]: {
+    title: 'Browse by plant size',
+    contentTypeId: ContentTypes.plant,
+    fieldId: 'plantVariant.heightCM',
+    isSelected: false,
+    isSingleSelect: true,
+    fieldOperator: 'between',
+    items: [
+      {
+        key: '0-30',
+        title: 'Small',
+        isSelected: false,
+      },
+      {
+        key: '31-60',
+        title: 'Medium',
+        isSelected: false,
+      },
+      {
+        key: '61-2000000',
         title: 'Large',
         isSelected: false,
       },

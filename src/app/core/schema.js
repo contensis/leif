@@ -170,6 +170,7 @@ export const BlogFilters = {
 export const ProductFilters = {
   plantType: 'plantType',
   contentTypeId: 'contentTypeId',
-  productSize: 'productSize',
+  plantSize: 'plantSize',
+  potSize: 'potSize',
   colour: 'colour',
 };

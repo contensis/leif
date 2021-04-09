@@ -36,11 +36,13 @@ const ProductListing = ({
 
   Object.keys(filters).map((fKey: any) => {
     switch (fKey) {
-      case 'colour': {
+      case 'colour':
+      case 'potSize': {
         potFilters[fKey] = filters[fKey];
         break;
       }
-      case 'plantType': {
+      case 'plantType':
+      case 'plantSize': {
         plantFilters[fKey] = filters[fKey];
         break;
       }
