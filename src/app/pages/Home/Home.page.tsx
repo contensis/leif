@@ -17,9 +17,10 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 // Models
 import { Props } from './Home.d';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
+import Metadata from '~/components/metadata/Metadata';
 
 const Home = ({ mappedEntry }: Props) => {
-  const { homeHeroProps, contentComposerProps, ctaBannerProps } =
+  const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
     mappedEntry || {};
 
   const [latestReviewsOptions, setLatestReviewsOptions] = useState<any>();
@@ -44,6 +45,7 @@ const Home = ({ mappedEntry }: Props) => {
 
   return (
     <MainLayout isLight={true}>
+      <Metadata {...metadataProps} />
       <LandingHero {...homeHeroProps} />
       <Composer {...contentComposerProps} />
       <TestimonialSlider testimonials={latestReviews} />
