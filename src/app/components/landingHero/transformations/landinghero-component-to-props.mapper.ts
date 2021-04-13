@@ -1,4 +1,4 @@
-export const landingHeroPropsMapper = {
+export const landingHeroPropsMapping = {
   hasIllustration: {
     $path: ['heroImage', 'heroIllustration'],
     $formatting: (hero: any) => (hero.asset || hero === 'None' ? false : true),

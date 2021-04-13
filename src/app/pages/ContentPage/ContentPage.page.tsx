@@ -8,6 +8,7 @@ import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import PromotedContent from '~/components/promotedContent/PromotedContent';
 import ContentHero from '~/components/contentHero/ContentHero';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import ContentPageStyled from './ContentPage.styled';
@@ -24,6 +25,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
     contentComposerProps,
     ctaBannerProps,
     promotedContentProps,
+    metadataProps,
   } = mappedEntry || {};
 
   const { bgImageUri, hasIllustration } = contentHeroProps;
@@ -31,6 +33,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
 
   return (
     <MainLayout isLight={isLight}>
+      <Metadata {...metadataProps} />
       <ContentPageStyled hasContentCentered={hasIllustration || !bgImageUri}>
         <ContentHero {...contentHeroProps} />
         <div className="content-page__body-content">

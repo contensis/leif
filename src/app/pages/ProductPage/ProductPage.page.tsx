@@ -5,6 +5,7 @@ import ProductHero from '~/components/productHero/ProductHero.container';
 import TextBlock from '~/components/textBlock/TextBlock';
 import IconList from '~/components/iconList/IconList';
 import PromotedContent from '~/components/promotedContent/PromotedContent';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import ProductPageStyled from './ProductPage.styled';
@@ -28,6 +29,7 @@ const ProductPage = ({ mappedEntry }: Props) => {
     textBlockProps,
     iconListProps,
     matchingProductsProps,
+    metadataProps,
   } = mappedEntry || {};
 
   // Select Product Matching Pots from Redux state.
@@ -39,6 +41,7 @@ const ProductPage = ({ mappedEntry }: Props) => {
 
   return (
     <MainLayout>
+      <Metadata {...metadataProps} />
       <ProductPageStyled>
         <Region width="full" margin="none">
           <ProductHero {...productHeroProps} review={reviews[0]} />

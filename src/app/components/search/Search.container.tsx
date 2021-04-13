@@ -17,6 +17,7 @@ import Button from '../button/Button';
 // Layout
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
+import Metadata from '../metadata/Metadata';
 
 interface Props {
   className?: string;
@@ -88,6 +89,10 @@ const SearchContainer = ({
 
   return (
     <MainLayout>
+      <Metadata
+        title="Search our site"
+        image="/image-library/default-images/leif-fallback.png"
+      />
       <Region width="large" margin="none" padding="small">
         <SearchStyled className={className}>
           <h1 className="search__title">Search results</h1>

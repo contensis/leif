@@ -5,6 +5,7 @@ import GenericHero from '../../components/genericHero/GenericHero';
 import BlogListing from '../../components/blogListing/BlogListing';
 import ListingContainer from '../../components/listing/Listing.container';
 import CTABanner from '../../components/ctaBanner/CTABanner';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
@@ -15,9 +16,11 @@ import BlogListingStyled from './BlogListing.styled';
 import { Props } from './BlogListing.d';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
-  const { title, featuredBlogProps, ctaBannerProps } = mappedEntry || {};
+  const { title, featuredBlogProps, ctaBannerProps, metadataProps } =
+    mappedEntry || {};
   return (
     <MainLayout>
+      <Metadata {...metadataProps} />
       <BlogListingStyled>
         <h1 className="blog-listing__title">{title}</h1>
         <Region width="large" margin="none">

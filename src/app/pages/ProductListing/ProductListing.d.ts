@@ -1,8 +1,7 @@
-// import { Props as GenericHeroProps } from '~/components/genericHero/GenericHero';
-
+import { Props as MetadataProps } from '~/components/metadata/Metadata';
 export interface MappedProps {
   title: string;
-  // featuredProductProps: GenericHeroProps,
+  metadataProps: MetadataProps,
 }
 
 export interface Props {

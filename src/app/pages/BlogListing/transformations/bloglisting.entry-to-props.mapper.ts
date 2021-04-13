@@ -1,7 +1,9 @@
 import dateWithSuffix from '../../../utils/dateWithSuffix';
 import { ctaBannerPropsMapping } from '../../../components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
+import { pageMetadataPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
 
 export const blogListingPropsMapping = {
+  metadataProps: { ...pageMetadataPropsMapping },
   title: 'entryTitle',
   featuredBlogProps: {
     title: 'featuredBlog.entryTitle',

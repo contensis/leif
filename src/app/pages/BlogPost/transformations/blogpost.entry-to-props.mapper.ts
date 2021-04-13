@@ -4,8 +4,10 @@ import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ct
 import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 import dateWithSuffix from '~/utils/dateWithSuffix';
+import { externalPromotionPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
 
 export const blogPostPropsMapping = {
+  metadataProps: { ...externalPromotionPropsMapping },
   blogHeroProps: {
     title: 'entryTitle',
     imageUri: {

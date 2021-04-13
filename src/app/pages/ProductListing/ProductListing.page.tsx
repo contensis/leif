@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Components
 import ProductListing from '~/components/productListing/ProductListing';
 import ListingContainer from '../../components/listing/Listing.container';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
@@ -19,7 +20,7 @@ import GenericHero from '~/components/genericHero/GenericHero';
 import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
 
 const ProductListingPage = ({ mappedEntry }: Props) => {
-  const { title } = mappedEntry || {};
+  const { title, metadataProps } = mappedEntry || {};
 
   const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
   useEffect(() => {
@@ -42,6 +43,7 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
 
   return (
     <MainLayout>
+      <Metadata {...metadataProps} />
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
         <Region width="large" margin="none">

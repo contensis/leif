@@ -5,6 +5,7 @@ import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import LandingHero from '~/components/landingHero/LandingHero';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import LandingPageStyled from './LandingPage.styled';
@@ -22,6 +23,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
     contentComposerProps,
     ctaBannerProps,
     relatedContentProps,
+    metadataProps,
   } = mappedEntry || {};
 
   const { imageUri } = landingPageHeroProps;
@@ -29,6 +31,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
 
   return (
     <MainLayout isLight={isLight}>
+      <Metadata {...metadataProps} />
       <LandingPageStyled>
         <LandingHero {...landingPageHeroProps} />
         <Region margin="large" width="full">

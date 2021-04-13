@@ -7,6 +7,7 @@ import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
+import Metadata from '~/components/metadata/Metadata';
 
 // Layout
 import MainLayout from '~/layout/MainLayout';
@@ -23,9 +24,11 @@ const BlogPost = ({ mappedEntry }: Props) => {
     leadParagraphProps,
     contentComposerProps,
     relatedContentProps,
+    metadataProps,
   } = mappedEntry || {};
   return (
     <MainLayout>
+      <Metadata {...metadataProps} />
       <Region width="large" margin="none">
         <GenericHero {...blogHeroProps} />
       </Region>

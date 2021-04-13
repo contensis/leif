@@ -5,6 +5,8 @@ import LandingHero from '~/components/landingHero/LandingHero';
 import Composer from '~/components/composer/ComposerWrapper';
 import TestimonialSlider from '~/components/testimonialSlider/TestimonialSlider';
 import CTABanner from '~/components/ctaBanner/CTABanner';
+import Metadata from '~/components/metadata/Metadata';
+import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Layout
 import MainLayout from '~/layout/MainLayout';
@@ -16,8 +18,6 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 
 // Models
 import { Props } from './Home.d';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
-import Metadata from '~/components/metadata/Metadata';
 
 const Home = ({ mappedEntry }: Props) => {
   const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
