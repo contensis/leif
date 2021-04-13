@@ -46,6 +46,13 @@ const HeaderSearchStyled = styled.div`
           max-width: 570px;
         }
       }
+      .header-search__site-search--link {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        transform: translateY(-50%);
+      }
       .header-search__results {
         margin-top: 80px;
         padding: 24px;

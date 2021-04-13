@@ -11,6 +11,9 @@ import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 
 // Utils
 import { isEmptyObj } from '../../utils/isEmptyObj';
+import FocusLock from 'react-focus-lock';
+import { isClient } from '~/utils/isClient';
+
 export interface Props {
   className?: string;
   _toggleBasket: (val: boolean) => void;
@@ -38,6 +41,16 @@ const BasketMenu = ({
 }: Props) => {
   const ref = useRef();
   _useOnClickOutside(ref, () => _toggleBasket(false));
+
+  const _handleKeyDown = (evt: any) => {
+    if (evt.keyCode === 27) {
+      _toggleBasket(false);
+    }
+  };
+
+  if (isClient()) {
+    document.addEventListener('keydown', _handleKeyDown);
+  }
 
   let TOTAL_PRICE = 0;
   const BASKET_ARRAY = Object.keys(basket).map(key => {
@@ -70,33 +83,44 @@ const BasketMenu = ({
       {isBasketOpen && (
         <div className="basket-menu__content-wrapper" ref={ref}>
           <Icon className="basket-menu__icon" type="wheelbarrow" />
-          {!hasItemsInBasket && (
-            <p className="basket-menu__text">Your basket is empty</p>
-          )}
-          {hasItemsInBasket && (
-            <div className="basket-menu__items-wrapper">
-              {BASKET_ARRAY &&
-                BASKET_ARRAY.map((item: any[]) => {
-                  if (!item || item.length < 1) return null;
-                  return item.map((product: BasketItemProps, idx: number) => {
-                    TOTAL_PRICE += product.price * product.quantity;
-                    return (
-                      <BasketItem
-                        key={idx}
-                        {...product}
-                        _removeFromBasket={_removeFromBasket}
-                      />
-                    );
-                  });
-                })}
-              <span>Total: £{TOTAL_PRICE.toFixed(2)}</span>
-            </div>
-          )}
-          <LinkButton
-            label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-            href={`${hasItemsInBasket ? '/checkout' : '/products/shop'}`}
-            icon="arrow-right"
-          />
+          <FocusLock>
+            <IconButton
+              icon="pot"
+              text="Basket"
+              className="basket-menu__btn"
+              isToggled={isBasketOpen}
+              _func={() => {
+                _toggleSearch(false), _toggleBasket(!isBasketOpen);
+              }}
+            />
+            {!hasItemsInBasket && (
+              <p className="basket-menu__text">Your basket is empty</p>
+            )}
+            {hasItemsInBasket && (
+              <div className="basket-menu__items-wrapper">
+                {BASKET_ARRAY &&
+                  BASKET_ARRAY.map((item: any[]) => {
+                    if (!item || item.length < 1) return null;
+                    return item.map((product: BasketItemProps, idx: number) => {
+                      TOTAL_PRICE += product.price * product.quantity;
+                      return (
+                        <BasketItem
+                          key={idx}
+                          {...product}
+                          _removeFromBasket={_removeFromBasket}
+                        />
+                      );
+                    });
+                  })}
+                <span>Total: £{TOTAL_PRICE.toFixed(2)}</span>
+              </div>
+            )}
+            <LinkButton
+              label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
+              href={`${hasItemsInBasket ? '/checkout' : '/products/shop'}`}
+              icon="arrow-right"
+            />
+          </FocusLock>
         </div>
       )}
     </BasketMenuStyled>
