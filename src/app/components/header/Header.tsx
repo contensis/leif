@@ -42,19 +42,18 @@ const Header = ({
     <HeaderStyled
       className={className}
       isSearchOpen={isSearchOpen}
-      ref={ref}
       isLight={isLight}
     >
       <Wrapper
         condition={isSearchOpen}
         wrapper={() => (
-          <div ref={ref}>
-            <FocusLock className="focus-lock">
+          <>
+            <FocusLock className="focus-lock" ref={ref}>
               <HeaderSearch className="header__search" />
               <BasketMenu />
               <Navigation />
             </FocusLock>
-          </div>
+          </>
         )}
       >
         <a href="/" className="header__logo-link">
