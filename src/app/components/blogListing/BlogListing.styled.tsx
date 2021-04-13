@@ -28,9 +28,6 @@ const BlogListingStyled = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        @media ${theme.mq.desktop} {
-          justify-content: flex-start;
-        }
         > * {
           @media ${theme.mq.laptop} {
             flex-basis: calc((100% / 2) - 40px);
