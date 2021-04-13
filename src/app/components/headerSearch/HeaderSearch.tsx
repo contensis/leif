@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
+// Style
 import HeaderSearchStyled from './HeaderSearch.styled';
 
+// Components
 import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import SearchCard from '../searchCard/SearchCard';
 import Icon from '../icon/Icon';
-import { isClient } from '~/utils/isClient';
+
+// Utils
+import { isClient } from '../../utils/isClient';
 
 export interface Props {
   className?: string;

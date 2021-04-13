@@ -12,7 +12,7 @@ import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 // Utils
 import { isEmptyObj } from '../../utils/isEmptyObj';
 import FocusLock from 'react-focus-lock';
-import { isClient } from '~/utils/isClient';
+import { isClient } from '../../utils/isClient';
 
 export interface Props {
   className?: string;
