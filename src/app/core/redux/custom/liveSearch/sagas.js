@@ -24,10 +24,13 @@ function* _fetchResults() {
       const expressions = [
         Op.and(
           Op.equalTo('sys.versionStatus', 'published'),
-          Op.or(Op.in('sys.contentTypeId', [...SearchContentTypes]))
+          Op.or(Op.in('sys.contentTypeId', ...SearchContentTypes))
         ),
-        Op.freeText('entryTitle', searchTerm),
-        Op.freeText('entryDescription', searchTerm),
+        Op.or(
+          Op.contains('entryTitle', searchTerm),
+          Op.contains('entryDescription', searchTerm),
+          Op.contains('searchContent', searchTerm)
+        ),
       ];
       const query = new Query(...expressions);
       query.pageSize = 4;

@@ -5,7 +5,7 @@ import { SET_SEARCH_RESULTS, SET_SEARCH_TERM } from './types';
 
 let initialState = Map({
   searchTerm: '',
-  results: {},
+  results: [],
 });
 
 export default (state = initialState, action) => {

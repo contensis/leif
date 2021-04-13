@@ -13,7 +13,7 @@ export interface Props {
   imageAlt: string;
   date?: string;
   readTime?: string;
-  price?: number;
+  price: number[];
   uri: string;
 }
 
@@ -50,7 +50,8 @@ const SearchCard = ({
             </div>
           </>
         );
-      case 'product':
+      case 'product': {
+        const priceText = price.length > 1 ? `${Math.min(...price)}+` : price;
         return (
           <>
             <Image
@@ -60,11 +61,12 @@ const SearchCard = ({
             />
             <div className="search-card__content">
               <h2>{title}</h2>
-              <span className="search-card__detail">£{price}</span>
+              <span className="search-card__detail">£{priceText}</span>
               <p className="search-card__text">{text}</p>
             </div>
           </>
         );
+      }
       default:
         return (
           <div className="search-card__content">

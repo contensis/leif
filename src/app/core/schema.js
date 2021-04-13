@@ -101,7 +101,8 @@ export const SearchContentTypes = [
   ContentTypes.blog,
   ContentTypes.contentPage,
   ContentTypes.landingPage,
-  ContentTypes.product,
+  ContentTypes.plant,
+  ContentTypes.pot,
   ContentTypes.blogListing,
   ContentTypes.productListing,
 ];
