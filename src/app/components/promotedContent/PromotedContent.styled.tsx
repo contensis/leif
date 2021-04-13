@@ -18,8 +18,11 @@ const PromotedContentStyled = styled.div`
         }
       }
       .promoted-content__card {
-        max-width: auto;
-        min-width: 288px;
+        max-width: 288px;
+        width: 100%;
+        .card__title {
+          white-space: break-spaces;
+        }
       }
       .promoted-content__link {
         margin: 80px auto 0;
