@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
-import { removeFromBasket } from '../../core/redux/custom/basket/actions';
+// Actions
 import {
   toggleSearch,
   toggleMenu,
   toggleBasket,
 } from '../../core/redux/custom/ui/actions';
+import { removeFromBasket } from '../../core/redux/custom/basket/actions';
+
+// Selectors
 import {
   selectIsSearchOpen,
   selectIsMenuOpen,
@@ -15,6 +18,7 @@ import {
 } from '../../core/redux/custom/ui/selectors';
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
+// Components and Props
 import BasketMenu, { Props } from './BasketMenu';
 
 const BasketMenuContainer = ({

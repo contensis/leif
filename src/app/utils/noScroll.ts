@@ -7,6 +7,9 @@ export const _noScroll = (
   if (isClient()) {
     if (hasRoot()) {
       const bodyEl = document.getElementsByTagName('body')[0];
+      window.scrollTo({
+        top: 0,
+      });
       if (condition) {
         bodyEl.classList.add('no-scroll');
         if (hasWhiteBackground) {

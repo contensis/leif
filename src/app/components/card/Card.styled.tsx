@@ -36,7 +36,8 @@ const CardStyled = styled(Link)`
           max-width: 400px;
           width: 100%;
           .card__thumbnail {
-            width: 368px;
+            max-width: 368px;
+            width: 100%;
             height: 304px;
             margin-top: 24px;
           }

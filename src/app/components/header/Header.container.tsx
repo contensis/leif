@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
+// Actions
 import { toggleSearch, toggleMenu } from '../../core/redux/custom/ui/actions';
+
+// Selectors
 import {
   selectIsSearchOpen,
   selectIsMenuOpen,
@@ -13,8 +16,8 @@ import Header, { Props } from './Header';
 
 const HeaderContainer = ({
   className,
-  isSearchOpen,
   _toggleSearch,
+  isSearchOpen,
   isMenuOpen,
   isBasketOpen,
   isLight,
@@ -22,8 +25,8 @@ const HeaderContainer = ({
   return (
     <Header
       className={className}
-      isSearchOpen={isSearchOpen}
       _toggleSearch={_toggleSearch}
+      isSearchOpen={isSearchOpen}
       isMenuOpen={isMenuOpen}
       isBasketOpen={isBasketOpen}
       isLight={isLight}

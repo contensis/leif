@@ -1,19 +1,22 @@
 import React, { useRef } from 'react';
 
+// Style
 import HeaderStyled from './Header.styled';
 
-import IconButton from '../iconButton/IconButton';
-import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
+// Utils
 import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
 import { _noScroll } from '../../utils/noScroll';
 
+// Components
+import IconButton from '../iconButton/IconButton';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import HeaderSearch from '../headerSearch/HeaderSearch.container';
 import Navigation from '../navigation/Navigation.container';
 import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
-// import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 export interface Props {
   className?: string;
   _toggleSearch: (val: boolean) => void;
@@ -25,14 +28,15 @@ export interface Props {
 
 const Header = ({
   className,
-  isSearchOpen,
   _toggleSearch,
+  isSearchOpen,
   isMenuOpen,
   isBasketOpen,
   isLight,
 }: Props) => {
-  _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
   const ref = useRef();
+  _useOnClickOutside(ref, () => _toggleSearch(false));
+  _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
 
   return (
     <HeaderStyled
@@ -44,13 +48,13 @@ const Header = ({
       <Wrapper
         condition={isSearchOpen}
         wrapper={() => (
-          <>
+          <div ref={ref}>
             <FocusLock className="focus-lock">
               <HeaderSearch className="header__search" />
               <BasketMenu />
               <Navigation />
             </FocusLock>
-          </>
+          </div>
         )}
       >
         <a href="/" className="header__logo-link">
