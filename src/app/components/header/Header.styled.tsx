@@ -49,16 +49,18 @@ const HeaderStyled = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 0;
+        top: 32px;
         left: 0;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        @media ${theme.mq.laptop} {
+          top: 40px;
+        }
       }
       ${isSearchOpen &&
         css`
           position: relative;
-          top: 40px;
           margin-right: -122px;
           @media ${theme.mq.laptop} {
             margin-right: 0;
