@@ -32,6 +32,7 @@ const BasketMenuStyled = styled.div`
       }
       .basket-menu__text {
         margin: 16px 0 40px 0;
+        text-align: center;
       }
       ${isBasketOpen &&
         css`

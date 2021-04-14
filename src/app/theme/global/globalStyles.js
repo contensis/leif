@@ -121,7 +121,7 @@ const GlobalStyle = createGlobalStyle`
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       background: #2B2F51;
       opacity: 0.25;
       z-index: 9;
@@ -135,7 +135,7 @@ const GlobalStyle = createGlobalStyle`
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       background: #fff;
       opacity: 1;
       z-index: 99;
