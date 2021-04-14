@@ -10,7 +10,7 @@ import { setIsModalOpen } from '~/core/redux/custom/ui/actions';
 // Selectors
 import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
-import { selectIsModalOpen } from '~/core/redux/custom/ui/selectors';
+import { selectIsModalOpen } from '../../core/redux/custom/ui/selectors';
 
 // Component & Props
 import ProductHero, { Props, VariantProps } from './ProductHero';
