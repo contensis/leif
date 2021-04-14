@@ -72,7 +72,9 @@ const BasketMenu = ({
   return (
     <BasketMenuStyled className={className} isBasketOpen={isBasketOpen}>
       <IconButton
-        icon="pot"
+        icon="wheelbarrow"
+        height={32}
+        width={32}
         text="Basket"
         className="basket-menu__btn"
         isToggled={isBasketOpen}
@@ -85,7 +87,9 @@ const BasketMenu = ({
           <Icon className="basket-menu__icon" type="wheelbarrow" />
           <FocusLock>
             <IconButton
-              icon="pot"
+              icon="wheelbarrow"
+              height={32}
+              width={32}
               text="Basket"
               className="basket-menu__btn"
               isToggled={isBasketOpen}

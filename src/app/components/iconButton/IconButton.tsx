@@ -10,12 +10,16 @@ interface Props {
   text?: string;
   _func?: () => void;
   isToggled?: boolean;
+  height?: number;
+  width?: number;
 }
 
 const IconButton = ({
   className,
   type = 'button',
   icon,
+  height,
+  width,
   text,
   _func,
   isToggled = false,
@@ -35,7 +39,7 @@ const IconButton = ({
       <div className="icon-btn__wrapper">
         {!isToggled && (
           <>
-            <Icon type={icon} />
+            <Icon type={icon} width={width} height={height} />
             <VisuallyHidden text={text} />
           </>
         )}

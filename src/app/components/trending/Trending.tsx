@@ -7,7 +7,7 @@ export interface Props {
   className?: string;
 }
 
-const Trending = ({ className }) => {
+const Trending = ({ className }: Props) => {
   return (
     <TrendingStyled className={className}>
       <LinkButton
@@ -22,7 +22,7 @@ const Trending = ({ className }) => {
         isHollow
         type="secondary"
         label="Plants"
-        href="/products/shop?contentTypeId=plants"
+        href="/products/shop?contentTypeId=plant"
       />
       <LinkButton
         icon="arrow-right"
