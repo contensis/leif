@@ -14,8 +14,8 @@ import Wrapper from '../wrapper/Wrapper';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
-import { _useLockBodyScroll } from '~/utils/hooks/useLockBodyScroll';
-import { isClient } from '~/utils/isClient';
+import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
+import { isClient } from '../../utils/isClient';
 
 export interface MatchingPotsProps {
   type: string;

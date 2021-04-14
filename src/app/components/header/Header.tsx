@@ -17,7 +17,7 @@ import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
 import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
-import { _useLockBodyScroll } from '~/utils/hooks/useLockBodyScroll';
+import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
 export interface Props {
   className?: string;
   _setIsSearchOpen: (val: boolean) => void;

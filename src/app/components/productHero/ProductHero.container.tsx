@@ -5,7 +5,7 @@ import { toJS } from '../../core/util/ToJs';
 // Actions
 import { setActiveVariant } from '../../core/redux/custom/product/actions';
 import { addToBasket } from '../../core/redux/custom/basket/actions';
-import { setIsModalOpen } from '~/core/redux/custom/ui/actions';
+import { setIsModalOpen } from '../../core/redux/custom/ui/actions';
 
 // Selectors
 import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
