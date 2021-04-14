@@ -19,6 +19,7 @@ const PromotedContentStyled = styled.div`
       }
       .promoted-content__card {
         max-width: 288px;
+        min-width: 288px;
         width: 100%;
         .card__title {
           white-space: break-spaces;

@@ -3,7 +3,7 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 const productSliderMappingBase = {
   title: 'title',
   summary: 'summary',
-  ctaLink: () => '/shop',
+  ctaLink: () => '/products/shop',
   ctaText: () => 'Shop now',
   bgImageUri: () => '/static/img/backgrounds/product-slider-background.png',
 };

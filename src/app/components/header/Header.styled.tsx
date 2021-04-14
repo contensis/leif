@@ -45,7 +45,7 @@ const HeaderStyled = styled.div`
           height: 80px;
         }
       }
-      .focus-lock {
+      .header__search--wrapper {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -70,7 +70,7 @@ const HeaderStyled = styled.div`
               margin-right: 0;
             }
           }
-        `}
+        `};
     `;
   }};
 `;

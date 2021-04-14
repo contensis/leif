@@ -4,18 +4,19 @@ import { toJS } from '../../core/util/ToJs';
 
 // Actions
 import {
-  toggleSearch,
-  toggleMenu,
-  toggleBasket,
+  setIsSearchOpen,
+  setIsBasketOpen,
 } from '../../core/redux/custom/ui/actions';
+import { toggleMenu } from '../../core/redux/custom/menu/actions';
 import { removeFromBasket } from '../../core/redux/custom/basket/actions';
 
 // Selectors
 import {
   selectIsSearchOpen,
-  selectIsMenuOpen,
   selectIsBasketOpen,
 } from '../../core/redux/custom/ui/selectors';
+import { selectIsMenuOpen } from '../../core/redux/custom/menu/selectors';
+
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
 // Components and Props
@@ -24,8 +25,8 @@ import BasketMenu, { Props } from './BasketMenu';
 const BasketMenuContainer = ({
   className,
   isBasketOpen,
-  _toggleBasket,
-  _toggleSearch,
+  _setIsBasketOpen,
+  _setIsSearchOpen,
   _removeFromBasket,
   basket,
 }: Props) => {
@@ -33,8 +34,8 @@ const BasketMenuContainer = ({
     <BasketMenu
       className={className}
       isBasketOpen={isBasketOpen}
-      _toggleBasket={_toggleBasket}
-      _toggleSearch={_toggleSearch}
+      _setIsBasketOpen={_setIsBasketOpen}
+      _setIsSearchOpen={_setIsSearchOpen}
       _removeFromBasket={_removeFromBasket}
       basket={basket}
     />
@@ -52,9 +53,9 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    _toggleSearch: (val: boolean) => dispatch(toggleSearch(val)),
+    _setIsSearchOpen: (val: boolean) => dispatch(setIsSearchOpen(val)),
     _toggleMenu: (val: boolean) => dispatch(toggleMenu(val)),
-    _toggleBasket: (val: boolean) => dispatch(toggleBasket(val)),
+    _setIsBasketOpen: (val: boolean) => dispatch(setIsBasketOpen(val)),
     _removeFromBasket: (id: string, sku: string) =>
       dispatch(removeFromBasket(id, sku)),
   };

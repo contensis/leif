@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 // Style
 import HeaderStyled from './Header.styled';
@@ -6,7 +6,7 @@ import HeaderStyled from './Header.styled';
 // Utils
 import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
-import { _noScroll } from '../../utils/noScroll';
+import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
 
 // Components
 import IconButton from '../iconButton/IconButton';
@@ -17,27 +17,43 @@ import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
 import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
+import { _useLockBodyScroll } from '~/utils/hooks/useLockBodyScroll';
 export interface Props {
   className?: string;
-  _toggleSearch: (val: boolean) => void;
+  _setIsSearchOpen: (val: boolean) => void;
   isSearchOpen: boolean;
   isMenuOpen: boolean;
   isBasketOpen: boolean;
   isLight: boolean;
 }
 
+interface SearchOpenHeaderProps {
+  _setIsSearchOpen: (val: boolean) => void;
+}
+
+const SearchOpenHeader = ({ _setIsSearchOpen }: SearchOpenHeaderProps) => {
+  _useLockBodyScroll();
+  const ref = useRef();
+  _useOnClickOutside(ref, () => _setIsSearchOpen(false));
+  return (
+    <div ref={ref} className="header__search--wrapper">
+      <HeaderSearch className="header__search" />
+      <BasketMenu />
+      <Navigation />
+    </div>
+  );
+};
+
 const Header = ({
   className,
-  _toggleSearch,
+  _setIsSearchOpen,
   isSearchOpen,
-  isMenuOpen,
-  isBasketOpen,
   isLight,
 }: Props) => {
-  const ref = useRef();
-  _useOnClickOutside(ref, () => _toggleSearch(false));
-  _noScroll(isSearchOpen || isMenuOpen || isBasketOpen);
-
+  useEffect(() => {
+    if (isSearchOpen) addOverlayCSS();
+    else removeOverlayCSS();
+  }, [isSearchOpen]);
   return (
     <HeaderStyled
       className={className}
@@ -48,10 +64,8 @@ const Header = ({
         condition={isSearchOpen}
         wrapper={() => (
           <>
-            <FocusLock className="focus-lock" ref={ref}>
-              <HeaderSearch className="header__search" />
-              <BasketMenu />
-              <Navigation />
+            <FocusLock>
+              <SearchOpenHeader _setIsSearchOpen={_setIsSearchOpen} />
             </FocusLock>
           </>
         )}
@@ -74,7 +88,7 @@ const Header = ({
             icon="search"
             text="Search site"
             isToggled={isSearchOpen}
-            _func={() => _toggleSearch(!isSearchOpen)}
+            _func={() => _setIsSearchOpen(!isSearchOpen)}
           />
           <BasketMenu />
           <Navigation />

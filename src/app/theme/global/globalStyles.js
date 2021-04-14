@@ -113,8 +113,7 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
-  .no-scroll {
-    overflow: hidden;
+  .overlay {
     position: relative;
     &:before {
       content: '';
@@ -122,14 +121,21 @@ const GlobalStyle = createGlobalStyle`
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background: #2B2F51;
       opacity: 0.25;
       z-index: 9;
     }
   }
-  .white {
+  .white-overlay {
+    position: relative;
     &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
       background: #fff;
       opacity: 1;
       z-index: 99;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import { toggleSearch } from '../../core/redux/custom/ui/actions';
+import { setIsSearchOpen } from '../../core/redux/custom/ui/actions';
 import { setSearchTerm } from '../../core/redux/custom/liveSearch/actions';
 
 // Selectors
@@ -16,7 +16,7 @@ const HeaderSearchContainer = ({
   className,
   placeholder,
   isSearchOpen = false,
-  _toggleSearch,
+  _setIsSearchOpen,
   _setSearchTerm,
   results,
 }: Props) => {
@@ -25,7 +25,7 @@ const HeaderSearchContainer = ({
       className={className}
       placeholder={placeholder}
       isSearchOpen={isSearchOpen}
-      _toggleSearch={_toggleSearch}
+      _setIsSearchOpen={_setIsSearchOpen}
       _setSearchTerm={_setSearchTerm}
       results={results}
     />
@@ -41,7 +41,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    _toggleSearch: (val: boolean) => dispatch(toggleSearch(val)),
+    _setIsSearchOpen: (val: boolean) => dispatch(setIsSearchOpen(val)),
     _setSearchTerm: (val: string) => dispatch(setSearchTerm(val)),
   };
 };

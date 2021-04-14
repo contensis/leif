@@ -16,7 +16,7 @@ export interface Props {
   className?: string;
   placeholder?: string;
   isSearchOpen?: boolean;
-  _toggleSearch: (val: boolean) => void;
+  _setIsSearchOpen: (val: boolean) => void;
   _setSearchTerm: (val: string) => void;
   results?: any;
 }
@@ -25,7 +25,7 @@ const HeaderSearch = ({
   className,
   placeholder,
   isSearchOpen,
-  _toggleSearch,
+  _setIsSearchOpen,
   _setSearchTerm,
   results,
 }: Props) => {
@@ -37,7 +37,7 @@ const HeaderSearch = ({
 
   const _handleKeyDown = (evt: any) => {
     if (evt.keyCode === 27) {
-      _toggleSearch(false);
+      _setIsSearchOpen(false);
     }
   };
 
@@ -57,6 +57,7 @@ const HeaderSearch = ({
           id="header-search"
           name="Header Search"
           placeholder={placeholder}
+          autoComplete="off"
           aria-label="Search site"
           onChange={(e: any) => _handleChange(e.target.value)}
           onBlur={(e: any) => _handleChange(e.target.value)}
@@ -79,7 +80,7 @@ const HeaderSearch = ({
       <IconButton
         isToggled={isSearchOpen}
         icon="search"
-        _func={() => _toggleSearch(!isSearchOpen)}
+        _func={() => _setIsSearchOpen(!isSearchOpen)}
         text={`${isSearchOpen ? 'Close' : 'Open'} Search site`}
       />
     </HeaderSearchStyled>

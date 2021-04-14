@@ -10,7 +10,6 @@ import Icon from '../icon/Icon';
 import Wrapper from '../wrapper/Wrapper';
 import FocusLock from 'react-focus-lock';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
-import { _noScroll } from '../../utils/noScroll';
 import Trending from '../trending/Trending';
 
 export interface Props {
@@ -40,7 +39,6 @@ const PromotionalBlock = ({
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const hasVideo = video && (video.externalURL || video.internalVideo);
-  _noScroll(isModalOpen);
 
   return (
     <PromotionalBlockStyled

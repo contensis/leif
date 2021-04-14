@@ -2,12 +2,11 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   theme?: any;
-  ref?: any;
-  showSecondMenu: boolean;
+  isSecondMenuOpen: boolean;
 }
 
 const NavigationStyled = styled.div`
-  ${({ theme, showSecondMenu }: Props) => {
+  ${({ theme, isSecondMenuOpen }: Props) => {
     return css`
       position: relative;
       height: 80px;
@@ -92,7 +91,7 @@ const NavigationStyled = styled.div`
       .nav-menu__level-one {
         animation: slideIn 200ms;
       }
-      ${showSecondMenu &&
+      ${isSecondMenuOpen &&
         css`
           animation: slideIn 200ms;
           .nav-menu__level-one {

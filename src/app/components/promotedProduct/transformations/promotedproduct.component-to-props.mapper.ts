@@ -10,7 +10,7 @@ export const promotedProductPropsMapping = {
   ctaLink: {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,
-    $default: () => '/shop',
+    $default: () => '/products/shop',
   },
   ctaText: () => 'Find out more',
 };

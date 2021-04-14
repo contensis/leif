@@ -14,12 +14,12 @@ export const UISagas = [
 function* handleUIState() {
   const iaSearchVisible = yield select(selectIsSearchOpen);
   if (iaSearchVisible) {
-    yield call(toggleSearch);
+    yield call(setIsSearchOpen);
   }
   yield call(getDeviceType);
 }
 
-function* toggleSearch() {
+function* setIsSearchOpen() {
   yield put({
     type: TOGGLE_SEARCH,
     value: false,

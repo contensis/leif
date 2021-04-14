@@ -2,11 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
-import { addToBasket } from '../../core/redux/custom/basket/actions';
-import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
+// Actions
 import { setActiveVariant } from '../../core/redux/custom/product/actions';
-import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
+import { addToBasket } from '../../core/redux/custom/basket/actions';
+import { setIsModalOpen } from '~/core/redux/custom/ui/actions';
 
+// Selectors
+import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
+import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
+import { selectIsModalOpen } from '~/core/redux/custom/ui/selectors';
+
+// Component & Props
 import ProductHero, { Props, VariantProps } from './ProductHero';
 
 const ProductHeroContainer = ({
@@ -20,6 +26,8 @@ const ProductHeroContainer = ({
   basket,
   _addToBasket,
   _setActiveVariant,
+  _setIsModalOpen,
+  isModalOpen,
   activeVariant,
 }: Props) => {
   return (
@@ -29,6 +37,8 @@ const ProductHeroContainer = ({
       basket={basket}
       _addToBasket={_addToBasket}
       _setActiveVariant={_setActiveVariant}
+      _setIsModalOpen={_setIsModalOpen}
+      isModalOpen={isModalOpen}
       activeVariant={activeVariant}
       slides={slides}
       review={review}
@@ -43,6 +53,7 @@ const mapStateToProps = (state: any) => {
   return {
     basket: selectProductsInBasket(state),
     activeVariant: selectActiveVariant(state),
+    isModalOpen: selectIsModalOpen(state),
   };
 };
 
@@ -56,6 +67,7 @@ const mapDispatchToProps = (dispatch: any) => {
     ) => dispatch(addToBasket(id, productTitle, quantity, activeVariant)),
     _setActiveVariant: (value: VariantProps) =>
       dispatch(setActiveVariant(value)),
+    _setIsModalOpen: (val: boolean) => dispatch(setIsModalOpen(val)),
   };
 };
 

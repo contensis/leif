@@ -14,7 +14,8 @@ import Wrapper from '../wrapper/Wrapper';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
-import { _noScroll } from '../../utils/noScroll';
+import { _useLockBodyScroll } from '~/utils/hooks/useLockBodyScroll';
+import { isClient } from '~/utils/isClient';
 
 export interface MatchingPotsProps {
   type: string;
@@ -47,6 +48,8 @@ export interface Props {
   variants: VariantProps[];
   activeVariant: VariantProps[];
   _setActiveVariant: (value: VariantProps) => void;
+  _setIsModalOpen: (val: boolean) => void;
+  isModalOpen: boolean;
   basket: any;
   _addToBasket: (
     id: string,
@@ -55,6 +58,41 @@ export interface Props {
     activeVariant: VariantProps
   ) => void;
 }
+
+interface ProductHeroModalOverlayProps {
+  slides: any[] | any;
+  _setIsModalOpen: (val: boolean) => void;
+}
+
+const ProductHeroModalOverlay = ({
+  slides,
+  _setIsModalOpen,
+}: ProductHeroModalOverlayProps) => {
+  _useLockBodyScroll();
+  return (
+    <FocusLock>
+      <div className="product-hero__modal">
+        <div className="product-hero__modal-slider">
+          <SlickSlider
+            slides={slides}
+            hasNav={true}
+            hasScrollImage={true}
+            swipeToSlide={false}
+            draggable={false}
+          />
+        </div>
+        <button
+          type="button"
+          className="product-hero__modal-close"
+          onClick={() => _setIsModalOpen(false)}
+        >
+          <Icon type="close" />
+          <VisuallyHidden text="Close" />
+        </button>
+      </div>
+    </FocusLock>
+  );
+};
 
 const ProductHero = ({
   className,
@@ -67,9 +105,10 @@ const ProductHero = ({
   activeVariant,
   _setActiveVariant,
   review,
+  isModalOpen,
+  _setIsModalOpen,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   /* eslint-disable */
   useEffect(() => {
@@ -90,7 +129,19 @@ const ProductHero = ({
     }
   };
 
-  _noScroll(isModalOpen, true);
+  useEffect(() => {
+    if (isClient()) {
+      const rootEl = document.getElementById('root');
+      if (isModalOpen) {
+        window.scrollTo({
+          top: 0,
+        });
+        if (rootEl) rootEl.classList.add('white-overlay');
+      } else {
+        if (rootEl) rootEl.classList.remove('white-overlay');
+      }
+    }
+  }, [isModalOpen]);
 
   if (!variants || variants.length < 1) return null;
   return (
@@ -99,27 +150,10 @@ const ProductHero = ({
         condition={isModalOpen}
         wrapper={() => (
           <>
-            <FocusLock>
-              <div className="product-hero__modal">
-                <div className="product-hero__modal-slider">
-                  <SlickSlider
-                    slides={slides}
-                    hasNav={true}
-                    hasScrollImage={true}
-                    swipeToSlide={false}
-                    draggable={false}
-                  />
-                </div>
-                <button
-                  type="button"
-                  className="product-hero__modal-close"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  <Icon type="close" />
-                  <VisuallyHidden text="Close" />
-                </button>
-              </div>
-            </FocusLock>
+            <ProductHeroModalOverlay
+              slides={slides}
+              _setIsModalOpen={_setIsModalOpen}
+            />
           </>
         )}
       >
@@ -135,7 +169,7 @@ const ProductHero = ({
               <button
                 type="button"
                 className="product-hero__slider-fullsize"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => _setIsModalOpen(true)}
               >
                 <VisuallyHidden text="Open image slider fullscreen" />
                 <Icon

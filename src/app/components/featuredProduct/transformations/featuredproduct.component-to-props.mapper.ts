@@ -12,6 +12,6 @@ export const featuredProductMapping = {
   linkLabel: 'buttonText',
   linkUri: {
     $path: ['product.sys.uri', 'externalButtonLink'],
-    $default: () => '/shop',
+    $default: () => '/products/shop',
   },
 };
