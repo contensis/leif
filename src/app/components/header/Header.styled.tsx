@@ -49,7 +49,7 @@ const HeaderStyled = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 32px;
+        top: -6px;
         left: 0;
         display: flex;
         align-items: center;

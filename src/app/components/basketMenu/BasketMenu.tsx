@@ -73,10 +73,10 @@ const BasketMenuSidebar = ({
 
   return (
     <div className="basket-menu__content-wrapper" ref={ref}>
-      <Icon className="basket-menu__icon" type="wheelbarrow" />
+      <Icon className="basket-menu__icon" type="basket" />
       <FocusLock>
         <IconButton
-          icon="wheelbarrow"
+          icon="basket"
           height={32}
           width={32}
           text="Basket"
@@ -134,9 +134,9 @@ const BasketMenu = ({
   return (
     <BasketMenuStyled className={className} isBasketOpen={isBasketOpen}>
       <IconButton
-        icon="wheelbarrow"
-        height={32}
-        width={32}
+        icon="basket"
+        height={26}
+        width={26}
         text="Basket"
         className="basket-menu__btn"
         isToggled={isBasketOpen}
