@@ -13,6 +13,7 @@ const ButtonStyled = styled.button`
     return css`
       ${theme.typeStyles.h5};
       font-family: ${theme.typeStyles.fontFamily.headings};
+      font-weight: normal;
       display: inline-block;
       max-width: 256px;
       border: none;

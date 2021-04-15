@@ -39,7 +39,7 @@ const IconButton = ({
       <div className="icon-btn__wrapper">
         {!isToggled && (
           <>
-            <Icon type={icon} width={width} height={height} />
+            <Icon type={icon} width={width} height={height} color="#2B2F51" />
             <VisuallyHidden text={text} />
           </>
         )}

@@ -200,7 +200,8 @@ const ProductHero = ({
                         activeVariant.sku === variant.sku ? false : true
                       }
                       className="product-hero__option"
-                      onClick={() => {
+                      onClick={(e: any) => {
+                        e.preventDefault();
                         _setActiveVariant(variant);
                         updateQuantity(1);
                       }}

@@ -13,6 +13,7 @@ const LinkButtonStyled = styled.a`
     return css`
       ${theme.typeStyles.h5};
       font-family: ${theme.typeStyles.fontFamily.headings};
+      font-weight: normal;
       display: inline-block;
       max-width: 256px;
       width: 100%;
