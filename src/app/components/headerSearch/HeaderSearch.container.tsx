@@ -8,7 +8,10 @@ import { setSearchTerm } from '../../core/redux/custom/liveSearch/actions';
 
 // Selectors
 import { selectIsSearchOpen } from '../../core/redux/custom/ui/selectors';
-import { selectSearchResults } from '../../core/redux/custom/liveSearch/selectors';
+import {
+  selectSearchResults,
+  selectSearchTerm,
+} from '../../core/redux/custom/liveSearch/selectors';
 
 import HeaderSearch, { Props } from './HeaderSearch';
 
@@ -19,6 +22,7 @@ const HeaderSearchContainer = ({
   _setIsSearchOpen,
   _setSearchTerm,
   results,
+  term,
 }: Props) => {
   return (
     <HeaderSearch
@@ -28,6 +32,7 @@ const HeaderSearchContainer = ({
       _setIsSearchOpen={_setIsSearchOpen}
       _setSearchTerm={_setSearchTerm}
       results={results}
+      term={term}
     />
   );
 };
@@ -36,6 +41,7 @@ const mapStateToProps = (state: any) => {
   return {
     isSearchOpen: selectIsSearchOpen(state),
     results: selectSearchResults(state),
+    term: selectSearchTerm(state),
   };
 };
 

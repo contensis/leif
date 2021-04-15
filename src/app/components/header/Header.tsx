@@ -62,8 +62,9 @@ const Header = ({
     >
       <Wrapper
         condition={isSearchOpen}
-        wrapper={() => (
+        wrapper={(children: any) => (
           <>
+            {children}
             <FocusLock>
               <SearchOpenHeader _setIsSearchOpen={_setIsSearchOpen} />
             </FocusLock>

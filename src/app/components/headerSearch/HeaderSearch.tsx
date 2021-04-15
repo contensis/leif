@@ -19,6 +19,7 @@ export interface Props {
   _setIsSearchOpen: (val: boolean) => void;
   _setSearchTerm: (val: string) => void;
   results?: any;
+  term: string;
 }
 
 const HeaderSearch = ({
@@ -28,11 +29,15 @@ const HeaderSearch = ({
   _setIsSearchOpen,
   _setSearchTerm,
   results,
+  term,
 }: Props) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(term || '');
   const _handleChange = (val: string) => {
-    setValue(val);
-    _setSearchTerm(val);
+    if (!val) return null;
+    if (val.length >= 1) {
+      setValue(val);
+      _setSearchTerm(val);
+    }
   };
 
   const _handleKeyDown = (evt: any) => {
@@ -57,6 +62,7 @@ const HeaderSearch = ({
           id="header-search"
           name="Header Search"
           placeholder={placeholder}
+          defaultValue={term}
           autoComplete="off"
           aria-label="Search site"
           onChange={(e: any) => _handleChange(e.target.value)}

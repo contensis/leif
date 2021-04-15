@@ -124,7 +124,7 @@ const PromotionalBlockStyled = styled.div`
     .promoted-product__link {
       margin: ${align === 'left' ? '24px 0 0 auto' : '24px auto 0 0'};
       @media ${theme.mq.laptop} {
-        margin: 24px 0 0 0;
+      margin: 24px auto 0 0;
       }
     }
     .promoted-product__title {
