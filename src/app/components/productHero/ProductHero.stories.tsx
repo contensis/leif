@@ -43,7 +43,15 @@ for (let i = 0; SlidesArray.length < 8; i++) {
 export const Primary = Template.bind({});
 Primary.args = {
   id: _UUID(),
-  rating: '4',
+  variants: [
+    {
+      variantTitle: 'Product - 12 x 32',
+      sku: 'SKU/101',
+      price: '34',
+      diameter: '12',
+      height: '32',
+    }
+  ],
   title: 'Product title can span multiple lines',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.',

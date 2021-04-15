@@ -10,7 +10,7 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['error', 'success', 'information']
+        options: ['warning', 'success', 'note']
       },
     },
   },
@@ -22,7 +22,7 @@ const Template: Story<Props> = ({ type, ...args }) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: 'error',
+  type: 'note',
   title: 'Callout title',
   text:
     'Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet.',

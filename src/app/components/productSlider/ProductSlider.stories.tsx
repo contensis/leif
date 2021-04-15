@@ -59,5 +59,5 @@ Primary.args = {
   ctaLink: '/',
   ctaText: 'Shop now',
   bgImageUri: 'https://source.unsplash.com/7d7OR-RvufU',
-  curatedProducts: SlidesArray,
+  products: SlidesArray,
 };

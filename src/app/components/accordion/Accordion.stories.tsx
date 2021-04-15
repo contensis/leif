@@ -15,7 +15,7 @@ const Template: Story<Props> = args => {
 const items = [];
 const item = {
   title: 'Accordion title',
-  text:
+  content:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing vitae aliquam volutpat nibh duis enim mi nibh.t tortor.',
 };
 for (let i = 0; items.length < 4; i++) {

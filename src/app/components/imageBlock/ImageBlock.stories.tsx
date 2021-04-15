@@ -12,10 +12,7 @@ const Template: Story<Props> = args => <ImageBlock {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  title: 'Optional image title',
   text: 'Image accreditation and information can span multiple lines.',
-  image: {
-    path: 'https://source.unsplash.com/6hgrfOJhr74',
-    alt: 'Unsplash Image'
-  }
+  path: 'https://source.unsplash.com/6hgrfOJhr74',
+  alt: 'Unsplash Image'
 }

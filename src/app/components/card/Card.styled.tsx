@@ -109,7 +109,7 @@ const CardStyled = styled(Link)`
         ${type === 'explore' &&
           css`
             .card__thumbnail {
-              max-width: 236px;
+              width: 100%;
               height: 256px;
               @media ${theme.mq.desktop} {
                 width: 100%;

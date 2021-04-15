@@ -9,7 +9,7 @@ export interface Props {
   alt: string;
   path: string;
   text?: string;
-  align?: string;
+  align?: 'center' | 'left' | 'right';
 }
 
 const ImageBlock = ({
