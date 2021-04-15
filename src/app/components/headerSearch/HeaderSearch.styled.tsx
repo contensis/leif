@@ -45,6 +45,8 @@ const HeaderSearchStyled = styled.div`
         :-moz-placeholder {
           color: ${theme.colors.secondary_light};
         }
+        -webkit-appearance: none;
+        outline: 0;
         @media ${theme.mq.laptop} {
           max-width: 570px;
         }
