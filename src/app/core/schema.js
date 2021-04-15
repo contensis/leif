@@ -37,6 +37,7 @@ export const Fields = {
   person: 'person',
   name: 'name',
   photo: 'photo',
+  blogComposer: 'postBody',
 };
 
 export const BaseFields = [
@@ -71,6 +72,7 @@ export const BlogFields = [
   Fields.kicker,
   Fields.primaryImage,
   Fields.sys.published,
+  Fields.blogComposer,
 ];
 
 export const Projects = {

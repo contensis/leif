@@ -1,10 +1,12 @@
-import { ContentTypes, CardTypes } from '../../../core/schema';
+import { ContentTypes, CardTypes } from '~/core/schema';
 
-import dateWithSuffix from '../../../utils/dateWithSuffix';
+import { selectCurrentPath } from '~/core/redux/selectors';
 
-import { mapEntries } from '../../../core/util/json-mapper';
-import { selectCurrentPath } from '../../../core/redux/selectors';
-// import { VariantProps } from '~/components/productHero/ProductHero';
+import { mapEntries, mapComposer } from '~/core/util/json-mapper';
+import dateWithSuffix from '~/utils/dateWithSuffix';
+import { _calReadTime } from '~/utils/calculateReadTime';
+
+import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 
 const baseMapping = {
   title: 'entryTitle',
@@ -51,6 +53,10 @@ export const blogCardMapping = {
     'primaryImage.caption',
     'primaryImage.asset.title',
   ],
+  readTime: ({ postBody }: any) => {
+    const composer = mapComposer(postBody, composerPropsMapping);
+    return _calReadTime(composer);
+  },
 };
 
 export const productCardMapping = {

@@ -1,6 +1,12 @@
-import dateWithSuffix from '../../../utils/dateWithSuffix';
-import { ctaBannerPropsMapping } from '../../../components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
+// Utils
+import dateWithSuffix from '~/utils/dateWithSuffix';
+import { mapComposer } from '~/core/util/json-mapper';
+import { _calReadTime } from '~/utils/calculateReadTime';
+
+// Mappers
+import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 import { pageMetadataPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
+import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 
 export const blogListingPropsMapping = {
   metadataProps: { ...pageMetadataPropsMapping },
@@ -18,6 +24,13 @@ export const blogListingPropsMapping = {
     isListingPage: {
       $path: 'isListingPage',
       $default: () => () => 'Read now',
+    },
+    readTime: {
+      $path: 'featuredBlog',
+      $formatting: ({ postBody }: any) => {
+        const composer = mapComposer(postBody, composerPropsMapping);
+        return _calReadTime(composer);
+      },
     },
     imageUri: {
       $path: 'featuredBlog.primaryImage',

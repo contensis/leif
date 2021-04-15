@@ -13,9 +13,7 @@ const BlogDetail = ({ className, date, readTime }: Props) => {
   return (
     <BlogDetailStyled className={className}>
       {date && <span className="blog-details__date">{date}</span>}
-      {readTime && (
-        <span className="blog-details__readtime">{readTime} min read</span>
-      )}
+      {readTime && <span className="blog-details__readtime">{readTime}</span>}
     </BlogDetailStyled>
   );
 };

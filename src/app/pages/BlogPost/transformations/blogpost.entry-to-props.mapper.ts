@@ -5,6 +5,7 @@ import { composerPropsMapping } from '~/components/composer/transformations/comp
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 import dateWithSuffix from '~/utils/dateWithSuffix';
 import { externalPromotionPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
+import { _calReadTime } from '~/utils/calculateReadTime';
 
 export const blogPostPropsMapping = {
   metadataProps: { ...externalPromotionPropsMapping },
@@ -29,6 +30,10 @@ export const blogPostPropsMapping = {
     name: 'author.name',
     date: ({ sys }: any) =>
       dateWithSuffix(sys && sys.version && sys.version.published),
+    readTime: ({ postBody }: any) => {
+      const composer = mapComposer(postBody, composerPropsMapping);
+      return _calReadTime(composer);
+    },
   },
   leadParagraphProps: {
     text: 'leadParagraph',
