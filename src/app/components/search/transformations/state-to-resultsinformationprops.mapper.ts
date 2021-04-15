@@ -64,7 +64,7 @@ const resultsInfoTemplate = {
   wholeSearchTotal,
 };
 
-import { default as mapJson } from '~/core/util/json-mapper';
+import { default as mapJson } from '../../../core/util/json-mapper';
 
 const mapStateToResultsInformation = (state: any) =>
   mapJson(state, resultsInfoTemplate);
