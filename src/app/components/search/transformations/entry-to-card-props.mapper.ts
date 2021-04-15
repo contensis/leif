@@ -85,6 +85,7 @@ export const productCardMapping = {
 
 export const mappers = {
   [ContentTypes.contentPage]: baseMapping,
+  [ContentTypes.landingPage]: baseMapping,
   [ContentTypes.plant]: productCardMapping,
   [ContentTypes.pot]: productCardMapping,
   [ContentTypes.blog]: blogCardMapping,

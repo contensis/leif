@@ -1,39 +1,72 @@
 import { selectors } from '@zengenti/contensis-react-base/search';
-import { fromJS } from 'immutable';
 
-import { default as mapJson } from '../../../core/util/json-mapper';
+const { getFacet, getSearchTerm, getTabsAndFacets } = selectors;
 
-const {
-  getCurrent,
-  getListing,
-  getResults,
-  getTotalCount,
-  getPaging,
-} = selectors.selectListing;
+// Helper functions to save repetition
+const pagingInfo = (state: any) => {
+  const facet = getFacet(state);
+  if (!facet) return {};
 
-const listingTitle = (state: any) => getListing(state).get('title');
-const totalCount = (state: any) => getTotalCount(state);
+  const pagingInfo = facet.get('pagingInfo');
+  if (!pagingInfo) return {};
 
-const searchSummaryTemplate = {
-  currentListing: (state: any) => getCurrent(state),
-  currentPageCount: (state: any) => getResults(state).size,
-  listingTitle,
-  noResultsText: (state: any) =>
-    totalCount(state) === 0 ? `No results were found` : '',
-  resultsText: (state: any) => {
-    const { pageIndex, pageSize, totalCount, pagesLoaded } = getPaging(
-      state
-    ).toJS();
-    if (!pagesLoaded) return null;
-    const start = (pagesLoaded[0] || pageIndex) * pageSize + 1;
-    let end = start + (pagesLoaded.length * pageSize || pageSize) - 1;
-    if (end > totalCount) end = totalCount;
-
-    return `Showing <span>${start} - ${end} of ${totalCount}</span> results`;
-  },
+  return pagingInfo.toJS();
 };
 
+const searchTerm = (state: any) => getSearchTerm(state);
+
+const wholeSearchTotal = (state: any) => {
+  const tabsAndFacets = getTabsAndFacets(state).toJS();
+  const wholeSearchTotal = tabsAndFacets
+    .map((t: any) => t.totalCount)
+    .reduce((a: any, b: any) => a + b, 0);
+  return wholeSearchTotal;
+};
+
+// The mapper object
+const resultsInfoTemplate = {
+  facetName: (state: any) => getFacet(state).get('title'),
+  start: (state: any) => {
+    const { pageIndex, pageSize } = pagingInfo(state);
+    const start = pageIndex * pageSize + 1;
+
+    return start;
+  },
+  end: (state: any) => {
+    const { pageIndex, pageSize, totalCount } = pagingInfo(state);
+    const start = pageIndex * pageSize + 1;
+
+    let end = start + pageSize - 1;
+    if (end > totalCount) end = totalCount;
+
+    return end;
+  },
+  total: (state: any) => {
+    const { totalCount } = pagingInfo(state);
+    return totalCount;
+  },
+  resultsText: (state: any) => {
+    const { pageIndex, pageSize, totalCount } = pagingInfo(state);
+    const start = pageIndex * pageSize + 1;
+    const term = searchTerm(state);
+    let end = start + pageSize - 1;
+    if (end > totalCount) end = totalCount;
+
+    if (totalCount === 0) {
+      return `No results returned `;
+    } else {
+      return `Showing <span>${start}-${end} of ${totalCount}</span> results${
+        !term ? '.' : ''
+      } ${term && `for <span>'${term}'</span>.`}`;
+    }
+  },
+  searchTerm,
+  wholeSearchTotal,
+};
+
+import { default as mapJson } from '~/core/util/json-mapper';
+
 const mapStateToResultsInformation = (state: any) =>
-  fromJS(mapJson(state, searchSummaryTemplate)).toJS();
+  mapJson(state, resultsInfoTemplate);
 
 export default mapStateToResultsInformation;

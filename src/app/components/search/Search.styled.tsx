@@ -34,6 +34,12 @@ const SearchStyled = styled.div`
           margin-top: 56px;
         }
       }
+      .search__results-info--text {
+        ${theme.typeStyles.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        color: ${theme.colors.secondary};
+        margin: 0 0 80px 0;
+      }
       .search__facets {
         width: 100%;
         margin-top: 40px;

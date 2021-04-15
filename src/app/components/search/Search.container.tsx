@@ -18,6 +18,7 @@ import Button from '../button/Button';
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
 import Metadata from '../metadata/Metadata';
+import { selectCurrentLocationQueryStringParams } from '../../core/redux/custom/routing/selectors';
 
 interface Props {
   className?: string;
@@ -41,6 +42,7 @@ const SearchContainer = ({
   searchTerm,
   results,
   updatePageIndex,
+  resultsInfo,
   updateCurrentFacet,
   updateSelectedFilters,
   paging,
@@ -52,6 +54,8 @@ const SearchContainer = ({
   const hasResults = results && results.length > 0;
   const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
   const [windowOffset, setWindowOffset] = useState<number>(0);
+
+  const { resultsText } = resultsInfo || {};
 
   /* eslint-disable */
   useEffect(() => {
@@ -72,7 +76,7 @@ const SearchContainer = ({
     updateSearchTerm(term, 0);
   };
 
-  const { pageIndex, pageCount } = paging;
+  const { pageIndex, pageCount } = paging || {};
   const hasLoadMore =
     pageIndex === null || pageCount === null
       ? false
@@ -86,6 +90,55 @@ const SearchContainer = ({
   facetsArray.map(facet => (facet.type = 'facet'));
   // Combining the Facets and Filter Arrays into one Object.
   const facetsAndFilters = { ...facets, ...filters };
+
+  // Product Facet Filters
+  const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
+  const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
+
+  // Get the Search Query Params
+  const queryString = useSelector(selectCurrentLocationQueryStringParams);
+  const queryStringParams = new URLSearchParams(queryString);
+  // Get the contentTypeId Params
+  const contentTypeIdValue = queryStringParams.get('contentTypeId');
+
+  // Depending on the contentTypeIdValue toggle the correct filters
+  useEffect(() => {
+    if (contentTypeIdValue === 'pot') {
+      setIsPlantFilterSelected(false);
+      setIsPotFilterSelected(true);
+    } else if (contentTypeIdValue === 'plant') {
+      setIsPlantFilterSelected(true);
+      setIsPotFilterSelected(false);
+    } else {
+      setIsPotFilterSelected(false);
+      setIsPlantFilterSelected(false);
+    }
+  }, [contentTypeIdValue]);
+
+  let potFilters: any = {};
+  let plantFilters: any = {};
+  let defaultFilters: any = {};
+
+  Object.keys(filters).map((fKey: any) => {
+    switch (fKey) {
+      case 'colour':
+      case 'potSize': {
+        potFilters[fKey] = filters[fKey];
+        break;
+      }
+      case 'plantType':
+      case 'plantSize': {
+        plantFilters[fKey] = filters[fKey];
+        break;
+      }
+      default: {
+        plantFilters[fKey] = filters[fKey];
+        potFilters[fKey] = filters[fKey];
+        defaultFilters[fKey] = filters[fKey];
+        break;
+      }
+    }
+  });
 
   return (
     <MainLayout>
@@ -108,44 +161,53 @@ const SearchContainer = ({
             />
             <SearchInput searchTerm={searchTerm} _func={_handleSearchSubmit} />
           </div>
-          {hasResults && (
-            <>
-              <div className="search__results-wrapper">
-                <div className="search__results">
-                  {results.map((res: any, idx: number) => (
-                    <SearchCard
-                      className="search__result-card"
-                      key={idx}
-                      {...res}
-                    />
-                  ))}
-                </div>
-                {isDesktop && (
-                  <Filters
-                    className="search__filters"
-                    filters={filters}
-                    updateSelectedFilters={updateSelectedFilters}
-                    updateCurrentFacet={updateCurrentFacet}
-                    currentFacet={currentFacet}
-                    clearFilters={clearFilters}
-                    hasResetBtn={true}
-                  />
-                )}
-              </div>
-              {hasLoadMore && (
-                <Button
-                  className="search__load-more"
-                  type="button"
-                  label="Load more"
-                  icon="arrow-down"
-                  onClick={() => _handleLoadMore(pageIndex + 1)}
-                  btnTheme="secondary"
-                  isHollow
-                />
-              )}
-            </>
+          {resultsText && (
+            <p
+              className="search__results-info--text"
+              dangerouslySetInnerHTML={{ __html: resultsText }}
+            />
           )}
-          {!hasResults && <span>No results! :(</span>}
+          <div className="search__results-wrapper">
+            {hasResults && (
+              <div className="search__results">
+                {results.map((res: any, idx: number) => (
+                  <SearchCard
+                    className="search__result-card"
+                    key={idx}
+                    {...res}
+                  />
+                ))}
+              </div>
+            )}
+            {isDesktop && (
+              <Filters
+                className="search__filters"
+                filters={
+                  isPotFilterSelected
+                    ? potFilters
+                    : isPlantFilterSelected
+                    ? plantFilters
+                    : defaultFilters
+                }
+                updateSelectedFilters={updateSelectedFilters}
+                updateCurrentFacet={updateCurrentFacet}
+                currentFacet={currentFacet}
+                clearFilters={clearFilters}
+                hasResetBtn={true}
+              />
+            )}
+          </div>
+          {hasLoadMore && (
+            <Button
+              className="search__load-more"
+              type="button"
+              label="Load more"
+              icon="arrow-down"
+              onClick={() => _handleLoadMore(pageIndex + 1)}
+              btnTheme="secondary"
+              isHollow
+            />
+          )}
         </SearchStyled>
       </Region>
     </MainLayout>
