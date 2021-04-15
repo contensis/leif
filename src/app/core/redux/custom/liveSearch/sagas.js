@@ -22,14 +22,14 @@ function* _fetchResults() {
   if (searchTerm) {
     try {
       const expressions = [
-        Op.and(
-          Op.equalTo('sys.versionStatus', 'published'),
-          Op.or(Op.in('sys.contentTypeId', ...SearchContentTypes))
-        ),
+        Op.equalTo('sys.versionStatus', 'published'),
+        Op.in('sys.contentTypeId', ...SearchContentTypes),
         Op.or(
-          Op.contains('entryTitle', searchTerm),
-          Op.contains('entryDescription', searchTerm),
-          Op.contains('searchContent', searchTerm)
+          Op.freeText('entryTitle', searchTerm).weight(100),
+          Op.contains('entryTitle', searchTerm).weight(100),
+          Op.freeText('entryDescription', searchTerm).weight(50),
+          Op.freeText('searchContent', searchTerm).weight(10),
+          Op.freeText('pageMetadata.metaDescription', searchTerm).weight(50)
         ),
       ];
       const query = new Query(...expressions);

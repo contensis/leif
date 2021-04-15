@@ -3,10 +3,7 @@ import {
   ContentTypes,
   SearchFacets,
   BaseFields,
-  // FreeTextWeights,
-  // DefaultWeightedSearchQueryFields,
   ReviewFields,
-  Fields,
   BlogFields,
   ContentFields,
   ProductFields,
@@ -14,6 +11,9 @@ import {
 
 // Filters
 import { BlogFilters, ProductFilters } from './filters';
+
+// Weighted Fields
+import { base as WeightedFields } from './weightedFields.config';
 
 // The config defined here is loaded into initialState
 // and is used to drive the how the site search works
@@ -29,10 +29,9 @@ export default {
         contentTypeIds: [
           ContentTypes.blog,
           ContentTypes.contentPage,
+          ContentTypes.landingPage,
           ContentTypes.plant,
           ContentTypes.pot,
-          ContentTypes.productListing,
-          ContentTypes.blogListing,
         ],
         fields: [
           ...BaseFields,
@@ -40,10 +39,9 @@ export default {
           ...ProductFields,
           ...ContentFields,
         ],
-        orderBy: [Fields.entryTitle],
         linkDepth: 1,
         pageSize: 10,
-        // weightedSearchFields: [...weightedFieldsBase],
+        weightedSearchFields: [...WeightedFields],
       },
       filters: {},
     },
@@ -53,24 +51,22 @@ export default {
         loadMorePaging: true,
         contentTypeIds: [ContentTypes.blog],
         fields: [...BaseFields, ...BlogFields],
-        orderBy: [Fields.entryTitle],
         pageSize: 10,
-        // weightedSearchFields: [...WeightedFields.base],
+        weightedSearchFields: [...WeightedFields],
       },
       filters: BlogFilters,
     },
-    // [SearchFacets.product]: {
-    //   title: 'Product',
-    //   queryParams: {
-    //     loadMorePaging: true,
-    //     contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
-    //     fields: [...BaseFields, ...ProductFields],
-    //     orderBy: [Fields.entryTitle],
-    //     pageSize: 10,
-    //     // weightedSearchFields: [...WeightedFields.base],
-    //   },
-    //   filters: ProductFilters,
-    // },
+    [SearchFacets.product]: {
+      title: 'Product',
+      queryParams: {
+        loadMorePaging: true,
+        contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
+        fields: [...BaseFields, ...ProductFields],
+        pageSize: 10,
+        weightedSearchFields: [...WeightedFields],
+      },
+      filters: ProductFilters,
+    },
   },
   listings: {
     [Listings.blog]: {

@@ -103,8 +103,6 @@ export const SearchContentTypes = [
   ContentTypes.landingPage,
   ContentTypes.plant,
   ContentTypes.pot,
-  ContentTypes.blogListing,
-  ContentTypes.productListing,
 ];
 
 export const FilterExpressionTypes = {
@@ -142,7 +140,6 @@ export const SearchFilters = {
 export const FreeTextWeights = {
   title: 100,
   description: 50,
-  keywords: 50,
   content: 10,
 };
 
