@@ -22,32 +22,6 @@ const MainLayout = ({ className, children, isLight = false }: Props) => {
   }, []);
   /* eslint-enable */
 
-  const dummyFooterDataArray = [];
-  const dummyFooterDataObject = {
-    title: 'Title one',
-    links: [
-      {
-        title: 'Link one',
-        uri: 'www.google.co.uk',
-      },
-      {
-        title: 'Link two',
-        uri: 'www.google.co.uk',
-      },
-      {
-        title: 'Link three',
-        uri: 'www.google.co.uk',
-      },
-      {
-        title: 'Link four',
-        uri: 'www.google.co.uk',
-      },
-    ],
-  };
-  for (let i = 0; dummyFooterDataArray.length < 4; i++) {
-    dummyFooterDataArray.push(dummyFooterDataObject);
-  }
-
   return (
     <>
       {/* <SkipToContent /> */}
@@ -55,7 +29,7 @@ const MainLayout = ({ className, children, isLight = false }: Props) => {
       <main id="main" className={className}>
         {children}
       </main>
-      <Footer data={dummyFooterDataArray} />
+      <Footer />
     </>
   );
 };

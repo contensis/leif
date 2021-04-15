@@ -76,14 +76,17 @@ const FooterStyled = styled.div`
           margin-bottom: 40px;
         }
         @media ${theme.mq.laptop} {
-          flex-basis: calc(100% / 2);
+          flex-basis: 50%;
+          min-width: 180px;
           &:not(:last-child) {
-            margin: 0 0 40px 0;
+            margin: 0;
           }
         }
         @media ${theme.mq.desktop} {
           flex-basis: auto;
-          min-width: 180px;
+          &:not(:last-child) {
+            margin: 0 40px 0 0;
+          }
         }
       }
     `;

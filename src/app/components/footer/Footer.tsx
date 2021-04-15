@@ -5,18 +5,22 @@ import Icon from '../icon/Icon';
 import FooterColumn from '../footerColumn/FooterColumn';
 
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
+import data from './data';
 
-interface DataObject {
+interface LinkObjectProps {
   title: string;
-  links: Object[];
+  uri: string;
+}
+interface DataObjectProps {
+  title: string;
+  links: LinkObjectProps[];
 }
 
 export interface Props {
   className?: string;
-  data: any[] | any;
 }
 
-const Footer = ({ className, data }: Props) => {
+const Footer = ({ className }: Props) => {
   if (!data || data.length < 1) return null;
   return (
     <FooterStyled className={className}>
@@ -45,7 +49,7 @@ const Footer = ({ className, data }: Props) => {
         </div>
       </div>
       <div className="footer__links">
-        {data.map((d: DataObject, idx: number) => {
+        {data.map((d: DataObjectProps, idx: number) => {
           if (!d || !d.links || d.links.length < 1) return null;
           return (
             <FooterColumn
