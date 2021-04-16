@@ -82,6 +82,7 @@ const NavigationStyled = styled.div`
       .nav-menu__back-btn {
         button {
           background: transparent;
+          padding: 0;
           border: none;
         }
         @media ${theme.mq.laptop} {
