@@ -21,6 +21,7 @@ export default {
       switch (true) {
         case path.includes('/products/shop'):
         case path.includes('/blog'):
+        case path.includes('/search'):
           return true;
         default:
           return false;

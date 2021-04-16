@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
 import mapEntriesToResults from './transformations';
 import { useSelector } from 'react-redux';
 import { withSearch } from '@zengenti/contensis-react-base/search';
-
-// Redux
 import { selectScreenSize } from '../../core/redux/custom/ui/selectors';
+import { selectCurrentLocationQueryStringParams } from '../../core/redux/custom/routing/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
@@ -13,12 +13,12 @@ import SearchCard from '../searchCard/SearchCard';
 import SearchInput from '../searchInput/SearchInput';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
+import Metadata from '../metadata/Metadata';
+import Card from '../card/Card';
 
 // Layout
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
-import Metadata from '../metadata/Metadata';
-import { selectCurrentLocationQueryStringParams } from '../../core/redux/custom/routing/selectors';
 
 interface Props {
   className?: string;
@@ -34,6 +34,7 @@ interface Props {
   paging?: any;
   currentFacet: string;
   tabsAndFacets: any;
+  featuredProducts?: any;
 }
 
 const SearchContainer = ({
@@ -50,6 +51,7 @@ const SearchContainer = ({
   clearFilters,
   tabsAndFacets,
   filters,
+  featuredProducts,
 }: Props) => {
   const hasResults = results && results.length > 0;
   const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
@@ -180,21 +182,35 @@ const SearchContainer = ({
               </div>
             )}
             {isDesktop && (
-              <Filters
-                className="search__filters"
-                filters={
-                  isPotFilterSelected
-                    ? potFilters
-                    : isPlantFilterSelected
-                    ? plantFilters
-                    : defaultFilters
-                }
-                updateSelectedFilters={updateSelectedFilters}
-                updateCurrentFacet={updateCurrentFacet}
-                currentFacet={currentFacet}
-                clearFilters={clearFilters}
-                hasResetBtn={true}
-              />
+              <>
+                {currentFacet !== 'all' && (
+                  <Filters
+                    className="search__filters"
+                    filters={
+                      isPotFilterSelected
+                        ? potFilters
+                        : isPlantFilterSelected
+                        ? plantFilters
+                        : defaultFilters
+                    }
+                    updateSelectedFilters={updateSelectedFilters}
+                    updateCurrentFacet={updateCurrentFacet}
+                    currentFacet={currentFacet}
+                    clearFilters={clearFilters}
+                    hasResetBtn={true}
+                  />
+                )}
+                {currentFacet === 'all' &&
+                  (featuredProducts && featuredProducts.length >= 1 && (
+                    <div className="search__featured-products">
+                      {featuredProducts.map(
+                        (featuredProduct: any, idx: number) => {
+                          return <Card key={idx} {...featuredProduct} />;
+                        }
+                      )}
+                    </div>
+                  ))}
+              </>
             )}
           </div>
           {hasLoadMore && (

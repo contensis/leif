@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import ProductListing from '~/components/productListing/ProductListing';
 import ListingContainer from '../../components/listing/Listing.container';
 import Metadata from '~/components/metadata/Metadata';
+import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
+import GenericHero from '~/components/genericHero/GenericHero';
 
 // Layout
 import MainLayout from '../../layout/MainLayout';
@@ -16,8 +18,6 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 
 // Models
 import { Props } from './ProductListing.d';
-import GenericHero from '~/components/genericHero/GenericHero';
-import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
 
 const ProductListingPage = ({ mappedEntry }: Props) => {
   const { title, metadataProps } = mappedEntry || {};
@@ -47,9 +47,9 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
         <Region width="large" margin="none">
-          {featuredProducts.map((res: any, idx: number) => (
-            <GenericHero key={idx} {...res} />
-          ))}
+          {featuredProducts && featuredProducts.length >= 1 && (
+            <GenericHero {...featuredProducts[0]} />
+          )}
         </Region>
         <ListingContainer>
           <ProductListing />

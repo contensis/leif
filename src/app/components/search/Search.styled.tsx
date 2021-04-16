@@ -69,6 +69,17 @@ const SearchStyled = styled.div`
           }
         }
       }
+      .search__featured-products {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        a {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+          }
+        }
+      }
       .search__results {
         max-width: 660px;
         width: 100%;

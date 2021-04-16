@@ -84,6 +84,17 @@ const CardStyled = styled(Link)`
               background: ${theme.colors.neutral_white};
             }
           }
+          .card__featured-tag {
+            background-color: ${theme.colors.error};
+            color: ${theme.colors.neutral_white};
+            ${theme.typeStyles.smallCopy};
+            display: block;
+            padding: 0 8px;
+            border-radius: 0px 4px 0px 0px;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
           .card__tag {
             position: absolute;
             height: 16px;

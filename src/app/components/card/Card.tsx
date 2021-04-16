@@ -5,6 +5,8 @@ import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
+import { selectCurrentPath } from '~/core/redux/selectors';
+import { useSelector } from 'react-redux';
 export interface Props {
   className?: string;
   type: string;
@@ -16,6 +18,7 @@ export interface Props {
   readTime?: string;
   price: number[];
   rating?: string;
+  isFeatured: boolean;
   uri: string;
 }
 
@@ -30,8 +33,10 @@ const Card = ({
   date,
   price,
   rating,
+  isFeatured,
   uri,
 }: Props) => {
+  const path = useSelector(selectCurrentPath);
   const CardData = (type: string) => {
     switch (type) {
       case 'blog':
@@ -62,6 +67,9 @@ const Card = ({
                 className="card__tag"
                 color="#C3C6DE"
               />
+              {path === '/search' && isFeatured && (
+                <span className="card__featured-tag">Featured</span>
+              )}
             </div>
             <div className="card__content">
               <h3 className="card__title">{title}</h3>

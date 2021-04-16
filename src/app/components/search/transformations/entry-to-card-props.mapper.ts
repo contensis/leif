@@ -87,6 +87,7 @@ export const productCardMapping = {
   },
   ctaText: () => 'Find out more',
   isRenderedAsLink: () => true,
+  isFeatured: 'isFeatured',
 };
 
 export const mappers = {
