@@ -19,7 +19,6 @@ import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
 export interface Props {
   className?: string;
   _setIsBasketOpen: (val: boolean) => void;
-  _setIsSearchOpen: (val: boolean) => void;
   _removeFromBasket: (id: string, sku: string) => void;
   isBasketOpen: boolean;
   basket: any;
@@ -36,7 +35,6 @@ export interface BasketItemProps {
 const BasketMenuSidebar = ({
   isBasketOpen,
   _setIsBasketOpen,
-  _setIsSearchOpen,
   _removeFromBasket,
   basket,
 }: Props) => {
@@ -80,11 +78,9 @@ const BasketMenuSidebar = ({
           height={32}
           width={32}
           text="Basket"
-          className="basket-menu__btn"
+          className="basket-menu__btn--close"
           isToggled={isBasketOpen}
-          _func={() => {
-            _setIsSearchOpen(false), _setIsBasketOpen(!isBasketOpen);
-          }}
+          _func={() => _setIsBasketOpen(!isBasketOpen)}
         />
         {!hasItemsInBasket && (
           <p className="basket-menu__text">Your basket is empty</p>
@@ -122,7 +118,6 @@ const BasketMenu = ({
   className,
   isBasketOpen,
   _setIsBasketOpen,
-  _setIsSearchOpen,
   _removeFromBasket,
   basket,
 }: Props) => {
@@ -140,15 +135,12 @@ const BasketMenu = ({
         text="Basket"
         className="basket-menu__btn"
         isToggled={isBasketOpen}
-        _func={() => {
-          _setIsSearchOpen(false), _setIsBasketOpen(!isBasketOpen);
-        }}
+        _func={() => _setIsBasketOpen(!isBasketOpen)}
       />
       {isBasketOpen && (
         <BasketMenuSidebar
           isBasketOpen={isBasketOpen}
           _setIsBasketOpen={_setIsBasketOpen}
-          _setIsSearchOpen={_setIsSearchOpen}
           _removeFromBasket={_removeFromBasket}
           basket={basket}
         />

@@ -20,10 +20,6 @@ const BasketMenuStyled = styled.div`
       }
       .basket-menu__content-wrapper {
         display: none;
-        margin-top: 80px;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
       }
       .basket-menu__icon {
         background-size: contain;
@@ -36,24 +32,28 @@ const BasketMenuStyled = styled.div`
       }
       ${isBasketOpen &&
         css`
-          animation: slideIn 200ms;
-          background-color: ${theme.colors.neutral_white};
-          height: 100vh;
-          width: 320px;
-          position: absolute;
-          top: 0;
-          right: 0;
-          @media ${theme.mq.laptop} {
-            width: 370px;
+          .basket-menu__content-wrapper {
+            animation: slideIn 200ms;
+            background-color: ${theme.colors.neutral_white};
+            height: 100vh;
+            width: 320px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 9;
+            display: flex;
+            padding-top: 80px;
+            flex-direction: column;
+            align-items: center;
+            @media ${theme.mq.laptop} {
+              width: 370px;
+            }
           }
-          .basket-menu__btn {
+          .basket-menu__btn--close {
             position: absolute;
             right: 0;
             top: 0;
             z-index: 99;
-          }
-          .basket-menu__content-wrapper {
-            display: flex;
           }
         `}
       @keyframes slideIn {
