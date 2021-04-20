@@ -106,6 +106,9 @@ const SearchStyled = styled.div`
           align-items: flex-end;
           flex-direction: column;
         }
+        @media ${theme.mq.desktop} {
+          margin-left: auto;
+        }
       }
       .search__load-more {
         margin: 80px auto 0;
