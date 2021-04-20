@@ -14,7 +14,7 @@ export default [
   },
   {
     path: '/products/:contentTypeId?',
-    exact: false,
+    exact: true,
     fetchNode: true,
     component: Loadable({
       loader: () => import('~/pages/ProductListing/ProductListing.page'),

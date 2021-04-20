@@ -88,6 +88,9 @@ const NavigationSidebar = ({
                           <Icon type="arrow-left" color="#2B2F51" />
                         </button>
                       </li>
+                      <li>
+                        <a href={path}>View all {displayName.toLowerCase()}</a>
+                      </li>
                       {children.map((child: any, idx: number) => {
                         const { displayName, path } = child || {};
                         return (
