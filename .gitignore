@@ -12,3 +12,5 @@ __snapshots__
 .DS_Store
 .out
 storybook-static/
+cypress/videos/
+cypress/screenshots/
