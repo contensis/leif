@@ -1,4 +1,4 @@
-describe('Test that a user can search for content.', () => {
+describe('Test that a user can search for content using the live search.', () => {
   it('Searches for the term and, and checks that results are returned by the live search.', () => {
     cy.visit('/');
     cy.get('.header__search-icon').click();
