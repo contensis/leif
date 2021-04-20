@@ -47,7 +47,7 @@ const NavigationSidebar = ({
     element.includeInMenu === true;
 
   // Navigation Dictionary
-  const navDictionary: any = {
+  const customNavDictionary: any = {
     '/products/pots': '/products/shop?contentTypeId=pot',
     '/products/plants': '/products/shop?contentTypeId=plant',
   };
@@ -90,7 +90,7 @@ const NavigationSidebar = ({
                         const { displayName, path } = child || {};
                         return (
                           <li key={idx}>
-                            <a href={navDictionary[path] || path}>
+                            <a href={customNavDictionary[path] || path}>
                               {displayName}
                             </a>
                           </li>
