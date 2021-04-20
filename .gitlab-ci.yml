@@ -20,9 +20,6 @@ variables:
 services:
   - docker:dind
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.zengenti.com:4567
-
 build-latest-code:
   stage: latest-build
   except:
