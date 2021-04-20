@@ -2,9 +2,6 @@ ARG builder_image
 FROM ${builder_image} as basebuilder
 FROM mhart/alpine-node:12
 
-# Copy manifest.json into root of image
-COPY manifest.json /
-
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
