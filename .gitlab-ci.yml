@@ -5,6 +5,7 @@ stages:
   - storybook-latest-build
   - live-build
   - development-release-build
+  - automated-tests
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -51,6 +52,27 @@ build-storybook:
   environment:
     name: storybook
     url: http://storybook.latest.$CI_PROJECT_NAME.contensis.cloud
+
+run-automated-tests:
+  stage: automated-tests
+  image:
+    name:
+      cypress/included:7.1.0
+      # cypress/included images have entrypoint set to "cypress"
+      # which conflicts with GitLab CI wrapper shell script
+    entrypoint: ['']
+  services:
+    - name: $APP_IMAGE:latest
+      alias: site-to-test
+  except:
+    - tags
+    - ^release-.*$
+  script:
+    - mkdir cypress-context
+    - mkdir cypress-context/cypress
+    - cp cypress.json cypress-context
+    - cp -R cypress cypress-context/.
+    - CYPRESS_BASE_URL=http://site-to-test:3001 cypress run --project ./cypress-context --record --key 04ecba8e-021d-4d94-a421-617e4fb2368c
 
 build-live-code-for-production:
   stage: live-build
