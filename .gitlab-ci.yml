@@ -65,7 +65,7 @@ run-automated-tests:
     - tags
     - ^release-.*$
   script:
-    - yarn add typescript
+    - npm install typescript
     - mkdir cypress-context
     - mkdir cypress-context/cypress
     - cp cypress.json cypress-context
