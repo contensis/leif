@@ -4,7 +4,7 @@ stages:
   - latest-build
   - storybook-latest-build
   - live-build
-  - development-release-build
+  # - development-release-build
   - automated-tests
 
 variables:
@@ -94,17 +94,17 @@ build-live-code-for-production:
     name: live
     url: http://preview.$CI_PROJECT_NAME.contensis.cloud
 
-build-live-code-for-development:
-  stage: development-release-build
-  only:
-    refs:
-      - tags
-    variables:
-      - $CI_COMMIT_TAG =~ /^devrelease-.*$/
-  script:
-    - docker pull "$DEVELOP_APP:latest"
-    - docker tag "$DEVELOP_APP:latest" "$DEVELOP_APP:release"
-    - docker push "$DEVELOP_APP:release"
-  environment:
-    name: live
-    url: http://preview.$CI_PROJECT_NAME.contensis.cloud
+# build-live-code-for-development:
+#   stage: development-release-build
+#   only:
+#     refs:
+#       - tags
+#     variables:
+#       - $CI_COMMIT_TAG =~ /^devrelease-.*$/
+#   script:
+#     - docker pull "$DEVELOP_APP:latest"
+#     - docker tag "$DEVELOP_APP:latest" "$DEVELOP_APP:release"
+#     - docker push "$DEVELOP_APP:release"
+#   environment:
+#     name: live
+#     url: http://preview.$CI_PROJECT_NAME.contensis.cloud
