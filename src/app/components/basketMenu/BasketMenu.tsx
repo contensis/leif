@@ -19,6 +19,7 @@ import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
 export interface Props {
   className?: string;
   _setIsBasketOpen: (val: boolean) => void;
+  _setIsSearchOpen: (val: boolean) => void;
   _removeFromBasket: (id: string, sku: string) => void;
   isBasketOpen: boolean;
   basket: any;
@@ -119,6 +120,7 @@ const BasketMenu = ({
   isBasketOpen,
   _setIsBasketOpen,
   _removeFromBasket,
+  _setIsSearchOpen,
   basket,
 }: Props) => {
   useEffect(() => {
@@ -135,7 +137,11 @@ const BasketMenu = ({
         text="Basket"
         className="basket-menu__btn"
         isToggled={isBasketOpen}
-        _func={() => _setIsBasketOpen(!isBasketOpen)}
+        _func={() => {
+          _setIsSearchOpen(false);
+          _setIsBasketOpen(!isBasketOpen)
+        }
+        }
       />
       {isBasketOpen && (
         <BasketMenuSidebar

@@ -55,7 +55,7 @@ const HeaderStyled = styled.div`
         align-items: center;
         justify-content: flex-end;
         @media ${theme.mq.laptop} {
-          top: 0;
+          top: -2px;
         }
       }
       ${isSearchOpen &&

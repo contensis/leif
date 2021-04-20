@@ -22,6 +22,7 @@ import { hasNavigationTree } from '../../core/redux/selectors';
 
 // Component & Props
 import Navigation, { Props } from './Navigation';
+import { setIsSearchOpen } from '~/core/redux/custom/ui/actions';
 
 const NavigationContainer = ({
   className,
@@ -31,6 +32,7 @@ const NavigationContainer = ({
   isSecondMenuOpen,
   _toggleMenu,
   _toggleSecondMenu,
+  _setIsSearchOpen,
 }: Props) => {
   return (
     <Navigation
@@ -41,6 +43,7 @@ const NavigationContainer = ({
       isSecondMenuOpen={isSecondMenuOpen}
       _toggleMenu={_toggleMenu}
       _toggleSecondMenu={_toggleSecondMenu}
+      _setIsSearchOpen={_setIsSearchOpen}
     />
   );
 };
@@ -58,6 +61,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     _toggleMenu: (val: boolean) => dispatch(toggleMenu(val)),
     _toggleSecondMenu: (val: boolean) => dispatch(toggleSecondMenu(val)),
+    _setIsSearchOpen: (val:boolean) => dispatch(setIsSearchOpen(val)),
   };
 };
 

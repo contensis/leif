@@ -18,6 +18,7 @@ export interface Props {
   _toggleMenu: (val: boolean) => void;
   isSecondMenuOpen: boolean;
   _toggleSecondMenu: (val: boolean) => void;
+  _setIsSearchOpen: (val: boolean) => void;
 }
 
 const Navigation = ({
@@ -28,6 +29,7 @@ const Navigation = ({
   isMenuOpen,
   isSecondMenuOpen,
   _toggleSecondMenu,
+  _setIsSearchOpen,
 }: Props) => {
   useEffect(() => {
     if (isMenuOpen) addOverlayCSS();
@@ -40,6 +42,7 @@ const Navigation = ({
       <button
         type="button"
         onClick={() => {
+          _setIsSearchOpen(false);
           _toggleMenu(!isMenuOpen);
           _toggleSecondMenu(false);
         }}
