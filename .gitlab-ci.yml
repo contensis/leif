@@ -57,7 +57,7 @@ run-automated-tests:
   stage: automated-tests
   image:
     name:
-      cypress/included:7.1.0
+      cypress/included:6.4.0
       # cypress/included images have entrypoint set to "cypress"
       # which conflicts with GitLab CI wrapper shell script
     entrypoint: ['']
