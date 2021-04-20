@@ -2,7 +2,7 @@ image: gitlab.zengenti.com:4567/ops/zengenti-dind:latest
 
 stages:
   - latest-build
-  - storybook-latest-build
+  #- storybook-latest-build
   - live-build
   # - development-release-build
   - automated-tests
@@ -36,19 +36,19 @@ build-latest-code:
     name: latest
     url: http://dev.preview.$CI_PROJECT_NAME.contensis.cloud
 
-build-storybook:
-  stage: storybook-latest-build
-  except:
-    - tags
-  script:
-    - docker pull $STORYBOOK_BUILDER_IMAGE:latest || true
-    - docker build --compress --force-rm --cache-from $STORYBOOK_BUILDER_IMAGE:latest -t $STORYBOOK_BUILDER_IMAGE:latest -f docker/storybook-builder.DockerFile .
-    - docker push $STORYBOOK_BUILDER_IMAGE:latest
-    - docker build --compress --force-rm -t $STORYBOOK_IMAGE:latest --build-arg builder_image=$STORYBOOK_BUILDER_IMAGE:latest -f  docker/storybook-http.DockerFile .
-    - docker push $STORYBOOK_IMAGE:latest
-  environment:
-    name: storybook
-    url: http://storybook.latest.$CI_PROJECT_NAME.contensis.cloud
+# build-storybook:
+#   stage: storybook-latest-build
+#   except:
+#     - tags
+#   script:
+#     - docker pull $STORYBOOK_BUILDER_IMAGE:latest || true
+#     - docker build --compress --force-rm --cache-from $STORYBOOK_BUILDER_IMAGE:latest -t $STORYBOOK_BUILDER_IMAGE:latest -f docker/storybook-builder.DockerFile .
+#     - docker push $STORYBOOK_BUILDER_IMAGE:latest
+#     - docker build --compress --force-rm -t $STORYBOOK_IMAGE:latest --build-arg builder_image=$STORYBOOK_BUILDER_IMAGE:latest -f  docker/storybook-http.DockerFile .
+#     - docker push $STORYBOOK_IMAGE:latest
+#   environment:
+#     name: storybook
+#     url: http://storybook.latest.$CI_PROJECT_NAME.contensis.cloud
 
 run-automated-tests:
   stage: automated-tests
@@ -65,6 +65,7 @@ run-automated-tests:
     - tags
     - ^release-.*$
   script:
+    - yarn add typescript
     - mkdir cypress-context
     - mkdir cypress-context/cypress
     - cp cypress.json cypress-context
