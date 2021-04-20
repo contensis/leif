@@ -17,7 +17,7 @@ export const ProductSagas = [takeEvery(SET_ENTRY, _getReviews)];
 
 function* _getReviews() {
   const currentPath = yield select(selectCurrentPath);
-  if (currentPath && currentPath.includes('/products/shop/')) {
+  if (currentPath && currentPath.includes('/products')) {
     const productId = yield select(selectRouteEntryID);
     if (productId) {
       try {

@@ -4,24 +4,38 @@ import { selectors } from '@zengenti/contensis-react-base/search';
 
 import { default as mapJson } from '../../../core/util/json-mapper';
 import { removeEmptyAttributes } from '../../../core/util/helpers';
-import { selectCurrentPath } from '../../../core/redux/selectors';
+import { selectCurrentPath, selectQueryStringAsObject } from '../../../core/redux/selectors';
 
 const {
   getSelectedFilters,
   getSearchTerm,
   getSearchContext,
   getCurrentFacet,
+  getCurrentListing,
 } = selectors;
 
 const searchUriTemplate = {
   path: ({ state, facet }) => {
     const context = getSearchContext(state);
     const currentPath = selectCurrentPath(state) || '/search';
+    const listing = getCurrentListing(state);
+
     if (context !== 'listings') {
       const currentFacet = facet || getCurrentFacet(state);
       const newPath = currentFacet
         ? `${currentPath}/${currentFacet}`
         : currentPath;
+      
+      return newPath;
+    } else if (listing === 'productsListing') {
+      let filters = getSelectedFilters(state, facet, context)
+      filters = filters && filters.toJS();
+
+      const currentFilter = filters.contentTypeId;
+      const newPath = currentFilter
+        ? `${currentPath}/${currentFilter}`
+        : currentPath;
+      
       return newPath;
     } else {
       return currentPath;
@@ -36,7 +50,7 @@ const searchUriTemplate = {
       : getSelectedFilters(state, facet, searchContext).map(f => f.join(','));
 
     // Delete these parameters as we do not need to see them in the uri
-    const modifiedStateFilters = stateFilters.set('subject', '');
+    const modifiedStateFilters = stateFilters.set('contentTypeId', '');
 
     const currentSearch =
       !term && state.getIn(['routing', 'location', 'search']);

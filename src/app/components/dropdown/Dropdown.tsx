@@ -37,14 +37,8 @@ const Dropdown = ({
   /* eslint-enable */
 
   const _handleFilterSelect = (key: string) => {
-    if (key === 'pot' || key === 'plant') {
-      clearFilters();
       updateSelectedFilters(filterGroupKey, key);
       _setHasDropdownFiltersSelected(true);
-    } else {
-      updateSelectedFilters(filterGroupKey, key);
-      _setHasDropdownFiltersSelected(true);
-    }
   };
 
   if (!filters || filters.length < 1) return null;

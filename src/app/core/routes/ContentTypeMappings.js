@@ -92,15 +92,4 @@ export default [
     linkDepth: 1,
     entryMapper: ({ entry }) => mapJson(entry, blogListingPropsMapping),
   },
-  {
-    contentTypeID: 'productListing',
-    component: Loadable({
-      loader: () => {
-        return import('~/pages/ProductListing/ProductListing.page');
-      },
-      loading: Loading,
-    }),
-    linkDepth: 1,
-    entryMapper: ({ entry }) => mapJson(entry, productListingPropsMapping),
-  },
 ];

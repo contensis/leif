@@ -19,7 +19,7 @@ export default {
     const preventScrollTop = path => {
       if (!path) return null;
       switch (true) {
-        case path.includes('/products/shop'):
+        case path.includes('/products'):
         case path.includes('/blog'):
         case path.includes('/search'):
           return true;

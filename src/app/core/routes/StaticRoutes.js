@@ -12,6 +12,15 @@ export default [
       loading: Loading,
     }),
   },
+  {
+    path: '/products/:contentTypeId?',
+    exact: false,
+    fetchNode: true,
+    component: Loadable({
+      loader: () => import('~/pages/ProductListing/ProductListing.page'),
+      loading: Loading,
+    }),
+  },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {

@@ -26,7 +26,7 @@ const ProductListingStyled = styled.div`
       .product-listing__results {
         max-width: 1280px;
         width: 100%;
-        margin: 120px auto;
+        margin: 120px auto 0;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

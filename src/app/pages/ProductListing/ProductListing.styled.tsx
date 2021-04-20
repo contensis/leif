@@ -10,6 +10,7 @@ const ProductListingStyled = styled.div`
       }
       .product-listing__quote {
         max-width: none;
+        margin-top: 120px;
       }
     `;
   }};

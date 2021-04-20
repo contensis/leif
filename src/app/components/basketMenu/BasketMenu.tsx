@@ -107,7 +107,7 @@ const BasketMenuSidebar = ({
         )}
         <LinkButton
           label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-          href={`${hasItemsInBasket ? '/checkout' : '/products/shop'}`}
+          href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
           icon="arrow-right"
         />
       </FocusLock>

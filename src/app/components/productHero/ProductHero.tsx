@@ -157,7 +157,7 @@ const ProductHero = ({
           </>
         )}
       >
-        <BackButton label="All products" uri="/products/shop" />
+        <BackButton label="All products" uri="/products" />
         <div className="product-hero__content">
           {!isModalOpen && (
             <div className="product-hero__slider-wrapper">

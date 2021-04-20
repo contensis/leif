@@ -15,21 +15,21 @@ const Trending = ({ className }: Props) => {
         isHollow
         type="secondary"
         label="Pots"
-        href="/products/shop?contentTypeId=pot"
+        href="/products/pot"
       />
       <LinkButton
         icon="arrow-right"
         isHollow
         type="secondary"
         label="Plants"
-        href="/products/shop?contentTypeId=plant"
+        href="/products/plant"
       />
       <LinkButton
         icon="arrow-right"
         isHollow
         type="secondary"
         label="Foliage"
-        href="/products/shop?contentTypeId=plant&plantType=25f5a78b-9274-4cc9-9a58-03d8dcd4cd17"
+        href="/products/plant?plantType=25f5a78b-9274-4cc9-9a58-03d8dcd4cd17"
       />
     </TrendingStyled>
   );

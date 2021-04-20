@@ -53,11 +53,6 @@ const NavigationSidebar = ({
   const _showChildren = (element: NavigationProps) =>
     element.includeInMenu === true;
 
-  // Navigation Dictionary
-  const customNavDictionary: any = {
-    '/products/pots': '/products/shop?contentTypeId=pot',
-    '/products/plants': '/products/shop?contentTypeId=plant',
-  };
 
   return (
     <FocusLock>
@@ -97,7 +92,7 @@ const NavigationSidebar = ({
                         const { displayName, path } = child || {};
                         return (
                           <li key={idx}>
-                            <a href={customNavDictionary[path] || path}>
+                            <a href={path}>
                               {displayName}
                             </a>
                           </li>
