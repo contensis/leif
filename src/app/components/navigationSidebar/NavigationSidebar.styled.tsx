@@ -101,7 +101,7 @@ const NavigationSidebarStyled = styled.div`
         padding-top: 112px;
         @media ${theme.mq.laptop} {
           right: -370px;
-          padding-top: 152px;
+          padding-top: 136px;
         }
         a {
           color: ${theme.colors.neutral_charcoal};
@@ -132,6 +132,11 @@ const NavigationSidebarStyled = styled.div`
           left: 24px;
           transform: translateX(0);
         }
+      }
+      .isActive {
+        box-shadow: inset 6px 0px 0px ${theme.colors.primary};
+        color: ${theme.colors.primary};
+        padding-left: 16px;
       }
       ${isSecondMenuOpen &&
         css`

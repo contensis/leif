@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 // Components
 import Icon from '../icon/Icon';
@@ -32,6 +32,8 @@ const NavigationSidebar = ({
   _useOnClickOutside(ref, () => _toggleMenu(false));
   _useLockBodyScroll();
 
+  const [activeItem, setActiveItem] = useState<string>('');
+
   const _handleKeyDown = (evt: any) => {
     if (evt.keyCode === 27) {
       _toggleMenu(false);
@@ -40,6 +42,11 @@ const NavigationSidebar = ({
 
   if (isClient()) {
     document.addEventListener('keydown', _handleKeyDown);
+  }
+
+  const _handleClick = (val: string) => {
+    _toggleSecondMenu(!isSecondMenuOpen)
+    setActiveItem(val);
   }
 
   // Checks wether we should show the Navigation item child nodes.
@@ -70,8 +77,8 @@ const NavigationSidebar = ({
                 <li>
                   <button
                     type="button"
-                    className="nav__menu-btn"
-                    onClick={() => _toggleSecondMenu(!isSecondMenuOpen)}
+                    className={`nav__menu-btn ${activeItem === displayName ? 'isActive' : ''}`}
+                    onClick={() => _handleClick(displayName)}
                   >
                     {displayName}
                     <Icon type="arrow-right" color="#77E8C6" />
@@ -81,7 +88,7 @@ const NavigationSidebar = ({
                       <li className="nav__menu-btn--back">
                         <button
                           type="button"
-                          onClick={() => _toggleSecondMenu(!isSecondMenuOpen)}
+                          onClick={() => _handleClick(displayName)}
                         >
                           <Icon type="arrow-left" color="#2B2F51" />
                         </button>
