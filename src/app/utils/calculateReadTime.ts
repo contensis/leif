@@ -6,10 +6,10 @@ interface Props {
 
 // Dictionary of all the fields id's from the composer.
 const FIELDS_DICTIONARY = {
-  MARKUP: 'markup',
-  BLOCK_QUOTE: 'blockQuote',
-  IMAGE: 'image',
-  FEATURED_PRODUCT: 'featuredProduct+',
+  markup: 'markup',
+  blockQuote: 'blockQuote',
+  image: 'image',
+  featuredProduct: 'featuredProduct+',
 };
 
 // Get all the text and images and put them into their own array's.
@@ -19,17 +19,17 @@ const _getTextAndImages = (composer: any) => {
   composer.map((item: any) => {
     const { _type, title, text, quote, caption } = item || {};
     switch (_type) {
-      case FIELDS_DICTIONARY.MARKUP:
+      case FIELDS_DICTIONARY.markup:
         textArr.push(text);
         break;
-      case FIELDS_DICTIONARY.BLOCK_QUOTE:
+      case FIELDS_DICTIONARY.blockQuote:
         textArr.push(quote);
         break;
-      case FIELDS_DICTIONARY.IMAGE:
+      case FIELDS_DICTIONARY.image:
         imageArr.push('image');
         textArr.push(caption);
         break;
-      case FIELDS_DICTIONARY.FEATURED_PRODUCT:
+      case FIELDS_DICTIONARY.featuredProduct:
         textArr.push(title);
         textArr.push(text);
         break;
