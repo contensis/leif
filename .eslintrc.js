@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  plugins: ['prettier', 'flowtype', 'react', 'react-hooks'],
+  plugins: ['prettier', 'flowtype', 'react', 'react-hooks', 'cypress'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -20,6 +20,7 @@ module.exports = {
     jest: true,
     mocha: true,
     es6: true,
+    "cypress/globals": true,
   },
   globals: {
     __isBrowser__: true,
