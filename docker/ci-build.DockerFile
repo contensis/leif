@@ -5,6 +5,8 @@ FROM mhart/alpine-node:12
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
+COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
+# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 COPY --from=basebuilder /usr/src/app/node_modules/zengenti-search-package /usr/src/app/node_modules/zengenti-search-package
 RUN yarn install --production --loglevel error
