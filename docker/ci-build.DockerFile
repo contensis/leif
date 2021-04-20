@@ -14,6 +14,8 @@ RUN yarn install --production --loglevel error
 RUN yarn add immutable
 RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
+ENV alias=zenhub
+ENV projectId=leif
 
 # Standard classic start script, will start the server with the environment started last 
 # (or using configuration from the default .env if never started)
