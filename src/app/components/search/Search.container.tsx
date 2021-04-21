@@ -5,7 +5,7 @@ import mapEntriesToResults from './transformations';
 import { useSelector } from 'react-redux';
 import { withSearch } from '@zengenti/contensis-react-base/search';
 import { selectScreenSize } from '../../core/redux/custom/ui/selectors';
-import { selectCurrentLocationQueryStringParams } from '../../core/redux/custom/routing/selectors';
+import { selectCurrentPathname } from '../../core/redux/custom/routing/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
@@ -97,25 +97,22 @@ const SearchContainer = ({
   const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
   const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
 
-  // Get the Search Query Params
-  const queryString = useSelector(selectCurrentLocationQueryStringParams);
-  const queryStringParams = new URLSearchParams(queryString);
-  // Get the contentTypeId Params
-  const contentTypeIdValue = queryStringParams.get('contentTypeId');
-
-  // Depending on the contentTypeIdValue toggle the correct filters
+  // Get the current pathname from state
+  const path: string = useSelector(selectCurrentPathname);
+  
+  // Depending on the path toggle the correct filters
   useEffect(() => {
-    if (contentTypeIdValue === 'pot') {
+    if (path && path.includes('pot')) {
       setIsPlantFilterSelected(false);
       setIsPotFilterSelected(true);
-    } else if (contentTypeIdValue === 'plant') {
+    } else if (path && path.includes('plant')) {
       setIsPlantFilterSelected(true);
       setIsPotFilterSelected(false);
     } else {
       setIsPotFilterSelected(false);
       setIsPlantFilterSelected(false);
     }
-  }, [contentTypeIdValue]);
+  }, [path]);
 
   let potFilters: any = {};
   let plantFilters: any = {};

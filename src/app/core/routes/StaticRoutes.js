@@ -4,7 +4,7 @@ import { Loading } from './Loading';
 
 export default [
   {
-    path: '/search/:facet?',
+    path: '/search/:facet?/:contentTypeId?',
     exact: false,
     fetchNode: false,
     component: Loadable({

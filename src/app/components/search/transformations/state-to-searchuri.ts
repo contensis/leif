@@ -22,9 +22,16 @@ const searchUriTemplate = {
 
     if (context !== 'listings') {
       const currentFacet = facet || getCurrentFacet(state);
-      const newPath = currentFacet
+
+      // Get the Plant or Pot filter
+      let filters = getSelectedFilters(state, facet, context)
+      filters = filters && filters.toJS();
+      const currentFilter = filters.contentTypeId;
+
+      // Check if we have a Plant or Pot filter first
+      const newPath =  currentFilter && currentFacet ? `${currentPath}/${currentFacet}/${currentFilter}` : currentFacet
         ? `${currentPath}/${currentFacet}`
-        : currentPath;
+        :  currentPath;
       
       return newPath;
     } else if (listing === 'productsListing') {
