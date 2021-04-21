@@ -4,7 +4,7 @@ import { selectors } from '@zengenti/contensis-react-base/search';
 
 import { default as mapJson } from '../../../core/util/json-mapper';
 import { removeEmptyAttributes } from '../../../core/util/helpers';
-import { selectCurrentPath, selectQueryStringAsObject } from '../../../core/redux/selectors';
+import { selectCurrentPath } from '../../../core/redux/selectors';
 
 const {
   getSelectedFilters,

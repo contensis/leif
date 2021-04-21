@@ -30,7 +30,7 @@ export default {
 
     return {
       customNavigation: {
-        ancestors: false,
+        ancestors: true,
         children: true,
         siblings: false,
         tree: true,

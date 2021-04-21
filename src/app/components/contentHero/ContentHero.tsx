@@ -38,7 +38,7 @@ const ContentHero = ({
           </Region>
         );
       case false:
-      default:
+      default: 
         return (
           <Region
             margin="none"
@@ -47,18 +47,16 @@ const ContentHero = ({
           >
             <ContentHeroStyled className={className} bgImageUri={bgImageUri}>
               <div className="content-hero__content">
-                <BackButton
-                  uri="/landing"
-                  label="Landing page"
-                  className="content-hero__back-btn"
-                  color={bgImageUri ? '#fff' : '#6E729B'}
-                />
+                  <BackButton
+                    className="content-hero__back-btn"
+                    color={bgImageUri ? '#fff' : '#6E729B'}
+                  />
                 <h1 className="content-hero__title">{title}</h1>
               </div>
             </ContentHeroStyled>
           </Region>
         );
-    }
+      }
   };
   return <>{_RenderHero(hasIllustration)}</>;
 };
