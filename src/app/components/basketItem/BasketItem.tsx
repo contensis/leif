@@ -1,7 +1,9 @@
 import React from 'react';
+import Input from '../input/Input';
+import InputControl from '../inputControl/InputControl';
 import BasketItemStyled from './BasketItem.styled';
-import Icon from '../icon/Icon';
-import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
+// import Icon from '../icon/Icon';
+// import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 export interface Props {
   className?: string;
@@ -10,6 +12,8 @@ export interface Props {
   quantity: number;
   id: string;
   sku: string;
+  imageUri: string;
+  variant: string;
   _removeFromBasket: (id: string, sku: string, quantity: number) => void;
 }
 
@@ -17,26 +21,33 @@ const BasketItem = ({
   className,
   price,
   title,
+  variant,
   quantity,
-  id,
-  sku,
-  _removeFromBasket,
+  imageUri,
 }: Props) => {
   return (
     <BasketItemStyled className={className}>
-      <div>
-        <span className="basket-item__title">{title}</span>
-        <h6>{price}</h6>
-        <span>Quantity: {quantity}</span>
+      <div className="basket-item__content--wrapper">
+        <img src={imageUri} alt={title} className="basket-item__image" />
+        <div className="basket-item__content">
+          <span className="basket-item__title">{title}</span>
+          <span className="basket-item__variant">{variant}</span>
+          <span className="basket-item__price">£{price}</span>
+        </div>
       </div>
-      <button
-        type="button"
-        className="basket-item__remove-btn"
-        onClick={() => _removeFromBasket(id, sku, quantity)}
-      >
-        <Icon type="delete" color="#2B2F51" />
-        <VisuallyHidden text={`Remove ${title} from basket`} />
-      </button>
+      <div className="basket-item__input--wrapper">
+        <Input
+          className="basket-item__input"
+          label="Quantity"
+          defaultValue={quantity}
+          id={`${title.replace('', '-')}`}
+          isHidden
+        />
+        <div className="basket-item__input-controls">
+          <InputControl className="basket-item__input-minus" type="minus" />
+          <InputControl className="basket-item__input-plus" type="plus" />
+        </div>
+      </div>
     </BasketItemStyled>
   );
 };

@@ -38,6 +38,7 @@ const BasketMenuSidebar = ({
   isBasketOpen,
   _setIsBasketOpen,
   _removeFromBasket,
+  totalItems,
   basket,
 }: Props) => {
   const ref = useRef();
@@ -77,19 +78,24 @@ const BasketMenuSidebar = ({
       onMouseLeave={() => _setIsBasketOpen(false)}
       ref={ref}
     >
-      <Icon className="basket-menu__icon" type="basket" />
-      <FocusLock>
-        <IconButton
-          icon="basket"
-          height={32}
-          width={32}
-          text="Basket"
-          className="basket-menu__btn--close"
-          isToggled={isBasketOpen}
-          _func={() => _setIsBasketOpen(!isBasketOpen)}
-        />
+      <FocusLock className="basket-menu__focus">
+        <div className="basket-menu__header">
+          {hasItemsInBasket && <h4>Your basket</h4>}
+          <IconButton
+            icon="basket"
+            height={32}
+            width={32}
+            text="Basket"
+            className="basket-menu__btn--close"
+            isToggled={isBasketOpen}
+            _func={() => _setIsBasketOpen(!isBasketOpen)}
+          />
+        </div>
         {!hasItemsInBasket && (
-          <p className="basket-menu__text">Your basket is empty</p>
+          <>
+            <Icon className="basket-menu__icon" type="basket" />
+            <p className="basket-menu__text">Your basket is empty</p>
+          </>
         )}
         {hasItemsInBasket && (
           <div className="basket-menu__items-wrapper">
@@ -98,22 +104,37 @@ const BasketMenuSidebar = ({
                 if (!item || item.length < 1) return null;
                 return item.map((product: BasketItemProps, idx: number) => {
                   TOTAL_PRICE += product.price * product.quantity;
+                  console.info({ product });
                   return (
                     <BasketItem
                       key={idx}
+                      className="basket-menu__item"
                       {...product}
                       _removeFromBasket={_removeFromBasket}
                     />
                   );
                 });
               })}
-            <span>Total: £{TOTAL_PRICE.toFixed(2)}</span>
+            <h4 className="basket-menu__title">Order summary</h4>
+            <div className="basket-menu__info">
+              <div>
+                <span>{totalItems} item</span>
+                <span>£{TOTAL_PRICE.toFixed(2)}</span>
+              </div>
+              <div>
+                <span>Delivery</span>
+                <span>FREE</span>
+              </div>
+            </div>
+            <span className="basket-menu__total">
+              Total: <span>£{TOTAL_PRICE.toFixed(2)}</span>
+            </span>
           </div>
         )}
         <LinkButton
+          className="basket-menu__checkout"
           label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
           href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
-          icon="arrow-right"
         />
       </FocusLock>
     </div>
@@ -158,6 +179,7 @@ const BasketMenu = ({
           _setIsBasketOpen={_setIsBasketOpen}
           _removeFromBasket={_removeFromBasket}
           basket={basket}
+          totalItems={totalItems}
         />
       )}
     </BasketMenuStyled>

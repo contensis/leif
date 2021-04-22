@@ -42,11 +42,11 @@ export default (state = initialState, action) => {
           .set('total', totalItems);
       } else {
         const { quantity, id, productTitle, imageUri } = action || {};
-        const title = `${productTitle} - ${variantTitle}`;
         const totalItems = (currentTotalItems += quantity);
 
         return state
-          .setIn(['items', id, sku, 'title'], title)
+          .setIn(['items', id, sku, 'title'], productTitle)
+          .setIn(['items', id, sku, 'variant'], variantTitle)
           .setIn(['items', id, sku, 'id'], id)
           .setIn(['items', id, sku, 'imageUri'], imageUri)
           .setIn(['items', id, sku, 'sku'], sku)

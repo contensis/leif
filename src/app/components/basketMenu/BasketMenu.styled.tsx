@@ -33,13 +33,45 @@ const BasketMenuStyled = styled.div`
           font-family: ${theme.typeStyles.fontFamily.headings};
         }
       }
-      .basket-menu__items-wrapper {
+      .basket-menu__focus {
         width: 100%;
-        max-width: 256px;
-        margin: 24px 0;
-        span {
-          display: block;
+      }
+      .basket-menu__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 24px;
+        margin-bottom: 16px;
+      }
+      .basket-menu__title {
+        text-align: center;
+        margin: 40px 0 16px;
+      }
+      .basket-menu__items-wrapper {
+        padding: 0 24px;
+        .basket-menu__item {
+          margin-bottom: 24px;
         }
+      }
+      .basket-menu__info {
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+        }
+      }
+      .basket-menu__total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        padding-top: 16px;
+        border-top: 1px solid ${theme.colors.neutral_lightgrey};
+      }
+      .basket-menu__checkout {
+        margin: 40px auto 0;
+        display: block;
       }
       .basket-menu__content-wrapper {
         display: none;
@@ -65,18 +97,11 @@ const BasketMenuStyled = styled.div`
             right: 0;
             z-index: 9;
             display: flex;
-            padding-top: 80px;
             flex-direction: column;
             align-items: center;
             @media ${theme.mq.laptop} {
               width: 370px;
             }
-          }
-          .basket-menu__btn--close {
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 99;
           }
         `}
       @keyframes slideIn {

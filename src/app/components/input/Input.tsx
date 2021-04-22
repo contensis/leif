@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import InputStyled from './Input.styled';
 
 interface Props {
@@ -8,11 +9,13 @@ interface Props {
   label: string;
   placeholder?: string;
   defaultValue?: number | string;
+  isHidden?: boolean;
 }
 
 const Input = ({
   className,
   type = 'text',
+  isHidden = false,
   defaultValue = '',
   id,
   label,
@@ -28,7 +31,12 @@ const Input = ({
 
   return (
     <InputStyled className={className}>
-      <label htmlFor={id}>{label}</label>
+      {!isHidden && <label htmlFor={id}>{label}</label>}
+      {isHidden && (
+        <VisuallyHidden>
+          <label htmlFor={id}>{label}</label>
+        </VisuallyHidden>
+      )}
       <input
         type={type}
         id={id}
