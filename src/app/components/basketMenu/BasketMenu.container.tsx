@@ -9,7 +9,7 @@ import { removeFromBasket } from '../../core/redux/custom/basket/actions';
 // Selectors
 import { selectIsBasketOpen } from '../../core/redux/custom/ui/selectors';
 
-import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
+import { selectProductsInBasket, selectTotalProductsInBasket } from '../../core/redux/custom/basket/selectors';
 
 // Components and Props
 import BasketMenu, { Props } from './BasketMenu';
@@ -21,6 +21,7 @@ const BasketMenuContainer = ({
   _removeFromBasket,
   _setIsSearchOpen,
   basket,
+  totalItems,
 }: Props) => {
   return (
     <BasketMenu
@@ -30,6 +31,7 @@ const BasketMenuContainer = ({
       _setIsBasketOpen={_setIsBasketOpen}
       _removeFromBasket={_removeFromBasket}
       basket={basket}
+      totalItems={totalItems}
     />
   );
 };
@@ -38,6 +40,7 @@ const mapStateToProps = (state: any) => {
   return {
     isBasketOpen: selectIsBasketOpen(state),
     basket: selectProductsInBasket(state),
+    totalItems: selectTotalProductsInBasket(state),
   };
 };
 
@@ -45,8 +48,8 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     _setIsBasketOpen: (val: boolean) => dispatch(setIsBasketOpen(val)),
     _setIsSearchOpen: (val: boolean) => dispatch(setIsSearchOpen(val)),
-    _removeFromBasket: (id: string, sku: string) =>
-      dispatch(removeFromBasket(id, sku)),
+    _removeFromBasket: (id: string, sku: string, quantity: number) =>
+      dispatch(removeFromBasket(id, sku, quantity)),
   };
 };
 

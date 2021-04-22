@@ -78,6 +78,9 @@ const BasketModalStyled = styled.div`
         }
       }
     }
+    .basket-modal__buttons a {
+      ${theme.typeStyles.h6};
+    }
     .basket-modal__button {
       @media ${theme.mq.tablet} {
         max-width: 168px;

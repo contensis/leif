@@ -10,6 +10,29 @@ const BasketMenuStyled = styled.div`
     return css`
       display: flex;
       flex-direction: row-reverse;
+      .basket-menu__btn--wrapper {
+        cursor: pointer;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          position: absolute;
+          top: 40px;
+          left: 40px;
+          background: #2b2f51;
+          color: #77e8c6;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          line-height: 24px;
+          ${theme.typeStyles.smallCopy};
+          font-family: ${theme.typeStyles.fontFamily.headings};
+        }
+      }
       .basket-menu__items-wrapper {
         width: 100%;
         max-width: 256px;

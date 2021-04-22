@@ -23,6 +23,7 @@ export interface Props {
   _removeFromBasket: (id: string, sku: string) => void;
   isBasketOpen: boolean;
   basket: any;
+  totalItems: number;
 }
 
 export interface BasketItemProps {
@@ -71,7 +72,11 @@ const BasketMenuSidebar = ({
   const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
 
   return (
-    <div className="basket-menu__content-wrapper" ref={ref}>
+    <div
+      className="basket-menu__content-wrapper"
+      onMouseLeave={() => _setIsBasketOpen(false)}
+      ref={ref}
+    >
       <Icon className="basket-menu__icon" type="basket" />
       <FocusLock>
         <IconButton
@@ -122,6 +127,7 @@ const BasketMenu = ({
   _removeFromBasket,
   _setIsSearchOpen,
   basket,
+  totalItems,
 }: Props) => {
   useEffect(() => {
     if (isBasketOpen) addOverlayCSS();
@@ -130,19 +136,22 @@ const BasketMenu = ({
 
   return (
     <BasketMenuStyled className={className} isBasketOpen={isBasketOpen}>
-      <IconButton
-        icon="basket"
-        height={26}
-        width={26}
-        text="Basket"
-        className="basket-menu__btn"
-        isToggled={isBasketOpen}
-        _func={() => {
+      <a
+        className="basket-menu__btn--wrapper"
+        href="/basket"
+        onMouseEnter={() => {
           _setIsSearchOpen(false);
-          _setIsBasketOpen(!isBasketOpen)
-        }
-        }
-      />
+          _setIsBasketOpen(!isBasketOpen);
+        }}
+      >
+        <Icon
+          type="basket"
+          height={26}
+          width={26}
+          className="basket-menu__btn"
+        />
+        <span>{totalItems}</span>
+      </a>
       {isBasketOpen && (
         <BasketMenuSidebar
           isBasketOpen={isBasketOpen}

@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectProductsInBasket, selectTotalProductsInBasket } from '~/core/redux/custom/basket/selectors';
 import { setIsPopupOpen } from '~/core/redux/custom/ui/actions';
 import { _useOnClickOutside } from '~/utils/hooks/useOnClickOutside';
 import Icon from '../icon/Icon';
@@ -22,6 +23,8 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
     dispatch(setIsPopupOpen(val))
   }
 
+  const totalItemsInBasket = useSelector(selectTotalProductsInBasket);
+
   const ref = useRef();
   _useOnClickOutside(ref, () => _setIsPopupOpen(false));
 
@@ -39,7 +42,11 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
           </div>
           Added to basket
         </div>
-        <button className="basket-modal__button--close" type="button" onClick={() => _setIsPopupOpen(false)}>
+        <button
+          className="basket-modal__button--close"
+          type="button"
+          onClick={() => _setIsPopupOpen(false)}
+        >
           <VisuallyHidden text="Close basket modal" />
           <Icon type="close" width={18} height={18} />
         </button>
@@ -55,7 +62,7 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
       <div className="basket-modal__buttons">
         <LinkButton
           href="/basket"
-          label="View basket(1)"
+          label={`View basket(${totalItemsInBasket})`}
           type="secondary"
           isHollow
           className="basket-modal__button"

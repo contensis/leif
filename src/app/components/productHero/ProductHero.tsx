@@ -256,6 +256,10 @@ const ProductHero = ({
               icon="arrow-right"
               label="Add to basket"
               onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
                 _setIsPopupOpen(true);
                 _addToBasket(id, imageUri, title, quantity, activeVariant);
               }}
