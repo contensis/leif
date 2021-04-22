@@ -4,7 +4,8 @@ stages:
   - latest-build
   - storybook-latest-build
   - live-build
-  - development-release-build
+  # - development-release-build
+  - automated-tests
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -18,9 +19,6 @@ variables:
 
 services:
   - docker:dind
-
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.zengenti.com:4567
 
 build-latest-code:
   stage: latest-build
@@ -52,6 +50,28 @@ build-storybook:
     name: storybook
     url: http://storybook.latest.$CI_PROJECT_NAME.contensis.cloud
 
+run-automated-tests:
+  stage: automated-tests
+  image:
+    name:
+      cypress/included:6.4.0
+      # cypress/included images have entrypoint set to "cypress"
+      # which conflicts with GitLab CI wrapper shell script
+    entrypoint: ['']
+  services:
+    - name: $APP_IMAGE:latest
+      alias: site-to-test
+  except:
+    - tags
+    - ^release-.*$
+  script:
+    - npm install typescript
+    - mkdir cypress-context
+    - mkdir cypress-context/cypress
+    - cp cypress.json cypress-context
+    - cp -R cypress cypress-context/.
+    - CYPRESS_BASE_URL=http://site-to-test:3001 cypress run --project ./cypress-context --record --key 04ecba8e-021d-4d94-a421-617e4fb2368c
+
 build-live-code-for-production:
   stage: live-build
   only:
@@ -72,17 +92,17 @@ build-live-code-for-production:
     name: live
     url: http://preview.$CI_PROJECT_NAME.contensis.cloud
 
-build-live-code-for-development:
-  stage: development-release-build
-  only:
-    refs:
-      - tags
-    variables:
-      - $CI_COMMIT_TAG =~ /^devrelease-.*$/
-  script:
-    - docker pull "$DEVELOP_APP:latest"
-    - docker tag "$DEVELOP_APP:latest" "$DEVELOP_APP:release"
-    - docker push "$DEVELOP_APP:release"
-  environment:
-    name: live
-    url: http://preview.$CI_PROJECT_NAME.contensis.cloud
+# build-live-code-for-development:
+#   stage: development-release-build
+#   only:
+#     refs:
+#       - tags
+#     variables:
+#       - $CI_COMMIT_TAG =~ /^devrelease-.*$/
+#   script:
+#     - docker pull "$DEVELOP_APP:latest"
+#     - docker tag "$DEVELOP_APP:latest" "$DEVELOP_APP:release"
+#     - docker push "$DEVELOP_APP:release"
+#   environment:
+#     name: live
+#     url: http://preview.$CI_PROJECT_NAME.contensis.cloud

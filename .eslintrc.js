@@ -20,7 +20,7 @@ module.exports = {
     jest: true,
     mocha: true,
     es6: true,
-    "cypress/globals": true,
+    "cypress/globals": true
   },
   globals: {
     __isBrowser__: true,
