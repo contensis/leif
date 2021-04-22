@@ -8,6 +8,11 @@ const ProductHeroStyled = styled.div`
   ${({ theme, isModalOpen }: Props) => {
     return css`
       overflow-x: hidden;
+      .product-hero__basket-modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
       .product-hero__content {
         text-align: center;
         @media ${theme.mq.desktop} {

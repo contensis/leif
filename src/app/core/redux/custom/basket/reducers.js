@@ -29,11 +29,12 @@ export default (state = initialState, action) => {
         const { quantity, id } = action || {};
         return state.setIn(['items', id, sku, 'quantity'], quantity);
       } else {
-        const { quantity, id, productTitle } = action || {};
+        const { quantity, id, productTitle, imageUri } = action || {};
         const title = `${productTitle} - ${variantTitle}`;
         return state
           .setIn(['items', id, sku, 'title'], title)
           .setIn(['items', id, sku, 'id'], id)
+          .setIn(['items', id, sku, 'imageUri'], imageUri)
           .setIn(['items', id, sku, 'sku'], sku)
           .setIn(['items', id, sku, 'quantity'], quantity)
           .setIn(['items', id, sku, 'price'], price);

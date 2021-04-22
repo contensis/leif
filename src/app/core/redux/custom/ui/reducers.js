@@ -6,6 +6,7 @@ import {
   SET_DEVICE_TYPE,
   SET_SCREEN_SIZE,
   HAS_DROPDOWN_FILTERS_SELECTED,
+  TOGGLE_POPUP,
 } from './types';
 
 let initialState = Map({
@@ -14,6 +15,7 @@ let initialState = Map({
   isSearchOpen: false,
   isBasketOpen: false,
   isModalOpen: false,
+  isPopupOpen: false,
   hasDropdownFiltersSelected: false,
 });
 
@@ -23,6 +25,8 @@ export default (state = initialState, action) => {
       return state.setIn(['isSearchOpen'], action.value);
     case TOGGLE_MODAL:
       return state.setIn(['isModalOpen'], action.value);
+    case TOGGLE_POPUP:
+      return state.setIn(['isPopupOpen'], action.value);
     case TOGGLE_BASKET:
       return state.setIn(['isBasketOpen'], action.value);
     case SET_DEVICE_TYPE:

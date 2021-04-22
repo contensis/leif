@@ -16,6 +16,7 @@ import Button from '../button/Button';
 import FocusLock from 'react-focus-lock';
 import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
 import { isClient } from '../../utils/isClient';
+import BasketModal from '../basketModal/BasketModal';
 
 export interface MatchingPotsProps {
   type: string;
@@ -40,6 +41,7 @@ export interface VariantProps {
 
 export interface Props {
   className?: string;
+  imageUri: string;
   id: any;
   slides: any[] | any;
   review?: string;
@@ -49,10 +51,13 @@ export interface Props {
   activeVariant: VariantProps[];
   _setActiveVariant: (value: VariantProps) => void;
   _setIsModalOpen: (val: boolean) => void;
+  _setIsPopupOpen: (val: boolean) => void;
+  isPopupOpen: boolean,
   isModalOpen: boolean;
   basket: any;
   _addToBasket: (
     id: string,
+    imageUri: string,
     productTitle: string,
     quantity: number,
     activeVariant: VariantProps
@@ -97,6 +102,7 @@ const ProductHeroModalOverlay = ({
 const ProductHero = ({
   className,
   id,
+  imageUri,
   slides,
   title,
   text,
@@ -107,8 +113,12 @@ const ProductHero = ({
   review,
   isModalOpen,
   _setIsModalOpen,
+  _setIsPopupOpen,
+  isPopupOpen,
 }: Props) => {
   let [quantity, updateQuantity] = useState<number>(1);
+
+  const { price, variantTitle } = activeVariant || {};
 
   /* eslint-disable */
   useEffect(() => {
@@ -117,17 +127,6 @@ const ProductHero = ({
     }
   }, []);
   /* eslint-enable */
-
-  const { price } = activeVariant || {};
-
-  const _handleClick = (e: any, type: string) => {
-    e.preventDefault();
-    if (type === 'increase') {
-      updateQuantity((quantity += 1));
-    } else {
-      updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
-    }
-  };
 
   useEffect(() => {
     if (isClient()) {
@@ -143,6 +142,21 @@ const ProductHero = ({
     }
   }, [isModalOpen]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      _setIsPopupOpen(false);
+    }, 8000);
+  }, [isPopupOpen]);
+
+  const _handleClick = (e: any, type: string) => {
+    e.preventDefault();
+    if (type === 'increase') {
+      updateQuantity((quantity += 1));
+    } else {
+      updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
+    }
+  };
+
   if (!variants || variants.length < 1) return null;
   return (
     <ProductHeroStyled className={className} isModalOpen={isModalOpen}>
@@ -157,6 +171,15 @@ const ProductHero = ({
           </>
         )}
       >
+        {isPopupOpen && (
+          <BasketModal
+            className="product-hero__basket-modal"
+            image={imageUri}
+            name={title}
+            variant={variantTitle}
+            price={price}
+          />
+        )}
         <BackButton label="All products" uri="/products" />
         <div className="product-hero__content">
           {!isModalOpen && (
@@ -231,9 +254,10 @@ const ProductHero = ({
             </div>
             <Button
               icon="arrow-right"
-              label="Add to barrow"
+              label="Add to basket"
               onClick={() => {
-                _addToBasket(id, title, quantity, activeVariant);
+                _setIsPopupOpen(true);
+                _addToBasket(id, imageUri, title, quantity, activeVariant);
               }}
               className="product-hero__btn"
             />
