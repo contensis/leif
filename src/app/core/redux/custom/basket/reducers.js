@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
       const { variantTitle, price, sku } = action.activeVariant;
       const hasSku = !!state.getIn(['items', action.id, sku]);
       let currentTotalItems = state.get('total');
-      
+
       if (hasSku) {
         const { quantity, id } = action || {};
         const totalItems = (currentTotalItems += quantity);
@@ -37,7 +37,9 @@ export default (state = initialState, action) => {
           ? (previousQuantity += quantity)
           : quantity;
 
-        return state.setIn(['items', id, sku, 'quantity'], newQuantity).set('total', totalItems);
+        return state
+          .setIn(['items', id, sku, 'quantity'], newQuantity)
+          .set('total', totalItems);
       } else {
         const { quantity, id, productTitle, imageUri } = action || {};
         const title = `${productTitle} - ${variantTitle}`;
@@ -55,7 +57,7 @@ export default (state = initialState, action) => {
     }
     case REMOVE_FROM_BASKET: {
       const { id, sku, quantity } = action || {};
-      
+
       let currentTotalItems = state.get('total');
       const totalItems = (currentTotalItems -= quantity);
 

@@ -52,7 +52,7 @@ export interface Props {
   _setActiveVariant: (value: VariantProps) => void;
   _setIsModalOpen: (val: boolean) => void;
   _setIsPopupOpen: (val: boolean) => void;
-  isPopupOpen: boolean,
+  isPopupOpen: boolean;
   isModalOpen: boolean;
   basket: any;
   _addToBasket: (
@@ -142,11 +142,13 @@ const ProductHero = ({
     }
   }, [isModalOpen]);
 
+  /* eslint-disable */
   useEffect(() => {
     setTimeout(() => {
       _setIsPopupOpen(false);
     }, 8000);
   }, [isPopupOpen]);
+  /* eslint-enable */
 
   const _handleClick = (e: any, type: string) => {
     e.preventDefault();

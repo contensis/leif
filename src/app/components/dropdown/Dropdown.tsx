@@ -23,7 +23,6 @@ const Dropdown = ({
   updateSelectedFilters,
   _setHasDropdownFiltersSelected,
   title,
-  clearFilters,
   type = 'default',
 }: Props) => {
   const [activeFilter, setActiveFilter] = useState(title);
@@ -37,8 +36,8 @@ const Dropdown = ({
   /* eslint-enable */
 
   const _handleFilterSelect = (key: string) => {
-      updateSelectedFilters(filterGroupKey, key);
-      _setHasDropdownFiltersSelected(true);
+    updateSelectedFilters(filterGroupKey, key);
+    _setHasDropdownFiltersSelected(true);
   };
 
   if (!filters || filters.length < 1) return null;

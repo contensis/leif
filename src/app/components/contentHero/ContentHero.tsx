@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ContentHeroStyled from './ContentHero.styled';
-import BackButton from '../backButton/BackButton';
+import BackButton, { AncestorsProps } from '../backButton/BackButton';
 import Region from '../../layout/Region';
 import GenericHero from '../genericHero/GenericHero';
 
@@ -13,6 +13,7 @@ export interface Props {
   heroIllustrationAlt: string;
   hasIllustration: boolean;
   isFullWidth: boolean;
+  ancestors: AncestorsProps[];
 }
 
 const ContentHero = ({
@@ -23,6 +24,7 @@ const ContentHero = ({
   heroIllustrationUri,
   heroIllustrationAlt,
   isFullWidth,
+  ancestors,
 }: Props) => {
   const _RenderHero = (hasIllustration: boolean) => {
     switch (hasIllustration) {
@@ -38,7 +40,7 @@ const ContentHero = ({
           </Region>
         );
       case false:
-      default: 
+      default:
         return (
           <Region
             margin="none"
@@ -47,16 +49,17 @@ const ContentHero = ({
           >
             <ContentHeroStyled className={className} bgImageUri={bgImageUri}>
               <div className="content-hero__content">
-                  <BackButton
-                    className="content-hero__back-btn"
-                    color={bgImageUri ? '#fff' : '#6E729B'}
-                  />
+                <BackButton
+                  ancestors={ancestors}
+                  className="content-hero__back-btn"
+                  color={bgImageUri ? '#fff' : '#6E729B'}
+                />
                 <h1 className="content-hero__title">{title}</h1>
               </div>
             </ContentHeroStyled>
           </Region>
         );
-      }
+    }
   };
   return <>{_RenderHero(hasIllustration)}</>;
 };

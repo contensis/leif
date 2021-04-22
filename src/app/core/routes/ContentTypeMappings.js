@@ -8,7 +8,6 @@ import { contentPagePropsMapping } from '../../pages/ContentPage/transformations
 import { landingPagePropsMapping } from '../../pages/LandingPage/transformations/landingpage.entry-to-props.mapper';
 import { blogPostPropsMapping } from '../../pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
 import { blogListingPropsMapping } from '../../pages/BlogListing/transformations/bloglisting.entry-to-props.mapper';
-import { productListingPropsMapping } from '../../pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
 import { productPagePropsMapping } from '../../pages/ProductPage/transformations/productpage.entry-to-props.mapper';
 import { homepageHeroProps } from '../../pages/Home/transformations/homepage.entry-to-props.mapper';
 
@@ -34,7 +33,16 @@ export default [
       loading: Loading,
     }),
     linkDepth: 1,
-    entryMapper: ({ entry }) => mapJson(entry, contentPagePropsMapping),
+    entryMapper: node => {
+      const mappedEntry = mapJson(
+        {
+          ...node.entry,
+          ancestors: node.ancestors,
+        },
+        contentPagePropsMapping
+      );
+      return mappedEntry;
+    },
   },
   {
     contentTypeID: 'landingPage',

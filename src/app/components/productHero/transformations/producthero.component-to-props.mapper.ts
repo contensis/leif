@@ -65,7 +65,8 @@ export const productHeroPropsMapping = {
   id: 'sys.id',
   imageUri: {
     $path: 'primaryImage',
-    $formatting: (image: any) => image && image.asset && image.asset.sys && image.asset.sys.uri,
+    $formatting: (image: any) =>
+      image && image.asset && image.asset.sys && image.asset.sys.uri,
   },
   slides: {
     $path: 'photos',

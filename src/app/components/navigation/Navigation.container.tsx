@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     _toggleMenu: (val: boolean) => dispatch(toggleMenu(val)),
     _toggleSecondMenu: (val: boolean) => dispatch(toggleSecondMenu(val)),
-    _setIsSearchOpen: (val:boolean) => dispatch(setIsSearchOpen(val)),
+    _setIsSearchOpen: (val: boolean) => dispatch(setIsSearchOpen(val)),
   };
 };
 

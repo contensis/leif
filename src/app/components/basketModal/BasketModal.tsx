@@ -1,7 +1,6 @@
-
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectProductsInBasket, selectTotalProductsInBasket } from '~/core/redux/custom/basket/selectors';
+import { selectTotalProductsInBasket } from '~/core/redux/custom/basket/selectors';
 import { setIsPopupOpen } from '~/core/redux/custom/ui/actions';
 import { _useOnClickOutside } from '~/utils/hooks/useOnClickOutside';
 import Icon from '../icon/Icon';
@@ -19,9 +18,9 @@ export interface Props {
 
 const BasketModal = ({ className, name, variant, price, image }: Props) => {
   const dispatch = useDispatch();
-  const _setIsPopupOpen = (val:boolean) => {
-    dispatch(setIsPopupOpen(val))
-  }
+  const _setIsPopupOpen = (val: boolean) => {
+    dispatch(setIsPopupOpen(val));
+  };
 
   const totalItemsInBasket = useSelector(selectTotalProductsInBasket);
 

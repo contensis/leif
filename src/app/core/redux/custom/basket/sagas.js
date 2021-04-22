@@ -42,7 +42,7 @@ const saveLocalState = (key, state) => {
   }
 };
 
-const getLocalState = (item) => {
+const getLocalState = item => {
   try {
     const serializedState = window.localStorage.getItem(item);
     if (serializedState === null) return undefined;

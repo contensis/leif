@@ -3,13 +3,19 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import { setIsBasketOpen, setIsSearchOpen } from '../../core/redux/custom/ui/actions';
+import {
+  setIsBasketOpen,
+  setIsSearchOpen,
+} from '../../core/redux/custom/ui/actions';
 import { removeFromBasket } from '../../core/redux/custom/basket/actions';
 
 // Selectors
 import { selectIsBasketOpen } from '../../core/redux/custom/ui/selectors';
 
-import { selectProductsInBasket, selectTotalProductsInBasket } from '../../core/redux/custom/basket/selectors';
+import {
+  selectProductsInBasket,
+  selectTotalProductsInBasket,
+} from '../../core/redux/custom/basket/selectors';
 
 // Components and Props
 import BasketMenu, { Props } from './BasketMenu';

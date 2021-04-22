@@ -45,14 +45,13 @@ const NavigationSidebar = ({
   }
 
   const _handleClick = (val: string) => {
-    _toggleSecondMenu(!isSecondMenuOpen)
+    _toggleSecondMenu(!isSecondMenuOpen);
     setActiveItem(val);
-  }
+  };
 
   // Checks wether we should show the Navigation item child nodes.
   const _showChildren = (element: NavigationProps) =>
     element.includeInMenu === true;
-
 
   return (
     <FocusLock>
@@ -72,7 +71,9 @@ const NavigationSidebar = ({
                 <li>
                   <button
                     type="button"
-                    className={`nav__menu-btn ${activeItem === displayName ? 'isActive' : ''}`}
+                    className={`nav__menu-btn ${
+                      activeItem === displayName ? 'isActive' : ''
+                    }`}
                     onClick={() => _handleClick(displayName)}
                   >
                     {displayName}
@@ -95,9 +96,7 @@ const NavigationSidebar = ({
                         const { displayName, path } = child || {};
                         return (
                           <li key={idx}>
-                            <a href={path}>
-                              {displayName}
-                            </a>
+                            <a href={path}>{displayName}</a>
                           </li>
                         );
                       })}

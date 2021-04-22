@@ -24,25 +24,28 @@ const searchUriTemplate = {
       const currentFacet = facet || getCurrentFacet(state);
 
       // Get the Plant or Pot filter
-      let filters = getSelectedFilters(state, facet, context)
+      let filters = getSelectedFilters(state, facet, context);
       filters = filters && filters.toJS();
       const currentFilter = filters.contentTypeId;
 
       // Check if we have a Plant or Pot filter first
-      const newPath =  currentFilter && currentFacet ? `${currentPath}/${currentFacet}/${currentFilter}` : currentFacet
-        ? `${currentPath}/${currentFacet}`
-        :  currentPath;
-      
+      const newPath =
+        currentFilter && currentFacet
+          ? `${currentPath}/${currentFacet}/${currentFilter}`
+          : currentFacet
+          ? `${currentPath}/${currentFacet}`
+          : currentPath;
+
       return newPath;
     } else if (listing === 'productsListing') {
-      let filters = getSelectedFilters(state, facet, context)
+      let filters = getSelectedFilters(state, facet, context);
       filters = filters && filters.toJS();
 
       const currentFilter = filters.contentTypeId;
       const newPath = currentFilter
         ? `${currentPath}/${currentFilter}`
         : currentPath;
-      
+
       return newPath;
     } else {
       return currentPath;

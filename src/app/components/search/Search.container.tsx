@@ -99,7 +99,7 @@ const SearchContainer = ({
 
   // Get the current pathname from state
   const path: string = useSelector(selectCurrentPathname);
-  
+
   // Depending on the path toggle the correct filters
   useEffect(() => {
     if (path && path.includes('pot')) {

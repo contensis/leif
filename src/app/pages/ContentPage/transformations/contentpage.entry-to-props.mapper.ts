@@ -7,7 +7,19 @@ import { pageMetadataPropsMapping } from '~/components/metadata/transformations/
 
 export const contentPagePropsMapping = {
   metadataProps: { ...pageMetadataPropsMapping },
-  contentHeroProps: { ...contentHeroPropsMapper },
+  contentHeroProps: {
+    ...contentHeroPropsMapper,
+    ancestors: {
+      $path: 'ancestors',
+      $formatting: (item: any) => {
+        const { displayName, path } = item || {};
+        return {
+          displayName,
+          path,
+        };
+      },
+    },
+  },
   leadParagraphProps: {
     text: 'leadParagraph',
   },

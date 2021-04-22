@@ -2,11 +2,14 @@ import React from 'react';
 
 import BackButtonStyled from './BackButton.styled';
 import Icon from '../icon/Icon';
-import { useSelector } from 'react-redux';
-import { selectCurrentAncestors } from '~/core/redux/selectors';
 
+export interface AncestorsProps {
+  displayName: string;
+  path: string;
+}
 interface Props {
   className?: string;
+  ancestors?: AncestorsProps[];
   label?: string;
   color?: string;
   uri?: string;
@@ -16,21 +19,20 @@ const BackButton = ({
   className,
   label,
   uri,
+  ancestors,
   color = '#6E729B',
 }: Props) => {
-  const nodeAncestors: any = useSelector(selectCurrentAncestors);
-  const nodeAncestorsArray = nodeAncestors && nodeAncestors.toJS();
-
   const getPreviousPage = (array: any[]) => {
+    if (!array || array.length < 0) return null;
     const max = array.length - 1;
     const prev = max === 0 ? 0 : max - 1;
     return array[prev];
-  }
+  };
 
-  const previousPage = getPreviousPage(nodeAncestorsArray);
-  const { path, displayName } = previousPage || {}
+  const previousPage: AncestorsProps = getPreviousPage(ancestors);
+  const { path, displayName } = previousPage || {};
 
-  const btnPath = uri ? uri : path
+  const btnPath = uri ? uri : path;
   const btnLabel = label ? label : displayName;
 
   if (!btnPath) return null;

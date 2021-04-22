@@ -5,12 +5,18 @@ import { toJS } from '../../core/util/ToJs';
 // Actions
 import { setActiveVariant } from '../../core/redux/custom/product/actions';
 import { addToBasket } from '../../core/redux/custom/basket/actions';
-import { setIsModalOpen, setIsPopupOpen } from '../../core/redux/custom/ui/actions';
+import {
+  setIsModalOpen,
+  setIsPopupOpen,
+} from '../../core/redux/custom/ui/actions';
 
 // Selectors
 import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
-import { selectIsModalOpen, selectIsPopupOpen } from '../../core/redux/custom/ui/selectors';
+import {
+  selectIsModalOpen,
+  selectIsPopupOpen,
+} from '../../core/redux/custom/ui/selectors';
 
 // Component & Props
 import ProductHero, { Props, VariantProps } from './ProductHero';
