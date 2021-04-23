@@ -1,6 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeFromBasket } from '~/core/redux/custom/basket/actions';
+import Icon from '../icon/Icon';
 import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import BasketItemStyled from './BasketItem.styled';
 // import Icon from '../icon/Icon';
 // import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
@@ -20,6 +24,8 @@ export interface Props {
 
 const BasketItem = ({
   className,
+  id,
+  sku,
   price,
   title,
   variant,
@@ -27,6 +33,11 @@ const BasketItem = ({
   imageUri,
   hasLargeStyles,
 }: Props) => {
+  const dispatch = useDispatch();
+  const _removeFromBasket = () => {
+    dispatch(removeFromBasket(id, sku, quantity, price));
+  };
+
   return (
     <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
@@ -49,6 +60,14 @@ const BasketItem = ({
             </div>
           </div>
         </div>
+        <button
+          type="button"
+          onClick={() => _removeFromBasket()}
+          className="basket-item__btn--close"
+        >
+          <VisuallyHidden text={`Remove ${title} from basket`} />
+          <Icon type="close" />
+        </button>
       </div>
     </BasketItemStyled>
   );

@@ -19,9 +19,10 @@ import BasketStyled from './Basket.styled';
 // Modals
 import { BasketItemProps } from '~/components/basketMenu/BasketMenu';
 
-// Mapperrs
+// Mappers
 import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
 
 const BasketPage = () => {
   let basket = useSelector(selectProductsInBasket);
@@ -91,6 +92,12 @@ const BasketPage = () => {
                 }`}
                 href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
               />
+              {hasItemsInBasket && (
+                <a href="/checkout" className="basket__paypal">
+                  <img src="/static/img/logos/paypal-logo.png" alt="PayPal" />
+                  <VisuallyHidden text="Check out with PayPal" />
+                </a>
+              )}
             </div>
           </div>
         </div>

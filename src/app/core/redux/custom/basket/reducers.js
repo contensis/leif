@@ -60,14 +60,24 @@ export default (state = initialState, action) => {
       }
     }
     case REMOVE_FROM_BASKET: {
-      const { id, sku, quantity } = action || {};
+      const { id, sku, quantity, price } = action || {};
       let currentTotalItems = state.get('totalItems');
       const totalItems = (currentTotalItems -= quantity);
       const currentItemObject = state.getIn(['items', id]).toJS();
+
+      let currentTotalPrice = state.get('totalPrice');
+      const totalPrice = (currentTotalPrice -= price * quantity);
+
       if (_countObjectProperties(currentItemObject) === 1) {
-        return state.deleteIn(['items', id]).set('totalItems', totalItems);
+        return state
+          .deleteIn(['items', id])
+          .set('totalItems', totalItems)
+          .set('totalPrice', totalPrice);
       } else {
-        return state.deleteIn(['items', id, sku]).set('totalItems', totalItems);
+        return state
+          .deleteIn(['items', id, sku])
+          .set('totalPrice', totalPrice)
+          .set('totalItems', totalItems);
       }
     }
     default:

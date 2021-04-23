@@ -4,7 +4,7 @@ const BasketItemStyled = styled.div`
   ${({ theme, hasLargeStyles }) => {
     return css`
       position: relative;
-      padding-bottom: 16px;
+      padding: 0 24px 16px 0;
       .basket-item__content--wrapper {
         display: flex;
         align-items: stretch;
@@ -53,6 +53,18 @@ const BasketItemStyled = styled.div`
       }
       .basket-item__input-minus {
         margin-right: 8px;
+      }
+      .basket-item__btn--close {
+        background: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: opacity 100ms ease-in-out;
+        &:hover {
+          opacity: 0.6;
+        }
       }
       ${hasLargeStyles &&
         css`

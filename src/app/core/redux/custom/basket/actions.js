@@ -16,5 +16,5 @@ export const addToBasket = (
     activeVariant,
   });
 
-export const removeFromBasket = (id, sku, quantity) =>
-  action(REMOVE_FROM_BASKET, { id, sku, quantity });
+export const removeFromBasket = (id, sku, quantity, price) =>
+  action(REMOVE_FROM_BASKET, { id, sku, quantity, price });

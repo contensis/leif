@@ -56,6 +56,20 @@ const BasketStyled = styled.div`
           max-width: 100%;
         }
       }
+      .basket__paypal {
+        text-align: center;
+        display: block;
+        border: 1px solid ${theme.colors.secondary};
+        border-radius: 4px;
+        margin-top: 24px;
+        padding: 16px 0;
+        height: 64px;
+        img {
+          width: 61px;
+          height: 16px;
+          object-fit: cover;
+        }
+      }
       .basket__summary {
         .basket-summary__title {
           margin-top: 0;

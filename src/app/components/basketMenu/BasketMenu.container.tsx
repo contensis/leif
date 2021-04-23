@@ -54,8 +54,12 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     _setIsBasketOpen: (val: boolean) => dispatch(setIsBasketOpen(val)),
     _setIsSearchOpen: (val: boolean) => dispatch(setIsSearchOpen(val)),
-    _removeFromBasket: (id: string, sku: string, quantity: number) =>
-      dispatch(removeFromBasket(id, sku, quantity)),
+    _removeFromBasket: (
+      id: string,
+      sku: string,
+      quantity: number,
+      price: number
+    ) => dispatch(removeFromBasket(id, sku, quantity, price)),
   };
 };
 

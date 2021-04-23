@@ -79,6 +79,7 @@ const FeaturedProductStyled = styled.div`
       }
       .featured-product__card {
         margin-top: 24px;
+        box-shadow: 0px 16px 24px rgb(56 33 146 / 7%);
         &:hover {
           .card__title {
             text-decoration: underline;
