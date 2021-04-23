@@ -40,16 +40,14 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
 
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
   const { results: reviews } = useMinilist(reviewOptions);
-
+  featuredProducts.length = 1;
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
         <Region width="large" margin="none">
-          {featuredProducts && featuredProducts.length >= 1 && (
-            <GenericHero {...featuredProducts[0]} />
-          )}
+          {featuredProducts && <GenericHero {...featuredProducts[0]} />}
         </Region>
         <ListingContainer>
           <ProductListing />

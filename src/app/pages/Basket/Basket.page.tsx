@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // Components
 import Metadata from '~/components/metadata/Metadata';
+import BasketItem from '~/components/basketItem/BasketItem';
+import BasketSummary from '~/components/basketSummary/BasketSummary';
+import LinkButton from '~/components/linkButton/LinkButton';
+import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Selectors
 import { selectProductsInBasket } from '~/core/redux/custom/basket/selectors';
@@ -14,9 +18,10 @@ import BasketStyled from './Basket.styled';
 
 // Modals
 import { BasketItemProps } from '~/components/basketMenu/BasketMenu';
-import BasketItem from '~/components/basketItem/BasketItem';
-import BasketSummary from '~/components/basketSummary/BasketSummary';
-import LinkButton from '~/components/linkButton/LinkButton';
+
+// Mapperrs
+import { useMinilist } from '@zengenti/contensis-react-base/search';
+import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 const BasketPage = () => {
   let basket = useSelector(selectProductsInBasket);
@@ -37,6 +42,16 @@ const BasketPage = () => {
   });
 
   const hasItemsInBasket = basketArray && basketArray.length >= 1;
+  const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
+
+  useEffect(() => {
+    setFeaturedProductOptions({
+      id: 'featuredProduct',
+      mapper: mapEntriesToResults,
+    });
+  }, []);
+  const { results: featuredProducts } = useMinilist(featuredProductOptions);
+  featuredProducts.length = 3;
 
   return (
     <MainLayout>
@@ -75,6 +90,11 @@ const BasketPage = () => {
             />
           </div>
         </div>
+        <RelatedContent
+          className="basket__related-content"
+          title="You may also like"
+          results={featuredProducts}
+        />
       </BasketStyled>
     </MainLayout>
   );

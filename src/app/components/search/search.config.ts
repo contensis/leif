@@ -101,7 +101,7 @@ export default {
         contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
         fields: [...BaseFields, ...ProductFields],
         orderBy: ['-sys.version.published'],
-        pageSize: 2,
+        pageSize: 3,
         linkDepth: 1,
         customWhere: [
           {

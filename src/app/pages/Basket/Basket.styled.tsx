@@ -63,6 +63,12 @@ const BasketStyled = styled.div`
           }
         }
       }
+      .basket__related-content {
+        margin: 120px 0 0 0;
+        @media ${theme.mq.desktop} {
+          margin: 0;
+        }
+      }
     `;
   }};
 `;

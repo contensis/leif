@@ -8,7 +8,7 @@ export interface Props {
   title?: string;
   results: any[] | any;
   linkUri?: string;
-  linkLabel: string;
+  linkLabel?: string;
   linkType?: string;
 }
 
@@ -20,7 +20,8 @@ const RelatedContent = ({
   linkLabel,
   linkType = 'secondary',
 }: Props) => {
-  if (!results || results.length < 1) return null;
+  if (!results || results.length < 1 || (results && results[0] === undefined))
+    return null;
   return (
     <RelatedContentStyled className={className}>
       {title && <h3 className="related-content__title">{title}</h3>}

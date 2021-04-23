@@ -103,7 +103,6 @@ const BasketMenuSidebar = ({
                 basketArray.map((item: any[]) => {
                   if (!item || item.length < 1) return null;
                   return item.map((product: BasketItemProps, idx: number) => {
-                    console.info({ product });
                     return (
                       <BasketItem
                         key={idx}

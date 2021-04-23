@@ -12,6 +12,8 @@ const SearchPage = () => {
     });
   }, []);
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
+  featuredProducts.length = 2;
+
   return <SearchContainer featuredProducts={featuredProducts} />;
 };
 
