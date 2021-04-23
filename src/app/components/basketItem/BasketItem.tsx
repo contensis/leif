@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromBasket } from '~/core/redux/custom/basket/actions';
+import {
+  removeFromBasket,
+  updateQuantity,
+} from '~/core/redux/custom/basket/actions';
 import Icon from '../icon/Icon';
 import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import BasketItemStyled from './BasketItem.styled';
-// import Icon from '../icon/Icon';
-// import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 export interface Props {
   className?: string;
@@ -38,6 +39,24 @@ const BasketItem = ({
     dispatch(removeFromBasket(id, sku, quantity, price));
   };
 
+  const _updateQuantity = (type: string) => {
+    switch (type) {
+      case 'minus': {
+        const q = (quantity -= 1);
+        if (q === 0) dispatch(removeFromBasket(id, sku, 1, price));
+        else dispatch(updateQuantity(id, sku, price, q, type));
+        break;
+      }
+      case 'plus': {
+        const q = (quantity += 1);
+        dispatch(updateQuantity(id, sku, price, q, type));
+        break;
+      }
+      default:
+        break;
+    }
+  };
+
   return (
     <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
@@ -55,8 +74,16 @@ const BasketItem = ({
               isHidden
             />
             <div className="basket-item__input-controls">
-              <InputControl className="basket-item__input-minus" type="minus" />
-              <InputControl className="basket-item__input-plus" type="plus" />
+              <InputControl
+                className="basket-item__input-minus"
+                type="minus"
+                onClick={() => _updateQuantity('minus')}
+              />
+              <InputControl
+                className="basket-item__input-plus"
+                type="plus"
+                onClick={() => _updateQuantity('plus')}
+              />
             </div>
           </div>
         </div>
@@ -66,7 +93,7 @@ const BasketItem = ({
           className="basket-item__btn--close"
         >
           <VisuallyHidden text={`Remove ${title} from basket`} />
-          <Icon type="close" />
+          <Icon type="close" width={18} height={18} />
         </button>
       </div>
     </BasketItemStyled>

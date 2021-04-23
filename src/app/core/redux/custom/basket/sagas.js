@@ -5,13 +5,19 @@ import {
   selectTotalProductsPrice,
 } from '../basket/selectors';
 
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET, INITIALISED_BASKET } from './types';
+import {
+  ADD_TO_BASKET,
+  REMOVE_FROM_BASKET,
+  INITIALISED_BASKET,
+  UPDATE_QUANTITY,
+} from './types';
 import { ROUTE_WILL_LOAD } from '../../types';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),
   takeEvery(ADD_TO_BASKET, _updateLocalStorage),
   takeEvery(REMOVE_FROM_BASKET, _updateLocalStorage),
+  takeEvery(UPDATE_QUANTITY, _updateLocalStorage),
 ];
 
 function* _ensureInitialised() {

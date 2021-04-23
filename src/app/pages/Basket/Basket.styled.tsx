@@ -77,6 +77,7 @@ const BasketStyled = styled.div`
         @media ${theme.mq.desktop} {
           max-width: 320px;
           width: 100%;
+          margin-left: auto;
           .basket-summary__title {
             text-align: left;
           }
@@ -84,9 +85,6 @@ const BasketStyled = styled.div`
       }
       .basket__related-content {
         margin: 120px 0 0 0;
-        @media ${theme.mq.desktop} {
-          margin: 0;
-        }
       }
     `;
   }};

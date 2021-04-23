@@ -33,6 +33,9 @@ const BasketMenuStyled = styled.div`
           font-family: ${theme.typeStyles.fontFamily.headings};
         }
       }
+      .basket-menu__btn--close {
+        margin-left: auto;
+      }
       .basket-menu__focus {
         width: 100%;
       }
@@ -64,6 +67,7 @@ const BasketMenuStyled = styled.div`
         background-size: contain;
         width: 60px;
         height: 40px;
+        margin: 0 auto;
       }
       .basket-menu__text {
         margin: 16px 0 40px 0;
