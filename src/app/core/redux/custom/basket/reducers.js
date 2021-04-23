@@ -8,7 +8,8 @@ import { _countObjectProperties } from '../../../../utils/countObjectProperties'
 
 let initialState = Map({
   items: fromJS({}),
-  total: 0,
+  totalPrice: 0,
+  totalItems: 0,
   isInitialised: false,
 });
 
@@ -18,7 +19,8 @@ export default (state = initialState, action) => {
       if (action.value) {
         return state
           .set('items', fromJS(action.value))
-          .set('total', fromJS(action.total))
+          .set('totalItems', fromJS(action.totalItems))
+          .set('totalPrice', fromJS(action.totalPrice))
           .set('isInitialised', true);
       } else {
         return state.set('isInitialised', true);
@@ -26,23 +28,24 @@ export default (state = initialState, action) => {
     case ADD_TO_BASKET: {
       const { variantTitle, price, sku } = action.activeVariant;
       const hasSku = !!state.getIn(['items', action.id, sku]);
-      let currentTotalItems = state.get('total');
+      let currentTotalItems = state.get('totalItems');
+      let currentTotalPrice = state.get('totalPrice');
 
       if (hasSku) {
         const { quantity, id } = action || {};
         const totalItems = (currentTotalItems += quantity);
-
-        let previousQuantity = state.getIn(['items', id, sku, 'quantity']);
-        const newQuantity = previousQuantity
-          ? (previousQuantity += quantity)
-          : quantity;
+        let prevQuantity = state.getIn(['items', id, sku, 'quantity']);
+        const total = prevQuantity ? (prevQuantity += quantity) : quantity;
+        const totalPrice = (currentTotalPrice += price * quantity);
 
         return state
-          .setIn(['items', id, sku, 'quantity'], newQuantity)
-          .set('total', totalItems);
+          .setIn(['items', id, sku, 'quantity'], total)
+          .set('totalItems', totalItems)
+          .set('totalPrice', totalPrice);
       } else {
         const { quantity, id, productTitle, imageUri } = action || {};
         const totalItems = (currentTotalItems += quantity);
+        const totalPrice = (currentTotalPrice += price * quantity);
 
         return state
           .setIn(['items', id, sku, 'title'], productTitle)
@@ -52,20 +55,19 @@ export default (state = initialState, action) => {
           .setIn(['items', id, sku, 'sku'], sku)
           .setIn(['items', id, sku, 'quantity'], quantity)
           .setIn(['items', id, sku, 'price'], price)
-          .set('total', totalItems);
+          .set('totalItems', totalItems)
+          .set('totalPrice', totalPrice);
       }
     }
     case REMOVE_FROM_BASKET: {
       const { id, sku, quantity } = action || {};
-
-      let currentTotalItems = state.get('total');
+      let currentTotalItems = state.get('totalItems');
       const totalItems = (currentTotalItems -= quantity);
-
       const currentItemObject = state.getIn(['items', id]).toJS();
       if (_countObjectProperties(currentItemObject) === 1) {
-        return state.deleteIn(['items', id]).set('total', totalItems);
+        return state.deleteIn(['items', id]).set('totalItems', totalItems);
       } else {
-        return state.deleteIn(['items', id, sku]).set('total', totalItems);
+        return state.deleteIn(['items', id, sku]).set('totalItems', totalItems);
       }
     }
     default:

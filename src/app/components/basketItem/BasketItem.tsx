@@ -15,6 +15,7 @@ export interface Props {
   imageUri: string;
   variant: string;
   _removeFromBasket: (id: string, sku: string, quantity: number) => void;
+  hasLargeStyles: boolean;
 }
 
 const BasketItem = ({
@@ -24,28 +25,29 @@ const BasketItem = ({
   variant,
   quantity,
   imageUri,
+  hasLargeStyles,
 }: Props) => {
   return (
-    <BasketItemStyled className={className}>
+    <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
         <img src={imageUri} alt={title} className="basket-item__image" />
         <div className="basket-item__content">
           <span className="basket-item__title">{title}</span>
           <span className="basket-item__variant">{variant}</span>
           <span className="basket-item__price">£{price}</span>
-        </div>
-      </div>
-      <div className="basket-item__input--wrapper">
-        <Input
-          className="basket-item__input"
-          label="Quantity"
-          defaultValue={quantity}
-          id={`${title.replace('', '-')}`}
-          isHidden
-        />
-        <div className="basket-item__input-controls">
-          <InputControl className="basket-item__input-minus" type="minus" />
-          <InputControl className="basket-item__input-plus" type="plus" />
+          <div className="basket-item__input--wrapper">
+            <Input
+              className="basket-item__input"
+              label="Quantity"
+              defaultValue={quantity}
+              id={`${title.replace('', '-')}`}
+              isHidden
+            />
+            <div className="basket-item__input-controls">
+              <InputControl className="basket-item__input-minus" type="minus" />
+              <InputControl className="basket-item__input-plus" type="plus" />
+            </div>
+          </div>
         </div>
       </div>
     </BasketItemStyled>

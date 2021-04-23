@@ -1,19 +1,18 @@
 import styled, { css } from 'styled-components';
 
 const BasketItemStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, hasLargeStyles }) => {
     return css`
+      position: relative;
+      padding-bottom: 16px;
       .basket-item__content--wrapper {
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
       }
       .basket-item__content {
         margin-left: 8px;
         span {
           display: block;
-          &:not(:last-child) {
-            margin-bottom: 8px;
-          }
         }
       }
       .basket-item__image {
@@ -26,19 +25,24 @@ const BasketItemStyled = styled.div`
         ${theme.typeStyles.h6};
         font-family: ${theme.typeStyles.fontFamily.headings};
         color: ${theme.colors.secondary};
+        margin-bottom: 8px;
       }
       .basket-item__variant {
         ${theme.typeStyles.smallCopy};
+        margin-bottom: 8px;
       }
       .basket-item__price {
         ${theme.typeStyles.h6};
         font-family: ${theme.typeStyles.fontFamily.headings};
         color: ${theme.colors.secondary_light};
+        margin: 0;
       }
       .basket-item__input--wrapper {
         display: flex;
         align-items: center;
-        margin-top: 16px;
+        position: absolute;
+        bottom: -40px;
+        left: 0;
       }
       .basket-item__input {
         margin-right: 16px;
@@ -50,6 +54,38 @@ const BasketItemStyled = styled.div`
       .basket-item__input-minus {
         margin-right: 8px;
       }
+      ${hasLargeStyles &&
+        css`
+          max-width: 620px;
+          width: 100%;
+          @media ${theme.mq.laptop} {
+            padding: 0;
+          }
+          .basket-item__content {
+            @media ${theme.mq.laptop} {
+              margin-left: 16px;
+            }
+          }
+          .basket-item__title {
+            @media ${theme.mq.laptop} {
+              ${theme.typeStyles.h5};
+            }
+          }
+          .basket-item__image {
+            @media ${theme.mq.laptop} {
+              height: 176px;
+              width: 180px;
+            }
+          }
+          .basket-item__input--wrapper {
+            @media ${theme.mq.laptop} {
+              margin: 8px 0 0 0;
+              position: relative;
+              bottom: auto;
+              left: auto;
+            }
+          }
+        `}
     `;
   }};
 `;

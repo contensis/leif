@@ -15,6 +15,7 @@ import FocusLock from 'react-focus-lock';
 import { isClient } from '../../utils/isClient';
 import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
 import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
+import BasketSummary from '../basketSummary/BasketSummary';
 
 export interface Props {
   className?: string;
@@ -38,7 +39,6 @@ const BasketMenuSidebar = ({
   isBasketOpen,
   _setIsBasketOpen,
   _removeFromBasket,
-  totalItems,
   basket,
 }: Props) => {
   const ref = useRef();
@@ -55,27 +55,26 @@ const BasketMenuSidebar = ({
     document.addEventListener('keydown', _handleKeyDown);
   }
 
-  let TOTAL_PRICE = 0;
-  const BASKET_ARRAY = Object.keys(basket).map(key => {
-    const BASKET_ITEMS: BasketItemProps[] = [];
+  const basketArray = Object.keys(basket).map(key => {
+    const basketItem: BasketItemProps[] = [];
     if (!isEmptyObj(basket[key])) {
-      const ITEMS = [basket[key]];
-      ITEMS.forEach(el => {
+      const items = [basket[key]];
+      items.forEach(el => {
         if (!el) return null;
         Object.keys(el).map(key => {
-          BASKET_ITEMS.push(el[key]);
+          basketItem.push(el[key]);
         });
       });
     }
-    return BASKET_ITEMS;
+    return basketItem;
   });
 
-  const hasItemsInBasket = BASKET_ARRAY && BASKET_ARRAY.length >= 1;
+  const hasItemsInBasket = basketArray && basketArray.length >= 1;
 
   return (
     <div
       className="basket-menu__content-wrapper"
-      onMouseLeave={() => _setIsBasketOpen(false)}
+      // onMouseLeave={() => _setIsBasketOpen(false)}
       ref={ref}
     >
       <FocusLock className="basket-menu__focus">
@@ -99,36 +98,24 @@ const BasketMenuSidebar = ({
         )}
         {hasItemsInBasket && (
           <div className="basket-menu__items-wrapper">
-            {BASKET_ARRAY &&
-              BASKET_ARRAY.map((item: any[]) => {
-                if (!item || item.length < 1) return null;
-                return item.map((product: BasketItemProps, idx: number) => {
-                  TOTAL_PRICE += product.price * product.quantity;
-                  console.info({ product });
-                  return (
-                    <BasketItem
-                      key={idx}
-                      className="basket-menu__item"
-                      {...product}
-                      _removeFromBasket={_removeFromBasket}
-                    />
-                  );
-                });
-              })}
-            <h4 className="basket-menu__title">Order summary</h4>
-            <div className="basket-menu__info">
-              <div>
-                <span>{totalItems} item</span>
-                <span>£{TOTAL_PRICE.toFixed(2)}</span>
-              </div>
-              <div>
-                <span>Delivery</span>
-                <span>FREE</span>
-              </div>
+            <div className="basket-menu__items">
+              {basketArray &&
+                basketArray.map((item: any[]) => {
+                  if (!item || item.length < 1) return null;
+                  return item.map((product: BasketItemProps, idx: number) => {
+                    console.info({ product });
+                    return (
+                      <BasketItem
+                        key={idx}
+                        className="basket-menu__item"
+                        {...product}
+                        _removeFromBasket={_removeFromBasket}
+                      />
+                    );
+                  });
+                })}
             </div>
-            <span className="basket-menu__total">
-              Total: <span>£{TOTAL_PRICE.toFixed(2)}</span>
-            </span>
+            <BasketSummary />
           </div>
         )}
         <LinkButton

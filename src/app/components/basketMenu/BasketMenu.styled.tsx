@@ -43,31 +43,15 @@ const BasketMenuStyled = styled.div`
         padding-left: 24px;
         margin-bottom: 16px;
       }
-      .basket-menu__title {
-        text-align: center;
-        margin: 40px 0 16px;
+      .basket-menu__items {
+        height: 380px;
+        overflow-y: scroll;
       }
       .basket-menu__items-wrapper {
         padding: 0 24px;
         .basket-menu__item {
-          margin-bottom: 24px;
+          margin-bottom: 64px;
         }
-      }
-      .basket-menu__info {
-        > div {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 16px;
-        }
-      }
-      .basket-menu__total {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: uppercase;
-        padding-top: 16px;
-        border-top: 1px solid ${theme.colors.neutral_lightgrey};
       }
       .basket-menu__checkout {
         margin: 40px auto 0;

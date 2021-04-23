@@ -2,6 +2,7 @@ import { takeEvery, select, put } from 'redux-saga/effects';
 import {
   selectProductsInBasket,
   selectTotalProductsInBasket,
+  selectTotalProductsPrice,
 } from '../basket/selectors';
 
 import { ADD_TO_BASKET, REMOVE_FROM_BASKET, INITIALISED_BASKET } from './types';
@@ -18,7 +19,8 @@ function* _ensureInitialised() {
     yield put({
       type: INITIALISED_BASKET,
       value: getLocalState('basket'),
-      total: getLocalState('total'),
+      totalItems: getLocalState('totalItems'),
+      totalPrice: getLocalState('totalPrice'),
     });
   } else {
     yield put({ type: INITIALISED_BASKET });
@@ -27,9 +29,11 @@ function* _ensureInitialised() {
 
 function* _updateLocalStorage() {
   const items = yield select(selectProductsInBasket);
-  const total = yield select(selectTotalProductsInBasket);
+  const totalItems = yield select(selectTotalProductsInBasket);
+  const totalPrice = yield select(selectTotalProductsPrice);
   saveLocalState('basket', items);
-  saveLocalState('total', total);
+  saveLocalState('totalItems', totalItems);
+  saveLocalState('totalPrice', totalPrice);
 }
 
 // Local Storage Functions

@@ -21,6 +21,15 @@ export default [
       loading: Loading,
     }),
   },
+  {
+    path: '/basket',
+    exact: false,
+    fetchNode: false,
+    component: Loadable({
+      loader: () => import('~/pages/Basket/Basket.page'),
+      loading: Loading,
+    }),
+  },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {
