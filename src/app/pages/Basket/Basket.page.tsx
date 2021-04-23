@@ -60,34 +60,38 @@ const BasketPage = () => {
         image="/image-library/default-images/leif-fallback.png"
       />
       <BasketStyled>
-        <h1 className="basket__title">Your basket</h1>
-        <div className="basket__content">
-          {hasItemsInBasket && (
-            <div className="basket__items-wrapper">
-              {basketArray &&
-                basketArray.map((item: any[]) => {
-                  if (!item || item.length < 1) return null;
-                  return item.map((product: BasketItemProps, idx: number) => {
-                    return (
-                      <BasketItem
-                        key={idx}
-                        {...product}
-                        hasLargeStyles={true}
-                        className="basket__item"
-                        // _removeFromBasket={_removeFromBasket}
-                      />
-                    );
-                  });
-                })}
+        <div className="basket__page-content">
+          <h1 className="basket__title">Your basket</h1>
+          <div className="basket__content">
+            {hasItemsInBasket && (
+              <div className="basket__items-wrapper">
+                {basketArray &&
+                  basketArray.map((item: any[]) => {
+                    if (!item || item.length < 1) return null;
+                    return item.map((product: BasketItemProps, idx: number) => {
+                      return (
+                        <BasketItem
+                          key={idx}
+                          {...product}
+                          hasLargeStyles={true}
+                          className="basket__item"
+                          // _removeFromBasket={_removeFromBasket}
+                        />
+                      );
+                    });
+                  })}
+              </div>
+            )}
+            <div className="basket__summary">
+              <BasketSummary />
+              <LinkButton
+                className="basket__checkout"
+                label={`${
+                  hasItemsInBasket ? 'Checkout' : 'Browse our products'
+                }`}
+                href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
+              />
             </div>
-          )}
-          <div className="basket__summary">
-            <BasketSummary />
-            <LinkButton
-              className="basket__checkout"
-              label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-              href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
-            />
           </div>
         </div>
         <RelatedContent

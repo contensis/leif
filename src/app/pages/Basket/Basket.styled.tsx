@@ -4,6 +4,11 @@ const BasketStyled = styled.div`
   ${({ theme }) => {
     return css`
       padding: 0 16px 120px;
+      .basket__page-content {
+        max-width: 1060px;
+        width: 100%;
+        margin: 0 auto;
+      }
       .basket__title {
         text-align: center;
         @media ${theme.mq.desktop} {

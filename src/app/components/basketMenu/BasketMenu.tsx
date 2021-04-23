@@ -74,7 +74,7 @@ const BasketMenuSidebar = ({
   return (
     <div
       className="basket-menu__content-wrapper"
-      // onMouseLeave={() => _setIsBasketOpen(false)}
+      onMouseLeave={() => _setIsBasketOpen(false)}
       ref={ref}
     >
       <FocusLock className="basket-menu__focus">

@@ -30,6 +30,15 @@ export default [
       loading: Loading,
     }),
   },
+  {
+    path: '/checkout',
+    exact: false,
+    fetchNode: false,
+    component: Loadable({
+      loader: () => import('~/pages/Checkout/Checkout.page'),
+      loading: Loading,
+    }),
+  },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {
