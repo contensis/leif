@@ -14,10 +14,16 @@ import BlogListingStyled from './BlogListing.styled';
 
 // Models
 import { Props } from './BlogListing.d';
+import { useSelector } from 'react-redux';
+import { makeSelectHasResults } from '~/core/redux/custom/ui/selectors';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
   const { title, featuredBlogProps, ctaBannerProps, metadataProps } =
     mappedEntry || {};
+
+  const selectHasResults = useSelector(makeSelectHasResults);
+  const hasResults = useSelector(selectHasResults);
+
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
@@ -29,9 +35,11 @@ const BlogListingPage = ({ mappedEntry }: Props) => {
         <ListingContainer>
           <BlogListing />
         </ListingContainer>
-        <Region width="small" margin="large">
-          <CTABanner {...ctaBannerProps} />
-        </Region>
+        {hasResults && (
+          <Region width="small" margin="large">
+            <CTABanner {...ctaBannerProps} />
+          </Region>
+        )}
       </BlogListingStyled>
     </MainLayout>
   );

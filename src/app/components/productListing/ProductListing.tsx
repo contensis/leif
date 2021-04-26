@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import ProductListingStyled from './ProductListing.styled';
 
+import { useSelector } from 'react-redux';
+import { selectCurrentPathname } from '../../core/redux/custom/routing/selectors';
+
+// Components
 import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
-import { useSelector } from 'react-redux';
-import { selectCurrentPathname } from '../../core/redux/custom/routing/selectors';
+import NoResults from '../noResults/NoResults';
 interface Props {
   results?: any;
   filters?: any;
@@ -112,18 +115,20 @@ const ProductListing = ({
         clearFilters={clearFilters}
         hasResetBtn={true}
       />
-      <div className="product-listing__results">
-        {hasResults &&
-          results.map((res: any, idx: number) => (
+      {hasResults && (
+        <div className="product-listing__results">
+          {results.map((res: any, idx: number) => (
             <Card key={idx} {...res} className="product-listing__result" />
           ))}
-        {!hasResults && (
-          <div className="no-results">
-            <h3>Sorry! No results found :(</h3>
-            <p>Maybe try selecting another filter?</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+      {!hasResults && (
+        <NoResults
+          className="product-listing__no-results"
+          title="No results found"
+          text="Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet."
+        />
+      )}
       {hasLoadMore && (
         <Button
           className="product-listing__load-more"

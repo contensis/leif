@@ -53,8 +53,9 @@ const BlogListingStyled = styled.div`
       .blog-listing__load-more {
         margin: 0 auto;
       }
-      .no-results {
-        text-align: center;
+      .blog-listing__no-results {
+        padding: 0 16px;
+        margin-top: 40px;
       }
     `;
   }};

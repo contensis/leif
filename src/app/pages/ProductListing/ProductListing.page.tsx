@@ -19,6 +19,9 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 // Models
 import { Props } from './ProductListing.d';
 
+import { useSelector } from 'react-redux';
+import { makeSelectHasResults } from '~/core/redux/custom/ui/selectors';
+
 const ProductListingPage = ({ mappedEntry }: Props) => {
   const { title, metadataProps } = mappedEntry || {};
 
@@ -41,6 +44,10 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
   const { results: reviews } = useMinilist(reviewOptions);
   featuredProducts.length = 1;
+
+  const selectHasResults = useSelector(makeSelectHasResults);
+  const hasResults = useSelector(selectHasResults);
+
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
@@ -52,15 +59,17 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
         <ListingContainer>
           <ProductListing />
         </ListingContainer>
-        <Region width="small" margin="none">
-          {reviews.map((review: any, idx: number) => (
-            <QuoteBlock
-              className="product-listing__quote"
-              key={idx}
-              {...review}
-            />
-          ))}
-        </Region>
+        {hasResults && (
+          <Region width="small" margin="none">
+            {reviews.map((review: any, idx: number) => (
+              <QuoteBlock
+                className="product-listing__quote"
+                key={idx}
+                {...review}
+              />
+            ))}
+          </Region>
+        )}
       </ProductListingStyled>
     </MainLayout>
   );

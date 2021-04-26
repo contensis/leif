@@ -15,12 +15,12 @@ import Filters from '../filters/Filters';
 import Button from '../button/Button';
 import Metadata from '../metadata/Metadata';
 import Card from '../card/Card';
+import NoResults from '../noResults/NoResults';
+import PromotedContent from '../promotedContent/PromotedContent';
 
 // Layout
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
-import NoResults from '../noResults/NoResults';
-import PromotedContent from '../promotedContent/PromotedContent';
 
 interface Props {
   className?: string;

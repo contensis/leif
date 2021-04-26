@@ -8,6 +8,22 @@ export const selectIsPopupOpen = state => state.getIn(['ui', 'isPopupOpen']);
 export const selectDeviceType = state => state.getIn(['ui', 'device']);
 export const selectScreenSize = state => state.getIn(['ui', 'screenSize']);
 
+export const selectProductListingResults = state =>
+  state.getIn(['search', 'listings', 'productListing', 'results']);
+export const selectBlogListingResults = state =>
+  state.getIn(['search', 'listings', 'blogListing', 'results']);
+
+export const makeSelectHasResults = () => {
+  return createSelector(
+    [selectBlogListingResults],
+    [selectProductListingResults],
+    results => {
+      if (results && results.toJS() && results.toJS().length >= 1) return true;
+      else return false;
+    }
+  );
+};
+
 export const selectHasDropdownFiltersSelected = state =>
   state.getIn(['ui', 'hasDropdownFiltersSelected']);
 

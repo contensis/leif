@@ -5,7 +5,7 @@ import BlogListingStyled from './BlogListing.styled';
 import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
-
+import NoResults from '../noResults/NoResults';
 interface Props {
   results?: any;
   filters?: any;
@@ -60,18 +60,20 @@ const BlogListing = ({
         clearFilters={clearFilters}
         hasResetBtn={true}
       />
-      <div className="blog-listing__results">
-        {hasResults &&
-          results.map((res: any, idx: number) => (
+      {hasResults && (
+        <div className="blog-listing__results">
+          {results.map((res: any, idx: number) => (
             <Card key={idx} {...res} className="blog-listing__result" />
           ))}
-        {!hasResults && (
-          <div className="no-results">
-            <h3>Sorry! No results found :(</h3>
-            <p>Maybe try selecting another filter?</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+      {!hasResults && (
+        <NoResults
+          className="blog-listing__no-results"
+          title="No results found"
+          text="Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet."
+        />
+      )}
       {hasLoadMore && (
         <Button
           className="blog-listing__load-more"
