@@ -10,6 +10,10 @@ interface Props {
   placeholder?: string;
   defaultValue?: number | string;
   isHidden?: boolean;
+  _onChange?: (e: any) => void;
+  _onBlur?: (e: any) => void;
+  min?: string;
+  max?: string;
 }
 
 const Input = ({
@@ -19,7 +23,11 @@ const Input = ({
   defaultValue = '',
   id,
   label,
+  min,
+  max,
   placeholder,
+  _onChange,
+  _onBlur,
 }: Props) => {
   const [value, setValue] = useState(defaultValue || '');
 
@@ -42,9 +50,17 @@ const Input = ({
         id={id}
         name={id}
         placeholder={placeholder}
+        min={min}
+        max={max}
         value={value}
-        onChange={e => setValue(e.target.value)}
-        onBlur={e => setValue(e.target.value)}
+        onChange={e => {
+          setValue(e.target.value);
+          if (_onChange) _onChange(e);
+        }}
+        onBlur={e => {
+          setValue(e.target.value);
+          if (_onBlur) _onBlur(e);
+        }}
       />
     </InputStyled>
   );

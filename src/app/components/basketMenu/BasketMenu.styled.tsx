@@ -49,6 +49,17 @@ const BasketMenuStyled = styled.div`
       .basket-menu__items {
         height: 380px;
         overflow-y: scroll;
+        padding: 0 8px 0 0;
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: ${theme.colors.neutral_lightgrey};
+        }
+        ::-webkit-scrollbar-track {
+          background: ${theme.colors.neutral_white};
+        }
       }
       .basket-menu__items-wrapper {
         padding: 0 24px;

@@ -153,9 +153,10 @@ const ProductHero = ({
   const _handleClick = (e: any, type: string) => {
     e.preventDefault();
     if (type === 'increase') {
-      updateQuantity((quantity += 1));
+      let newQ = Number(quantity);
+      updateQuantity((newQ += 1));
     } else {
-      updateQuantity(quantity === 0 ? 0 : (quantity -= 1));
+      updateQuantity(quantity <= 1 ? 1 : (quantity -= 1));
     }
   };
 
@@ -237,9 +238,13 @@ const ProductHero = ({
             <div className="product-hero__input-wrapper">
               <Input
                 label="Quantity"
+                type="number"
                 defaultValue={quantity}
                 id="plant-quantity"
                 className="product-hero__input"
+                min="1"
+                _onChange={(e: any) => updateQuantity(e.target.value)}
+                _onBlur={(e: any) => updateQuantity(e.target.value)}
               />
               <div className="product-hero__input-controls">
                 <InputControl

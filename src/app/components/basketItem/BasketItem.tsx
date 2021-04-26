@@ -39,7 +39,7 @@ const BasketItem = ({
     dispatch(removeFromBasket(id, sku, quantity, price));
   };
 
-  const _updateQuantity = (type: string) => {
+  const _updateQuantity = (type?: string, val?: string) => {
     switch (type) {
       case 'minus': {
         const q = (quantity -= 1);
@@ -52,8 +52,12 @@ const BasketItem = ({
         dispatch(updateQuantity(id, sku, price, q, type));
         break;
       }
-      default:
+      default: {
+        const newQuantity: number = Number(val);
+        if (newQuantity === quantity) return null;
+        dispatch(updateQuantity(id, sku, price, newQuantity, type));
         break;
+      }
     }
   };
 
@@ -70,6 +74,10 @@ const BasketItem = ({
               className="basket-item__input"
               label="Quantity"
               defaultValue={quantity}
+              type="number"
+              min="1"
+              _onChange={(e: any) => _updateQuantity('', e.target.value)}
+              _onBlur={(e: any) => _updateQuantity('', e.target.value)}
               id={`${title.replace('', '-')}`}
               isHidden
             />

@@ -37,19 +37,25 @@ export default (state = initialState, action) => {
       const newQuantity =
         updateType === 'minus'
           ? prevQuantity - quantity
-          : quantity - prevQuantity;
+          : updateType === 'plus'
+          ? quantity - prevQuantity
+          : quantity;
 
       let currentTotalPrice = state.get('totalPrice');
       const totalPrice =
         updateType === 'minus'
           ? (currentTotalPrice -= price * newQuantity)
-          : (currentTotalPrice += price * newQuantity);
+          : updateType === 'plus'
+          ? (currentTotalPrice += price * newQuantity)
+          : currentTotalPrice - price * prevQuantity + price * newQuantity;
 
       let currentTotalItems = state.get('totalItems');
       const totalItems =
         updateType === 'minus'
           ? (currentTotalItems -= newQuantity)
-          : (currentTotalItems += newQuantity);
+          : updateType === 'plus'
+          ? (currentTotalItems += newQuantity)
+          : currentTotalItems - prevQuantity + newQuantity;
 
       return state
         .setIn(['items', id, sku, 'quantity'], quantity)
