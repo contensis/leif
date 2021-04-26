@@ -61,13 +61,18 @@ const BasketStyled = styled.div`
         display: block;
         border: 1px solid ${theme.colors.secondary};
         border-radius: 4px;
-        margin-top: 24px;
+        margin: 24px auto 0;
         padding: 16px 0;
         height: 64px;
+        max-width: 256px;
+        width: 100%;
         img {
           width: 61px;
           height: 16px;
           object-fit: cover;
+        }
+        @media ${theme.mq.desktop} {
+          max-width: 100%;
         }
       }
       .basket__summary {
