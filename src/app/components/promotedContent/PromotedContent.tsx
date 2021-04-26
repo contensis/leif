@@ -28,9 +28,9 @@ const PromotedContent = ({
           return (
             <Card
               key={idx}
-              type="explore"
               className="promoted-content__card"
               {...res}
+              type="explore"
             />
           );
         })}

@@ -13,15 +13,15 @@ const BasketMenuStyled = styled.div`
       .basket-menu__btn--wrapper {
         cursor: pointer;
         position: relative;
-        width: 80px;
-        height: 80px;
+        width: 64px;
+        height: 64px;
         display: flex;
         align-items: center;
         justify-content: center;
         span {
           position: absolute;
-          top: 40px;
-          left: 40px;
+          top: 32px;
+          left: 32px;
           background: #2b2f51;
           color: #77e8c6;
           border-radius: 50%;
@@ -31,6 +31,14 @@ const BasketMenuStyled = styled.div`
           line-height: 24px;
           ${theme.typeStyles.smallCopy};
           font-family: ${theme.typeStyles.fontFamily.headings};
+        }
+        @media ${theme.mq.laptop} {
+          width: 80px;
+          height: 80px;
+          span {
+            top: 40px;
+            left: 40px;
+          }
         }
       }
       .basket-menu__btn--close {

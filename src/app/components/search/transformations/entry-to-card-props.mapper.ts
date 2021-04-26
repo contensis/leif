@@ -15,6 +15,13 @@ const baseMapping = {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,
   },
+  imageUri: {
+    $path: 'heroImage',
+    $formatting: (img: any) =>
+      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $default: () => '/image-library/default-images/leif-fallback.png',
+  },
+  imageAlt: ['heroImage.altText', 'heroImage.caption', 'heroImage.asset.title'],
 };
 
 export const reviewBlockMapping = {

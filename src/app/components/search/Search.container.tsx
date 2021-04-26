@@ -20,6 +20,7 @@ import Card from '../card/Card';
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
 import NoResults from '../noResults/NoResults';
+import PromotedContent from '../promotedContent/PromotedContent';
 
 interface Props {
   className?: string;
@@ -36,6 +37,7 @@ interface Props {
   currentFacet: string;
   tabsAndFacets: any;
   featuredProducts?: any;
+  exploreMore?: any[];
 }
 
 const SearchContainer = ({
@@ -53,6 +55,7 @@ const SearchContainer = ({
   tabsAndFacets,
   filters,
   featuredProducts,
+  exploreMore,
 }: Props) => {
   const hasResults = results && results.length >= 1;
   const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
@@ -146,8 +149,8 @@ const SearchContainer = ({
         title="Search our site"
         image="/image-library/default-images/leif-fallback.png"
       />
-      <Region width="large" margin="none" padding="small">
-        <SearchStyled className={className} noResults={!hasResults}>
+      <SearchStyled className={className} noResults={!hasResults}>
+        <Region width="large" margin="none" padding="small">
           <h1 className="search__title">Search results</h1>
           <div className="search__header">
             <Filters
@@ -231,8 +234,15 @@ const SearchContainer = ({
               isHollow
             />
           )}
-        </SearchStyled>
-      </Region>
+        </Region>
+        {!hasResults && (
+          <PromotedContent
+            className="search__explore-more"
+            title="Explore more"
+            results={exploreMore}
+          />
+        )}
+      </SearchStyled>
     </MainLayout>
   );
 };

@@ -6,6 +6,9 @@ const NoResultsStyled = styled.div`
       .no-results__image {
         margin: 0 auto 24px;
         display: block;
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
       }
     `;
   }};

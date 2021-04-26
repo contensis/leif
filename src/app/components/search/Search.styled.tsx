@@ -121,6 +121,12 @@ const SearchStyled = styled.div`
           margin-top: 120px;
         }
       }
+      .search__explore-more {
+        margin-top: 56px;
+        @media ${theme.mq.desktop} {
+          margin-top: 80px;
+        }
+      }
       ${noResults &&
         css`
           .search__results-wrapper {

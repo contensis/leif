@@ -14,7 +14,21 @@ const SearchPage = () => {
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
   featuredProducts.length = 2;
 
-  return <SearchContainer featuredProducts={featuredProducts} />;
+  const [exploreMoreOptions, setExploreMoreOptions] = useState<any>();
+  useEffect(() => {
+    setExploreMoreOptions({
+      id: 'exploreMore',
+      mapper: mapEntriesToResults,
+    });
+  }, []);
+  const { results: exploreMore } = useMinilist(exploreMoreOptions);
+
+  return (
+    <SearchContainer
+      featuredProducts={featuredProducts}
+      exploreMore={exploreMore}
+    />
+  );
 };
 
 export default SearchPage;

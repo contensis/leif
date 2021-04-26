@@ -146,5 +146,31 @@ export default {
         pageSize: 3,
       },
     },
+    exploreMore: {
+      title: 'Explore more',
+      queryParams: {
+        contentTypeIds: [
+          ContentTypes.blog,
+          ContentTypes.contentPage,
+          ContentTypes.landingPage,
+          ContentTypes.plant,
+          ContentTypes.pot,
+        ],
+        fields: [
+          ...BaseFields,
+          ...BlogFields,
+          ...ProductFields,
+          ...ContentFields,
+        ],
+        orderBy: ['-sys.version.published'],
+        pageSize: 4,
+        customWhere: [
+          {
+            field: 'tags.entryTitle',
+            equalTo: 'promoted',
+          },
+        ],
+      },
+    },
   },
 };
