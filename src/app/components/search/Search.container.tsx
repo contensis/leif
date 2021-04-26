@@ -19,6 +19,7 @@ import Card from '../card/Card';
 // Layout
 import Region from '../../layout/Region';
 import MainLayout from '../../layout/MainLayout';
+import NoResults from '../noResults/NoResults';
 
 interface Props {
   className?: string;
@@ -53,7 +54,7 @@ const SearchContainer = ({
   filters,
   featuredProducts,
 }: Props) => {
-  const hasResults = results && results.length > 0;
+  const hasResults = results && results.length >= 1;
   const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
@@ -146,7 +147,7 @@ const SearchContainer = ({
         image="/image-library/default-images/leif-fallback.png"
       />
       <Region width="large" margin="none" padding="small">
-        <SearchStyled className={className}>
+        <SearchStyled className={className} noResults={!hasResults}>
           <h1 className="search__title">Search results</h1>
           <div className="search__header">
             <Filters
@@ -160,25 +161,33 @@ const SearchContainer = ({
             />
             <SearchInput searchTerm={searchTerm} _func={_handleSearchSubmit} />
           </div>
-          {resultsText && (
+          {hasResults && resultsText && (
             <p
               className="search__results-info--text"
               dangerouslySetInnerHTML={{ __html: resultsText }}
             />
           )}
           <div className="search__results-wrapper">
-            {hasResults && (
-              <div className="search__results">
-                {results.map((res: any, idx: number) => (
-                  <SearchCard
-                    className="search__result-card"
-                    key={idx}
-                    {...res}
-                  />
-                ))}
-              </div>
-            )}
-            {isDesktop && (
+            <div className="search__results">
+              {hasResults && (
+                <>
+                  {results.map((res: any, idx: number) => (
+                    <SearchCard
+                      className="search__result-card"
+                      key={idx}
+                      {...res}
+                    />
+                  ))}
+                </>
+              )}
+              {!hasResults && (
+                <NoResults
+                  title="No results found"
+                  text="Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet."
+                />
+              )}
+            </div>
+            {isDesktop && hasResults && (
               <>
                 {currentFacet !== 'all' && (
                   <Filters
@@ -197,7 +206,8 @@ const SearchContainer = ({
                     hasResetBtn={true}
                   />
                 )}
-                {currentFacet === 'all' &&
+                {hasResults &&
+                  currentFacet === 'all' &&
                   (featuredProducts && featuredProducts.length >= 1 && (
                     <div className="search__featured-products">
                       {featuredProducts.map(

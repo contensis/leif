@@ -31,7 +31,7 @@ const searchUriTemplate = {
       // Check if we have a Plant or Pot filter first
       const newPath =
         currentFilter && currentFacet
-          ? `${currentPath}/${currentFacet}/${currentFilter}`
+          ? `${currentPath}/${currentFacet}${currentFilter}`
           : currentFacet
           ? `${currentPath}/${currentFacet}`
           : currentPath;

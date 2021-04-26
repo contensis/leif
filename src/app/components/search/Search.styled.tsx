@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 
+interface Props {
+  theme?: any;
+  noResults?: boolean;
+}
+
 const SearchStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, noResults }: Props) => {
     return css`
       padding: 0 0 120px;
       .search__title {
@@ -116,6 +121,12 @@ const SearchStyled = styled.div`
           margin-top: 120px;
         }
       }
+      ${noResults &&
+        css`
+          .search__results-wrapper {
+            justify-content: center;
+          }
+        `}
     `;
   }};
 `;
