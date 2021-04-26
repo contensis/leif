@@ -17,10 +17,9 @@ export interface Props {
   quantity: number;
   id: string;
   sku: string;
-  imageUri: string;
-  variant: string;
-  _removeFromBasket: (id: string, sku: string, quantity: number) => void;
-  hasLargeStyles: boolean;
+  imageUri?: string;
+  variant?: string;
+  hasLargeStyles?: boolean;
 }
 
 const BasketItem = ({
@@ -32,7 +31,7 @@ const BasketItem = ({
   variant,
   quantity,
   imageUri,
-  hasLargeStyles,
+  hasLargeStyles = false,
 }: Props) => {
   const dispatch = useDispatch();
   const _removeFromBasket = () => {

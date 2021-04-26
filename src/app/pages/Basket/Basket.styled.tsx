@@ -86,6 +86,19 @@ const BasketStyled = styled.div`
       .basket__related-content {
         margin: 120px 0 0 0;
       }
+      .basket__empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        p {
+          margin: 16px 0 0 0;
+        }
+      }
+      .basket__product-link {
+        margin-top: 40px;
+      }
     `;
   }};
 `;

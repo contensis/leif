@@ -21,7 +21,13 @@ export interface Props {
   className?: string;
   _setIsBasketOpen: (val: boolean) => void;
   _setIsSearchOpen: (val: boolean) => void;
-  _removeFromBasket: (id: string, sku: string) => void;
+  isBasketOpen: boolean;
+  basket: any;
+  totalItems: number;
+}
+
+export interface BasketSidebarProps {
+  _setIsBasketOpen: (val: boolean) => void;
   isBasketOpen: boolean;
   basket: any;
   totalItems: number;
@@ -38,9 +44,8 @@ export interface BasketItemProps {
 const BasketMenuSidebar = ({
   isBasketOpen,
   _setIsBasketOpen,
-  _removeFromBasket,
   basket,
-}: Props) => {
+}: BasketSidebarProps) => {
   const ref = useRef();
   _useOnClickOutside(ref, () => _setIsBasketOpen(false));
   _useLockBodyScroll();
@@ -108,7 +113,6 @@ const BasketMenuSidebar = ({
                         key={idx}
                         className="basket-menu__item"
                         {...product}
-                        _removeFromBasket={_removeFromBasket}
                       />
                     );
                   });
@@ -117,11 +121,21 @@ const BasketMenuSidebar = ({
             <BasketSummary />
           </div>
         )}
-        <LinkButton
-          className="basket-menu__checkout"
-          label={`${hasItemsInBasket ? 'Checkout' : 'Browse our products'}`}
-          href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
-        />
+        {hasItemsInBasket && (
+          <LinkButton
+            className="basket-menu__checkout"
+            label="Checkout"
+            href="/checkout"
+          />
+        )}
+        {!hasItemsInBasket && (
+          <LinkButton
+            className="basket-menu__product-link"
+            label="Browse our products"
+            href="/products"
+            icon="arrow-right"
+          />
+        )}
       </FocusLock>
     </div>
   );
@@ -131,7 +145,6 @@ const BasketMenu = ({
   className,
   isBasketOpen,
   _setIsBasketOpen,
-  _removeFromBasket,
   _setIsSearchOpen,
   basket,
   totalItems,
@@ -163,7 +176,6 @@ const BasketMenu = ({
         <BasketMenuSidebar
           isBasketOpen={isBasketOpen}
           _setIsBasketOpen={_setIsBasketOpen}
-          _removeFromBasket={_removeFromBasket}
           basket={basket}
           totalItems={totalItems}
         />

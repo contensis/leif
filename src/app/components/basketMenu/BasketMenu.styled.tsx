@@ -71,6 +71,9 @@ const BasketMenuStyled = styled.div`
         margin: 40px auto 0;
         display: block;
       }
+      .basket-menu__product-link {
+        margin: 0 auto;
+      }
       .basket-menu__content-wrapper {
         display: none;
       }

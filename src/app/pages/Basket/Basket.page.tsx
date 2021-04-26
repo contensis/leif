@@ -23,6 +23,7 @@ import { BasketItemProps } from '~/components/basketMenu/BasketMenu';
 import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
+import Icon from '~/components/icon/Icon';
 
 const BasketPage = () => {
   let basket = useSelector(selectProductsInBasket);
@@ -65,40 +66,51 @@ const BasketPage = () => {
           <h1 className="basket__title">Your basket</h1>
           <div className="basket__content">
             {hasItemsInBasket && (
-              <div className="basket__items-wrapper">
-                {basketArray &&
-                  basketArray.map((item: any[]) => {
-                    if (!item || item.length < 1) return null;
-                    return item.map((product: BasketItemProps, idx: number) => {
-                      return (
-                        <BasketItem
-                          key={idx}
-                          {...product}
-                          hasLargeStyles={true}
-                          className="basket__item"
-                          // _removeFromBasket={_removeFromBasket}
-                        />
+              <>
+                <div className="basket__items-wrapper">
+                  {basketArray &&
+                    basketArray.map((item: any[]) => {
+                      if (!item || item.length < 1) return null;
+                      return item.map(
+                        (product: BasketItemProps, idx: number) => {
+                          return (
+                            <BasketItem
+                              key={idx}
+                              {...product}
+                              hasLargeStyles={true}
+                              className="basket__item"
+                            />
+                          );
+                        }
                       );
-                    });
-                  })}
+                    })}
+                </div>
+                <div className="basket__summary">
+                  <BasketSummary />
+                  <LinkButton
+                    className="basket__checkout"
+                    label="Checkout"
+                    href="/checkout"
+                  />
+                  <a href="/checkout" className="basket__paypal">
+                    <img src="/static/img/logos/paypal-logo.png" alt="PayPal" />
+                    <VisuallyHidden text="Check out with PayPal" />
+                  </a>
+                </div>
+              </>
+            )}
+            {!hasItemsInBasket && (
+              <div className="basket__empty">
+                <Icon type="basket" height={64} width={64} />
+                <p>Your basket is empty</p>
+                <LinkButton
+                  className="basket__product-link"
+                  label="Browse our products"
+                  icon="arrow-right"
+                  href="/products"
+                />
               </div>
             )}
-            <div className="basket__summary">
-              <BasketSummary />
-              <LinkButton
-                className="basket__checkout"
-                label={`${
-                  hasItemsInBasket ? 'Checkout' : 'Browse our products'
-                }`}
-                href={`${hasItemsInBasket ? '/checkout' : '/products'}`}
-              />
-              {hasItemsInBasket && (
-                <a href="/checkout" className="basket__paypal">
-                  <img src="/static/img/logos/paypal-logo.png" alt="PayPal" />
-                  <VisuallyHidden text="Check out with PayPal" />
-                </a>
-              )}
-            </div>
           </div>
         </div>
         <RelatedContent
