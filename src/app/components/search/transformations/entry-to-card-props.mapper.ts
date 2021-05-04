@@ -94,7 +94,10 @@ export const productCardMapping = {
   },
   ctaText: () => 'Find out more',
   isRenderedAsLink: () => true,
-  isFeatured: 'isFeatured',
+  isPromoted: {
+    $path: 'tags',
+    $formatting: (tag: string) => (tag === 'promoted' ? true : false),
+  },
 };
 
 export const mappers = {

@@ -18,7 +18,7 @@ export interface Props {
   readTime?: string;
   price: number[];
   rating?: string;
-  isFeatured: boolean;
+  isPromoted: boolean;
   uri: string;
 }
 
@@ -33,7 +33,7 @@ const Card = ({
   date,
   price,
   rating,
-  isFeatured,
+  isPromoted,
   uri,
 }: Props) => {
   const path = useSelector(selectCurrentPath);
@@ -67,7 +67,7 @@ const Card = ({
                 className="card__tag"
                 color="#C3C6DE"
               />
-              {path === '/search' && isFeatured && (
+              {path === '/search' && isPromoted && (
                 <span className="card__featured-tag">Featured</span>
               )}
             </div>

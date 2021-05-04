@@ -105,8 +105,8 @@ export default {
         linkDepth: 1,
         customWhere: [
           {
-            field: 'isFeatured',
-            equalTo: true,
+            field: 'tags.entryTitle',
+            equalTo: 'promoted',
           },
         ],
       },

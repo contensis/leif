@@ -37,7 +37,7 @@ export const Fields = {
   person: 'person',
   name: 'name',
   photo: 'photo',
-  isFeatured: 'isFeatured',
+  Tags: 'tags',
   blogComposer: 'postBody',
 };
 
@@ -61,7 +61,7 @@ export const ReviewFields = [
 
 export const ProductFields = [
   Fields.primaryImage,
-  Fields.isFeatured,
+  Fields.Tags,
   Fields.productTitle,
   Fields.description,
   Fields.productType,
