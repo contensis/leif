@@ -2,7 +2,7 @@ export const promotedProductPropsMapping = {
   title: 'productName',
   text: 'description',
   imageUri: {
-    $path: 'thumbnailImage',
+    $path: 'primaryImage',
     $formatting: (img: any) =>
       img && img.asset && img.asset.sys && img.asset.sys.uri,
     $default: () => '/image-library/default-images/leif-fallback.png',
