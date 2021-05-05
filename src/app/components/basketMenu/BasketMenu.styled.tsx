@@ -98,6 +98,8 @@ const BasketMenuStyled = styled.div`
       ${isBasketOpen &&
         css`
           .basket-menu__content-wrapper {
+            overflow-y: scroll;
+            padding-bottom: 16px;
             animation: slideIn 200ms;
             background-color: ${theme.colors.neutral_white};
             height: 100vh;
@@ -109,6 +111,15 @@ const BasketMenuStyled = styled.div`
             display: flex;
             flex-direction: column;
             align-items: center;
+            ::-webkit-scrollbar {
+              display: none;
+            }
+            ::-webkit-scrollbar-thumb {
+              display: none;
+            }
+            ::-webkit-scrollbar-track {
+              display: none;
+            }
             @media ${theme.mq.laptop} {
               width: 370px;
             }
