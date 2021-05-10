@@ -77,11 +77,7 @@ const BasketMenuSidebar = ({
   const hasItemsInBasket = basketArray && basketArray.length >= 1;
 
   return (
-    <div
-      className="basket-menu__content-wrapper"
-      onMouseLeave={() => _setIsBasketOpen(false)}
-      ref={ref}
-    >
+    <div className="basket-menu__content-wrapper" ref={ref}>
       <FocusLock className="basket-menu__focus">
         <div className="basket-menu__header">
           {hasItemsInBasket && <h4>Your basket</h4>}
@@ -156,10 +152,9 @@ const BasketMenu = ({
 
   return (
     <BasketMenuStyled className={className} isBasketOpen={isBasketOpen}>
-      <a
+      <button
         className="basket-menu__btn--wrapper"
-        href="/basket"
-        onMouseEnter={() => {
+        onClick={() => {
           _setIsSearchOpen(false);
           _setIsBasketOpen(!isBasketOpen);
         }}
@@ -171,7 +166,7 @@ const BasketMenu = ({
           className="basket-menu__btn"
         />
         <span>{totalItems}</span>
-      </a>
+      </button>
       {isBasketOpen && (
         <BasketMenuSidebar
           isBasketOpen={isBasketOpen}

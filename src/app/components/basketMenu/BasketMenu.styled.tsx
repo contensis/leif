@@ -18,6 +18,8 @@ const BasketMenuStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        border: none;
+        background-color: transparent;
         span {
           position: absolute;
           top: 32px;

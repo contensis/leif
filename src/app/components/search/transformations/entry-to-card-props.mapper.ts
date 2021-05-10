@@ -7,10 +7,14 @@ import dateWithSuffix from '~/utils/dateWithSuffix';
 import { _calReadTime } from '~/utils/calculateReadTime';
 
 import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
+import { _truncateString } from '~/utils/truncateString';
 
 const baseMapping = {
   title: 'entryTitle',
-  text: ['kicker', 'leadParagraph', 'summary', 'description'],
+  text: {
+    $path: ['kicker', 'leadParagraph', 'summary', 'description'],
+    $formatting: (text: string) => _truncateString(text, 124),
+  },
   uri: {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,
