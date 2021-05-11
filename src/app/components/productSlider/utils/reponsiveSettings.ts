@@ -30,13 +30,13 @@ export const _createResponsiveSettings = (length: number) => {
     {
       breakpoint: sizesNoUnit['largeDesktop'],
       settings: {
-        slidesToShow: length >= 2 ? 2 : 1,
+        slidesToShow: length >= 3 ? 3 : length === 2 ? 2 : 1,
       },
     },
     {
       breakpoint: sizesNoUnit['xlargeDesktop'],
       settings: {
-        slidesToShow: length >= 3 ? 3 : length === 2 ? 2 : 1,
+        slidesToShow: length >= 4 ? 4 : length === 3 ? 3 : length === 2 ? 2 : 1,
       },
     },
   ];

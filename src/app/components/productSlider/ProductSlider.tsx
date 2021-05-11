@@ -50,7 +50,9 @@ const ProductSlider = ({
               <SlickSlider
                 type="card"
                 slidesToShow={
-                  mappedProducts.length >= 3
+                  mappedProducts.length >= 4
+                    ? 4
+                    : mappedProducts.length === 3
                     ? 3
                     : mappedProducts.length === 2
                     ? 2
@@ -81,7 +83,15 @@ const ProductSlider = ({
             <div className="card-slider__slider">
               <SlickSlider
                 type="card"
-                slidesToShow={products.length >= 3 ? 3 : 2}
+                slidesToShow={
+                  products.length >= 4
+                    ? 4
+                    : products.length === 3
+                    ? 3
+                    : products.length === 2
+                    ? 2
+                    : 1
+                }
                 responsive={_createResponsiveSettings(products.length)}
                 slides={products}
                 className="card-slider__slide"
