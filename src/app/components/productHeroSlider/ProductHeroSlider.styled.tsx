@@ -28,7 +28,6 @@ const ProductHeroSliderStyled = styled.div`
         }
       }
       @media ${theme.mq.desktop} {
-        max-width: 810px;
         width: 100%;
         &:before {
           right: 70px;
