@@ -5,26 +5,19 @@ import { toJS } from '../../core/util/ToJs';
 // Actions
 import { setActiveVariant } from '../../core/redux/custom/product/actions';
 import { addToBasket } from '../../core/redux/custom/basket/actions';
-import {
-  setIsModalOpen,
-  setIsPopupOpen,
-} from '../../core/redux/custom/ui/actions';
+import { setIsPopupOpen } from '../../core/redux/custom/ui/actions';
 
 // Selectors
 import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
 import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
-import {
-  selectIsModalOpen,
-  selectIsPopupOpen,
-} from '../../core/redux/custom/ui/selectors';
+import { selectIsPopupOpen } from '../../core/redux/custom/ui/selectors';
 
 // Component & Props
-import ProductHero, { Props, VariantProps } from './ProductHero';
+import ProductHero, { Props, VariantProps } from './ProductHeroContent';
 
-const ProductHeroContainer = ({
+const ProductHeroContentContainer = ({
   className,
   id,
-  slides,
   review,
   title,
   text,
@@ -32,10 +25,8 @@ const ProductHeroContainer = ({
   basket,
   _addToBasket,
   _setActiveVariant,
-  _setIsModalOpen,
   _setIsPopupOpen,
   isPopupOpen,
-  isModalOpen,
   activeVariant,
   imageUri,
 }: Props) => {
@@ -46,12 +37,9 @@ const ProductHeroContainer = ({
       basket={basket}
       _addToBasket={_addToBasket}
       _setActiveVariant={_setActiveVariant}
-      _setIsModalOpen={_setIsModalOpen}
       _setIsPopupOpen={_setIsPopupOpen}
       isPopupOpen={isPopupOpen}
-      isModalOpen={isModalOpen}
       activeVariant={activeVariant}
-      slides={slides}
       review={review}
       title={title}
       text={text}
@@ -65,7 +53,6 @@ const mapStateToProps = (state: any) => {
   return {
     basket: selectProductsInBasket(state),
     activeVariant: selectActiveVariant(state),
-    isModalOpen: selectIsModalOpen(state),
     isPopupOpen: selectIsPopupOpen(state),
   };
 };
@@ -84,7 +71,6 @@ const mapDispatchToProps = (dispatch: any) => {
       ),
     _setActiveVariant: (value: VariantProps) =>
       dispatch(setActiveVariant(value)),
-    _setIsModalOpen: (val: boolean) => dispatch(setIsModalOpen(val)),
     _setIsPopupOpen: (val: boolean) => dispatch(setIsPopupOpen(val)),
   };
 };
@@ -92,4 +78,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(toJS(ProductHeroContainer));
+)(toJS(ProductHeroContentContainer));

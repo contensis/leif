@@ -1,6 +1,5 @@
-import { imagePropsMapping } from '~/components/image/transformations/image.component-to-props.mapper';
 import mapJson from '~/core/util/json-mapper';
-import { VariantProps } from '../ProductHero';
+import { VariantProps } from '../ProductHeroContent';
 
 const matchingPotsPropsMapping = {
   type: () => 'product',
@@ -59,7 +58,7 @@ const plantPropsMapping = {
   },
 };
 
-export const productHeroPropsMapping = {
+export const productHeroContentPropsMapping = {
   title: 'productName',
   text: 'description',
   id: 'sys.id',
@@ -67,12 +66,6 @@ export const productHeroPropsMapping = {
     $path: 'primaryImage',
     $formatting: (image: any) =>
       image && image.asset && image.asset.sys && image.asset.sys.uri,
-  },
-  slides: {
-    $path: 'photos',
-    $formatting: (photo: any) => {
-      return mapJson(photo, imagePropsMapping);
-    },
   },
   variants: {
     $path: ['plantVariant', 'potVariant'],

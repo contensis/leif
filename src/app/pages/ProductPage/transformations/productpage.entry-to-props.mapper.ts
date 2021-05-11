@@ -1,11 +1,13 @@
 import { iconPropsMapping } from '~/components/iconList/transformations/iconList.component-to-props.mapper';
-import { productHeroPropsMapping } from '~/components/productHero/transformations/producthero.component-to-props.mapper';
+import { productHeroContentPropsMapping } from '~/components/productHeroContent/transformations/productherocontent.component-to-props.mapper';
+import { productHeroSliderPropsMapping } from '~/components/productHeroSlider/transformations/productheroslider.component-to-props.mapper';
 import { externalPromotionPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
 
 import mapJson from '~/core/util/json-mapper';
 
 export const productPagePropsMapping = {
-  productHeroProps: { ...productHeroPropsMapping },
+  productHeroContentProps: { ...productHeroContentPropsMapping },
+  productHeroSliderProps: { ...productHeroSliderPropsMapping },
   metadataProps: { ...externalPromotionPropsMapping },
   textBlockProps: {
     text: 'careAdvice',
