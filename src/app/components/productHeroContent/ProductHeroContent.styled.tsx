@@ -7,7 +7,6 @@ const ProductHeroContentStyled = styled.div`
       width: 100%;
       text-align: center;
       @media ${theme.mq.desktop} {
-        max-width: 520px;
         align-self: flex-start;
         position: sticky;
         top: 0;
@@ -17,9 +16,13 @@ const ProductHeroContentStyled = styled.div`
       }
       .product-hero__basket-modal {
         position: absolute;
-        top: 0;
+        top: 32px;
         right: 0;
         z-index: 2;
+        @media ${theme.mq.desktop} {
+          top: 0;
+          right: 16px;
+        }
       }
       .product-hero__socials-wrapper {
         @media ${theme.mq.desktop} {

@@ -82,6 +82,9 @@ const CardSliderStyled = styled.div`
         @media ${theme.mq.desktop} {
           padding: 0 0 0 80px;
           margin: 0;
+          width: 50%;
+        }
+        @media ${theme.mq.xlargeDesktop} {
           width: 60%;
         }
       }
