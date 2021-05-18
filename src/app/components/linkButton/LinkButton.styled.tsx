@@ -15,6 +15,7 @@ const LinkButtonStyled = styled.a`
       font-family: ${theme.typeStyles.fontFamily.headings};
       font-weight: 600;
       display: inline-block;
+      white-space: nowrap;
       max-width: 256px;
       width: 100%;
       padding: 16px;

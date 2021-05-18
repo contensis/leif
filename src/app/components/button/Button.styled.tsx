@@ -15,6 +15,7 @@ const ButtonStyled = styled.button`
       font-family: ${theme.typeStyles.fontFamily.headings};
       font-weight: 600;
       display: inline-block;
+      white-space: nowrap;
       max-width: 256px;
       border: none;
       width: 100%;
