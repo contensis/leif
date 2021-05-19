@@ -157,9 +157,7 @@ const CLIENT_PROD_CONFIG = {
     ]),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
-      optipng: {
-        optimizationLevel: 9,
-      },
+      optipng: null,
     }),
   ],
 };
