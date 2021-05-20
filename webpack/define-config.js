@@ -36,12 +36,6 @@ const REVERSE_PROXY_PATHS = Object([
   '/asset-library/*',
 ]);
 
-const ALLOWED_GROUPS = {
-  // 1 is Everyone, -1 is false (no security)
-  website: [-1],
-  mock: [-1],
-};
-
 // --------------------
 // End of configuration
 // --------------------
@@ -65,20 +59,11 @@ const DELIVERY_API_CONFIG = {
   livePublishingRootUrl: url.previewWeb,
 };
 
-// Uncomment this if you need forms
-// const FORM_API_CONFIG = {
-//   rootUrl: 'https://cms-else.cloud.contensis.com/',
-//   securityToken: '',
-//   getFormUrl: '/REST/Contensis/content/GetFormSettings',
-//   uploadFileUrl: '/REST/UI/FormsModule/UploadFile',
-// };
-
 const development = {
   __isBrowser__: true,
   DELIVERY_API_CONFIG,
   DISABLE_SSR_REDUX: false,
   PROJECTS: PROJECTS(process.env),
-  ALLOWED_GROUPS,
   PROXY_DELIVERY_API: true,
   PUBLIC_URI: PUBLIC_URL,
   REVERSE_PROXY_PATHS,
@@ -91,7 +76,6 @@ const development = {
 const production = {
   __isBrowser__: false,
   DISABLE_SSR_REDUX: false,
-  ALLOWED_GROUPS,
   PROXY_DELIVERY_API: true,
   REVERSE_PROXY_PATHS,
   STATIC_PATH,
