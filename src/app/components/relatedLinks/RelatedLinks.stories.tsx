@@ -33,5 +33,5 @@ for (let i = 0; links.length < 4; i++) {
 export const Product = Template.bind({});
 Product.args = {
   title: 'Related Links',
-  links: links,
+  links,
 };

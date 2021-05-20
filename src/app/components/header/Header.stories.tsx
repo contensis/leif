@@ -12,13 +12,12 @@ export default {
 const Template: Story<Props> = args => (
   <div
     style={{
-      margin: '-16px'
+      margin: '-16px',
     }}
   >
     <HeaderContainer {...args} />
   </div>
 );
-  
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -121,7 +120,7 @@ Primary.args = {
           showChildren: false,
           childCount: 0,
         },
-        'top-10-pots' :{
+        'top-10-pots': {
           displayName: 'Top 10 Pots',
           parent: 'root',
           includeInMenu: true,

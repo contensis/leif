@@ -35,12 +35,12 @@ const DropdownStyled = styled.div`
         height: 24px;
       }
       ${type === 'sort' &&
-        css`
-          .dropdown__icon {
-            height: 18px;
-            width: 18px;
-          }
-        `}
+      css`
+        .dropdown__icon {
+          height: 18px;
+          width: 18px;
+        }
+      `}
     `;
   }};
 `;

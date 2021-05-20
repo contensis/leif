@@ -97,13 +97,13 @@ const VersionInfo = ({
           </tr> */}
           <tr>
             <td>Project</td>
-            <td className={project == 'unknown' ? 'red' : ''}>{project}</td>
+            <td className={project === 'unknown' ? 'red' : ''}>{project}</td>
           </tr>
           <tr>
             <td>Contensis version status: </td>
             <td
               className={
-                version.contensisVersionStatus == 'published' ? 'green' : 'red'
+                version.contensisVersionStatus === 'published' ? 'green' : 'red'
               }
             >
               {version.contensisVersionStatus}

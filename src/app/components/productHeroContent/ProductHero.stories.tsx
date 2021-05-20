@@ -14,7 +14,6 @@ const Template: Story<Props> = args => {
   return <ProductHeroContent {...args} />;
 };
 
-
 export const Primary = Template.bind({});
 Primary.args = {
   id: _UUID(),
@@ -36,6 +35,5 @@ Primary.args = {
     },
   ],
   title: 'Product title can span multiple lines',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus suspendisse orci scelerisque risus vel at quam tristique quis. Enim risus, sit tellus diam.',
 };

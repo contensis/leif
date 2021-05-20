@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Rating = ({ className, rating }: Props) => {
-  if (!rating) return null;
+  if (!rating) return <></>;
   const stars = [];
   for (let i = 0; i < 5; i++) {
     stars.push(`star__${i}`);

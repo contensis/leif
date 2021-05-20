@@ -40,6 +40,9 @@
   "editor.formatOnPaste": true,
   "editor.cursorBlinking": "smooth",
   "workbench.editor.highlightModifiedTabs": true,
+  "eslint.packageManager": "yarn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
   // "workbench.colorCustomizations": {
   //   "tab.activeBorderTop": "#e9654c",
   //   "activityBar.background": "#666666",
@@ -56,5 +59,4 @@
   //   "statusBarItem.hoverBackground": "#e9654c",
   //   "statusBar.foreground": "#e7e7e7"
   // },
-  "prettier.printWidth": 80,
 }

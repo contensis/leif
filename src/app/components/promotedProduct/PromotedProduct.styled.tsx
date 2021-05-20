@@ -145,13 +145,15 @@ const PromotionalBlockStyled = styled.div`
         left: unset;
       }
     } 
-    ${hasTrending &&
+    ${
+      hasTrending &&
       css`
         padding-top: 80px;
         @media ${theme.mq.laptop} {
           padding-top: 0;
         }
-      `}
+      `
+    }
   `;
   }};
 `;

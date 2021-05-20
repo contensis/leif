@@ -4,11 +4,8 @@ import {
   version,
 } from '@zengenti/contensis-react-base/redux';
 
-export const {
-  GET_NODE_TREE,
-  SET_NODE_TREE,
-  GET_NODE_TREE_ERROR,
-} = navigation.types;
+export const { GET_NODE_TREE, SET_NODE_TREE, GET_NODE_TREE_ERROR } =
+  navigation.types;
 
 export const {
   GET_ENTRY,

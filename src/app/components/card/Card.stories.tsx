@@ -12,8 +12,7 @@ const Template: Story<Props> = args => <Card {...args} />;
 
 const dataObject = {
   title: 'Title can span multiple lines of text',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/TRAF_LhFCUs',
   imageAlt: 'Unsplash Image',
   date: dateWithSuffix(new Date().toISOString()),
@@ -40,7 +39,6 @@ Product.args = {
   price: 32,
   rating: '4',
 };
-
 
 export const Content = Template.bind({});
 Content.args = {

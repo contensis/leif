@@ -10,11 +10,7 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'white'
-        ],
+        options: ['primary', 'secondary', 'white'],
       },
     },
   },
@@ -27,11 +23,11 @@ const Template: Story<Props> = ({ type, ...args }) => {
 const dataObject = {
   label: 'Find out more',
   href: '#',
-  onClick: () => console.info('Clicked!')
-}
+  onClick: () => console.info('Clicked!'),
+};
 
 export const Primary = Template.bind({});
-Primary.args = { 
+Primary.args = {
   type: 'primary',
   label: dataObject.label,
   href: dataObject.href,

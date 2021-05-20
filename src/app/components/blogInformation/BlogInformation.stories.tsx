@@ -14,7 +14,7 @@ const Template: Story<Props> = args => {
 };
 
 export const Primary = Template.bind({});
-const date = new Date().toISOString()
+const date = new Date().toISOString();
 Primary.args = {
   readTime: '7',
   date: dateWithSuffix(date),

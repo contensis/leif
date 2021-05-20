@@ -1,5 +1,5 @@
 export const isClient = () => {
-  return typeof window != 'undefined';
+  return typeof window !== 'undefined';
 };
 
 export const hasRoot = () => {

@@ -8,9 +8,9 @@ export interface MappedProps {
   contentHeroProps: ContentHeroProps;
   leadParagraphProps: LeadParagraphProps;
   contentComposerProps: any;
-  ctaBannerProps: CTABannerProps,
+  ctaBannerProps: CTABannerProps;
   promotedContentProps: PromotedContentProps;
-  metadataProps: MetadataProps,
+  metadataProps: MetadataProps;
 }
 
 export interface Props {

@@ -15,8 +15,7 @@ const Template: Story<Props> = args => {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Featured product banner title',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. Elit fringilla mattis tempus sodales magna enim eleifend. Blandit arcu sed dignissim elementum.',
   linkLabel: 'Find out more',
   linkUri: '#',
   product: {

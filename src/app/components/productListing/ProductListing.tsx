@@ -32,9 +32,9 @@ const ProductListing = ({
 }: Props) => {
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
-  let potFilters: any = {};
-  let plantFilters: any = {};
-  let defaultFilters: any = {};
+  const potFilters: any = {};
+  const plantFilters: any = {};
+  const defaultFilters: any = {};
 
   Object.keys(filters).map((fKey: any) => {
     switch (fKey) {
@@ -59,14 +59,14 @@ const ProductListing = ({
 
   /* eslint-disable */
   useEffect(() => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       window.scrollTo(0, windowOffset);
     }
   }, []);
   /* eslint-enable */
 
   const _handleLoadMore = (pageIndex: number) => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);

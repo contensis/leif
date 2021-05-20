@@ -15,8 +15,7 @@ const Template: Story<Props> = args => {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Header over multiple lines',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lacus, elit a diam eget enim venenatis cum. Nibh quis facilisis et hendrerit eu nisl.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lacus, elit a diam eget enim venenatis cum. Nibh quis facilisis et hendrerit eu nisl.',
   cta: {
     label: 'Show now',
     href: '#',

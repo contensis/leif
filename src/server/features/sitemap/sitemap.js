@@ -96,7 +96,10 @@ const generateSitemap = async project =>
       const entryPages = await Promise.all(getEntryPages);
       const entriesList = [
         ...entryInfo.items,
-        ...[].concat.apply([], entryPages.map(pg => pg.items)),
+        ...[].concat.apply(
+          [],
+          entryPages.map(pg => pg.items)
+        ),
       ];
 
       // Map entries to objects with url and lastmod props

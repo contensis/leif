@@ -16,7 +16,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(toJS(RelatedLinksContainer));
+export default connect(mapStateToProps, null)(toJS(RelatedLinksContainer));

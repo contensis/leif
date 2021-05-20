@@ -59,20 +59,20 @@ const HeaderStyled = styled.div`
         }
       }
       ${isSearchOpen &&
-        css`
-          position: relative;
-          margin-right: -122px;
+      css`
+        position: relative;
+        margin-right: -122px;
+        @media ${theme.mq.laptop} {
+          margin-right: 0;
+        }
+        .header__search {
+          justify-content: flex-end;
+          margin-right: 0;
           @media ${theme.mq.laptop} {
             margin-right: 0;
           }
-          .header__search {
-            justify-content: flex-end;
-            margin-right: 0;
-            @media ${theme.mq.laptop} {
-              margin-right: 0;
-            }
-          }
-        `};
+        }
+      `};
     `;
   }};
 `;

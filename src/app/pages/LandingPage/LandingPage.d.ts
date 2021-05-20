@@ -10,7 +10,7 @@ export interface MappedProps {
   leadParagraphProps: LeadParagraphProps;
   contentComposerProps: any;
   relatedContentProps: CardRowProps;
-  ctaBannerProps: CTABannerProps,
+  ctaBannerProps: CTABannerProps;
   metadataProps: MetadataProps;
 }
 

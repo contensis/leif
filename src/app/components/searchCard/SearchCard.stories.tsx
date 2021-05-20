@@ -12,8 +12,7 @@ const Template: Story<Props> = args => <SearchCard {...args} />;
 
 const dataObject = {
   title: 'Title can span multiple lines of text',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/TRAF_LhFCUs',
   imageAlt: 'Unsplash image',
   date: dateWithSuffix(new Date().toISOString()),

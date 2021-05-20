@@ -1,4 +1,3 @@
-
 import { Props as ProductHeroContentProps } from '~/components/productHeroContent/ProductHeroContent';
 import { Props as ProductHeroSliderProps } from '~/components/productHeroSlider/ProductHeroSlider';
 import { Props as TextBlockProps } from '~/components/textBlock/TextBlock';
@@ -9,10 +8,10 @@ import { Props as MetadataProps } from '~/components/metadata/Metadata';
 export interface MappedProps {
   productHeroContentProps: ProductHeroContentProps;
   productHeroSliderProps: ProductHeroSliderProps;
-  textBlockProps: TextBlockProps
+  textBlockProps: TextBlockProps;
   iconListProps: IconListProps;
   matchingProductsProps: PromotedContentProps;
-  metadataProps: MetadataProps,
+  metadataProps: MetadataProps;
 }
 
 export interface Props {

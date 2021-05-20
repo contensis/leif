@@ -17,11 +17,11 @@ const RatingStyled = styled.div`
         }
       }
       ${rating !== '0' &&
-        css`
-          .rating__star:nth-child(-n + ${rating}) {
-            background-color: ${theme.colors.warning};
-          }
-        `}
+      css`
+        .rating__star:nth-child(-n + ${rating}) {
+          background-color: ${theme.colors.warning};
+        }
+      `}
     `;
   }};
 `;

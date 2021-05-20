@@ -25,5 +25,5 @@ for (let i = 0; items.length < 4; i++) {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Accordion title',
-  items: items,
+  items,
 };

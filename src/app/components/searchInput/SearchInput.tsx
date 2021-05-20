@@ -30,7 +30,7 @@ const SearchInput = ({
   };
 
   const _handleKeyPress = (evt: any) => {
-    if (evt.key == 'Enter') _handleSubmit(evt);
+    if (evt.key === 'Enter') _handleSubmit(evt);
   };
 
   return (

@@ -139,23 +139,23 @@ const NavigationSidebarStyled = styled.div`
         padding-left: 16px;
       }
       ${isSecondMenuOpen &&
-        css`
+      css`
+        @media ${theme.mq.laptop} {
+          animation: slideIn 200ms;
+          right: 370px;
+        }
+        .nav__socials {
+          display: none;
           @media ${theme.mq.laptop} {
-            animation: slideIn 200ms;
-            right: 370px;
+            display: flex;
           }
-          .nav__socials {
-            display: none;
-            @media ${theme.mq.laptop} {
-              display: flex;
-            }
+        }
+        .nav__menu-btn--close {
+          @media ${theme.mq.laptop} {
+            right: -370px;
           }
-          .nav__menu-btn--close {
-            @media ${theme.mq.laptop} {
-              right: -370px;
-            }
-          }
-        `}
+        }
+      `}
       @keyframes slideIn {
         from {
           margin-right: -370px;

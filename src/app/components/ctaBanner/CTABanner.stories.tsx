@@ -15,10 +15,9 @@ const Template: Story<Props> = args => {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'CTA title can span multiple lines',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/9Z1KRIfpBTM',
-  imageAlt: "Unsplash image",
+  imageAlt: 'Unsplash image',
   btnType: 'primary',
   btnText: 'Find out more',
   btnLink: '#',

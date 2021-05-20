@@ -2,7 +2,7 @@ const cropImage = (
   originalSrc: string,
   width?: number,
   height?: number,
-  crop: boolean = true
+  crop = true
 ): string => {
   let src = originalSrc;
 

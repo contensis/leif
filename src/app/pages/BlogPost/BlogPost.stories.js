@@ -1141,8 +1141,7 @@ const Template = () => {
       {
         type: 'blockQuote',
         value: {
-          text:
-            '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem ridiculus ipsum ac neque, quis morbi. Maecenas ullamcorper iaculis ipsum porttitor. In vitae orci sapien egestas quis senectus.”',
+          text: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem ridiculus ipsum ac neque, quis morbi. Maecenas ullamcorper iaculis ipsum porttitor. In vitae orci sapien egestas quis senectus.”',
           source: 'Me',
         },
       },
@@ -1370,8 +1369,7 @@ const Template = () => {
                   availableLanguages: ['en-GB'],
                   contentTypeId: 'image',
                   language: 'en-GB',
-                  uri:
-                    '/image-library/product-images/plant-images/spider-plant-card.x4ceb4079.png?w=533&h=280&crop=400,280,67,0',
+                  uri: '/image-library/product-images/plant-images/spider-plant-card.x4ceb4079.png?w=533&h=280&crop=400,280,67,0',
                   version: {
                     publishedBy: 'ServicesUser',
                     createdBy: 'ServicesUser',

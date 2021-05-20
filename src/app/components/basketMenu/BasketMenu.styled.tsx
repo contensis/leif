@@ -98,35 +98,35 @@ const BasketMenuStyled = styled.div`
         text-align: center;
       }
       ${isBasketOpen &&
-        css`
-          .basket-menu__content-wrapper {
-            overflow-y: scroll;
-            padding-bottom: 16px;
-            animation: slideIn 200ms;
-            background-color: ${theme.colors.neutral_white};
-            height: 100vh;
-            width: 320px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            ::-webkit-scrollbar {
-              display: none;
-            }
-            ::-webkit-scrollbar-thumb {
-              display: none;
-            }
-            ::-webkit-scrollbar-track {
-              display: none;
-            }
-            @media ${theme.mq.laptop} {
-              width: 370px;
-            }
+      css`
+        .basket-menu__content-wrapper {
+          overflow-y: scroll;
+          padding-bottom: 16px;
+          animation: slideIn 200ms;
+          background-color: ${theme.colors.neutral_white};
+          height: 100vh;
+          width: 320px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 9;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          ::-webkit-scrollbar {
+            display: none;
           }
-        `}
+          ::-webkit-scrollbar-thumb {
+            display: none;
+          }
+          ::-webkit-scrollbar-track {
+            display: none;
+          }
+          @media ${theme.mq.laptop} {
+            width: 370px;
+          }
+        }
+      `}
       @keyframes slideIn {
         from {
           margin-right: -370px;

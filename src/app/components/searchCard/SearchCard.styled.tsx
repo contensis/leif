@@ -44,19 +44,19 @@ const SearchCardStyled = styled.a`
         color: ${theme.colors.secondary_light};
       }
       ${(type === 'plant' || type === 'pot') &&
-        css`
-          .search-card__detail {
-            ${theme.typeStyles.h5};
-            font-family: ${theme.typeStyles.fontFamily.headings};
-            margin: 0 0 8px 0;
-          }
-          .search-card__text {
-            margin: 0;
-          }
-          .search-card__image {
-            border-radius: 4px;
-          }
-        `}
+      css`
+        .search-card__detail {
+          ${theme.typeStyles.h5};
+          font-family: ${theme.typeStyles.fontFamily.headings};
+          margin: 0 0 8px 0;
+        }
+        .search-card__text {
+          margin: 0;
+        }
+        .search-card__image {
+          border-radius: 4px;
+        }
+      `}
     `;
   }};
 `;

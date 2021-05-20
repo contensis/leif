@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 const Template = () => {
-  return <SocialShare  />;
+  return <SocialShare />;
 };
 
 export const Primary = Template.bind({});

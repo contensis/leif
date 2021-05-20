@@ -2,7 +2,7 @@ import queryString from 'query-string';
 
 export function queryParams(search) {
   return queryString.parse(
-    typeof window != 'undefined' ? window.location.search : search
+    typeof window !== 'undefined' ? window.location.search : search
   );
 }
 export const routeParams = staticRoute =>
@@ -18,7 +18,7 @@ export const clientHostname = () =>
   `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
 
 export const addHostname =
-  typeof window == 'undefined' || window.location.host == 'localhost:3000'
+  typeof window === 'undefined' || window.location.host === 'localhost:3000'
     ? `https://${PUBLIC_URI /* global PUBLIC_URI */}`
     : clientHostname();
 
@@ -32,7 +32,7 @@ export const getUrlFromNavigationSettings = (entry, recursed = false) => {
 
   if (!legacyRouting && entry.sys.uri) return entry.sys.uri;
 
-  if (entry.sys.slug == 'homepage') return '/';
+  if (entry.sys.slug === 'homepage') return '/';
 
   let path = '';
   if (entry.navigationSettings && entry.navigationSettings.parent) {

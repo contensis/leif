@@ -26,6 +26,6 @@ for (let i = 0; testimonials.length < 3; i++) {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  testimonials: testimonials,
+  testimonials,
   bgImage: 'https://source.unsplash.com/c4Ccpa8sMlI',
 };

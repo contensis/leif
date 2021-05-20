@@ -49,16 +49,16 @@ const SlickSlider = ({
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow,
     slidesToScroll: 1,
     accessibility: true,
     adaptiveHeight: false,
-    swipeToSlide: swipeToSlide,
-    draggable: draggable,
+    swipeToSlide,
+    draggable,
     asNavFor: '.slider-nav',
     nextArrow: <SlickArrow type="chevron-right" color={arrowColor} />,
     prevArrow: <SlickArrow type="chevron-left" color={arrowColor} />,
-    responsive: responsive,
+    responsive,
   };
 
   const thumbsSlidesToShow = slides.length >= 6 ? 6 : 2;
@@ -76,25 +76,25 @@ const SlickSlider = ({
     asNavFor: '.slider-for',
     responsive: [
       {
-        breakpoint: sizesNoUnit['mobile'],
+        breakpoint: sizesNoUnit.mobile,
         settings: {
           slidesToShow: slides.length >= 6 ? 2 : 1,
         },
       },
       {
-        breakpoint: sizesNoUnit['tablet'],
+        breakpoint: sizesNoUnit.tablet,
         settings: {
           slidesToShow: slides.length >= 6 ? 3 : 2,
         },
       },
       {
-        breakpoint: sizesNoUnit['laptop'],
+        breakpoint: sizesNoUnit.laptop,
         settings: {
           slidesToShow: slides.length >= 6 ? 4 : 2,
         },
       },
       {
-        breakpoint: sizesNoUnit['xlargeDesktop'],
+        breakpoint: sizesNoUnit.xlargeDesktop,
         settings: {
           slidesToShow: slides.length >= 6 ? 6 : 2,
         },

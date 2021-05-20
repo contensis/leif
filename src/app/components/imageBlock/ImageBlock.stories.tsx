@@ -14,5 +14,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   text: 'Image accreditation and information can span multiple lines.',
   path: 'https://source.unsplash.com/6hgrfOJhr74',
-  alt: 'Unsplash Image'
-}
+  alt: 'Unsplash Image',
+};

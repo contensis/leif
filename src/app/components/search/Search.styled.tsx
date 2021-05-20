@@ -128,11 +128,11 @@ const SearchStyled = styled.div`
         }
       }
       ${noResults &&
-        css`
-          .search__results-wrapper {
-            justify-content: center;
-          }
-        `}
+      css`
+        .search__results-wrapper {
+          justify-content: center;
+        }
+      `}
     `;
   }};
 `;

@@ -58,66 +58,66 @@ const ContentHeroStyled = styled.div`
         }
       }
       ${bgImageUri &&
-        css`
-          position: relative;
-          padding-top: 0;
-          text-align: left;
-          max-width: unset;
+      css`
+        position: relative;
+        padding-top: 0;
+        text-align: left;
+        max-width: unset;
+        width: 100%;
+        margin: -100px 0 0 0;
+        background-image: url(${bgImageUri});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 640px;
+        &:before {
+          content: '';
+          background: linear-gradient(
+            180deg,
+            rgba(43, 47, 81, 0.4) 15.88%,
+            rgba(43, 47, 81, 0) 100%
+          );
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
           width: 100%;
-          margin: -100px 0 0 0;
-          background-image: url(${bgImageUri});
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          height: 640px;
-          &:before {
-            content: '';
-            background: linear-gradient(
-              180deg,
-              rgba(43, 47, 81, 0.4) 15.88%,
-              rgba(43, 47, 81, 0) 100%
-            );
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: 0;
-          }
+          z-index: 0;
+        }
+        @media ${theme.mq.laptop} {
+          margin: -84px 0 0 0;
+        }
+        .content-hero__content {
+          margin: 0;
+          padding: 0 16px;
           @media ${theme.mq.laptop} {
-            margin: -84px 0 0 0;
+            padding: 0 80px;
           }
-          .content-hero__content {
-            margin: 0;
-            padding: 0 16px;
-            @media ${theme.mq.laptop} {
-              padding: 0 80px;
-            }
+        }
+        .content-hero__back-btn {
+          color: ${theme.colors.neutral_white};
+          top: 92px;
+          left: 16px;
+          @media ${theme.mq.laptop} {
+            top: 116px;
+            left: auto;
           }
-          .content-hero__back-btn {
-            color: ${theme.colors.neutral_white};
-            top: 92px;
-            left: 16px;
-            @media ${theme.mq.laptop} {
-              top: 116px;
-              left: auto;
-            }
+        }
+        .content-hero__title {
+          box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
+          padding: 40px 16px;
+          &:before {
+            display: none;
           }
-          .content-hero__title {
-            box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
-            padding: 40px 16px;
-            &:before {
-              display: none;
-            }
 
-            @media ${theme.mq.laptop} {
-              padding: 32px 55px;
-            }
-            @media ${theme.mq.desktop} {
-              padding: 64px 110px;
-            }
+          @media ${theme.mq.laptop} {
+            padding: 32px 55px;
           }
-        `}
+          @media ${theme.mq.desktop} {
+            padding: 64px 110px;
+          }
+        }
+      `}
     `;
   }};
 `;

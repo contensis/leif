@@ -13,9 +13,9 @@ const Template: Story<Props> = args => <CardRow {...args} />;
 const contentArray = [];
 const columnArray = [];
 const result = {
-    title: 'Card title can span multiple lines',
-    imageUri: 'https://source.unsplash.com/UcfKYTan-LU',
-    imageAlt: 'Unsplash',
+  title: 'Card title can span multiple lines',
+  imageUri: 'https://source.unsplash.com/UcfKYTan-LU',
+  imageAlt: 'Unsplash',
 };
 for (let i = 0; contentArray.length < 2; i++) {
   contentArray.push(result);

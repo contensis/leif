@@ -1,4 +1,4 @@
-var context = typeof window != 'undefined' ? window : global;
+var context = typeof window !== 'undefined' ? window : global;
 
 var defineConfig = require('-/webpack/define-config').build;
 

@@ -7,7 +7,7 @@ const getClientConfig = project => {
   }
 
   if (
-    typeof window != 'undefined' &&
+    typeof window !== 'undefined' &&
     PROXY_DELIVERY_API /* global PROXY_DELIVERY_API */
   ) {
     // ensure a relative url is used to bypass the need for CORS (separate OPTIONS calls)
@@ -22,7 +22,7 @@ export * from 'contensis-delivery-api';
 
 // This should only be executed on the client as it relies on the window.
 export const GetClientSideDeliveryApiStatus = () => {
-  if (typeof window != 'undefined') {
+  if (typeof window !== 'undefined') {
     const currentHostname = window.location.hostname;
     return GetDeliveryApiStatusFromHostname(currentHostname);
   }
@@ -52,7 +52,7 @@ export const GetDeliveryApiStatusFromHostname = currentHostname => {
 };
 
 export const fixImageUri = object => {
-  Object.keys(object).some(function(k) {
+  Object.keys(object).some(function (k) {
     if (k === 'asset') {
       //Should always have an ID, but lets check...
       if (object[k].sys && object[k].sys.id) {
@@ -61,10 +61,9 @@ export const fixImageUri = object => {
           ? `&${object[k].transformations}`
           : '';
 
-        object[k].sys.uri = `/api/image/${
-          object[k].sys.id
-        }?invalidationKey=${object[k].sys &&
-          object[k].sys.version.versionNo}${userTransforms}`;
+        object[k].sys.uri = `/api/image/${object[k].sys.id}?invalidationKey=${
+          object[k].sys && object[k].sys.version.versionNo
+        }${userTransforms}`;
       }
       return false;
     }
@@ -77,7 +76,7 @@ export const fixImageUri = object => {
 
 export const GetResponseGuids = object => {
   let Ids = [];
-  Object.keys(object).some(function(k) {
+  Object.keys(object).some(function (k) {
     if (k === 'sys') {
       //Should always have an ID, but lets check...
       if (object[k].id && object[k].language) {
@@ -241,7 +240,7 @@ class CachedSearch {
   }
 
   request(key, execute) {
-    if (!this.cache.get(key) || typeof window == 'undefined') {
+    if (!this.cache.get(key) || typeof window === 'undefined') {
       let promise = execute();
       this.cache.set(key, promise);
       promise.catch(() => {

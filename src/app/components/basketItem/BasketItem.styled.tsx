@@ -72,37 +72,37 @@ const BasketItemStyled = styled.div`
         }
       }
       ${hasLargeStyles &&
-        css`
-          max-width: 620px;
-          width: 100%;
+      css`
+        max-width: 620px;
+        width: 100%;
+        @media ${theme.mq.laptop} {
+          padding: 0;
+        }
+        .basket-item__content {
           @media ${theme.mq.laptop} {
-            padding: 0;
+            margin-left: 16px;
           }
-          .basket-item__content {
-            @media ${theme.mq.laptop} {
-              margin-left: 16px;
-            }
+        }
+        .basket-item__title {
+          @media ${theme.mq.laptop} {
+            ${theme.typeStyles.h5};
           }
-          .basket-item__title {
-            @media ${theme.mq.laptop} {
-              ${theme.typeStyles.h5};
-            }
+        }
+        .basket-item__image {
+          @media ${theme.mq.laptop} {
+            height: 176px;
+            width: 180px;
           }
-          .basket-item__image {
-            @media ${theme.mq.laptop} {
-              height: 176px;
-              width: 180px;
-            }
+        }
+        .basket-item__input--wrapper {
+          @media ${theme.mq.laptop} {
+            margin: 8px 0 0 0;
+            position: relative;
+            bottom: auto;
+            left: auto;
           }
-          .basket-item__input--wrapper {
-            @media ${theme.mq.laptop} {
-              margin: 8px 0 0 0;
-              position: relative;
-              bottom: auto;
-              left: auto;
-            }
-          }
-        `}
+        }
+      `}
     `;
   }};
 `;

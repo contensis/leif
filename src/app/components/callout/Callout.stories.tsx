@@ -10,7 +10,7 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['warning', 'success', 'note']
+        options: ['warning', 'success', 'note'],
       },
     },
   },
@@ -24,6 +24,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   type: 'note',
   title: 'Callout title',
-  text:
-    'Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet.',
+  text: 'Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet.',
 };

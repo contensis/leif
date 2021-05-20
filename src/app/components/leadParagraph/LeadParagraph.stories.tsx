@@ -11,6 +11,5 @@ export default {
 const Template: Story<Props> = args => <LeadParagraph {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus interdum praesent tortor, elit vel tortor nunc, amet. Tempor nunc natoque eget amet. ',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus interdum praesent tortor, elit vel tortor nunc, amet. Tempor nunc natoque eget amet. ',
 };

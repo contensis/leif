@@ -11,7 +11,7 @@ import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import BasketItemStyled from './BasketItem.styled';
 
 export interface Props {
-  className?: string;
+  className: string;
   title: string;
   price: number;
   quantity: number;
@@ -38,7 +38,7 @@ const BasketItem = ({
     dispatch(removeFromBasket(id, sku, quantity, price));
   };
 
-  const _updateQuantity = (type?: string, val?: string) => {
+  const _updateQuantity = (type?: string, val = '') => {
     switch (type) {
       case 'minus': {
         const q = (quantity -= 1);
@@ -52,7 +52,7 @@ const BasketItem = ({
         break;
       }
       default: {
-        const newQuantity: number = Number(val);
+        const newQuantity = Number(val);
         if (newQuantity === quantity) return null;
         dispatch(updateQuantity(id, sku, price, newQuantity, type));
         break;

@@ -27,6 +27,6 @@ Primary.args = {
     <li>Lorem ipsum dolor sit amet, consectetur adipiscing.</li>
     </ul>
     `,
-  ctaLink: "/",
+  ctaLink: '/',
   ctaText: 'Find out more',
 };

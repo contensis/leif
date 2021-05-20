@@ -12,7 +12,7 @@ export default class ProjectHelper {
     e.preventDefault;
 
     let children = document.getElementById(e);
-    if (children.style.display == 'block') {
+    if (children.style.display === 'block') {
       children.style.display = 'none';
     } else {
       children.style.display = 'block';
@@ -22,7 +22,7 @@ export default class ProjectHelper {
   static camelize(str) {
     return str
       .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
-        return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
       })
       .replace(/\s+/g, '');
   }
@@ -63,7 +63,7 @@ export default class ProjectHelper {
 
   static dedupeArray(arr) {
     // remove duplicates from simple array
-    return arr.filter((elem, pos, arr) => arr.indexOf(elem) == pos);
+    return arr.filter((elem, pos, arr) => arr.indexOf(elem) === pos);
   }
 
   static stringToArray(s, seperator = ',') {
@@ -140,10 +140,10 @@ export default class ProjectHelper {
       gt: '>',
     };
     return encodedString
-      .replace(translate_re, function(match, entity) {
+      .replace(translate_re, function (match, entity) {
         return translate[entity];
       })
-      .replace(/&#(\d+);/gi, function(match, numStr) {
+      .replace(/&#(\d+);/gi, function (match, numStr) {
         var num = parseInt(numStr, 10);
         return String.fromCharCode(num);
       });
@@ -175,8 +175,8 @@ export function action(type, payload = {}) {
 
 export const getWebPImageUri = uri => {
   let formatedUri = uri;
-  if (uri.indexOf('.gif') == -1) {
-    if (uri.indexOf('f=') == -1 && uri.indexOf('format=') == -1) {
+  if (uri.indexOf('.gif') === -1) {
+    if (uri.indexOf('f=') === -1 && uri.indexOf('format=') === -1) {
       if (uri.indexOf('?') > -1) {
         formatedUri = `${uri}&f=webp`;
       } else {
@@ -184,8 +184,8 @@ export const getWebPImageUri = uri => {
       }
     }
     if (
-      formatedUri.indexOf('q=') == -1 &&
-      formatedUri.indexOf('quality=') == -1
+      formatedUri.indexOf('q=') === -1 &&
+      formatedUri.indexOf('quality=') === -1
     ) {
       if (formatedUri.indexOf('?') > -1) {
         formatedUri = `${formatedUri}&q=70`;
@@ -210,8 +210,8 @@ export const resizeImageUri = (uri, height, width) => {
   }
   if (width) {
     if (
-      formatedUri.indexOf('w=') == -1 &&
-      formatedUri.indexOf('width=') == -1
+      formatedUri.indexOf('w=') === -1 &&
+      formatedUri.indexOf('width=') === -1
     ) {
       formatedUri = `${formatedUri}${paramDelimeter}w=${width}`;
       paramDelimeter = '&';
@@ -219,8 +219,8 @@ export const resizeImageUri = (uri, height, width) => {
   }
   if (height) {
     if (
-      formatedUri.indexOf('h=') == -1 &&
-      formatedUri.indexOf('height=') == -1
+      formatedUri.indexOf('h=') === -1 &&
+      formatedUri.indexOf('height=') === -1
     ) {
       formatedUri = `${formatedUri}${paramDelimeter}h=${height}`;
     }
@@ -234,7 +234,7 @@ export function flattenArray(arr) {
   // remove duplicates from the result
   return arr
     .reduce((acc, val) => acc.concat(val), [])
-    .filter((elem, pos, arr) => arr.indexOf(elem) == pos);
+    .filter((elem, pos, arr) => arr.indexOf(elem) === pos);
 }
 
 export async function api(url, options) {
@@ -258,7 +258,7 @@ export function dynamicSort(property) {
     sortOrder = -1;
     property = property.substr(1);
   }
-  return function(a, b) {
+  return function (a, b) {
     /* next line works with strings and numbers,
      * and you may want to customize it to your needs
      */
@@ -283,7 +283,7 @@ export const camelize = str => {
     str &&
     str
       .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
-        return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
       })
       .replace(/\s+/g, '')
   );

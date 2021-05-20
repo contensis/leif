@@ -4,9 +4,9 @@ import { Props as MetadataProps } from '~/components/metadata/Metadata';
 
 export interface MappedProps {
   title: string;
-  featuredBlogProps: GenericHeroProps,
-  ctaBannerProps: CTABannerProps,
-  metadataProps: MetadataProps,
+  featuredBlogProps: GenericHeroProps;
+  ctaBannerProps: CTABannerProps;
+  metadataProps: MetadataProps;
 }
 
 export interface Props {

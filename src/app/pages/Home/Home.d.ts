@@ -5,8 +5,8 @@ import { Props as MetadataProps } from '~/components/metadata/Metadata';
 export interface MappedProps {
   homeHeroProps: LandingHeroProps;
   contentComposerProps: any;
-  ctaBannerProps: CTABannerProps,
-  metadataProps: MetadataProps,
+  ctaBannerProps: CTABannerProps;
+  metadataProps: MetadataProps;
 }
 
 export interface Props {

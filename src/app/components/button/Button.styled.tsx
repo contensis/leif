@@ -30,66 +30,66 @@ const ButtonStyled = styled.button`
         background-color: ${theme.button.primary.solid.hover.background};
       }
       ${btnTheme === 'secondary' &&
-        css`
+      css`
+        background-color: ${isHollow
+          ? theme.button.secondary.hollow.background
+          : theme.button.secondary.solid.background};
+        color: ${isHollow
+          ? theme.button.secondary.hollow.color
+          : theme.button.secondary.solid.color};
+        border: 1px solid;
+        border-color: ${isHollow
+          ? theme.button.secondary.hollow.border
+          : theme.button.secondary.solid.border};
+        &:hover {
           background-color: ${isHollow
-            ? theme.button.secondary.hollow.background
-            : theme.button.secondary.solid.background};
-          color: ${isHollow
-            ? theme.button.secondary.hollow.color
-            : theme.button.secondary.solid.color};
-          border: 1px solid;
-          border-color: ${isHollow
-            ? theme.button.secondary.hollow.border
-            : theme.button.secondary.solid.border};
-          &:hover {
-            background-color: ${isHollow
-              ? theme.button.secondary.hollow.hover.background
-              : theme.button.secondary.solid.hover.background};
-          }
-        `}
+            ? theme.button.secondary.hollow.hover.background
+            : theme.button.secondary.solid.hover.background};
+        }
+      `}
       ${btnTheme === 'white' &&
-        css`
-          background-color: ${theme.button.white.hollow.background};
-          color: ${theme.button.white.hollow.color};
-          border: 1px solid;
-          border-color: ${theme.button.white.hollow.border};
-          &:hover {
-            background-color: ${theme.button.white.hollow.hover.background};
-          }
-        `}
+      css`
+        background-color: ${theme.button.white.hollow.background};
+        color: ${theme.button.white.hollow.color};
+        border: 1px solid;
+        border-color: ${theme.button.white.hollow.border};
+        &:hover {
+          background-color: ${theme.button.white.hollow.hover.background};
+        }
+      `}
         ${isDisabled &&
-          css`
-            background: ${isHollow || btnTheme === 'white'
-              ? theme.button.disabled.hollow.background
-              : theme.button.disabled.solid.background};
-            color: ${isHollow || btnTheme === 'white'
-              ? theme.button.disabled.hollow.color
-              : theme.button.disabled.solid.color};
-            border: ${isHollow || btnTheme === 'white'
-              ? theme.button.disabled.hollow.border
-              : theme.button.disabled.solid.border};
-            &:hover {
-              background: ${isHollow || btnTheme === 'white'
-                ? theme.button.disabled.hollow.background
-                : theme.button.disabled.solid.background};
-              color: ${isHollow || btnTheme === 'white'
-                ? theme.button.disabled.hollow.color
-                : theme.button.disabled.solid.color};
-              border: ${isHollow || btnTheme === 'white'
-                ? theme.button.disabled.hollow.border
-                : theme.button.disabled.solid.border};
-              cursor: not-allowed;
-            }
-          `}
+      css`
+        background: ${isHollow || btnTheme === 'white'
+          ? theme.button.disabled.hollow.background
+          : theme.button.disabled.solid.background};
+        color: ${isHollow || btnTheme === 'white'
+          ? theme.button.disabled.hollow.color
+          : theme.button.disabled.solid.color};
+        border: ${isHollow || btnTheme === 'white'
+          ? theme.button.disabled.hollow.border
+          : theme.button.disabled.solid.border};
+        &:hover {
+          background: ${isHollow || btnTheme === 'white'
+            ? theme.button.disabled.hollow.background
+            : theme.button.disabled.solid.background};
+          color: ${isHollow || btnTheme === 'white'
+            ? theme.button.disabled.hollow.color
+            : theme.button.disabled.solid.color};
+          border: ${isHollow || btnTheme === 'white'
+            ? theme.button.disabled.hollow.border
+            : theme.button.disabled.solid.border};
+          cursor: not-allowed;
+        }
+      `}
         ${hasIcon &&
-          css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .btn__icon {
-              margin-left: 8px;
-            }
-          `}
+      css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn__icon {
+          margin-left: 8px;
+        }
+      `}
     `;
   }}
 `;

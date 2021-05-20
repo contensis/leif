@@ -1,4 +1,4 @@
-import { mapJson } from '@zengenti/contensis-react-base/util';
+import mapJson from 'jsonpath-mapper';
 export {
   mapComposer,
   mapEntries,

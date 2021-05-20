@@ -1,9 +1,9 @@
 //arguments are: (string to truncate, truncate length, concatenated onto truncated string)
 export default function truncateString(s, n, endsWith = '') {
-  if (typeof s != 'string') {
+  if (typeof s !== 'string') {
     throw new TypeError('First argument must be a string');
   }
-  if (typeof n != 'number') {
+  if (typeof n !== 'number') {
     throw new TypeError('Second argument must be a number');
   }
   //if string is within the max size, just return it

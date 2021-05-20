@@ -12,5 +12,5 @@ const Template: Story<Props> = args => <SearchInput {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  placeholder: 'Search'
+  placeholder: 'Search',
 };

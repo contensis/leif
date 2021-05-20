@@ -70,7 +70,7 @@ const Template = () => {
           marginLeft: '16px',
         }}
       >
-        <Icon key={`${icon}-${idx}`} type={icon}/>
+        <Icon key={`${icon}-${idx}`} type={icon} />
         <span>{icon}</span>
       </div>
     );

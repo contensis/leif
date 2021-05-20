@@ -31,7 +31,8 @@ const CardStyled = styled(Link)`
         display: block;
         object-fit: cover;
       }
-      ${type === 'blog' &&
+      ${
+        type === 'blog' &&
         css`
           max-width: 400px;
           width: 100%;
@@ -49,8 +50,10 @@ const CardStyled = styled(Link)`
             color: ${theme.colors.secondary_light};
             ${theme.typeStyles.smallCopy};
           }
-        `}
-      ${type === 'product' &&
+        `
+      }
+      ${
+        type === 'product' &&
         css`
           max-width: 288px;
           width: 100%;
@@ -116,8 +119,10 @@ const CardStyled = styled(Link)`
             font-family: ${theme.typeStyles.fontFamily.headings};
             ${theme.typeStyles.h5};
           }
-        `}
-        ${type === 'explore' &&
+        `
+      }
+        ${
+          type === 'explore' &&
           css`
             .card__thumbnail {
               width: 100%;
@@ -135,8 +140,10 @@ const CardStyled = styled(Link)`
               max-width: 322px;
               width: 100%;
             }
-          `}
-        ${type === 'content' &&
+          `
+        }
+        ${
+          type === 'content' &&
           css`
             display: flex;
             flex-direction: column;
@@ -150,17 +157,18 @@ const CardStyled = styled(Link)`
               height: 256px;
             }
             ${!hasText &&
-              css`
-                flex-direction: column-reverse;
-                padding: 24px 16px;
-                .card__thumbnail {
-                  margin: 0 0 24px;
-                }
-                .card__title {
-                  margin: 0 0 auto 0;
-                }
-              `}
-          `}
+            css`
+              flex-direction: column-reverse;
+              padding: 24px 16px;
+              .card__thumbnail {
+                margin: 0 0 24px;
+              }
+              .card__title {
+                margin: 0 0 auto 0;
+              }
+            `}
+          `
+        }
     `;
   }};
 `;

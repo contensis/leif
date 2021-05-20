@@ -60,7 +60,7 @@ export const extractQuotedPhrases = searchTerm => {
 export const callCustomApi = async (customApi, filters) => {
   let uri = buildUrl(customApi.get('uri'), filters);
   if (!uri) return null;
-  if (typeof window == 'undefined' && uri.startsWith('/'))
+  if (typeof window === 'undefined' && uri.startsWith('/'))
     uri = `http://localhost:3001${uri}`;
 
   const response = await fetch(uri);

@@ -11,11 +11,12 @@ const IconStyled = styled.div`
       background-position: center;
       background-size: cover;
       ${color &&
-        css`
-          background-image: none;
-          background-color: ${color};
-          mask: url('/static/img/svgs/icons/${type}.svg') no-repeat center / cover;
-          -webkit-mask: url('/static/img/svgs/icons/${type}.svg') no-repeat center / cover;
+      css`
+        background-image: none;
+        background-color: ${color};
+        mask: url('/static/img/svgs/icons/${type}.svg') no-repeat center / cover;
+        -webkit-mask: url('/static/img/svgs/icons/${type}.svg') no-repeat center /
+          cover;
       `}
     `;
   }};

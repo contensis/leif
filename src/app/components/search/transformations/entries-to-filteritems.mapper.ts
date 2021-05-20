@@ -17,5 +17,6 @@ export const mappers = {
   [ContentTypes.person]: base,
   [ContentTypes.plantType]: base,
 };
-const mapEntriesToFilterItems = entries => mapEntries(entries, mappers);
+const mapEntriesToFilterItems = (entries: any[]) =>
+  mapEntries(entries, mappers);
 export default mapEntriesToFilterItems;

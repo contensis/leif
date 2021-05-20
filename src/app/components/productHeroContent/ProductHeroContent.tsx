@@ -41,7 +41,7 @@ export interface Props {
   title: string;
   text?: string;
   variants: VariantProps[];
-  activeVariant: VariantProps[];
+  activeVariant: VariantProps;
   _setActiveVariant: (value: VariantProps) => void;
   _setIsPopupOpen: (val: boolean) => void;
   isPopupOpen: boolean;
@@ -69,7 +69,7 @@ const ProductHeroContent = ({
   _setIsPopupOpen,
   isPopupOpen,
 }: Props) => {
-  let [quantity, updateQuantity] = useState<number>(1);
+  const [quantity, updateQuantity] = useState<number>(1);
 
   const { price, variantTitle } = activeVariant || {};
 
@@ -93,7 +93,7 @@ const ProductHeroContent = ({
       let newQ = Number(quantity);
       updateQuantity((newQ += 1));
     } else {
-      updateQuantity(quantity <= 1 ? 1 : (quantity -= 1));
+      updateQuantity(quantity <= 1 ? 1 : quantity - 1);
     }
   };
 

@@ -25,7 +25,7 @@ const Link = ({
     return <span className={className}>{children}</span>;
   }
 
-  let newWindow = openInNewWindow ? '_blank' : '_self';
+  const newWindow = openInNewWindow ? '_blank' : '_self';
   uri = encodeURI(uri);
 
   const _handleClick = (e: any) => {
@@ -34,7 +34,7 @@ const Link = ({
     }
   };
 
-  if (newWindow != '_blank' && uri && uri.startsWith('/')) {
+  if (newWindow !== '_blank' && uri && uri.startsWith('/')) {
     return (
       <PageLink
         className={className}

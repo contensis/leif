@@ -65,14 +65,14 @@ const SearchContainer = ({
 
   /* eslint-disable */
   useEffect(() => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       window.scrollTo(0, windowOffset);
     }
   }, []);
   /* eslint-enable */
 
   const _handleLoadMore = (pageIndex: number) => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);
@@ -118,9 +118,9 @@ const SearchContainer = ({
     }
   }, [path]);
 
-  let potFilters: any = {};
-  let plantFilters: any = {};
-  let defaultFilters: any = {};
+  const potFilters: any = {};
+  const plantFilters: any = {};
+  const defaultFilters: any = {};
 
   Object.keys(filters).map((fKey: any) => {
     switch (fKey) {
@@ -211,7 +211,8 @@ const SearchContainer = ({
                 )}
                 {hasResults &&
                   currentFacet === 'all' &&
-                  (featuredProducts && featuredProducts.length >= 1 && (
+                  featuredProducts &&
+                  featuredProducts.length >= 1 && (
                     <div className="search__featured-products">
                       {featuredProducts.map(
                         (featuredProduct: any, idx: number) => {
@@ -219,7 +220,7 @@ const SearchContainer = ({
                         }
                       )}
                     </div>
-                  ))}
+                  )}
               </>
             )}
           </div>

@@ -30,7 +30,7 @@ const MakeSlide = (i: number) => {
   return {
     path: `https://source.unsplash.com/${ImageDictionary[i]}`,
     alt: 'Plant',
-  }
+  };
 };
 
 for (let i = 0; SlidesArray.length < 8; i++) {

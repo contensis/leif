@@ -30,14 +30,14 @@ const BlogListing = ({
 
   /* eslint-disable */
   useEffect(() => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       window.scrollTo(0, windowOffset);
     }
   }, []);
   /* eslint-enable */
 
   const _handleLoadMore = (pageIndex: number) => {
-    if (typeof window != 'undefined') {
+    if (typeof window !== 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);

@@ -16,8 +16,7 @@ const Template: Story<Props> = args => {
 const result = {
   type: 'blog',
   title: 'Blog title can span multiple lines of text',
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non nisl dictumst amet arcunim elit sed consectetur.',
   imageUri: 'https://source.unsplash.com/m2J105CzEAU',
   imageAlt: 'Unsplash image',
   date: dateWithSuffix(new Date().toISOString()),

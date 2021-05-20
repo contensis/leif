@@ -94,25 +94,25 @@ const GenericHeroStyled = styled.div`
         ${theme.typeStyles.h5};
       }
       ${type === 'Full width' &&
-        css`
+      css`
+        @media ${theme.mq.desktop} {
+          flex-direction: column;
+          text-align: center;
+        }
+        .generic-hero__title {
+          max-width: 840px;
           @media ${theme.mq.desktop} {
-            flex-direction: column;
-            text-align: center;
-          }
-          .generic-hero__title {
-            max-width: 840px;
-            @media ${theme.mq.desktop} {
-              &:before {
-                background-position: top center;
-              }
+            &:before {
+              background-position: top center;
             }
           }
-          .generic-hero__image {
-            @media ${theme.mq.desktop} {
-              margin: 40px 0 0 0;
-            }
+        }
+        .generic-hero__image {
+          @media ${theme.mq.desktop} {
+            margin: 40px 0 0 0;
           }
-        `}
+        }
+      `}
       .generic-hero__link-wrapper {
         margin: 0 auto;
         width: 100%;
@@ -161,12 +161,12 @@ const GenericHeroStyled = styled.div`
         }
       }
       ${isListingPage &&
-        css`
-          padding-top: 0;
-          @media ${theme.mq.desktop} {
-            padding-top: 74px;
-          }
-        `};
+      css`
+        padding-top: 0;
+        @media ${theme.mq.desktop} {
+          padding-top: 74px;
+        }
+      `};
     `;
   }};
 `;

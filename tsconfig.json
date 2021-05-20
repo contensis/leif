@@ -6,26 +6,18 @@
     "module": "es6", // specifiy module code generation
     "jsx": "react", // use typescript to transpile jsx to js
     "target": "es5", // specify ECMAScript target version
-    "strict": true, /* Enable all strict type-checking options. */
+    "strict": true /* Enable all strict type-checking options. */,
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true, // disallow implicit any type
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/app/*"
-      ],
-      "-/*": [
-        "./*"
-      ]
+      "~/*": ["./src/app/*"],
+      "-/*": ["./*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "src/custom.d.ts",
-  ],
+  "include": ["./src", "src/custom.d.ts"],
   "exclude": [
     ".storybook",
     "config",
@@ -33,5 +25,5 @@
     "webpack",
     "storybook-static",
     "./node_modules/**/*"
-  ],
+  ]
 }

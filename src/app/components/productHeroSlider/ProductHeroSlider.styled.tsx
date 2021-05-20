@@ -57,46 +57,46 @@ const ProductHeroSliderStyled = styled.div`
       }
       /* Modal Styles */
       ${isModalOpen &&
-        css`
-          .product-hero-slider__modal-close {
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            div:first-child {
-              margin: 0 auto;
-            }
-            @media ${theme.mq.mediumDesktop} {
-              top: 18px;
-              width: 80px;
-              height: 80px;
-            }
+      css`
+        .product-hero-slider__modal-close {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          width: 40px;
+          height: 40px;
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          div:first-child {
+            margin: 0 auto;
           }
-          .product-hero-slider__modal {
-            padding-top: 48px;
-            position: absolute;
-            top: -188px;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 999;
-            background-color: ${theme.colors.neutral_white};
-            @media ${theme.mq.laptop} {
-              top: -212px;
-            }
-            @media ${theme.mq.desktop} {
-              top: -172px;
-            }
+          @media ${theme.mq.mediumDesktop} {
+            top: 18px;
+            width: 80px;
+            height: 80px;
           }
-          .slider-nav {
-            max-width: 730px !important;
-            margin: 24px auto 0 !important;
+        }
+        .product-hero-slider__modal {
+          padding-top: 48px;
+          position: absolute;
+          top: -188px;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 999;
+          background-color: ${theme.colors.neutral_white};
+          @media ${theme.mq.laptop} {
+            top: -212px;
           }
-        `}
+          @media ${theme.mq.desktop} {
+            top: -172px;
+          }
+        }
+        .slider-nav {
+          max-width: 730px !important;
+          margin: 24px auto 0 !important;
+        }
+      `}
     `;
   }}
 `;

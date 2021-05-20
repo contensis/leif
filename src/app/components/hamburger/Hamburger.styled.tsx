@@ -50,19 +50,19 @@ const HamburgerStyled = styled.div`
         }
       }
       ${isToggled &&
-        css`
-          .hamburger__layer {
-            &:nth-child(1) {
-              animation: ease 0.7s top forwards;
-            }
-            &:nth-child(2) {
-              animation: ease 0.7s scaled forwards;
-            }
-            &:nth-child(3) {
-              animation: ease 0.7s bottom forwards;
-            }
+      css`
+        .hamburger__layer {
+          &:nth-child(1) {
+            animation: ease 0.7s top forwards;
           }
-        `}
+          &:nth-child(2) {
+            animation: ease 0.7s scaled forwards;
+          }
+          &:nth-child(3) {
+            animation: ease 0.7s bottom forwards;
+          }
+        }
+      `}
       /* Animation */
       @keyframes top {
         0% {

@@ -26,5 +26,5 @@ for (let i = 0; results.length < 4; i++) {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Explore more',
-  results: results,
+  results,
 };

@@ -80,10 +80,10 @@ const Region = styled(RegionWrapper)`
       box-sizing: content-box;
       max-width: ${theme.region[width].width};
       ${padding !== 'none' &&
-        css`
-          padding-left: ${theme.region.padding[padding]};
-          padding-right: ${theme.region.padding[padding]};
-        `}
+      css`
+        padding-left: ${theme.region.padding[padding]};
+        padding-right: ${theme.region.padding[padding]};
+      `}
     `;
   }};
 `;

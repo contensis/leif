@@ -78,7 +78,7 @@ export const _calReadTime = (composer: any) => {
   const { textArr, imageArr } = TEXT_AND_IMAGES_OBJECT || [];
 
   if (textArr) {
-    let imagesCount = imageArr && imageArr.length;
+    const imagesCount = imageArr && imageArr.length;
     const imageTime = _getImageReadTime(imagesCount);
     const wordTime = _getWordReadTime(textArr);
 

@@ -39,10 +39,10 @@ const FooterColumnStyled = styled.div`
         transition: max-height 0.15s ease-out;
         overflow: hidden;
         ${isOpen &&
-          css`
-            max-height: 224px;
-            transition: max-height 250ms ease-in;
-          `}
+        css`
+          max-height: 224px;
+          transition: max-height 250ms ease-in;
+        `}
         @media ${theme.mq.laptop} {
           max-height: none;
           overflow: auto;

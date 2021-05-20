@@ -1,24 +1,24 @@
-//example date string: 2019-01-02T13:05:00 (expects ISO 8601 Datetime format yyyy-mm-ddThh:mm:ss [this is the format returned from Contensis delivery api])
-//yyyy > year long, eg. 2019
-//yy > year short, eg. 19
-//MMMM > month long, eg. January
-//MMM > month short, eg. Jan
-//MM > month with leading 0, eg. 01
-//M > month, eg. 1
-//dddd > day long, eg. Monday
-//ddd > day short, eg. Mon
-//dd > date with leading 0, eg. 02
-//d > date, eg. 2
-//HH > 24 hour clock hour parameter with leading 0, eg. ...T03:05:00 = 03
-//H > 24 hour clock hour parameter, eg. ...T03:05:00 = 3
-//hh > 12 hour clock hour parameter with leading 0, eg. ...T16:05:00 = 04
-//h > 12 hour clock hour parameter, eg. ...T16:05:00 = 4
-//mm > minutes with leading 0, eg. ...T16:05:00 = 05
-//m > minutes, eg ...T16:05:00 = 5
-//t > abbreviated AM / PM, e.g. A or P
-//tt > AM / PM, e.g. AM or PM
+// example date string: 2019-01-02T13:05:00 (expects ISO 8601 Datetime format yyyy-mm-ddThh:mm:ss [this is the format returned from Contensis delivery api])
+// yyyy > year long, eg. 2019
+// yy > year short, eg. 19
+// MMMM > month long, eg. January
+// MMM > month short, eg. Jan
+// MM > month with leading 0, eg. 01
+// M > month, eg. 1
+// dddd > day long, eg. Monday
+// ddd > day short, eg. Mon
+// dd > date with leading 0, eg. 02
+// d > date, eg. 2
+// HH > 24 hour clock hour parameter with leading 0, eg. ...T03:05:00 = 03
+// H > 24 hour clock hour parameter, eg. ...T03:05:00 = 3
+// hh > 12 hour clock hour parameter with leading 0, eg. ...T16:05:00 = 04
+// h > 12 hour clock hour parameter, eg. ...T16:05:00 = 4
+// mm > minutes with leading 0, eg. ...T16:05:00 = 05
+// m > minutes, eg ...T16:05:00 = 5
+// t > abbreviated AM / PM, e.g. A or P
+// tt > AM / PM, e.g. AM or PM
 
-const formatDate = (date: string, format: string = 'dd MMMM yyyy') => {
+const formatDate = (date: string, format = 'dd MMMM yyyy') => {
   if (!date) return null;
   const dateObj = new Date(date);
   const dateString = date.toString().split('T');
@@ -31,7 +31,7 @@ const formatDate = (date: string, format: string = 'dd MMMM yyyy') => {
   const hour = timeArr[0];
   const minute = timeArr[1];
 
-  //convert to abstract strings to avoid character replacement along the chain, eg. Monday would match 'M' month single parameter
+  // convert to abstract strings to avoid character replacement along the chain, eg. Monday would match 'M' month single parameter
   const YEAR = ['&&', '&'];
   const MONTH = ['££££', '£££', '££', '£'];
   const DAY = ['%%%%', '%%%', '%%', '%'];
@@ -40,10 +40,10 @@ const formatDate = (date: string, format: string = 'dd MMMM yyyy') => {
   const MINUTE = ['**', '*'];
   const TF = ['??', '?'];
 
-  let formattedDate = format
+  const formattedDate = format
     .replace('yyyy', YEAR[0])
     .replace('yy', YEAR[1])
-    .replace('y', '') //'y' && 'yyy' not valid
+    .replace('y', '') // 'y' && 'yyy' not valid
     .replace('MMMM', MONTH[0])
     .replace('MMM', MONTH[1])
     .replace('MM', MONTH[2])

@@ -8,10 +8,9 @@ export default {
   component: BasketModal,
 } as Meta;
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = args => {
   return <BasketModal {...args} />;
 };
-
 
 export const Primary = Template.bind({});
 Primary.args = {
