@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Components
 import Icon from '../icon/Icon';
@@ -32,7 +32,8 @@ const NavigationSidebar = ({
   _useOnClickOutside(ref, () => _toggleMenu(false));
   _useLockBodyScroll();
 
-  const [activeItem, setActiveItem] = useState<string>('');
+  const [activeNavigationSlug, setActiveNavigationSlug] = useState<string>('');
+  const [activeNavigationObject, setActiveNavigationObject] = useState<any>();
 
   const _handleKeyDown = (evt: any) => {
     if (evt.keyCode === 27) {
@@ -45,13 +46,24 @@ const NavigationSidebar = ({
   }
 
   const _handleClick = (val: string) => {
-    _toggleSecondMenu(!isSecondMenuOpen);
-    setActiveItem(val);
+    _toggleSecondMenu(val === '' ? false : true);
+    setActiveNavigationSlug(val);
   };
 
   // Checks wether we should show the Navigation item child nodes.
   const _showChildren = (element: NavigationProps) =>
     element.includeInMenu === true;
+
+  /* eslint-disable */
+  useEffect(() => {
+    if (activeNavigationSlug) {
+      const navObject = navigation.filter(
+        (n: any) => n.slug === activeNavigationSlug
+      );
+      setActiveNavigationObject(navObject[0]);
+    }
+  }, [activeNavigationSlug]);
+  /* eslint-enable */
 
   return (
     <FocusLock>
@@ -64,17 +76,17 @@ const NavigationSidebar = ({
           <Icon type="close" />
         </button>
         <ul className="nav__menu--first">
-          {navigation.map((navItem: NavigationProps) => {
-            const { displayName, path, children } = navItem || {};
+          {navigation.map((navItem: NavigationProps, idx: number) => {
+            const { displayName, slug, path, children } = navItem || {};
             if (children.some(_showChildren)) {
               return (
-                <li>
+                <li key={`${displayName}-${idx}`}>
                   <button
                     type="button"
                     className={`nav__menu-btn ${
-                      activeItem === displayName ? 'isActive' : ''
+                      activeNavigationSlug === slug ? 'isActive' : ''
                     }`}
-                    onClick={() => _handleClick(displayName)}
+                    onClick={() => _handleClick(slug)}
                   >
                     {displayName}
                     <Icon type="arrow-right" color="#77E8C6" />
@@ -82,31 +94,40 @@ const NavigationSidebar = ({
                   {isSecondMenuOpen && (
                     <ul className="nav__menu--second">
                       <li className="nav__menu-btn--back">
-                        <button
-                          type="button"
-                          onClick={() => _handleClick(displayName)}
-                        >
+                        <button type="button" onClick={() => _handleClick('')}>
                           <Icon type="arrow-left" color="#2B2F51" />
                         </button>
                       </li>
-                      <li>
-                        <a href={path}>View all {displayName.toLowerCase()}</a>
-                      </li>
-                      {children.map((child: any, idx: number) => {
-                        const { displayName, path } = child || {};
-                        return (
-                          <li key={idx}>
-                            <a href={path}>{displayName}</a>
+                      {activeNavigationObject && (
+                        <>
+                          <li>
+                            <a href={path}>
+                              View all{' '}
+                              {activeNavigationObject.displayName.toLowerCase()}
+                            </a>
                           </li>
-                        );
-                      })}
+                          {activeNavigationObject.children.map(
+                            (child: any, idx: number) => {
+                              const { displayName, path, includeInMenu } =
+                                child || {};
+                              if (includeInMenu) {
+                                return (
+                                  <li key={`${displayName}-${idx}`}>
+                                    <a href={path}>{displayName}</a>
+                                  </li>
+                                );
+                              }
+                            }
+                          )}
+                        </>
+                      )}
                     </ul>
                   )}
                 </li>
               );
             } else {
               return (
-                <li>
+                <li key={`${displayName}-${idx}`}>
                   <a href={path}>{displayName}</a>
                 </li>
               );
