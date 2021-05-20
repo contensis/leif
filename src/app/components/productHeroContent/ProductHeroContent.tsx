@@ -127,7 +127,11 @@ const ProductHeroContent = ({
                     label={variant.variantTitle}
                     href="#"
                     type="secondary"
-                    isHollow={activeVariant.sku === variant.sku ? false : true}
+                    isHollow={
+                      activeVariant.variantTitle === variant.variantTitle
+                        ? false
+                        : true
+                    }
                     className="product-hero__option"
                     onClick={(e: any) => {
                       e.preventDefault();

@@ -45,7 +45,7 @@ const TestimonialSliderStyled = styled.div`
         }
         @media ${theme.mq.desktop} {
           &:before {
-            top: 48px;
+            top: 32px;
           }
         }
       }
