@@ -1,10 +1,10 @@
 {
-  "name": "react-starter",
+  "name": "leif-react-starter",
   "version": "0.0.2",
-  "repository": "https://gitlab.zengenti.com/starter-projects/react-starter",
+  "repository": "https://gitlab.zengenti.com/ps-projects/leif",
   "license": "ISC",
-  "description": "",
-  "main": "index.js",
+  "description": "Contensis free trial project",
+  "main": "./src/client/client-entrypoint.js",
   "config": {
     "startup": ""
   },
