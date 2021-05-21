@@ -15,7 +15,7 @@ const {
 } = selectors;
 
 const searchUriTemplate = {
-  path: ({ state, facet }) => {
+  path: ({ state, facet }: any) => {
     const context = getSearchContext(state);
     const currentPath = selectCurrentPath(state) || '/search';
     const listing = getCurrentListing(state);
@@ -51,13 +51,15 @@ const searchUriTemplate = {
       return currentPath;
     }
   },
-  search: ({ state, facet, orderBy, pageIndex, term }) => {
+  search: ({ state, facet, orderBy, pageIndex, term }: any) => {
     const searchContext = getSearchContext(state);
     // Lose stateFilters and currentSearch if a new
     // term is passed via an argument
     const stateFilters = term
-      ? new List([])
-      : getSelectedFilters(state, facet, searchContext).map(f => f.join(','));
+      ? List()
+      : getSelectedFilters(state, facet, searchContext).map((f: any) =>
+          f.join(',')
+        );
 
     // Delete these parameters as we do not need to see them in the uri
     const modifiedStateFilters = stateFilters.set('contentTypeId', '');
@@ -83,10 +85,10 @@ const searchUriTemplate = {
     if (pageIndex === 0) mergedSearch.pageIndex = undefined;
     return queryString.stringify(mergedSearch);
   },
-  hash: ({ state }) =>
+  hash: ({ state }: any) =>
     state.getIn(['routing', 'location', 'hash'], '#').replace('#', ''),
 };
 
-const mapStateToSearchUri = state => mapJson(state, searchUriTemplate);
+const mapStateToSearchUri = (state: any) => mapJson(state, searchUriTemplate);
 
 export default mapStateToSearchUri;

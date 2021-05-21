@@ -14,14 +14,13 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:flowtype/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'prettier',
   ],
-  plugins: ['prettier', 'react', 'flowtype'],
+  plugins: ['prettier', 'react'],
   env: {
     browser: true,
     node: true,
@@ -32,12 +31,8 @@ module.exports = {
   globals: {},
   // Will look for webpack.config.js to resolve path
   settings: {
-    flowtype: {
-      onlyFilesWithFlowAnnotation: false,
-    },
     react: {
       version: '^16.0.0',
-      flowVersion: '^0.81.0',
     },
     'import/resolver': {
       webpack: {
@@ -48,7 +43,6 @@ module.exports = {
 
   rules: {
     'arrow-parens': 0,
-    'flowtype/no-types-missing-file-annotation': 0,
     'react/require-default-props': 0,
     'react/prop-types': 0,
     'no-debugger': 0,
@@ -198,18 +192,6 @@ module.exports = {
         'constructor-super': 'error',
         eqeqeq: ['error', 'smart'],
         'guard-for-in': 'error',
-        'id-blacklist': [
-          'error',
-          'any',
-          'Number',
-          'number',
-          'String',
-          'string',
-          'Boolean',
-          'boolean',
-          'Undefined',
-          'undefined',
-        ],
         'id-match': 'error',
         // 'jsdoc/check-alignment': 'error',
         // 'jsdoc/check-indentation': 'error',

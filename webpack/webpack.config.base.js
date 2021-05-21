@@ -16,7 +16,6 @@ module.exports = {
     alias: {
       '~': path.resolve(__dirname, '../src/app'),
       '-': path.resolve(__dirname, '../'),
-      react: path.resolve('node_modules/react'),
       'react-dom': '@hot-loader/react-dom',
       '@zengenti/contensis-react-base/search': 'zengenti-search-package',
     },

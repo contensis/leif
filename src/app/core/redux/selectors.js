@@ -26,5 +26,8 @@ export const {
   selectRouteLoading,
 } = routing.selectors;
 
-export const { selectCommitRef, selectBuildNumber, selectVersionStatus } =
-  version.selectors;
+export const {
+  selectCommitRef,
+  selectBuildNumber,
+  selectVersionStatus,
+} = version.selectors;
