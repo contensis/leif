@@ -14,7 +14,15 @@ export const ctaBannerPropsMapping = {
   btnText: 'callToAction.buttonText',
   btnLink: {
     $path: 'callToAction.buttonLink',
-    $formatting: (link: any) => link && link.sys && link.sys.uri,
+    $formatting: (link: any) => {
+      if (!link) return null;
+      const { contentTypeId } = link.sys || {};
+      if (contentTypeId === 'externalLink') {
+        return link && link.url;
+      } else {
+        return link && link.sys && link.sys.uri;
+      }
+    },
   },
   btnType: 'primary',
 };

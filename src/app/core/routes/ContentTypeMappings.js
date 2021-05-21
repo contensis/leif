@@ -32,7 +32,7 @@ export default [
       },
       loading: Loading,
     }),
-    linkDepth: 1,
+    linkDepth: 2,
     entryMapper: node => {
       const mappedEntry = mapJson(
         {
