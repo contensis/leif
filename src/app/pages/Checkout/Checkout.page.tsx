@@ -32,8 +32,8 @@ const CheckoutPage = () => {
       />
       <CheckoutStyled>
         <FeaturedProduct
-          title="Checkout process not included in trial site"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis adipiscing urna, tellus. "
+          title="Well, this is awkward."
+          text="Sorry, we're all out of plants, so this is as far as we can take you for now. But, using webhooks and our APIs, you can easily integrate with payment providers such as Stripe, Paypal, and others. Looking for a demonstration or advice? Get in touch to arrange a call with a customer success engineer."
           linkLabel="Return to basket"
           linkUri="/basket"
           product={featuredProducts[0]}

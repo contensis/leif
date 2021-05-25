@@ -185,8 +185,8 @@ const SearchContainer = ({
               )}
               {!hasResults && (
                 <NoResults
-                  title="No results found"
-                  text="Tellus sit pellentesque sit sed sed faucibus sit quam. Massa lorem vestibulum, non viverra interdum aliquam amet."
+                  title="Sorry, nothing matches your search"
+                  text="Try resetting any filters, checking for typos, or adjusting your search term."
                 />
               )}
             </div>
