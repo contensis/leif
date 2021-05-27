@@ -6,6 +6,8 @@ import Composer from '~/components/composer/ComposerWrapper';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import LandingHero from '~/components/landingHero/LandingHero';
 import Metadata from '~/components/metadata/Metadata';
+import CardRow from '~/components/cardRow/CardRow';
+import Form from '~/components/form/Form';
 
 // Layout
 import LandingPageStyled from './LandingPage.styled';
@@ -14,7 +16,6 @@ import Region from '~/layout/Region';
 
 // Models
 import { Props } from './LandingPage.d';
-import CardRow from '~/components/cardRow/CardRow';
 
 const LandingPage = ({ mappedEntry }: Props) => {
   const {
@@ -24,6 +25,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
     ctaBannerProps,
     relatedContentProps,
     metadataProps,
+    formProps,
   } = mappedEntry || {};
 
   const { imageUri } = landingPageHeroProps;
@@ -42,6 +44,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
         </Region>
         <Composer items={contentComposerProps} isContentPage={true} />
         <CTABanner {...ctaBannerProps} />
+        <Form {...formProps} />
       </LandingPageStyled>
     </MainLayout>
   );

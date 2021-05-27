@@ -40,4 +40,7 @@ export const contentPagePropsMapping = {
       });
     },
   },
+  formProps: {
+    type: 'formPicker.form',
+  },
 };

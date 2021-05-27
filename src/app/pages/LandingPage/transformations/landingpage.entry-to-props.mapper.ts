@@ -18,4 +18,7 @@ export const landingPagePropsMapping = {
   ctaBannerProps: {
     ...ctaBannerPropsMapping,
   },
+  formProps: {
+    type: 'formPicker.form',
+  },
 };

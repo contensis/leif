@@ -9,6 +9,7 @@ import SocialShare from '~/components/socialShare/SocialShare';
 import PromotedContent from '~/components/promotedContent/PromotedContent';
 import ContentHero from '~/components/contentHero/ContentHero';
 import Metadata from '~/components/metadata/Metadata';
+import Form from '~/components/form/Form';
 
 // Layout
 import ContentPageStyled from './ContentPage.styled';
@@ -26,6 +27,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
     ctaBannerProps,
     promotedContentProps,
     metadataProps,
+    formProps,
   } = mappedEntry || {};
 
   const { bgImageUri, hasIllustration } = contentHeroProps;
@@ -54,6 +56,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
         <Region width="full" margin="default">
           <PromotedContent {...promotedContentProps} />
         </Region>
+        <Form {...formProps} />
       </ContentPageStyled>
     </MainLayout>
   );
