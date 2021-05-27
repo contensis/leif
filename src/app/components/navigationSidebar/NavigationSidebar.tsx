@@ -77,7 +77,9 @@ const NavigationSidebar = ({
         </button>
         <ul className="nav__menu--first">
           {navigation.map((navItem: NavigationProps, idx: number) => {
-            const { displayName, slug, path, children } = navItem || {};
+            const { displayName, slug, path, children, includeInMenu } =
+              navItem || {};
+            if (!includeInMenu) return null;
             if (children.some(_showChildren)) {
               return (
                 <li key={`${displayName}-${idx}`}>
