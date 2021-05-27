@@ -11,7 +11,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.config.dev.js",
     "build": "rimraf ./dist && cross-env NODE_ENV=production parallel-webpack --config webpack/webpack.config.prod.js && yarn run build:startup",
-    "build:startup": "buildstartup",
+    "build:startup": "node node_modules/zengenti-buildstartup-package",
     "server": "node --max-http-header-size=800000 dist/start.js",
     "dev:server": "cross-env NODE_ENV=test NODE_OPTIONS=--max-http-header-size=80000 babel-node --inspect=9229 src/server/debug.js",
     "debug:server": "nodemon --exec cross-env NODE_ENV=test NODE_OPTIONS=--max-http-header-size=80000 babel-node --inspect=9229 src/server/debug.js",
