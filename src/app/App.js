@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 
 import { ThemeProvider } from 'styled-components';
 import { RouteLoader } from '@zengenti/contensis-react-base/routing';
@@ -30,4 +30,4 @@ const AppRoot = props => {
   );
 };
 
-export default hot(module)(AppRoot);
+export default hot(AppRoot);

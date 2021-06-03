@@ -78,7 +78,7 @@ const CLIENT_DEV_CONFIG = {
         server: false,
         host: 'localhost',
         port: 3000,
-        proxy: 'http://localhost:3001',
+        proxy: 'http://localhost:3010',
         open: 'local',
       },
       { reload: false }
@@ -98,7 +98,7 @@ const CLIENT_DEV_CONFIG = {
   ],
   devServer: {
     host: '0.0.0.0',
-    port: 3001,
+    port: 3010,
     hot: true,
     historyApiFallback: true,
     contentBase: './src',
@@ -106,7 +106,7 @@ const CLIENT_DEV_CONFIG = {
     quiet: false,
     watchOptions: {
       ignored: ['node_modules'],
-      // aggregateTimeout: 3000,
+      aggregateTimeout: 2000,
       // poll: 1000,
     },
     proxy: DEVSERVER_PROXIES,
