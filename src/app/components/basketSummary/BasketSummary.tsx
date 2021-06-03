@@ -8,7 +8,7 @@ import BasketSummaryStyled from './BasketSummary.styled';
 import {
   selectTotalProductsInBasket,
   selectTotalProductsPrice,
-} from '~/core/redux/custom/basket/selectors';
+} from '~/redux/basket/selectors';
 
 export interface Props {
   className?: string;

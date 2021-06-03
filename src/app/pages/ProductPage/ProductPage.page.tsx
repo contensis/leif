@@ -20,11 +20,11 @@ import Region from '~/layout/Region';
 import { Props } from './ProductPage.d';
 
 // Redux - Selectors
-import { selectScreenSize } from '~/core/redux/custom/ui/selectors';
+import { selectScreenSize } from '~/redux/ui/selectors';
 import {
   selectActiveVariantMatchingPots,
   selectProductReviews,
-} from '~/core/redux/custom/product/selectors';
+} from '~/redux/product/selectors';
 
 const ProductPage = ({ mappedEntry }: Props) => {
   const {

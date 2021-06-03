@@ -15,7 +15,7 @@ import BlogListingStyled from './BlogListing.styled';
 // Models
 import { Props } from './BlogListing.d';
 import { useSelector } from 'react-redux';
-import { makeSelectHasResults } from '~/core/redux/custom/ui/selectors';
+import { makeSelectHasResults } from '~/redux/ui/selectors';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
   const { title, featuredBlogProps, ctaBannerProps, metadataProps } =

@@ -4,7 +4,7 @@ import { withListing } from '@zengenti/contensis-react-base/search';
 
 import transformations from '../search/transformations';
 
-export const ListingContainer = (props: any) => {
+const ListingContainer = (props: any) => {
   return (
     <>
       {React.Children.map(props.children, child =>

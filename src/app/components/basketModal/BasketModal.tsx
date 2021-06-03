@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTotalProductsInBasket } from '~/core/redux/custom/basket/selectors';
-import { setIsPopupOpen } from '~/core/redux/custom/ui/actions';
+import { selectTotalProductsInBasket } from '~/redux/basket/selectors';
+import { setIsPopupOpen } from '~/redux/ui/actions';
 import { _useOnClickOutside } from '~/utils/hooks/useOnClickOutside';
 import Icon from '../icon/Icon';
 import LinkButton from '../linkButton/LinkButton';

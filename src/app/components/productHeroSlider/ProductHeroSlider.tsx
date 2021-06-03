@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Redux - Actions / Selectors
-import { setIsModalOpen } from '~/core/redux/custom/ui/actions';
-import { selectIsModalOpen } from '~/core/redux/custom/ui/selectors';
+import { setIsModalOpen } from '~/redux/ui/actions';
+import { selectIsModalOpen } from '~/redux/ui/selectors';
 
 // Styles
 import ProductHeroSliderStyled from './ProductHeroSlider.styled';

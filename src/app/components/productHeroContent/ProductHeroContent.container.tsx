@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import { setActiveVariant } from '../../core/redux/custom/product/actions';
-import { addToBasket } from '../../core/redux/custom/basket/actions';
-import { setIsPopupOpen } from '../../core/redux/custom/ui/actions';
+import { setActiveVariant } from '~/redux/product/actions';
+import { addToBasket } from '~/redux/basket/actions';
+import { setIsPopupOpen } from '~/redux/ui/actions';
 
 // Selectors
-import { selectActiveVariant } from '../../core/redux/custom/product/selectors';
-import { selectProductsInBasket } from '../../core/redux/custom/basket/selectors';
-import { selectIsPopupOpen } from '../../core/redux/custom/ui/selectors';
+import { selectActiveVariant } from '~/redux/product/selectors';
+import { selectProductsInBasket } from '~/redux/basket/selectors';
+import { selectIsPopupOpen } from '~/redux/ui/selectors';
 
 // Component & Props
 import ProductHero, { Props, VariantProps } from './ProductHeroContent';

@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import { setIsSearchOpen } from '../../core/redux/custom/ui/actions';
-import { setSearchTerm } from '../../core/redux/custom/liveSearch/actions';
+import { setIsSearchOpen } from '~/redux/ui/actions';
+import { setSearchTerm } from '~/redux/liveSearch/actions';
 
 // Selectors
-import { selectIsSearchOpen } from '../../core/redux/custom/ui/selectors';
+import { selectIsSearchOpen } from '~/redux/ui/selectors';
 import {
   selectSearchResults,
   selectSearchTerm,
-} from '../../core/redux/custom/liveSearch/selectors';
+} from '~/redux/liveSearch/selectors';
 
 import HeaderSearch, { Props } from './HeaderSearch';
 

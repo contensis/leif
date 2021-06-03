@@ -11,7 +11,7 @@ import {
   INITIALISED_BASKET,
   UPDATE_QUANTITY,
 } from './types';
-import { ROUTE_WILL_LOAD } from '../../types';
+import { ROUTE_WILL_LOAD } from '~/core/redux/types';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),

@@ -1,9 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  removeFromBasket,
-  updateQuantity,
-} from '~/core/redux/custom/basket/actions';
+import { removeFromBasket, updateQuantity } from '~/redux/basket/actions';
 import Icon from '../icon/Icon';
 import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';

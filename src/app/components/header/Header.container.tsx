@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import { setIsSearchOpen } from '../../core/redux/custom/ui/actions';
-import { toggleMenu } from '../../core/redux/custom/menu/actions';
+import { setIsSearchOpen } from '~/redux/ui/actions';
+import { toggleMenu } from '~/redux/menu/actions';
 
 // Selectors
-import {
-  selectIsSearchOpen,
-  selectIsBasketOpen,
-} from '../../core/redux/custom/ui/selectors';
-import { selectIsMenuOpen } from '../../core/redux/custom/menu/selectors';
+import { selectIsSearchOpen, selectIsBasketOpen } from '~/redux/ui/selectors';
+import { selectIsMenuOpen } from '~/redux/menu/selectors';
 
 import Header, { Props } from './Header';
 

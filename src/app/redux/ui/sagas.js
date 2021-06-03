@@ -2,7 +2,7 @@ import { takeEvery, call, select, put } from 'redux-saga/effects';
 
 import { selectIsSearchOpen } from './selectors';
 
-import { ROUTE_WILL_LOAD } from '../../types';
+import { ROUTE_WILL_LOAD } from '~/core/redux/types';
 
 import { TOGGLE_SEARCH, SET_SCREEN_SIZE, BROWSER_RESIZE } from './types';
 

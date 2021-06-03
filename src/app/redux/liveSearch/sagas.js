@@ -1,14 +1,14 @@
 import { takeEvery, select, put, debounce } from 'redux-saga/effects';
 
 import { Op, Query } from 'contensis-delivery-api';
-import { cachedSearch } from '../../../util/ContensisDeliveryApi';
+import { cachedSearch } from '~/core/util/ContensisDeliveryApi';
 
 // Types
 import { SET_SEARCH_RESULTS, SET_SEARCH_TERM } from './types';
 
 // Mappers
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
-import { SearchContentTypes } from '../../../schema';
+import { SearchContentTypes } from '~/core/schema';
 
 // Selectors
 import { selectSearchTerm } from './selectors';

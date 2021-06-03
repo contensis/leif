@@ -1,14 +1,14 @@
 import { takeEvery, select, put } from 'redux-saga/effects';
 
 import { Op, Query } from 'contensis-delivery-api';
-import { cachedSearch } from '../../../util/ContensisDeliveryApi';
+import { cachedSearch } from '~/core/util/ContensisDeliveryApi';
 
 // Types
-import { SET_ENTRY } from '../../types';
+import { SET_ENTRY } from '~/core/redux/types';
 import { SET_PRODUCT_REVIEWS } from './types';
 
 // Selectors
-import { selectCurrentPath, selectRouteEntryID } from '../../selectors';
+import { selectCurrentPath, selectRouteEntryID } from '~/core/redux/selectors';
 
 // Mappers
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';

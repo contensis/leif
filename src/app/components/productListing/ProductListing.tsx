@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ProductListingStyled from './ProductListing.styled';
 
 import { useSelector } from 'react-redux';
-import { selectCurrentPathname } from '../../core/redux/custom/routing/selectors';
+import { selectCurrentPathname } from '~/redux/routing/selectors';
 
 // Components
 import Card from '../card/Card';

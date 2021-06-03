@@ -7,22 +7,19 @@ import { connect } from 'react-redux';
 import { toJS } from '../../core/util/ToJs';
 
 // Actions
-import {
-  toggleMenu,
-  toggleSecondMenu,
-} from '../../core/redux/custom/menu/actions';
+import { toggleMenu, toggleSecondMenu } from '~/redux/menu/actions';
 
 //  Selectors
 import {
   selectIsMenuOpen,
   selectIsSecondMenuOpen,
-} from '../../core/redux/custom/menu/selectors';
-import { selectNavigationRootChildren } from '../../core/redux/custom/routing/selectors';
+} from '~/redux/menu/selectors';
+import { selectNavigationRootChildren } from '~/redux/routing/selectors';
 import { hasNavigationTree } from '../../core/redux/selectors';
 
 // Component & Props
 import Navigation, { Props } from './Navigation';
-import { setIsSearchOpen } from '~/core/redux/custom/ui/actions';
+import { setIsSearchOpen } from '~/redux/ui/actions';
 
 const NavigationContainer = ({
   className,

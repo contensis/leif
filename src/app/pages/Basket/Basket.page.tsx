@@ -9,7 +9,7 @@ import LinkButton from '~/components/linkButton/LinkButton';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Selectors
-import { selectProductsInBasket } from '~/core/redux/custom/basket/selectors';
+import { selectProductsInBasket } from '~/redux/basket/selectors';
 import { isEmptyObj } from '~/utils/isEmptyObj';
 
 // Layout

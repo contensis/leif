@@ -20,7 +20,7 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 import { Props } from './ProductListing.d';
 
 import { useSelector } from 'react-redux';
-import { makeSelectHasResults } from '~/core/redux/custom/ui/selectors';
+import { makeSelectHasResults } from '~/redux/ui/selectors';
 
 const ProductListingPage = ({ mappedEntry }: Props) => {
   const { title, metadataProps } = mappedEntry || {};

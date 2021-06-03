@@ -2,7 +2,7 @@ import {
   ContentTypes,
   BlogFilters as Blog,
   ProductFilters as Product,
-} from '../../../core/schema';
+} from '~/core/schema';
 
 // Blog Listing Filters
 export const BlogFilters = {

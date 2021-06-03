@@ -9,7 +9,7 @@ import {
 } from './types';
 
 // Utils
-import { _countObjectProperties } from '../../../../utils/countObjectProperties';
+import { _countObjectProperties } from '~/utils/countObjectProperties';
 
 let initialState = Map({
   items: fromJS({}),

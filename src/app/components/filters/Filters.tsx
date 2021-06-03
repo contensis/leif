@@ -6,8 +6,8 @@ import Dropdown from '../dropdown/Dropdown';
 import Button from '../button/Button';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectHasDropdownFiltersSelected } from '../../core/redux/custom/ui/selectors';
-import { setHasDropdownFiltersSelected } from '../../core/redux/custom/ui/actions';
+import { selectHasDropdownFiltersSelected } from '~/redux/ui/selectors';
+import { setHasDropdownFiltersSelected } from '~/redux/ui/actions';
 
 export interface Props {
   className?: string;

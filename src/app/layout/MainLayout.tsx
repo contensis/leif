@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { BROWSER_RESIZE } from '../core/redux/custom/ui/types';
+import { BROWSER_RESIZE } from '~/redux/ui/types';
 
 import Header from '../components/header/Header.container';
 import Footer from '../components/footer/Footer';

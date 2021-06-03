@@ -1,4 +1,4 @@
-import { sizesNoUnit } from '../../../theme/global/layout';
+import { sizesNoUnit } from '~/theme/global/layout';
 
 export const _createResponsiveSettings = (length: number) => {
   return [
