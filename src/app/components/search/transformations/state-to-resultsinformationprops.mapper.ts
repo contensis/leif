@@ -46,10 +46,10 @@ const resultsInfoTemplate = {
     return totalCount;
   },
   resultsText: (state: any) => {
-    const { pageIndex, pageSize, totalCount } = pagingInfo(state);
-    const start = pageIndex * pageSize + 1;
+    const { pagesLoaded, pageSize, totalCount } = pagingInfo(state);
+    const start = pagesLoaded[0] * pageSize + 1;
     const term = searchTerm(state);
-    let end = start + pageSize - 1;
+    let end = start + pagesLoaded.length * pageSize - 1;
     if (end > totalCount) end = totalCount;
 
     if (totalCount === 0) {
