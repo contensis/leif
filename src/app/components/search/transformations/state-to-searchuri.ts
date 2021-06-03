@@ -1,10 +1,13 @@
 import { List, fromJS } from 'immutable';
 import queryString from 'query-string';
-import { selectors } from '@zengenti/contensis-react-base/search';
+import {
+  selectors,
+  SearchTransformations,
+} from '@zengenti/contensis-react-base/search';
 
-import { default as mapJson } from '../../../core/util/json-mapper';
-import { removeEmptyAttributes } from '../../../core/util/helpers';
-import { selectCurrentPath } from '../../../core/redux/selectors';
+import { default as mapJson } from '~/core/util/json-mapper';
+import { removeEmptyAttributes } from '~/core/util/helpers';
+import { selectCurrentPath } from '~/core/redux/selectors';
 
 const {
   getSelectedFilters,
@@ -24,8 +27,7 @@ const searchUriTemplate = {
       const currentFacet = facet || getCurrentFacet(state);
 
       // Get the Plant or Pot filter
-      let filters = getSelectedFilters(state, facet, context);
-      filters = filters && filters.toJS();
+      const filters = getSelectedFilters(state, facet, context).toJS();
       const currentFilter = filters.contentTypeId;
 
       // Check if we have a Plant or Pot filter first
@@ -38,8 +40,7 @@ const searchUriTemplate = {
 
       return newPath;
     } else if (listing === 'productsListing') {
-      let filters = getSelectedFilters(state, facet, context);
-      filters = filters && filters.toJS();
+      const filters = getSelectedFilters(state, facet, context).toJS();
 
       const currentFilter = filters.contentTypeId;
       const newPath = currentFilter
@@ -57,12 +58,15 @@ const searchUriTemplate = {
     // term is passed via an argument
     const stateFilters = term
       ? List()
-      : getSelectedFilters(state, facet, searchContext).map((f: any) =>
-          f.join(',')
+      : List<string>(
+          getSelectedFilters(state, facet, searchContext).map((f: any) =>
+            f.join(',')
+          )
         );
 
     // Delete these parameters as we do not need to see them in the uri
-    const modifiedStateFilters = stateFilters.set('contentTypeId', '');
+    const modifiedStateFilters = stateFilters;
+    // const modifiedStateFilters = stateFilters.set('contentTypeId', '');
 
     const currentSearch =
       !term && state.getIn(['routing', 'location', 'search']);
@@ -89,6 +93,7 @@ const searchUriTemplate = {
     state.getIn(['routing', 'location', 'hash'], '#').replace('#', ''),
 };
 
-const mapStateToSearchUri = (state: any) => mapJson(state, searchUriTemplate);
+const mapStateToSearchUri: SearchTransformations['navigate'] = state =>
+  mapJson(state, searchUriTemplate);
 
 export default mapStateToSearchUri;

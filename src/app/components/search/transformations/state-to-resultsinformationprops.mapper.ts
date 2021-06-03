@@ -1,6 +1,10 @@
-import { selectors } from '@zengenti/contensis-react-base/search';
+import {
+  SearchTransformations,
+  selectors,
+} from '@zengenti/contensis-react-base/search';
+import mapJson from '~/core/util/json-mapper';
 
-const { getFacet, getSearchTerm, getTabsAndFacets } = selectors;
+const { getFacet, getResults, getSearchTerm, getTabsAndFacets } = selectors;
 
 // Helper functions to save repetition
 const pagingInfo = (state: any) => {
@@ -26,9 +30,18 @@ const wholeSearchTotal = (state: any) => {
 // The mapper object
 const resultsInfoTemplate = {
   facetName: (state: any) => getFacet(state).get('title'),
+  hasLoadMore: (state: any) => {
+    const { pageIndex, pageCount } = pagingInfo(state);
+    const hasLoadMore =
+      pageIndex === null || pageCount === null
+        ? false
+        : pageIndex < pageCount - 1;
+    return hasLoadMore;
+  },
+  hasResults: (state: any) => getResults(state).size > 0,
   start: (state: any) => {
-    const { pageIndex, pageSize } = pagingInfo(state);
-    const start = pageIndex * pageSize + 1;
+    const { pagesLoaded, pageSize } = pagingInfo(state);
+    const start = pagesLoaded[0] * pageSize + 1;
 
     return start;
   },
@@ -64,9 +77,7 @@ const resultsInfoTemplate = {
   wholeSearchTotal,
 };
 
-import { default as mapJson } from '../../../core/util/json-mapper';
-
-const mapStateToResultsInformation = (state: any) =>
-  mapJson(state, resultsInfoTemplate);
+const mapStateToResultsInformation: SearchTransformations['resultsInfo'] =
+  state => mapJson(state, resultsInfoTemplate);
 
 export default mapStateToResultsInformation;

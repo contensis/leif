@@ -79,9 +79,9 @@ module.exports = {
       parserOptions: {
         project: './tsconfig.json',
         sourceType: 'module',
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: path.resolve(__dirname),
       },
-      plugins: ['@typescript-eslint'],
+      plugins: ['@typescript-eslint', 'import'],
 
       // If need to support jsx
       //     parserOptions: {
@@ -89,9 +89,18 @@ module.exports = {
       //     },
       extends: [
         'eslint:recommended',
+        'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'prettier',
       ],
+      settings: {
+        'import/resolver': {
+          webpack: {
+            config: path.resolve(__dirname, './webpack/webpack.config.base.js'),
+          },
+          typescript: {},
+        },
+      },
       /**
        * Typescript Rules
        * https://github.com/bradzacher/eslint-plugin-typescript

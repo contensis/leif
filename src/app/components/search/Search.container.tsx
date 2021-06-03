@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import mapEntriesToResults from './transformations';
+import searchMappers from './transformations';
 import { useSelector } from 'react-redux';
 import { withSearch } from '@zengenti/contensis-react-base/search';
-import { selectScreenSize } from '../../core/redux/custom/ui/selectors';
-import { selectCurrentPathname } from '../../core/redux/custom/routing/selectors';
+import { selectScreenSize } from '~/redux/ui/selectors';
+import { selectCurrentPathname } from '~/redux/routing/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
@@ -24,44 +24,43 @@ import MainLayout from '../../layout/MainLayout';
 
 interface Props {
   className?: string;
+  clearFilters: () => void;
+  currentFacet: string;
+  exploreMore?: any[];
+  featuredProducts?: any;
+  filters?: any;
+  paging?: any;
   results?: any;
   resultsInfo?: any;
-  filters?: any;
   searchTerm: string;
-  updateSearchTerm: (ev: any, num: number) => void;
-  updatePageIndex: (ev: number) => void;
-  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
-  updateCurrentFacet: () => void;
-  clearFilters: () => void;
-  paging?: any;
-  currentFacet: string;
   tabsAndFacets: any;
-  featuredProducts?: any;
-  exploreMore?: any[];
+  updateCurrentFacet: () => void;
+  updatePageIndex: (ev: number) => void;
+  updateSearchTerm: (ev: any, num: number) => void;
+  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
 }
 
 const SearchContainer = ({
   className,
-  updateSearchTerm,
-  searchTerm,
-  results,
-  updatePageIndex,
-  resultsInfo,
-  updateCurrentFacet,
-  updateSelectedFilters,
-  paging,
-  currentFacet,
   clearFilters,
-  tabsAndFacets,
-  filters,
-  featuredProducts,
+  currentFacet,
   exploreMore,
+  featuredProducts,
+  filters,
+  paging,
+  results,
+  resultsInfo,
+  searchTerm,
+  tabsAndFacets,
+  updateCurrentFacet,
+  updatePageIndex,
+  updateSearchTerm,
+  updateSelectedFilters,
 }: Props) => {
-  const hasResults = results && results.length >= 1;
   const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
-  const { resultsText } = resultsInfo || {};
+  const { hasLoadMore, hasResults, resultsText } = resultsInfo || {};
 
   /* eslint-disable */
   useEffect(() => {
@@ -81,12 +80,6 @@ const SearchContainer = ({
   const _handleSearchSubmit = (term: string) => {
     updateSearchTerm(term, 0);
   };
-
-  const { pageIndex, pageCount } = paging || {};
-  const hasLoadMore =
-    pageIndex === null || pageCount === null
-      ? false
-      : pageIndex < pageCount - 1;
 
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
@@ -230,7 +223,7 @@ const SearchContainer = ({
               type="button"
               label="Load more"
               icon="arrow-down"
-              onClick={() => _handleLoadMore(pageIndex + 1)}
+              onClick={() => _handleLoadMore(paging.pageIndex + 1)}
               btnTheme="secondary"
               isHollow
             />
@@ -267,4 +260,4 @@ SearchContainer.propTypes = {
   filters: PropTypes.object,
 };
 
-export default withSearch(mapEntriesToResults)(SearchContainer);
+export default withSearch(searchMappers)(SearchContainer);

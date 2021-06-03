@@ -1,5 +1,7 @@
-import { mapEntries } from '../../../core/util/json-mapper';
-import { Fields, ContentTypes } from '../../../core/schema';
+import { SearchTransformations } from '@zengenti/contensis-react-base/search';
+import { mapEntries } from '~/core/util/json-mapper';
+import { Fields, ContentTypes } from '~/core/schema';
+
 // *** FILTER ITEM MAPPING ***
 // Base mapping, fields that are the same across all mappings
 // to save repeating these elements in every mapper, spread this
@@ -17,6 +19,7 @@ export const mappers = {
   [ContentTypes.person]: base,
   [ContentTypes.plantType]: base,
 };
-const mapEntriesToFilterItems = (entries: any[]) =>
+const mapEntriesToFilterItems: SearchTransformations['filterItems'] = entries =>
   mapEntries(entries, mappers);
+
 export default mapEntriesToFilterItems;
