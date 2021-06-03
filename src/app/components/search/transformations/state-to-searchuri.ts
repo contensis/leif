@@ -1,4 +1,4 @@
-import { List, fromJS } from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 import queryString from 'query-string';
 import {
   selectors,
@@ -33,7 +33,7 @@ const searchUriTemplate = {
       // Check if we have a Plant or Pot filter first
       const newPath =
         currentFilter && currentFacet
-          ? `${currentPath}/${currentFacet}${currentFilter}`
+          ? `${currentPath}/${currentFacet}/${currentFilter}`
           : currentFacet
           ? `${currentPath}/${currentFacet}`
           : currentPath;
@@ -57,16 +57,13 @@ const searchUriTemplate = {
     // Lose stateFilters and currentSearch if a new
     // term is passed via an argument
     const stateFilters = term
-      ? List()
-      : List<string>(
-          getSelectedFilters(state, facet, searchContext).map((f: any) =>
-            f.join(',')
-          )
-        );
+      ? Map<string, string>()
+      : (getSelectedFilters(state, facet, searchContext).map((f: any) =>
+          f.join(',')
+        ) as Map<string, string>);
 
     // Delete these parameters as we do not need to see them in the uri
-    const modifiedStateFilters = stateFilters;
-    // const modifiedStateFilters = stateFilters.set('contentTypeId', '');
+    const modifiedStateFilters = stateFilters.set('contentTypeId', '');
 
     const currentSearch =
       !term && state.getIn(['routing', 'location', 'search']);
