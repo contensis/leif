@@ -35,7 +35,6 @@ const CLIENT_DEV_CONFIG = {
               emitWarning: true,
             },
           },
-          { loader: 'eslint-loader' },
         ],
       },
       {
