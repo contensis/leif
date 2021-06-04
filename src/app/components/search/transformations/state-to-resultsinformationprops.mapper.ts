@@ -4,18 +4,11 @@ import {
 } from '@zengenti/contensis-react-base/search';
 import mapJson from '~/core/util/json-mapper';
 
-const { getFacet, getResults, getSearchTerm, getTabsAndFacets } = selectors;
+const { getFacet, getPaging, getResults, getSearchTerm, getTabsAndFacets } =
+  selectors;
 
 // Helper functions to save repetition
-const pagingInfo = (state: any) => {
-  const facet = getFacet(state);
-  if (!facet) return {};
-
-  const pagingInfo = facet.get('pagingInfo');
-  if (!pagingInfo) return {};
-
-  return pagingInfo.toJS();
-};
+const pagingInfo = (state: any) => getPaging(state).toJS();
 
 const searchTerm = (state: any) => getSearchTerm(state);
 
@@ -40,8 +33,8 @@ const resultsInfoTemplate = {
   },
   hasResults: (state: any) => getResults(state).size > 0,
   start: (state: any) => {
-    const { pagesLoaded, pageSize } = pagingInfo(state);
-    const start = pagesLoaded[0] * pageSize + 1;
+    const { pagesLoaded = [], pageSize } = pagingInfo(state);
+    const start = pagesLoaded?.[0] * pageSize + 1;
 
     return start;
   },
@@ -58,9 +51,14 @@ const resultsInfoTemplate = {
     const { totalCount } = pagingInfo(state);
     return totalCount;
   },
+  noResultsText: {
+    title: () => 'Sorry, nothing matches your search',
+    text: () =>
+      'Try resetting any filters, checking for typos, or adjusting your search term.',
+  },
   resultsText: (state: any) => {
-    const { pagesLoaded, pageSize, totalCount } = pagingInfo(state);
-    const start = pagesLoaded[0] * pageSize + 1;
+    const { pagesLoaded = [], pageSize, totalCount } = pagingInfo(state);
+    const start = pagesLoaded?.[0] * pageSize + 1;
     const term = searchTerm(state);
     let end = start + pagesLoaded.length * pageSize - 1;
     if (end > totalCount) end = totalCount;

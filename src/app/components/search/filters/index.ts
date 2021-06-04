@@ -1,3 +1,4 @@
+import { SearchFilter } from '@zengenti/contensis-react-base/search';
 import {
   ContentTypes,
   BlogFilters as Blog,
@@ -24,7 +25,7 @@ export const BlogFilters = {
 
 // Product Listing Filters
 export const ProductFilters = {
-  [Product.contentTypeId]: {
+  contentTypeId: {
     title: 'Browse product types',
     contentTypeId: [ContentTypes.pot, ContentTypes.plant],
     fieldId: 'sys.contentTypeId',
@@ -40,14 +41,14 @@ export const ProductFilters = {
       },
     ],
   },
-  [Product.plantType]: {
+  plantType: {
     title: 'Browse plant types',
     contentTypeId: ContentTypes.plantType,
     fieldId: 'type.sys.id',
     isSingleSelect: true,
     items: [],
   },
-  [Product.colour]: {
+  colour: {
     title: 'Browse by colour',
     contentTypeId: ContentTypes.pot,
     fieldId: 'colour',
@@ -67,7 +68,7 @@ export const ProductFilters = {
       },
     ],
   },
-  [Product.potSize]: {
+  potSize: {
     title: 'Browse by pot size',
     contentTypeId: ContentTypes.pot,
     fieldId: 'potVariant.externalHeightCM',
@@ -88,7 +89,7 @@ export const ProductFilters = {
       },
     ],
   },
-  [Product.plantSize]: {
+  plantSize: {
     title: 'Browse by plant size',
     contentTypeId: ContentTypes.plant,
     fieldId: 'plantVariant.heightCM',
@@ -109,4 +110,4 @@ export const ProductFilters = {
       },
     ],
   },
-};
+} as { [key in keyof typeof Product]: SearchFilter };

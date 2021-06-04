@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 
 import searchMappers from './transformations';
 import { useSelector } from 'react-redux';
-import { withSearch } from '@zengenti/contensis-react-base/search';
+import {
+  withSearch,
+  Filters,
+  SearchProps,
+} from '@zengenti/contensis-react-base/search';
 import { selectScreenSize } from '~/redux/ui/selectors';
 import { selectCurrentPathname } from '~/redux/routing/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
 import SearchCard from '../searchCard/SearchCard';
+import SearchFilters from '../filters/Filters';
 import SearchInput from '../searchInput/SearchInput';
-import Filters from '../filters/Filters';
 import Button from '../button/Button';
 import Metadata from '../metadata/Metadata';
 import Card from '../card/Card';
@@ -19,50 +23,42 @@ import NoResults from '../noResults/NoResults';
 import PromotedContent from '../promotedContent/PromotedContent';
 
 // Layout
-import Region from '../../layout/Region';
-import MainLayout from '../../layout/MainLayout';
+import Region from '~/layout/Region';
+import MainLayout from '~/layout/MainLayout';
 
 interface Props {
   className?: string;
-  clearFilters: () => void;
-  currentFacet: string;
   exploreMore?: any[];
-  featuredProducts?: any;
-  filters?: any;
-  paging?: any;
   results?: any;
   resultsInfo?: any;
-  searchTerm: string;
-  tabsAndFacets: any;
-  updateCurrentFacet: () => void;
-  updatePageIndex: (ev: number) => void;
-  updateSearchTerm: (ev: any, num: number) => void;
-  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
 }
 
-const SearchContainer = ({
+const SearchContainer: React.FC<Props & SearchProps> = ({
   className,
   clearFilters,
   currentFacet,
+  currentPageIndex,
   exploreMore,
-  featuredProducts,
+  facets,
+  featuredResults,
   filters,
-  paging,
   results,
   resultsInfo,
   searchTerm,
-  tabsAndFacets,
   updateCurrentFacet,
   updatePageIndex,
   updateSearchTerm,
   updateSelectedFilters,
-}: Props) => {
-  const facets = tabsAndFacets && tabsAndFacets[0] && tabsAndFacets[0].facets;
-  const [windowOffset, setWindowOffset] = useState<number>(0);
+}) => {
+  const screenSize = useSelector(selectScreenSize);
+  const isDesktop = screenSize >= 1024 ? true : false;
 
-  const { hasLoadMore, hasResults, resultsText } = resultsInfo || {};
+  const { hasLoadMore, hasResults, noResultsText, resultsText } =
+    resultsInfo || {};
 
   /* eslint-disable */
+  const [windowOffset, setWindowOffset] = useState<number>(0);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, windowOffset);
@@ -77,17 +73,9 @@ const SearchContainer = ({
     updatePageIndex(pageIndex);
   };
 
-  const _handleSearchSubmit = (term: string) => {
-    updateSearchTerm(term, 0);
-  };
+  const _handleSearchSubmit = (term: string) => updateSearchTerm(term);
 
-  const screenSize = useSelector(selectScreenSize);
-  const isDesktop = screenSize >= 1024 ? true : false;
-
-  // Adding a 'Type' to each Facet Object.
-  const facetsArray = Object.keys(facets).map(key => facets[key]);
-  facetsArray.map(facet => (facet.type = 'facet'));
-  // Combining the Facets and Filter Arrays into one Object.
+  // Combining the Facets and Filter objects into one.
   const facetsAndFilters = { ...facets, ...filters };
 
   // Product Facet Filters
@@ -95,14 +83,14 @@ const SearchContainer = ({
   const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
 
   // Get the current pathname from state
-  const path: string = useSelector(selectCurrentPathname);
+  const path = useSelector(selectCurrentPathname) as string;
 
   // Depending on the path toggle the correct filters
   useEffect(() => {
-    if (path && path.includes('pot')) {
+    if (path?.includes('pot')) {
       setIsPlantFilterSelected(false);
       setIsPotFilterSelected(true);
-    } else if (path && path.includes('plant')) {
+    } else if (path?.includes('plant')) {
       setIsPlantFilterSelected(true);
       setIsPotFilterSelected(false);
     } else {
@@ -111,30 +99,35 @@ const SearchContainer = ({
     }
   }, [path]);
 
-  const potFilters: any = {};
-  const plantFilters: any = {};
-  const defaultFilters: any = {};
+  const potFilters = {} as Filters;
+  const plantFilters = {} as Filters;
+  const defaultFilters = {} as Filters;
 
-  Object.keys(filters).map((fKey: any) => {
+  Object.entries(filters || {}).map(([fKey, filter]) => {
     switch (fKey) {
       case 'colour':
       case 'potSize': {
-        potFilters[fKey] = filters[fKey];
+        potFilters[fKey] = filter;
         break;
       }
       case 'plantType':
       case 'plantSize': {
-        plantFilters[fKey] = filters[fKey];
+        plantFilters[fKey] = filter;
         break;
       }
       default: {
-        plantFilters[fKey] = filters[fKey];
-        potFilters[fKey] = filters[fKey];
-        defaultFilters[fKey] = filters[fKey];
+        plantFilters[fKey] = filter;
+        potFilters[fKey] = filter;
+        defaultFilters[fKey] = filter;
         break;
       }
     }
   });
+  const searchFilters = isPotFilterSelected
+    ? potFilters
+    : isPlantFilterSelected
+    ? plantFilters
+    : defaultFilters;
 
   return (
     <MainLayout>
@@ -146,7 +139,7 @@ const SearchContainer = ({
         <Region width="large" margin="none" padding="small">
           <h1 className="search__title">Search results</h1>
           <div className="search__header">
-            <Filters
+            <SearchFilters
               className="search__facets"
               filters={isDesktop ? facets : facetsAndFilters}
               hasResetBtn={isDesktop ? false : true}
@@ -178,40 +171,33 @@ const SearchContainer = ({
               )}
               {!hasResults && (
                 <NoResults
-                  title="Sorry, nothing matches your search"
-                  text="Try resetting any filters, checking for typos, or adjusting your search term."
+                  title={noResultsText.title}
+                  text={noResultsText.text}
                 />
               )}
             </div>
             {isDesktop && hasResults && (
               <>
                 {currentFacet !== 'all' && (
-                  <Filters
+                  <SearchFilters
                     className="search__filters"
-                    filters={
-                      isPotFilterSelected
-                        ? potFilters
-                        : isPlantFilterSelected
-                        ? plantFilters
-                        : defaultFilters
-                    }
-                    updateSelectedFilters={updateSelectedFilters}
-                    updateCurrentFacet={updateCurrentFacet}
-                    currentFacet={currentFacet}
                     clearFilters={clearFilters}
+                    currentFacet={currentFacet}
+                    filters={searchFilters}
                     hasResetBtn={true}
+                    updateCurrentFacet={updateCurrentFacet}
+                    updateSelectedFilters={updateSelectedFilters}
                   />
                 )}
                 {hasResults &&
                   currentFacet === 'all' &&
-                  featuredProducts &&
-                  featuredProducts.length >= 1 && (
+                  featuredResults.length > 0 && (
                     <div className="search__featured-products">
-                      {featuredProducts.map(
-                        (featuredProduct: any, idx: number) => {
+                      {featuredResults
+                        .slice(-2)
+                        .map((featuredProduct: any, idx: number) => {
                           return <Card key={idx} {...featuredProduct} />;
-                        }
-                      )}
+                        })}
                     </div>
                   )}
               </>
@@ -223,7 +209,7 @@ const SearchContainer = ({
               type="button"
               label="Load more"
               icon="arrow-down"
-              onClick={() => _handleLoadMore(paging.pageIndex + 1)}
+              onClick={() => _handleLoadMore(currentPageIndex + 1)}
               btnTheme="secondary"
               isHollow
             />
@@ -243,21 +229,8 @@ const SearchContainer = ({
 
 SearchContainer.propTypes = {
   className: PropTypes.string,
-  currentFacet: PropTypes.string,
-  currentPageIndex: PropTypes.number,
-  currentTabIndex: PropTypes.number,
-  featured: PropTypes.array,
   results: PropTypes.array,
   resultsInfo: PropTypes.object,
-  searchTerm: PropTypes.string,
-  tabsAndFacets: PropTypes.array,
-  updateCurrentFacet: PropTypes.func,
-  updateCurrentTab: PropTypes.func,
-  updateSearchTerm: PropTypes.func,
-  updateSelectedFilters: PropTypes.func,
-  updatePageIndex: PropTypes.func,
-  paging: PropTypes.object,
-  filters: PropTypes.object,
 };
 
 export default withSearch(searchMappers)(SearchContainer);

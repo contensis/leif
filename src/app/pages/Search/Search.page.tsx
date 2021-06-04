@@ -4,16 +4,6 @@ import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 const SearchPage = () => {
-  const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
-  useEffect(() => {
-    setFeaturedProductOptions({
-      id: 'featuredProduct',
-      mapper: mapEntriesToResults,
-    });
-  }, []);
-  const { results: featuredProducts } = useMinilist(featuredProductOptions);
-  featuredProducts.length = 2;
-
   const [exploreMoreOptions, setExploreMoreOptions] = useState<any>();
   useEffect(() => {
     setExploreMoreOptions({
@@ -23,12 +13,7 @@ const SearchPage = () => {
   }, []);
   const { results: exploreMore } = useMinilist(exploreMoreOptions);
 
-  return (
-    <SearchContainer
-      featuredProducts={featuredProducts}
-      exploreMore={exploreMore}
-    />
-  );
+  return <SearchContainer exploreMore={exploreMore} />;
 };
 
 export default SearchPage;

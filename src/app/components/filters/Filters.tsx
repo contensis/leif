@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  Facet,
+  Filter,
+  SearchProps,
+} from '@zengenti/contensis-react-base/search';
 
 import FiltersStyled from './Filters.styled';
 
@@ -11,22 +16,22 @@ import { setHasDropdownFiltersSelected } from '~/redux/ui/actions';
 
 export interface Props {
   className?: string;
-  filters: any;
-  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
-  clearFilters: () => void;
-  updateCurrentFacet: (fKey: string) => void;
-  currentFacet?: string;
+  clearFilters: SearchProps['clearFilters'];
+  currentFacet: string;
+  filters: { [key: string]: Facet | Filter };
   hasResetBtn?: boolean;
+  updateCurrentFacet: SearchProps['updateCurrentFacet'];
+  updateSelectedFilters: SearchProps['updateSelectedFilters'];
 }
 
 const Filters = ({
   className,
-  filters,
-  updateSelectedFilters,
   clearFilters,
-  updateCurrentFacet,
   currentFacet,
+  filters,
   hasResetBtn = false,
+  updateCurrentFacet,
+  updateSelectedFilters,
 }: Props) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
@@ -38,43 +43,43 @@ const Filters = ({
     selectHasDropdownFiltersSelected
   );
 
+  const isFacet = (object: any): object is Facet => 'queryParams' in object;
+
   const _RenderFilters = () => {
-    return Object.keys(filters).map((fKey: any, idx: number) => {
-      switch (filters[fKey].type) {
-        case 'facet': {
-          const totalCount =
-            filters[fKey].results && filters[fKey].results.length;
-          const label = filters[fKey].title;
-          return (
-            <Button
-              className="filter__facet"
-              key={idx}
-              onClick={() => updateCurrentFacet(fKey)}
-              btnTheme="secondary"
-              label={`${label} (${totalCount})`}
-              isHollow={currentFacet !== fKey}
-            />
-          );
-        }
-        case 'dropdown':
-        default:
-          return (
-            <Dropdown
-              className="filter__dropdown"
-              key={idx}
-              clearFilters={clearFilters}
-              filterGroupKey={fKey}
-              filters={filters[fKey].items}
-              title={filters[fKey].title}
-              updateSelectedFilters={updateSelectedFilters}
-              _setHasDropdownFiltersSelected={_setHasDropdownFiltersSelected}
-            />
-          );
+    // For each filter (or facet) do a type-check and recast as
+    // Filter or Facet and then render a Dropdown or Button
+    return Object.entries(filters).map(([fKey, filterOrFacet], idx) => {
+      if (isFacet(filterOrFacet)) {
+        const facet = filterOrFacet;
+        return (
+          <Button
+            className="filter__facet"
+            key={idx}
+            onClick={() => updateCurrentFacet(fKey)}
+            btnTheme="secondary"
+            label={`${facet.title} (${facet?.pagingInfo?.totalCount})`}
+            isHollow={currentFacet !== fKey}
+          />
+        );
+      } else {
+        const filter = filterOrFacet;
+        return (
+          <Dropdown
+            className="filter__dropdown"
+            key={idx}
+            clearFilters={clearFilters}
+            filterGroupKey={fKey}
+            filters={filter?.items}
+            title={filter.title || ''}
+            updateSelectedFilters={updateSelectedFilters}
+            _setHasDropdownFiltersSelected={_setHasDropdownFiltersSelected}
+          />
+        );
       }
     });
   };
 
-  if (!filters || filters.length < 1) return null;
+  if (!filters || Object.keys(filters).length < 1) return null;
   return (
     <FiltersStyled className={className} showFilters={showFilters}>
       <Button

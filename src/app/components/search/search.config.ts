@@ -1,4 +1,8 @@
 import {
+  SearchConfig,
+  SearchFacet,
+} from '@zengenti/contensis-react-base/search';
+import {
   Listings,
   ContentTypes,
   SearchFacets,
@@ -7,7 +11,7 @@ import {
   BlogFields,
   ContentFields,
   ProductFields,
-} from '../../core/schema';
+} from '~/core/schema';
 
 // Filters
 import { BlogFilters, ProductFilters } from './filters';
@@ -18,10 +22,9 @@ import { base as WeightedFields } from './weightedFields.config';
 // The config defined here is loaded into initialState
 // and is used to drive the how the site search works
 export default {
-  tabs: [{ id: 0 }],
+  tabs: [{ id: 0, label: '' }],
   facets: {
-    [SearchFacets.all]: {
-      tabId: 0,
+    all: {
       title: 'All results',
       projectId: 'leif',
       queryParams: {
@@ -33,6 +36,12 @@ export default {
           ContentTypes.plant,
           ContentTypes.pot,
         ],
+        featuredResults: {
+          contentTypeId: [ContentTypes.plant, ContentTypes.pot],
+          count: 3,
+          fieldId: 'tags.entryTitle',
+          fieldValue: 'promoted',
+        },
         fields: [
           ...BaseFields,
           ...BlogFields,
@@ -45,7 +54,7 @@ export default {
       },
       filters: {},
     },
-    [SearchFacets.blog]: {
+    blog: {
       title: 'Blogs',
       queryParams: {
         loadMorePaging: true,
@@ -56,7 +65,7 @@ export default {
       },
       filters: BlogFilters,
     },
-    [SearchFacets.product]: {
+    product: {
       title: 'Product',
       queryParams: {
         loadMorePaging: true,
@@ -67,7 +76,7 @@ export default {
       },
       filters: ProductFilters,
     },
-  },
+  } as { [key in keyof typeof SearchFacets]: SearchFacet },
   listings: {
     [Listings.blog]: {
       title: 'Blogs',
@@ -173,4 +182,4 @@ export default {
       },
     },
   },
-};
+} as SearchConfig;
