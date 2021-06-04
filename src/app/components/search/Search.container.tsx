@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import searchMappers from './transformations';
 import { useSelector } from 'react-redux';
-import {
-  withSearch,
-  Filters,
-  SearchProps,
-} from '@zengenti/contensis-react-base/search';
+import { withSearch, SearchProps } from '@zengenti/contensis-react-base/search';
 import { selectScreenSize } from '~/redux/ui/selectors';
-import { selectCurrentPathname } from '~/redux/routing/selectors';
 
 // Components
 import SearchStyled from './Search.styled';
-import SearchCard from '../searchCard/SearchCard';
+import SearchCard, {
+  Props as SearchCardProps,
+} from '~/components/searchCard/SearchCard';
 import SearchFilters from '../filters/Filters';
 import SearchInput from '../searchInput/SearchInput';
 import Button from '../button/Button';
@@ -25,20 +21,22 @@ import PromotedContent from '../promotedContent/PromotedContent';
 // Layout
 import Region from '~/layout/Region';
 import MainLayout from '~/layout/MainLayout';
+import useProductFilters from './hooks/useProductFilters';
+import useWindowScroll from './hooks/useWindowScroll';
+import useExploreMore from './hooks/useExploreMore';
+import { SearchFacets } from '~/core/schema';
 
 interface Props {
   className?: string;
-  exploreMore?: any[];
-  results?: any;
-  resultsInfo?: any;
 }
 
-const SearchContainer: React.FC<Props & SearchProps> = ({
+// The withSearch HoC decorator below will inject the SearchProps
+// in addition to our component Props
+const SearchContainer: React.FC<Props & SearchProps<SearchCardProps>> = ({
   className,
   clearFilters,
   currentFacet,
   currentPageIndex,
-  exploreMore,
   facets,
   featuredResults,
   filters,
@@ -50,84 +48,27 @@ const SearchContainer: React.FC<Props & SearchProps> = ({
   updateSearchTerm,
   updateSelectedFilters,
 }) => {
+  const [, setWindowOffset] = useWindowScroll();
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 
+  // Destructure the elements we've mapped into our resultsInfo prop
   const { hasLoadMore, hasResults, noResultsText, resultsText } =
     resultsInfo || {};
 
-  /* eslint-disable */
-  const [windowOffset, setWindowOffset] = useState<number>(0);
+  // Populates 'Explore more' promo content if no main search results
+  const exploreMore = useExploreMore(hasResults);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, windowOffset);
-    }
-  }, []);
-  /* eslint-enable */
+  // Handles rendering different filters depending on the first selected filter option
+  const productSearchFilters = useProductFilters(filters);
 
+  // Search action handlers
   const _handleLoadMore = (pageIndex: number) => {
     if (typeof window !== 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);
   };
-
-  const _handleSearchSubmit = (term: string) => updateSearchTerm(term);
-
-  // Combining the Facets and Filter objects into one.
-  const facetsAndFilters = { ...facets, ...filters };
-
-  // Product Facet Filters
-  const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
-  const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
-
-  // Get the current pathname from state
-  const path = useSelector(selectCurrentPathname) as string;
-
-  // Depending on the path toggle the correct filters
-  useEffect(() => {
-    if (path?.includes('pot')) {
-      setIsPlantFilterSelected(false);
-      setIsPotFilterSelected(true);
-    } else if (path?.includes('plant')) {
-      setIsPlantFilterSelected(true);
-      setIsPotFilterSelected(false);
-    } else {
-      setIsPotFilterSelected(false);
-      setIsPlantFilterSelected(false);
-    }
-  }, [path]);
-
-  const potFilters = {} as Filters;
-  const plantFilters = {} as Filters;
-  const defaultFilters = {} as Filters;
-
-  Object.entries(filters || {}).map(([fKey, filter]) => {
-    switch (fKey) {
-      case 'colour':
-      case 'potSize': {
-        potFilters[fKey] = filter;
-        break;
-      }
-      case 'plantType':
-      case 'plantSize': {
-        plantFilters[fKey] = filter;
-        break;
-      }
-      default: {
-        plantFilters[fKey] = filter;
-        potFilters[fKey] = filter;
-        defaultFilters[fKey] = filter;
-        break;
-      }
-    }
-  });
-  const searchFilters = isPotFilterSelected
-    ? potFilters
-    : isPlantFilterSelected
-    ? plantFilters
-    : defaultFilters;
 
   return (
     <MainLayout>
@@ -141,14 +82,15 @@ const SearchContainer: React.FC<Props & SearchProps> = ({
           <div className="search__header">
             <SearchFilters
               className="search__facets"
-              filters={isDesktop ? facets : facetsAndFilters}
-              hasResetBtn={isDesktop ? false : true}
+              clearFilters={clearFilters}
               currentFacet={currentFacet}
+              // Combining the Facets and Filter objects into one for mobile.
+              filters={isDesktop ? facets : { ...facets, ...filters }}
+              hasResetBtn={isDesktop ? false : true}
               updateCurrentFacet={updateCurrentFacet}
               updateSelectedFilters={updateSelectedFilters}
-              clearFilters={clearFilters}
             />
-            <SearchInput searchTerm={searchTerm} _func={_handleSearchSubmit} />
+            <SearchInput searchTerm={searchTerm} _func={updateSearchTerm} />
           </div>
           {hasResults && resultsText && (
             <p
@@ -160,11 +102,11 @@ const SearchContainer: React.FC<Props & SearchProps> = ({
             <div className="search__results">
               {hasResults && (
                 <>
-                  {results.map((res: any, idx: number) => (
+                  {results.map((result, idx) => (
                     <SearchCard
                       className="search__result-card"
                       key={idx}
-                      {...res}
+                      {...result}
                     />
                   ))}
                 </>
@@ -178,26 +120,26 @@ const SearchContainer: React.FC<Props & SearchProps> = ({
             </div>
             {isDesktop && hasResults && (
               <>
-                {currentFacet !== 'all' && (
+                {currentFacet !== SearchFacets.all && (
                   <SearchFilters
                     className="search__filters"
                     clearFilters={clearFilters}
                     currentFacet={currentFacet}
-                    filters={searchFilters}
+                    filters={productSearchFilters}
                     hasResetBtn={true}
                     updateCurrentFacet={updateCurrentFacet}
                     updateSelectedFilters={updateSelectedFilters}
                   />
                 )}
                 {hasResults &&
-                  currentFacet === 'all' &&
+                  currentFacet === SearchFacets.all &&
                   featuredResults.length > 0 && (
                     <div className="search__featured-products">
                       {featuredResults
                         .slice(-2)
-                        .map((featuredProduct: any, idx: number) => {
-                          return <Card key={idx} {...featuredProduct} />;
-                        })}
+                        .map((featuredProduct: any, idx: number) => (
+                          <Card key={idx} {...featuredProduct} />
+                        ))}
                     </div>
                   )}
               </>
@@ -225,12 +167,6 @@ const SearchContainer: React.FC<Props & SearchProps> = ({
       </SearchStyled>
     </MainLayout>
   );
-};
-
-SearchContainer.propTypes = {
-  className: PropTypes.string,
-  results: PropTypes.array,
-  resultsInfo: PropTypes.object,
 };
 
 export default withSearch(searchMappers)(SearchContainer);

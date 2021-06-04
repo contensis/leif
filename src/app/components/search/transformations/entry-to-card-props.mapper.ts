@@ -1,13 +1,13 @@
+import { mapEntries, mapComposer } from '~/core/util/json-mapper';
 import { ContentTypes, CardTypes } from '~/core/schema';
 
-import { selectCurrentPath } from '~/core/redux/selectors';
+import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 
-import { mapEntries, mapComposer } from '~/core/util/json-mapper';
 import dateWithSuffix from '~/utils/dateWithSuffix';
 import { _calReadTime } from '~/utils/calculateReadTime';
-
-import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import { _truncateString } from '~/utils/truncateString';
+
+import { Props as SearchCardProps } from '~/components/searchCard/SearchCard';
 
 const baseMapping = {
   title: 'entryTitle',
@@ -15,14 +15,9 @@ const baseMapping = {
     $path: ['kicker', 'leadParagraph', 'summary', 'description'],
     $formatting: (text: string) => _truncateString(text, 124),
   },
-  uri: {
-    $path: 'sys',
-    $formatting: (sys: any) => sys.uri,
-  },
+  uri: 'sys.uri',
   imageUri: {
-    $path: 'heroImage',
-    $formatting: (img: any) =>
-      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $path: 'heroImage.asset.sys.uri',
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
   imageAlt: ['heroImage.altText', 'heroImage.caption', 'heroImage.asset.title'],
@@ -32,13 +27,7 @@ export const reviewBlockMapping = {
   ...baseMapping,
   quote: 'text',
   photo: {
-    $path: 'person',
-    $formatting: (person: any) =>
-      person &&
-      person.photo &&
-      person.photo.asset &&
-      person.photo.asset.sys &&
-      person.photo.asset.sys.uri,
+    $path: 'person.photo.asset.sys.uri',
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
   name: 'person.entryTitle',
@@ -52,13 +41,13 @@ export const blogCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Blog,
   imageUri: {
-    $path: 'primaryImage',
-    $formatting: (img: any) =>
-      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $path: 'primaryImage.asset.sys.uri',
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
-  date: ({ sys }: any) =>
-    dateWithSuffix(sys && sys.version && sys.version.published),
+  date: {
+    $path: 'sys.version.published',
+    $formatting: ({ published }: any) => dateWithSuffix(published),
+  },
   imageAlt: [
     'primaryImage.altText',
     'primaryImage.caption',
@@ -74,17 +63,10 @@ export const productCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Product,
   title: ['productName'],
-  price: {
-    $path: ['plantVariant', 'potVariant'],
-    $formatting: (v: any) => {
-      return v.price;
-    },
-  },
+  price: ['plantVariant.price', 'potVariant.price'],
   productType: 'type.entryTitle',
   imageUri: {
-    $path: 'primaryImage',
-    $formatting: (img: any) =>
-      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $path: 'primaryImage.asset.sys.uri',
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
   imageAlt: [
@@ -92,10 +74,7 @@ export const productCardMapping = {
     'primaryImage.caption',
     'primaryImage.asset.title',
   ],
-  ctaLink: {
-    $path: 'sys',
-    $formatting: (sys: any) => sys.uri,
-  },
+  ctaLink: 'sys.uri',
   ctaText: () => 'Find out more',
   isRenderedAsLink: () => true,
   isPromoted: {
@@ -113,13 +92,7 @@ export const mappers = {
   [ContentTypes.review]: reviewBlockMapping,
 };
 
-const mapEntriesToResults = (entries: any, context?: string, state?: any) => {
-  let sourceArray = entries;
-  if (context === 'listings') {
-    const currentPath = selectCurrentPath(state);
-    sourceArray = entries.map((e: any) => ({ ...e, currentPath }));
-  }
-  return mapEntries(sourceArray, mappers);
-};
+const mapEntriesToResults = (entries: any): SearchCardProps[] =>
+  mapEntries(entries, mappers);
 
 export default mapEntriesToResults;
