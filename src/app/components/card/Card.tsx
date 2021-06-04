@@ -5,38 +5,38 @@ import Icon from '../icon/Icon';
 import Rating from '../rating/Rating';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
-import { selectCurrentPath } from '~/core/redux/selectors';
-import { useSelector } from 'react-redux';
+
 export interface Props {
   className?: string;
-  type: string;
-  title: string;
-  text?: string;
-  imageUri: string;
-  imageAlt: string;
   date?: string;
-  readTime?: string;
-  price: number[];
-  rating?: string;
+  imageAlt: string;
+  imageUri: string;
   isPromoted: boolean;
+  path: string;
+  price: number[];
+  readTime?: string;
+  rating?: string;
+  text?: string;
+  title: string;
+  type: string;
   uri: string;
 }
 
 const Card = ({
   className,
-  type,
-  title,
-  text,
-  imageUri,
-  imageAlt,
-  readTime,
   date,
-  price,
-  rating,
+  imageAlt,
+  imageUri,
   isPromoted,
+  path,
+  price,
+  readTime,
+  rating,
+  text,
+  title,
+  type,
   uri,
 }: Props) => {
-  const path = useSelector(selectCurrentPath);
   const CardData = (type: string) => {
     switch (type) {
       case 'blog':

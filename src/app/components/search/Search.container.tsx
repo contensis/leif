@@ -3,6 +3,8 @@ import React from 'react';
 import searchMappers from './transformations';
 import { useSelector } from 'react-redux';
 import { withSearch, SearchProps } from '@zengenti/contensis-react-base/search';
+
+import { selectCurrentPath } from '~/core/redux/selectors';
 import { selectScreenSize } from '~/redux/ui/selectors';
 
 // Components
@@ -51,6 +53,7 @@ const SearchContainer: React.FC<
   updateSelectedFilters,
 }) => {
   const [, setWindowOffset] = useWindowScroll();
+  const path = useSelector(selectCurrentPath) as string;
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 
@@ -135,7 +138,11 @@ const SearchContainer: React.FC<
                   featuredResults.length > 0 && (
                     <div className="search__featured-products">
                       {featuredResults.slice(-2).map((featuredProduct, idx) => (
-                        <Card key={idx} {...(featuredProduct as CardProps)} />
+                        <Card
+                          key={idx}
+                          {...(featuredProduct as CardProps)}
+                          path={path}
+                        />
                       ))}
                     </div>
                   )}

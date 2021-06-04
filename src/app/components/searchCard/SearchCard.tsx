@@ -19,14 +19,14 @@ export interface Props {
 
 const SearchCard = ({
   className,
-  type,
-  title,
-  text,
-  imageUri,
-  imageAlt,
-  readTime,
   date,
+  imageAlt,
+  imageUri,
   price,
+  readTime,
+  text,
+  title,
+  type,
   uri,
 }: Props) => {
   const SearchCard = (type: string) => {
