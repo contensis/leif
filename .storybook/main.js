@@ -7,6 +7,9 @@ module.exports = {
     '@storybook/addon-essentials',
     // '@storybook/addon-a11y',
   ],
+  typescript: {
+    reactDocgen: 'none',
+  },
   webpackFinal: config => {
     config.module.rules.push({
       resolve: {
