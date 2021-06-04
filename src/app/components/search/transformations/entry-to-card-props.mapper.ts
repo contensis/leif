@@ -7,6 +7,7 @@ import dateWithSuffix from '~/utils/dateWithSuffix';
 import { _calReadTime } from '~/utils/calculateReadTime';
 import { _truncateString } from '~/utils/truncateString';
 
+import { Props as CardProps } from '~/components/card/Card';
 import { Props as SearchCardProps } from '~/components/searchCard/SearchCard';
 
 const baseMapping = {
@@ -92,7 +93,7 @@ export const mappers = {
   [ContentTypes.review]: reviewBlockMapping,
 };
 
-const mapEntriesToResults = (entries: any): SearchCardProps[] =>
+const mapEntriesToResults = (entries: any): (SearchCardProps | CardProps)[] =>
   mapEntries(entries, mappers);
 
 export default mapEntriesToResults;

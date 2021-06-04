@@ -33,16 +33,22 @@ const Filters = ({
   updateCurrentFacet,
   updateSelectedFilters,
 }: Props) => {
-  const [showFilters, setShowFilters] = useState<boolean>(false);
-
   const dispatch = useDispatch();
-  const _setHasDropdownFiltersSelected = (val: boolean) => {
-    dispatch(setHasDropdownFiltersSelected(val));
-  };
+  const [showFilters, setShowFilters] = useState(false);
+
+  // TODO: Question? Is this redux stuff actually required?
+  // can the same functionality be handled in component state instead?
+
+  // Select a value from redux
   const hasDropdownFiltersSelected = useSelector(
     selectHasDropdownFiltersSelected
   );
 
+  // Dispatch an action to redux
+  const _setHasDropdownFiltersSelected = (val: boolean) =>
+    dispatch(setHasDropdownFiltersSelected(val));
+
+  // Type-checking function for facet objects that are included in the filters array
   const isFacet = (object: any): object is Facet => 'queryParams' in object;
 
   const _RenderFilters = () => {

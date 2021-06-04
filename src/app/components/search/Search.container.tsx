@@ -14,7 +14,7 @@ import SearchFilters from '../filters/Filters';
 import SearchInput from '../searchInput/SearchInput';
 import Button from '../button/Button';
 import Metadata from '../metadata/Metadata';
-import Card from '../card/Card';
+import Card, { Props as CardProps } from '../card/Card';
 import NoResults from '../noResults/NoResults';
 import PromotedContent from '../promotedContent/PromotedContent';
 
@@ -32,7 +32,9 @@ interface Props {
 
 // The withSearch HoC decorator below will inject the SearchProps
 // in addition to our component Props
-const SearchContainer: React.FC<Props & SearchProps<SearchCardProps>> = ({
+const SearchContainer: React.FC<
+  Props & SearchProps<SearchCardProps | CardProps>
+> = ({
   className,
   clearFilters,
   currentFacet,
@@ -100,17 +102,14 @@ const SearchContainer: React.FC<Props & SearchProps<SearchCardProps>> = ({
           )}
           <div className="search__results-wrapper">
             <div className="search__results">
-              {hasResults && (
-                <>
-                  {results.map((result, idx) => (
-                    <SearchCard
-                      className="search__result-card"
-                      key={idx}
-                      {...result}
-                    />
-                  ))}
-                </>
-              )}
+              {hasResults &&
+                results.map((result, idx) => (
+                  <SearchCard
+                    className="search__result-card"
+                    key={idx}
+                    {...result}
+                  />
+                ))}
               {!hasResults && (
                 <NoResults
                   title={noResultsText.title}
@@ -135,11 +134,9 @@ const SearchContainer: React.FC<Props & SearchProps<SearchCardProps>> = ({
                   currentFacet === SearchFacets.all &&
                   featuredResults.length > 0 && (
                     <div className="search__featured-products">
-                      {featuredResults
-                        .slice(-2)
-                        .map((featuredProduct: any, idx: number) => (
-                          <Card key={idx} {...featuredProduct} />
-                        ))}
+                      {featuredResults.slice(-2).map((featuredProduct, idx) => (
+                        <Card key={idx} {...(featuredProduct as CardProps)} />
+                      ))}
                     </div>
                   )}
               </>

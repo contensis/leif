@@ -18040,7 +18040,7 @@ zengenti-buildstartup-package@^0.0.13:
 
 "zengenti-search-package@git+https://gitlab+deploy-token-5:XKRGRE1p2PrFAxnWwLNz@gitlab.zengenti.com/zengenti-packages/search.git#typescript-conversion":
   version "1.0.0"
-  resolved "git+https://gitlab+deploy-token-5:XKRGRE1p2PrFAxnWwLNz@gitlab.zengenti.com/zengenti-packages/search.git#6535902267440ed78e3e947f0a5f567d63d9deae"
+  resolved "git+https://gitlab+deploy-token-5:XKRGRE1p2PrFAxnWwLNz@gitlab.zengenti.com/zengenti-packages/search.git#c52c42a70a1bee14169af7a208f133bc9164b2f1"
   dependencies:
     custom-env "^1.0.2"
     file-loader "^4.0.0"
