@@ -53,7 +53,7 @@ const Card = ({
           </>
         );
       case 'product': {
-        const priceText = price.length > 1 ? `${Math.min(...price)}+` : price;
+        const priceText = price?.length > 1 ? `${Math.min(...price)}+` : price;
         return (
           <>
             <div className="card__thumbnail-wrapper">

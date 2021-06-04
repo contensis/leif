@@ -4,6 +4,7 @@ import searchMappers from './transformations';
 import { useSelector } from 'react-redux';
 import { withSearch, SearchProps } from '@zengenti/contensis-react-base/search';
 
+import { SearchFacets } from '~/core/schema';
 import { selectCurrentPath } from '~/core/redux/selectors';
 import { selectScreenSize } from '~/redux/ui/selectors';
 
@@ -26,7 +27,6 @@ import MainLayout from '~/layout/MainLayout';
 import useProductFilters from './hooks/useProductFilters';
 import useWindowScroll from './hooks/useWindowScroll';
 import useExploreMore from './hooks/useExploreMore';
-import { SearchFacets } from '~/core/schema';
 
 interface Props {
   className?: string;
