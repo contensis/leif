@@ -1,4 +1,4 @@
-import { List, Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import queryString from 'query-string';
 import {
   selectors,
@@ -32,7 +32,7 @@ const searchUriTemplate = {
 
       // Check if we have a Plant or Pot filter first
       const newPath =
-        currentFilter && currentFacet
+        currentFilter?.length > 0 && currentFacet
           ? `${currentPath}/${currentFacet}/${currentFilter}`
           : currentFacet
           ? `${currentPath}/${currentFacet}`

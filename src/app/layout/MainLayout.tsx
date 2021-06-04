@@ -14,13 +14,15 @@ interface Props {
 
 const MainLayout = ({ className, children, isLight = false }: Props) => {
   const dispatch = useDispatch();
-  /* eslint-disable */
+
+  // TODO: is this worth debouncing as a resize fires many excess
+  // actions to redux before landing on the final value
+
   useEffect(() => {
     window.addEventListener('resize', () => {
       dispatch({ type: BROWSER_RESIZE });
     });
   }, []);
-  /* eslint-enable */
 
   return (
     <>

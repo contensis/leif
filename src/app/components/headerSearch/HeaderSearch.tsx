@@ -46,6 +46,10 @@ const HeaderSearch = ({
     }
   };
 
+  const _handleKeyPress = (evt: any) => {
+    if (evt.key === 'Enter') window.location.href = `/search?term=${value}`;
+  };
+
   if (isClient()) {
     document.addEventListener('keydown', _handleKeyDown);
   }
@@ -65,8 +69,9 @@ const HeaderSearch = ({
           defaultValue={term}
           autoComplete="off"
           aria-label="Search site"
-          onChange={(e: any) => _handleChange(e.target.value)}
           onBlur={(e: any) => _handleChange(e.target.value)}
+          onChange={(e: any) => _handleChange(e.target.value)}
+          onKeyPress={_handleKeyPress}
         />
         <a
           className="header-search__site-search--link"

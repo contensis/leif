@@ -51,7 +51,7 @@ const SearchCard = ({
           </>
         );
       case 'product': {
-        const priceText = price.length > 1 ? `${Math.min(...price)}+` : price;
+        const priceText = price?.length > 1 ? `${Math.min(...price)}+` : price;
         return (
           <>
             <Image

@@ -64,7 +64,10 @@ export const productCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Product,
   title: ['productName'],
-  price: ['plantVariant.price', 'potVariant.price'],
+  price: {
+    $path: ['plantVariant', 'potVariant'],
+    $formatting: (v: any) => v.price,
+  },
   productType: 'type.entryTitle',
   imageUri: {
     $path: 'primaryImage.asset.sys.uri',
