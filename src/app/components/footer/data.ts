@@ -4,7 +4,7 @@ export default [
     links: [
       {
         title: 'Careers',
-        uri: '/',
+        uri: 'https://www.zengenti.com/careers',
       },
     ],
   },
@@ -13,19 +13,19 @@ export default [
     links: [
       {
         title: 'Shipping',
-        uri: '/',
+        uri: '/about/shipping',
       },
       {
         title: 'Returns',
-        uri: '/',
+        uri: '/about/returns',
       },
       {
         title: 'Terms and conditions',
-        uri: '/',
+        uri: '/about/terms-and-conditions',
       },
       {
         title: 'Privacy and cookies',
-        uri: '/',
+        uri: '/about/privacy-policy',
       },
     ],
   },
@@ -34,7 +34,7 @@ export default [
     links: [
       {
         title: 'Contact',
-        uri: '/',
+        uri: '/about/contact',
       },
     ],
   },
