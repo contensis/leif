@@ -7,7 +7,9 @@ const SlickSliderStyled = styled.div`
         margin-top: 24px;
         .slick-track {
           margin-left: auto;
-          justify-content: flex-end;
+          width: 100% !important;
+          max-width: 730px;
+          transform: unset !important;
         }
         .slick-slide {
           width: 102px !important;

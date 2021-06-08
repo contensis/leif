@@ -47,7 +47,7 @@ const SlickSlider = ({
   const settings = {
     afterChange: afterChangeFunc,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow,
     slidesToScroll: 1,
@@ -64,7 +64,7 @@ const SlickSlider = ({
   const thumbsSlidesToShow = slides.length >= 6 ? 6 : 2;
   const settingsThumbs = {
     dots: false,
-    infinite: slides.length === 1 ? false : true,
+    infinite: false,
     speed: 500,
     slidesToShow: thumbsSlidesToShow,
     arrows: false,
