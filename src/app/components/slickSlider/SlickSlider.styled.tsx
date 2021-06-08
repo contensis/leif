@@ -7,9 +7,13 @@ const SlickSliderStyled = styled.div`
         margin-top: 24px;
         .slick-track {
           margin-left: auto;
+          justify-content: flex-end;
         }
         .slick-slide {
-          padding: 0 12px;
+          width: 102px !important;
+          height: 96px !important;
+          padding: 0;
+          margin: 0 12px;
         }
       }
       .slick__main-slide {

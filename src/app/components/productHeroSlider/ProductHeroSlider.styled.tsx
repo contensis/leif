@@ -9,13 +9,15 @@ const ProductHeroSliderStyled = styled.div`
   ${({ theme, isModalOpen }: Props) => {
     return css`
       position: relative;
+      overflow: hidden;
+      padding: 40px 0 0 0;
       &:before {
         content: '';
         background-image: url('/static/img/svgs/shapes/product-hero-shape.svg');
         background-repeat: no-repeat;
         position: absolute;
         overflow-x: hidden;
-        top: -40px;
+        top: 0;
         right: -30%;
         height: 80px;
         max-width: 220px;

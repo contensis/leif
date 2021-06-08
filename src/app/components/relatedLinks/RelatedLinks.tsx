@@ -10,6 +10,13 @@ export interface Props {
   links?: any;
 }
 
+interface MappedResultProps {
+  title: string;
+  path: string;
+  imageUri: string;
+  imageAlt: string;
+}
+
 const RelatedLinks = ({
   className,
   title = 'Related  links',
@@ -22,7 +29,10 @@ const RelatedLinks = ({
       {title && <h3 className="related-links__title">{title}</h3>}
       <ul>
         {links.map((link: any, idx: number) => {
-          const mappedRes = mapJson(link, relatedLinksMapper);
+          const mappedRes: MappedResultProps = mapJson(
+            link,
+            relatedLinksMapper
+          );
           const { title, path, imageUri, imageAlt } = mappedRes || {};
           return (
             <li key={idx}>
