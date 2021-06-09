@@ -18,7 +18,7 @@ const FormStyled = styled.div`
       }
       label {
         display: block;
-        color: ${colors.secondary_light};
+        color: ${colors.secondary_dark};
         ${theme.typeStyles.cardCopy};
         margin: 0 0 8px;
       }
