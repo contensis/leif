@@ -71,20 +71,20 @@ export const ProductFilters = {
   potSize: {
     title: 'Browse by pot size',
     contentTypeId: ContentTypes.pot,
-    fieldId: 'potVariant.externalHeightCM',
+    fieldId: 'potVariant.internalDiameterCM',
     isSingleSelect: true,
     fieldOperator: 'between',
     items: [
       {
-        key: '0-30',
+        key: '5-15',
         title: 'Small',
       },
       {
-        key: '31-60',
+        key: '16-25',
         title: 'Medium',
       },
       {
-        key: '61-2000000',
+        key: '26-2000000',
         title: 'Large',
       },
     ],
