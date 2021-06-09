@@ -10,7 +10,7 @@ const TextareaStyled = styled.div`
       textarea {
         width: 100%;
         min-height: 120px;
-        padding: 8px 16px;
+        padding: 16px;
         border-radius: 8px;
         border: 1px solid ${theme.colors.secondary_light};
         resize: none;
