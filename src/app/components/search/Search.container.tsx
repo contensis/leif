@@ -13,13 +13,13 @@ import SearchStyled from './Search.styled';
 import SearchCard, {
   Props as SearchCardProps,
 } from '~/components/searchCard/SearchCard';
-import SearchFilters from '../filters/Filters';
-import SearchInput from '../searchInput/SearchInput';
-import Button from '../button/Button';
-import Metadata from '../metadata/Metadata';
-import Card, { Props as CardProps } from '../card/Card';
-import NoResults from '../noResults/NoResults';
-import PromotedContent from '../promotedContent/PromotedContent';
+import SearchFilters from '~/components/filters/Filters';
+import SearchInput from '~/components/searchInput/SearchInput';
+import Button from '~/components/button/Button';
+import Metadata from '~/components/metadata/Metadata';
+import Card, { Props as CardProps } from '~/components/card/Card';
+import NoResults from '~/components/noResults/NoResults';
+import PromotedContent from '~/components/promotedContent/PromotedContent';
 
 // Layout
 import Region from '~/layout/Region';
@@ -65,7 +65,7 @@ const SearchContainer: React.FC<
   const exploreMore = useExploreMore(hasResults);
 
   // Handles rendering different filters depending on the first selected filter option
-  const productSearchFilters = useProductFilters(filters);
+  const productSearchFilters = useProductFilters(filters, path);
 
   // Search action handlers
   const _handleLoadMore = (pageIndex: number) => {

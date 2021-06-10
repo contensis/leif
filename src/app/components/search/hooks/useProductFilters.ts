@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Filters } from '@zengenti/contensis-react-base/search';
-import { selectCurrentPathname } from '~/redux/routing/selectors';
 
-const useProductFilters = (filters: Filters) => {
+const useProductFilters = (filters: Filters, path: string) => {
   // Product Facet Filters
   const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
   const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
-
-  // Get the current pathname from state
-  const path = useSelector(selectCurrentPathname) as string;
 
   // Depending on the path toggle the correct filters
   useEffect(() => {
