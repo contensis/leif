@@ -17,7 +17,7 @@ import {
 import { BlogFilters, ProductFilters } from './filters';
 
 // Weighted Fields
-import { base as WeightedFields } from './weightedFields.config';
+import { base as WeightedFields } from '../weightedFields.config';
 
 // The config defined here is loaded into initialState
 // and is used to drive the how the site search works
