@@ -85,6 +85,7 @@ const Composer = (props: any) => {
           </Region>
         );
       }
+      case ComposerComponents.bodyCopy:
       case ComposerComponents.textBlock:
       case ComposerComponents.markup: {
         return (

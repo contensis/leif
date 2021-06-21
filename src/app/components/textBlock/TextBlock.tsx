@@ -4,13 +4,15 @@ import TextBlockStyled from './TextBlock.styled';
 export interface Props {
   className?: string;
   text: string;
+  alignment?: string;
 }
 
-const TextBlock = ({ className, text }: Props) => {
+const TextBlock = ({ className, text, alignment = 'left' }: Props) => {
   if (!text) return null;
   return (
     <TextBlockStyled
       className={className}
+      alignment={alignment}
       dangerouslySetInnerHTML={{
         __html: text
           .replace(

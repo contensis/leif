@@ -13,6 +13,7 @@ import {
   curatedProductSliderPropsMapping,
   filteredProductSliderPropsMapping,
 } from '~/components/productSlider/transformations/productslider.component-to-props.mapper';
+import { textBlockPropsMapping } from '~/components/textBlock/transformations/textblock.component-to-props.mapper';
 
 export const composerPropsMapping = {
   [ComposerComponents.textBlock]: { text: '.' },
@@ -25,6 +26,7 @@ export const composerPropsMapping = {
   [ComposerComponents.featuredProduct]: { ...featuredProductMapping },
   [ComposerComponents.video]: { ...videoPropsMapping },
   [ComposerComponents.accordionList]: { ...accordionPropsMapping },
+  [ComposerComponents.bodyCopy]: { ...textBlockPropsMapping },
   [ComposerComponents.curatedProductSlider]: {
     ...curatedProductSliderPropsMapping,
   },

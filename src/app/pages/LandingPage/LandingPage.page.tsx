@@ -42,7 +42,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
         <Region margin="large" width="medium">
           <LeadParagraph {...leadParagraphProps} />
         </Region>
-        <Composer items={contentComposerProps} isContentPage={true} />
+        <Composer {...contentComposerProps} />
         <CTABanner {...ctaBannerProps} />
         <Form {...formProps} />
       </LandingPageStyled>

@@ -172,6 +172,7 @@ export const ComposerComponents = {
   productSlider: 'productSlider',
   curatedProductSlider: 'curatedProductSlider',
   filteredProductSlider: 'filteredProductSlider',
+  bodyCopy: 'bodyCopy',
 };
 
 export const BlogFilters = {

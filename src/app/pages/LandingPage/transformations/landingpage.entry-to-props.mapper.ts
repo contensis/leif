@@ -13,8 +13,11 @@ export const landingPagePropsMapping = {
     text: 'leadParagraph',
     type: () => 'center',
   },
-  contentComposerProps: ({ bodyContent }: any) =>
-    mapComposer(bodyContent, composerPropsMapping),
+  contentComposerProps: {
+    items: ({ bodyContent }: any) =>
+      mapComposer(bodyContent, composerPropsMapping),
+    isContentPage: () => true,
+  },
   ctaBannerProps: {
     ...ctaBannerPropsMapping,
   },

@@ -41,8 +41,9 @@ export const blogPostPropsMapping = {
   ctaBannerProps: {
     ...ctaBannerPropsMapping,
   },
-  contentComposerProps: ({ postBody }: any) =>
-    mapComposer(postBody, composerPropsMapping),
+  contentComposerProps: {
+    items: ({ postBody }: any) => mapComposer(postBody, composerPropsMapping),
+  },
   relatedContentProps: {
     title: () => 'Read now',
     results: ({ relatedBlogs }: any) => mapEntriesToResults(relatedBlogs),

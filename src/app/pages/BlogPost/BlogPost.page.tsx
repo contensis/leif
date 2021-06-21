@@ -38,7 +38,7 @@ const BlogPost = ({ mappedEntry }: Props) => {
       <Region width="small" margin="default">
         <LeadParagraph {...leadParagraphProps} />
       </Region>
-      <Composer items={contentComposerProps} />
+      <Composer {...contentComposerProps} />
       <Region width="small" margin="large">
         <CTABanner {...ctaBannerProps} />
       </Region>
