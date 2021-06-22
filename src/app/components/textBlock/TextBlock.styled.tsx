@@ -15,6 +15,18 @@ const TextBlockStyled = styled.div`
         margin: 80px 0;
         overflow-x: auto;
       }
+      ul {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: ${alignment === 'left'
+          ? 'flex-start'
+          : alignment === 'right'
+          ? 'flex-end'
+          : 'center'};
+        li {
+          display: inline-block;
+        }
+      }
     `;
   }}
 `;
