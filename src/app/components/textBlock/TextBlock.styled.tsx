@@ -7,7 +7,7 @@ interface Props {
 const TextBlockStyled = styled.div`
   ${({ alignment }: Props) => {
     return css`
-      text-align: ${alignment};
+      text-align: ${alignment === 'centred' ? 'center' : alignment};
       * > p:first-child {
         margin-top: 0;
       }
