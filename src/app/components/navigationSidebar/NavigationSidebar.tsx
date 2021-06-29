@@ -80,7 +80,7 @@ const NavigationSidebar = ({
             const { displayName, slug, path, children, includeInMenu } =
               navItem || {};
             if (!includeInMenu) return null;
-            if (children.some(_showChildren)) {
+            if (slug === 'products' && children.some(_showChildren)) {
               return (
                 <li key={`${displayName}-${idx}`}>
                   <button
