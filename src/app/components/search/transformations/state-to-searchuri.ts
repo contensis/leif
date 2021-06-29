@@ -64,20 +64,18 @@ const searchUriTemplate = {
         ) as Map<string, string>);
 
     // Delete these parameters as we do not need to see them in the uri
-    let modifiedStateFilters = stateFilters.set('contentTypeId', '');
+    let modifiedStateFilters;
     const { contentTypeId } = stateFilters.toJS() || {};
 
     if (contentTypeId === 'pot') {
       modifiedStateFilters = stateFilters
-        .set('contentTypeId', '')
         .set('plantType', '')
         .set('plantSize', '');
     } else if (contentTypeId === 'plant') {
-      modifiedStateFilters = stateFilters
-        .set('contentTypeId', '')
-        .set('colour', '')
-        .set('potSize', '');
+      modifiedStateFilters = stateFilters.set('colour', '').set('potSize', '');
     }
+
+    modifiedStateFilters = stateFilters.set('contentTypeId', '');
 
     const currentSearch =
       !term && state.getIn(['routing', 'location', 'search']);
