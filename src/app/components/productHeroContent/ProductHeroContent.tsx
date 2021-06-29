@@ -150,18 +150,20 @@ const ProductHeroContent = ({
               id="plant-quantity"
               className="product-hero__input"
               min="1"
-              _onChange={(e: any) => updateQuantity(e.target.value)}
-              _onBlur={(e: any) => updateQuantity(e.target.value)}
+              _onChange={(e: any) => updateQuantity(Number(e.target.value))}
+              _onBlur={(e: any) => updateQuantity(Number(e.target.value))}
             />
             <div className="product-hero__input-controls">
               <InputControl
                 className="product-hero__input-minus"
                 type="minus"
+                label="minus"
                 onClick={e => _handleClick(e, 'decrease')}
               />
               <InputControl
                 className="product-hero__input-plus"
                 type="plus"
+                label="plus"
                 onClick={e => _handleClick(e, 'increase')}
               />
             </div>

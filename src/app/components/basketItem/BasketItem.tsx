@@ -79,6 +79,7 @@ const BasketItem = ({
             />
             <div className="basket-item__input-controls">
               <InputControl
+                label="minus"
                 className="basket-item__input-minus"
                 type="minus"
                 onClick={() => _updateQuantity('minus')}
@@ -86,6 +87,7 @@ const BasketItem = ({
               <InputControl
                 className="basket-item__input-plus"
                 type="plus"
+                label="plus"
                 onClick={() => _updateQuantity('plus')}
               />
             </div>
