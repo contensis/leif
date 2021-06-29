@@ -11,7 +11,7 @@ const FooterStyled = styled.div`
       align-items: center;
       flex-direction: column;
       padding: 160px 0 40px;
-      @media ${theme.mq.laptop} {
+      @media ${theme.mq.desktop} {
         text-align: left;
         align-items: stretch;
         flex-direction: row;
@@ -36,7 +36,7 @@ const FooterStyled = styled.div`
           background-image: url('/static/img/svgs/shapes/footer-shape.svg');
           background-repeat: no-repeat;
         }
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           margin: 0 40px 0 0;
           &:before {
             left: 0;
@@ -49,7 +49,7 @@ const FooterStyled = styled.div`
         flex-direction: row;
         align-items: center;
         margin-top: 40px;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           margin-top: 24px;
         }
       }
@@ -66,7 +66,7 @@ const FooterStyled = styled.div`
       }
       .footer__links {
         width: 100%;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           display: flex;
           flex-wrap: wrap;
         }
@@ -75,18 +75,14 @@ const FooterStyled = styled.div`
         &:not(:last-child) {
           margin-bottom: 40px;
         }
-        @media ${theme.mq.laptop} {
-          flex-basis: 50%;
-          min-width: 180px;
-          &:not(:last-child) {
-            margin: 0;
-          }
-        }
         @media ${theme.mq.desktop} {
-          flex-basis: auto;
+          flex-basis: calc((100% / 3) - 40px);
           &:not(:last-child) {
             margin: 0 40px 0 0;
           }
+        }
+        @media ${theme.mq.mediumDesktop} {
+          flex-basis: calc((100% / 4) - 40px);
         }
       }
     `;

@@ -18,13 +18,13 @@ const FooterColumnStyled = styled.div`
         justify-content: center;
         font-family: ${theme.typeStyles.fontFamily.headings};
         ${theme.typeStyles.h5};
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           display: none;
         }
       }
       .footer-column__title {
         display: none;
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           display: block;
         }
       }
@@ -43,7 +43,7 @@ const FooterColumnStyled = styled.div`
           max-height: 224px;
           transition: max-height 250ms ease-in;
         `}
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           max-height: none;
           overflow: auto;
           margin-top: 24px;
@@ -56,7 +56,7 @@ const FooterColumnStyled = styled.div`
         &:hover {
           text-decoration: underline;
         }
-        @media ${theme.mq.laptop} {
+        @media ${theme.mq.desktop} {
           padding: 0;
           &:not(:last-child) {
             margin-bottom: 16px;
