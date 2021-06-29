@@ -34,15 +34,21 @@ const Footer = ({ className }: Props) => {
           <VisuallyHidden text="Home" />
         </a>
         <div className="footer__icons-wrapper">
-          <a href="#facebook" className="footer__icon-link">
+          <a href="https://en-gb.facebook.com/" className="footer__icon-link">
             <Icon type="facebook" />
             <VisuallyHidden text="Facebook" />
           </a>
-          <a href="#linkedin" className="footer__icon-link">
+          <a
+            href="https://www.linkedin.com/showcase/contensis"
+            className="footer__icon-link"
+          >
             <Icon type="linkedin" />
             <VisuallyHidden text="Linkedin" />
           </a>
-          <a href="#twitter" className="footer__icon-link">
+          <a
+            href="https://twitter.com/contensis?lang=en"
+            className="footer__icon-link"
+          >
             <Icon type="twitter" />
             <VisuallyHidden text="Twitter" />
           </a>

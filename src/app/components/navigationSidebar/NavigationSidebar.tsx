@@ -139,10 +139,10 @@ const NavigationSidebar = ({
             <a href="https://en-gb.facebook.com/">
               <Icon type="facebook" color="#C3C6DE" />
             </a>
-            <a href="https://twitter.com/">
+            <a href="https://twitter.com/contensis?lang=en">
               <Icon type="twitter" color="#C3C6DE" />
             </a>
-            <a href="https://uk.linkedin.com/">
+            <a href="https://www.linkedin.com/showcase/contensis">
               <Icon type="linkedin" color="#C3C6DE" />
             </a>
           </li>

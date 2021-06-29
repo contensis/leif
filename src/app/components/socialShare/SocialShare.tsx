@@ -6,6 +6,8 @@ import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 import copy from 'copy-to-clipboard';
 import { socials } from './utils';
+import { useSelector } from 'react-redux';
+import { selectCurrentPath } from '~/core/redux/selectors';
 
 interface Props {
   className?: string;
@@ -13,8 +15,10 @@ interface Props {
 
 const SocialShare = ({ className }: Props) => {
   if (!socials || socials.length < 1) return null;
-  // TODO:
-  const sharePath = 'publicUrl+currentPath';
+  /* global PUBLIC_URI */
+  const uri = PUBLIC_URI;
+  const path = useSelector(selectCurrentPath);
+  const fullSharePath = `${uri}${path}`;
 
   return (
     <SocialShareStyled className={className}>
@@ -23,7 +27,7 @@ const SocialShare = ({ className }: Props) => {
         return (
           <a
             className={`social-share__icon social-share__${s.title}`}
-            href={`${s.path}${sharePath}`}
+            href={encodeURI(`${s.path}${fullSharePath}`)}
             title={`Share on ${s.title}`}
             key={`${s.title}-${idx}`}
           >
@@ -35,7 +39,7 @@ const SocialShare = ({ className }: Props) => {
       <button
         className="social-share__copy"
         type="button"
-        onClick={() => copy(sharePath)}
+        onClick={() => copy(fullSharePath)}
       >
         <Icon type="link" color="#C3C6DE" />
         <VisuallyHidden text="Copy link" />
