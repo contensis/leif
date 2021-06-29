@@ -37,7 +37,7 @@ const BlogListing = ({
   /* eslint-enable */
 
   const _handleLoadMore = (pageIndex: number) => {
-    if (typeof window !== 'undefined') {
+    if (typeof window != 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);

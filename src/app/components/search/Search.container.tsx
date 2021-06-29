@@ -69,7 +69,7 @@ const SearchContainer: React.FC<
 
   // Search action handlers
   const _handleLoadMore = (pageIndex: number) => {
-    if (typeof window !== 'undefined') {
+    if (typeof window != 'undefined') {
       setWindowOffset(window.pageYOffset);
     }
     updatePageIndex(pageIndex);
