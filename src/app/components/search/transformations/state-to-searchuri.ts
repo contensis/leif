@@ -43,6 +43,7 @@ const searchUriTemplate = {
       const filters = getSelectedFilters(state, facet, context).toJS();
 
       const currentFilter = filters.contentTypeId;
+
       const newPath = currentFilter
         ? `${currentPath}/${currentFilter}`
         : currentPath;
@@ -63,7 +64,20 @@ const searchUriTemplate = {
         ) as Map<string, string>);
 
     // Delete these parameters as we do not need to see them in the uri
-    const modifiedStateFilters = stateFilters.set('contentTypeId', '');
+    let modifiedStateFilters = stateFilters.set('contentTypeId', '');
+    const { contentTypeId } = stateFilters.toJS() || {};
+
+    if (contentTypeId === 'pot') {
+      modifiedStateFilters = stateFilters
+        .set('contentTypeId', '')
+        .set('plantType', '')
+        .set('plantSize', '');
+    } else if (contentTypeId === 'plant') {
+      modifiedStateFilters = stateFilters
+        .set('contentTypeId', '')
+        .set('colour', '')
+        .set('potSize', '');
+    }
 
     const currentSearch =
       !term && state.getIn(['routing', 'location', 'search']);
