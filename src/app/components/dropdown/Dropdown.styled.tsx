@@ -27,6 +27,7 @@ const DropdownStyled = styled.div`
         display: none;
       }
       .dropdown__icon {
+        pointer-events: none;
         position: absolute;
         top: 50%;
         right: 16px;
