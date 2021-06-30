@@ -148,6 +148,7 @@ const SlickSlider = ({
                     key={idx}
                     hasScrollImage={hasScrollImage}
                     className="slick__main-slide"
+                    height={600}
                     {...slide}
                   />
                 );
@@ -169,6 +170,8 @@ const SlickSlider = ({
                 <Slide
                   key={idx}
                   {...slide}
+                  width={120}
+                  height={120}
                   className="slick__slide-thumbnail"
                 />
               );

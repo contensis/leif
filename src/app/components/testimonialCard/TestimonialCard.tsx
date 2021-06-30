@@ -16,7 +16,13 @@ const TestimonialCard = ({ className, quote, photo, name }: Props) => {
       <p className="testimonial-card__quote">{quote}</p>
       {photo && (
         <>
-          <Image path={photo} alt={name} className="testimonial-card__photo" />
+          <Image
+            path={photo}
+            alt={name}
+            className="testimonial-card__photo"
+            width={40}
+            height={40}
+          />
           <span className="testimonial-card__name">{name}</span>
         </>
       )}

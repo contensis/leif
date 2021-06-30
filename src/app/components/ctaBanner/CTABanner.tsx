@@ -28,7 +28,13 @@ const CTABanner = ({
   if (!btnLink) return null;
   return (
     <CTABannerStyled className={className}>
-      <Image className="cta-banner__image" path={imageUri} alt={imageAlt} />
+      <Image
+        className="cta-banner__image"
+        path={imageUri}
+        alt={imageAlt}
+        width={228}
+        height={120}
+      />
       <h3 className="cta-banner__title">{title}</h3>
       <p className="cta-banner__text">{text}</p>
       <LinkButton

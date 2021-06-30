@@ -23,7 +23,13 @@ const ImageBlock = ({
   return (
     <ImageBlockStyled className={className} align={align}>
       <div className="image-block__wrapper">
-        <Image className="image-block__image" alt={alt} path={path} />
+        <Image
+          className="image-block__image"
+          alt={alt}
+          path={path}
+          height={480}
+          width={840}
+        />
       </div>
       {text && <p className="image-block__text">{text}</p>}
     </ImageBlockStyled>

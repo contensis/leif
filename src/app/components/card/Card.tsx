@@ -43,7 +43,13 @@ const Card = ({
         return (
           <>
             <h3 className="card__title">{title}</h3>
-            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
+            <Image
+              className="card__thumbnail"
+              path={imageUri}
+              alt={imageAlt}
+              width={360}
+              height={360}
+            />
             {text && <p className="card__text">{text}</p>}
             <BlogDetail
               className="card__details"
@@ -61,6 +67,8 @@ const Card = ({
                 className="card__thumbnail"
                 path={imageUri}
                 alt={imageAlt}
+                width={360}
+                height={360}
               />
               <Icon
                 type="product-solid"
@@ -82,7 +90,13 @@ const Card = ({
       case 'explore': {
         return (
           <>
-            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
+            <Image
+              className="card__thumbnail"
+              path={imageUri}
+              alt={imageAlt}
+              width={620}
+              height={280}
+            />
             {title && <h4 className="card__title">{title}</h4>}
           </>
         );
@@ -91,7 +105,13 @@ const Card = ({
         return (
           <>
             <h4 className="card__title">{title}</h4>
-            <Image className="card__thumbnail" path={imageUri} alt={imageAlt} />
+            <Image
+              className="card__thumbnail"
+              path={imageUri}
+              alt={imageAlt}
+              width={620}
+              height={280}
+            />
             {text && <p className="card__text">{text}</p>}
           </>
         );

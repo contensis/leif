@@ -76,6 +76,8 @@ const PromotionalBlock = ({
           <Image
             path={imageUri}
             alt={imageAlt}
+            width={600}
+            height={800}
             className="promoted-product__image"
           />
           {hasVideo && (

@@ -6,6 +6,7 @@ import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import BasketItemStyled from './BasketItem.styled';
+import Image from '../image/Image';
 
 export interface Props {
   className: string;
@@ -60,7 +61,13 @@ const BasketItem = ({
   return (
     <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
-        <img src={imageUri} alt={title} className="basket-item__image" />
+        <Image
+          path={imageUri}
+          alt={title}
+          className="basket-item__image"
+          width={120}
+          height={120}
+        />
         <div className="basket-item__content">
           <span className="basket-item__title">{title}</span>
           <span className="basket-item__variant">{variant}</span>

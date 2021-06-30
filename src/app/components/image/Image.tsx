@@ -16,7 +16,6 @@ const Image = ({ className, path, alt, crop = true, height, width }: Props) => {
 
   let src: string = cropImage(path, width, height, crop);
   src = src.toLowerCase().includes('bridget') ? src + '&clearCache=true' : src;
-  src = src.indexOf('?') > -1 ? `${src}&format=webp` : `${src}?format=webp`;
 
   return <ImageStyled src={src} alt={alt} className={className} />;
 };

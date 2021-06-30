@@ -38,6 +38,8 @@ const SearchCard = ({
               path={imageUri}
               alt={imageAlt}
               className="search-card__image"
+              height={200}
+              width={200}
             />
             <div className="search-card__content">
               <h2>{title}</h2>
@@ -58,6 +60,8 @@ const SearchCard = ({
               path={imageUri}
               alt={imageAlt}
               className="search-card__image"
+              height={200}
+              width={200}
             />
             <div className="search-card__content">
               <h2>{title}</h2>

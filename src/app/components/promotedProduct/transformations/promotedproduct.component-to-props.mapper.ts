@@ -3,8 +3,6 @@ export const promotedProductPropsMapping = {
   text: 'description',
   imageUri: {
     $path: 'primaryImage.asset.sys.uri',
-    $formatting: (uri: string) =>
-      uri.indexOf('?') > -1 ? `${uri}&format=webp` : `${uri}?format=webp`,
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
   ctaLink: {

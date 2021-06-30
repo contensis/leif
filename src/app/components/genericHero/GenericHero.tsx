@@ -114,6 +114,8 @@ const GenericHero = ({
           <Image
             path={imageUri}
             alt={imageAlt}
+            height={432}
+            width={510}
             className="generic-hero__image"
           />
         )}

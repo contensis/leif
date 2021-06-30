@@ -6,10 +6,19 @@ interface Props {
   className?: string;
   path: string;
   alt: string;
+  height?: number;
+  width?: number;
   hasScrollImage?: boolean;
 }
 
-const Slide = ({ className, path, alt, hasScrollImage }: Props) => {
+const Slide = ({
+  className,
+  path,
+  alt,
+  height,
+  width,
+  hasScrollImage,
+}: Props) => {
   if (!path) return null;
 
   return (
@@ -19,7 +28,13 @@ const Slide = ({ className, path, alt, hasScrollImage }: Props) => {
       path={path}
     >
       {!hasScrollImage && (
-        <Image path={path} alt={alt} className="slide__image" />
+        <Image
+          path={path}
+          alt={alt}
+          className="slide__image"
+          height={height}
+          width={width}
+        />
       )}
       {hasScrollImage && (
         <div className="slide__bg-image-wrapper">
