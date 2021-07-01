@@ -4,6 +4,7 @@ import ProductListingStyled from './ProductListing.styled';
 
 import { useSelector } from 'react-redux';
 import { selectCurrentPathname } from '~/redux/routing/selectors';
+import useWindowScroll from '~/components/search/hooks/useWindowScroll';
 
 // Components
 import Card from '../card/Card';
@@ -30,7 +31,7 @@ const ProductListing = ({
   paging,
   clearFilters,
 }: Props) => {
-  const [windowOffset, setWindowOffset] = useState<number>(0);
+  const [, setWindowOffset] = useWindowScroll();
 
   const potFilters: any = {};
   const plantFilters: any = {};
@@ -56,14 +57,6 @@ const ProductListing = ({
       }
     }
   });
-
-  /* eslint-disable */
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, windowOffset);
-    }
-  }, []);
-  /* eslint-enable */
 
   const _handleLoadMore = (pageIndex: number) => {
     if (typeof window != 'undefined') {
