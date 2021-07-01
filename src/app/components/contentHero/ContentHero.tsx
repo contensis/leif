@@ -36,6 +36,7 @@ const ContentHero = ({
               imageUri={heroIllustrationUri}
               imageAlt={heroIllustrationAlt}
               type={isFullWidth ? 'Full width' : 'Two column'}
+              ancestors={ancestors}
             />
           </Region>
         );

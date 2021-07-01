@@ -1,7 +1,7 @@
 import React from 'react';
 
 import GenericHeroStyled from './GenericHero.styled';
-import BackButton from '../backButton/BackButton';
+import BackButton, { AncestorsProps } from '../backButton/BackButton';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 import Icon from '../icon/Icon';
@@ -23,6 +23,7 @@ export interface Props {
   backLinkUri?: string;
   isRenderedAsLink?: boolean;
   type?: 'Full width' | 'Two column';
+  ancestors?: AncestorsProps[];
 }
 
 const GenericHero = ({
@@ -41,6 +42,7 @@ const GenericHero = ({
   isListingPage = false,
   isRenderedAsLink = false,
   type = 'Two column',
+  ancestors,
 }: Props) => {
   interface ConditionalLinkProps {
     condition?: boolean;
@@ -74,11 +76,12 @@ const GenericHero = ({
         )}
       >
         <div className="generic-hero__content">
-          {backLinkUri && !ctaLink && (
+          {!ctaLink && (
             <BackButton
               className="generic-hero__back"
               label={backLinkLabel}
               uri={backLinkUri}
+              ancestors={ancestors}
             />
           )}
           <h1 className="generic-hero__title">{title}</h1>

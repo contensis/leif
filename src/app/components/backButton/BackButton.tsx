@@ -9,7 +9,7 @@ export interface AncestorsProps {
 }
 interface Props {
   className?: string;
-  ancestors?: AncestorsProps[];
+  ancestors: AncestorsProps[];
   label?: string;
   color?: string;
   uri?: string;
@@ -25,7 +25,7 @@ const BackButton = ({
   const getPreviousPage = (array: any[]) => {
     if (!array || array.length < 0) return null;
     const max = array.length - 1;
-    const prev = max === 0 ? 0 : max - 1;
+    const prev = max === 0 ? 0 : max;
     return array[prev];
   };
 
