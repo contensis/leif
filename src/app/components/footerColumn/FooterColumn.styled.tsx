@@ -45,7 +45,7 @@ const FooterColumnStyled = styled.div`
         `}
         @media ${theme.mq.desktop} {
           max-height: none;
-          overflow: auto;
+          overflow: unset;
           margin-top: 24px;
         }
       }
