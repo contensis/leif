@@ -5,13 +5,14 @@ const PromotedContentStyled = styled.div`
     return css`
       .promoted-content__title {
         text-align: center;
-        margin-bottom: 34px;
+        margin-bottom: 4px;
       }
       .promoted-content__results {
         display: flex;
         justify-content: flex-start;
         overflow-x: auto;
         white-space: nowrap;
+        padding: 32px 0;
         @media ${theme.mq.desktop} {
           justify-content: center;
           overflow-x: auto;

@@ -20,11 +20,6 @@ const ProductPageStyled = styled.div`
           margin: 0 40px 0 0;
         }
       }
-      .promoted-content__results {
-        @media ${theme.mq.desktop} {
-          padding: 0 0 32px 0;
-        }
-      }
       .promoted-content__card {
         @media ${theme.mq.desktop} {
           max-width: 100% !important;
