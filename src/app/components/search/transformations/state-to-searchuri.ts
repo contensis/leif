@@ -44,9 +44,10 @@ const searchUriTemplate = {
 
       const currentFilter = filters.contentTypeId;
 
-      const newPath = currentFilter
-        ? `${currentPath}/${currentFilter}`
-        : currentPath;
+      const newPath =
+        currentFilter && currentFilter.length >= 1
+          ? `${currentPath}/${currentFilter}`
+          : currentPath;
 
       return newPath;
     } else {
