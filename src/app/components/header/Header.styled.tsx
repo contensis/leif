@@ -26,6 +26,7 @@ const HeaderStyled = styled.div`
         color: ${theme.colors.neutral_white};
       }
       .header__logo {
+        display: block;
         align-self: center;
         padding: 16px 0 0 16px;
         @media ${theme.mq.laptop} {
