@@ -25,7 +25,10 @@ const FeaturedProduct = ({
       <div className="featured-product__content">
         <div className="featured-product__content-wrapper">
           <h3 className="featured-product__title">{title}</h3>
-          <p className="featured-product__text">{text}</p>
+          <p
+            className="featured-product__text"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
           <LinkButton
             className="featured-product__btn"
             label={linkLabel}

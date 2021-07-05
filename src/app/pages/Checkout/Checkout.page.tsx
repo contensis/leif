@@ -33,7 +33,7 @@ const CheckoutPage = () => {
       <CheckoutStyled>
         <FeaturedProduct
           title="Well, this is awkward."
-          text="Sorry, we're all out of plants, so this is as far as we can take you for now. But, using webhooks and our APIs, you can easily integrate with payment providers such as Stripe, Paypal, and others. Looking for a demonstration or advice? Get in touch to arrange a call with a customer success engineer."
+          text="Sorry, we're all out of plants, so this is as far as we can take you for now. But, using webhooks and our APIs, you can easily integrate with payment providers such as Stripe, Paypal, and others. Looking for a demonstration or advice? <a href='/about/contact'>Get in touch</a> to arrange a call with a customer success engineer."
           linkLabel="Return to basket"
           linkUri="/basket"
           product={featuredProducts[0]}

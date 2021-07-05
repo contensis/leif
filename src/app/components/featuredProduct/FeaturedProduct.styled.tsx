@@ -73,6 +73,11 @@ const FeaturedProductStyled = styled.div`
         ${theme.typeStyles.cardCopy};
         color: ${theme.colors.secondary};
         margin: 24px 0 0 0;
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
       .featured-product__btn {
         margin-top: 24px;
