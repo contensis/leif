@@ -8,6 +8,11 @@ export interface Props {
   className?: string;
   title?: string;
   links?: any;
+  nodeChildren?: any;
+  nodeSiblings?: any;
+  currentNodeId?: string;
+  currentNodeParent?: string;
+  nodeAncestors?: any;
 }
 
 interface MappedResultProps {

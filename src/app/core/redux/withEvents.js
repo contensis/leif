@@ -32,10 +32,9 @@ export default {
       customNavigation: {
         ancestors: true,
         children: true,
-        siblings: false,
+        siblings: true,
         tree: true,
       },
-
       preventScrollTop: preventScrollTop(path),
     };
   },
