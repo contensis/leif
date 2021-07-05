@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+// Styles
+import NavigationSidebarStyled from './NavigationSidebar.styled';
+
 // Components
 import Icon from '../icon/Icon';
 
@@ -13,7 +16,6 @@ import { isClient } from '../../utils/isClient';
 
 // Types
 import { NavigationProps } from './Navigation.d';
-import NavigationSidebarStyled from './NavigationSidebar.styled';
 
 interface NavigationSidebarProps {
   navigation: any;
@@ -75,78 +77,87 @@ const NavigationSidebar = ({
         >
           <Icon type="close" />
         </button>
-        <ul className="nav__menu--first">
-          {navigation.map((navItem: NavigationProps, idx: number) => {
-            const { displayName, slug, path, children, includeInMenu } =
-              navItem || {};
-            if (!includeInMenu) return null;
-            if (slug === 'products' && children.some(_showChildren)) {
-              return (
-                <li key={`${displayName}-${idx}`}>
-                  <button
-                    type="button"
-                    className={`nav__menu-btn ${
-                      activeNavigationSlug === slug ? 'isActive' : ''
-                    }`}
-                    onClick={() => _handleClick(slug)}
-                  >
-                    {displayName}
-                    <Icon type="arrow-right" color="#77E8C6" />
-                  </button>
-                  {isSecondMenuOpen && (
-                    <ul className="nav__menu--second">
-                      <li className="nav__menu-btn--back">
-                        <button type="button" onClick={() => _handleClick('')}>
-                          <Icon type="arrow-left" color="#2B2F51" />
-                        </button>
-                      </li>
-                      {activeNavigationObject && (
-                        <>
-                          <li>
-                            <a href={path}>
-                              View all{' '}
-                              {activeNavigationObject.displayName.toLowerCase()}
-                            </a>
-                          </li>
-                          {activeNavigationObject.children.map(
-                            (child: any, idx: number) => {
-                              const { displayName, path, includeInMenu } =
-                                child || {};
-                              if (includeInMenu) {
-                                return (
-                                  <li key={`${displayName}-${idx}`}>
-                                    <a href={path}>{displayName}</a>
-                                  </li>
-                                );
+        <nav>
+          <ul className="nav__menu--first">
+            {navigation.map((navItem: NavigationProps, idx: number) => {
+              const { displayName, slug, path, children, includeInMenu } =
+                navItem || {};
+              if (!includeInMenu) return null;
+              if (slug === 'products' && children.some(_showChildren)) {
+                return (
+                  <li key={`${displayName}-${idx}`}>
+                    <button
+                      type="button"
+                      className={`nav__menu-btn ${
+                        activeNavigationSlug === slug ? 'isActive' : ''
+                      }`}
+                      onClick={() => _handleClick(slug)}
+                      aria-haspopup="true"
+                      aria-expanded={
+                        activeNavigationSlug === slug ? 'true' : 'false'
+                      }
+                    >
+                      {displayName}
+                      <Icon type="arrow-right" color="#77E8C6" />
+                    </button>
+                    {isSecondMenuOpen && (
+                      <ul className="nav__menu--second">
+                        <li className="nav__menu-btn--back">
+                          <button
+                            type="button"
+                            onClick={() => _handleClick('')}
+                          >
+                            <Icon type="arrow-left" color="#2B2F51" />
+                          </button>
+                        </li>
+                        {activeNavigationObject && (
+                          <>
+                            <li>
+                              <a href={path}>
+                                View all{' '}
+                                {activeNavigationObject.displayName.toLowerCase()}
+                              </a>
+                            </li>
+                            {activeNavigationObject.children.map(
+                              (child: any, idx: number) => {
+                                const { displayName, path, includeInMenu } =
+                                  child || {};
+                                if (includeInMenu) {
+                                  return (
+                                    <li key={`${displayName}-${idx}`}>
+                                      <a href={path}>{displayName}</a>
+                                    </li>
+                                  );
+                                }
                               }
-                            }
-                          )}
-                        </>
-                      )}
-                    </ul>
-                  )}
-                </li>
-              );
-            } else {
-              return (
-                <li key={`${displayName}-${idx}`}>
-                  <a href={path}>{displayName}</a>
-                </li>
-              );
-            }
-          })}
-          <li className="nav__socials">
-            <a href="https://en-gb.facebook.com/">
-              <Icon type="facebook" color="#C3C6DE" />
-            </a>
-            <a href="https://twitter.com/contensis?lang=en">
-              <Icon type="twitter" color="#C3C6DE" />
-            </a>
-            <a href="https://www.linkedin.com/showcase/contensis">
-              <Icon type="linkedin" color="#C3C6DE" />
-            </a>
-          </li>
-        </ul>
+                            )}
+                          </>
+                        )}
+                      </ul>
+                    )}
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={`${displayName}-${idx}`}>
+                    <a href={path}>{displayName}</a>
+                  </li>
+                );
+              }
+            })}
+            <li className="nav__socials">
+              <a href="https://en-gb.facebook.com/">
+                <Icon type="facebook" color="#C3C6DE" />
+              </a>
+              <a href="https://twitter.com/contensis?lang=en">
+                <Icon type="twitter" color="#C3C6DE" />
+              </a>
+              <a href="https://www.linkedin.com/showcase/contensis">
+                <Icon type="linkedin" color="#C3C6DE" />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </NavigationSidebarStyled>
     </FocusLock>
   );

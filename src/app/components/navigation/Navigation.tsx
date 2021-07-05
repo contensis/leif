@@ -46,6 +46,8 @@ const Navigation = ({
           _toggleMenu(!isMenuOpen);
           _toggleSecondMenu(false);
         }}
+        aria-haspopup="true"
+        aria-expanded={isMenuOpen ? 'true' : 'false'}
         className="nav__btn-open"
       >
         <Hamburger isToggled={isMenuOpen} />

@@ -83,17 +83,19 @@ const Header = ({
           />
           <VisuallyHidden text="Home" />
         </a>
-        <div className="header__actions">
-          <IconButton
-            className="header__search-icon"
-            icon="search"
-            text="Search site"
-            isToggled={isSearchOpen}
-            _func={() => _setIsSearchOpen(!isSearchOpen)}
-          />
-          <BasketMenu />
-          <Navigation />
-        </div>
+        {!isSearchOpen && (
+          <div className="header__actions">
+            <IconButton
+              className="header__search-icon"
+              icon="search"
+              text="Search site"
+              isToggled={isSearchOpen}
+              _func={() => _setIsSearchOpen(!isSearchOpen)}
+            />
+            <BasketMenu />
+            <Navigation />
+          </div>
+        )}
       </Wrapper>
     </HeaderStyled>
   );

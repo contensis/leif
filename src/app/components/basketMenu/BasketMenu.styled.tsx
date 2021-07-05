@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import colors from '~/theme/global/colors';
 
 interface Props {
   theme?: any;
@@ -19,13 +20,13 @@ const BasketMenuStyled = styled.div`
         align-items: center;
         justify-content: center;
         border: none;
-        background-color: transparent;
+        background-color: ${colors.neutral_white};
         span {
           position: absolute;
           top: 32px;
           left: 32px;
-          background: #2b2f51;
-          color: #77e8c6;
+          background: ${colors.secondary};
+          color: ${colors.primary};
           border-radius: 50%;
           width: 24px;
           height: 24px;
