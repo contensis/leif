@@ -9,7 +9,7 @@ export const featuredProductMapping = {
   cardType: 'product.sys.contentTypeId',
   title: 'title',
   text: 'summary',
-  linkLabel: 'buttonText',
+  linkLabel: 'buttonLabel',
   linkUri: {
     $path: 'product.sys.uri',
     $default: () => '/products',

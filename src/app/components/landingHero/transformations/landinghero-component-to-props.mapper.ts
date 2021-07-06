@@ -20,7 +20,7 @@ export const landingHeroPropsMapping = {
   title: 'title',
   summary: 'summary',
   ctaLink: {
-    $path: 'callToActionDestination.sys.uri',
+    $path: 'buttonLink.sys.uri',
   },
-  ctaText: 'callToActionText',
+  ctaText: 'buttonLabel',
 };
