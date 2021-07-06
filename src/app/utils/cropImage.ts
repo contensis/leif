@@ -26,7 +26,7 @@ const cropImage = (
       src += '&fit=crop';
     }
 
-    src += '&quality=90&format=webp';
+    src += '&format=webp';
   }
 
   return src;
