@@ -47,7 +47,7 @@ export const blogCardMapping = {
   },
   date: {
     $path: 'sys.version.published',
-    $formatting: ({ published }: any) => dateWithSuffix(published),
+    $formatting: (date: string) => dateWithSuffix(date),
   },
   imageAlt: [
     'primaryImage.altText',
