@@ -4,6 +4,7 @@ const BasketSummaryStyled = styled.div`
   ${({ theme }) => {
     return css`
       .basket-summary__title {
+        ${theme.typeStyles.h4};
         text-align: center;
         margin: 40px 0 16px;
       }

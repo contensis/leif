@@ -35,7 +35,7 @@ const CTABanner = ({
         width={228}
         height={120}
       />
-      <h3 className="cta-banner__title">{title}</h3>
+      <h2 className="cta-banner__title">{title}</h2>
       <p className="cta-banner__text">{text}</p>
       <LinkButton
         className="cta-banner__link"

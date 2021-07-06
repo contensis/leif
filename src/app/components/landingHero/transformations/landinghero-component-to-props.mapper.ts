@@ -12,11 +12,11 @@ export const landingHeroPropsMapping = {
       return `/static/img/illustrations/${type}.png`;
     },
   },
-  heroIllustrationAlt: 'heroIllustration',
+  heroIllustrationAlt: 'Illustration',
   imageUri: {
     $path: 'heroImage.asset.sys.uri',
   },
-  imageAlt: ['altText', 'caption', 'asset.title'],
+  imageAlt: ['heroImage.altText', 'heroImage.caption', 'heroImage.asset.title'],
   title: 'title',
   summary: 'summary',
   ctaLink: {

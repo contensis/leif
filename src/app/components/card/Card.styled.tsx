@@ -134,6 +134,7 @@ const CardStyled = styled(Link)`
             }
             .card__title {
               margin: 24px 0 0;
+              ${theme.typeStyles.h4};
             }
             margin: 0 8px 32px;
             @media ${theme.mq.desktop} {
@@ -152,6 +153,7 @@ const CardStyled = styled(Link)`
             padding: 16px 16px 24px;
             .card__title {
               margin: 0 0 24px 0;
+              ${theme.typeStyles.h4};
             }
             .card__thumbnail {
               height: 256px;

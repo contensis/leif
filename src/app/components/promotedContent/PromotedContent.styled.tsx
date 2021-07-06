@@ -4,6 +4,7 @@ const PromotedContentStyled = styled.div`
   ${({ theme }) => {
     return css`
       .promoted-content__title {
+        ${theme.typeStyles.h3};
         text-align: center;
         margin-bottom: 4px;
       }

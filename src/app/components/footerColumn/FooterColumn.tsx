@@ -27,7 +27,7 @@ const FooterColumn = ({ className, title, links }: Props) => {
           type={`chevron-${isOpen ? 'up' : 'down'}`}
         />
       </button>
-      <h5 className="footer-column__title">{title}</h5>
+      <h3 className="footer-column__title">{title}</h3>
       <div className="footer-column__sub-links">
         {links.map((l: LinkObject) => {
           return (

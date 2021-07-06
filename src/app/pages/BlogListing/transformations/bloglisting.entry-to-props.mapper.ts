@@ -12,6 +12,7 @@ export const blogListingPropsMapping = {
   metadataProps: { ...pageMetadataPropsMapping },
   title: 'entryTitle',
   featuredBlogProps: {
+    headingLevel: () => 2,
     title: 'featuredBlog.entryTitle',
     text: 'featuredBlog.kicker',
     isRenderedAsLink: () => true,
@@ -38,9 +39,9 @@ export const blogListingPropsMapping = {
         img && img.asset && img.asset.sys && img.asset.sys.uri,
     },
     imageAlt: [
-      'featuredBlog.image.altText',
-      'featuredBlog.image.caption',
-      'featuredBlog.image.asset.title',
+      'featuredBlog.primaryImage.altText',
+      'featuredBlog.primaryImage.caption',
+      'featuredBlog.primaryImage.asset.title',
     ],
   },
   ctaBannerProps: {

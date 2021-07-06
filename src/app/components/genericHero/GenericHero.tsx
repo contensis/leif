@@ -23,6 +23,7 @@ export interface Props {
   backLinkUri?: string;
   isRenderedAsLink?: boolean;
   type?: 'Full width' | 'Two column';
+  headingLevel?: number;
   ancestors?: AncestorsProps[];
 }
 
@@ -41,6 +42,7 @@ const GenericHero = ({
   date,
   isListingPage = false,
   isRenderedAsLink = false,
+  headingLevel = 1,
   type = 'Two column',
   ancestors,
 }: Props) => {
@@ -49,6 +51,8 @@ const GenericHero = ({
     wrapper: any;
     children: any;
   }
+
+  const Heading: any = `h${headingLevel}`;
 
   const ConditionalLink = ({
     condition,
@@ -84,7 +88,7 @@ const GenericHero = ({
               ancestors={ancestors}
             />
           )}
-          <h1 className="generic-hero__title">{title}</h1>
+          <Heading className="generic-hero__title">{title}</Heading>
           {text && <p className="generic-hero__text">{text}</p>}
           {(priceText || date) && (
             <div className="generic-hero__detail">

@@ -13,8 +13,10 @@ import Region from '../../layout/Region';
 import ProductListingStyled from './ProductListing.styled';
 
 // Mappers
+import { useMapper } from '../../core/util/json-mapper';
 import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import { productListingPropsMapping } from '~/pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
 
 // Models
 import { Props } from './ProductListing.d';
@@ -22,7 +24,10 @@ import { Props } from './ProductListing.d';
 import { useSelector } from 'react-redux';
 import { makeSelectHasResults } from '~/redux/ui/selectors';
 
-const ProductListingPage = ({ mappedEntry }: Props) => {
+const ProductListingPage = ({ entry }: any) => {
+  if (!entry) return null;
+  const mappedEntry: Props = useMapper(entry, productListingPropsMapping);
+
   const { title, metadataProps } = mappedEntry || {};
 
   const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
@@ -54,7 +59,9 @@ const ProductListingPage = ({ mappedEntry }: Props) => {
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
         <Region width="large" margin="none">
-          {featuredProducts && <GenericHero {...featuredProducts[0]} />}
+          {featuredProducts && (
+            <GenericHero {...featuredProducts[0]} headingLevel={2} />
+          )}
         </Region>
         <ListingContainer>
           <ProductListing />

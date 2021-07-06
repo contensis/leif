@@ -25,7 +25,7 @@ const Footer = ({ className }: Props) => {
   return (
     <FooterStyled className={className}>
       <div className="footer__left-column">
-        <a href="/" title="Home">
+        <a href="/">
           <img
             className="footer__logo"
             src="/static/img/logos/logo-dark.svg"

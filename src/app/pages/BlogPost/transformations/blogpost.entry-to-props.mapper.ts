@@ -16,7 +16,11 @@ export const blogPostPropsMapping = {
       $formatting: (img: any) =>
         img && img.asset && img.asset.sys && img.asset.sys.uri,
     },
-    imageAlt: ['image.altText', 'image.caption', 'image.asset.title'],
+    imageAlt: [
+      'primaryImage.altText',
+      'primaryImage.caption',
+      'primaryImage.asset.title',
+    ],
     backLinkUri: () => '/blog',
     backLinkLabel: () => 'Blogs',
   },

@@ -24,7 +24,7 @@ const FeaturedProduct = ({
     <FeaturedProductStyled className={className}>
       <div className="featured-product__content">
         <div className="featured-product__content-wrapper">
-          <h3 className="featured-product__title">{title}</h3>
+          <h2 className="featured-product__title">{title}</h2>
           <p
             className="featured-product__text"
             dangerouslySetInnerHTML={{ __html: text }}

@@ -23,6 +23,7 @@ const FooterColumnStyled = styled.div`
         }
       }
       .footer-column__title {
+        ${theme.typeStyles.h5};
         display: none;
         @media ${theme.mq.desktop} {
           display: block;

@@ -5,6 +5,7 @@ import NavigationSidebarStyled from './NavigationSidebar.styled';
 
 // Components
 import Icon from '../icon/Icon';
+import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 
 // Utils
 import FocusLock from 'react-focus-lock';
@@ -76,6 +77,7 @@ const NavigationSidebar = ({
           onClick={() => _toggleMenu(false)}
         >
           <Icon type="close" />
+          <VisuallyHidden text="Close menu" />
         </button>
         <nav>
           <ul className="nav__menu--first">
@@ -148,12 +150,15 @@ const NavigationSidebar = ({
             <li className="nav__socials">
               <a href="https://en-gb.facebook.com/">
                 <Icon type="facebook" color="#C3C6DE" />
+                <VisuallyHidden text="Facebook" />
               </a>
               <a href="https://twitter.com/contensis?lang=en">
                 <Icon type="twitter" color="#C3C6DE" />
+                <VisuallyHidden text="Contensis Twitter" />
               </a>
               <a href="https://www.linkedin.com/showcase/contensis">
                 <Icon type="linkedin" color="#C3C6DE" />
+                <VisuallyHidden text="Contensis LinkedIn" />
               </a>
             </li>
           </ul>

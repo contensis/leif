@@ -22,7 +22,7 @@ const PromotedContent = ({
   if (!results || results.length < 1) return null;
   return (
     <PromotedContentStyled className={className}>
-      {title && <h3 className="promoted-content__title">{title}</h3>}
+      {title && <h2 className="promoted-content__title">{title}</h2>}
       <div className="promoted-content__results">
         {results.map((res: any, idx: number) => {
           return (

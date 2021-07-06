@@ -28,7 +28,6 @@ const SocialShare = ({ className }: Props) => {
           <a
             className={`social-share__icon social-share__${s.title}`}
             href={encodeURI(`${s.path}${fullSharePath}`)}
-            title={`Share on ${s.title}`}
             key={`${s.title}-${idx}`}
           >
             <Icon type={s.icon} color="#C3C6DE" />

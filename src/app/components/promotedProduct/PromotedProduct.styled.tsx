@@ -128,6 +128,7 @@ const PromotionalBlockStyled = styled.div`
       }
     }
     .promoted-product__title {
+      ${theme.typeStyles.h3};
       margin: 0 0 16px 0;
     }
     .promoted-product__text {

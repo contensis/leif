@@ -28,6 +28,7 @@ const GenericHeroStyled = styled.div`
         text-align: left;
       }
       .generic-hero__title {
+        ${theme.typeStyles.h2};
         position: relative;
         flex-basis: calc(50% - 40px);
         max-width: 730px;

@@ -95,7 +95,7 @@ const PromotionalBlock = ({
           {hasTrending && <Trending className="promoted-product__trending" />}
           <div className="promoted-product__content--text">
             <div className="promoted-product__wrapper">
-              <h3 className="promoted-product__title">{title}</h3>
+              <h2 className="promoted-product__title">{title}</h2>
               <div
                 className="promoted-product__text"
                 dangerouslySetInnerHTML={{ __html: text }}

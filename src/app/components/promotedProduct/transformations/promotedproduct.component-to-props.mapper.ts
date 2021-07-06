@@ -5,6 +5,11 @@ export const promotedProductPropsMapping = {
     $path: 'primaryImage.asset.sys.uri',
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
+  imageAlt: [
+    'primaryImage.altText',
+    'primaryImage.caption',
+    'primaryImage.asset.title',
+  ],
   ctaLink: {
     $path: 'sys',
     $formatting: (sys: any) => sys.uri,

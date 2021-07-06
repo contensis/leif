@@ -67,6 +67,7 @@ const FeaturedProductStyled = styled.div`
         }
       }
       .featured-product__title {
+        ${theme.typeStyles.h3};
         margin: 0;
       }
       .featured-product__text {

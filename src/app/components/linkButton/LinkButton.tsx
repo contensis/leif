@@ -41,7 +41,6 @@ const LinkButton = ({
       isHollow={isHollow}
       isDisabled={isDisabled}
       hasIcon={icon ? true : false}
-      title={label}
       href={href}
       onClick={e => _handleClick(e)}
     >

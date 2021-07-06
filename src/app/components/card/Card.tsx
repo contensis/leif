@@ -97,14 +97,14 @@ const Card = ({
               width={620}
               height={280}
             />
-            {title && <h4 className="card__title">{title}</h4>}
+            {title && <h3 className="card__title">{title}</h3>}
           </>
         );
       }
       case 'content': {
         return (
           <>
-            <h4 className="card__title">{title}</h4>
+            <h3 className="card__title">{title}</h3>
             <Image
               className="card__thumbnail"
               path={imageUri}

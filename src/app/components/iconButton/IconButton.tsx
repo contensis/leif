@@ -43,7 +43,12 @@ const IconButton = ({
             <VisuallyHidden text={text} />
           </>
         )}
-        {isToggled && <Icon type="close" />}
+        {isToggled && (
+          <>
+            <VisuallyHidden text="Close" />
+            <Icon type="close" />
+          </>
+        )}
       </div>
     </IconButtonStyled>
   );

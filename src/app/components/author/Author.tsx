@@ -15,7 +15,7 @@ const Author = ({ className, name, photo }: Props) => {
     <AuthorStyled className={className}>
       <Image
         path={photo}
-        alt={name}
+        alt={`Photo of ${name}`}
         className="author__photo"
         width={40}
         height={40}

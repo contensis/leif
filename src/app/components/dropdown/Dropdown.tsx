@@ -44,7 +44,7 @@ const Dropdown = ({
   return (
     <DropdownStyled className={className} type={type}>
       <VisuallyHidden>
-        <label htmlFor={title}>{title}</label>
+        <label htmlFor={filterGroupKey}>{title}</label>
       </VisuallyHidden>
       <select
         name={title}

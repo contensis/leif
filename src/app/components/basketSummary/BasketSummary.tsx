@@ -20,7 +20,7 @@ const BasketSummary = ({ className }: Props) => {
 
   return (
     <BasketSummaryStyled className={className}>
-      <h4 className="basket-summary__title">Order summary</h4>
+      <h2 className="basket-summary__title">Order summary</h2>
       <div className="basket-summary__info">
         <div>
           <span>{totalItems} item</span>

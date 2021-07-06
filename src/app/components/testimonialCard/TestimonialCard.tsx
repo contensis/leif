@@ -18,7 +18,7 @@ const TestimonialCard = ({ className, quote, photo, name }: Props) => {
         <>
           <Image
             path={photo}
-            alt={name}
+            alt={`Photo of ${name}`}
             className="testimonial-card__photo"
             width={40}
             height={40}

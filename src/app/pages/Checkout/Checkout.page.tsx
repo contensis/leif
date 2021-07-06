@@ -11,6 +11,7 @@ import CheckoutStyled from './Checkout.styled';
 // Mappers
 import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
 
 const CheckoutPage = () => {
   const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
@@ -31,6 +32,9 @@ const CheckoutPage = () => {
         image="/image-library/default-images/leif-fallback.png"
       />
       <CheckoutStyled>
+        <VisuallyHidden>
+          <h1>Checkout</h1>
+        </VisuallyHidden>
         <FeaturedProduct
           title="Well, this is awkward."
           text="Sorry, we're all out of plants, so this is as far as we can take you for now. But, using webhooks and our APIs, you can easily integrate with payment providers such as Stripe, Paypal, and others. Looking for a demonstration or advice? <a href='/about/contact'>Get in touch</a> to arrange a call with a customer success engineer."

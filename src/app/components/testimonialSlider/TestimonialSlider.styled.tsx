@@ -7,6 +7,7 @@ interface Props {
 const TestimonialSliderStyled = styled.div`
   ${({ theme }: Props) => {
     return css`
+      background-color: ${theme.colors.secondary};
       background-image: url('/static/img/backgrounds/testimonial-slider-background.jpeg');
       background-size: cover;
       background-position: center;
