@@ -11,7 +11,6 @@ COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 # COPY --from=basebuilder /usr/src/app/node_modules/zengenti-search-package /usr/src/app/node_modules/zengenti-search-package
 RUN yarn install --production --link-duplicates --loglevel error
-RUN yarn add immutable
 RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 ENV alias=zenhub
