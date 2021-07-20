@@ -1,7 +1,5 @@
 {
     "static_paths": [
-        "/static",
-        "/image-library",
-        "/video-library"
+        "/static"
     ]
 }
