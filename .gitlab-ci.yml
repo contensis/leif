@@ -7,7 +7,7 @@ stages:
   # - development-release-build
   - automated-tests
   - push-to-contensis
-  - push-to-contensis-dev
+  # - push-to-contensis-dev
 
 variables:
   DOCKER_DRIVER: overlay2
