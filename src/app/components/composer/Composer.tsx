@@ -48,6 +48,13 @@ const Composer = (props: any) => {
           </Region>
         );
       }
+      case ComposerComponents.promotedProductNew: {
+        return (
+          <Region width="full" margin="none">
+            <PromotionalBlock {...props} />
+          </Region>
+        );
+      }
       case ComposerComponents.productSlider:
       case ComposerComponents.curatedProductSlider:
       case ComposerComponents.filteredProductSlider: {

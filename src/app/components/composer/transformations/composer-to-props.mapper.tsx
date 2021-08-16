@@ -6,7 +6,10 @@ import { featuredProductMapping } from '~/components/featuredProduct/transformat
 import { videoPropsMapping } from '~/components/videoPlayer/transformations/videoplayer.component-to-props.mapper';
 import { accordionPropsMapping } from '~/components/accordion/transformations/accordion.component-to-props.mapper';
 import { contentBlockRowPropsMapping } from '~/components/contentBlockRow/transformations/contentblockrow.component-to-props.mapper';
-import { promotedProductPropsMapping } from '~/components/promotedProduct/transformations/promotedproduct.component-to-props.mapper';
+import {
+  promotedProductPropsMapping,
+  promotedProductNewPropsMapping,
+} from '~/components/promotedProduct/transformations/promotedproduct.component-to-props.mapper';
 import { featuredBlogPostPropsMapping } from '~/components/relatedContent/transformations/relatedcontent.component-to-props.mapper';
 import { featuredReviewsPropsMapping } from '~/components/testimonialSlider/transformations/testimonialslider.component-to-props.mapper';
 import {
@@ -41,6 +44,9 @@ export const composerPropsMapping = {
   },
   [ComposerComponents.promotedProduct]: {
     ...promotedProductPropsMapping,
+  },
+  [ComposerComponents.promotedProductNew]: {
+    ...promotedProductNewPropsMapping,
   },
   [ComposerComponents.contentBlockRow]: {
     ...contentBlockRowPropsMapping,

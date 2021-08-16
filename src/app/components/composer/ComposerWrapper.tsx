@@ -19,12 +19,18 @@ const ComposerWrapper = ({
   const promoComponentArray: number[] = [];
 
   items.forEach((item, idx) => {
-    if (item._type === ComposerComponents.promotedProduct) {
+    if (
+      item._type === ComposerComponents.promotedProduct ||
+      item._type === ComposerComponents.promotedProductNew
+    ) {
       promoComponentArray.push(idx);
       for (let i = 0; i < promoComponentArray.length; i++) {
         const isEven = i % 2 === 0 ? true : false;
         item.align = isEven ? 'left' : 'right';
-        item.hasTrending = isEven && isHomepage ? true : false;
+        item.hasTrending =
+          (idx === 0 && isHomepage) || (item.hasTrending && isHomepage)
+            ? true
+            : false;
       }
     }
   });

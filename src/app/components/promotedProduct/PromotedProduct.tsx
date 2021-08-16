@@ -23,6 +23,7 @@ export interface Props {
   align?: 'right' | 'left';
   hasTrending: boolean;
   video: VideoPlayerProps;
+  buttons?: [];
 }
 
 const PromotionalBlock = ({
@@ -36,8 +37,9 @@ const PromotionalBlock = ({
   video,
   align = 'left',
   hasTrending = false,
+  buttons,
 }: Props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const hasVideo = video && (video.externalURL || video.internalVideo);
 
   return (
@@ -92,7 +94,12 @@ const PromotionalBlock = ({
           )}
         </div>
         <div className="promoted-product__content">
-          {hasTrending && <Trending className="promoted-product__trending" />}
+          {hasTrending && (
+            <Trending
+              buttons={buttons}
+              className="promoted-product__trending"
+            />
+          )}
           <div className="promoted-product__content--text">
             <div className="promoted-product__wrapper">
               <h2 className="promoted-product__title">{title}</h2>

@@ -173,6 +173,7 @@ export const ComposerComponents = {
   curatedProductSlider: 'curatedProductSlider',
   filteredProductSlider: 'filteredProductSlider',
   bodyCopy: 'bodyCopy',
+  promotedProductNew: 'promotedProductNew',
 };
 
 export const BlogFilters = {
