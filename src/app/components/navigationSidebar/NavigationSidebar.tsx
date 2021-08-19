@@ -17,6 +17,7 @@ import { isClient } from '../../utils/isClient';
 
 // Types
 import { NavigationProps } from './Navigation.d';
+import Link from '../link/Link';
 
 interface NavigationSidebarProps {
   navigation: any;
@@ -115,10 +116,10 @@ const NavigationSidebar = ({
                         {activeNavigationObject && (
                           <>
                             <li>
-                              <a href={path}>
+                              <Link uri={path}>
                                 View all{' '}
                                 {activeNavigationObject.displayName.toLowerCase()}
-                              </a>
+                              </Link>
                             </li>
                             {activeNavigationObject.children.map(
                               (child: any, idx: number) => {
@@ -127,7 +128,7 @@ const NavigationSidebar = ({
                                 if (includeInMenu) {
                                   return (
                                     <li key={`${displayName}-${idx}`}>
-                                      <a href={path}>{displayName}</a>
+                                      <Link uri={path}>{displayName}</Link>
                                     </li>
                                   );
                                 }
@@ -142,24 +143,24 @@ const NavigationSidebar = ({
               } else {
                 return (
                   <li key={`${displayName}-${idx}`}>
-                    <a href={path}>{displayName}</a>
+                    <Link uri={path}>{displayName}</Link>
                   </li>
                 );
               }
             })}
             <li className="nav__socials">
-              <a href="https://en-gb.facebook.com/">
+              <Link uri="https://en-gb.facebook.com/">
                 <Icon type="facebook" color="#C3C6DE" />
                 <VisuallyHidden text="Facebook" />
-              </a>
-              <a href="https://twitter.com/contensis?lang=en">
+              </Link>
+              <Link uri="https://twitter.com/contensis?lang=en">
                 <Icon type="twitter" color="#C3C6DE" />
                 <VisuallyHidden text="Contensis Twitter" />
-              </a>
-              <a href="https://www.linkedin.com/showcase/contensis">
+              </Link>
+              <Link uri="https://www.linkedin.com/showcase/contensis">
                 <Icon type="linkedin" color="#C3C6DE" />
                 <VisuallyHidden text="Contensis LinkedIn" />
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

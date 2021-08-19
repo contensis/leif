@@ -1,8 +1,9 @@
 import React from 'react';
 
 import FooterStyled from './Footer.styled';
-import Icon from '../icon/Icon';
 import FooterColumn from '../footerColumn/FooterColumn';
+import Icon from '../icon/Icon';
+import Link from '../link/Link';
 
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import data from './data';
@@ -25,33 +26,33 @@ const Footer = ({ className }: Props) => {
   return (
     <FooterStyled className={className}>
       <div className="footer__left-column">
-        <a href="/">
+        <Link uri="/">
           <img
             className="footer__logo"
             src="/static/img/logos/logo-dark.svg"
             alt="Leif"
           />
           <VisuallyHidden text="Home" />
-        </a>
+        </Link>
         <div className="footer__icons-wrapper">
-          <a href="https://en-gb.facebook.com/" className="footer__icon-link">
+          <Link uri="https://en-gb.facebook.com/" className="footer__icon-link">
             <Icon type="facebook" />
             <VisuallyHidden text="Facebook" />
-          </a>
-          <a
-            href="https://www.linkedin.com/showcase/contensis"
+          </Link>
+          <Link
+            uri="https://www.linkedin.com/showcase/contensis"
             className="footer__icon-link"
           >
             <Icon type="linkedin" />
             <VisuallyHidden text="Linkedin" />
-          </a>
-          <a
-            href="https://twitter.com/contensis?lang=en"
+          </Link>
+          <Link
+            uri="https://twitter.com/contensis?lang=en"
             className="footer__icon-link"
           >
             <Icon type="twitter" />
             <VisuallyHidden text="Twitter" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="footer__links">

@@ -6,6 +6,7 @@ import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 import Icon from '../icon/Icon';
 import LinkButton from '../linkButton/LinkButton';
+import Link from '../link/Link';
 
 export interface Props {
   className?: string;
@@ -74,9 +75,9 @@ const GenericHero = ({
       <ConditionalLink
         condition={isRenderedAsLink}
         wrapper={(children: any) => (
-          <a href={ctaLink} className="generic-hero__link-wrapper">
+          <Link uri={ctaLink} className="generic-hero__link-wrapper">
             {children}
-          </a>
+          </Link>
         )}
       >
         <div className="generic-hero__content">

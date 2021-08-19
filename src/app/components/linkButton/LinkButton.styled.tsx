@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import Link from '../link/Link';
 
 interface Props {
   theme: any;
@@ -8,7 +9,7 @@ interface Props {
   isDisabled: boolean;
 }
 
-const LinkButtonStyled = styled.a`
+const LinkButtonStyled = styled(Link)`
   ${({ theme, type, isHollow, hasIcon, isDisabled }: Props) => {
     return css`
       ${theme.typeStyles.h5};

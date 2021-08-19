@@ -18,6 +18,7 @@ import BasketMenu from '../basketMenu/BasketMenu.container';
 // Hooks
 import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
 import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
+import Link from '../link/Link';
 export interface Props {
   className?: string;
   _setIsSearchOpen: (val: boolean) => void;
@@ -71,7 +72,7 @@ const Header = ({
           </>
         )}
       >
-        <a href="/" className="header__logo-link">
+        <Link uri="/" title="Leif Home" className="header__logo-link">
           <img
             className="header__logo"
             src={
@@ -82,7 +83,7 @@ const Header = ({
             alt="Leif"
           />
           <VisuallyHidden text="Home" />
-        </a>
+        </Link>
         {!isSearchOpen && (
           <div className="header__actions">
             <IconButton

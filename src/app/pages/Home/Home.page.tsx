@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Components
 import LandingHero from '~/components/landingHero/LandingHero';
@@ -23,25 +23,14 @@ const Home = ({ mappedEntry }: Props) => {
   const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
     mappedEntry || {};
 
-  const [latestReviewsOptions, setLatestReviewsOptions] = useState<any>();
-  const [latestBlogsOptions, setLatestBlogsOptions] = useState<any>();
-
-  const { results: latestReviews } = useMinilist(latestReviewsOptions);
-  const { results: latestBlogs } = useMinilist(latestBlogsOptions);
-
-  useEffect(() => {
-    setLatestReviewsOptions({
-      id: 'latestReviews',
-      mapper: mapEntriesToResults,
-    });
-  }, []);
-
-  useEffect(() => {
-    setLatestBlogsOptions({
-      id: 'latestBlogs',
-      mapper: mapEntriesToResults,
-    });
-  }, []);
+  const { results: latestReviews } = useMinilist({
+    id: 'latestReviews',
+    mapper: mapEntriesToResults,
+  });
+  const { results: latestBlogs } = useMinilist({
+    id: 'latestBlogs',
+    mapper: mapEntriesToResults,
+  });
 
   return (
     <MainLayout isLight={true}>

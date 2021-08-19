@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Icon from '../icon/Icon';
+import Link from '../link/Link';
 
 import FooterColumnStyled from './FooterColumn.styled';
 
@@ -31,9 +32,9 @@ const FooterColumn = ({ className, title, links }: Props) => {
       <div className="footer-column__sub-links">
         {links.map((l: LinkObject) => {
           return (
-            <a className="footer-column__sub-link" key={l.title} href={l.uri}>
+            <Link className="footer-column__sub-link" key={l.title} uri={l.uri}>
               {l.title}
-            </a>
+            </Link>
           );
         })}
       </div>

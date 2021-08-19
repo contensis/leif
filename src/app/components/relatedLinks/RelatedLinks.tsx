@@ -3,6 +3,7 @@ import mapJson from '../../core/util/json-mapper';
 import RelatedLinksStyled from './RelatedLinks.styled';
 import { relatedLinksMapper } from './transformations/relatedlinks.entry-to-card.mapper';
 import Image from '../image/Image';
+import Link from '../link/Link';
 
 export interface Props {
   className?: string;
@@ -41,7 +42,7 @@ const RelatedLinks = ({
           const { title, path, imageUri, imageAlt } = mappedRes || {};
           return (
             <li key={idx}>
-              <a className="related-links__link" href={path}>
+              <Link className="related-links__link" uri={path}>
                 <Image
                   className="related-links__image"
                   path={imageUri}
@@ -50,7 +51,7 @@ const RelatedLinks = ({
                   height={80}
                 />
                 <span className="related-links__link-title">{title}</span>
-              </a>
+              </Link>
             </li>
           );
         })}

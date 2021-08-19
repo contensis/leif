@@ -54,7 +54,7 @@ const searchUriTemplate = {
       return currentPath;
     }
   },
-  search: ({ state, facet, orderBy, pageIndex, term }: any) => {
+  search: ({ state, facet, orderBy, term }: any) => {
     const searchContext = getSearchContext(state);
     // Lose stateFilters and currentSearch if a new
     // term is passed via an argument
@@ -97,8 +97,8 @@ const searchUriTemplate = {
         .toJS()
     );
 
-    if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
-    if (pageIndex === 0) mergedSearch.pageIndex = undefined;
+    // if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
+    // if (pageIndex === 0) mergedSearch.pageIndex = undefined;
     return queryString.stringify(mergedSearch);
   },
   hash: ({ state }: any) =>

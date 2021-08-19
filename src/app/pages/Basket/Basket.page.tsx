@@ -24,6 +24,7 @@ import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
 import Icon from '~/components/icon/Icon';
+import Link from '~/components/link/Link';
 
 const BasketPage = () => {
   let basket = useSelector(selectProductsInBasket);
@@ -92,10 +93,10 @@ const BasketPage = () => {
                     label="Checkout"
                     href="/checkout"
                   />
-                  <a href="/checkout" className="basket__paypal">
+                  <Link uri="/checkout" className="basket__paypal">
                     <img src="/static/img/logos/paypal-logo.png" alt="PayPal" />
                     <VisuallyHidden text="Check out with PayPal" />
-                  </a>
+                  </Link>
                 </div>
               </>
             )}
