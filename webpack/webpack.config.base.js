@@ -18,7 +18,6 @@ module.exports = {
       '~': path.resolve(__dirname, '../src/app'),
       '-': path.resolve(__dirname, '../'),
       'react-dom': '@hot-loader/react-dom',
-      '@zengenti/contensis-react-base/search': 'zengenti-search-package',
     },
   },
   module: {

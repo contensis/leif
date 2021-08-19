@@ -8,8 +8,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const WebpackModules = require('webpack-modules');
 const WebpackModuleNomodulePlugin = require('webpack-module-nomodule-plugin');
-
 const webpackNodeExternals = require('webpack-node-externals');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const BASE_CONFIG = require('./webpack.config.base');
 const { DEFINE_CONFIG, WEBPACK_DEFINE_CONFIG } = require('./bundle-info');
@@ -205,8 +206,21 @@ const SERVER_PROD_CONFIG = {
   ],
 };
 
-module.exports = [
-  merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_MODERN_CONFIG),
-  merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_LEGACY_CONFIG),
-  merge(BASE_CONFIG, SERVER_PROD_CONFIG),
-];
+const ANALYZE_CONFIG = {
+  plugins: [new BundleAnalyzerPlugin({ analyzerMode: 'static' })],
+};
+
+if (process.env.ANALYZE) {
+  module.exports = merge(
+    BASE_CONFIG,
+    CLIENT_PROD_CONFIG,
+    CLIENT_MODERN_CONFIG,
+    ANALYZE_CONFIG
+  );
+} else {
+  module.exports = [
+    merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_MODERN_CONFIG),
+    merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_LEGACY_CONFIG),
+    merge(BASE_CONFIG, SERVER_PROD_CONFIG),
+  ];
+}

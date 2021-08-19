@@ -1,5 +1,3 @@
-import 'core-js';
-
 // the entry point for the rest of the app
 import ClientApp from '@zengenti/contensis-react-base/client';
 import ReactApp from '~/App';

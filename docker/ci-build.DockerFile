@@ -2,15 +2,11 @@ ARG builder_image
 FROM ${builder_image} as basebuilder
 FROM mhart/alpine-node:12
 
-RUN apk add git
 COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
 COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
-# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
-# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
-# COPY --from=basebuilder /usr/src/app/node_modules/zengenti-search-package /usr/src/app/node_modules/zengenti-search-package
 RUN yarn install --production --link-duplicates --loglevel error && yarn cache clean
 RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist

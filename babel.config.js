@@ -38,7 +38,6 @@ const plugins = {
         alias: {
           '~': './src/app',
           '-': './',
-          '@zengenti/contensis-react-base/search': 'zengenti-search-package',
         },
         cwd: 'packagejson',
       },
