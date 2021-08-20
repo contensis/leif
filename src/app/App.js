@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root';
 import { ThemeProvider } from 'styled-components';
 import { RouteLoader } from '@zengenti/contensis-react-base/routing';
 import { Loading } from '~/core/routes/Loading';
-import NotFound from '~/pages/NotFound';
+import NotFound from '~/pages/NotFound/NotFound.page';
 import { selectRouteLoading } from './core/redux/selectors';
 
 import GlobalStyle from '~/theme/global/globalStyles';

@@ -45,8 +45,7 @@ export default [
     path: '/404',
     exact: true,
     component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "notfound" */ '~/pages/NotFound.js'),
+      loader: () => import('~/pages/NotFound/NotFound.page'),
       loading: Loading,
     }),
   },
