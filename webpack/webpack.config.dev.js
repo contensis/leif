@@ -70,6 +70,7 @@ const CLIENT_DEV_CONFIG = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
       filename: './index.html',
+      chunksSortMode: 'none',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new BrowserSyncPlugin(
