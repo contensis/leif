@@ -14,6 +14,7 @@ export default [
   },
   {
     path: '/products/:contentTypeId?',
+    exact: true,
     fetchNode: true,
     component: ProductListing,
   },
