@@ -1,8 +1,10 @@
 import React from 'react';
-
+import Loadable from 'react-loadable';
+import { Loading } from '~/core/routes/Loading';
 // Components
 import LandingHero from '~/components/landingHero/LandingHero';
-import Composer from '~/components/composer/ComposerWrapper';
+// import Composer from '~/components/composer/ComposerWrapper';
+import { Composer } from '~/dynamic/components';
 import TestimonialSlider from '~/components/testimonialSlider/TestimonialSlider';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import Metadata from '~/components/metadata/Metadata';
@@ -22,6 +24,15 @@ import { Props } from './Home.d';
 const Home = ({ mappedEntry }: Props) => {
   const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
     mappedEntry || {};
+
+  // // Works but does not server side render
+  // const Composer = Loadable({
+  //   loader: () =>
+  //     import(
+  //       /* webpackChunkName: "composer-wrapper" */ '~/components/composer/ComposerWrapper'
+  //     ),
+  //   loading: Loading,
+  // });
 
   const { results: latestReviews } = useMinilist({
     id: 'latestReviews',

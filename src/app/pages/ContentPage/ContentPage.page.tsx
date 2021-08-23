@@ -3,7 +3,8 @@ import React from 'react';
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import RelatedLinks from '~/components/relatedLinks/RelatedLinks.container';
-import Composer from '~/components/composer/ComposerWrapper';
+// import Composer from '~/components/composer/ComposerWrapper';
+import { Composer } from '~/dynamic/components';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import PromotedContent from '~/components/promotedContent/PromotedContent';

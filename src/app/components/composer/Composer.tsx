@@ -1,20 +1,36 @@
 import React from 'react';
 
 // Components
-import TextBlock from '../textBlock/TextBlock';
-import ImageBlock from '../imageBlock/ImageBlock';
-import QuoteBlock from '../quoteBlock/QuoteBlock';
-import FeaturedProduct from '../featuredProduct/FeaturedProduct';
-import VideoPlayer from '../videoPlayer/VideoPlayer';
-import Callout from '../callout/Callout';
-import IconList from '../iconList/IconList';
-import Accordion from '../accordion/Accordion';
-import TwitterCard from '../twitterCard/TwitterCard';
-import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
-import ProductSlider from '../productSlider/ProductSlider';
-import PromotionalBlock from '../promotedProduct/PromotedProduct';
-import RelatedContent from '../relatedContent/RelatedContent';
-import TestimonialSlider from '../testimonialSlider/TestimonialSlider';
+// import TextBlock from '../textBlock/TextBlock';
+// import ImageBlock from '../imageBlock/ImageBlock';
+// import QuoteBlock from '../quoteBlock/QuoteBlock';
+// import FeaturedProduct from '../featuredProduct/FeaturedProduct';
+// import VideoPlayer from '../videoPlayer/VideoPlayer';
+// import Callout from '../callout/Callout';
+// import IconList from '../iconList/IconList';
+// import Accordion from '../accordion/Accordion';
+// import TwitterCard from '../twitterCard/TwitterCard';
+// import ContentBlockRow from '../contentBlockRow/ContentBlockRow';
+// import ProductSlider from '../productSlider/ProductSlider';
+// import PromotionalBlock from '../promotedProduct/PromotedProduct';
+// import RelatedContent from '../relatedContent/RelatedContent';
+// import TestimonialSlider from '../testimonialSlider/TestimonialSlider';
+import {
+  Accordion,
+  Callout,
+  ContentBlockRow,
+  FeaturedProduct,
+  IconList,
+  ImageBlock,
+  ProductSlider,
+  PromotionalBlock,
+  QuoteBlock,
+  RelatedContent,
+  TestimonialSlider,
+  TextBlock,
+  TwitterCard,
+  VideoPlayer,
+} from '~/dynamic/composer';
 
 // Layout
 import Region from '~/layout/Region';

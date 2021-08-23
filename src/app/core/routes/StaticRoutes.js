@@ -1,62 +1,42 @@
-// import React from 'react';
-import Loadable from 'react-loadable';
-import { Loading } from './Loading';
+import {
+  BasketPage,
+  CheckoutPage,
+  CorePages,
+  ProductListing,
+  SearchPage,
+} from '~/dynamic/pages';
 
 export default [
   {
     path: '/search/:facet?/:contentTypeId?',
     exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/Search/Search.page'),
-      loading: Loading,
-    }),
+    component: SearchPage,
   },
   {
     path: '/products/:contentTypeId?',
-    exact: true,
     fetchNode: true,
-    component: Loadable({
-      loader: () => import('~/pages/ProductListing/ProductListing.page'),
-      loading: Loading,
-    }),
+    component: ProductListing,
   },
   {
     path: '/basket',
     exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/Basket/Basket.page'),
-      loading: Loading,
-    }),
+    component: BasketPage,
   },
   {
     path: '/checkout',
     exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/Checkout/Checkout.page'),
-      loading: Loading,
-    }),
+    component: CheckoutPage,
   },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {
     path: '/404',
-    exact: true,
-    component: Loadable({
-      loader: () => import('~/pages/NotFound/NotFound.page'),
-      loading: Loading,
-    }),
+    component: CorePages[404],
   },
   {
     path: '/zenInfo',
-    exact: true,
-    component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "zeninfo" */ '~/pages/VersionInfo'),
-      loading: Loading,
-    }),
+    ssrOnly: true,
+    component: CorePages.ZenInfo,
   },
   // ˄˄ Do not delete these routes ˄˄
   // ********************************

@@ -2,7 +2,8 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-import Composer from '~/components/composer/ComposerWrapper';
+// import Composer from '~/components/composer/ComposerWrapper';
+import { Composer } from '~/dynamic/components';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import LandingHero from '~/components/landingHero/LandingHero';
 import Metadata from '~/components/metadata/Metadata';
