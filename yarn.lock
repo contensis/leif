@@ -3437,16 +3437,16 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zengenti/contensis-react-base@^2.4.1-beta.1":
-  version "2.4.1-beta.1"
-  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-2.4.1-beta.1.tgz#236a492196fe8dc64d80b678525799f4df0ba0b8"
-  integrity sha512-G5d3LI9PH726fK9VNtYOoCxl0ySSGcOAmw/a6grcYTYUYqShlVRc5nVTj5EH4hwksziIQw9sr9qZ/w6HC7uzMg==
+"@zengenti/contensis-react-base@^2.4.1-beta.3":
+  version "2.4.1-beta.3"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-2.4.1-beta.3.tgz#7ae135abb8c369e390bc4388e15590c2170c4dc5"
+  integrity sha512-TJC1Qei+jJRT6wxZQFMvVz9tdElE1B9dgg91BHBYfrH8zmB46sx30NWgOOutmXrgZMpEHn7iFrhdtrbJgWV2sA==
   dependencies:
     "@hot-loader/react-dom" "16.11.0"
     app-root-path "^3.0.0"
     await-to-js "^2.1.1"
     contensis-delivery-api "^1.1.7"
-    contensis-management-api "^2.0.0-beta.5"
+    contensis-management-api "^2.0.1"
     custom-env "^2.0.1"
     dateformat "^3.0.3"
     express "^4.17.1"
@@ -5660,6 +5660,16 @@ contensis-core-api@^1.0.2:
     es6-promise "^4.2.6"
     tslib "^1.9.3"
 
+contensis-core-api@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/contensis-core-api/-/contensis-core-api-1.0.3.tgz#97085f81d18449e4dd7f501fe667895ddfa01d45"
+  integrity sha512-eOMDCIu2NxxAMR9sUT1+9x9wqxhQX/ftoe++ZTQa/Ie+HrAJtoa0ihqbIzkRzv6HDliR99yVK0Rz4bgjSwYYdA==
+  dependencies:
+    "@types/detect-node" "^2.0.0"
+    detect-node "^2.0.4"
+    es6-promise "^4.2.6"
+    tslib "^1.9.3"
+
 contensis-delivery-api@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/contensis-delivery-api/-/contensis-delivery-api-1.1.7.tgz#f9939236f4907a2a69e8bd88b5eb1daac959a96d"
@@ -5671,13 +5681,13 @@ contensis-delivery-api@^1.1.7:
     tslib "^1.10.0"
     whatwg-fetch "^3.0.0"
 
-contensis-management-api@^2.0.0-beta.5:
-  version "2.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.0.0-beta.6.tgz#53c892e2ad66f829ac41e0b268fc5bb5b2c0624b"
-  integrity sha512-oa2EKg+dRwwCMo0Qa3XHY/zxMqzzKH5pAuGP/Rk4RPqt/tj2cdSfGLdIlJN+2QJGyJu0YsjUWtCbyoAJWSj3kw==
+contensis-management-api@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.0.1.tgz#4387c6b257f4161d29066f414a9773cfe5b5b470"
+  integrity sha512-Du7O7LgEG8DJxmJTWWDD5OM3kXeJUvs1VKnadjh1qiUpv+Q4uBlh440rImm5+Y5FxAdpZ9+tPFgIuHLk32misg==
   dependencies:
     "@types/graceful-fs" "^4.1.3"
-    contensis-core-api "^1.0.2"
+    contensis-core-api "^1.0.3"
     cross-fetch "^3.0.6"
     es6-promise "^4.2.8"
     form-data "^3.0.0"
