@@ -11,6 +11,7 @@ import Icon from '../icon/Icon';
 
 // Utils
 import { isClient } from '../../utils/isClient';
+import Link from '../link/Link';
 
 export interface Props {
   className?: string;
@@ -73,13 +74,13 @@ const HeaderSearch = ({
           onChange={(e: any) => _handleChange(e.target.value)}
           onKeyPress={_handleKeyPress}
         />
-        <a
+        <Link
           className="header-search__site-search--link"
           href={`/search?term=${value}`}
         >
           <Icon type="search" color="#fff" />
           <VisuallyHidden text={`Search for ${value}`} />
-        </a>
+        </Link>
         {results && results.length >= 1 && (
           <div className="header-search__results">
             {results.map((res: any, idx: number) => (
