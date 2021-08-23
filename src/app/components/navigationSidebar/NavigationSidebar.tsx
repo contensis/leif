@@ -116,7 +116,10 @@ const NavigationSidebar = ({
                         {activeNavigationObject && (
                           <>
                             <li>
-                              <Link uri={path}>
+                              <Link
+                                uri={path}
+                                onClick={() => _toggleMenu(false)}
+                              >
                                 View all{' '}
                                 {activeNavigationObject.displayName.toLowerCase()}
                               </Link>
@@ -128,7 +131,12 @@ const NavigationSidebar = ({
                                 if (includeInMenu) {
                                   return (
                                     <li key={`${displayName}-${idx}`}>
-                                      <Link uri={path}>{displayName}</Link>
+                                      <Link
+                                        uri={path}
+                                        onClick={() => _toggleMenu(false)}
+                                      >
+                                        {displayName}
+                                      </Link>
                                     </li>
                                   );
                                 }
@@ -143,7 +151,9 @@ const NavigationSidebar = ({
               } else {
                 return (
                   <li key={`${displayName}-${idx}`}>
-                    <Link uri={path}>{displayName}</Link>
+                    <Link uri={path} onClick={() => _toggleMenu(false)}>
+                      {displayName}
+                    </Link>
                   </li>
                 );
               }
