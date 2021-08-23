@@ -129,7 +129,7 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^2.4.1-beta.1",
+    "@zengenti/contensis-react-base": "^2.4.1-beta.3",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "patch-package": "^6.2.0",
