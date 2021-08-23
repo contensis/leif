@@ -81,12 +81,7 @@ const SearchCard = ({
     }
   };
   return (
-    <SearchCardStyled
-      className={className}
-      type={type}
-      title={title}
-      href={uri}
-    >
+    <SearchCardStyled className={className} type={type} title={title} uri={uri}>
       {SearchCard(type)}
     </SearchCardStyled>
   );

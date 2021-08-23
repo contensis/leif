@@ -37,7 +37,7 @@ const BackButton = ({
 
   if (!btnPath) return null;
   return (
-    <BackButtonStyled className={className} href={btnPath}>
+    <BackButtonStyled className={className} uri={btnPath}>
       <Icon className="back-button__icon" type="arrow-left" color={color} />
       <span className="back-button__text">{btnLabel}</span>
     </BackButtonStyled>

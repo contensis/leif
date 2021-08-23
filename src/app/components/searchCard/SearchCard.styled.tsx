@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
+import Link from '../link/Link';
 
 interface Props {
   theme?: any;
   type: string;
 }
 
-const SearchCardStyled = styled.a`
+const SearchCardStyled = styled(Link)`
   ${({ theme, type }: Props) => {
     return css`
       display: flex;
