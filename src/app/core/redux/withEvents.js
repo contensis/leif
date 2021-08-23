@@ -5,7 +5,7 @@ import { queryParams, routeParams } from '../util/navigation';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
 import { ContentTypes, ListingPages } from '../schema';
 
-import transformations from '../../components/search/transformations';
+import transformations from '~/components/search/transformations';
 
 export default {
   onRouteLoad: function* onRouteLoad({
@@ -24,6 +24,7 @@ export default {
         siblings: true,
         tree: true,
       },
+      entryLinkDepth: 1,
       preventScrollTop: path === statePath,
     };
   },
@@ -45,20 +46,21 @@ export default {
     // the right parameters to drive them
     switch (contentTypeId) {
       case ContentTypes.blogListing:
-        triggerListing = true;
-        break;
       case ContentTypes.productListing:
         triggerListing = true;
-        break;
-      default:
         break;
     }
 
     // eslint-disable-next-line no-console
-    if (path.startsWith('/search')) {
+    if (
+      path.startsWith('/search') ||
+      (triggerListing && Object.keys(ListingPages).includes(contentTypeId))
+    ) {
       yield call(setRouteFilters, {
         mappers: transformations,
         params,
+        // Only set for listing pages
+        listingType: ListingPages[contentTypeId] || undefined,
       });
     }
 
@@ -69,13 +71,5 @@ export default {
     // if (!siteConfig) {
     //   yield put({ type: GET_SITE_CONFIG });
     // }
-
-    yield triggerListing &&
-      Object.keys(ListingPages).includes(contentTypeId) &&
-      setRouteFilters({
-        listingType: ListingPages[contentTypeId],
-        mappers: transformations,
-        params,
-      });
   },
 };
