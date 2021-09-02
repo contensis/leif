@@ -1,5 +1,6 @@
 import { Props as GenericHeroProps } from '~/components/genericHero/GenericHero';
 import { Props as CardRowProps } from '~/components/cardRow/CardRow';
+import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
 import { Props as LandingHeroProps } from '~/components/landingHero/LandingHero';
 import { Props as LeadParagraphProps } from '~/components/leadParagraph/LeadParagraph';
 import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
@@ -9,7 +10,7 @@ import { Props as FormProps } from '~/components/form/Form';
 export interface MappedProps {
   landingPageHeroProps: LandingHeroProps | GenericHeroProps;
   leadParagraphProps: LeadParagraphProps;
-  contentComposerProps: any;
+  contentComposerProps: ComposerProps;
   relatedContentProps: CardRowProps;
   ctaBannerProps: CTABannerProps;
   metadataProps: MetadataProps;

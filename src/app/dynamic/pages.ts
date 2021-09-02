@@ -1,15 +1,24 @@
 import Loadable from './loadable';
 
-export const HomePage = Loadable(
+// Props Models
+import { MappedProps as HomePageProps } from '~/pages/Home/Home.d';
+import { MappedProps as LandingPageProps } from '~/pages/LandingPage/LandingPage.d';
+import { MappedProps as ContentPageProps } from '~/pages/ContentPage/ContentPage.d';
+import { MappedProps as BlogListingProps } from '~/pages/BlogListing/BlogListing.d';
+import { MappedProps as BlogPostProps } from '~/pages/BlogPost/BlogPost.d';
+import { Props as ProductListingProps } from '~/pages/ProductListing/ProductListing.d';
+import { MappedProps as ProductPageProps } from '~/pages/ProductPage/ProductPage.d';
+
+export const HomePage = Loadable<HomePageProps>(
   () => import(/* webpackChunkName: "home.page" */ '~/pages/Home/Home.page')
 );
-export const LandingPage = Loadable(
+export const LandingPage = Loadable<LandingPageProps>(
   () =>
     import(
       /* webpackChunkName: "landing.page" */ '~/pages/LandingPage/LandingPage.page'
     )
 );
-export const ContentPage = Loadable(
+export const ContentPage = Loadable<ContentPageProps>(
   () =>
     import(
       /* webpackChunkName: "content.page" */ '~/pages/ContentPage/ContentPage.page'
@@ -19,23 +28,23 @@ export const SearchPage = Loadable(
   () =>
     import(/* webpackChunkName: "search.page" */ '~/pages/Search/Search.page')
 );
-export const BlogListing = Loadable(
+export const BlogListing = Loadable<BlogListingProps>(
   () =>
     import(
       /* webpackChunkName: "blog-listing.page" */ '~/pages/BlogListing/BlogListing.page'
     )
 );
-export const BlogPost = Loadable(
+export const BlogPost = Loadable<BlogPostProps>(
   () =>
     import(/* webpackChunkName: "blog.page" */ '~/pages/BlogPost/BlogPost.page')
 );
-export const ProductListing = Loadable(
+export const ProductListing = Loadable<ProductListingProps>(
   () =>
     import(
       /* webpackChunkName: "product-listing.page" */ '~/pages/ProductListing/ProductListing.page'
     )
 );
-export const ProductPage = Loadable(
+export const ProductPage = Loadable<ProductPageProps>(
   () =>
     import(
       /* webpackChunkName: "product.page" */ '~/pages/ProductPage/ProductPage.page'

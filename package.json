@@ -78,7 +78,7 @@
     "babel-plugin-dynamic-import-node": "2.2.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "1.10.0",
-    "babel-plugin-transform-define": "^1.3.1",
+    "babel-plugin-transform-define": "1.0.1",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "2.2.2",
     "chai": "^4.2.0",
@@ -129,7 +129,7 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^2.4.1-beta.3",
+    "@zengenti/contensis-react-base": "^2.4.1-beta.15",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "patch-package": "^6.2.0",

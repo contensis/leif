@@ -1,10 +1,12 @@
 import React from 'react';
 import { ComposerComponents } from '~/core/schema';
 
-import Composer from './Composer';
+import ComposerComponent from './Composer';
+
+import { Props as ComposerProps } from './Composer.d';
 
 export interface Props {
-  items: any;
+  items: ComposerProps;
   isContentPage?: boolean;
   isHomepage?: boolean;
 }
@@ -40,7 +42,7 @@ const ComposerWrapper = ({
       {items.map((componentProps: any, idx: number) => {
         if (!componentProps._type) return null;
         return (
-          <Composer
+          <ComposerComponent
             key={idx}
             isContentPage={isContentPage}
             {...componentProps}

@@ -27,7 +27,7 @@ const LandingPage = ({ mappedEntry }: Props) => {
     relatedContentProps,
     metadataProps,
     formProps,
-  } = mappedEntry || {};
+  } = mappedEntry;
 
   const { imageUri } = landingPageHeroProps;
   const isLight = imageUri ? true : false;
