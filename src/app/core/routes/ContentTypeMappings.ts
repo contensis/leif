@@ -1,4 +1,4 @@
-import mapJson from 'jsonpath-mapper';
+import { entryMapper, mapJson } from '@zengenti/contensis-react-base/util';
 import { ContentTypeMapping } from '@zengenti/contensis-react-base';
 
 import {
@@ -10,7 +10,6 @@ import {
   ProductPage,
   ProductListing,
 } from '~/dynamic/pages';
-import { entryMapper } from '~/core/util/json-mapper';
 
 // Mappings
 import { contentPagePropsMapping } from '~/pages/ContentPage/transformations/contentpage.entry-to-props.mapper';
