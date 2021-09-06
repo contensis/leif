@@ -3510,7 +3510,7 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zengenti/contensis-react-base@^2.4.1-beta.15":
+"@zengenti/contensis-react-base@^2.4.1-beta.18":
   version "2.4.1-beta.18"
   resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-2.4.1-beta.18.tgz#3db917f694e4c139af75b6c1393e490c785c4da2"
   integrity sha512-h9MofgzJ4fqiJMP/jBfFWtIwEcUglF1yAy09JbTqh4A/WkDe30ST/GuuhnmLN4kwxPRVbZoa5GUzZxuFAF+QpQ==
