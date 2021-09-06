@@ -1,3 +1,4 @@
+import { StaticRoute } from '@zengenti/contensis-react-base';
 import {
   BasketPage,
   CheckoutPage,
@@ -6,10 +7,10 @@ import {
   SearchPage,
 } from '~/dynamic/pages';
 
-export default [
+const staticRoutes: StaticRoute[] = [
   {
     path: '/search/:facet?/:contentTypeId?',
-    exact: false,
+    exact: true,
     component: SearchPage,
   },
   {
@@ -22,6 +23,7 @@ export default [
     path: '/basket',
     exact: false,
     component: BasketPage,
+    j: '',
   },
   {
     path: '/checkout',
@@ -42,3 +44,5 @@ export default [
   // ˄˄ Do not delete these routes ˄˄
   // ********************************
 ];
+
+export default staticRoutes;

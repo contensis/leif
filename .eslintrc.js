@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  root: true,
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -34,11 +35,7 @@ module.exports = {
     react: {
       version: '^16.0.0',
     },
-    'import/resolver': {
-      webpack: {
-        config: path.resolve(__dirname, './webpack/webpack.config.base.js'),
-      },
-    },
+    'import/resolver': 'typescript',
   },
 
   rules: {
@@ -94,12 +91,7 @@ module.exports = {
         'prettier',
       ],
       settings: {
-        'import/resolver': {
-          webpack: {
-            config: path.resolve(__dirname, './webpack/webpack.config.base.js'),
-          },
-          typescript: {},
-        },
+        'import/resolver': 'typescript',
       },
       /**
        * Typescript Rules

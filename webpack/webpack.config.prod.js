@@ -35,7 +35,7 @@ const CLIENT_MODERN_CONFIG = {
   entry: {
     app: [
       path.resolve(__dirname, '../src/client/polyfills.modern.js'),
-      path.resolve(__dirname, '../src/client/client-entrypoint.js'),
+      path.resolve(__dirname, '../src/client/client-entrypoint.ts'),
     ],
   },
   output: {
@@ -78,7 +78,7 @@ const CLIENT_LEGACY_CONFIG = {
   entry: {
     app: [
       path.resolve(__dirname, '../src/client/polyfills.legacy.js'),
-      path.resolve(__dirname, '../src/client/client-entrypoint.js'),
+      path.resolve(__dirname, '../src/client/client-entrypoint.ts'),
     ],
   },
   output: {
@@ -175,14 +175,19 @@ const SERVER_PROD_CONFIG = {
   mode: 'production',
   stats: 'errors-only',
   entry: {
-    server: path.resolve(__dirname, '../src/server/server.js'),
+    server: path.resolve(__dirname, '../src/server/server.ts'),
     test: path.resolve(__dirname, '../src/server/test.js'),
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
   },
-  externals: [webpackNodeExternals()],
+  externals: [
+    webpackNodeExternals(),
+    webpackNodeExternals({
+      modulesDir: path.resolve(__dirname, '../../../node_modules'),
+    }),
+  ],
   module: {
     rules: [
       {

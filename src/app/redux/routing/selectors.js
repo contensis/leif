@@ -1,26 +1,26 @@
+import { navigation } from '@zengenti/contensis-react-base/redux';
+import { selectors } from '@zengenti/contensis-react-base/routing';
+
 export const selectCurrentNodeChildren = state =>
-  state.getIn(['routing', 'currentNode', 'children']);
+  selectors.selectCurrentChildren(state);
 
 export const selectCurrentNodeAncestors = state =>
-  state.getIn(['routing', 'currentNodeAncestors']);
+  selectors.selectCurrentAncestors(state);
 
 export const selectCurrentNodeParentId = state =>
-  state.getIn(['routing', 'currentNode', 'parentId']);
+  selectors.selectCurrentNode(state)?.get('parentId');
 
 export const selectCurrentNodeId = state =>
-  state.getIn(['routing', 'currentNode', 'id']);
+  selectors.selectCurrentNode(state)?.get('id');
 
 export const selectNavigationRootChildren = state =>
-  state.getIn(['navigation', 'root', 'children']);
+  navigation.selectors.selectNavigationRoot(state)?.get('children');
 
-export const selectCurrentLocationQueryStringParams = state => {
-  return state.getIn(['routing', 'location', 'search']);
-};
+export const selectCurrentLocationQueryStringParams = state =>
+  selectors.selectCurrentSearch(state);
 
-export const selectCurrentPathname = state => {
-  return state.getIn(['routing', 'location', 'pathname']);
-};
+export const selectCurrentPathname = state =>
+  selectors.selectCurrentPath(state);
 
-export const selectCurrentNodeSiblings = state => {
-  return state.getIn(['routing', 'currentNodeSiblings']);
-};
+export const selectCurrentNodeSiblings = state =>
+  selectors.selectCurrentSiblings(state);

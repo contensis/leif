@@ -11,26 +11,18 @@ import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
 import NoResults from '../noResults/NoResults';
-interface Props {
-  results?: any;
-  filters?: any;
-  facets?: any;
-  paging?: any;
-  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
-  updatePageIndex: (ev: number) => void;
-  updateCurrentFacet: () => void;
-  clearFilters: () => void;
-}
+import { SearchProps } from '@zengenti/contensis-react-base/search';
 
 const ProductListing = ({
-  results,
+  clearFilters,
+  currentFacet,
   filters,
+  paging,
+  results,
   updateSelectedFilters,
   updatePageIndex,
   updateCurrentFacet,
-  paging,
-  clearFilters,
-}: Props) => {
+}: SearchProps) => {
   const [, setWindowOffset] = useWindowScroll();
 
   const potFilters: any = {};
@@ -96,6 +88,7 @@ const ProductListing = ({
     <ProductListingStyled>
       <Filters
         className="product-listing__filters"
+        currentFacet={currentFacet}
         filters={
           isPotFilterSelected
             ? potFilters

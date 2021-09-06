@@ -20,7 +20,7 @@ const CLIENT_DEV_CONFIG = {
   target: 'web',
   stats: 'errors-only',
   mode: 'development',
-  entry: path.resolve(__dirname, '../src/client/client-entrypoint.js'),
+  entry: path.resolve(__dirname, '../src/client/client-entrypoint.ts'),
   devtool: 'source-map',
   module: {
     rules: [

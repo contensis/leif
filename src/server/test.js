@@ -4,8 +4,8 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('Server Loads', () => {
-  require('./server.js');
-  const app = require('./server.js').app;
+  require('./server.ts');
+  const app = require('./server.ts').app;
   before(function () {
     return new Promise(resolve => {
       app.on('app_started', function () {

@@ -2,21 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 // Components
 import ProductListing from '~/components/productListing/ProductListing';
-import ListingContainer from '../../components/listing/Listing.container';
+import ListingContainer from '~/components/listing/Listing.container';
 import Metadata from '~/components/metadata/Metadata';
 import QuoteBlock from '~/components/quoteBlock/QuoteBlock';
 import GenericHero from '~/components/genericHero/GenericHero';
 
 // Layout
-import MainLayout from '../../layout/MainLayout';
-import Region from '../../layout/Region';
+import MainLayout from '~/layout/MainLayout';
+import Region from '~/layout/Region';
 import ProductListingStyled from './ProductListing.styled';
 
 // Mappers
-import { useMapper } from '../../core/util/json-mapper';
 import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
-import { productListingPropsMapping } from '~/pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
 
 // Models
 import { Props } from './ProductListing.d';
@@ -24,9 +22,8 @@ import { Props } from './ProductListing.d';
 import { useSelector } from 'react-redux';
 import { makeSelectHasResults } from '~/redux/ui/selectors';
 
-const ProductListingPage = ({ entry }: any) => {
-  if (!entry) return null;
-  const mappedEntry: Props = useMapper(entry, productListingPropsMapping);
+const ProductListingPage = ({ mappedEntry }: { mappedEntry: Props }) => {
+  if (!mappedEntry) return <></>;
 
   const { title, metadataProps } = mappedEntry || {};
 

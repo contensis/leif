@@ -138,7 +138,7 @@ export const SearchFacets = {
 };
 
 export const SearchFilters = {
-  //Insert filters here
+  // Insert filters here
 };
 
 export const FreeTextWeights = {

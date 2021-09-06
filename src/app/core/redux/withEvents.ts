@@ -7,6 +7,8 @@ import { ContentTypes, ListingPages } from '../schema';
 
 import transformations from '~/components/search/transformations';
 
+import { RouteLoadOptions, WithEvents } from '@zengenti/contensis-react-base';
+
 export default {
   onRouteLoad: function* onRouteLoad({
     path,
@@ -17,7 +19,7 @@ export default {
     yield put({ type: ROUTE_WILL_LOAD, path, location });
 
     // Set params for routing saga
-    return {
+    const options: RouteLoadOptions = {
       customNavigation: {
         ancestors: true,
         children: true,
@@ -27,6 +29,7 @@ export default {
       entryLinkDepth: 1,
       preventScrollTop: path === statePath,
     };
+    return options;
   },
   onRouteLoaded: function* onRouteLoaded({
     path,
@@ -39,7 +42,7 @@ export default {
       ...queryParams(location && location.search),
     };
 
-    const { sys: { contentTypeId } = {} } = entry || {}; // Desturucture the elements from entry.sys in a null-safe way
+    const { sys: { contentTypeId = undefined } = {} } = entry || {}; // Desturucture the elements from entry.sys in a null-safe way
 
     let triggerListing = false;
     // To give the Content Type pages with Listings
@@ -61,7 +64,7 @@ export default {
         params,
         // Only set for listing pages
         listingType: ListingPages[contentTypeId] || undefined,
-      });
+      } as any);
     }
 
     yield put({ type: ROUTE_HAS_LOADED, path, entry });
@@ -72,4 +75,4 @@ export default {
     //   yield put({ type: GET_SITE_CONFIG });
     // }
   },
-};
+} as WithEvents;

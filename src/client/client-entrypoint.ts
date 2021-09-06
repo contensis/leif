@@ -7,7 +7,9 @@ import withReducers from '~/core/redux/reducers';
 import withSagas from '~/core/redux/sagas';
 import withEvents from '~/core/redux/withEvents';
 
-const config = {
+import { AppConfig } from '@zengenti/contensis-react-base';
+
+const config: AppConfig = {
   routes,
   withReducers,
   withSagas,

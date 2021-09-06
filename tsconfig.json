@@ -9,8 +9,10 @@
     "strict": true /* Enable all strict type-checking options. */,
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "noImplicitAny": true, // disallow implicit any type
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/app/*"],
