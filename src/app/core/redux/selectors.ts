@@ -11,15 +11,19 @@ export const {
 } = navigation.selectors;
 
 export const {
+  selectBreadcrumb,
   selectCurrentAncestors,
+  selectCurrentChildren,
+  selectCurrentHostname,
+  selectCurrentNode,
   selectCurrentPath,
   selectCurrentProject,
   selectCurrentSearch,
+  selectCurrentSiblings,
   selectIsNotFound,
   selectQueryStringAsObject,
   selectRouteEntry,
   selectRouteEntryContentTypeId,
-  selectRouteEntryDepends,
   selectRouteEntryEntryId,
   selectRouteEntryID,
   selectRouteEntrySlug,

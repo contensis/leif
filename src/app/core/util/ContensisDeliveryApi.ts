@@ -1,7 +1,13 @@
+/* eslint-disable max-classes-per-file */
 import { Client } from 'contensis-delivery-api';
+import { Query, VersionStatus } from 'contensis-core-api';
+import { Config } from 'contensis-delivery-api/lib/models';
 
-const getClientConfig = project => {
-  let config = { ...DELIVERY_API_CONFIG }; /* global DELIVERY_API_CONFIG */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getClientConfig = (project: string, env?: string) => {
+  const config: Config = {
+    ...DELIVERY_API_CONFIG,
+  }; /* global DELIVERY_API_CONFIG */
   if (project) {
     config.projectId = project;
   }
@@ -29,7 +35,7 @@ export const GetClientSideDeliveryApiStatus = () => {
   return null;
 };
 
-export const GetDeliveryApiStatusFromHostname = currentHostname => {
+export const GetDeliveryApiStatusFromHostname = (currentHostname: string) => {
   if (currentHostname.indexOf('localhost') > -1) return 'latest';
 
   if (currentHostname.endsWith('contensis.cloud')) {
@@ -51,76 +57,28 @@ export const GetDeliveryApiStatusFromHostname = currentHostname => {
   return 'published';
 };
 
-export const fixImageUri = object => {
-  Object.keys(object).some(function (k) {
-    if (k === 'asset') {
-      //Should always have an ID, but lets check...
-      if (object[k].sys && object[k].sys.id) {
-        // We can exclude assets here i think... ?
-        let userTransforms = object[k].transformations
-          ? `&${object[k].transformations}`
-          : '';
-
-        object[k].sys.uri = `/api/image/${object[k].sys.id}?invalidationKey=${
-          object[k].sys && object[k].sys.version.versionNo
-        }${userTransforms}`;
-      }
-      return false;
-    }
-    if (object[k] && typeof object[k] === 'object') {
-      fixImageUri(object[k]);
-      return false;
-    }
-  });
-};
-
-export const GetResponseGuids = object => {
-  let Ids = [];
-  Object.keys(object).some(function (k) {
-    if (k === 'sys') {
-      //Should always have an ID, but lets check...
-      if (object[k].id && object[k].language) {
-        // We can exclude assets here i think... ?
-        if (object[k].dataFormat) {
-          if (object[k].dataFormat !== 'asset') {
-            Ids.push(`${object[k].id}_${object[k].language.toLowerCase()}`);
-          }
-        } else {
-          // If we don't have a dataformat add it anyhow, for safety
-          Ids.push(`${object[k].id}_${object[k].language.toLowerCase()}`);
-        }
-      }
-      return false;
-    }
-    if (object[k] && typeof object[k] === 'object') {
-      let subIds = GetResponseGuids(object[k]);
-      if (subIds.length > 0) {
-        Ids.push(...subIds);
-      }
-      return false;
-    }
-  });
-  return Ids;
-};
-
-export const GetAllResponseGuids = object => {
-  if (!object) return [];
-  let returnItems = GetResponseGuids(object);
-  let unique = [...new Set(returnItems)];
-  return unique;
-};
 class DeliveryApi {
-  search(query, linkDepth, project, env) {
+  search(query: Query, linkDepth: number, project: string, env?: string) {
     const client = Client.create(getClientConfig(project, env));
     return client.entries.search(query, linkDepth || 1);
   }
 
-  getClient(deliveryApiStatus = 'published', project, env) {
+  getClient(
+    deliveryApiStatus: VersionStatus = 'published',
+    project: string,
+    env?: string
+  ) {
     const baseConfig = getClientConfig(project, env);
     baseConfig.versionStatus = deliveryApiStatus;
     return Client.create(baseConfig);
   }
-  getEntry(id, linkDepth = 1, deliveryApiStatus = 'published', project, env) {
+  getEntry(
+    id: string,
+    linkDepth = 1,
+    deliveryApiStatus: VersionStatus = 'published',
+    project: string,
+    env?: string
+  ) {
     const baseConfig = getClientConfig(project, env);
     baseConfig.versionStatus = deliveryApiStatus;
     const client = Client.create(baseConfig);
@@ -132,7 +90,11 @@ class DeliveryApi {
 export const deliveryApi = new DeliveryApi();
 
 class CacheNode {
-  constructor(key, value) {
+  key: string;
+  value: any;
+  next: any;
+  prev: any;
+  constructor(key: string, value: any) {
     this.key = key;
     this.value = value;
     this.next = null;
@@ -141,30 +103,35 @@ class CacheNode {
 }
 
 class LruCache {
+  map: Record<string, { value: any; next: any; prev: any }>;
+  head: Record<string, any>;
+  tail: Record<string, any>;
+  limit: number;
+  size: number;
   constructor(limit = 100) {
     this.map = {};
-    this.head = null;
-    this.tail = null;
+    this.head = {};
+    this.tail = {};
     this.limit = limit || 100;
     this.size = 0;
   }
 
-  get(key) {
+  get(key: string) {
     if (this.map[key]) {
-      let value = this.map[key].value;
-      let node = new CacheNode(key, value);
+      const value = this.map[key].value;
+      const node = new CacheNode(key, value);
       this.remove(key);
       this.setHead(node);
       return value;
     }
   }
 
-  set(key, value) {
-    let node = new CacheNode(key, value);
+  set(key: string, value: any) {
+    const node = new CacheNode(key, value);
     if (this.map[key]) {
       this.remove(key);
     } else {
-      if (this.size >= this.limit) {
+      if (this.size >= this.limit && this.tail !== null) {
         delete this.map[this.tail.key];
         this.size--;
         this.tail = this.tail.prev;
@@ -174,7 +141,7 @@ class LruCache {
     this.setHead(node);
   }
 
-  setHead(node) {
+  setHead(node: any) {
     node.next = this.head;
     node.prev = null;
     if (this.head) {
@@ -188,8 +155,8 @@ class LruCache {
     this.map[node.key] = node;
   }
 
-  remove(key) {
-    let node = this.map[key];
+  remove(key: string) {
+    const node = this.map[key];
     if (node.prev) {
       node.prev.next = node.next;
     } else {
@@ -209,7 +176,7 @@ class CachedSearch {
   cache = new LruCache();
   taxonomyLookup = {};
 
-  search(query, linkDepth, project, env) {
+  search(query: Query, linkDepth: number, project: string, env?: string) {
     const client = Client.create(getClientConfig(project, env));
     return this.request(
       project + JSON.stringify(query) + linkDepth.toString(),
@@ -217,61 +184,34 @@ class CachedSearch {
     );
   }
 
-  get(id, linkDepth, versionStatus, project, env) {
+  get(
+    id: string,
+    linkDepth: number,
+    versionStatus: VersionStatus,
+    project: string,
+    env?: string
+  ) {
     const client = Client.create(getClientConfig(project, env));
     client.clientConfig.versionStatus = versionStatus;
     return this.request(id, () => client.entries.get({ id, linkDepth }));
   }
 
-  getContentType(id, project, env) {
+  getContentType(id: string, project: string, env?: string) {
     const client = Client.create(getClientConfig(project, env));
     return this.request(`[CONTENT TYPE] ${id} ${project}`, () =>
       client.contentTypes.get(id)
     );
   }
 
-  getTaxonomyNode(key, project, env) {
-    const client = Client.create(getClientConfig(project, env));
-    return this.request(`[TAXONOMY NODE] ${key}`, () =>
-      client.taxonomy
-        .resolveChildren(key)
-        .then(node => this.extendTaxonomyNode(node))
-    );
-  }
-
-  request(key, execute) {
+  request(key: string, execute: any) {
     if (!this.cache.get(key) || typeof window === 'undefined') {
-      let promise = execute();
+      const promise = execute();
       this.cache.set(key, promise);
       promise.catch(() => {
         this.cache.remove(key);
       });
     }
     return this.cache.get(key);
-  }
-
-  extendTaxonomyNode(node) {
-    let id = this.getTaxonomyId(node);
-    this.taxonomyLookup[id] = node.key;
-    return {
-      ...node,
-      id,
-      children: node.children
-        ? node.children.map(n => this.extendTaxonomyNode(n))
-        : null,
-    };
-  }
-
-  getTaxonomyId(node) {
-    if (node.key) {
-      let parts = node.key.split('/');
-      return parts[parts.length - 1];
-    }
-    return '';
-  }
-
-  getTaxonomyKey(id) {
-    return this.taxonomyLookup[id];
   }
 }
 
