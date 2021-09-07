@@ -13,6 +13,7 @@
     "noImplicitAny": true, // disallow implicit any type
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "lib": ["esnext", "es2019", "es2017", "es7", "es6", "dom", "dom.iterable"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/app/*"],
