@@ -131,7 +131,7 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^2.4.1-beta.22",
+    "@zengenti/contensis-react-base": "^2.4.1-beta.23",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "immutable": "4.0.0-rc.12",

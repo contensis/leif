@@ -3567,10 +3567,10 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zengenti/contensis-react-base@^2.4.1-beta.22":
-  version "2.4.1-beta.22"
-  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-2.4.1-beta.22.tgz#2a84768ef227bc463b673bd5a36f3ea5dadcb7af"
-  integrity sha512-rcOVqVoaf2Y6nmmPS1m1CH/6Z1GyrQv1JOTLulBk8Ke3/wINYJrFtd4jzmpZWYYN3RhCMEWM3e0HsQQneL5wpw==
+"@zengenti/contensis-react-base@^2.4.1-beta.23":
+  version "2.4.1-beta.23"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-2.4.1-beta.23.tgz#0f97947f1c3b837e3decd25c8a06ba3456d9857b"
+  integrity sha512-LhMgi2TAkCzy6Pi8RGffUAmtBrQ9Sys91T9jcI9LUikOOF1Znm0DZu61UXLy7Ki3e26fiFhTySo11hN9lO+E0A==
   dependencies:
     "@hot-loader/react-dom" "16.11.0"
     app-root-path "^3.0.0"
