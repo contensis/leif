@@ -11,28 +11,17 @@ export interface Props {
   isHomepage?: boolean;
 }
 
-const ComposerWrapper = ({
-  items,
-  isContentPage = false,
-  isHomepage = false,
-}: Props) => {
+const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
   if (!items || !Array.isArray(items)) return null;
 
   const promoComponentArray: number[] = [];
 
   items.forEach((item, idx) => {
-    if (
-      item._type === ComposerComponents.promotedProduct ||
-      item._type === ComposerComponents.promotedProductNew
-    ) {
+    if (item._type === ComposerComponents.promotedProduct) {
       promoComponentArray.push(idx);
       for (let i = 0; i < promoComponentArray.length; i++) {
         const isEven = i % 2 === 0 ? true : false;
         item.align = isEven ? 'left' : 'right';
-        item.hasTrending =
-          (idx === 0 && isHomepage) || (item.hasTrending && isHomepage)
-            ? true
-            : false;
       }
     }
   });

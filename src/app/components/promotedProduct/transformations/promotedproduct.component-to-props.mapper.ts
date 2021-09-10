@@ -1,41 +1,24 @@
 import mapJson from '~/core/util/json-mapper';
 
-import { Props as TrendingButtonProps } from '~/components/trending/Trending';
-
-export const promotedProductPropsMapping = {
-  title: 'productName',
-  text: 'description',
-  imageUri: {
-    $path: 'primaryImage.asset.sys.uri',
-    $default: () => '/image-library/default-images/leif-fallback.png',
-  },
-  imageAlt: [
-    'primaryImage.altText',
-    'primaryImage.caption',
-    'primaryImage.asset.title',
-  ],
-  ctaLink: {
-    $path: 'sys',
-    $formatting: (sys: any) => sys.uri,
-    $default: () => '/products',
-  },
-  ctaText: () => 'Find out more',
-};
+// import { Props as TrendingButtonProps } from '~/components/trending/Trending';
 
 export const promotedProductButtonPropsMapping = {
   label: 'buttonLabel',
   icon: () => 'arrow-right',
   type: () => 'secondary',
   isHollow: () => true,
-  href: 'linkedEntry.sys.uri',
+  href: 'buttonUrl.sys.uri',
 };
 
-export const promotedProductNewPropsMapping = {
+export const promotedProductPropsMapping = {
   title: 'product.productName',
   hasTrending: {
     $path: '.',
-    $formatting: (product: any) =>
-      product && product.button && product.button.length >= 1 ? true : false,
+    $formatting: (product: any) => {
+      const { buttons } = product || {};
+      if (buttons && buttons.length >= 1) return true;
+      else return false;
+    },
   },
   text: 'product.description',
   imageUri: {
@@ -54,8 +37,7 @@ export const promotedProductNewPropsMapping = {
   },
   ctaText: () => 'Find out more',
   buttons: {
-    $path: 'button',
-    $formatting: (btn: TrendingButtonProps[]) =>
-      mapJson(btn, promotedProductButtonPropsMapping),
+    $path: 'buttons',
+    $formatting: (btn: any) => mapJson(btn, promotedProductButtonPropsMapping),
   },
 };

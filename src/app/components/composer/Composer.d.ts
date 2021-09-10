@@ -24,7 +24,7 @@ export type Props = { isContentPage: boolean } & (
   | ({
       _type: 'productSlider' | 'curatedProductSlider' | 'filteredProductSlider';
     } & ProductSliderProps)
-  | ({ _type: 'promotedProduct' | 'promotedProductNew' } & PromotedProductProps)
+  | ({ _type: 'promotedProduct' } & PromotedProductProps)
   | ({ _type: 'blockQuote' } & QuoteBlockProps)
   | ({ _type: 'featuredBlogPosts' } & RelatedContentProps)
   | ({ _type: 'featuredReviews' } & TestimonialSliderProps)

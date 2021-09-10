@@ -118,13 +118,6 @@ const ComposerComponent = (composerProps: Props) => {
       </Region>
     );
   }
-  if (props._type === 'promotedProductNew') {
-    return (
-      <Region width="full" margin="none">
-        <PromotionalBlock {...props} />
-      </Region>
-    );
-  }
   if (props._type === 'twitterEmbed') {
     return (
       <Region width={isContentPage ? 'msmall' : 'small'} margin="medium">

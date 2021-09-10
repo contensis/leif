@@ -170,7 +170,6 @@ export const ComposerComponents = {
   markup: 'markup',
   productSlider: 'productSlider',
   promotedProduct: 'promotedProduct',
-  promotedProductNew: 'promotedProductNew',
   textBlock: 'textBlock',
   twitterEmbed: 'twitterEmbed',
   video: 'video',
