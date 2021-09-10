@@ -5,11 +5,8 @@ const DEFINE_CONFIG = require('./define-config');
 const WEBPACK_DEFINE_CONFIG = require('./define-config-webpack');
 
 // Configure devServer reverse proxying
-const {
-  SERVERS,
-  REVERSE_PROXY_PATHS,
-  PROXY_DELIVERY_API,
-} = DEFINE_CONFIG.development;
+const { SERVERS, REVERSE_PROXY_PATHS, PROXY_DELIVERY_API } =
+  DEFINE_CONFIG.development;
 
 const apiProxies = PROXY_DELIVERY_API
   ? {

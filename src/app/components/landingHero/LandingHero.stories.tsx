@@ -15,11 +15,10 @@ const Template: Story<Props> = args => {
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Header over multiple lines',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lacus, elit a diam eget enim venenatis cum. Nibh quis facilisis et hendrerit eu nisl.',
-  cta: {
-    label: 'Show now',
-    href: '#',
-  },
+  summary:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lacus, elit a diam eget enim venenatis cum. Nibh quis facilisis et hendrerit eu nisl.',
+  ctaLink: '#',
+  ctaText: 'Show now',
   imageUri: 'https://source.unsplash.com/00fCk2lZn1c',
   imageAlt: 'Unsplash image',
 };

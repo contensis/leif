@@ -9,6 +9,7 @@ declare module '*.png' {
 }
 
 declare module 'react-twitter-embed';
+declare module '*.mdx';
 // declare module '@zengenti/contensis-react-base/search';
 // declare module '@zengenti/contensis-react-base/util';
 // declare module '@zengenti/contensis-react-base';

@@ -9,7 +9,7 @@ import { socials } from './utils';
 import { useSelector } from 'react-redux';
 import { selectCurrentPath } from '~/core/redux/selectors';
 
-interface Props {
+export interface Props {
   className?: string;
 }
 

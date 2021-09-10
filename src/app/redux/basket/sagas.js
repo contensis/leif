@@ -1,10 +1,13 @@
 import { takeEvery, select, put } from 'redux-saga/effects';
+
+// Selectors
 import {
   selectProductsInBasket,
   selectTotalProductsInBasket,
   selectTotalProductsPrice,
 } from '../basket/selectors';
 
+// Types
 import {
   ADD_TO_BASKET,
   REMOVE_FROM_BASKET,
@@ -12,6 +15,9 @@ import {
   UPDATE_QUANTITY,
 } from './types';
 import { ROUTE_WILL_LOAD } from '~/core/redux/types';
+
+// Utils
+import { getLocalState, saveLocalState } from '~/utils/localStorage';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),
@@ -41,23 +47,3 @@ function* _updateLocalStorage() {
   saveLocalState('totalItems', totalItems);
   saveLocalState('totalPrice', totalPrice);
 }
-
-// Local Storage Functions
-const saveLocalState = (key, state) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    window.localStorage.setItem(key, serializedState);
-  } catch (err) {
-    console.info('Uh oh!', err);
-  }
-};
-
-const getLocalState = item => {
-  try {
-    const serializedState = window.localStorage.getItem(item);
-    if (serializedState === null) return undefined;
-    return JSON.parse(serializedState);
-  } catch (e) {
-    return undefined;
-  }
-};

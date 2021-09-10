@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Op, Query } from 'contensis-delivery-api';
-import { cachedSearch } from '../../core/util/ContensisDeliveryApi';
+import { cachedSearch } from '~/core/util/ContensisDeliveryApi';
 
 const getProducts = async (filter: string) => {
   const query = new Query(
@@ -21,7 +21,7 @@ const getProducts = async (filter: string) => {
   }
 };
 
-export const _useApiHook = (filter: string) => {
+export const useDeliveryApiToGetProducts = (filter: string) => {
   const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
     async function fetchProducts() {

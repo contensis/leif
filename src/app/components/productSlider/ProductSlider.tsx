@@ -3,9 +3,9 @@ import React from 'react';
 import ProductSliderStyled from './ProductSlider.styled';
 import SlickSlider from '../slickSlider/SlickSlider';
 import HeroContent from '../heroContent/HeroContent';
-import { _useApiHook } from '../../utils/hooks/useApiHook';
-import mapEntriesToResults from '../search/transformations/entry-to-card-props.mapper';
-import { _createResponsiveSettings } from './utils/reponsiveSettings';
+import { useDeliveryApiToGetProducts } from '~/utils/hooks/useDeliveryApiToGetProducts';
+import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import { _createResponsiveSettings } from './utils/responsiveSettings';
 
 export interface Props {
   className?: string;
@@ -33,7 +33,9 @@ const ProductSlider = ({
   const _RenderProductSlider = (hasFilter: boolean) => {
     switch (hasFilter) {
       case true: {
-        const mappedProducts = mapEntriesToResults(_useApiHook(filter));
+        const mappedProducts = mapEntriesToResults(
+          useDeliveryApiToGetProducts(filter)
+        );
         if (!mappedProducts || mappedProducts.length < 1) return null;
         return (
           <>

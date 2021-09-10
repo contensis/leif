@@ -1,0 +1,41 @@
+# Card
+
+The `<Card/>` component is used on the product and blog listing pages.
+
+Data that gets passed to this component gets sent through a mapper which will map the props to the component.
+
+## Usage
+
+```js
+import { Card } from '~/components/card/Card';
+```
+
+## API
+
+Props available on the `<Card />` component
+
+| Property     | Description   | Type       | Required | Options | Default |
+| ------------ | ------------- | ---------- | -------- | ------- | ------- |
+| `className`  | String        | `string`   | `false`  | -       | -       |
+| `date`       | Date Object   | `object`   | `false`  | -       | -       |
+| `imageAlt`   | String        | `string`   | `true`   | -       | -       |
+| `imageUri`   | String        | `string`   | `true`   | -       | -       |
+| `isPromoted` | Boolean       | `boolean`  | `true`   | -       | -       |
+| `path`       | String        | `string`   | `true`   | -       | -       |
+| `price`      | Numbers Array | `number[]` | `false`  | -       | -       |
+| `readTime`   | Number        | `string`   | `false`  | -       | -       |
+| `rating`     | String        | `string`   | `false`  | -       | -       |
+| `title`      | String        | `string`   | `true`   | -       | -       |
+| `text`       | String        | `string`   | `false`  | -       | -       |
+| `type`       | String        | `string`   | `true`   | -       | -       |
+| `uri`        | String        | `string`   | `true`   | -       | -       |
+
+### Examples
+
+```js
+<Card {...CardProps} />
+```
+
+<!-- STORY -->
+
+<br />
