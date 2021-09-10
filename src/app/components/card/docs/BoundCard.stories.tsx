@@ -8,7 +8,7 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 import CardMarkdown from './CardMarkdown.mdx';
 import { getLocalState } from '~/utils/localStorage';
 
-const options: string[] = getLocalState('entries');
+const options: string[] = JSON.parse(getLocalState('entries'));
 
 interface Props {
   entry: any;
