@@ -29,8 +29,12 @@ const HeaderStyled = styled.div`
         display: block;
         align-self: center;
         padding: 16px 0 0 16px;
+        width: 95px;
+        height: 65px;
         @media ${theme.mq.laptop} {
           padding: 24px 0 0 80px;
+          width: 160px;
+          height: 72px;
         }
       }
       .header__actions {

@@ -74,7 +74,7 @@ const CardStyled = styled(Link)`
             width: 100%;
             height: 280px;
           }
-          .card__thumbnail-wrapper {
+          .card__tag-wrapper {
             position: relative;
             &:before {
               content: '';
@@ -86,6 +86,12 @@ const CardStyled = styled(Link)`
               border-radius: 50%;
               background: ${theme.colors.neutral_white};
             }
+          }
+          .card__thumbnail-wrapper {
+            position: relative;
+            height: 280px;
+            max-width: 400px;
+            width: 100%;
           }
           .card__featured-tag {
             background-color: ${theme.colors.error};
@@ -124,12 +130,15 @@ const CardStyled = styled(Link)`
         ${
           type === 'explore' &&
           css`
-            .card__thumbnail {
+            .card__thumbnail-wrapper {
+              position: relative;
+              max-width: 256px;
               width: 100%;
               height: 256px;
               @media ${theme.mq.desktop} {
                 width: 100%;
-                max-width: 100%;
+                max-width: 620px;
+                height: 280px;
               }
             }
             .card__title {
@@ -155,8 +164,11 @@ const CardStyled = styled(Link)`
               margin: 0 0 24px 0;
               ${theme.typeStyles.h4};
             }
-            .card__thumbnail {
+            .card__thumbnail-wrapper {
+              position: relative;
               height: 256px;
+              max-width: 336px;
+              width: 100%;
             }
             ${!hasText &&
             css`

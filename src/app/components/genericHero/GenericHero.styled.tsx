@@ -154,6 +154,9 @@ const GenericHeroStyled = styled.div`
         flex-direction: column;
         max-width: 520px;
         width: 100%;
+        @media ${theme.mq.desktop} {
+          padding: 0 32px 0 0;
+        }
       }
       .generic-hero__link {
         margin: 24px auto 16px;

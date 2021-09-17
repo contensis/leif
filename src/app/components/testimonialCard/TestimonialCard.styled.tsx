@@ -15,16 +15,18 @@ const TestimonialCardStyled = styled.div`
         ${theme.typeStyles.h4};
         margin: 0 0 24px;
       }
+      .testimonial-card__image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       .testimonial-card__photo {
-        height: 40px;
-        max-width: 40px;
-        width: 100%;
         border-radius: 50%;
         object-fit: cover;
-        margin: 0 auto 16px;
       }
       .testimonial-card__name {
         ${theme.typeStyles.h6};
+        margin-top: 16px;
       }
     `;
   }};

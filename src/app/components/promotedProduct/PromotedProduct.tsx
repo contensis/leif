@@ -76,10 +76,11 @@ const PromotionalBlock = ({
       >
         <div className="promoted-product__image-wrapper">
           <Image
-            path={imageUri}
+            src={imageUri}
             alt={imageAlt}
-            width={600}
-            height={800}
+            quality={80}
+            layout="fill"
+            objectFit="cover"
             className="promoted-product__image"
           />
           {hasVideo && (

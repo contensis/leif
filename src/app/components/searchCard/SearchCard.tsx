@@ -34,13 +34,16 @@ const SearchCard = ({
       case 'blog':
         return (
           <>
-            <Image
-              path={imageUri}
-              alt={imageAlt}
-              className="search-card__image"
-              height={200}
-              width={200}
-            />
+            <div className="search-card__image-wrapper">
+              <Image
+                src={imageUri}
+                alt={imageAlt}
+                className="search-card__image"
+                quality={80}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className="search-card__content">
               <h2>{title}</h2>
               <p className="search-card__text">{text}</p>
@@ -56,13 +59,16 @@ const SearchCard = ({
         const priceText = price?.length > 1 ? `${Math.min(...price)}+` : price;
         return (
           <>
-            <Image
-              path={imageUri}
-              alt={imageAlt}
-              className="search-card__image"
-              height={200}
-              width={200}
-            />
+            <div className="search-card__image-wrapper">
+              <Image
+                src={imageUri}
+                alt={imageAlt}
+                className="search-card__image"
+                quality={80}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className="search-card__content">
               <h2>{title}</h2>
               <span className="search-card__detail">£{priceText}</span>

@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  path: string;
+  src: string;
   hasScrollImage?: boolean;
 }
 
 const SlideStyled = styled.div`
-  ${({ hasScrollImage, path }: Props) => {
+  ${({ hasScrollImage, src }: Props) => {
     return css`
       height: 100%;
       width: 100%;
@@ -14,6 +14,16 @@ const SlideStyled = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      .slide__image-wrapper {
+        max-width: 1024px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        div {
+          height: 100%;
+          width: 100%;
+        }
       }
       ${hasScrollImage &&
       css`
@@ -35,7 +45,7 @@ const SlideStyled = styled.div`
         .slide__bg-image {
           height: 100%;
           width: 100%;
-          background-image: url(${path});
+          background-image: url(${src});
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;

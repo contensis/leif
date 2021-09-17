@@ -62,7 +62,7 @@ const BasketItem = ({
     <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
         <Image
-          path={imageUri}
+          src={imageUri}
           alt={title}
           className="basket-item__image"
           width={120}

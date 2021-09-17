@@ -7,6 +7,8 @@ const LandingHeroStyled = styled.div`
       position: relative;
       .image-hero__image-wrapper {
         position: relative;
+        min-height: 800px;
+        height: 85vh;
       }
       .image-hero__image {
         height: 512px;

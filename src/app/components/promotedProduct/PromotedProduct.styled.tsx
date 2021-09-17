@@ -21,7 +21,8 @@ const PromotionalBlockStyled = styled.div`
     }  
     .promoted-product__image-wrapper {
       position: relative;
-      height: 100%;
+      height: 440px;
+      margin-top: 40px;
       &:before {
         display: ${align === 'right' ? 'block' : 'none'};
         content: '';
@@ -35,7 +36,9 @@ const PromotionalBlockStyled = styled.div`
         right: 0;
       }
       @media ${theme.mq.laptop} {
-        flex-basis: 50%;
+        margin-top: 0;
+        height: 100%;
+        width: 50%;
       }
     }
     .promoted-product__image {
@@ -71,7 +74,6 @@ const PromotionalBlockStyled = styled.div`
     .promoted-product__content {
       display: flex; 
       flex-direction: column;
-      align-items: flex-start;
       justify-content: center;
       height: 100%;
       margin: -24% 0 0 0;
@@ -140,7 +142,9 @@ const PromotionalBlockStyled = styled.div`
       position: absolute;
       top: 0;
       left: 0;
+      margin-top: 40px;
       @media ${theme.mq.laptop} {
+        margin-top: 0;
         position: unset;
         top: unset;
         left: unset;

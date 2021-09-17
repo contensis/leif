@@ -149,6 +149,7 @@ const SlickSlider = ({
                     hasScrollImage={hasScrollImage}
                     className="slick__main-slide"
                     height={600}
+                    width={800}
                     {...slide}
                   />
                 );

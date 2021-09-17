@@ -5,9 +5,7 @@ export const imagePropsMapping = {
   id: 'asset.sys.id',
   text: 'caption',
   caption: 'caption',
-  path: {
-    $path: 'asset.sys.uri',
-  },
+  src: 'asset.sys.uri',
 };
 
 export const mapImageToProps = ({ image }: any) =>

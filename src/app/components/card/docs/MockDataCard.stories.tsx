@@ -56,7 +56,7 @@ const Template: Story<Props> = args => {
   );
 };
 
-export const MDXCard = Template.bind({});
-MDXCard.args = {
+export const MockDataCard = Template.bind({});
+MockDataCard.args = {
   entry: options[0],
 };

@@ -26,7 +26,7 @@ const ImageBlock = ({
         <Image
           className="image-block__image"
           alt={alt}
-          path={path}
+          src={path}
           height={480}
           width={840}
         />

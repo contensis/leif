@@ -120,7 +120,7 @@ const GenericHero = ({
         </div>
         {imageUri && (
           <Image
-            path={imageUri}
+            src={imageUri}
             alt={imageAlt}
             height={432}
             width={510}

@@ -45,7 +45,7 @@ const RelatedLinks = ({
               <Link className="related-links__link" uri={path}>
                 <Image
                   className="related-links__image"
-                  path={imageUri}
+                  src={imageUri}
                   alt={imageAlt}
                   width={74}
                   height={80}

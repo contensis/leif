@@ -55,10 +55,11 @@ const LandingHero = ({
             <div className="image-hero__image-wrapper">
               <Image
                 className="image-hero__image"
-                path={imageUri}
+                src={imageUri}
                 alt={imageAlt}
-                width={1200}
-                height={600}
+                layout="fill"
+                objectFit="cover"
+                quality={80}
               />
               <div className="image-hero__image-overlay" />
             </div>

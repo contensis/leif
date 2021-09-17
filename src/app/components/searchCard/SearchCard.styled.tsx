@@ -17,11 +17,11 @@ const SearchCardStyled = styled(Link)`
           text-decoration: underline;
         }
       }
-      .search-card__image {
+      .search-card__image-wrapper {
+        position: relative;
         max-width: 74px;
-        height: 80px;
         width: 100%;
-        object-fit: cover;
+        height: 80px;
         margin-right: 16px;
         @media ${theme.mq.laptop} {
           max-width: 110px;
@@ -44,7 +44,7 @@ const SearchCardStyled = styled(Link)`
       .search-card__detail {
         color: ${theme.colors.secondary_light};
       }
-      ${(type === 'plant' || type === 'pot') &&
+      ${type === 'product' &&
       css`
         .search-card__detail {
           ${theme.typeStyles.h5};

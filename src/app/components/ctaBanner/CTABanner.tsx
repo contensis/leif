@@ -30,7 +30,7 @@ const CTABanner = ({
     <CTABannerStyled className={className}>
       <Image
         className="cta-banner__image"
-        path={imageUri}
+        src={imageUri}
         alt={imageAlt}
         width={228}
         height={120}

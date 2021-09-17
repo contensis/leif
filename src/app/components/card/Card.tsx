@@ -45,7 +45,7 @@ const Card = ({
             <h3 className="card__title">{title}</h3>
             <Image
               className="card__thumbnail"
-              path={imageUri}
+              src={imageUri}
               alt={imageAlt}
               width={360}
               height={360}
@@ -65,19 +65,21 @@ const Card = ({
             <div className="card__thumbnail-wrapper">
               <Image
                 className="card__thumbnail"
-                path={imageUri}
+                src={imageUri}
                 alt={imageAlt}
-                width={360}
-                height={360}
+                layout="fill"
+                objectFit="cover"
               />
+              {path === '/search' && isPromoted && (
+                <span className="card__featured-tag">Featured</span>
+              )}
+            </div>
+            <div className="card__tag-wrapper">
               <Icon
                 type="product-solid"
                 className="card__tag"
                 color="#C3C6DE"
               />
-              {path === '/search' && isPromoted && (
-                <span className="card__featured-tag">Featured</span>
-              )}
             </div>
             <div className="card__content">
               <h3 className="card__title">{title}</h3>
@@ -90,13 +92,16 @@ const Card = ({
       case 'explore': {
         return (
           <>
-            <Image
-              className="card__thumbnail"
-              path={imageUri}
-              alt={imageAlt}
-              width={620}
-              height={280}
-            />
+            <div className="card__thumbnail-wrapper">
+              <Image
+                className="card__thumbnail"
+                src={imageUri}
+                alt={imageAlt}
+                quality={80}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             {title && <h3 className="card__title">{title}</h3>}
           </>
         );
@@ -105,13 +110,18 @@ const Card = ({
         return (
           <>
             <h3 className="card__title">{title}</h3>
-            <Image
-              className="card__thumbnail"
-              path={imageUri}
-              alt={imageAlt}
-              width={620}
-              height={280}
-            />
+            {imageUri && (
+              <div className="card__thumbnail-wrapper">
+                <Image
+                  className="card__thumbnail"
+                  src={imageUri}
+                  alt={imageAlt}
+                  quality={80}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            )}
             {text && <p className="card__text">{text}</p>}
           </>
         );

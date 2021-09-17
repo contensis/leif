@@ -79,6 +79,8 @@ const SearchStyled = styled.div`
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        max-width: 300px;
+        width: 100%;
         a {
           &:not(:last-child) {
             margin-bottom: 40px;

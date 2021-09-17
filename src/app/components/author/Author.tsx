@@ -14,7 +14,7 @@ const Author = ({ className, name, photo }: Props) => {
   return (
     <AuthorStyled className={className}>
       <Image
-        path={photo}
+        src={photo}
         alt={`Photo of ${name}`}
         className="author__photo"
         width={40}
