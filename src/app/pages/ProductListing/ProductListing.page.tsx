@@ -17,12 +17,13 @@ import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 // Models
+import { RouteComponentProps } from '@zengenti/contensis-react-base';
 import { Props } from './ProductListing.d';
 
 import { useSelector } from 'react-redux';
 import { makeSelectHasResults } from '~/redux/ui/selectors';
 
-const ProductListingPage = ({ mappedEntry }: { mappedEntry: Props }) => {
+const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
   if (!mappedEntry) return <></>;
 
   const { title, metadataProps } = mappedEntry || {};

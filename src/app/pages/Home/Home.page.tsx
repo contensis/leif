@@ -1,8 +1,8 @@
 import React from 'react';
+import { useMinilist } from '@zengenti/contensis-react-base/search';
 
 // Components
 import LandingHero from '~/components/landingHero/LandingHero';
-// import Composer from '~/components/composer/ComposerWrapper';
 import { Composer } from '~/dynamic/components';
 import TestimonialSlider from '~/components/testimonialSlider/TestimonialSlider';
 import CTABanner from '~/components/ctaBanner/CTABanner';
@@ -14,24 +14,14 @@ import MainLayout from '~/layout/MainLayout';
 import Region from '~/layout/Region';
 
 // Mappers
-import { useMinilist } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 // Models
-import { Props } from './Home.d';
+import { Props, MappedProps } from './Home.d';
 
 const Home = ({ mappedEntry }: Props) => {
   const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
-    mappedEntry || {};
-
-  // // Works but does not server side render
-  // const Composer = Loadable({
-  //   loader: () =>
-  //     import(
-  //       /* webpackChunkName: "composer-wrapper" */ '~/components/composer/ComposerWrapper'
-  //     ),
-  //   loading: Loading,
-  // });
+    (mappedEntry || {}) as MappedProps;
 
   const { results: latestReviews } = useMinilist({
     id: 'latestReviews',
