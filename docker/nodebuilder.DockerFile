@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 RUN npm install -g mocha
 COPY package.json .
 COPY yarn.lock .
-COPY patches /usr/src/app/patches
+#COPY patches /usr/src/app/patches
 RUN yarn install --link-duplicates
 #RUN npm install --loglevel error
 RUN yarn run postinstall
