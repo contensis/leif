@@ -2,12 +2,10 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const ReactLoadablePlugin =
-  require('react-loadable/webpack').ReactLoadablePlugin;
+const LoadablePlugin = require('@loadable/webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const WebpackModules = require('webpack-modules');
-const WebpackModuleNomodulePlugin = require('webpack-module-nomodule-plugin');
 const webpackNodeExternals = require('webpack-node-externals');
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -48,14 +46,14 @@ const CLIENT_MODERN_CONFIG = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index.ejs'),
       filename: path.resolve(__dirname, `../dist/index.html`),
-      inject: true,
+      inject: false,
       minify,
       chunksSortMode: 'none',
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index_fragment.ejs'),
       filename: path.resolve(__dirname, `../dist/index_fragment.html`),
-      inject: true,
+      inject: false,
       minify,
       chunksSortMode: 'none',
     }),
@@ -66,9 +64,10 @@ const CLIENT_MODERN_CONFIG = {
       minify,
       chunksSortMode: 'none',
     }),
-    new WebpackModuleNomodulePlugin('modern', 'minimal'),
-    new ReactLoadablePlugin({
-      filename: path.resolve(__dirname, `../dist/modern/react-loadable.json`),
+    new LoadablePlugin({
+      writeToDisk: {
+        filename: path.resolve(__dirname, `../dist/modern`),
+      },
     }),
   ],
 };
@@ -110,14 +109,14 @@ const CLIENT_LEGACY_CONFIG = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index.ejs'),
       filename: path.resolve(__dirname, `../dist/index.html`),
-      inject: true,
+      inject: false,
       minify,
       chunksSortMode: 'none',
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index_fragment.ejs'),
       filename: path.resolve(__dirname, `../dist/index_fragment.html`),
-      inject: true,
+      inject: false,
       minify,
       chunksSortMode: 'none',
     }),
@@ -128,9 +127,10 @@ const CLIENT_LEGACY_CONFIG = {
       minify,
       chunksSortMode: 'none',
     }),
-    new WebpackModuleNomodulePlugin('legacy', 'minimal'),
-    new ReactLoadablePlugin({
-      filename: path.resolve(__dirname, `../dist/legacy/react-loadable.json`),
+    new LoadablePlugin({
+      writeToDisk: {
+        filename: path.resolve(__dirname, `../dist/legacy`),
+      },
     }),
   ],
 };

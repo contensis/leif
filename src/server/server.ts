@@ -16,8 +16,6 @@ ZengentiAppServer.start(
     withReducers,
     withSagas,
     withEvents,
-    // The HTML templates we will render the app into
-    differentialBundles: true,
     disableSsrRedux: DISABLE_SSR_REDUX /* global DISABLE_SSR_REDUX */,
     reverseProxyPaths: Object.values(
       REVERSE_PROXY_PATHS /* global REVERSE_PROXY_PATHS */
@@ -26,7 +24,7 @@ ZengentiAppServer.start(
     packagejson,
     scripts: { startup: `startup-${packagejson.version}.js` },
     staticFolderPath: STATIC_PATH /* global STATIC_PATH */,
-    stats: 'dist/target/react-loadable.json',
+    // The HTML templates we will render the app into
     templates: {
       html: 'dist/index.html',
       static: 'dist/index_static.html',

@@ -50,7 +50,7 @@ const plugins = {
       },
     ],
     'react-hot-loader/babel',
-    'react-loadable/babel',
+    '@loadable/babel-plugin',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-proposal-optional-chaining',
   ],
