@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 import { Filters } from '@zengenti/contensis-react-base/search';
 
-const useProductFilters = (filters: Filters, path: string) => {
+const useProductFilters = (filters: Filters) => {
   // Product Facet Filters
   const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
   const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
 
   // Depending on the path toggle the correct filters
   useEffect(() => {
-    if (path?.includes('pot')) {
+    if (window.location.pathname.includes('pot')) {
       setIsPlantFilterSelected(false);
       setIsPotFilterSelected(true);
-    } else if (path?.includes('plant')) {
+    } else if (window.location.pathname.includes('plant')) {
       setIsPlantFilterSelected(true);
       setIsPotFilterSelected(false);
     } else {
       setIsPotFilterSelected(false);
       setIsPlantFilterSelected(false);
     }
-  }, [path]);
+  }, [window.location.pathname]);
 
   const potFilters = {} as Filters;
   const plantFilters = {} as Filters;
