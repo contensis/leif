@@ -1,16 +1,17 @@
 import { createSelector } from 'reselect';
+import { AppState } from '~/redux/AppState';
 
-export const selectIsSearchOpen = (state: any) => state?.ui?.isSearchOpen;
-export const selectIsBasketOpen = (state: any) => state?.ui?.isBasketOpen;
-export const selectIsModalOpen = (state: any) => state?.ui?.isModalOpen;
-export const selectIsPopupOpen = (state: any) => state?.ui?.isPopupOpen;
+export const selectIsSearchOpen = (state: AppState) => state.ui.isSearchOpen;
+export const selectIsBasketOpen = (state: AppState) => state.ui.isBasketOpen;
+export const selectIsModalOpen = (state: AppState) => state.ui.isModalOpen;
+export const selectIsPopupOpen = (state: AppState) => state.ui.isPopupOpen;
 
-export const selectDeviceType = (state: any) => state?.ui?.device;
-export const selectScreenSize = (state: any) => state?.ui?.screenSize;
+export const selectDeviceType = (state: AppState) => state.ui.device;
+export const selectScreenSize = (state: AppState) => state.ui.screenSize;
 
-export const selectProductListingResults = (state: any) =>
+export const selectProductListingResults = (state: AppState) =>
   state?.search?.listings?.productListing?.results;
-export const selectBlogListingResults = (state: any) =>
+export const selectBlogListingResults = (state: AppState) =>
   state?.search?.listings?.blogListing?.results;
 
 export const makeSelectHasResults = () => {
@@ -23,8 +24,8 @@ export const makeSelectHasResults = () => {
   );
 };
 
-export const selectHasDropdownFiltersSelected = (state: any) =>
-  state?.ui?.hasDropdownFiltersSelected;
+export const selectHasDropdownFiltersSelected = (state: AppState) =>
+  state.ui.hasDropdownFiltersSelected;
 
 export const makeSelectDeviceType = () => {
   return createSelector([selectScreenSize], screenSize => {

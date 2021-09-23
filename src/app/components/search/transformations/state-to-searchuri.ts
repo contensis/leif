@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable';
+import deepmerge from 'deepmerge';
 import queryString from 'query-string';
 import {
   selectors,
@@ -27,7 +27,7 @@ const searchUriTemplate = {
       const currentFacet = facet || getCurrentFacet(state);
 
       // Get the Plant or Pot filter
-      const filters = getSelectedFilters(state, facet, context).toJS();
+      const filters = getSelectedFilters(state, facet, context);
       const currentFilter = filters.contentTypeId;
 
       // Check if we have a Plant or Pot filter first
@@ -40,7 +40,7 @@ const searchUriTemplate = {
 
       return newPath;
     } else if (listing === 'productsListing') {
-      const filters = getSelectedFilters(state, facet, context).toJS();
+      const filters = getSelectedFilters(state, facet, context);
 
       const currentFilter = filters.contentTypeId;
 
@@ -59,14 +59,16 @@ const searchUriTemplate = {
     // Lose stateFilters and currentSearch if a new
     // term is passed via an argument
     const stateFilters = term
-      ? Map<string, string>()
-      : (getSelectedFilters(state, facet, searchContext).map((f: any) =>
-          f.join(',')
-        ) as Map<string, string>);
+      ? {}
+      : Object.fromEntries(
+          Object.entries(getSelectedFilters(state, facet, searchContext)).map(
+            (f: any) => f.join(',')
+          )
+        );
 
     // Delete these parameters as we do not need to see them in the uri
     let modifiedStateFilters = stateFilters;
-    const { contentTypeId } = stateFilters.toJS() || {};
+    const { contentTypeId } = stateFilters || {};
 
     if (contentTypeId === 'pot') {
       modifiedStateFilters = stateFilters
@@ -91,12 +93,9 @@ const searchUriTemplate = {
     // Use Immutable's merge to merge the stateFilters with any current Qs
     // to build the new Qs.
     const mergedSearch = removeEmptyAttributes(
-      fromJS(currentQs)
-        .merge(modifiedStateFilters)
-        .set('term', searchTerm)
-        .toJS()
+      deepmerge(currentQs, modifiedStateFilters)
     );
-
+    mergedSearch.term = searchTerm;
     // if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
     // if (pageIndex === 0) mergedSearch.pageIndex = undefined;
     return queryString.stringify(mergedSearch);

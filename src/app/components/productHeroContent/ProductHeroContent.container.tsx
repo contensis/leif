@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toJS } from '../../core/util/ToJs';
 
 // Actions
 import { setActiveVariant } from '~/redux/product/actions';
@@ -78,4 +77,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(toJS(ProductHeroContentContainer));
+)(ProductHeroContentContainer);

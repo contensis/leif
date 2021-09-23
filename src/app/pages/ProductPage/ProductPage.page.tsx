@@ -38,10 +38,10 @@ const ProductPage = ({ mappedEntry }: Props) => {
 
   // Select Product Matching Pots from Redux state.
   const results = useSelector(selectActiveVariantMatchingPots);
-  matchingProductsProps.results = results && results.toJS();
+  matchingProductsProps.results = results;
 
   // Select Product Reviews from Redux state.
-  const reviews = useSelector(selectProductReviews).toJS();
+  const reviews = useSelector(selectProductReviews);
 
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;

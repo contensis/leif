@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { Draft, produce } from 'immer';
 import {
   TOGGLE_SEARCH,
   TOGGLE_BASKET,
@@ -9,7 +9,7 @@ import {
   TOGGLE_POPUP,
 } from './types';
 
-let initialState = Map({
+const initialState = {
   screenSize: null,
   device: null,
   isSearchOpen: false,
@@ -17,25 +17,33 @@ let initialState = Map({
   isModalOpen: false,
   isPopupOpen: false,
   hasDropdownFiltersSelected: false,
-});
+};
 
-export default (state = initialState, action) => {
+export default produce((state: Draft<any>, action) => {
   switch (action.type) {
     case TOGGLE_SEARCH:
-      return state.setIn(['isSearchOpen'], action.value);
+      state.isSearchOpen = action.value;
+      return;
     case TOGGLE_MODAL:
-      return state.setIn(['isModalOpen'], action.value);
+      state.isModalOpen = action.value;
+      return;
     case TOGGLE_POPUP:
-      return state.setIn(['isPopupOpen'], action.value);
+      state.isPopupOpen = action.value;
+      return;
     case TOGGLE_BASKET:
-      return state.setIn(['isBasketOpen'], action.value);
+      state.isBasketOpen = action.value;
+      return;
     case SET_DEVICE_TYPE:
-      return state.setIn(['device'], action.value);
+      state.device = action.value;
+      return;
     case SET_SCREEN_SIZE:
-      return state.set('screenSize', action.value);
+      state.screenSize = action.value;
+      return;
     case HAS_DROPDOWN_FILTERS_SELECTED:
-      return state.set('hasDropdownFiltersSelected', action.value);
+      state.hasDropdownFiltersSelected = action.value;
+      return;
     default:
       return state;
+      return;
   }
-};
+}, initialState);

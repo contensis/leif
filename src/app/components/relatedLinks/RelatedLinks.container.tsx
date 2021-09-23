@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toJS } from '../../core/util/ToJs';
 
 // Selectors
 import {
@@ -48,4 +47,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, null)(toJS(RelatedLinksContainer));
+export default connect(mapStateToProps, null)(RelatedLinksContainer);

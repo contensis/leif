@@ -3,9 +3,6 @@ import React from 'react';
 // Redux
 import { connect } from 'react-redux';
 
-// Utils
-import { toJS } from '../../core/util/ToJs';
-
 // Actions
 import { toggleMenu, toggleSecondMenu } from '~/redux/menu/actions';
 
@@ -65,4 +62,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(toJS(NavigationContainer));
+)(NavigationContainer);

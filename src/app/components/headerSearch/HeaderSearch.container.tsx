@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toJS } from '../../core/util/ToJs';
 
 // Actions
 import { setIsSearchOpen } from '~/redux/ui/actions';
@@ -55,4 +54,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(toJS(HeaderSearchContainer));
+)(HeaderSearchContainer);

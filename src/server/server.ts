@@ -13,6 +13,7 @@ ZengentiAppServer.start(
   ReactApp,
   {
     routes,
+    stateType: 'js',
     withReducers,
     withSagas,
     withEvents,
