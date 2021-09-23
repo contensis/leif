@@ -14,15 +14,11 @@ import BlogListingStyled from './BlogListing.styled';
 
 // Models
 import { Props } from './BlogListing.d';
-import { useSelector } from 'react-redux';
-import { makeSelectHasResults } from '~/redux/ui/selectors';
+import { SearchProps } from '@zengenti/contensis-react-base/search';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
   const { title, featuredBlogProps, ctaBannerProps, metadataProps } =
     mappedEntry || {};
-
-  const selectHasResults = useSelector(makeSelectHasResults);
-  const hasResults = useSelector(selectHasResults);
 
   return (
     <MainLayout>
@@ -33,13 +29,17 @@ const BlogListingPage = ({ mappedEntry }: Props) => {
           <GenericHero {...featuredBlogProps} />
         </Region>
         <ListingContainer>
-          <BlogListing />
+          {(listingProps: SearchProps) => (
+            <>
+              <BlogListing {...listingProps} />
+              {listingProps.results && listingProps.results.length > 0 && (
+                <Region width="small" margin="large">
+                  <CTABanner {...ctaBannerProps} />
+                </Region>
+              )}
+            </>
+          )}
         </ListingContainer>
-        {hasResults && (
-          <Region width="small" margin="large">
-            <CTABanner {...ctaBannerProps} />
-          </Region>
-        )}
       </BlogListingStyled>
     </MainLayout>
   );

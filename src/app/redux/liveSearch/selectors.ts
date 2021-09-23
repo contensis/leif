@@ -1,5 +1,5 @@
 import { AppState } from '~/redux/AppState';
 export const selectSearchTerm = (state: AppState) =>
-  state.getIn(['liveSearch', 'searchTerm']);
+  state.liveSearch.searchTerm;
 export const selectSearchResults = (state: AppState) =>
-  state.getIn(['liveSearch', 'results']);
+  state.liveSearch.results;

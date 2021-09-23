@@ -1,10 +1,4 @@
-import React, {
-  Children,
-  cloneElement,
-  isValidElement,
-  ReactNode,
-  ReactElement,
-} from 'react';
+import React from 'react';
 
 import {
   withListing,
@@ -13,19 +7,12 @@ import {
 
 import transformations from '../search/transformations';
 
-const ListingContainer = (props: React.PropsWithChildren<SearchProps>) => {
-  return (
-    <>
-      {Children.map<ReactNode, ReactNode>(props.children, child => {
-        if (isValidElement(child))
-          return cloneElement<SearchProps>(child, {
-            ...props,
-            ...child.props,
-          }) as ReactElement<SearchProps>;
-        return null;
-      })}
-    </>
-  ) as ReactElement<SearchProps>;
+const ListingContainer = ({
+  children,
+  ...props
+}: React.PropsWithChildren<SearchProps>) => {
+  // @ts-ignore
+  return (<>{children(props)}</>) as ReactElement<SearchProps>;
 };
 
 export default withListing(transformations)(ListingContainer);

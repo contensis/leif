@@ -62,7 +62,7 @@ const searchUriTemplate = {
       ? {}
       : Object.fromEntries(
           Object.entries(getSelectedFilters(state, facet, searchContext)).map(
-            (f: any) => f.join(',')
+            ([k, f]: [string, any]) => [k, f.join(',')]
           )
         );
 
@@ -82,8 +82,7 @@ const searchUriTemplate = {
         .set('contentTypeId', '');
     }
 
-    const currentSearch =
-      !term && state.getIn(['routing', 'location', 'search']);
+    const currentSearch = !term && state.routing.location.search;
 
     const currentQs = removeEmptyAttributes(queryString.parse(currentSearch));
 
@@ -101,7 +100,7 @@ const searchUriTemplate = {
     return queryString.stringify(mergedSearch);
   },
   hash: ({ state }: any) =>
-    state.getIn(['routing', 'location', 'hash'], '#').replace('#', ''),
+    (state.routing.location.hash || '#').replace('#', ''),
 };
 
 const mapStateToSearchUri: SearchTransformations['navigate'] = state =>

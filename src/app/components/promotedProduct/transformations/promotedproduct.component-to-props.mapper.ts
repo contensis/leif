@@ -40,4 +40,5 @@ export const promotedProductPropsMapping = {
     $path: 'buttons',
     $formatting: (btn: any) => mapJson(btn, promotedProductButtonPropsMapping),
   },
+  align: () => '',
 };

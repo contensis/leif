@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Components
 import ProductListing from '~/components/productListing/ProductListing';
@@ -13,43 +13,30 @@ import Region from '~/layout/Region';
 import ProductListingStyled from './ProductListing.styled';
 
 // Mappers
-import { useMinilist } from '@zengenti/contensis-react-base/search';
+import {
+  SearchProps,
+  useMinilist,
+} from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 
 // Models
 import { RouteComponentProps } from '@zengenti/contensis-react-base';
 import { Props } from './ProductListing.d';
 
-import { useSelector } from 'react-redux';
-import { makeSelectHasResults } from '~/redux/ui/selectors';
-
 const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
   if (!mappedEntry) return <></>;
 
   const { title, metadataProps } = mappedEntry || {};
 
-  const [featuredProductOptions, setFeaturedProductOptions] = useState<any>();
-  useEffect(() => {
-    setFeaturedProductOptions({
-      id: 'featuredProduct',
-      mapper: mapEntriesToResults,
-    });
-  }, []);
+  const { results: featuredProducts } = useMinilist({
+    id: 'featuredProduct',
+    mapper: mapEntriesToResults,
+  });
 
-  const [reviewOptions, setReviewOptions] = useState<any>();
-  useEffect(() => {
-    setReviewOptions({
-      id: 'reviews',
-      mapper: mapEntriesToResults,
-    });
-  }, []);
-
-  const { results: featuredProducts } = useMinilist(featuredProductOptions);
-  const { results: reviews } = useMinilist(reviewOptions);
-  featuredProducts.length = 1;
-
-  const selectHasResults = useSelector(makeSelectHasResults);
-  const hasResults = useSelector(selectHasResults);
+  const { results: reviews } = useMinilist({
+    id: 'reviews',
+    mapper: mapEntriesToResults,
+  });
 
   return (
     <MainLayout>
@@ -62,19 +49,23 @@ const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
           )}
         </Region>
         <ListingContainer>
-          <ProductListing />
+          {(listingProps: SearchProps) => (
+            <>
+              <ProductListing {...listingProps} />
+              {listingProps.results && listingProps.results.length > 0 && (
+                <Region width="small" margin="none">
+                  {reviews.map((review: any, idx: number) => (
+                    <QuoteBlock
+                      className="product-listing__quote"
+                      key={idx}
+                      {...review}
+                    />
+                  ))}
+                </Region>
+              )}
+            </>
+          )}
         </ListingContainer>
-        {hasResults && (
-          <Region width="small" margin="none">
-            {reviews.map((review: any, idx: number) => (
-              <QuoteBlock
-                className="product-listing__quote"
-                key={idx}
-                {...review}
-              />
-            ))}
-          </Region>
-        )}
       </ProductListingStyled>
     </MainLayout>
   );
