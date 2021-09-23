@@ -6,9 +6,9 @@ COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
-COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
 RUN yarn install --production --link-duplicates --loglevel error && yarn cache clean
-RUN yarn run postinstall
+# COPY --from=basebuilder /usr/src/app/patches /usr/src/app/patches
+# RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 ENV alias=zenhub
 ENV projectId=leif
