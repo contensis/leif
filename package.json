@@ -133,7 +133,7 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "git+https://github.com/zengenti/contensis-react-base.git#next",
+    "@zengenti/contensis-react-base": "^3.0.0-beta.2",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "react-focus-lock": "^2.5.0",

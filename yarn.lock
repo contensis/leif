@@ -3457,9 +3457,10 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zengenti/contensis-react-base@git+https://github.com/zengenti/contensis-react-base.git#next":
-  version "3.0.0-beta.1"
-  resolved "git+https://github.com/zengenti/contensis-react-base.git#d36c125c90f47bfa6dc3151edf0cf433f0d9ad31"
+"@zengenti/contensis-react-base@^3.0.0-beta.2":
+  version "3.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-3.0.0-beta.2.tgz#2e6e999a816a548190c8301c221c14fb6d58b523"
+  integrity sha512-t0vfUvjgqGlDESKq7W0JULmicP615hZZ6DrC8Ciu0zA3UEGR8pdiHWGzFskEsPmWX2gf4BO6kDH1yQFckbX7fQ==
   dependencies:
     "@hot-loader/react-dom" "^17.0.1"
     "@loadable/component" "^5.15.0"
