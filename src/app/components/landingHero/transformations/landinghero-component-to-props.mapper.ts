@@ -22,5 +22,5 @@ export const landingHeroPropsMapping = {
   ctaLink: {
     $path: 'buttonLink.sys.uri',
   },
-  ctaText: 'buttonLabel',
+  ctaText: ['buttonLabel', 'buttonLink.entryTitle'],
 };
