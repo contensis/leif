@@ -29,7 +29,7 @@ const Dropdown = ({
 
   /* eslint-disable */
   useEffect(() => {
-    const selectedFilter = filters.find((x: any) => x.isSelected);
+    const selectedFilter = filters?.find((x: any) => x.isSelected);
     const activeFilter = selectedFilter && selectedFilter.key;
     setActiveFilter(activeFilter);
   }, [filters]);
