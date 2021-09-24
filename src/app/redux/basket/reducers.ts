@@ -83,13 +83,18 @@ export default produce((state: Draft<any>, action) => {
         const totalItems = (currentTotalItems += quantity);
         const totalPrice = (currentTotalPrice += price * quantity);
 
-        state.items[id][sku].title = productTitle;
-        state.items[id][sku].variant = variantTitle;
-        state.items[id][sku].id = id;
-        state.items[id][sku].imageUri = imageUri;
-        state.items[id][sku].sku = sku;
-        state.items[id][sku].quantity = quantity;
-        state.items[id][sku].price = price;
+        const basketItem = {
+          [sku]: {
+            title: productTitle,
+            variant: variantTitle,
+            id,
+            imageUri,
+            sku,
+            quantity,
+            price,
+          },
+        };
+        state.items[id] = basketItem;
         state.totalItems = totalItems;
         state.totalPrice = totalPrice;
       }
