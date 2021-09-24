@@ -48,12 +48,11 @@ const BasketPage = () => {
 
   useEffect(() => {
     setFeaturedProductOptions({
-      id: 'featuredProduct',
+      id: 'featuredProducts',
       mapper: mapEntriesToResults,
     });
   }, []);
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
-  featuredProducts.length = 3;
 
   return (
     <MainLayout>

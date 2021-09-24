@@ -29,7 +29,7 @@ const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
   const { title, metadataProps } = mappedEntry || {};
 
   const { results: featuredProducts } = useMinilist({
-    id: 'featuredProduct',
+    id: 'featuredProducts',
     mapper: mapEntriesToResults,
   });
 

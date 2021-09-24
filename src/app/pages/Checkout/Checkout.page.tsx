@@ -23,7 +23,6 @@ const CheckoutPage = () => {
     });
   }, []);
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
-  featuredProducts.length = 1;
 
   return (
     <MainLayout>
