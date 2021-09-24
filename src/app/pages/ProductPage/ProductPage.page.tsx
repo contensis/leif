@@ -38,7 +38,6 @@ const ProductPage = ({ mappedEntry }: Props) => {
 
   // Select Product Matching Pots from Redux state.
   const results = useSelector(selectActiveVariantMatchingPots);
-  matchingProductsProps.results = results;
 
   // Select Product Reviews from Redux state.
   const reviews = useSelector(selectProductReviews);
@@ -78,7 +77,7 @@ const ProductPage = ({ mappedEntry }: Props) => {
           {isDesktop && <ProductHeroContent {...productHeroContentProps} />}
         </div>
         <Region width="full" margin="large">
-          <PromotedContent {...matchingProductsProps} />
+          <PromotedContent results={results} {...matchingProductsProps} />
         </Region>
       </ProductPageStyled>
     </MainLayout>
