@@ -14,7 +14,7 @@ import ProductListingStyled from './ProductListing.styled';
 
 // Mappers
 import {
-  SearchProps,
+  ListingProps,
   useMinilist,
 } from '@zengenti/contensis-react-base/search';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
@@ -49,7 +49,7 @@ const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
           )}
         </Region>
         <ListingContainer>
-          {(listingProps: SearchProps) => (
+          {(listingProps: ListingProps) => (
             <>
               <ProductListing {...listingProps} />
               {listingProps.results && listingProps.results.length > 0 && (

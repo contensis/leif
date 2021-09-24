@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import ProductListingStyled from './ProductListing.styled';
 
-import { useSelector } from 'react-redux';
-import { selectCurrentPathname } from '~/redux/routing/selectors';
 import useWindowScroll from '~/components/search/hooks/useWindowScroll';
 
 // Components
@@ -11,44 +9,52 @@ import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
 import NoResults from '../noResults/NoResults';
-import { SearchProps } from '@zengenti/contensis-react-base/search';
+import { ListingProps } from '@zengenti/contensis-react-base/search';
 
 const ProductListing = ({
   clearFilters,
-  currentFacet,
+  currentListing,
   filters,
   paging,
   results,
   updateSelectedFilters,
   updatePageIndex,
   updateCurrentFacet,
-}: SearchProps) => {
+}: ListingProps) => {
   const [, setWindowOffset] = useWindowScroll();
 
-  const potFilters: any = {};
-  const plantFilters: any = {};
-  const defaultFilters: any = {};
+  const [potFilters, setPotFilters] = useState({});
+  const [plantFilters, setPlantFilters] = useState({});
+  const [defaultFilters, setDefaultFilters] = useState({});
 
-  Object.keys(filters).map((fKey: any) => {
-    switch (fKey) {
-      case 'colour':
-      case 'potSize': {
-        potFilters[fKey] = filters[fKey];
-        break;
+  useEffect(() => {
+    const pot: any = {};
+    const plant: any = {};
+    const all: any = {};
+    Object.keys(filters).forEach((fKey: any) => {
+      switch (fKey) {
+        case 'colour':
+        case 'potSize': {
+          pot[fKey] = filters[fKey];
+          break;
+        }
+        case 'plantType':
+        case 'plantSize': {
+          plant[fKey] = filters[fKey];
+          break;
+        }
+        default: {
+          plant[fKey] = filters[fKey];
+          pot[fKey] = filters[fKey];
+          all[fKey] = filters[fKey];
+          break;
+        }
       }
-      case 'plantType':
-      case 'plantSize': {
-        plantFilters[fKey] = filters[fKey];
-        break;
-      }
-      default: {
-        plantFilters[fKey] = filters[fKey];
-        potFilters[fKey] = filters[fKey];
-        defaultFilters[fKey] = filters[fKey];
-        break;
-      }
-    }
-  });
+    });
+    setPotFilters(pot);
+    setPlantFilters(plant);
+    setDefaultFilters(all);
+  }, [filters]);
 
   const _handleLoadMore = (pageIndex: number) => {
     if (typeof window != 'undefined') {
@@ -60,22 +66,19 @@ const ProductListing = ({
   const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
   const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
 
-  // Get the current pathname from state
-  const path: string = useSelector(selectCurrentPathname);
-
   // Depending on the path toggle the correct filters
   useEffect(() => {
-    if (path && path.includes('pot')) {
+    if (window.location.pathname.includes('pot')) {
       setIsPlantFilterSelected(false);
       setIsPotFilterSelected(true);
-    } else if (path && path.includes('plant')) {
+    } else if (window.location.pathname.includes('plant')) {
       setIsPlantFilterSelected(true);
       setIsPotFilterSelected(false);
     } else {
       setIsPotFilterSelected(false);
       setIsPlantFilterSelected(false);
     }
-  }, [path]);
+  }, [window.location.pathname]);
 
   const { pageIndex, pageCount } = paging;
   const hasLoadMore =
@@ -88,7 +91,7 @@ const ProductListing = ({
     <ProductListingStyled>
       <Filters
         className="product-listing__filters"
-        currentFacet={currentFacet}
+        currentFacet={currentListing}
         filters={
           isPotFilterSelected
             ? potFilters
