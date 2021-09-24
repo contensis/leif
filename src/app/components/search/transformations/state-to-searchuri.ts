@@ -67,19 +67,16 @@ const searchUriTemplate = {
         );
 
     // Delete these parameters as we do not need to see them in the uri
-    let modifiedStateFilters = stateFilters;
     const { contentTypeId } = stateFilters || {};
 
     if (contentTypeId === 'pot') {
-      modifiedStateFilters = stateFilters
-        .set('plantType', '')
-        .set('plantSize', '')
-        .set('contentTypeId', '');
+      stateFilters.plantType = '';
+      stateFilters.plantSize = '';
+      stateFilters.contentTypeId = '';
     } else if (contentTypeId === 'plant') {
-      modifiedStateFilters = stateFilters
-        .set('colour', '')
-        .set('potSize', '')
-        .set('contentTypeId', '');
+      stateFilters.colour = '';
+      stateFilters.potSize = '';
+      stateFilters.contentTypeId = '';
     }
 
     const currentSearch = !term && state.routing.location.search;
@@ -92,7 +89,7 @@ const searchUriTemplate = {
     // Use Immutable's merge to merge the stateFilters with any current Qs
     // to build the new Qs.
     const mergedSearch = removeEmptyAttributes(
-      deepmerge(currentQs, modifiedStateFilters)
+      deepmerge(currentQs, stateFilters)
     );
     mergedSearch.term = searchTerm;
     // if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
