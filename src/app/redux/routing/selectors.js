@@ -1,4 +1,4 @@
-import { navigation } from '@zengenti/contensis-react-base/redux';
+import { getIn, navigation } from '@zengenti/contensis-react-base/redux';
 import { selectors } from '@zengenti/contensis-react-base/routing';
 
 export const selectCurrentNodeChildren = state =>
@@ -8,13 +8,13 @@ export const selectCurrentNodeAncestors = state =>
   selectors.selectCurrentAncestors(state);
 
 export const selectCurrentNodeParentId = state =>
-  selectors.selectCurrentNode(state)?.get('parentId');
+  getIn(selectors.selectCurrentNode(state), 'parentId');
 
 export const selectCurrentNodeId = state =>
-  selectors.selectCurrentNode(state)?.get('id');
+  getIn(selectors.selectCurrentNode(state), 'id');
 
 export const selectNavigationRootChildren = state =>
-  navigation.selectors.selectNavigationRoot(state)?.get('children');
+  getIn(navigation.selectors.selectNavigationRoot(state), 'children');
 
 export const selectCurrentLocationQueryStringParams = state =>
   selectors.selectCurrentSearch(state);

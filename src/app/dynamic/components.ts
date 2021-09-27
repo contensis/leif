@@ -1,8 +1,8 @@
-import Loadable from './loadable';
+import loadable from '@loadable/component';
 
 import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
 
-export const Composer = Loadable<ComposerProps>(
+export const Composer = loadable<ComposerProps>(
   () =>
     import(
       /* webpackChunkName: "composer-wrapper" */ '~/components/composer/ComposerWrapper'
@@ -10,9 +10,13 @@ export const Composer = Loadable<ComposerProps>(
 );
 
 export const CoreComponents = {
-  ZenInfo: Loadable(() =>
-    import(
-      /* webpackChunkName: "zeninfo.component" */ '@zengenti/contensis-react-base/util'
-    ).then(module => module.VersionInfo)
+  ZenInfo: loadable(
+    () =>
+      import(
+        /* webpackChunkName: "zeninfo.component" */ '@zengenti/contensis-react-base/util'
+      ),
+    {
+      resolveComponent: module => module.VersionInfo,
+    }
   ),
 };

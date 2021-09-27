@@ -1,4 +1,4 @@
-import Loadable from './loadable';
+import loadable from '@loadable/component';
 
 // Props Models
 import { Props as AccordionProps } from '~/components/accordion/Accordion';
@@ -16,80 +16,80 @@ import { Props as TextBlockProps } from '~/components/textBlock/TextBlock';
 import { Props as TwitterCardProps } from '~/components/twitterCard/TwitterCard';
 import { Props as VideoPlayerProps } from '~/components/videoPlayer/VideoPlayer';
 
-export const Accordion = Loadable<AccordionProps>(
+export const Accordion = loadable<AccordionProps>(
   () =>
     import(
       /* webpackChunkName: "accordion" */ '~/components/accordion/Accordion'
     )
 );
-export const Callout = Loadable<CalloutProps>(
+export const Callout = loadable<CalloutProps>(
   () => import(/* webpackChunkName: "callout" */ '~/components/callout/Callout')
 );
-export const ContentBlockRow = Loadable<ContentBlockRowProps>(
+export const ContentBlockRow = loadable<ContentBlockRowProps>(
   () =>
     import(
       /* webpackChunkName: "content-block-row" */ '~/components/contentBlockRow/ContentBlockRow'
     )
 );
-export const FeaturedProduct = Loadable<FeaturedProductProps>(
+export const FeaturedProduct = loadable<FeaturedProductProps>(
   () =>
     import(
       /* webpackChunkName: "featured-product" */ '~/components/featuredProduct/FeaturedProduct'
     )
 );
-export const IconList = Loadable<IconListProps>(
+export const IconList = loadable<IconListProps>(
   () =>
     import(/* webpackChunkName: "icon-list" */ '~/components/iconList/IconList')
 );
-export const ImageBlock = Loadable<ImageBlockProps>(
+export const ImageBlock = loadable<ImageBlockProps>(
   () =>
     import(
       /* webpackChunkName: "image-block" */ '~/components/imageBlock/ImageBlock'
     )
 );
-export const ProductSlider = Loadable<ProductSliderProps>(
+export const ProductSlider = loadable<ProductSliderProps>(
   () =>
     import(
       /* webpackChunkName: "product-slider" */ '~/components/productSlider/ProductSlider'
     )
 );
-export const PromotionalBlock = Loadable<PromotedProductProps>(
+export const PromotionalBlock = loadable<PromotedProductProps>(
   () =>
     import(
       /* webpackChunkName: "promotional-block" */ '~/components/promotedProduct/PromotedProduct'
     )
 );
-export const QuoteBlock = Loadable<QuoteBlockProps>(
+export const QuoteBlock = loadable<QuoteBlockProps>(
   () =>
     import(
       /* webpackChunkName: "quote-block" */ '~/components/quoteBlock/QuoteBlock'
     )
 );
-export const RelatedContent = Loadable<RelatedContentProps>(
+export const RelatedContent = loadable<RelatedContentProps>(
   () =>
     import(
       /* webpackChunkName: "related-content" */ '~/components/relatedContent/RelatedContent'
     )
 );
-export const TestimonialSlider = Loadable<TestimonialSliderProps>(
+export const TestimonialSlider = loadable<TestimonialSliderProps>(
   () =>
     import(
       /* webpackChunkName: "testimonial-slider" */ '~/components/testimonialSlider/TestimonialSlider'
     )
 );
-export const TextBlock = Loadable<TextBlockProps>(
+export const TextBlock = loadable<TextBlockProps>(
   () =>
     import(
       /* webpackChunkName: "text-block" */ '~/components/textBlock/TextBlock'
     )
 );
-export const TwitterCard = Loadable<TwitterCardProps>(
+export const TwitterCard = loadable<TwitterCardProps>(
   () =>
     import(
       /* webpackChunkName: "twitter-card" */ '~/components/twitterCard/TwitterCard'
     )
 );
-export const VideoPlayer = Loadable<VideoPlayerProps>(
+export const VideoPlayer = loadable<VideoPlayerProps>(
   () =>
     import(
       /* webpackChunkName: "video-player" */ '~/components/videoPlayer/VideoPlayer'

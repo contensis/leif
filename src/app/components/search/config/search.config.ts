@@ -110,6 +110,22 @@ export default {
         contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
         fields: [...BaseFields, ...ProductFields],
         orderBy: ['-sys.version.published'],
+        pageSize: 1,
+        linkDepth: 1,
+        customWhere: [
+          {
+            field: 'tags.entryTitle',
+            equalTo: 'promoted',
+          },
+        ],
+      },
+    },
+    featuredProducts: {
+      title: 'Featured Product',
+      queryParams: {
+        contentTypeIds: [ContentTypes.plant, ContentTypes.pot],
+        fields: [...BaseFields, ...ProductFields],
+        orderBy: ['-sys.version.published'],
         pageSize: 3,
         linkDepth: 1,
         customWhere: [

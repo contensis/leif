@@ -65,7 +65,7 @@ const SearchContainer: React.FC<
   const exploreMore = useExploreMore(hasResults);
 
   // Handles rendering different filters depending on the first selected filter option
-  const productSearchFilters = useProductFilters(filters, path);
+  const productSearchFilters = useProductFilters(filters);
 
   // Search action handlers
   const _handleLoadMore = (pageIndex: number) => {
@@ -90,7 +90,9 @@ const SearchContainer: React.FC<
               clearFilters={clearFilters}
               currentFacet={currentFacet}
               // Combining the Facets and Filter objects into one for mobile.
-              filters={isDesktop ? facets : { ...facets, ...filters }}
+              filters={
+                isDesktop ? facets : { ...facets, ...productSearchFilters }
+              }
               hasResetBtn={isDesktop ? false : true}
               updateCurrentFacet={updateCurrentFacet}
               updateSelectedFilters={updateSelectedFilters}

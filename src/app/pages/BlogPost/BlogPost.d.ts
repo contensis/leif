@@ -1,3 +1,4 @@
+import { RouteComponentProps } from '@zengenti/contensis-react-base';
 import { Props as BlogInformationProps } from '~/components/blogInformation/BlogInformation';
 import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
 import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
@@ -16,6 +17,4 @@ export interface MappedProps {
   metadataProps: MetadataProps;
 }
 
-export interface Props {
-  mappedEntry: MappedProps;
-}
+export type Props = RouteComponentProps<MappedProps>;

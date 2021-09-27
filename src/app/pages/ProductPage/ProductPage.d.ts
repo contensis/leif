@@ -1,3 +1,4 @@
+import { RouteComponentProps } from '@zengenti/contensis-react-base/models';
 import { Props as ProductHeroContentProps } from '~/components/productHeroContent/ProductHeroContent';
 import { Props as ProductHeroSliderProps } from '~/components/productHeroSlider/ProductHeroSlider';
 import { Props as TextBlockProps } from '~/components/textBlock/TextBlock';
@@ -14,6 +15,4 @@ export interface MappedProps {
   metadataProps: MetadataProps;
 }
 
-export interface Props {
-  mappedEntry: MappedProps;
-}
+export type Props = RouteComponentProps<MappedProps>;

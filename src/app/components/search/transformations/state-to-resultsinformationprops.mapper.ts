@@ -8,12 +8,12 @@ const { getFacet, getPaging, getResults, getSearchTerm, getTabsAndFacets } =
   selectors;
 
 // Helper functions to save repetition
-const pagingInfo = (state: any) => getPaging(state).toJS();
+const pagingInfo = (state: any) => getPaging(state);
 
 const searchTerm = (state: any) => getSearchTerm(state);
 
 const wholeSearchTotal = (state: any) => {
-  const tabsAndFacets = getTabsAndFacets(state).toJS();
+  const tabsAndFacets = getTabsAndFacets(state);
   const wholeSearchTotal = tabsAndFacets
     .map((t: any) => t.totalCount)
     .reduce((a: any, b: any) => a + b, 0);
@@ -22,7 +22,7 @@ const wholeSearchTotal = (state: any) => {
 
 // The mapper object
 const resultsInfoTemplate = {
-  facetName: (state: any) => getFacet(state).get('title'),
+  facetName: (state: any) => getFacet(state).title,
   hasLoadMore: (state: any) => {
     const { pageIndex, pageCount } = pagingInfo(state);
     const hasLoadMore =
@@ -31,7 +31,7 @@ const resultsInfoTemplate = {
         : pageIndex < pageCount - 1;
     return hasLoadMore;
   },
-  hasResults: (state: any) => getResults(state).size > 0,
+  hasResults: (state: any) => getResults(state).length > 0,
   start: (state: any) => {
     const { pagesLoaded = [], pageSize } = pagingInfo(state);
     const start = pagesLoaded?.[0] * pageSize + 1;

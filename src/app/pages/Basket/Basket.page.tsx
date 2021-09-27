@@ -27,8 +27,7 @@ import Icon from '~/components/icon/Icon';
 import Link from '~/components/link/Link';
 
 const BasketPage = () => {
-  let basket = useSelector(selectProductsInBasket);
-  basket = basket && basket.toJS();
+  const basket = useSelector(selectProductsInBasket);
 
   const basketArray = Object.keys(basket).map(key => {
     const basketItem: BasketItemProps[] = [];
@@ -49,12 +48,11 @@ const BasketPage = () => {
 
   useEffect(() => {
     setFeaturedProductOptions({
-      id: 'featuredProduct',
+      id: 'featuredProducts',
       mapper: mapEntriesToResults,
     });
   }, []);
   const { results: featuredProducts } = useMinilist(featuredProductOptions);
-  featuredProducts.length = 3;
 
   return (
     <MainLayout>

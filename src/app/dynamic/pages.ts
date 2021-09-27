@@ -1,6 +1,7 @@
-import Loadable from './loadable';
+import loadable from '@loadable/component';
 
 // Props Models
+import { RouteComponentProps } from '@zengenti/contensis-react-base';
 import { MappedProps as HomePageProps } from '~/pages/Home/Home.d';
 import { MappedProps as LandingPageProps } from '~/pages/LandingPage/LandingPage.d';
 import { MappedProps as ContentPageProps } from '~/pages/ContentPage/ContentPage.d';
@@ -9,52 +10,54 @@ import { MappedProps as BlogPostProps } from '~/pages/BlogPost/BlogPost.d';
 import { Props as ProductListingProps } from '~/pages/ProductListing/ProductListing.d';
 import { MappedProps as ProductPageProps } from '~/pages/ProductPage/ProductPage.d';
 
-export const HomePage = Loadable<HomePageProps>(
+export const HomePage = loadable<RouteComponentProps<HomePageProps>>(
   () => import(/* webpackChunkName: "home.page" */ '~/pages/Home/Home.page')
 );
-export const LandingPage = Loadable<LandingPageProps>(
+export const LandingPage = loadable<RouteComponentProps<LandingPageProps>>(
   () =>
     import(
       /* webpackChunkName: "landing.page" */ '~/pages/LandingPage/LandingPage.page'
     )
 );
-export const ContentPage = Loadable<ContentPageProps>(
+export const ContentPage = loadable<RouteComponentProps<ContentPageProps>>(
   () =>
     import(
       /* webpackChunkName: "content.page" */ '~/pages/ContentPage/ContentPage.page'
     )
 );
-export const SearchPage = Loadable(
+export const SearchPage = loadable(
   () =>
     import(/* webpackChunkName: "search.page" */ '~/pages/Search/Search.page')
 );
-export const BlogListing = Loadable<BlogListingProps>(
+export const BlogListing = loadable<RouteComponentProps<BlogListingProps>>(
   () =>
     import(
       /* webpackChunkName: "blog-listing.page" */ '~/pages/BlogListing/BlogListing.page'
     )
 );
-export const BlogPost = Loadable<BlogPostProps>(
+export const BlogPost = loadable<RouteComponentProps<BlogPostProps>>(
   () =>
     import(/* webpackChunkName: "blog.page" */ '~/pages/BlogPost/BlogPost.page')
 );
-export const ProductListing = Loadable<ProductListingProps>(
+export const ProductListing = loadable<
+  RouteComponentProps<ProductListingProps>
+>(
   () =>
     import(
       /* webpackChunkName: "product-listing.page" */ '~/pages/ProductListing/ProductListing.page'
     )
 );
-export const ProductPage = Loadable<ProductPageProps>(
+export const ProductPage = loadable<RouteComponentProps<ProductPageProps>>(
   () =>
     import(
       /* webpackChunkName: "product.page" */ '~/pages/ProductPage/ProductPage.page'
     )
 );
-export const BasketPage = Loadable(
+export const BasketPage = loadable(
   () =>
     import(/* webpackChunkName: "basket.page" */ '~/pages/Basket/Basket.page')
 );
-export const CheckoutPage = Loadable(
+export const CheckoutPage = loadable(
   () =>
     import(
       /* webpackChunkName: "checkout.page" */ '~/pages/Checkout/Checkout.page'
@@ -63,13 +66,13 @@ export const CheckoutPage = Loadable(
 // ********************************
 // ˅˅ Do not delete these pages ˅˅
 export const CorePages = {
-  404: Loadable(
+  404: loadable(
     () =>
       import(
         /* webpackChunkName: "notfound" */ '~/pages/NotFound/NotFound.page'
       )
   ),
-  ZenInfo: Loadable(
+  ZenInfo: loadable(
     () =>
       import(/* webpackChunkName: "versioninfo.page" */ '~/pages/VersionInfo')
   ),

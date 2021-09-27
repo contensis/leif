@@ -5,11 +5,12 @@ RUN apt-get install libglu1 -y
 WORKDIR /usr/src/app
 RUN npm install -g mocha
 COPY package.json .
+# COPY package-lock.json .
 COPY yarn.lock .
-COPY patches /usr/src/app/patches
+# COPY patches /usr/src/app/patches
 RUN yarn install --link-duplicates
-#RUN npm install --loglevel error
-RUN yarn run postinstall
+# RUN npm install --loglevel error
+# RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 
