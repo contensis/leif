@@ -133,10 +133,9 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^3.0.0-beta.2",
+    "@zengenti/contensis-react-base": "^3.0.0-beta.7",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
-    "deepmerge": "^4.2.2",
     "react-focus-lock": "^2.5.0",
     "react-slick": "^0.28.0",
     "react-twitter-embed": "^3.0.3",
