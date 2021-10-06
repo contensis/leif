@@ -1,4 +1,4 @@
-FROM node:12 as builder
+FROM node:14 as builder
 # The following prevents errors when cwebp is installing.
 RUN apt-get update
 RUN apt-get install libglu1 -y
@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 RUN npm install -g mocha
 COPY package.json .
 COPY yarn.lock .
-COPY patches /usr/src/app/patches
+#COPY patches /usr/src/app/patches
 RUN yarn install --link-duplicates
 #RUN npm install --loglevel error
 RUN yarn run postinstall
@@ -31,13 +31,13 @@ RUN mocha --timeout=5000 dist/server/start.js -tests
 COPY version.json /usr/src/app/dist/static/version.json
 RUN cat /usr/src/app/dist/static/version.json
 
-FROM mhart/alpine-node:12
+FROM mhart/alpine-node:14
 
 COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
-COPY --from=builder /usr/src/app/patches /usr/src/app/patches
+# COPY --from=builder /usr/src/app/patches /usr/src/app/patches
 # COPY --from=builder /usr/src/app/node_modules/zengenti-isomorphic-base /usr/src/app/node_modules/zengenti-isomorphic-base
 RUN apk add git
 COPY --from=builder /usr/src/app/node_modules/zengenti-search-package /usr/src/app/node_modules/zengenti-search-package
