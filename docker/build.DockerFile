@@ -9,7 +9,7 @@ COPY yarn.lock .
 #COPY patches /usr/src/app/patches
 RUN yarn install --link-duplicates
 #RUN npm install --loglevel error
-RUN yarn run postinstall
+#RUN yarn run postinstall
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 
