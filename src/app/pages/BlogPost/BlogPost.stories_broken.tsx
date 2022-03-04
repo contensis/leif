@@ -45,7 +45,7 @@ const Template = () => {
           },
           versionStatus: 'published',
           id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-          projectId: 'leif',
+
           slug: null,
           properties: {
             filename: 'woman-at-desk.png',
@@ -100,7 +100,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: 'a1713bf3-832d-41ef-bd80-ba40a4c6f5a2',
-            projectId: 'leif',
+
             slug: null,
             properties: {
               filename: 'profile-img.png',
@@ -139,7 +139,7 @@ const Template = () => {
         },
         versionStatus: 'published',
         id: '192c2ed9-0394-458e-bc37-4555b2da7744',
-        projectId: 'leif',
+
         slug: 'john-smith',
         properties: {},
       },
@@ -176,7 +176,7 @@ const Template = () => {
       },
       versionStatus: 'published',
       id: '95764a4b-b04a-4121-871a-20e44e6ce121',
-      projectId: 'leif',
+
       slug: 'blog-title-can-span-multiple-lines-of-text',
       properties: {},
     },
@@ -218,7 +218,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '25a0958a-37f6-43d3-9560-7a9f3198e88a',
-            projectId: 'leif',
+
             slug: null,
             properties: {
               filename: 'laptop-and-plant.png',
@@ -279,7 +279,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -334,7 +334,7 @@ const Template = () => {
                 },
                 versionStatus: 'published',
                 id: 'a1713bf3-832d-41ef-bd80-ba40a4c6f5a2',
-                projectId: 'leif',
+
                 slug: null,
                 properties: {
                   filename: 'profile-img.png',
@@ -373,7 +373,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '192c2ed9-0394-458e-bc37-4555b2da7744',
-            projectId: 'leif',
+
             slug: 'john-smith',
             properties: {},
           },
@@ -410,7 +410,7 @@ const Template = () => {
           },
           versionStatus: 'published',
           id: 'e95f4acb-70df-41b5-a504-1b8fb64fd604',
-          projectId: 'leif',
+
           slug: 'why-you-should-add-plants-to-your-workplace-copy',
           properties: {},
         },
@@ -464,7 +464,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -507,7 +507,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '72e29bcc-5f26-429b-a56a-0944a80eafdf',
-            projectId: 'leif',
+
             slug: 'category-1',
             properties: {},
           },
@@ -556,7 +556,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -611,7 +611,7 @@ const Template = () => {
                 },
                 versionStatus: 'published',
                 id: 'a1713bf3-832d-41ef-bd80-ba40a4c6f5a2',
-                projectId: 'leif',
+
                 slug: null,
                 properties: {
                   filename: 'profile-img.png',
@@ -650,7 +650,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '192c2ed9-0394-458e-bc37-4555b2da7744',
-            projectId: 'leif',
+
             slug: 'john-smith',
             properties: {},
           },
@@ -687,7 +687,7 @@ const Template = () => {
           },
           versionStatus: 'published',
           id: 'd931f2d3-d852-49d6-9137-a7d12ae672a6',
-          projectId: 'leif',
+
           slug: '5-ways-to-keep-your-plants-happy-this-winter-copy',
           properties: {},
         },
@@ -741,7 +741,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -784,7 +784,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '72e29bcc-5f26-429b-a56a-0944a80eafdf',
-            projectId: 'leif',
+
             slug: 'category-1',
             properties: {},
           },
@@ -834,7 +834,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -889,7 +889,7 @@ const Template = () => {
                 },
                 versionStatus: 'published',
                 id: 'a1713bf3-832d-41ef-bd80-ba40a4c6f5a2',
-                projectId: 'leif',
+
                 slug: null,
                 properties: {
                   filename: 'profile-img.png',
@@ -928,7 +928,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '192c2ed9-0394-458e-bc37-4555b2da7744',
-            projectId: 'leif',
+
             slug: 'john-smith',
             properties: {},
           },
@@ -965,7 +965,7 @@ const Template = () => {
           },
           versionStatus: 'published',
           id: 'a116716b-7249-4d00-8c93-e57861d984a6',
-          projectId: 'leif',
+
           slug: 'why-plants-are-good-for-your-mental-health-copy',
           properties: {},
         },
@@ -1019,7 +1019,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'b464a2aa-2a87-42bb-8fba-554f78641d0b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'woman-at-desk.png',
@@ -1062,7 +1062,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '72e29bcc-5f26-429b-a56a-0944a80eafdf',
-            projectId: 'leif',
+
             slug: 'category-1',
             properties: {},
           },
@@ -1118,7 +1118,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: '81744835-f6ff-42f0-9e3f-6da87885b75b',
-              projectId: 'leif',
+
               slug: null,
               properties: {
                 filename: 'plant-in-home.png',
@@ -1199,7 +1199,7 @@ const Template = () => {
                   },
                   versionStatus: 'published',
                   id: '452a4ee5-611b-4382-b7c7-06d810b5e698',
-                  projectId: 'leif',
+
                   slug: 'vit-mid-sized-white-pot',
                   properties: {},
                 },
@@ -1255,7 +1255,7 @@ const Template = () => {
               },
               versionStatus: 'published',
               id: 'd647012b-897e-4b6b-bfb5-b9844ef3d648',
-              projectId: 'leif',
+
               slug: 'canary-island-date-palm',
               properties: {},
             },
@@ -1292,7 +1292,7 @@ const Template = () => {
                 },
                 versionStatus: 'published',
                 id: 'd66447c5-2198-4b19-bad3-c921e9ef0db0',
-                projectId: 'leif',
+
                 slug: 'palm',
                 properties: {},
               },
@@ -1332,7 +1332,7 @@ const Template = () => {
                   },
                   versionStatus: 'published',
                   id: '711251f9-f9c6-473b-8b62-0ec8a0d4978c',
-                  projectId: 'leif',
+
                   slug: 'partial-shade',
                   properties: {},
                 },
@@ -1381,7 +1381,7 @@ const Template = () => {
                   },
                   versionStatus: 'published',
                   id: '29a070f5-e72c-41e8-89f7-2d9e4a704475',
-                  projectId: 'leif',
+
                   slug: null,
                   properties: {
                     filename: 'spider-plant-card.png',
@@ -1440,7 +1440,7 @@ const Template = () => {
             },
             versionStatus: 'published',
             id: '193b719f-e199-4d9d-96f5-7ed3fed7fd1f',
-            projectId: 'leif',
+
             slug: '7-essential-tips',
             properties: {},
           },
@@ -1489,7 +1489,7 @@ const Template = () => {
           },
           versionStatus: 'published',
           id: '81744835-f6ff-42f0-9e3f-6da87885b75b',
-          projectId: 'leif',
+
           slug: null,
           properties: {
             filename: 'plant-in-home.png',
@@ -1532,7 +1532,7 @@ const Template = () => {
         },
         versionStatus: 'published',
         id: '72e29bcc-5f26-429b-a56a-0944a80eafdf',
-        projectId: 'leif',
+
         slug: 'category-1',
         properties: {},
       },

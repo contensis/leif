@@ -1,14 +1,27 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
+// Component
 import Card, { Props } from './Card';
+
+// Utils
 import dateWithSuffix from '../../utils/dateWithSuffix';
+
+// Get Entry by ID
+import { useGetEntryByEntryId } from '@zengenti/contensis-entry-picker-storybook-addon';
+
+// Mapper
+import mapEntriesToResults from '../search/transformations/entry-to-card-props.mapper';
 
 export default {
   title: 'Global/Components/Card',
   component: Card,
 } as Meta;
-const Template: Story<Props> = args => <Card {...args} />;
+const Template: Story<Props> = (args: Props, { globals: { entryId } }) => {
+  const entry = useGetEntryByEntryId(entryId);
+  const mappedEntry = mapEntriesToResults([entry]);
+  return <Card {...{ ...args, ...mappedEntry[0] }} />;
+};
 
 const dataObject = {
   title: 'Title can span multiple lines of text',
@@ -21,6 +34,7 @@ const dataObject = {
 
 export const Blog = Template.bind({});
 Blog.args = {
+  contentTypes: ['blogPost', 'pot', 'plant'],
   type: 'blog',
   title: dataObject.title,
   text: dataObject.text,
@@ -36,7 +50,7 @@ Product.args = {
   title: dataObject.title,
   imageUri: dataObject.imageUri,
   imageAlt: dataObject.imageAlt,
-  price: 32,
+  price: [32],
   rating: '4',
 };
 

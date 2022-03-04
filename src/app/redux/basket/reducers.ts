@@ -5,6 +5,7 @@ import {
   ADD_TO_BASKET,
   REMOVE_FROM_BASKET,
   UPDATE_QUANTITY,
+  UPDATE_MATCHING_PRODUCTS,
   INITIALISED_BASKET,
 } from './types';
 
@@ -15,6 +16,7 @@ const initialState = {
   items: {},
   totalPrice: 0,
   totalItems: 0,
+  matchingProducts: [],
   isInitialised: false,
 };
 
@@ -25,6 +27,7 @@ export default produce((state: Draft<any>, action) => {
         state.items = action.value;
         state.totalItems = action.totalItems;
         state.totalPrice = action.totalPrice;
+        state.matchingProducts = action.matchingProducts;
       }
 
       state.isInitialised = true;
@@ -115,8 +118,17 @@ export default produce((state: Draft<any>, action) => {
       } else {
         delete state.items[id][sku];
       }
+      delete state.matchingProducts;
+
       state.totalItems = totalItems;
       state.totalPrice = totalPrice;
+      return;
+    }
+    case UPDATE_MATCHING_PRODUCTS: {
+      const { matchingProducts } = action || {};
+      if (matchingProducts && matchingProducts.length > 0)
+        state.matchingProducts = matchingProducts;
+
       return;
     }
     default:

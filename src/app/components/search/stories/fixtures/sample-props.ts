@@ -249,7 +249,6 @@ export default {
         pagesLoaded: [0],
         prevPageIndex: 0,
       },
-      projectId: 'leif',
       preloaded: false,
     },
     blog: {

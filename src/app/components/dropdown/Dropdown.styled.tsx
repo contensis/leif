@@ -17,11 +17,16 @@ const DropdownStyled = styled.div`
         width: 100%;
         cursor: pointer;
         padding: 16px 32px 16px 16px;
-        background: rgba(195, 198, 222, 0.1);
+        background-color: rgba(195, 198, 222, 0.1);
         border: 1px solid ${theme.colors.secondary_light};
         border-radius: 8px;
         -webkit-appearance: none;
         -moz-appearance: none;
+        appearance: none;
+        option {
+          color: ${theme.colors.neutral_white};
+          background-color: ${theme.colors.neutral_charcoal};
+        }
       }
       select::-ms-expand {
         display: none;

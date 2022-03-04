@@ -6,6 +6,8 @@ import HeroContent from '../heroContent/HeroContent';
 import { useDeliveryApiToGetProducts } from '~/utils/hooks/useDeliveryApiToGetProducts';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
 import { _createResponsiveSettings } from './utils/responsiveSettings';
+import { useSelector } from 'react-redux';
+import { selectMatchingProducts } from '~/redux/basket/selectors';
 
 export interface Props {
   className?: string;
@@ -31,6 +33,8 @@ const ProductSlider = ({
   hasFilter = false,
 }: Props) => {
   const _RenderProductSlider = (hasFilter: boolean) => {
+    const matchingProducts: [] = useSelector(selectMatchingProducts);
+
     switch (hasFilter) {
       case true: {
         const mappedProducts = mapEntriesToResults(
@@ -70,6 +74,11 @@ const ProductSlider = ({
       }
       case false:
       default: {
+        if (matchingProducts && matchingProducts.length > 0) {
+          title = 'Forgotten something';
+          summary = 'Here are some products that we think you might like.';
+          products = matchingProducts;
+        }
         if (!products || products.length < 1) return null;
         return (
           <>

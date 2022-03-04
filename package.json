@@ -14,8 +14,8 @@
     "build:startup": "node node_modules/zengenti-buildstartup-package",
     "build:analyze": "rimraf ./dist && cross-env NODE_ENV=production ANALYZE=TRUE webpack --config webpack/webpack.config.prod.js",
     "server": "node --max-http-header-size=800000 dist/start.js",
-    "dev:server": "cross-env NODE_ENV=test NODE_OPTIONS=--max-http-header-size=80000 babel-node --inspect=9229 src/server/debug.js",
-    "debug:server": "nodemon --exec cross-env NODE_ENV=test NODE_OPTIONS=--max-http-header-size=80000 babel-node --inspect=9229 src/server/debug.js",
+    "dev:server": "cross-env NODE_ENV=test NODE_OPTIONS=--max-http-header-size=80000 babel-node -x .ts,.tsx,.js,.jsx --inspect=9229 src/server/debug.js",
+    "debug:server": "nodemon --delay 500ms --watch \"src/**\" --ext \"ts,tsx,js,jsx,json\" --signal SIGTERM --exec \"kill-port 3001 && npm run dev:server\"",
     "build:server": "yarn run build && yarn run server",
     "build:dev:server": "yarn run build && yarn run dev:server",
     "lint": "eslint .",
@@ -78,6 +78,7 @@
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
+    "@zengenti/contensis-entry-picker-storybook-addon": "^1.0.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-dynamic-import-node": "2.2.0",
@@ -129,11 +130,11 @@
     "webpack-merge": "4.2.1",
     "webpack-modules": "^1.0.0",
     "webpack-node-externals": "1.7.2",
-    "zengenti-buildstartup-package": "^0.0.14"
+    "zengenti-buildstartup-package": "^0.0.16"
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^3.0.0-beta.7",
+    "@zengenti/contensis-react-base": "^3.0.0-beta.50",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "react-focus-lock": "^2.5.0",

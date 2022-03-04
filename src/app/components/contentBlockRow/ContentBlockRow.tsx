@@ -13,6 +13,7 @@ const ContentBlockRow = ({ className, results }: Props) => {
   return (
     <ContentBlockRowStyled className={className}>
       {results.map((res: any, idx: number) => {
+        if (!res || !res.title) return null;
         return <Card key={idx} className="content-block__card" {...res} />;
       })}
     </ContentBlockRowStyled>

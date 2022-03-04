@@ -4,7 +4,11 @@ const defineConfig = require('../webpack/define-config-webpack').base;
 
 module.exports = {
   stories: ['../src/**/*.stories.@(tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@zengenti/contensis-entry-picker-storybook-addon',
+  ],
   typescript: {
     reactDocgen: 'none',
   },

@@ -2,7 +2,7 @@ image: gitlab.zengenti.com:4567/ops/zengenti-dind:latest
 
 stages:
   - latest-build
-  - storybook-latest-build
+  # - storybook-latest-build
   - live-build
   # - development-release-build
   - automated-tests
@@ -39,7 +39,7 @@ build-latest-code:
     url: http://dev.preview.$CI_PROJECT_NAME.contensis.cloud
 
 build-storybook:
-  stage: storybook-latest-build
+  stage: latest-build
   except:
     - tags
   script:
@@ -63,6 +63,10 @@ run-automated-tests:
   services:
     - name: $APP_IMAGE:latest
       alias: site-to-test
+  variables:
+    alias: 'zenhub'
+    projectId: 'leif'
+    accessToken: 'sNF3SnNWu6RMAtpzybcOqkHKUlMnEUwrNre0OlD9G8UERroN'
   except:
     - tags
     - ^release-.*$
@@ -117,8 +121,6 @@ push-to-contensis-dev:
     - contensis-cli add-instance --alias=zenhub-dev --clientId=2db505bd-cab4-46f6-adc5-d2acd0da536c --sharedSecret=5943ce8838984f9480cf4f78de84d7ad-d53d76e39f88414d9c8ec2ca2cf757cd-eb11a880c53e4bc295de85205ec5c201
     - contensis-cli default-project leif
     - contensis-cli push block --id="main-site" --imageUri="$MASTER_APP" --imageTag="latest" --branch="master" --sourceProvider="GitlabSelfHosted" --repositoryUrl="$CI_REPOSITORY_URL" --commitId="$CI_COMMIT_SHORT_SHA" --commitMessage="$CI_COMMIT_MESSAGE" --commitDateTime="$CI_COMMIT_TIMESTAMP" --authorEmail="$GITLAB_USER_EMAIL" --committerEmail="$GITLAB_USER_EMAIL" --autoRelease
-
-
 # build-live-code-for-development:
 #   stage: development-release-build
 #   only:

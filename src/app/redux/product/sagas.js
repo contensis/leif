@@ -30,7 +30,7 @@ function* _getReviews() {
         ];
         const query = new Query(...expressions);
         query.pageSize = 1;
-        const payload = yield cachedSearch.search(query, 1, 'leif');
+        const payload = yield cachedSearch.search(query, 1);
         const { items } = payload || {};
         yield put({
           type: SET_PRODUCT_REVIEWS,

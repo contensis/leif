@@ -7,6 +7,7 @@ import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 
 export interface Props {
+  readonly contentTypes: string[];
   className?: string;
   date?: string;
   imageAlt: string;

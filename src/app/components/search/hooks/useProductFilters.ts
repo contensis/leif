@@ -8,17 +8,23 @@ const useProductFilters = (filters: Filters) => {
 
   // Depending on the path toggle the correct filters
   useEffect(() => {
-    if (window.location.pathname.includes('pot')) {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.pathname.includes('pot')
+    ) {
       setIsPlantFilterSelected(false);
       setIsPotFilterSelected(true);
-    } else if (window.location.pathname.includes('plant')) {
+    } else if (
+      typeof window !== 'undefined' &&
+      window.location.pathname.includes('plant')
+    ) {
       setIsPlantFilterSelected(true);
       setIsPotFilterSelected(false);
     } else {
       setIsPotFilterSelected(false);
       setIsPlantFilterSelected(false);
     }
-  }, [window.location.pathname]);
+  }, [typeof window !== 'undefined' ? window.location.pathname : '']);
 
   const potFilters = {} as Filters;
   const plantFilters = {} as Filters;

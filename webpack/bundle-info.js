@@ -34,4 +34,5 @@ module.exports = {
   DEFINE_CONFIG,
   DEVSERVER_PROXIES,
   WEBPACK_DEFINE_CONFIG,
+  REVERSE_PROXIES: reverseProxies,
 };

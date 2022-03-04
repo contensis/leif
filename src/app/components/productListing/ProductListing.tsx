@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import ProductListingStyled from './ProductListing.styled';
 
+// Hooks
 import useWindowScroll from '~/components/search/hooks/useWindowScroll';
+import useProductFilters from '../search/hooks/useProductFilters';
 
 // Components
 import Card from '../card/Card';
@@ -23,38 +25,7 @@ const ProductListing = ({
 }: ListingProps) => {
   const [, setWindowOffset] = useWindowScroll();
 
-  const [potFilters, setPotFilters] = useState({});
-  const [plantFilters, setPlantFilters] = useState({});
-  const [defaultFilters, setDefaultFilters] = useState({});
-
-  useEffect(() => {
-    const pot: any = {};
-    const plant: any = {};
-    const all: any = {};
-    Object.keys(filters).forEach((fKey: any) => {
-      switch (fKey) {
-        case 'colour':
-        case 'potSize': {
-          pot[fKey] = filters[fKey];
-          break;
-        }
-        case 'plantType':
-        case 'plantSize': {
-          plant[fKey] = filters[fKey];
-          break;
-        }
-        default: {
-          plant[fKey] = filters[fKey];
-          pot[fKey] = filters[fKey];
-          all[fKey] = filters[fKey];
-          break;
-        }
-      }
-    });
-    setPotFilters(pot);
-    setPlantFilters(plant);
-    setDefaultFilters(all);
-  }, [filters]);
+  const productFilters = useProductFilters(filters);
 
   const _handleLoadMore = (pageIndex: number) => {
     if (typeof window != 'undefined') {
@@ -62,23 +33,6 @@ const ProductListing = ({
     }
     updatePageIndex(pageIndex);
   };
-
-  const [isPotFilterSelected, setIsPotFilterSelected] = useState(false);
-  const [isPlantFilterSelected, setIsPlantFilterSelected] = useState(false);
-
-  // Depending on the path toggle the correct filters
-  useEffect(() => {
-    if (window.location.pathname.includes('pot')) {
-      setIsPlantFilterSelected(false);
-      setIsPotFilterSelected(true);
-    } else if (window.location.pathname.includes('plant')) {
-      setIsPlantFilterSelected(true);
-      setIsPotFilterSelected(false);
-    } else {
-      setIsPotFilterSelected(false);
-      setIsPlantFilterSelected(false);
-    }
-  }, [window.location.pathname]);
 
   const { pageIndex, pageCount } = paging;
   const hasLoadMore =
@@ -92,13 +46,7 @@ const ProductListing = ({
       <Filters
         className="product-listing__filters"
         currentFacet={currentListing}
-        filters={
-          isPotFilterSelected
-            ? potFilters
-            : isPlantFilterSelected
-            ? plantFilters
-            : defaultFilters
-        }
+        filters={productFilters}
         updateSelectedFilters={updateSelectedFilters}
         updateCurrentFacet={updateCurrentFacet}
         clearFilters={clearFilters}

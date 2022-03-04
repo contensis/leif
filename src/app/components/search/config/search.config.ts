@@ -26,7 +26,6 @@ export default {
   facets: {
     all: {
       title: 'All results',
-      projectId: 'leif',
       queryParams: {
         loadMorePaging: true,
         contentTypeIds: [
@@ -80,7 +79,6 @@ export default {
   listings: {
     [Listings.blog]: {
       title: 'Blogs',
-      projectId: 'leif',
       queryParams: {
         loadMorePaging: true,
         contentTypeIds: [ContentTypes.blog],
@@ -92,7 +90,6 @@ export default {
     },
     [Listings.product]: {
       title: 'Products',
-      projectId: 'leif',
       queryParams: {
         loadMorePaging: true,
         contentTypeIds: [ContentTypes.plant, ContentTypes.pot],

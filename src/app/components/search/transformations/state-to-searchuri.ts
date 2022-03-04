@@ -86,15 +86,17 @@ const searchUriTemplate = {
     currentQs.orderBy = orderBy;
 
     const searchTerm = getSearchTerm(state);
-    // Use Immutable's merge to merge the stateFilters with any current Qs
-    // to build the new Qs.
-    const mergedSearch = removeEmptyAttributes(
+
+    // Merge the selectedFilters with any current query to build the next querystring.
+    const nextQueryString = removeEmptyAttributes(
       deepmerge(currentQs, stateFilters)
     );
-    mergedSearch.term = searchTerm;
-    // if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
-    // if (pageIndex === 0) mergedSearch.pageIndex = undefined;
-    return queryString.stringify(mergedSearch);
+    // Add the search term from state
+    if (searchTerm || typeof term !== 'undefined')
+      nextQueryString.term = searchTerm;
+
+    // return the next querystring object as a string
+    return queryString.stringify(nextQueryString);
   },
   hash: ({ state }: any) =>
     (state.routing.location.hash || '#').replace('#', ''),

@@ -38,6 +38,7 @@ const ImageBlockStyled = styled.div`
       }
       .image-block__image {
         display: block;
+        object-fit: cover;
         max-width: 100%;
         max-height: 480px;
         margin: 0 auto;

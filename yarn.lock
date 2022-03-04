@@ -3457,28 +3457,35 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zengenti/contensis-react-base@^3.0.0-beta.7":
-  version "3.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-3.0.0-beta.7.tgz#5b2f7cc4f513963385eac3a7488f4a2bbbfd0712"
-  integrity sha512-ohGO6IwqTnxV0cztbvak/68WhagQTbD17mHJ0pRHZdRylCV1M5ZO29TjCfSqy2CyVhVaS9zfrjWL1OXrMSii+w==
+"@zengenti/contensis-entry-picker-storybook-addon@^1.0.1":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-entry-picker-storybook-addon/-/contensis-entry-picker-storybook-addon-1.0.3.tgz#40b3d1c9576639e5478b2df2e209597edaf79e78"
+  integrity sha512-Fs5WksYPGNmysJ3CQUFvFn0/cw54JOJ3YYzvw9gSW1c2NehptxnyA51Ef3ZfF/MGu5GlxsKr49IISUzNWTrghA==
+
+"@zengenti/contensis-react-base@^3.0.0-beta.50":
+  version "3.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-3.0.0-beta.52.tgz#0a9bb249095178543e14407f39b995d398540654"
+  integrity sha512-ZnyQSvDZrb/Bu4hnOssBrQM/9EZ9d7yQNAHkoGBWu1ozoMQTw6jMztw1kE8RbcjzOAWObfSgSlpvIQSLbCVCWw==
   dependencies:
     "@hot-loader/react-dom" "^17.0.1"
     "@loadable/component" "^5.15.0"
     "@loadable/server" "^5.15.1"
     app-root-path "^3.0.0"
     await-to-js "^3.0.0"
-    contensis-delivery-api "^1.1.7"
-    contensis-management-api "^2.0.2"
+    contensis-delivery-api "^1.1.8"
+    contensis-management-api "^2.0.3"
     custom-env "^2.0.1"
     deep-equal "^2.0.5"
     deepmerge "^4.2.2"
     express "^4.17.1"
     http-proxy "^1.18.1"
-    immer "^9.0.6"
+    immer ">8.0.0"
     immutable "4.0.0-rc.12"
     isomorphic-fetch "^3.0.0"
     js-cookie "^3.0.1"
     jsonpath-mapper "^1.1.0"
+    lodash "^4.17.21"
+    lodash-clean "^2.2.3"
     loglevel "^1.7.1"
     minify-css-string "^1.0.0"
     oidc-client "^1.11.5"
@@ -6182,34 +6189,34 @@ constants-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
-contensis-core-api@^1.0.2, contensis-core-api@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/contensis-core-api/-/contensis-core-api-1.0.3.tgz#97085f81d18449e4dd7f501fe667895ddfa01d45"
-  integrity sha512-eOMDCIu2NxxAMR9sUT1+9x9wqxhQX/ftoe++ZTQa/Ie+HrAJtoa0ihqbIzkRzv6HDliR99yVK0Rz4bgjSwYYdA==
+contensis-core-api@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/contensis-core-api/-/contensis-core-api-1.0.4.tgz#861e7d8f4a67fcc72bb012fa82f4c5df48784631"
+  integrity sha512-HG6ocZuTZUozrrSKVSoCUdna+AP86F4vHRXYljXYejKRJ6ItoeguXL8vCKMC5Dz0ZLXnjdN8wTKm9Kz8lk346g==
   dependencies:
     "@types/detect-node" "^2.0.0"
     detect-node "^2.0.4"
     es6-promise "^4.2.6"
     tslib "^1.9.3"
 
-contensis-delivery-api@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/contensis-delivery-api/-/contensis-delivery-api-1.1.7.tgz#f9939236f4907a2a69e8bd88b5eb1daac959a96d"
-  integrity sha512-OfaeUAesb4p5HmUAc4kVhygV6GNnqSpIoszP8vYdevu88KnxSZz9kzvl+5cIOsJFQH+7j9oolvjOqF5387T9OQ==
+contensis-delivery-api@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/contensis-delivery-api/-/contensis-delivery-api-1.1.8.tgz#5c1debb6305e49ff9a6e84eb3b6bb3e8ca362a7f"
+  integrity sha512-E8pE+/Y6YG1TJMhKhbf640EGDyzH5XH8uUsUJiTpGxvlEkIh4Itt8ZEnIyO7gZdPyznL5erSsnKVIO9bvjCtpw==
   dependencies:
-    contensis-core-api "^1.0.2"
-    cross-fetch "^3.0.4"
+    contensis-core-api "1.0.4"
+    cross-fetch "^3.1.4"
     es6-promise "^4.2.6"
     tslib "^1.10.0"
     whatwg-fetch "^3.0.0"
 
-contensis-management-api@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.0.2.tgz#c5286f22718ec3f27a988c69e7eeee5ddd4611f3"
-  integrity sha512-txDZ+nWM5zRKKFmBjxVA//czi94wEpoqBiXUYQPBdlhaVyvIW3RlbUpx+j0YHSXOzg/DaKI+3oM8wFP/O5gbeg==
+contensis-management-api@^2.0.3:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.0.4.tgz#219ddc509945a0f9ca9f01b9971ea6dcd97eeaba"
+  integrity sha512-i2TVJzZeSz7na0Ic5kRcfddPJNfRHrMnrbDYRzjY6LRG080gHeOTOrE0L3mGP45sYFMbaL4WxNGzf9auaK2g5Q==
   dependencies:
     "@types/graceful-fs" "^4.1.3"
-    contensis-core-api "^1.0.3"
+    contensis-core-api "1.0.4"
     cross-fetch "^3.0.6"
     es6-promise "^4.2.8"
     form-data "^3.0.0"
@@ -6449,12 +6456,19 @@ cross-env@5.2.0:
     cross-spawn "^6.0.5"
     is-windows "^1.0.0"
 
-cross-fetch@^3.0.4, cross-fetch@^3.0.6:
+cross-fetch@^3.0.6:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
   integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==
   dependencies:
     node-fetch "2.6.1"
+
+cross-fetch@^3.1.4:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
 
 cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2:
   version "7.0.3"
@@ -10196,10 +10210,10 @@ immer@8.0.1:
   resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
   integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
-immer@^9.0.6:
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.6.tgz#7a96bf2674d06c8143e327cbf73539388ddf1a73"
-  integrity sha512-G95ivKpy+EvVAnAab4fVa4YGYn24J1SpEktnJX7JJ45Bd7xqME/SCplFzYFmTbrkwZbQ4xJK1xMTUYBkN6pWsQ==
+immer@>8.0.0:
+  version "9.0.12"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.12.tgz#2d33ddf3ee1d247deab9d707ca472c8c942a0f20"
+  integrity sha512-lk7UNmSbAukB5B6dh9fnh5D0bJTOFKxVg2cyJWTYrWRfhLrLMBquONcUs3aFq507hNoIZEDDh8lb8UtOizSMhA==
 
 immutable@4.0.0-rc.12:
   version "4.0.0-rc.12"
@@ -12099,6 +12113,13 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash-clean@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/lodash-clean/-/lodash-clean-2.2.3.tgz#eb72801ba9ebfb2771bed3cc971d9e7835a78611"
+  integrity sha512-ioRhn/L0NNKq220nba58FPvjZ+bTdlUCb37+mhlDe4kzIzuPC/prUHLwDM9izeicr/rcnWrn0EanzNxhAbo8oA==
+  dependencies:
+    lodash "^4.17.21"
+
 lodash.assign@^4.0.8:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
@@ -13010,6 +13031,13 @@ node-fetch@2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+
+node-fetch@2.6.7:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
+  dependencies:
+    whatwg-url "^5.0.0"
 
 node-fetch@^2.6.1:
   version "2.6.5"
@@ -18990,12 +19018,13 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zengenti-buildstartup-package@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/zengenti-buildstartup-package/-/zengenti-buildstartup-package-0.0.14.tgz#934ed00944a51776767ecdd2f3d86a88f57d8063"
-  integrity sha512-mLF05D8oOUwwE9Y6T13B0oL4oC3Dy5N+oGaAS/ZwuZ6ezSDd08T+CoHTzfYrgqK/jv9sI4+sjOuJKiRXH7DcSw==
+zengenti-buildstartup-package@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/zengenti-buildstartup-package/-/zengenti-buildstartup-package-0.0.16.tgz#71d6a8f24f0c73f6a45dfa85465b9643d9e99b61"
+  integrity sha512-z4kdqqI+P9m8y/WIy9T7rKm+e5LTWNlP8HXMQf0uRcxmEYfh8nvhF5btaZFW9GsCg4nDWmqEPKu3Hp3h3tKfyw==
   dependencies:
     custom-env "^1.0.2"
+    minimist "^1.2.5"
 
 zwitch@^1.0.0:
   version "1.0.5"
