@@ -44,8 +44,8 @@ RUN apk add git
 RUN yarn install --production --check-files --link-duplicates --loglevel error && yarn cache clean
 # RUN yarn run postinstall
 COPY --from=builder /usr/src/app/dist /usr/src/app/dist
-ENV alias=zenhub
-ENV projectId=leif
+ENV alias=leif
+ENV projectId=website
 
 # Standard classic start script, will start the server with the environment started last 
 # (or using configuration from the default .env if never started)

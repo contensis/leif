@@ -1,6 +1,6 @@
 import { SearchFacets } from '~/core/schema';
 
-const imageHost = 'http://preview.leif.zenhub.contensis.cloud';
+const imageHost = 'http://preview.leif.contensis.cloud';
 
 export default {
   currentFacet: SearchFacets.all,

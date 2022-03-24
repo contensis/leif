@@ -13,8 +13,8 @@ RUN yarn install --production --link-duplicates --loglevel error && yarn cache c
 # RUN yarn run postinstall
 COPY --from=basebuilder /usr/src/app/dist /usr/src/app/dist
 
-# ENV alias=zenhub
-# ENV projectId=leif
+# ENV alias=leif
+# ENV projectId=website
 
 # Start the server with launcher.js using docker environment variables. This is the preferred startup method when created via Blocks.
 # If launcher.js cannot find an existing start script, it will generate one to start the server based on the supplied args
