@@ -10,7 +10,7 @@ Leif is our demo project, built with [Contensis](contensis.com)
 
 ## Requirements
 
-- Node
+- Node.
 - Git
 
 ## Getting started 🏁
