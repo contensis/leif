@@ -122,37 +122,3 @@ jobs:
           docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
           docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
-
-  release-latest-code:
-    name: Docker release latest code
-    runs-on: ubuntu-latest
-    needs: vars
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Set env variables
-        run: |
-          echo "APP_IMAGE=${{needs.vars.outputs.appImage}}" >> $GITHUB_ENV
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Release the Docker image
-        if: github.event_name == 'release'
-        run: |
-          docker pull ${{ env.APP_IMAGE }}:latest || true
-          docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:release
-          docker push ${{ env.APP_IMAGE }}:release
-          docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:${{ github.ref_name }}
-          docker push ${{ env.APP_IMAGE }}:${{ github.ref_name }}
