@@ -149,7 +149,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release the Docker image
-        if: github.event_name === 'release'
+        if: github.event_name == 'release'
         run: |
           docker pull ${{ env.APP_IMAGE }}:latest || true
           docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:release
