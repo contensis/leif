@@ -1,3 +1,5 @@
+name: Docker Build and Release
+
 on:
   push:
   # Sequence of patterns matched against refs/tags
@@ -9,8 +11,6 @@ on:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
-  name: Docker Build and Release
 
 jobs:
   vars:
