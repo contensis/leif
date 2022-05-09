@@ -150,7 +150,6 @@ jobs:
 
       - name: Release the Docker image
         if: github.event_name === 'release'
-        uses: actions/create-release@v1
         run: |
           docker pull ${{ env.APP_IMAGE }}:latest || true
           docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:release
