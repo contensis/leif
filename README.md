@@ -54,35 +54,11 @@ Open [http://localhost:3000](http://localhost:3000) and take a look around.
 | ---------- | ------- | --------- | -------- | ----------- |
 | Production | website | Published | `master` | `release-*` |
 
-#### [preview.leif.contensis.cloud](http://preview.leif.contensis.cloud)
-
-| CMS        | Project | Data  | Branch   | Version     |
-| ---------- | ------- | ----- | -------- | ----------- |
-| Production | website | Draft | `master` | `release-*` |
-
-#### [dev.live.leif.contensis.cloud](http://dev.live.leif.contensis.cloud)
-
-| CMS        | Project | Data      | Branch              | Version  |
-| ---------- | ------- | --------- | ------------------- | -------- |
-| Production | website | Published | `develop or master` | `latest` |
-
 #### [dev.preview.leif.contensis.cloud](http://dev.preview.leif.contensis.cloud)
 
 | CMS        | Project | Data  | Branch              | Version  |
 | ---------- | ------- | ----- | ------------------- | -------- |
 | Production | website | Draft | `develop or master` | `latest` |
-
-#### [staging.live.leif.contensis.cloud](http://staging.live.leif.contensis.cloud)
-
-| CMS        | Project | Data      | Branch   | Version  |
-| ---------- | ------- | --------- | -------- | -------- |
-| Production | website | Published | `master` | `latest` |
-
-#### [staging.preview.leif.contensis.cloud](http://staging.preview.leif.contensis.cloud)
-
-| CMS        | Project | Data  | Branch   | Version  |
-| ---------- | ------- | ----- | -------- | -------- |
-| Production | website | Draft | `master` | `latest` |
 
 ### Storybook
 
