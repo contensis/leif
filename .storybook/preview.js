@@ -8,21 +8,15 @@ import StoryRouter from 'storybook-react-router';
 import GlobalStyle from '../src/app/theme/global/globalStyles';
 import { defaultTheme } from '../src/app/theme/leif';
 
-import withReducers from '../src/app/core/redux/reducers';
-// import { combineReducers } from 'redux-immutable';
-
-// const combinedReducers = combineReducers(withReducers);
-// const store = createStore(combinedReducers);
-
 const ThemeDecorator = storyFn => (
-  // <ReduxProvider store={store}>
-  <div id="app-root">
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle />
-      {storyFn()}
-    </ThemeProvider>
-  </div>
-  // </ReduxProvider>
+  <>
+    <div id="app-root">
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyle />
+        {storyFn()}
+      </ThemeProvider>
+    </div>
+  </>
 );
 
 addDecorator(ThemeDecorator);
