@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeProvider } from 'styled-components';
@@ -38,11 +38,3 @@ addDecorator(story => (
     </ThemeProvider>
   </div>
 ));
-
-const req = require.context('../src/app/', true, /.stories.js$/);
-
-function loadStories() {
-  req.keys().forEach(req);
-}
-
-configure(loadStories, module);
