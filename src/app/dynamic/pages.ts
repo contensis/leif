@@ -25,7 +25,7 @@ export const ContentPage = loadable<RouteComponentProps<ContentPageProps>>(
       /* webpackChunkName: "content.page" */ '~/pages/ContentPage/ContentPage.page'
     )
 );
-export const SearchPage = loadable(
+export const SearchPage = loadable<RouteComponentProps>(
   () =>
     import(/* webpackChunkName: "search.page" */ '~/pages/Search/Search.page')
 );
@@ -53,11 +53,11 @@ export const ProductPage = loadable<RouteComponentProps<ProductPageProps>>(
       /* webpackChunkName: "product.page" */ '~/pages/ProductPage/ProductPage.page'
     )
 );
-export const BasketPage = loadable(
+export const BasketPage = loadable<RouteComponentProps>(
   () =>
     import(/* webpackChunkName: "basket.page" */ '~/pages/Basket/Basket.page')
 );
-export const CheckoutPage = loadable(
+export const CheckoutPage = loadable<RouteComponentProps>(
   () =>
     import(
       /* webpackChunkName: "checkout.page" */ '~/pages/Checkout/Checkout.page'
@@ -66,13 +66,13 @@ export const CheckoutPage = loadable(
 // ********************************
 // ˅˅ Do not delete these pages ˅˅
 export const CorePages = {
-  404: loadable(
+  404: loadable<RouteComponentProps>(
     () =>
       import(
         /* webpackChunkName: "notfound" */ '~/pages/NotFound/NotFound.page'
       )
   ),
-  ZenInfo: loadable(
+  ZenInfo: loadable<RouteComponentProps>(
     () =>
       import(/* webpackChunkName: "versioninfo.page" */ '~/pages/VersionInfo')
   ),
