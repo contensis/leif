@@ -17,6 +17,7 @@ const BlogInformation = ({ className, photo, name, readTime, date }: Props) => {
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">
         <Author photo={photo} name={name} />
+        test
         <SocialShare className="blog-info__socials" />
       </div>
       <div className="blog-info__wrapper">
