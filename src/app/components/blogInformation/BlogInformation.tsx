@@ -1,5 +1,4 @@
 import React from 'react';
-import Author from '../author/Author';
 
 import BlogInformationStyled from './BlogInformation.styled';
 import SocialShare from '../socialShare/SocialShare';
@@ -12,11 +11,10 @@ export interface Props {
   name: string;
 }
 
-const BlogInformation = ({ className, readTime, date, photo, name }: Props) => {
+const BlogInformation = ({ className, readTime, date }: Props) => {
   return (
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">
-        <Author photo={photo} name={name} />
         <SocialShare className="blog-info__socials" />
       </div>
       <div className="blog-info__wrapper">
