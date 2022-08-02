@@ -8,6 +8,7 @@ import {
   BlogListing,
   EventsListing,
   BlogPost,
+  Event,
   ProductPage,
   ProductListing,
 } from '~/dynamic/pages';
@@ -18,6 +19,7 @@ import { landingPagePropsMapping } from '~/pages/LandingPage/transformations/lan
 import { blogPostPropsMapping } from '~/pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
 import { blogListingPropsMapping } from '~/pages/BlogListing/transformations/bloglisting.entry-to-props.mapper';
 import { eventsListingPropsMapping } from '~/pages/EventsListing/transformations/eventslisting.entry-to-props.mapper';
+import { eventPropsMapping } from '~/pages/Event/transformations/event.entry-to-props.mapper';
 import { productListingPropsMapping } from '~/pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
 import { productPagePropsMapping } from '~/pages/ProductPage/transformations/productpage.entry-to-props.mapper';
 import { homepageHeroProps } from '~/pages/Home/transformations/homepage.entry-to-props.mapper';
@@ -25,7 +27,8 @@ import { ContentTypes } from '../schema';
 
 const {
   blogListing,
-  eventsListing,
+  eventListing,
+  events,
   blog,
   contentPage,
   landingPage,
@@ -58,6 +61,11 @@ const contentTypeMappings: ContentTypeMapping[] = [
     entryMapper: entryMapper(blogPostPropsMapping),
   },
   {
+    contentTypeID: events,
+    component: Event,
+    entryMapper: entryMapper(eventPropsMapping),
+  },
+  {
     contentTypeID: plant,
     component: ProductPage,
     entryMapper: entryMapper(productPagePropsMapping),
@@ -74,7 +82,7 @@ const contentTypeMappings: ContentTypeMapping[] = [
     entryMapper: entryMapper(blogListingPropsMapping),
   },
   {
-    contentTypeID: eventsListing,
+    contentTypeID: eventListing,
     component: EventsListing,
     entryMapper: entryMapper(eventsListingPropsMapping),
   },

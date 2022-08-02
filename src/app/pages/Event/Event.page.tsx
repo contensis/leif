@@ -6,7 +6,7 @@ import Metadata from '~/components/metadata/Metadata';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import GenericHero from '~/components/genericHero/GenericHero';
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-import BlogInformation from '~/components/blogInformation/BlogInformation';
+import EventInformation from '~/components/eventInformation/EventInformation';
 import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Layout
@@ -14,26 +14,27 @@ import MainLayout from '~/layout/MainLayout';
 import Region from '~/layout/Region';
 
 // Models
-import { Props } from './BlogPost.d';
+import { Props } from './Event';
 
-const BlogPost = ({ mappedEntry }: Props) => {
+const Event = ({ mappedEntry }: Props) => {
   const {
     metadataProps,
-    blogHeroProps,
-    blogInformationProps,
+    eventInformationProps,
+    eventHeroProps,
+    ctaBannerProps,
     leadParagraphProps,
     contentComposerProps,
-    ctaBannerProps,
     relatedContentProps,
   } = mappedEntry || {};
+  console.info({ mappedEntry });
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
       <Region width="large" margin="none">
-        <GenericHero {...blogHeroProps} />
+        <GenericHero {...eventHeroProps} />
       </Region>
       <Region width="small" margin="default">
-        <BlogInformation {...blogInformationProps} />
+        <EventInformation {...eventInformationProps} />
       </Region>
       <Region width="small" margin="default">
         <LeadParagraph {...leadParagraphProps} />
@@ -49,4 +50,4 @@ const BlogPost = ({ mappedEntry }: Props) => {
   );
 };
 
-export default BlogPost;
+export default Event;

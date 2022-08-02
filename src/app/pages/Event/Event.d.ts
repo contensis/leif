@@ -1,20 +1,20 @@
 import { RouteComponentProps } from '@zengenti/contensis-react-base';
-import { Props as MetadataProps } from '~/components/metadata/Metadata';
-import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
-import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
+import { Props as EventInformationProps } from '~/components/eventInformation/EventInformation';
 import { Props as GenericHeroProps } from '~/components/genericHero/GenericHero';
+import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
 import { Props as LeadParagraphProps } from '~/components/leadParagraph/LeadParagraph';
+import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
 import { Props as RelatedContentProps } from '~/components/relatedContent/RelatedContent';
-import { Props as BlogInformationProps } from '~/components/blogInformation/BlogInformation';
+import { Props as MetadataProps } from '~/components/metadata/Metadata';
 
 export interface MappedProps {
-  metadataProps: MetadataProps;
+  eventInformationProps: EventInformationProps;
+  eventHeroProps: GenericHeroProps;
   ctaBannerProps: CTABannerProps;
-  contentComposerProps: ComposerProps;
-  blogHeroProps: GenericHeroProps;
   leadParagraphProps: LeadParagraphProps;
+  contentComposerProps: ComposerProps;
   relatedContentProps: RelatedContentProps;
-  blogInformationProps: BlogInformationProps;
+  metadataProps: MetadataProps;
 }
 
 export type Props = RouteComponentProps<MappedProps>;

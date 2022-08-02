@@ -102,7 +102,7 @@ export const ContentTypes = {
   blog: 'blogPost',
   contentPage: 'contentPage',
   events: 'event',
-  eventsListing: 'eventsListing',
+  eventListing: 'eventListing',
   landingPage: 'landingPage',
   product: 'product',
   blogListing: 'blogListing',
@@ -138,11 +138,12 @@ export const CardTypes = {
 export const Listings = {
   blog: 'blogListing',
   product: 'productsListing',
-  events: 'eventsListing',
+  events: 'eventListing',
 };
 
 export const ListingPages = {
   [ContentTypes.blogListing]: Listings.blog,
+  [ContentTypes.eventListing]: Listings.events,
   [ContentTypes.productListing]: Listings.product,
 };
 

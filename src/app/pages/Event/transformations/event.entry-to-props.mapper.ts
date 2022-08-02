@@ -5,12 +5,9 @@ import { composerPropsMapping } from '~/components/composer/transformations/comp
 import { externalPromotionPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
 import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
 
-import dateWithSuffix from '~/utils/dateWithSuffix';
-import { _calReadTime } from '~/utils/calculateReadTime';
-
-export const blogPostPropsMapping = {
+export const eventPropsMapping = {
   metadataProps: { ...externalPromotionPropsMapping },
-  blogHeroProps: {
+  eventHeroProps: {
     title: 'entryTitle',
     imageUri: {
       $path: 'primaryImage',
@@ -22,25 +19,16 @@ export const blogPostPropsMapping = {
       'primaryImage.caption',
       'primaryImage.asset.title',
     ],
-    backLinkUri: () => '/blog',
-    backLinkLabel: () => 'Blogs',
-    dateFrom: 'dateAndTime.from',
-    dateTo: 'dateAndTime.to',
+    backLinkUri: () => '/events',
+    backLinkLabel: () => 'Events',
+    dateFrom: 'datePicker.from',
+    dateTo: 'datePicker.to',
+    hasPaddingBottom: false,
   },
-  blogInformationProps: {
-    photo: {
-      $path: 'author.photo',
-      $formatting: (img: any) =>
-        img && img.asset && img.asset.sys && img.asset.sys.uri,
-      $default: () => '/image-library/default-images/leif-fallback.png',
-    },
-    name: 'author.name',
-    date: ({ sys }: any) =>
-      dateWithSuffix(sys && sys.version && sys.version.published),
-    readTime: ({ postBody }: any) => {
-      const composer = mapComposer(postBody, composerPropsMapping);
-      return _calReadTime(composer);
-    },
+  eventInformationProps: {
+    location: 'location.entryTitle',
+    organiser: 'organiser.name',
+    date: 'datePicker.from',
   },
   leadParagraphProps: {
     text: 'leadParagraph',
@@ -53,8 +41,8 @@ export const blogPostPropsMapping = {
   },
   relatedContentProps: {
     title: () => 'Read now',
-    results: ({ relatedBlogs }: any) => mapEntriesToResults(relatedBlogs),
-    linkUri: () => '/blog',
-    linkLabel: () => 'View all blogs',
+    results: ({ relatedEvents }: any) => mapEntriesToResults(relatedEvents),
+    linkUri: () => '/events',
+    linkLabel: () => 'View all events',
   },
 };
