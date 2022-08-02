@@ -29,6 +29,7 @@ export interface Props {
   ancestors?: AncestorsProps[];
   datePicker?: any;
   dateFrom?: string;
+  hasPaddingBottom?: boolean;
 }
 
 const GenericHero = ({
@@ -50,6 +51,7 @@ const GenericHero = ({
   type = 'Two column',
   ancestors,
   dateFrom,
+  hasPaddingBottom,
 }: Props) => {
   interface ConditionalLinkProps {
     condition?: boolean;
@@ -75,6 +77,7 @@ const GenericHero = ({
       title={title}
       isListingPage={isListingPage}
       hasPaddingTop={!backLinkUri}
+      hasPaddingBottom={hasPaddingBottom}
     >
       <ConditionalLink
         condition={isRenderedAsLink}
