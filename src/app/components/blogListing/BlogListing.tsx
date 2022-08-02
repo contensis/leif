@@ -43,6 +43,8 @@ const BlogListing = ({
     updatePageIndex(pageIndex);
   };
 
+  console.info({ results });
+
   const { pageIndex, pageCount } = paging;
   const hasLoadMore =
     pageIndex === null || pageCount === null

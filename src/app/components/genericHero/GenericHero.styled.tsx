@@ -45,6 +45,7 @@ const GenericHeroStyled = styled.div`
           background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
           background-repeat: no-repeat;
           background-position: top center;
+          z-index: -1;
         }
         @media ${theme.mq.desktop} {
           &:before {

@@ -6,6 +6,7 @@ import { MappedProps as HomePageProps } from '~/pages/Home/Home.d';
 import { MappedProps as LandingPageProps } from '~/pages/LandingPage/LandingPage.d';
 import { MappedProps as ContentPageProps } from '~/pages/ContentPage/ContentPage.d';
 import { MappedProps as BlogListingProps } from '~/pages/BlogListing/BlogListing.d';
+import { MappedProps as EventsListingProps } from '~/pages/EventsListing/EventsListing.d';
 import { MappedProps as BlogPostProps } from '~/pages/BlogPost/BlogPost.d';
 import { Props as ProductListingProps } from '~/pages/ProductListing/ProductListing.d';
 import { MappedProps as ProductPageProps } from '~/pages/ProductPage/ProductPage.d';
@@ -33,6 +34,12 @@ export const BlogListing = loadable<RouteComponentProps<BlogListingProps>>(
   () =>
     import(
       /* webpackChunkName: "blog-listing.page" */ '~/pages/BlogListing/BlogListing.page'
+    )
+);
+export const EventsListing = loadable<RouteComponentProps<EventsListingProps>>(
+  () =>
+    import(
+      /* webpackChunkName: "blog-listing.page" */ '~/pages/EventsListing/EventsListing.page'
     )
 );
 export const BlogPost = loadable<RouteComponentProps<BlogPostProps>>(

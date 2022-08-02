@@ -7,6 +7,7 @@ import BlogDetail from '../blogDetail/BlogDetail';
 import Icon from '../icon/Icon';
 import LinkButton from '../linkButton/LinkButton';
 import Link from '../link/Link';
+import Calendar from '../calendar/Calendar';
 
 export interface Props {
   className?: string;
@@ -26,6 +27,8 @@ export interface Props {
   type?: 'Full width' | 'Two column';
   headingLevel?: number;
   ancestors?: AncestorsProps[];
+  datePicker?: any;
+  dateFrom?: string;
 }
 
 const GenericHero = ({
@@ -46,6 +49,7 @@ const GenericHero = ({
   headingLevel = 1,
   type = 'Two column',
   ancestors,
+  dateFrom,
 }: Props) => {
   interface ConditionalLinkProps {
     condition?: boolean;
@@ -89,6 +93,7 @@ const GenericHero = ({
               ancestors={ancestors}
             />
           )}
+          <Calendar date={dateFrom} />
           <Heading className="generic-hero__title">{title}</Heading>
           {text && <p className="generic-hero__text">{text}</p>}
           {(priceText || date) && (

@@ -23,6 +23,8 @@ export const blogPostPropsMapping = {
     ],
     backLinkUri: () => '/blog',
     backLinkLabel: () => 'Blogs',
+    dateFrom: 'dateAndTime.from',
+    dateTo: 'dateAndTime.to',
   },
   blogInformationProps: {
     photo: {
