@@ -25,7 +25,7 @@ const CTABanner = ({
   btnLink,
   btnType,
 }: Props) => {
-  if (!btnLink) return null;
+  // if (!btnLink) return null;
   return (
     <CTABannerStyled className={className}>
       <Image
