@@ -10,6 +10,8 @@ const Calendar = ({ date }: Props) => {
   const day = formatDate(date, 'dd');
   const month = formatDate(date, 'MMM');
 
+  if (!day || !month) return null;
+
   return (
     <CalendarStyled>
       <span className="calendar__month">{month}</span>
