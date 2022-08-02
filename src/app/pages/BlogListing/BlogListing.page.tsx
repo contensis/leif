@@ -14,7 +14,7 @@ import BlogListingStyled from './BlogListing.styled';
 
 // Models
 import { Props } from './BlogListing.d';
-import { SearchProps } from '@zengenti/contensis-react-base/search';
+import { ListingProps } from '@zengenti/contensis-react-base/search';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
   const { title, featuredBlogProps, ctaBannerProps, metadataProps } =
@@ -29,7 +29,7 @@ const BlogListingPage = ({ mappedEntry }: Props) => {
           <GenericHero {...featuredBlogProps} />
         </Region>
         <ListingContainer>
-          {(listingProps: SearchProps) => (
+          {(listingProps: ListingProps) => (
             <>
               <BlogListing {...listingProps} />
               {listingProps.results && listingProps.results.length > 0 && (

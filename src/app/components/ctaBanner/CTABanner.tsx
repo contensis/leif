@@ -6,13 +6,13 @@ import Image from '../image/Image';
 
 export interface Props {
   className?: string;
-  imageUri: string;
-  imageAlt: string;
-  title: string;
-  text: string;
-  btnText: string;
-  btnLink: string;
-  btnType: string;
+  imageUri?: string;
+  imageAlt?: string;
+  title?: string;
+  text?: string;
+  btnText?: string;
+  btnLink?: string;
+  btnType?: string;
 }
 
 const CTABanner = ({

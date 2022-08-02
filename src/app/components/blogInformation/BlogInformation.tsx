@@ -7,10 +7,10 @@ import SocialShare from '../socialShare/SocialShare';
 import BlogDetail from '../blogDetail/BlogDetail';
 export interface Props {
   className?: string;
-  readTime: string;
-  date: string;
-  photo: string;
-  name: string;
+  readTime?: string;
+  date?: string;
+  photo?: string;
+  name?: string;
 }
 
 const BlogInformation = ({ className, readTime, date, photo, name }: Props) => {

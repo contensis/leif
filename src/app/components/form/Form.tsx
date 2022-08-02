@@ -4,7 +4,7 @@ import SignupForm from '../signupForm/SignupForm';
 import FormStyled from './FormStyled';
 
 export interface Props {
-  type: string;
+  type?: string;
 }
 
 const Form = ({ type }: Props) => {

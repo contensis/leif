@@ -11,12 +11,12 @@ import Calendar from '../calendar/Calendar';
 
 export interface Props {
   className?: string;
-  title: string;
+  title?: string;
   text?: string;
   ctaLink?: string;
   ctaText?: string;
-  imageUri: string;
-  imageAlt: string;
+  imageUri?: string;
+  imageAlt?: string;
   price?: number[];
   readTime?: number;
   date?: string;

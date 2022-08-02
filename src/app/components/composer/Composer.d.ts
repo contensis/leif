@@ -14,7 +14,7 @@ import { Props as TextBlockProps } from '~/components/textBlock/TextBlock';
 import { Props as TwitterCardProps } from '~/components/twitterCard/TwitterCard';
 import { Props as VideoPlayerProps } from '~/components/videoPlayer/VideoPlayer';
 
-export type Props = { isContentPage: boolean } & (
+export type Props = { isContentPage?: boolean } & (
   | ({ _type: 'accordionList' } & AccordionProps)
   | ({ _type: 'callout' } & CalloutProps)
   | ({ _type: 'contentBlockRow' } & ContentBlockRowProps)

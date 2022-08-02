@@ -26,7 +26,6 @@ const BlogPost = ({ mappedEntry }: Props) => {
     relatedContentProps,
     metadataProps,
   } = mappedEntry || {};
-  console.info({ blogHeroProps });
   return (
     <MainLayout>
       <Metadata {...metadataProps} />

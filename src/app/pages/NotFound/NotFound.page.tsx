@@ -33,7 +33,7 @@ const NotFound = () => {
         </div>
         <Image
           className="not-found__image"
-          path="/static/img/illustrations/woman-with-map.png"
+          src="/static/img/illustrations/woman-with-map.png"
           alt="Women with map"
         />
       </NotFoundStyled>
