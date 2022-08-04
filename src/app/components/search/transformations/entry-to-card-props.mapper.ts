@@ -60,28 +60,6 @@ export const blogCardMapping = {
   },
 };
 
-export const eventCardMapping = {
-  ...baseMapping,
-  type: () => CardTypes.Blog,
-  imageUri: {
-    $path: 'primaryImage.asset.sys.uri',
-    $default: () => '/image-library/default-images/leif-fallback.png',
-  },
-  date: {
-    $path: 'sys.version.published',
-    $formatting: (date: string) => dateWithSuffix(date),
-  },
-  imageAlt: [
-    'primaryImage.altText',
-    'primaryImage.caption',
-    'primaryImage.asset.title',
-  ],
-  readTime: ({ postBody }: any) => {
-    const composer = mapComposer(postBody, composerPropsMapping);
-    return _calReadTime(composer);
-  },
-};
-
 export const productCardMapping = {
   ...baseMapping,
   type: () => CardTypes.Product,
@@ -115,7 +93,6 @@ export const mappers = {
   [ContentTypes.plant]: productCardMapping,
   [ContentTypes.pot]: productCardMapping,
   [ContentTypes.blog]: blogCardMapping,
-  [ContentTypes.events]: eventCardMapping,
   [ContentTypes.review]: reviewBlockMapping,
 };
 

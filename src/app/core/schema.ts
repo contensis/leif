@@ -77,18 +77,6 @@ export const BlogFields = [
   Fields.blogComposer,
 ];
 
-export const EventsFields = [
-  Fields.summary,
-  Fields.kicker,
-  Fields.primaryImage,
-  Fields.sys.published,
-  Fields.blogComposer,
-  'datePicker',
-  'location',
-  'organiser',
-  'relatedEvents',
-];
-
 export const Projects = {
   website: 'website',
 };
@@ -101,8 +89,6 @@ export const VersionStatus = {
 export const ContentTypes = {
   blog: 'blogPost',
   contentPage: 'contentPage',
-  events: 'event',
-  eventListing: 'eventListing',
   landingPage: 'landingPage',
   product: 'product',
   blogListing: 'blogListing',
@@ -138,12 +124,10 @@ export const CardTypes = {
 export const Listings = {
   blog: 'blogListing',
   product: 'productsListing',
-  events: 'eventListing',
 };
 
 export const ListingPages = {
   [ContentTypes.blogListing]: Listings.blog,
-  [ContentTypes.eventListing]: Listings.events,
   [ContentTypes.productListing]: Listings.product,
 };
 

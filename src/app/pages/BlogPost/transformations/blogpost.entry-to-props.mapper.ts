@@ -24,8 +24,6 @@ export const blogPostPropsMapping = {
     ],
     backLinkUri: () => '/blog',
     backLinkLabel: () => 'Blogs',
-    dateFrom: 'dateAndTime.from',
-    dateTo: 'dateAndTime.to',
   },
   blogInformationProps: {
     photo: {
@@ -45,11 +43,11 @@ export const blogPostPropsMapping = {
   leadParagraphProps: {
     text: 'leadParagraph',
   },
-  ctaBannerProps: {
-    ...ctaBannerPropsMapping,
-  },
   contentComposerProps: {
     items: ({ postBody }: any) => mapComposer(postBody, composerPropsMapping),
+  },
+  ctaBannerProps: {
+    ...ctaBannerPropsMapping,
   },
   relatedContentProps: {
     title: () => 'Read now',

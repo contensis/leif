@@ -37,19 +37,9 @@ export const BlogListing = loadable<RouteComponentProps<BlogListingProps>>(
       /* webpackChunkName: "blog-listing.page" */ '~/pages/BlogListing/BlogListing.page'
     )
 );
-export const EventsListing = loadable<RouteComponentProps<EventsListingProps>>(
-  () =>
-    import(
-      /* webpackChunkName: "blog-listing.page" */ '~/pages/EventsListing/EventsListing.page'
-    )
-);
 export const BlogPost = loadable<RouteComponentProps<BlogPostProps>>(
   () =>
     import(/* webpackChunkName: "blog.page" */ '~/pages/BlogPost/BlogPost.page')
-);
-
-export const Event = loadable<RouteComponentProps<EventProps>>(
-  () => import(/* webpackChunkName: "blog.page" */ '~/pages/Event/Event.page')
 );
 export const ProductListing = loadable<
   RouteComponentProps<ProductListingProps>

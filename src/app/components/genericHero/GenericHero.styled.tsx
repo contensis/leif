@@ -4,17 +4,10 @@ interface Props {
   type: string;
   isListingPage: boolean;
   hasPaddingTop: boolean;
-  hasPaddingBottom?: boolean;
 }
 
 const GenericHeroStyled = styled.div`
-  ${({
-    theme,
-    type,
-    isListingPage,
-    hasPaddingTop,
-    hasPaddingBottom = true,
-  }: Props) => {
+  ${({ theme, type, isListingPage, hasPaddingTop }: Props) => {
     return css`
       margin: 0 auto;
       padding-top: 74px;
@@ -31,7 +24,7 @@ const GenericHeroStyled = styled.div`
         text-align: left;
       }
       .generic-hero__back {
-        margin-bottom: ${hasPaddingBottom ? `104px` : '24px'};
+        margin-bottom: 104px;
         text-align: left;
       }
       .generic-hero__title {

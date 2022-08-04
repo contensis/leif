@@ -9,7 +9,6 @@ import {
   BaseFields,
   ReviewFields,
   BlogFields,
-  EventsFields,
   ContentFields,
   ProductFields,
 } from '~/core/schema';
@@ -88,16 +87,6 @@ export default {
         pageSize: 9,
       },
       filters: BlogFilters,
-    },
-    [Listings.events]: {
-      title: 'Events',
-      queryParams: {
-        loadMorePaging: true,
-        contentTypeIds: [ContentTypes.events],
-        fields: [...BaseFields, ...EventsFields],
-        orderBy: ['-sys.version.published'],
-        pageSize: 9,
-      },
     },
     [Listings.product]: {
       title: 'Products',
