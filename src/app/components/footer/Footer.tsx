@@ -31,6 +31,8 @@ const Footer = ({ className }: Props) => {
             className="footer__logo"
             src="/static/img/logos/logo-dark.svg"
             alt="Leif"
+            width="80"
+            height="49"
           />
           <VisuallyHidden text="Home" />
         </Link>

@@ -81,6 +81,8 @@ const Header = ({
                 : '/static/img/logos/logo-dark.svg'
             }
             alt="Leif"
+            width="160"
+            height="72"
           />
           <VisuallyHidden text="Home" />
         </Link>
