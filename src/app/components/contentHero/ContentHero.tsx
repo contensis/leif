@@ -7,13 +7,13 @@ import GenericHero from '../genericHero/GenericHero';
 
 export interface Props {
   className?: string;
-  title: string;
-  bgImageUri: string;
-  heroIllustrationUri: string;
-  heroIllustrationAlt: string;
-  hasIllustration: boolean;
-  isFullWidth: boolean;
-  ancestors: AncestorsProps[];
+  title?: string;
+  bgImageUri?: string;
+  heroIllustrationUri?: string;
+  heroIllustrationAlt?: string;
+  hasIllustration?: boolean;
+  isFullWidth?: boolean;
+  ancestors?: AncestorsProps[];
 }
 
 const ContentHero = ({

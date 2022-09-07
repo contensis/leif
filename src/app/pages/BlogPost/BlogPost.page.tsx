@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Components
-import GenericHero from '~/components/genericHero/GenericHero';
-import BlogInformation from '~/components/blogInformation/BlogInformation';
-import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import { Composer } from '~/dynamic/components';
-import CTABanner from '~/components/ctaBanner/CTABanner';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
 import Metadata from '~/components/metadata/Metadata';
+import CTABanner from '~/components/ctaBanner/CTABanner';
+import GenericHero from '~/components/genericHero/GenericHero';
+import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
+import BlogInformation from '~/components/blogInformation/BlogInformation';
+import RelatedContent from '~/components/relatedContent/RelatedContent';
 
 // Layout
 import MainLayout from '~/layout/MainLayout';
@@ -18,13 +18,13 @@ import { Props } from './BlogPost.d';
 
 const BlogPost = ({ mappedEntry }: Props) => {
   const {
-    blogInformationProps,
+    metadataProps,
     blogHeroProps,
-    ctaBannerProps,
+    blogInformationProps,
     leadParagraphProps,
     contentComposerProps,
+    ctaBannerProps,
     relatedContentProps,
-    metadataProps,
   } = mappedEntry || {};
   return (
     <MainLayout>

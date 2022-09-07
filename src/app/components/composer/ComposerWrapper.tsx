@@ -5,7 +5,7 @@ import ComposerComponent from './Composer';
 import { Props as ComposerProps } from './Composer.d';
 
 export interface Props {
-  items: ComposerProps;
+  items?: ComposerProps;
   isContentPage?: boolean;
   isHomepage?: boolean;
 }

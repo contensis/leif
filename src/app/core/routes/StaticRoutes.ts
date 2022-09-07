@@ -23,7 +23,6 @@ const staticRoutes: StaticRoute[] = [
     path: '/basket',
     exact: false,
     component: BasketPage,
-    j: '',
   },
   {
     path: '/checkout',

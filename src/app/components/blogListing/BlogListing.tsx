@@ -6,16 +6,8 @@ import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import Button from '../button/Button';
 import NoResults from '../noResults/NoResults';
-interface Props {
-  results?: any;
-  filters?: any;
-  facets?: any;
-  paging?: any;
-  updateSelectedFilters: (filterGroupKey: string, key: string) => void;
-  updatePageIndex: (ev: number) => void;
-  updateCurrentFacet: () => void;
-  clearFilters: () => void;
-}
+
+import { ListingProps } from '@zengenti/contensis-react-base/search';
 
 const BlogListing = ({
   results,
@@ -25,7 +17,7 @@ const BlogListing = ({
   updateCurrentFacet,
   paging,
   clearFilters,
-}: Props) => {
+}: ListingProps) => {
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
   /* eslint-disable */

@@ -1,10 +1,11 @@
 import { mapComposer } from '~/core/util/json-mapper';
 
-import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
-import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
-import dateWithSuffix from '~/utils/dateWithSuffix';
+import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
 import { externalPromotionPropsMapping } from '~/components/metadata/transformations/metdata.to-props-mapper';
+import { ctaBannerPropsMapping } from '~/components/ctaBanner/transformations/ctaBanner.component-to-props.mapper';
+
+import dateWithSuffix from '~/utils/dateWithSuffix';
 import { _calReadTime } from '~/utils/calculateReadTime';
 
 export const blogPostPropsMapping = {
@@ -42,11 +43,11 @@ export const blogPostPropsMapping = {
   leadParagraphProps: {
     text: 'leadParagraph',
   },
-  ctaBannerProps: {
-    ...ctaBannerPropsMapping,
-  },
   contentComposerProps: {
     items: ({ postBody }: any) => mapComposer(postBody, composerPropsMapping),
+  },
+  ctaBannerProps: {
+    ...ctaBannerPropsMapping,
   },
   relatedContentProps: {
     title: () => 'Read now',

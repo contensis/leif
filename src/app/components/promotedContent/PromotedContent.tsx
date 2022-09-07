@@ -7,7 +7,7 @@ import LinkButton from '../linkButton/LinkButton';
 export interface Props {
   className?: string;
   title?: string;
-  results: any;
+  results?: any;
   linkUri?: string;
   linkLabel?: string;
 }

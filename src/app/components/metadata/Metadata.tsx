@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 export interface Props {
   title?: string;
   description?: string;
-  image: string;
+  image?: string;
 }
 
 const Metadata = ({

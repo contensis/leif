@@ -10,12 +10,12 @@ import Link from '../link/Link';
 
 export interface Props {
   className?: string;
-  title: string;
+  title?: string;
   text?: string;
   ctaLink?: string;
   ctaText?: string;
-  imageUri: string;
-  imageAlt: string;
+  imageUri?: string;
+  imageAlt?: string;
   price?: number[];
   readTime?: number;
   date?: string;
@@ -26,6 +26,7 @@ export interface Props {
   type?: 'Full width' | 'Two column';
   headingLevel?: number;
   ancestors?: AncestorsProps[];
+  datePicker?: any;
 }
 
 const GenericHero = ({
