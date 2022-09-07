@@ -24,18 +24,22 @@ const FeaturedProduct = ({
     <FeaturedProductStyled className={className}>
       <div className="featured-product__content">
         <div className="featured-product__content-wrapper">
-          <h2 className="featured-product__title">{title}</h2>
-          <p
-            className="featured-product__text"
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
-          <LinkButton
-            className="featured-product__btn"
-            label={linkLabel}
-            href={linkUri}
-          />
+          {title && <h2 className="featured-product__title">{title}</h2>}
+          {text && (
+            <p
+              className="featured-product__text"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+          )}
+          {linkUri && linkLabel && (
+            <LinkButton
+              className="featured-product__btn"
+              label={linkLabel}
+              href={linkUri}
+            />
+          )}
         </div>
-        <Card className="featured-product__card" {...product} />
+        {product && <Card className="featured-product__card" {...product} />}
       </div>
     </FeaturedProductStyled>
   );

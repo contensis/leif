@@ -12,12 +12,13 @@ export interface Props {
 }
 
 const QuoteBlock = ({ className, quote, rating, photo, name }: Props) => {
+  if (!quote) return null;
   return (
     <QuoteBlockStyled className={className}>
       &quot;{quote}&quot;
       <div className="quote-block__details">
         {rating && <Rating rating={rating} className="quote-block__rating" />}
-        {photo && (
+        {photo && name && (
           <Author photo={photo} name={name} className="quote-block__person" />
         )}
       </div>

@@ -21,14 +21,18 @@ const VideoPlayer = ({
 }: Props) => {
   const VideoContent = (type: string) => {
     switch (type) {
-      case 'YouTube':
+      case 'YouTube': {
+        if (!externalURL) return null;
         return <YoutubeEmbed title={title} src={externalURL} />;
-      case 'Internal':
+      }
+      case 'Internal': {
+        if (!internalVideo) return null;
         return (
           <VideoPlayerStyled controls={hasControls} name="media">
             <source src={internalVideo} type="video/mp4" />
           </VideoPlayerStyled>
         );
+      }
       default:
         break;
     }

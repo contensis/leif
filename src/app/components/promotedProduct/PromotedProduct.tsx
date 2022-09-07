@@ -65,9 +65,9 @@ const PromotionalBlock = ({
                 </button>
                 <VideoPlayer
                   className="promoted-product__video-player"
-                  title={video.title}
-                  type={video.type}
-                  externalURL={video.externalURL}
+                  title={video?.title}
+                  type={video?.type}
+                  externalURL={video?.externalURL}
                 />
               </div>
             </FocusLock>
@@ -75,14 +75,16 @@ const PromotionalBlock = ({
         )}
       >
         <div className="promoted-product__image-wrapper">
-          <Image
-            src={imageUri}
-            alt={imageAlt}
-            quality={80}
-            layout="fill"
-            objectFit="cover"
-            className="promoted-product__image"
-          />
+          {imageUri && (
+            <Image
+              src={imageUri}
+              alt={imageAlt}
+              quality={80}
+              layout="fill"
+              objectFit="cover"
+              className="promoted-product__image"
+            />
+          )}
           {hasVideo && (
             <button
               type="button"
@@ -103,11 +105,13 @@ const PromotionalBlock = ({
           )}
           <div className="promoted-product__content--text">
             <div className="promoted-product__wrapper">
-              <h2 className="promoted-product__title">{title}</h2>
-              <div
-                className="promoted-product__text"
-                dangerouslySetInnerHTML={{ __html: text }}
-              />
+              {title && <h2 className="promoted-product__title">{title}</h2>}
+              {text && (
+                <div
+                  className="promoted-product__text"
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
+              )}
               {ctaLink && (
                 <LinkButton
                   className="promoted-product__link"

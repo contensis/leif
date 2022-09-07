@@ -11,12 +11,13 @@ export interface Props {
 }
 
 const IconWithText = ({ className, icon, title, text }: Props) => {
+  if (!icon) return null;
   return (
     <IconWithTextStyled className={className}>
       <Icon type={icon} className="icon-with-text__icon" />
       <div className="icon-with-text__wrapper">
-        <p className="icon-with-text__title">{title}</p>
-        <p className="icon-with-text__text">{text}</p>
+        {title && <p className="icon-with-text__title">{title}</p>}
+        {text && <p className="icon-with-text__text">{text}</p>}
       </div>
     </IconWithTextStyled>
   );

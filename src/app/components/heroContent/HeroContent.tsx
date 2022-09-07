@@ -22,6 +22,7 @@ const HeroContent = ({
   btnIcon,
   headingLevel = 2,
 }: Props) => {
+  if (!title) return null;
   const Heading = `h${headingLevel}`;
 
   return (
