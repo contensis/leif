@@ -3496,10 +3496,10 @@
   resolved "https://registry.yarnpkg.com/@zengenti/contensis-entry-picker-storybook-addon/-/contensis-entry-picker-storybook-addon-1.0.3.tgz#40b3d1c9576639e5478b2df2e209597edaf79e78"
   integrity sha512-Fs5WksYPGNmysJ3CQUFvFn0/cw54JOJ3YYzvw9gSW1c2NehptxnyA51Ef3ZfF/MGu5GlxsKr49IISUzNWTrghA==
 
-"@zengenti/contensis-react-base@^3.0.0-beta.79":
-  version "3.0.0-beta.79"
-  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-3.0.0-beta.79.tgz#c7012fb3bd64625e7d912ef879bc4af576cab6b9"
-  integrity sha512-enYHpRfCojtnftrQJllPbTWOcfaRZj3IFovYlnbRe3zLQ14A6lZXwzMDQmJEV6osdTSdwzoJakNQNsBNaTSB+A==
+"@zengenti/contensis-react-base@^3.0.0-beta.80":
+  version "3.0.0-beta.80"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-3.0.0-beta.80.tgz#01d039f5a1631f8bc9d118b061e8187134fd3122"
+  integrity sha512-xlrf19+eq8sW7N3lIybjX7qatvLICffHV355P69tlSlgWhTiNobdtmcqi1H7Z5xJO0m+Nw2/5UKN/fKwAKgSZg==
   dependencies:
     "@hot-loader/react-dom" "^17.0.2"
     "@loadable/component" "^5.15.2"
