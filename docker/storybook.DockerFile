@@ -1,5 +1,5 @@
 # Very useful article on docker multi stage builds: https://snorre.io/building-docker-images-with-gitlab-ci/
-FROM node:12 as builder
+FROM node:14 as builder
 # The following prevents errors when cwebp is installing.
 RUN apt-get update
 RUN apt-get install libglu1 -y
@@ -7,7 +7,9 @@ WORKDIR /usr/src/app
 # Seperating the copy of the package.json ensures the dockerbuild will cache the node_modules if the package.json has not changed
 # When we auto increment the version, we should remove that as part of the copy to ensure the cache is maintained. i.e strip the version number before copying the file.
 COPY package.json .
-# COPY package-lock.json .
+COPY yarn.lock .
+# # A hack to fix `The engine "node" is incompatible with this module` error when installing contensis-management-api@2.1.0
+# RUN yarn config set ignore-engines true
 RUN yarn
 COPY .storybook /usr/src/app/.storybook
 COPY config /usr/src/app/config
