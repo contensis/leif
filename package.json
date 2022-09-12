@@ -128,11 +128,11 @@
     "webpack-merge": "4.2.1",
     "webpack-modules": "^1.0.0",
     "webpack-node-externals": "1.7.2",
-    "zengenti-buildstartup-package": "^0.0.16"
+    "zengenti-buildstartup-package": "^0.0.17"
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
-    "@zengenti/contensis-react-base": "^3.0.0-beta.50",
+    "@zengenti/contensis-react-base": "^3.0.0-beta.79",
     "copy-to-clipboard": "^3.3.1",
     "custom-env": "^1.0.2",
     "react-focus-lock": "^2.5.0",
