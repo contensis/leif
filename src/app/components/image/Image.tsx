@@ -237,7 +237,7 @@ function defaultImageLoader(loaderProps: ImageLoaderProps) {
   if (load) {
     return load({ root: configPath, ...loaderProps });
   }
-  throw new Error(
+  console.error(
     `Unknown "loader" found in "next.config.js". Expected: ${VALID_LOADERS.join(
       ', '
     )}. Received: ${configLoader}`
@@ -335,7 +335,7 @@ export default function Image({
     const staticImageData = isStaticRequire(src) ? src.default : src;
 
     if (!staticImageData.src) {
-      throw new Error(
+      console.error(
         `An object should only be passed to the image component src parameter if it comes from a static image import. It must include src. Received ${JSON.stringify(
           staticImageData
         )}`
@@ -347,7 +347,7 @@ export default function Image({
       height = height || staticImageData.height;
       width = width || staticImageData.width;
       if (!staticImageData.height || !staticImageData.width) {
-        throw new Error(
+        console.error(
           `An object should only be passed to the image component src parameter if it comes from a static image import. It must include height and width. Received ${JSON.stringify(
             staticImageData
           )}`
@@ -374,14 +374,14 @@ export default function Image({
 
   if (process.env.NODE_ENV !== 'production') {
     if (!src) {
-      throw new Error(
+      console.error(
         `Image is missing required "src" property. Make sure you pass "src" in props to the \`next/image\` component. Received: ${JSON.stringify(
           { width, height, quality }
         )}`
       );
     }
     if (!VALID_LAYOUT_VALUES.includes(layout)) {
-      throw new Error(
+      console.error(
         `Image with src "${src}" has invalid "layout" property. Provided "${layout}" should be one of ${VALID_LAYOUT_VALUES.map(
           String
         ).join(',')}.`
@@ -391,7 +391,7 @@ export default function Image({
       (typeof widthInt !== 'undefined' && isNaN(widthInt)) ||
       (typeof heightInt !== 'undefined' && isNaN(heightInt))
     ) {
-      throw new Error(
+      console.error(
         `Image with src "${src}" has invalid "width" or "height" property. These should be numeric values.`
       );
     }
@@ -401,14 +401,14 @@ export default function Image({
       );
     }
     if (!VALID_LOADING_VALUES.includes(loading)) {
-      throw new Error(
+      console.error(
         `Image with src "${src}" has invalid "loading" property. Provided "${loading}" should be one of ${VALID_LOADING_VALUES.map(
           String
         ).join(',')}.`
       );
     }
     if (priority && loading === 'lazy') {
-      throw new Error(
+      console.error(
         `Image with src "${src}" has both "priority" and "loading='lazy'" properties. Only one should be used.`
       );
     }
@@ -421,7 +421,7 @@ export default function Image({
       if (!blurDataURL) {
         const VALID_BLUR_EXT = ['jpeg', 'png', 'webp']; // should match next-image-loader
 
-        throw new Error(
+        console.error(
           `Image with src "${src}" has "placeholder='blur'" property but is missing the "blurDataURL" property.
           Possible solutions:
             - Add a "blurDataURL" property, the contents should be a small Data URL to represent the image
@@ -558,7 +558,7 @@ export default function Image({
   } else {
     // <Image src="i.png" />
     if (process.env.NODE_ENV !== 'production') {
-      throw new Error(
+      console.error(
         `Image with src "${src}" must use "width" and "height" properties or "layout='fill'" property.`
       );
     }
@@ -653,11 +653,10 @@ export default function Image({
             rel="preload"
             as="image"
             href={imgAttributes.srcSet ? undefined : imgAttributes.src}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore: imagesrcset is not yet in the link element type.
+            // eslint-disable-next-line react/no-unknown-property
             imagesrcset={imgAttributes.srcSet}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore: imagesizes is not yet in the link element type.
+            // eslint-disable-next-line react/no-unknown-property
             imagesizes={imgAttributes.sizes}
           ></link>
         </Helmet>
@@ -735,7 +734,7 @@ function contensisLoader({
 }
 
 function customLoader({ src }: DefaultImageLoaderProps): string {
-  throw new Error(
+  console.error(
     `Image with src "${src}" is missing "loader" prop.` +
       `\nRead more: https://nextjs.org/docs/messages/next-image-missing-loader`
   );
@@ -755,7 +754,7 @@ function defaultLoader({
     if (!width) missingValues.push('width');
 
     if (missingValues.length > 0) {
-      throw new Error(
+      console.error(
         `Next Image Optimization requires ${missingValues.join(
           ', '
         )} to be provided. Make sure you pass them as props to the \`next/image\` component. Received: ${JSON.stringify(
@@ -765,7 +764,7 @@ function defaultLoader({
     }
 
     if (src.startsWith('//')) {
-      throw new Error(
+      console.error(
         `Failed to parse src "${src}" on \`next/image\`, protocol-relative URL (//) must be changed to an absolute URL (http:// or https://)`
       );
     }
@@ -776,7 +775,7 @@ function defaultLoader({
         parsedSrc = new URL(src);
       } catch (err) {
         console.error(err);
-        throw new Error(
+        console.error(
           `Failed to parse src "${src}" on \`next/image\`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)`
         );
       }
@@ -785,7 +784,7 @@ function defaultLoader({
         process.env.NODE_ENV !== 'test' &&
         !configDomains.includes(parsedSrc.hostname)
       ) {
-        throw new Error(
+        console.error(
           `Invalid src prop (${src}) on \`next/image\`, hostname "${parsedSrc.hostname}" is not configured under images in your \`next.config.js\`\n` +
             `See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host`
         );

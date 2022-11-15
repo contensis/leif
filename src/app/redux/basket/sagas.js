@@ -21,7 +21,7 @@ import { ROUTE_WILL_LOAD } from '~/core/redux/types';
 import { getLocalState, saveLocalState } from '~/utils/localStorage';
 import { deliveryApi } from '~/core/util/ContensisDeliveryApi';
 import { productCardMapping } from '~/components/search/transformations/entry-to-card-props.mapper';
-import { useMapper } from '~/core/util/json-mapper';
+import mapJson from '~/core/util/json-mapper';
 
 export const BasketSagas = [
   takeEvery(ROUTE_WILL_LOAD, _ensureInitialised),
@@ -76,7 +76,7 @@ function* _getMatchingProducts(products) {
         for (const plantVariant of plantVariants) {
           if (plantVariant.matchingPots) {
             for (const matchingPot of plantVariant.matchingPots) {
-              const mappedPot = useMapper(matchingPot, productCardMapping);
+              const mappedPot = mapJson(matchingPot, productCardMapping);
               matchingPots.push(mappedPot);
             }
           }
