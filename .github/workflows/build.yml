@@ -44,6 +44,8 @@ jobs:
     name: Push block to Contensis
     needs: build-latest-code
     runs-on: ubuntu-latest
+
+    steps:
       - name: Push block to Contensis
         uses: contensis/block-push@v1
         with:
