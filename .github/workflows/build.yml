@@ -44,15 +44,11 @@ jobs:
   push-app-block:
     name: Push block to Contensis
     needs: build-latest-code
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Push block to Contensis
-        uses: ./.github/workflows/push-block.yml
-        with:
-          block-id: leif-website
-          auto-release: true
-        secrets: inherit
+    uses: ./.github/workflows/push-block.yml
+    secrets: inherit
+    with:
+      block-id: leif-website
+      auto-release: true
 
   build-storybook:
     name: Docker build storybook
@@ -83,12 +79,8 @@ jobs:
   push-storybook-block:
     name: Push block to Contensis
     needs: build-storybook
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Push block to Contensis
-        uses: ./.github/workflows/push-block.yml
-        with:
-          block-id: leif-storybook
-          auto-release: true
-        secrets: inherit
+    secrets: inherit
+    uses: ./.github/workflows/push-block.yml
+    with:
+      block-id: leif-storybook
+      auto-release: true
