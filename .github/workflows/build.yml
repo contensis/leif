@@ -12,6 +12,7 @@ env:
   # github.repository as <account>/<repo>
   APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
   STORYBOOK_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/storybook
+
 jobs:
   build-latest-code:
     name: Docker build latest code
@@ -48,10 +49,10 @@ jobs:
     steps:
       - name: Push block to Contensis
         uses: ./.github/workflows/push-block.yml
-        secrets: inherit
         with:
           block-id: leif-website
           auto-release: true
+        secrets: inherit
 
   build-storybook:
     name: Docker build storybook
@@ -87,7 +88,7 @@ jobs:
     steps:
       - name: Push block to Contensis
         uses: ./.github/workflows/push-block.yml
-        secrets: inherit
         with:
           block-id: leif-storybook
           auto-release: true
+        secrets: inherit
