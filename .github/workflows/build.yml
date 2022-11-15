@@ -40,21 +40,18 @@ jobs:
           docker build --force-rm --cache-from ${{ env.APP_IMAGE }}:latest -t ${{ env.APP_IMAGE }}:latest -f docker/build.DockerFile .
           docker push ${{ env.APP_IMAGE }}:latest
 
-  push-block:
+  push-app-block:
     name: Push block to Contensis
     needs: build-latest-code
     runs-on: ubuntu-latest
 
     steps:
       - name: Push block to Contensis
-        uses: contensis/block-push@v1
+        uses: ./.github/workflows/push-block.yml
+        secrets: inherit
         with:
           block-id: leif-website
           auto-release: true
-          alias: leif
-          project-id: website
-          client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
-          shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
 
   build-storybook:
     name: Docker build storybook
@@ -81,3 +78,16 @@ jobs:
           docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
           docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
+
+  push-storybook-block:
+    name: Push block to Contensis
+    needs: build-storybook
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Push block to Contensis
+        uses: ./.github/workflows/push-block.yml
+        secrets: inherit
+        with:
+          block-id: leif-storybook
+          auto-release: true

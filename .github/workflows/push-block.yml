@@ -1,0 +1,27 @@
+name: Push block to Contensis
+on:
+  workflow_call:
+    inputs:
+      block-id:
+        required: true
+        type: string
+      auto-release:
+        default: false
+        type: boolean
+
+jobs:
+  push-block:
+    name: Push block to Contensis
+    needs: build-latest-code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Push block to website on leif
+        uses: contensis/block-push@v1
+        with:
+          block-id: ${{ inputs.block-id }}
+          auto-release: ${{ inputs.auto-release }}
+          alias: leif
+          project-id: website
+          client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
+          shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
