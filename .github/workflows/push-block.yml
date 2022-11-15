@@ -12,7 +12,6 @@ on:
 jobs:
   push-block:
     name: Push block to Contensis
-    needs: build-latest-code
     runs-on: ubuntu-latest
 
     steps:
