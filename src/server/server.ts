@@ -1,3 +1,4 @@
+import { path as appRootPath } from 'app-root-path';
 import ZengentiAppServer from '@zengenti/contensis-react-base';
 import ReactApp from '~/App';
 
@@ -12,6 +13,7 @@ import packagejson from '-/package.json';
 ZengentiAppServer.start(
   ReactApp,
   {
+    appRootPath,
     routes,
     stateType: 'js',
     withReducers,

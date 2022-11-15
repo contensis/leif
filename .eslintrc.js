@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -20,8 +20,9 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
-  plugins: ['prettier', 'react'],
+  plugins: ['prettier', 'react', 'react-hooks'],
   env: {
     browser: true,
     node: true,
@@ -30,14 +31,20 @@ module.exports = {
     es6: true,
   },
   globals: {},
-  // Will look for webpack.config.js to resolve path
   settings: {
     react: {
-      version: '^16.0.0',
+      version: '^17.0.0',
     },
-    'import/resolver': 'typescript',
+    'import/resolver': {
+      node: {
+        moduleDirectory: ['node_modules'],
+      },
+      // Will look for webpack.config.js to resolve path
+      webpack: {
+        config: path.resolve(__dirname, './webpack/webpack.config.base.js'),
+      },
+    },
   },
-
   rules: {
     'arrow-parens': 0,
     'react/require-default-props': 0,
@@ -67,8 +74,9 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
-
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -79,11 +87,6 @@ module.exports = {
         tsconfigRootDir: path.resolve(__dirname),
       },
       plugins: ['@typescript-eslint', 'import'],
-
-      // If need to support jsx
-      //     parserOptions: {
-      //       ecmaFeatures: { jsx: true }
-      //     },
       extends: [
         'eslint:recommended',
         'plugin:import/typescript',
@@ -91,8 +94,14 @@ module.exports = {
         'prettier',
       ],
       settings: {
-        'import/resolver': 'typescript',
+        'import/resolver': {
+          webpack: {
+            config: path.resolve(__dirname, './webpack/webpack.config.base.js'),
+          },
+          typescript: {},
+        },
       },
+
       /**
        * Typescript Rules
        * https://github.com/bradzacher/eslint-plugin-typescript
@@ -108,7 +117,6 @@ module.exports = {
         '@typescript-eslint/member-ordering': 'error',
         // Require consistent spacing around type annotations
         '@typescript-eslint/type-annotation-spacing': 'error',
-
         '@typescript-eslint/adjacent-overload-signatures': 'error',
         '@typescript-eslint/array-type': [
           'error',

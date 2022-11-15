@@ -1,5 +1,5 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 chai.should();
 chai.use(chaiHttp);
 
@@ -7,7 +7,7 @@ describe('Server Loads', () => {
   require('./server.ts');
   const app = require('./server.ts').app;
   before(function () {
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
       app.on('app_started', function () {
         return resolve();
       });
@@ -15,7 +15,7 @@ describe('Server Loads', () => {
     });
   });
   after(function () {
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
       app.emit('stop');
       return resolve();
     });

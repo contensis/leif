@@ -95,4 +95,6 @@ module.exports = {
       sourceType: 'unambiguous',
     },
   },
+  presets: [...presets.base, ...presets.modern],
+  plugins: [...plugins.base, ...plugins.modern],
 };

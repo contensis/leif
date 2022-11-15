@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+
 const defineConfig = require('../webpack/define-config-webpack').base;
 
 module.exports = {
@@ -28,5 +29,8 @@ module.exports = {
       },
     });
     return { ...config };
+  },
+  core: {
+    builder: 'webpack5',
   },
 };

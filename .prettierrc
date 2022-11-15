@@ -1,5 +1,7 @@
 {
   "arrowParens": "avoid",
+  "endOfLine": "auto",
   "trailingComma": "es5",
+  "printWidth": 80,
   "singleQuote": true
 }

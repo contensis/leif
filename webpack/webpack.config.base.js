@@ -11,7 +11,6 @@ module.exports = {
   output: {
     publicPath: ASSET_PATH,
   },
-  externals: ['oidc-client'],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
@@ -23,31 +22,8 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(t|j)sx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'stylelint-custom-processor-loader',
-            options: {
-              emitWarning: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(t|j)sx?$/,
-        include: [
-          path.resolve('src'),
-          // These dependencies have es6 syntax which ie11 doesn't like.
-          path.resolve('node_modules/contensis-delivery-api'),
-          path.resolve('node_modules/@zengenti/contensis-react-base'),
-          path.resolve('node_modules/zengenti-isomorphic-base'),
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: { envName: 'modern' },
-        },
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(gif|png|jpe?g|svg|ico)$/i,

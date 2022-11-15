@@ -1,5 +1,5 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
+import { hot } from 'react-hot-loader';
 
 import { ThemeProvider } from 'styled-components';
 import { RouteLoader } from '@zengenti/contensis-react-base/routing';
@@ -35,4 +35,4 @@ const AppRoot = (props: AppRootProps) => {
   );
 };
 
-export default hot(AppRoot);
+export default hot(module)(AppRoot);
