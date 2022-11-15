@@ -1,0 +1,81 @@
+name: Docker - Build and push latest
+
+on:
+  push:
+    branches: ['**']
+    tags-ignore: ['release-*']
+  pull_request:
+    branches: ['**']
+
+env:
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
+  STORYBOOK_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/storybook
+jobs:
+  build-latest-code:
+    name: Docker build latest code
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Login against a Docker registry except on PR
+      - name: Log into container registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Docker image, tag latest and push to registry
+        run: |
+          docker pull ${{ env.APP_IMAGE }}:latest || true
+          echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_id }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
+          docker build --force-rm --cache-from ${{ env.APP_IMAGE }}:latest -t ${{ env.APP_IMAGE }}:latest -f docker/build.DockerFile .
+          docker push ${{ env.APP_IMAGE }}:latest
+
+  push-block:
+    name: Push block to Contensis
+    needs: build-latest-code
+    runs-on: ubuntu-latest
+      - name: Push block to Contensis
+        uses: contensis/block-push@v1
+        with:
+          block-id: leif-website
+          auto-release: true
+          alias: leif
+          project-id: website
+          client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
+          shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
+
+  build-storybook:
+    name: Docker build storybook
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Login against a Docker registry except on PR
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Docker image
+        run: |
+          docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
+          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
+          docker push ${{ env.STORYBOOK_IMAGE}}:latest

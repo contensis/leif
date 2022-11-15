@@ -12,5 +12,9 @@ module.exports = {
   },
   prod: {
     __isBrowser__: 'false',
+    'process.env.NODE_ENV': JSON.stringify(
+      process.env.NODE_ENV || 'production'
+    ),
+    'process.env.__NEXT_IMAGE_OPTS': undefined,
   },
 };

@@ -1,4 +1,4 @@
-name: Docker - Release
+name: Docker - Tag and push release
 
 # Controls when the workflow will run
 on:
@@ -8,65 +8,34 @@ on:
       - 'release-*' # Push events to matching release-*, i.e. release-v1.0.0
 
 env:
-  # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
-  # github.event.base_ref to get the branch (we then split and pop)
-  BRANCH: ${{ github.event.base_ref }}
+  APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  vars:
-    name: Output build variables
+  release:
     runs-on: ubuntu-latest
-    outputs:
-      appImage: ${{ fromJSON(steps.variables.outputs.result).appImage }}
-      imagePath: ${{ fromJSON(steps.variables.outputs.result).imagePath }}
-      branch: ${{ fromJSON(steps.variables.outputs.result).branch }}
-    steps:
-      - id: variables
-        name: Script CI variables
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const { REGISTRY, IMAGE_NAME, BRANCH } = process.env;
-            const branch = BRANCH.split('/').pop();
-            const imagePath = `${REGISTRY}/${IMAGE_NAME}/${branch}`;
-            const appImage = `${imagePath}/app`;
-            core.info(`Commit to branch '${branch}'`);
-            core.info(`Building docker image for '${appImage}'`);
-            core.exportVariable('GITHUB_BRANCH_SLUG', branch);
-            core.exportVariable('APP_IMAGE', appImage);
-            return { appImage, imagePath, branch };
-
-  build:
-    runs-on: ubuntu-latest
-    needs: vars
     permissions:
       contents: read
       packages: write
 
     steps:
-      - name: Set env variables
-        run: |
-          echo "APP_IMAGE=${{needs.vars.outputs.appImage}}" >> $GITHUB_ENV
-
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Release Docker image
+      - name: Pull latest image, tag release and push
         run: |
           docker pull ${{ env.APP_IMAGE }}:latest || true
           docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:release
           docker push ${{ env.APP_IMAGE }}:release
+          docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:${{ github.ref_name }}
+          docker push ${{ env.APP_IMAGE }}:${{ github.ref_name }}
