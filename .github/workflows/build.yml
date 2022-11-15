@@ -42,13 +42,12 @@ jobs:
           docker push ${{ env.APP_IMAGE }}:latest
 
   push-app-block:
-    name: Push block to Contensis
+    name: Push Contensis block
     needs: build-latest-code
     uses: ./.github/workflows/push-block.yml
     secrets: inherit
     with:
       block-id: leif-website
-      auto-release: true
 
   build-storybook:
     name: Docker build storybook
@@ -59,7 +58,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Login against a Docker registry except on PR
       - name: Log into registry ${{ env.REGISTRY }}
@@ -77,10 +76,9 @@ jobs:
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
 
   push-storybook-block:
-    name: Push block to Contensis
+    name: Push Contensis block
     needs: build-storybook
     secrets: inherit
     uses: ./.github/workflows/push-block.yml
     with:
       block-id: leif-storybook
-      auto-release: true
