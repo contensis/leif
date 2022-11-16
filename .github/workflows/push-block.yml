@@ -7,7 +7,10 @@ on:
         type: string
       auto-release:
         default: true
-        type: boolean
+        type: boolean#
+      image-uri:
+        required: true
+        type: string
       alias:
         default: leif
         type: string
@@ -27,6 +30,7 @@ jobs:
           block-id: ${{ inputs.block-id }}
           auto-release: ${{ inputs.auto-release }}
           alias: ${{ inputs.alias }}
+          image-uri: ${{ inputs.image-uri }}
           project-id: ${{ inputs.project-id }}
           client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
           shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
