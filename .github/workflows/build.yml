@@ -39,9 +39,9 @@ jobs:
       - name: Build the Docker image, tag latest and push to registry
         id: build
         run: |
-          BUILD_IMAGE_URI=${{ env.APP_IMAGE }}:build-${{ github.run_id }}
+          BUILD_IMAGE_URI=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
           docker pull ${{ env.APP_IMAGE }}:latest || true
-          echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_id }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
+          echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
           docker build --force-rm --cache-from ${{ env.APP_IMAGE }}:latest -t ${{ env.APP_IMAGE }}:latest -f docker/build.DockerFile .
           docker push ${{ env.APP_IMAGE }}:latest
           docker tag ${{ env.APP_IMAGE }}:latest BUILD_IMAGE_URI
@@ -83,7 +83,7 @@ jobs:
       - name: Build the Docker image
         id: build
         run: |
-          BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
+          BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
           docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
           docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
