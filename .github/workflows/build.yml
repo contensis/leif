@@ -85,7 +85,7 @@ jobs:
         run: |
           BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
           docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
-          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
+          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.Dockerfile .
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
           docker tag ${{ env.STORYBOOK_IMAGE }}:latest $BUILD_IMAGE_URI
           docker push $BUILD_IMAGE_URI
