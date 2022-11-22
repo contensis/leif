@@ -14,12 +14,14 @@ env:
   STORYBOOK_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/storybook
 
 jobs:
-  build-latest-code:
+  build-latest:
     name: Docker build latest code
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    outputs:
+      image-uri: ${{ steps.build.outputs.image-uri }}
 
     steps:
       - name: Checkout repository
@@ -35,22 +37,25 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build the Docker image, tag latest and push to registry
+        id: build
         run: |
+          BUILD_IMAGE_URI=${{ env.APP_IMAGE }}:build-${{ github.run_id }}
           docker pull ${{ env.APP_IMAGE }}:latest || true
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_id }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
           docker build --force-rm --cache-from ${{ env.APP_IMAGE }}:latest -t ${{ env.APP_IMAGE }}:latest -f docker/build.DockerFile .
           docker push ${{ env.APP_IMAGE }}:latest
-          docker tag ${{ env.APP_IMAGE }}:latest ${{ env.APP_IMAGE }}:build-${{ github.run_id }}
-          docker push ${{ env.APP_IMAGE }}:build-${{ github.run_id }}
+          docker tag ${{ env.APP_IMAGE }}:latest BUILD_IMAGE_URI
+          docker push BUILD_IMAGE_URI
+          echo "image-uri=$BUILD_IMAGE_URI" >> $GITHUB_OUTPUT
 
   push-app-block:
     name: Push Contensis block
-    needs: build-latest-code
+    needs: build-latest
     uses: ./.github/workflows/push-block.yml
     secrets: inherit
     with:
       block-id: leif-website
-      image-uri: ${{ env.APP_IMAGE }}:build-${{ github.run_id }}
+      image-uri: ${{ needs.build-latest.outputs.image-uri }}
       tag-repo: true
 
   build-storybook:
@@ -59,6 +64,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+    outputs:
+      image-uri: ${{ steps.build.outputs.image-uri }}
 
     steps:
       - name: Checkout repository
@@ -74,12 +81,15 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build the Docker image
+        id: build
         run: |
+          BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
           docker pull ${{ env.STORYBOOK_IMAGE}}:latest || true
           docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE}}:latest -t ${{ env.STORYBOOK_IMAGE}}:latest -f docker/storybook.DockerFile .
           docker push ${{ env.STORYBOOK_IMAGE}}:latest
-          docker tag ${{ env.STORYBOOK_IMAGE }}:latest ${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
-          docker push ${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
+          docker tag ${{ env.STORYBOOK_IMAGE }}:latest $BUILD_IMAGE_URI
+          docker push $BUILD_IMAGE_URI
+          echo "image-uri=$BUILD_IMAGE_URI" >> $GITHUB_OUTPUT
 
   push-storybook-block:
     name: Push Contensis block
@@ -88,5 +98,5 @@ jobs:
     uses: ./.github/workflows/push-block.yml
     with:
       block-id: leif-storybook
-      image-uri: ${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
+      image-uri: ${{ needs.build-storybook.outputs.image-uri }}
       auto-release: true
