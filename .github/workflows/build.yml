@@ -51,6 +51,7 @@ jobs:
     with:
       block-id: leif-website
       image-uri: ${{ env.APP_IMAGE }}:build-${{ github.run_id }}
+      tag-repo: true
 
   build-storybook:
     name: Docker build storybook
@@ -88,3 +89,4 @@ jobs:
     with:
       block-id: leif-storybook
       image-uri: ${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_id }}
+      auto-release: true

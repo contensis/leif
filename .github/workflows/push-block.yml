@@ -1,3 +1,5 @@
+# Set default inputs for your project here to avoid repeating the same options in your main workflow
+
 name: Push block to Contensis
 on:
   workflow_call:
@@ -6,8 +8,8 @@ on:
         required: true
         type: string
       auto-release:
-        default: true
-        type: boolean#
+        default: false
+        type: boolean
       image-uri:
         required: true
         type: string
@@ -17,6 +19,9 @@ on:
       project-id:
         default: website
         type: string
+      tag-repo:
+        default: false
+        type: boolean
 
 jobs:
   push-block:
@@ -24,7 +29,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Push block to website on leif
+      - name: Push block to ${{ inputs.project-id }} on ${{ inputs.alias }}
+        id: push
         uses: contensis/block-push@v1
         with:
           block-id: ${{ inputs.block-id }}
@@ -34,3 +40,5 @@ jobs:
           project-id: ${{ inputs.project-id }}
           client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
           shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
+          tag-repo: ${{ inputs.tag-repo }}
+          git-token: ${{ secrets.GITHUB_TOKEN }}
