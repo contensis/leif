@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Link as PageLink } from 'react-router-dom';
 export interface Props {
   className?: string;
   children: any;
@@ -37,15 +35,15 @@ const Link = ({
 
   if (newWindow !== '_blank' && uri && uri.startsWith('/')) {
     return (
-      <PageLink
+      <a
         className={className}
         download={download}
-        onClick={e => _handleClick(e)}
+        href={uri}
+        onClick={(e: any) => _handleClick(e)}
         title={title}
-        to={uri}
       >
         {children}
-      </PageLink>
+      </a>
     );
   } else {
     return (
