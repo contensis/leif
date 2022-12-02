@@ -42,7 +42,7 @@ jobs:
         id: build
         run: |
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
-          docker pull ${{ env.APP_IMAGE }}:builder || true
+          docker pull ${{ env.APP_IMAGE }}:builder || 1
           RESULT=$?
           if [ $RESULT -eq 0 ]; then echo builder image already exists
           else
@@ -103,7 +103,7 @@ jobs:
         id: build
         run: |
           BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
-          docker pull ${{ env.STORYBOOK_IMAGE }}:builder
+          docker pull ${{ env.STORYBOOK_IMAGE }}:builder || true
           docker build -t ${{ env.STORYBOOK_IMAGE }}:builder --build-arg builder_image=${{ env.STORYBOOK_IMAGE }}:builder --target prepare -f docker/storybook.Dockerfile .
           docker push ${{ env.STORYBOOK_IMAGE }}:builder
           docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE }}:builder -t ${{ env.STORYBOOK_IMAGE }}:latest -f docker/storybook.Dockerfile .
