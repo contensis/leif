@@ -43,10 +43,11 @@ jobs:
         run: |
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
           BUILDER_IMAGE=${{ env.APP_IMAGE }}:builder
+          BUILDER_IMAGE_ARG=$BUILDER_IMAGE
           RESULT=$(`docker pull $BUILDER_IMAGE` || echo 1)
           if [ $RESULT -eq 0 ]; then echo builder image already exists
           else
-            BUILDER_IMAGE=$BUILDER_BASE
+            BUILDER_IMAGE_ARG=$BUILDER_BASE
           fi
           docker pull ${{ env.APP_IMAGE }}:latest
           RESULT=$?
@@ -56,14 +57,14 @@ jobs:
             docker tag $APP_BASE ${{ env.APP_IMAGE }}:latest
             docker push ${{ env.APP_IMAGE }}:latest
           fi
-          docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/build.Dockerfile .
+          docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE_ARG --target prepare -f docker/build.Dockerfile .
           docker push $BUILDER_IMAGE
           docker build -t ${{ env.APP_IMAGE }}:latest --build-arg builder_image=$BUILDER_IMAGE --build-arg app_image=${{ env.APP_IMAGE }}:latest -f docker/build.Dockerfile .
           docker push ${{ env.APP_IMAGE }}:latest
-          BUILD_IMAGE_URI=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
-          docker tag ${{ env.APP_IMAGE }}:latest $BUILD_IMAGE_URI
-          docker push $BUILD_IMAGE_URI
-          echo "image-uri=$BUILD_IMAGE_URI" >> $GITHUB_OUTPUT
+          BUILD_IMAGE=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
+          docker tag ${{ env.APP_IMAGE }}:latest $BUILD_IMAGE
+          docker push $BUILD_IMAGE
+          echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
   push-app-block:
     name: Push Contensis block
@@ -100,15 +101,17 @@ jobs:
       - name: Build the Docker image, tag and push to registry
         id: build
         run: |
-          BUILD_IMAGE_URI=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
-          docker pull ${{ env.STORYBOOK_IMAGE }}:builder || true
-          docker build -t ${{ env.STORYBOOK_IMAGE }}:builder --build-arg builder_image=${{ env.STORYBOOK_IMAGE }}:builder --target prepare -f docker/storybook.Dockerfile .
-          docker push ${{ env.STORYBOOK_IMAGE }}:builder
-          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE }}:builder -t ${{ env.STORYBOOK_IMAGE }}:latest --build-arg builder_image=${{ env.STORYBOOK_IMAGE }}:builder -f docker/storybook.Dockerfile .
-          docker push ${{ env.STORYBOOK_IMAGE }}:latest
-          docker tag ${{ env.STORYBOOK_IMAGE }}:latest $BUILD_IMAGE_URI
-          docker push $BUILD_IMAGE_URI
-          echo "image-uri=$BUILD_IMAGE_URI" >> $GITHUB_OUTPUT
+          BUILDER_IMAGE=${{ env.STORYBOOK_IMAGE }}:builder
+          LATEST_IMAGE=${{ env.STORYBOOK_IMAGE }}:latest
+          BUILD_IMAGE=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
+          docker pull $BUILDER_IMAGE || true
+          docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/storybook.Dockerfile .
+          docker push $BUILDER_IMAGE
+          docker build --force-rm --cache-from $BUILDER_IMAGE -t $LATEST_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/storybook.Dockerfile .
+          docker push $LATEST_IMAGE
+          docker tag $LATEST_IMAGE $BUILD_IMAGE
+          docker push $BUILD_IMAGE
+          echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
   push-storybook-block:
     name: Push Contensis block

@@ -3,8 +3,8 @@ ARG builder_image
 FROM ${builder_image} AS prepare
 
 # The following prevents errors when cwebp is installing.
-RUN apt-get update -qq
-RUN apt-get install libglu1 -qq
+RUN apt-get -qq update
+RUN apt-get -qq install libglu1
 WORKDIR /usr/src/app
 RUN yarn global add mocha
 COPY package.json .
