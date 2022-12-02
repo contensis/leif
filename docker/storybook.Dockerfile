@@ -1,5 +1,5 @@
-# Very useful article on docker multi stage builds: https://snorre.io/building-docker-images-with-gitlab-ci/
-FROM node:18 as builder
+ARG builder_image
+FROM node:18 AS prepare
 # The following prevents errors when cwebp is installing.
 RUN apt-get update
 RUN apt-get install libglu1 -y
@@ -9,6 +9,8 @@ WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
 RUN yarn
+
+FROM ${builder_image} AS build
 COPY .storybook /usr/src/app/.storybook
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
@@ -23,10 +25,10 @@ COPY .prettierignore .
 COPY .prettierrc .
 COPY .stylelintrc .
 COPY tsconfig.json .
-COPY jsconfig.json .
+# COPY jsconfig.json .
 
 RUN yarn run storybook-static
 
 FROM pierrezemb/gostatic
-COPY --from=builder  /usr/src/app/.out /usr/src/app/dist
+COPY --from=build  /usr/src/app/.out /usr/src/app/dist
 ENTRYPOINT ["/goStatic", "--path", "/usr/src/app/dist", "--port", "8080"]
