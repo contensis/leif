@@ -1,7 +1,7 @@
+ARG app_image
 ARG builder_image
 FROM ${builder_image} AS prepare
 
-# FROM node:18 as builder
 # The following prevents errors when cwebp is installing.
 RUN apt-get update -yq
 RUN apt-get install libglu1 -yq
@@ -13,17 +13,14 @@ RUN yarn install --silent --non-interactive
 
 
 FROM ${builder_image} AS build
-# RUN mkdir -p /usr/src/app/src/dist/static
 COPY .env* ./
 COPY .eslintignore .
 COPY .eslintrc.js .
 COPY .nvmrc .
 COPY .prettierignore .
 COPY .prettierrc .
-# COPY .stylelintrc .
 COPY babel.config.js .
 COPY tsconfig.json .
-# COPY jsconfig.json .
 COPY config config
 COPY public public
 COPY webpack webpack
@@ -33,8 +30,7 @@ RUN mocha --timeout=5000 dist/server/start.js -tests
 COPY version.json ./static/version.json
 RUN cat ./static/version.json
 
-FROM node:18-alpine AS final
-
+FROM ${app_image} AS final
 COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
