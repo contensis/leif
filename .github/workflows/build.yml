@@ -105,7 +105,7 @@ jobs:
           docker pull ${{ env.STORYBOOK_IMAGE }}:builder || true
           docker build -t ${{ env.STORYBOOK_IMAGE }}:builder --build-arg builder_image=${{ env.STORYBOOK_IMAGE }}:builder --target prepare -f docker/storybook.Dockerfile .
           docker push ${{ env.STORYBOOK_IMAGE }}:builder
-          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE }}:builder -t ${{ env.STORYBOOK_IMAGE }}:latest -f docker/storybook.Dockerfile .
+          docker build --force-rm --cache-from ${{ env.STORYBOOK_IMAGE }}:builder -t ${{ env.STORYBOOK_IMAGE }}:latest --build-arg builder_image=${{ env.STORYBOOK_IMAGE }}:builder -f docker/storybook.Dockerfile .
           docker push ${{ env.STORYBOOK_IMAGE }}:latest
           docker tag ${{ env.STORYBOOK_IMAGE }}:latest $BUILD_IMAGE_URI
           docker push $BUILD_IMAGE_URI
