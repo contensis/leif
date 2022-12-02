@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # When we auto increment the version, we should remove that as part of the copy to ensure the cache is maintained. i.e strip the version number before copying the file.
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache &> /dev/null
+RUN yarn install --silent --non-interactive --prefer-offline
 
 FROM ${builder_image} AS build
 COPY .storybook /usr/src/app/.storybook
