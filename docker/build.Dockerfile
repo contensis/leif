@@ -6,10 +6,10 @@ FROM ${builder_image} AS prepare
 RUN apt-get update -yq
 RUN apt-get install libglu1 -yq
 WORKDIR /usr/src/app
-RUN npm install -g mocha
+RUN yarn global add mocha
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --non-interactive
+RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache &> /dev/null
 
 
 FROM ${builder_image} AS build
@@ -35,7 +35,7 @@ COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --production --link-duplicates --silent --non-interactive && yarn cache clean
+RUN yarn install --production --link-duplicates --silent --non-interactive --prefer-offline --cache-folder ./cache && yarn cache clean
 COPY .env* ./
 COPY webpack/define-config.js ./webpack/
 COPY --from=build /usr/src/app/dist dist
