@@ -42,7 +42,7 @@ jobs:
         id: build
         run: |
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
-          docker pull ${{ env.APP_IMAGE }}:builder
+          docker pull ${{ env.APP_IMAGE }}:builder || true
           RESULT=$?
           if [ $RESULT -eq 0 ]; then echo builder image already exists
           else
