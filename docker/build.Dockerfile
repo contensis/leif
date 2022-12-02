@@ -3,13 +3,13 @@ ARG builder_image
 FROM ${builder_image} AS prepare
 
 # The following prevents errors when cwebp is installing.
-RUN apt-get update -yq
-RUN apt-get install libglu1 -yq
+RUN apt-get update -qq
+RUN apt-get install libglu1 -qq
 WORKDIR /usr/src/app
 RUN yarn global add mocha
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache &> /dev/null
+RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
 
 
 FROM ${builder_image} AS build
@@ -35,7 +35,7 @@ COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --production --link-duplicates --silent --non-interactive --prefer-offline --cache-folder ./cache && yarn cache clean
+RUN yarn install --production --link-duplicates --silent --non-interactive --prefer-offline && yarn cache clean
 COPY .env* ./
 COPY webpack/define-config.js ./webpack/
 COPY --from=build /usr/src/app/dist dist
