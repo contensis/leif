@@ -1,6 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 // Essentially a dummy webpack config, we just want
 // the asset plugins to run independent of any other type
@@ -29,13 +29,20 @@ const PROCESS_PUBLIC_ASSETS_CONFIG = {
         },
       ],
     }),
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      optipng: {
-        optimizationLevel: 9,
-      },
-    }),
   ],
+  optimization: {
+    minimizer: [
+      new ImageMinimizerPlugin({
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [['optipng']],
+          },
+        },
+      }),
+    ],
+  },
 };
 
 module.exports = PROCESS_PUBLIC_ASSETS_CONFIG;
