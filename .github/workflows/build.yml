@@ -47,9 +47,9 @@ jobs:
           APP_IMAGE=${{ env.APP_IMAGE }}:latest
           APP_IMAGE_ARG=$APP_IMAGE
           BUILD_IMAGE=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
-          RESULT=$(`docker pull $BUILDER_IMAGE` || BUILDER_IMAGE_ARG=$BUILDER_BASE; echo 1)
+          RESULT=$(`docker pull $BUILDER_IMAGE` || `BUILDER_IMAGE_ARG=$BUILDER_BASE; echo 1`)
           if [ $RESULT -eq 0 ]; then echo builder image already exists; fi
-          RESULT=$(`docker pull $APP_IMAGE` || APP_IMAGE_ARG=$APP_BASE; echo 1)
+          RESULT=$(`docker pull $APP_IMAGE` || `APP_IMAGE_ARG=$APP_BASE; echo 1`)
           if [ $RESULT -eq 0 ]; then echo app image already exists; fi
           docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE_ARG --target prepare -f docker/build.Dockerfile .
           docker push $BUILDER_IMAGE
