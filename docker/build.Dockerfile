@@ -1,4 +1,4 @@
-ARG app_image
+ARG app_image=node:18-alpine
 ARG builder_image
 FROM ${builder_image} AS prepare
 
@@ -8,22 +8,23 @@ WORKDIR /usr/src/app
 RUN yarn global add mocha --cache-folder ./cache
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
+RUN yarn install --silent --non-interactive --prefer-offline
 
 
 FROM ${builder_image} AS build
-COPY .env* ./
-COPY .eslintignore .
-COPY .eslintrc.js .
-COPY .nvmrc .
-COPY .prettierignore .
-COPY .prettierrc .
-COPY babel.config.js .
-COPY tsconfig.json .
-COPY config config
-COPY public public
-COPY webpack webpack
-COPY src src
+COPY ./ ./
+# COPY .env* ./
+# COPY .eslintignore .
+# COPY .eslintrc.js .
+# COPY .nvmrc .
+# COPY .prettierignore .
+# COPY .prettierrc .
+# COPY babel.config.js .
+# COPY tsconfig.json .
+# COPY config config
+# COPY public public
+# COPY webpack webpack
+# COPY src src
 RUN yarn run build:ci
 RUN mocha --timeout=5000 dist/server/start.js -tests
 COPY version.json ./static/version.json
