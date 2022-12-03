@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 RUN yarn global add mocha --cache-folder ./cache
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --non-interactive --prefer-offline
+RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
 
 
 FROM ${builder_image} AS build
