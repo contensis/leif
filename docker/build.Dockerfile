@@ -5,7 +5,7 @@ FROM ${builder_image} AS prepare
 # The following prevents errors when cwebp is installing.
 RUN apt-get -qq update && apt-get -qq -y install libglu1
 WORKDIR /usr/src/app
-RUN yarn global add mocha --silent --non-interactive --prefer-offline
+RUN yarn global add mocha --silent --non-interactive --cache-folder ./cache
 COPY package.json .
 COPY yarn.lock .
 RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
