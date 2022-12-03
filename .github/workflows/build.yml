@@ -12,6 +12,8 @@ env:
   # github.repository as <account>/<repo>
   APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
   STORYBOOK_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/storybook
+  BUILDER_BASE: node:18
+  APP_BASE: node:18-alpine
 
 jobs:
   build-latest:
@@ -46,8 +48,8 @@ jobs:
             echo "Builder image exists: $BUILDER_IMAGE"; 
           fi
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"${{ github.run_id }}\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
-          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE_ARG --target prepare -f docker/build.Dockerfile .
-          docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --cache-from $LATEST_IMAGE --build-arg app_image=$APP_IMAGE_ARG --build-arg builder_image=$BUILDER_IMAGE -f docker/build.Dockerfile .
+          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=${BUILDER_IMAGE_ARG:=$BUILDER_BASE} --target prepare -f docker/build.Dockerfile .
+          docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --cache-from $LATEST_IMAGE --build-arg app_image=${APP_IMAGE_ARG:=$APP_BASE} --build-arg builder_image=$BUILDER_IMAGE -f docker/build.Dockerfile .
           docker push --all-tags ${{ env.APP_IMAGE }}
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
@@ -86,9 +88,9 @@ jobs:
       - name: Build the Docker image, tag and push to registry
         id: build
         run: |
-          BUILDER_IMAGE=${{ env.STORYBOOK_IMAGE }}:builder && BUILDER_IMAGE_ARG=$BUILDER_IMAGE && LATEST_IMAGE=${{ env.STORYBOOK_IMAGE }}:latest && BUILD_IMAGE=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
-          if [ "$(docker pull $BUILDER_IMAGE || echo 1)" == "1" ]; then BUILDER_IMAGE_ARG=$BUILDER_BASE; else echo "Builder image exists: $BUILDER_IMAGE"; fi
-          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE_ARG --target prepare -f docker/storybook.Dockerfile .
+          BUILDER_IMAGE=${{ env.STORYBOOK_IMAGE }}:builder && LATEST_IMAGE=${{ env.STORYBOOK_IMAGE }}:latest && BUILD_IMAGE=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
+          if [ "$(docker pull $BUILDER_IMAGE && BUILDER_IMAGE_ARG=$BUILDER_IMAGE || echo 1)" != "1" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
+          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=${BUILDER_IMAGE_ARG:=$BUILDER_BASE} --target prepare -f docker/storybook.Dockerfile .
           docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/storybook.Dockerfile .
           docker push --all-tags ${{ env.STORYBOOK_IMAGE }}
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT

@@ -1,5 +1,5 @@
-ARG app_image=node:18-alpine
-ARG builder_image=node:18
+ARG app_image
+ARG builder_image
 FROM ${builder_image} AS prepare
 
 # The following prevents errors when cwebp is installing.

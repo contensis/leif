@@ -1,4 +1,4 @@
-ARG builder_image=node:18
+ARG builder_image
 FROM ${builder_image} AS prepare
 
 # The following prevents errors when cwebp is installing.
