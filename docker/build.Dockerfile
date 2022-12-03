@@ -16,7 +16,6 @@ COPY ./ ./
 # COPY .env* ./
 # COPY .eslintignore .
 # COPY .eslintrc.js .
-# COPY .nvmrc .
 # COPY .prettierignore .
 # COPY .prettierrc .
 # COPY babel.config.js .

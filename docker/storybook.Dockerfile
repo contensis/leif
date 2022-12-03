@@ -11,21 +11,18 @@ COPY yarn.lock .
 RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
 
 FROM ${builder_image} AS build
+COPY babel.config.js .
+COPY .env* ./
+COPY .eslintignore .
+COPY .eslintrc.js .
+COPY .prettierignore .
+COPY .prettierrc .
+COPY tsconfig.json .
 COPY .storybook /usr/src/app/.storybook
 COPY config /usr/src/app/config
 COPY public /usr/src/app/public
 COPY src /usr/src/app/src
 COPY webpack /usr/src/app/webpack
-COPY babel.config.js .
-COPY .env* ./
-COPY .eslintignore .
-COPY .eslintrc.js .
-COPY .nvmrc .
-COPY .prettierignore .
-COPY .prettierrc .
-COPY .stylelintrc .
-COPY tsconfig.json .
-# COPY jsconfig.json .
 
 RUN yarn run storybook-static --quiet
 
