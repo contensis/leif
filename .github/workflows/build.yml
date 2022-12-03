@@ -44,25 +44,22 @@ jobs:
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"null\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
           BUILDER_IMAGE=${{ env.APP_IMAGE }}:builder
           BUILDER_IMAGE_ARG=$BUILDER_IMAGE
+          APP_IMAGE=${{ env.APP_IMAGE }}:latest
+          APP_IMAGE_ARG=$APP_IMAGE
+          BUILD_IMAGE=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
           RESULT=$(`docker pull $BUILDER_IMAGE` || echo 1)
           if [ $RESULT -eq 0 ]; then echo builder image already exists
           else
             BUILDER_IMAGE_ARG=$BUILDER_BASE
           fi
-          docker pull ${{ env.APP_IMAGE }}:latest
-          RESULT=$?
-          if [ $RESULT -eq 0 ]; then echo app image already exists
-          else
-            docker pull $APP_BASE
-            docker tag $APP_BASE ${{ env.APP_IMAGE }}:latest
-            docker push ${{ env.APP_IMAGE }}:latest
-          fi
+          RESULT=$(`docker pull $APP_IMAGE` || APP_IMAGE_ARG=$APP_BASE; echo 1)
+          if [ $RESULT -eq 0 ]; then echo app image already exists; fi
           docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE_ARG --target prepare -f docker/build.Dockerfile .
           docker push $BUILDER_IMAGE
-          docker build -t ${{ env.APP_IMAGE }}:latest --build-arg builder_image=$BUILDER_IMAGE --build-arg app_image=${{ env.APP_IMAGE }}:latest -f docker/build.Dockerfile .
-          docker push ${{ env.APP_IMAGE }}:latest
+          docker build -t $APP_IMAGE --build-arg builder_image=$BUILDER_IMAGE --build-arg app_image=$APP_IMAGE_ARG -f docker/build.Dockerfile .
+          docker push $APP_IMAGE
           BUILD_IMAGE=${{ env.APP_IMAGE }}:build-${{ github.run_number }}
-          docker tag ${{ env.APP_IMAGE }}:latest $BUILD_IMAGE
+          docker tag $APP_IMAGE $BUILD_IMAGE
           docker push $BUILD_IMAGE
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
@@ -107,7 +104,7 @@ jobs:
           docker pull $BUILDER_IMAGE || true
           docker build -t $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/storybook.Dockerfile .
           docker push $BUILDER_IMAGE
-          docker build --force-rm --cache-from $BUILDER_IMAGE -t $LATEST_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/storybook.Dockerfile .
+          docker build --cache-from $BUILDER_IMAGE -t $LATEST_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/storybook.Dockerfile .
           docker push $LATEST_IMAGE
           docker tag $LATEST_IMAGE $BUILD_IMAGE
           docker push $BUILD_IMAGE

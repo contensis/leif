@@ -28,7 +28,7 @@ COPY .stylelintrc .
 COPY tsconfig.json .
 # COPY jsconfig.json .
 
-RUN yarn run storybook-static
+RUN yarn run storybook-static -- --quiet
 
 FROM pierrezemb/gostatic
 COPY --from=build  /usr/src/app/.out /usr/src/app/dist
