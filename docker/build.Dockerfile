@@ -25,7 +25,7 @@ COPY ./ ./
 # COPY webpack webpack
 # COPY src src
 # COPY version.json ./dist/static/version.json
-RUN yarn run build:ci
+RUN yarn run build
 RUN mocha --timeout=5000 dist/server/start.js -tests
 RUN cp version.json ./dist/static/version.json && cat ./dist/static/version.json
 
