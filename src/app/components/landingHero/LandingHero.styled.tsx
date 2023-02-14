@@ -58,6 +58,12 @@ const LandingHeroStyled = styled.div`
         max-width: 590px;
         width: 100%;
       }
+      .landing-hero__btn {
+        margin: 0 auto;
+        @media ${theme.mq.desktop} {
+          margin: 0;
+        }
+      }
     `;
   }}
 `;
