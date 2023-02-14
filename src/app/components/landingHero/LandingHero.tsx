@@ -1,9 +1,7 @@
 import React from 'react';
-
-import HeroContent from '../heroContent/HeroContent';
-import Image from '../image/Image';
 import Region from '../../layout/Region';
 import GenericHero from '../genericHero/GenericHero';
+import LinkButton from '../linkButton/LinkButton';
 import LandingHeroStyled from './LandingHero.styled';
 
 export interface Props {
@@ -23,58 +21,45 @@ export interface Props {
 const LandingHero = ({
   className,
   imageUri,
-  imageAlt,
   title,
   summary,
   ctaLink,
   ctaText,
-  hasIllustration,
+  hasIllustration = false,
   heroIllustrationUri,
   heroIllustrationAlt,
-  headingLevel = 1,
 }: Props) => {
   const _RenderHero = (hasIllustration: boolean) => {
-    switch (hasIllustration) {
-      case true:
-        return (
-          <Region margin="none" width="default" padding="default">
-            <GenericHero
-              title={title}
-              imageUri={heroIllustrationUri}
-              imageAlt={heroIllustrationAlt}
-              ctaLink={ctaLink}
-              ctaText={ctaText}
-              text={summary}
-            />
-          </Region>
-        );
-      case false:
-      default:
-        return (
-          <LandingHeroStyled className={className}>
-            <div className="image-hero__image-wrapper">
-              <Image
-                className="image-hero__image"
-                src={imageUri}
-                alt={imageAlt}
-                layout="fill"
-                objectFit="cover"
-                quality={80}
+    if (hasIllustration) {
+      return (
+        <Region margin="none" width="default" padding="default">
+          <GenericHero
+            title={title}
+            imageUri={heroIllustrationUri}
+            imageAlt={heroIllustrationAlt}
+            ctaLink={ctaLink}
+            ctaText={ctaText}
+            text={summary}
+          />
+        </Region>
+      );
+    } else {
+      return (
+        <LandingHeroStyled className={className} src={imageUri}>
+          <div className="landing-hero__content">
+            <h1 className="landing-hero__title">{title}</h1>
+            {summary && <p className="landing-hero__summary">{summary}</p>}
+            {ctaLink && (
+              <LinkButton
+                className="landing-hero__btn"
+                icon="arrow-right"
+                label={ctaText}
+                href={ctaLink}
               />
-              <div className="image-hero__image-overlay" />
-            </div>
-            <div className="image-hero__content">
-              <HeroContent
-                title={title}
-                summary={summary}
-                ctaLink={ctaLink}
-                ctaText={ctaText}
-                headingLevel={headingLevel}
-                btnIcon="arrow-right"
-              />
-            </div>
-          </LandingHeroStyled>
-        );
+            )}
+          </div>
+        </LandingHeroStyled>
+      );
     }
   };
   return <>{_RenderHero(hasIllustration)}</>;

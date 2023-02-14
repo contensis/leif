@@ -1,34 +1,61 @@
 import styled, { css } from 'styled-components';
 
 const LandingHeroStyled = styled.div`
-  ${({ theme }) => {
+  ${({ theme, src }: { src: string }) => {
     return css`
       margin-top: -84px;
       position: relative;
-      .image-hero__image-wrapper {
-        position: relative;
-        min-height: 800px;
-        height: 85vh;
-      }
-      .image-hero__image {
-        height: 512px;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-        @media ${theme.mq.laptop} {
-          height: 800px;
-        }
-      }
-      .image-hero__image-overlay {
+      background-image: url(${src});
+      background-position: top;
+      background-size: 100% 512px;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 16px;
+      min-height: 800px;
+      &:before {
+        content: '';
         background: linear-gradient(
           180deg,
           rgba(43, 47, 81, 0.4) 15.88%,
           rgba(43, 47, 81, 0) 100%
         );
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
         height: 100%;
+        width: 100%;
+      }
+      @media ${theme.mq.desktop} {
+        display: block;
+        padding: 168px 0;
+        background-size: cover;
+        background-position: center;
+      }
+      .landing-hero__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        width: 100%;
+        padding: 40px 16px;
+        background: ${theme.colors.neutral_white};
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
+        @media ${theme.mq.desktop} {
+          max-width: 590px;
+          box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
+          padding: 56px 40px 56px 80px;
+          border-radius: 0 8px 8px 0;
+          text-align: left;
+        }
+      }
+      .landing-hero__title {
+        margin: 0 0 16px;
+      }
+      .landing-hero__summary {
+        margin: 0 auto 40px;
+        max-width: 590px;
         width: 100%;
       }
     `;
