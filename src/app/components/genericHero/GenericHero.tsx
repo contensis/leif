@@ -126,6 +126,7 @@ const GenericHero = ({
             height={432}
             width={510}
             className="generic-hero__image"
+            objectFit="cover"
           />
         )}
       </ConditionalLink>
