@@ -10,7 +10,7 @@ on:
 env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
+  APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.base_ref }}/app
 
 jobs:
   release:
