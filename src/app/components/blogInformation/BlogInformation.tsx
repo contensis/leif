@@ -8,16 +8,18 @@ import BlogDetail from '../blogDetail/BlogDetail';
 export interface Props {
   className?: string;
   readTime?: string;
+  author?: {
+    photo: string;
+    name: string;
+  };
   date?: string;
-  photo?: string;
-  name?: string;
 }
 
-const BlogInformation = ({ className, readTime, date, photo, name }: Props) => {
+const BlogInformation = ({ className, readTime, date, author }: Props) => {
   return (
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">
-        <Author photo={photo} name={name} />
+        {/* {author && <Author photo={author.photo} name={author.name} />} */}
         <SocialShare className="blog-info__socials" />
       </div>
       <div className="blog-info__wrapper">

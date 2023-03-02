@@ -26,18 +26,20 @@ export const blogPostPropsMapping = {
     backLinkLabel: () => 'Blogs',
   },
   blogInformationProps: {
-    photo: {
-      $path: 'author.photo',
-      $formatting: (img: any) =>
-        img && img.asset && img.asset.sys && img.asset.sys.uri,
-      $default: () => '/image-library/default-images/leif-fallback.png',
-    },
-    name: 'author.name',
-    date: ({ sys }: any) =>
-      dateWithSuffix(sys && sys.version && sys.version.published),
-    readTime: ({ postBody }: any) => {
-      const composer = mapComposer(postBody, composerPropsMapping);
-      return _calReadTime(composer);
+    author: {
+      photo: {
+        $path: 'author.photo',
+        $formatting: (img: any) =>
+          img && img.asset && img.asset.sys && img.asset.sys.uri,
+        $default: () => '/image-library/default-images/leif-fallback.png',
+      },
+      name: 'author.name',
+      date: ({ sys }: any) =>
+        dateWithSuffix(sys && sys.version && sys.version.published),
+      readTime: ({ postBody }: any) => {
+        const composer = mapComposer(postBody, composerPropsMapping);
+        return _calReadTime(composer);
+      },
     },
   },
   leadParagraphProps: {
