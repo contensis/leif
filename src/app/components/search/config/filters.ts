@@ -14,13 +14,13 @@ export const BlogFilters = {
     isSingleSelect: true,
     items: [],
   },
-  [Blog.author]: {
-    title: 'Browse by author',
-    contentTypeId: ContentTypes.person,
-    fieldId: 'author.sys.id',
-    isSingleSelect: true,
-    items: [],
-  },
+  // [Blog.author]: {
+  //   title: 'Browse by author',
+  //   contentTypeId: ContentTypes.person,
+  //   fieldId: 'author.sys.id',
+  //   isSingleSelect: true,
+  //   items: [],
+  // },
 };
 
 // Product Listing Filters
