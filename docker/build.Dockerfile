@@ -1,6 +1,6 @@
-ARG app_image
+ARG app_image=node:18-alpine
 ARG builder_image
-FROM ${builder_image} AS prepare
+FROM node:18 AS prepare
 
 # The following prevents errors when cwebp is installing.
 RUN apt-get -qq update && apt-get -qq -y install libglu1
@@ -9,7 +9,6 @@ RUN yarn global add mocha --silent --non-interactive --cache-folder ./cache
 COPY package.json .
 COPY yarn.lock .
 RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
-
 
 FROM ${builder_image} AS build
 COPY ./ ./
@@ -34,7 +33,7 @@ COPY manifest.json /
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --production --link-duplicates --silent --non-interactive --prefer-offline --cache-folder ./cache && yarn cache clean
+RUN yarn config set cache-folder .cache && yarn install --production --link-duplicates --silent --non-interactive --prefer-offline && yarn cache clean
 COPY .env* ./
 COPY webpack/define-config.js ./webpack/
 COPY --from=build /usr/src/app/dist dist
