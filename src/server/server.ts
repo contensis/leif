@@ -40,6 +40,23 @@ ZengentiAppServer.start(
 
 const app = ZengentiAppServer.app;
 
+app.on('ready', () => {
+  // eslint-disable-next-line no-console
+  console.log(
+    `${JSON.stringify(
+      Object.fromEntries(
+        Object.entries(process.env).filter(([key, value]) => {
+          return (
+            !key.toLowerCase().includes('port') &&
+            !key.toLowerCase().includes('proto') &&
+            !key.toLowerCase().includes('host')
+          );
+        })
+      )
+    )}`
+  );
+});
+
 app.emit('ready');
 
 export { app };
