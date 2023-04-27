@@ -20550,10 +20550,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zengenti-buildstartup-package@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/zengenti-buildstartup-package/-/zengenti-buildstartup-package-0.0.17.tgz#371e7fd8d4ac1154dddb0a6f49458e32ad1e0e42"
-  integrity sha512-2SXuJzWOxQ0NiGRa09SKbJSSSUWbdqox2apDa8kD5wkFo3kpU86ih0HqSFtnv9ZviyTQ5+KHcqIjQQysiWsYPg==
+zengenti-buildstartup-package@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/zengenti-buildstartup-package/-/zengenti-buildstartup-package-0.0.18.tgz#e7c2561c5cb1b0f6bc9fd0f79c7d5aa5f981d718"
+  integrity sha512-2XcSAfej2WweTA7FwYXgcsDSaAWxEBu5qHMBjm9GfM0PVPyHL9KBxh22lThHaWWtLgJCfhbXyvqhXt+qOa4E9Q==
   dependencies:
     custom-env "^1.0.2"
     minimist "^1.2.5"

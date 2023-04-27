@@ -136,7 +136,7 @@
     "webpack-merge": "^5.8.0",
     "webpack-modules": "^1.0.0",
     "webpack-node-externals": "^3.0.0",
-    "zengenti-buildstartup-package": "^0.0.17"
+    "zengenti-buildstartup-package": "^0.0.18"
   },
   "dependencies": {
     "@zengenti/contensis-react-base": "^3.0.0",
