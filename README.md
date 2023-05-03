@@ -2,7 +2,7 @@
 
 Built with [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/) and our [Delivery API](https://www.npmjs.com/package/contensis-delivery-api)
 
-Leif is our demo project, built with [Contensis](https://contensis.com)
+Leif is our demo project, built with [Contensis](https://contensis.com).
 
 ## What is Contensis?
 
