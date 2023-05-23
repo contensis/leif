@@ -4,7 +4,7 @@ Built with [React](https://reactjs.org/), [TypeScript](https://www.typescriptlan
 
 Leif is our demo project, built with [Contensis](https://contensis.com).
 
-## What is Contensis?
+## What is Contensis? 🤔
 
 [Contensis](contensis.com) provides a single place to create, maintain and deliver your content. Its content modelling, authoring, and governance features help your teams to create and keep on top of well-structured content. A flexible set of APIs make it easy to use your content in any way you like.
 
