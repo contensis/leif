@@ -15,7 +15,7 @@ export interface Props {
   date?: string;
 }
 
-const BlogInformation = ({ className, readTime, date, author }: Props) => {
+const BlogInformation = ({ className, readTime, date /* author*/ }: Props) => {
   return (
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">
