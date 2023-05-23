@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Author from '../author/Author';
+// import Author from '../author/Author';
 
 import BlogInformationStyled from './BlogInformation.styled';
 import SocialShare from '../socialShare/SocialShare';
@@ -19,7 +19,7 @@ const BlogInformation = ({ className, readTime, date, author }: Props) => {
   return (
     <BlogInformationStyled className={className}>
       <div className="blog-info__author">
-        {author && <Author photo={author.photo} name={author.name} />}
+        {/* {author && <Author photo={author.photo} name={author.name} />} */}
         <SocialShare className="blog-info__socials" />
       </div>
       <div className="blog-info__wrapper">
