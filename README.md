@@ -44,6 +44,6 @@ Open [http://localhost:3000](http://localhost:3000) and take a look around.
 - `yarn server` - start the application server same as we would as if it were deployed in production
 - `yarn build:server` - build the application and start the server-side application from source code (allowing us to connect a debugger and stop on code that is executed server-side)
 
-## Contributions
+## Contributions 🤝
 
 **Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.**
