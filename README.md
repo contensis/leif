@@ -22,7 +22,7 @@ Leif is our demo project, built with [Contensis](https://contensis.com).
 - Define routes in your application, there are 'Static routes' and 'Content type mappings' which tell the application what pages are to be loaded and when certain routes / content type entries are loaded
 - Import components using the import aliases e.g. `~/myComponent/MyComponent` avoid importing components like `/src/app/myComponent/MyComponent` or `../../../myComponent/MyComponent`
 
-### Common setup
+### Common setup 📍
 
 ```bash
 git clone git@github.com:contensis/leif.git
