@@ -6,8 +6,8 @@ const LandingHeroStyled = styled.div`
       margin-top: -84px;
       position: relative;
       background-image: url(${src});
+      background-size: cover;
       background-position: top;
-      background-size: 100% 512px;
       background-repeat: no-repeat;
       display: flex;
       align-items: flex-end;
