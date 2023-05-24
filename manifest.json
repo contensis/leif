@@ -1,4 +1,4 @@
 {
-    "static_paths": [    
-    ]
+  "static_paths": [],
+  "enableFullUriRouting": true
 }
