@@ -94,7 +94,7 @@ jobs:
     uses: ./.github/workflows/push-block.yml
     secrets: inherit
     with:
-      block-id: uni-demo-website
+      block-id: leif-website
       image-uri: ${{ needs.build-app.outputs.image-uri }}
       tag-repo: true
 
@@ -138,6 +138,6 @@ jobs:
     secrets: inherit
     uses: ./.github/workflows/push-block.yml
     with:
-      block-id: uni-demo-storybook
+      block-id: leif-storybook
       image-uri: ${{ needs.build-storybook.outputs.image-uri }}
       auto-release: true
