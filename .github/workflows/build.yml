@@ -14,9 +14,45 @@ env:
   STORYBOOK_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/storybook
 
 jobs:
-  build-latest:
-    name: Docker build latest code
+  build-builder:
+    name: Docker build reusable builder container
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    outputs:
+      image-uri: ${{ steps.build.outputs.builder-image-uri }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Login against a Docker registry except on PR
+      - name: Log into container registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Docker image, tag and push to registry
+        id: build
+        env:
+          BUILDER_IMAGE: ${{ env.APP_IMAGE }}:builder
+        run: |
+          echo "Pulling images to use for build cache: $BUILDER_IMAGE"
+          if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
+          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/build.Dockerfile .
+          docker push --all-tags ${{ env.APP_IMAGE }}
+          echo "builder-image-uri=$BUILDER_IMAGE" >> $GITHUB_OUTPUT
+
+  build-app:
+    name: Docker build latest app code
+    runs-on: ubuntu-latest
+    needs: build-builder
+
     permissions:
       contents: read
       packages: write
@@ -40,32 +76,32 @@ jobs:
       - name: Build the Docker image, tag and push to registry
         id: build
         env:
-          BUILDER_IMAGE: ${{ env.APP_IMAGE }}:builder
-          LATEST_IMAGE: ${{ env.APP_IMAGE }}:latest
+          BUILDER_IMAGE: ${{ needs.build-builder.outputs.image-uri }}
           BUILD_IMAGE: ${{ env.APP_IMAGE }}:build-${{ github.run_number }}
+          LATEST_IMAGE: ${{ env.APP_IMAGE }}:latest
         run: |
           echo "Pulling images to use for build cache: $BUILDER_IMAGE $LATEST_IMAGE"
           echo "{\"commitRef\":\"${{ github.sha }}\",\"pipelineIID\":\"${{ github.run_id }}\",\"pipelineUrl\":\"${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}\",\"buildNo\":\"${{ github.run_number }}\",\"branchName\":\"${{ github.ref_name }}\",\"registryImage\":\"${{ env.APP_IMAGE }}\"}" > version.json
-          if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then BUILDER_IMAGE_ARG=$BUILDER_IMAGE; echo "Builder image exists: $BUILDER_IMAGE_ARG"; fi
+          if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
           if [[ -n "$BUILDER_IMAGE_ARG" && -n "$(docker pull $LATEST_IMAGE || echo "")" ]]; then echo "App image exists: $LATEST_IMAGE"; fi
-          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/build.Dockerfile .
           docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --cache-from $LATEST_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/build.Dockerfile .
           docker push --all-tags ${{ env.APP_IMAGE }}
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
   push-app-block:
     name: Push Contensis block
-    needs: build-latest
+    needs: build-app
     uses: ./.github/workflows/push-block.yml
     secrets: inherit
     with:
-      block-id: leif-website
-      image-uri: ${{ needs.build-latest.outputs.image-uri }}
+      block-id: uni-demo-website
+      image-uri: ${{ needs.build-app.outputs.image-uri }}
       tag-repo: true
 
   build-storybook:
     name: Docker build storybook
     runs-on: ubuntu-latest
+    needs: build-builder
     permissions:
       contents: read
       packages: write
@@ -87,20 +123,21 @@ jobs:
 
       - name: Build the Docker image, tag and push to registry
         id: build
+        env:
+          BUILDER_IMAGE: ${{ needs.build-builder.outputs.image-uri }}
+          BUILD_IMAGE: ${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
+          LATEST_IMAGE: ${{ env.STORYBOOK_IMAGE }}:latest
         run: |
-          BUILDER_IMAGE=${{ env.STORYBOOK_IMAGE }}:builder && LATEST_IMAGE=${{ env.STORYBOOK_IMAGE }}:latest && BUILD_IMAGE=${{ env.STORYBOOK_IMAGE }}:build-${{ github.run_number }}
-          if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then BUILDER_IMAGE_ARG=$BUILDER_IMAGE; echo "Builder image exists: $BUILDER_IMAGE_ARG"; fi
-          docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=${BUILDER_IMAGE_ARG:=$BUILDER_BASE} --target prepare -f docker/storybook.Dockerfile .
+          if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
           docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/storybook.Dockerfile .
           docker push --all-tags ${{ env.STORYBOOK_IMAGE }}
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
-
   push-storybook-block:
-    name: Push Contensis block
+    name: Push Storybook block
     needs: build-storybook
     secrets: inherit
     uses: ./.github/workflows/push-block.yml
     with:
-      block-id: leif-storybook
+      block-id: uni-demo-storybook
       image-uri: ${{ needs.build-storybook.outputs.image-uri }}
       auto-release: true
