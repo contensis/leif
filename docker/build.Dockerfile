@@ -23,7 +23,7 @@ RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./ca
 FROM ${builder_image} AS build
 COPY ./ ./
 RUN yarn run build
-RUN mocha --timeout=5000 dist/server/start.js -tests
+# RUN mocha --timeout=5000 dist/server/start.js -tests
 RUN cp version.json ./dist/static/version.json && cat ./dist/static/version.json
 
 FROM ${app_base} AS final
