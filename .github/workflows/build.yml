@@ -2,10 +2,10 @@ name: Docker - Build and push latest
 
 on:
   push:
-    branches: ['**']
-    tags-ignore: ['release-*']
+    branches: [ '**' ]
+    tags-ignore: [ 'release-*' ]
   pull_request:
-    branches: ['**']
+    branches: [ '**' ]
 
 env:
   REGISTRY: ghcr.io
