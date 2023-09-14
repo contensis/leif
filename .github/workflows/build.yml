@@ -88,15 +88,15 @@ jobs:
           docker push --all-tags ${{ env.APP_IMAGE }}
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
 
-  push-app-block:
-    name: Push Contensis block
-    needs: build-app
-    uses: ./.github/workflows/push-block.yml
-    secrets: inherit
-    with:
-      block-id: leif-website
-      image-uri: ${{ needs.build-app.outputs.image-uri }}
-      tag-repo: true
+  # push-app-block:
+  #   name: Push Contensis block
+  #   needs: build-app
+  #   uses: ./.github/workflows/push-block.yml
+  #   secrets: inherit
+  #   with:
+  #     block-id: leif-website
+  #     image-uri: ${{ needs.build-app.outputs.image-uri }}
+  #     tag-repo: true
 
   # build-storybook:
   #   name: Docker build storybook
