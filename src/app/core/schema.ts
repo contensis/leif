@@ -92,13 +92,13 @@ export const ContentTypes = {
   landingPage: 'landingPage',
   product: 'product',
   blogListing: 'blogListing',
-  productListing: 'productListing',
   category: 'category',
   person: 'person',
   plant: 'plant',
   pot: 'pot',
   plantType: 'plantType',
   review: 'review',
+  skeletonPage: 'skeletonPage',
 };
 
 export const SearchContentTypes = [
@@ -128,7 +128,7 @@ export const Listings = {
 
 export const ListingPages = {
   [ContentTypes.blogListing]: Listings.blog,
-  [ContentTypes.productListing]: Listings.product,
+  [ContentTypes.skeletonPage]: Listings.product,
 };
 
 export const SearchFacets = {

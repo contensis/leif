@@ -28,7 +28,7 @@ const {
   landingPage,
   plant,
   pot,
-  productListing,
+  skeletonPage,
 } = ContentTypes;
 
 const contentTypeMappings: ContentTypeMapping[] = [
@@ -71,9 +71,13 @@ const contentTypeMappings: ContentTypeMapping[] = [
     entryMapper: entryMapper(blogListingPropsMapping),
   },
   {
-    contentTypeID: productListing,
+    contentTypeID: skeletonPage,
     component: ProductListing,
-    entryMapper: entryMapper(productListingPropsMapping),
+    entryMapper: ({ entry, slug }) => {
+      if (slug === 'products') {
+        return mapJson(entry, productListingPropsMapping);
+      }
+    },
   },
 ];
 

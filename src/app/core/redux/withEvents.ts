@@ -49,7 +49,7 @@ export default {
     // the right parameters to drive them
     switch (contentTypeId) {
       case ContentTypes.blogListing:
-      case ContentTypes.productListing:
+      case ContentTypes.skeletonPage:
         triggerListing = true;
         break;
     }
