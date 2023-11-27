@@ -1,19 +1,4 @@
-import { css } from 'styled-components';
 import { sizesNoUnit } from './layout';
-
-export const HelveticaFontFace = css`
-  @font-face {
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Helvetica'), local('Helvetica'),
-      url('/static/fonts/Helvetica.woff2') format('woff2'),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/static/fonts/Helvetica.woff') format('woff');
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    font-display: swap;
-  }
-`;
 
 /**
  * Define base font parameters
@@ -31,8 +16,8 @@ export const fontBase = {
  * @type {{default: string, headings: string, [key:string]: string}}
  */
 export const fontFamily = {
-  default: `'Helvetica', Arial, sans-serif`,
-  headings: `'Source Serif Pro', serif`,
+  default: `'Inter', sans-serif`,
+  headings: `'Source Serif 4', serif`,
 };
 
 /**

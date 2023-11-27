@@ -1,18 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import {
-  HelveticaFontFace,
-  fontFamily,
-  fontWeight,
-  fontBase,
-  typeStyles,
-} from './typography';
+import { fontFamily, fontWeight, fontBase, typeStyles } from './typography';
 
 import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
-  ${HelveticaFontFace};
   /* Normalize / Reset css */
   ${normalize}
 	*,
