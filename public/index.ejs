@@ -1,64 +1,53 @@
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/" lang="en" dir="ltr">
-  <head>
-    <!-- General metadata *Common to all pages.-->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,shrink-to-fit=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--[if IE 11]>
-      <meta name="msapplication-config" content="static/browserconfig.xml" />
-    <![endif]-->
+<html lang="en" dir="ltr">
 
-    <!-- Standard favicon -->
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/icons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png" />
-    <link rel="manifest" href="/static/site.webmanifest" />
-    <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#00aba9" />
-    <meta name="theme-color" content="#ffffff" />
+<head>
+  <!-- General metadata *Common to all pages.-->
+  <meta charset="utf-8" />
+  <!-- Title provided by page component over a Helmet HOC. -->
+  {{TITLE}}
+  {{SEO_CRITICAL_METADATA}}
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Title provided by page component over a Helmet HOC. -->
+  <!--[if IE 11 ]>
+    <meta name="msapplication-config" content="static/browserconfig.xml" />
+  <![endif]-->
+
+  <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/icons/apple-touch-icon.png" >
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png" >
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png" >
+    <link rel="manifest" href="/static/site.webmanifest" >
+    <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#5bbad5" >
+    <meta name="msapplication-TileColor" content="#00aba9" >
+    <meta name="theme-color" content="#ffffff" >
+
+  {{CRITICAL_CSS}}
+
+  <script type="text/javascript">
+    Object.entries || document.write(
+      '<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default,es2015,es2016,es2017,es2018,es2019"><\/script>'
+    );
+  </script>  
 
     <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  
+</head>
 
-    {{TITLE}}
-    {{SEO_CRITICAL_METADATA}}
-
-    {{CRITICAL_CSS}}
-
-    <!-- Social Media Metadata. [Facebook] -->
-    <meta property="og:type" content="website" />
-    <!-- Social Media Metadata [Twitter] -->
-
-    <script type="text/javascript">
-      Object.entries ||
-        document.write(
-          '<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default,es2015,es2016,es2017"><\/script>'
-        );
-      function noModules() {
-        var s = document.createElement('script');
-        return (
-          !('noModule' in s) || navigator.appVersion.indexOf('Edge') !== -1
-        );
-      }
-    </script>
-  </head>
-
-  <body>
-    <div id="root">{{ APP }}</div>
-
-    {{ REDUX_DATA }}
-
-    {{ LOADABLE_CHUNKS }}
-
-    <!-- HTMLWebpackPlugin can not output the bundles from both builds so the scripts are injected here
+<body>
+  <div id="root">{{APP}}</div>
+  
+  {{REDUX_DATA}}
+  
+  {{LOADABLE_CHUNKS}}
+  
+  <!-- HTMLWebpackPlugin can not output the bundles from both builds so the scripts are injected here
         by WebpackModuleNomodulePlugin instead -->
-  </body>
+
+</body>
+
 </html>

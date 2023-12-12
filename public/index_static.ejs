@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/" lang="en" dir="ltr">
+<html lang="en" dir="ltr">
 
 <head>
-	<!-- General metadata *Common to all pages.-->
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- General metadata *Common to all pages.-->
+  <meta charset="utf-8" />
+  <!-- Title provided by page component over a Helmet HOC. -->
+  {{TITLE}}
+  {{SEO_CRITICAL_METADATA}}
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <!--[if IE 11 ]>
+    <meta name="msapplication-config" content="static/browserconfig.xml" />
+  <![endif]-->
 
-	<head>
-		<!-- General metadata *Common to all pages.-->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/img/icons/apple-touch-icon.png" >
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png" >
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png" >
+    <link rel="manifest" href="/static/site.webmanifest" >
+    <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#5bbad5" >
+    <meta name="msapplication-TileColor" content="#00aba9" >
+    <meta name="theme-color" content="#ffffff" >
 
-		<!--[if IE 11]>
-      <meta name="msapplication-config" content="static/browserconfig.xml" />
-    <![endif]-->
-
-		<!-- Standard favicon -->
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png">
-    <link rel="manifest" href="/static/site.webmanifest">
-    <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" />
-    <!-- Title provided by page component over a Helmet HOC. -->
-
-    <!-- Google fonts -->
+  <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-    
-		{{TITLE}}
-		{{SEO_CRITICAL_METADATA}}
-		{{CRITICAL_CSS}}
+  
 
-	</head>
+  {{CRITICAL_CSS}}
+
+</head>
 
 <body>
 	<div id="root">{{APP}}</div>
