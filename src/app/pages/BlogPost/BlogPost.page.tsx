@@ -1,7 +1,8 @@
 import React from 'react';
 
 // Components
-import { Composer } from '~/dynamic/components';
+// import { Composer } from '~/dynamic/components';
+import { Canvas } from '~/dynamic/components';
 import Metadata from '~/components/metadata/Metadata';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import GenericHero from '~/components/genericHero/GenericHero';
@@ -22,10 +23,12 @@ const BlogPost = ({ mappedEntry }: Props) => {
     blogHeroProps,
     blogInformationProps,
     leadParagraphProps,
-    contentComposerProps,
+    // contentComposerProps,
+    canvas,
     ctaBannerProps,
     relatedContentProps,
   } = mappedEntry || {};
+
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
@@ -38,7 +41,8 @@ const BlogPost = ({ mappedEntry }: Props) => {
       <Region width="small" margin="default">
         <LeadParagraph {...leadParagraphProps} />
       </Region>
-      <Composer {...contentComposerProps} />
+      {/* <Composer {...contentComposerProps} /> */}
+      <Canvas data={canvas} />
       <Region width="small" margin="large">
         <CTABanner {...ctaBannerProps} />
       </Region>

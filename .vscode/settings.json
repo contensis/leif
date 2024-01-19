@@ -22,7 +22,7 @@
   "html.format.endWithNewline": false,
   // Turns auto fix on save on or off.
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   // Always show the ESlint status bar item.
   "eslint.alwaysShowStatus": false,
