@@ -5,8 +5,11 @@ import {
   Block,
 } from '@contensis/canvas-react';
 import Region from '~/layout/Region';
-import { FeaturedProductComponent, Image, Quote } from '~/dynamic/components';
+
 import MarkupBlock from './blocks/markup/Markup.block';
+import ImageCanvasBlock from './blocks/image/Image.block';
+import QuoteBlock from './blocks/quote/quote.block';
+import FeaturedProductComponent from '~/components/canvas/components/featuredProduct/featuredProduct';
 
 export interface Props {
   isContentPage?: boolean;
@@ -29,8 +32,8 @@ const Canvas = ({
           blocks={{
             _paragraph: MarkupBlock,
             _heading: MarkupBlock,
-            _image: Image,
-            _quote: Quote,
+            _image: ImageCanvasBlock,
+            _quote: QuoteBlock,
           }}
           components={{
             featuredProduct: FeaturedProductComponent,

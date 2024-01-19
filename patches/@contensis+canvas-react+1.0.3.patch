@@ -1,0 +1,13 @@
+diff --git a/node_modules/@contensis/canvas-react/package.json b/node_modules/@contensis/canvas-react/package.json
+index e3e6290..2d53d8e 100644
+--- a/node_modules/@contensis/canvas-react/package.json
++++ b/node_modules/@contensis/canvas-react/package.json
+@@ -31,7 +31,7 @@
+     "build": "tsup --dts-resolve",
+     "tsc": "tsc --noEmit"
+   },
+-  "dependencies": {
++  "peerDependencies": {
+     "react": ">16.8.0",
+     "react-dom": ">16.8.0"
+   },
