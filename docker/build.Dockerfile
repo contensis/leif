@@ -31,7 +31,6 @@ COPY manifest.json /
 WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
-COPY /patches .
 RUN yarn config set cache-folder .cache && yarn install --production --link-duplicates --silent --non-interactive --prefer-offline && yarn cache clean
 COPY .env* ./
 COPY webpack/define-config.js ./webpack/
