@@ -10,7 +10,6 @@ RUN apt-get -qq update && apt-get -qq -y install libglu1
 
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
-COPY patches /usr/src/app/patches
 RUN yarn global add mocha --silent --non-interactive --cache-folder ./cache
 RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
 
@@ -31,7 +30,6 @@ COPY manifest.json /
 WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
-COPY --from=build /usr/src/app/patches patches
 RUN yarn config set cache-folder .cache && yarn install --production --link-duplicates --silent --non-interactive --prefer-offline && yarn cache clean
 COPY .env* ./
 COPY webpack/define-config.js ./webpack/

@@ -33,8 +33,7 @@
     "tsc": "tsc",
     "build:tsc": "yarn run tsc",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "postinstall": "patch-package"
+    "cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "http://Zengenti.com",
@@ -121,7 +120,6 @@
     "mocha": "^8.0.1",
     "nodemon": "^2.0.12",
     "parallel-webpack": "^2.6.0",
-    "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.7.1",
     "storybook-react-router": "^1.0.8",
