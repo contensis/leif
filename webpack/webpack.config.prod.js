@@ -48,7 +48,7 @@ const CLIENT_MODERN_CONFIG = {
         loader: 'esbuild-loader',
         options: {
           loader: 'tsx',
-          target: 'es2015',
+          target: 'es2022',
         },
       },
     ],
@@ -56,7 +56,7 @@ const CLIENT_MODERN_CONFIG = {
   optimization: {
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'es2015',
+        target: 'es2022',
       }),
     ],
   },
@@ -99,79 +99,6 @@ const CLIENT_MODERN_CONFIG = {
           to: path.resolve(__dirname, `../dist/static`),
         },
       ],
-    }),
-  ],
-};
-
-const CLIENT_LEGACY_CONFIG = {
-  name: `webpack-client-prod-config [legacy]`,
-  target: ['browserslist:IE >= 11', 'browserslist:> 1%'],
-  entry: {
-    app: [
-      path.resolve(__dirname, '../src/client/polyfills.legacy.ts'),
-      path.resolve(__dirname, '../src/client/client-entrypoint.ts'),
-    ],
-  },
-  output: {
-    path: path.resolve(__dirname, `../dist`),
-    filename: `${staticFolderPath}/legacy/js/[name].[chunkhash].js`,
-    chunkFilename: `${staticFolderPath}/legacy/js/[name].[chunkhash].js`,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(t|j)sx?$/,
-        include: [
-          path.resolve('src'),
-          // These dependencies have es6 syntax which ie11 doesn't like.
-          path.resolve('node_modules/contensis-delivery-api'),
-          path.resolve('node_modules/contensis-management-api'),
-          path.resolve('node_modules/fromentries'),
-          path.resolve('node_modules/jsonpath-mapper'),
-          path.resolve('node_modules/@zengenti/contensis-react-base'),
-          path.resolve('node_modules/zengenti-isomorphic-base'),
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: { envName: 'legacy' },
-        },
-      },
-    ],
-  },
-  optimization: {
-    minimizer: [
-      new ESBuildMinifyPlugin({
-        target: 'es5',
-      }),
-    ],
-  },
-  plugins: [
-    new WebpackModules(),
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, '../public/index.ejs'),
-      filename: path.resolve(__dirname, `../dist/index.html`),
-      inject: false,
-      minify,
-      chunksSortMode: 'none',
-    }),
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, '../public/index_fragment.ejs'),
-      filename: path.resolve(__dirname, `../dist/index_fragment.html`),
-      inject: false,
-      minify,
-      chunksSortMode: 'none',
-    }),
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, '../public/index_static.ejs'),
-      filename: path.resolve(__dirname, `../dist/index_static.html`),
-      inject: false,
-      minify,
-      chunksSortMode: 'none',
-    }),
-    new LoadablePlugin({
-      writeToDisk: {
-        filename: path.resolve(__dirname, `../dist/legacy`),
-      },
     }),
   ],
 };
@@ -229,7 +156,7 @@ const SERVER_PROD_CONFIG = {
         loader: 'esbuild-loader',
         options: {
           loader: 'tsx',
-          target: 'node16',
+          target: 'node18',
         },
       },
       {
@@ -247,7 +174,7 @@ const SERVER_PROD_CONFIG = {
   optimization: {
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'es2015',
+        target: 'es2022',
       }),
     ],
   },
@@ -275,7 +202,6 @@ if (process.env.ANALYZE) {
 } else {
   module.exports = [
     merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_MODERN_CONFIG),
-    merge(BASE_CONFIG, CLIENT_PROD_CONFIG, CLIENT_LEGACY_CONFIG),
     merge(BASE_CONFIG, SERVER_PROD_CONFIG),
   ];
 }

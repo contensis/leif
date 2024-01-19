@@ -34,14 +34,6 @@ const CLIENT_DEV_CONFIG = {
           target: 'es2015',
         },
       },
-      // {
-      //   test: /\.(t|j)sx?$/,
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: { envName: 'modern' },
-      //   },
-      // },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -69,22 +61,6 @@ const CLIENT_DEV_CONFIG = {
       filename: './index.html',
       chunksSortMode: 'none',
     }),
-    new BrowserSyncPlugin(
-      {
-        server: false,
-        host: 'localhost',
-        port: 3000,
-        proxy: 'http://127.0.0.1:3010',
-        open: 'local',
-        ui: false,
-      },
-      { reload: false }
-    ),
-    // new FriendlyErrorsWebpackPlugin({
-    //   compilationSuccessInfo: {
-    //     messages: ['Application is now running at http://localhost:3000'],
-    //   },
-    // }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -97,11 +73,11 @@ const CLIENT_DEV_CONFIG = {
   ],
   devServer: {
     host: '0.0.0.0',
-    port: 3010,
+    port: '3000',
     hot: true,
     historyApiFallback: true,
     proxy: DEVSERVER_PROXIES,
-    watchFiles: ['src/**/*'],
+    open: true,
   },
 };
 
