@@ -9,9 +9,8 @@ RUN apt-get -qq update && apt-get -qq -y install libglu1
 # RUN apk add --no-cache autoconf automake file g++ libpng-dev libtool make nasm
 
 WORKDIR /usr/src/app
+COPY package.json yarn.lock ./
 RUN yarn global add mocha --silent --non-interactive --cache-folder ./cache
-COPY package.json .
-COPY yarn.lock .
 RUN yarn install --silent --non-interactive --prefer-offline --cache-folder ./cache
 
 # The builder image will be built targeting the "prepare" alias
