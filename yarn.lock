@@ -1795,9 +1795,9 @@
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
 "@jridgewell/trace-mapping@^0.3.12", "@jridgewell/trace-mapping@^0.3.17", "@jridgewell/trace-mapping@^0.3.20", "@jridgewell/trace-mapping@^0.3.9":
-  version "0.3.21"
-  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.21.tgz#5dc1df7b3dc4a6209e503a924e1ca56097a2bb15"
-  integrity sha512-SRfKmRe1KvYnxjEMtxEr+J4HIeMX5YBg/qhRHpxEIGjhX1rshcHlnFUE9K0GazhVKWM7B+nARSkV8LuvJdJ5/g==
+  version "0.3.22"
+  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.22.tgz#72a621e5de59f5f1ef792d0793a82ee20f645e4c"
+  integrity sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==
   dependencies:
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
@@ -3307,9 +3307,9 @@
   integrity sha512-5ImO01Fb8YsEOYpV+aeyGYztcYcjGsBvN4D7G5r1ef2cuQOpymjWNQi5V0rKHE6PC2ru3HkoUr/Br2/8GUA84w==
 
 "@types/node@^14.0.10 || ^16.0.0", "@types/node@^14.14.20 || ^16.0.0":
-  version "16.18.72"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.72.tgz#a2337dda32ec1123894a15cebe3eb3b79ea2fa08"
-  integrity sha512-Kck1Du/zQyLbq5YlBKCtrUlyyP02lYjREjKKYImtf6MZgXrLoRVjexMv0wxiDzIJPnk86i+HrvGNyI03qoewEg==
+  version "16.18.73"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.73.tgz#cbbbff4c3e85020e042e65a2a836e1d1d5bfad06"
+  integrity sha512-GaTgwUNzESSlX9uhTX2RQcwj2KBf/Wda+52TTtuMpgzR2Rvw7NNypQ8BJdc5Wk6osxZHcUZAKip5PtqWsUl31Q==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.4"
@@ -6711,9 +6711,9 @@ contensis-delivery-api@^1.3.0:
     whatwg-fetch "^3.0.0"
 
 contensis-management-api@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.1.7.tgz#712bc7879599f101558f7dfc417e9c23244830d0"
-  integrity sha512-g+OzCVfGm3rJomOBzS+HnWR6bJC+0IcHwT+gMArgyeXpHhbyJqv0YmOUbYQrjU26INSnzfqeIIzdiChvnj2gsw==
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/contensis-management-api/-/contensis-management-api-2.1.8.tgz#35d7d3bfe0ebf241d1ef023805227f3b7e102fb1"
+  integrity sha512-18EAAeI4aqp45lO787roahjfHkVPgMbAdou7ZMStCLSkUjr+7kDQn1Pi5rzc+Waamc5ZSYifxHpv5/Mdph7wjg==
   dependencies:
     "@types/graceful-fs" "^4.1.3"
     contensis-core-api "1.0.5"
@@ -7765,9 +7765,9 @@ dotenv-expand@^5.0.0, dotenv-expand@^5.1.0:
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
 dotenv@*:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
-  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.2.tgz#3cb611ce5a63002dbabf7c281bc331f69d28f03f"
+  integrity sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==
 
 dotenv@^8.0.0:
   version "8.6.0"
