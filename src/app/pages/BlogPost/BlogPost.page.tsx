@@ -1,8 +1,7 @@
 import React from 'react';
 
 // Components
-// import { Composer } from '~/dynamic/components';
-import { Canvas } from '~/dynamic/components';
+import Canvas from '~/components/canvas/canvas';
 import Metadata from '~/components/metadata/Metadata';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import GenericHero from '~/components/genericHero/GenericHero';
@@ -23,7 +22,6 @@ const BlogPost = ({ mappedEntry }: Props) => {
     blogHeroProps,
     blogInformationProps,
     leadParagraphProps,
-    // contentComposerProps,
     canvas,
     ctaBannerProps,
     relatedContentProps,
@@ -41,8 +39,7 @@ const BlogPost = ({ mappedEntry }: Props) => {
       <Region width="small" margin="default">
         <LeadParagraph {...leadParagraphProps} />
       </Region>
-      {/* <Composer {...contentComposerProps} /> */}
-      <Canvas data={canvas} />
+      {canvas && <Canvas data={canvas} />}
       <Region width="small" margin="large">
         <CTABanner {...ctaBannerProps} />
       </Region>

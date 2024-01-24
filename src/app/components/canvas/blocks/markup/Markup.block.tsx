@@ -1,21 +1,22 @@
 import React from 'react';
 import MarkupBlockStyled from './Markup.styled';
+import VideoBlock from '../video/Video.block';
 import {
   ParagraphBlock as ParagraphBlockProps,
   HeadingBlock as HeadingBlockProps,
-  RenderBlockProps,
+  InlineEntryBlock as InlineEntryblockProps,
   FragmentBlock as FragmentBlockProps,
+  RenderBlockProps,
 } from '@contensis/canvas-react';
-import LinkBlock from '../link/link.block';
+import LinkBlock from '../link/Link.block';
 
 type MarkupBlockProps =
   | ParagraphBlockProps
   | HeadingBlockProps
+  | InlineEntryblockProps
   | FragmentBlockProps;
 
 const MarkupBlock = (props: RenderBlockProps<MarkupBlockProps>) => {
-  if (!props.block.value) return null;
-
   let text;
   let containsLink = false;
   if (Array.isArray(props?.block?.value)) {
@@ -23,6 +24,9 @@ const MarkupBlock = (props: RenderBlockProps<MarkupBlockProps>) => {
       if (item.type === '_link') {
         containsLink = true;
         return <LinkBlock key={index} block={item} />;
+      }
+      if (item.type === '_inlineEntry') {
+        return <VideoBlock key={index} block={item} />; // Use VideoBlock for _inlineEntry
       }
       return item?.value;
     });

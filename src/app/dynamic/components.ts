@@ -5,9 +5,10 @@ import { Props as ComposerProps } from '~/components/composer/ComposerWrapper';
 import {
   RenderBlockProps,
   ComponentBlock,
-  // ListBlock,
   ImageBlock,
   QuoteBlock,
+  InlineEntryBlock,
+  PanelBlock,
 } from '@contensis/canvas-react';
 
 export const Composer = loadable<ComposerProps>(
@@ -47,7 +48,20 @@ export const Image = loadable<RenderBlockProps<ImageBlock>>(
 export const Quote = loadable<RenderBlockProps<QuoteBlock>>(
   () =>
     import(
-      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/quote/quote.block'
+      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/quote/Quote.block'
+    )
+);
+
+export const Video = loadable<RenderBlockProps<InlineEntryBlock>>(
+  () =>
+    import(
+      /* webpackChunkName: "video.component" */ '~/components/canvas/blocks/video/Video.block'
+    )
+);
+export const Panel = loadable<RenderBlockProps<PanelBlock>>(
+  () =>
+    import(
+      /* webpackChunkName: "panel.component" */ '~/components/canvas/blocks/panel/Panel.block'
     )
 );
 
@@ -58,5 +72,12 @@ export const FeaturedProductComponent = loadable<
   () =>
     import(
       /* webpackChunkName: "featuredProductComponent.component" */ '~/components/canvas/components/featuredProduct/featuredProduct'
+    )
+);
+
+export const FeaturedRow = loadable<RenderBlockProps<ComponentBlock>>(
+  () =>
+    import(
+      /* webpackChunkName: "featuredRow.component" */ '~/components/canvas/components/featuredRow/FeaturedRow'
     )
 );

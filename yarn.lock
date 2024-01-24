@@ -1295,13 +1295,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@contensis/canvas-react@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@contensis/canvas-react/-/canvas-react-1.0.3.tgz#b4f281c2c0fba08fd9b2e108eaaeccbc379af817"
-  integrity sha512-Qi+uIUUMEusDnn+XZ2DQ0dsEAGlK+q0XrPwMNgX/5lsT+pcUCwO/a2wRkp5be1SfoYX/j14xxcadONmgW+x+Qw==
-  dependencies:
-    react ">16.8.0"
-    react-dom ">16.8.0"
+"@contensis/canvas-react@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@contensis/canvas-react/-/canvas-react-1.0.4.tgz#831dbaa58279ee0600d2765baffafd264e6570c0"
+  integrity sha512-w6G01zf7FnPCUmY6Xjc19IAwdItF7B5PmJPBzs5/y73RlxuvhPW9LYgp9zMs8qBykudxW4M+TbxfhIdOYGDMfw==
 
 "@cypress/listr-verbose-renderer@^0.4.1":
   version "0.4.1"
@@ -15038,14 +15035,6 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@>16.8.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
-  dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.23.0"
-
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -15235,13 +15224,6 @@ react-twitter-embed@^3.0.3:
     exenv "^1.2.2"
     react-proptype-conditional-require "^1.0.4"
     scriptjs "^2.5.9"
-
-react@>16.8.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
-  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
-  dependencies:
-    loose-envify "^1.1.0"
 
 react@^17.0.2:
   version "17.0.2"
@@ -16095,13 +16077,6 @@ scheduler@^0.20.2:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-
-scheduler@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.0.tgz#ba8041afc3d30eb206a487b6b384002e4e61fdfe"
-  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
-  dependencies:
-    loose-envify "^1.1.0"
 
 schema-utils@2.7.0:
   version "2.7.0"

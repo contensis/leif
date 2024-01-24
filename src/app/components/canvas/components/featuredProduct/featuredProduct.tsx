@@ -1,27 +1,12 @@
 import React from 'react';
 import { ComponentBlock, RenderBlockProps } from '@contensis/canvas-react';
 
-import { productCardMapping } from '~/components/search/transformations/entry-to-card-props.mapper';
+import { featuredProductMapping } from '~/components/featuredProduct/transformations/featuredproduct.component-to-props.mapper';
 import mapJson from '~/core/util/json-mapper';
 
 import FeaturedProduct, {
   Props as FeaturedProductProps,
 } from '~/components/featuredProduct/FeaturedProduct';
-
-const featuredProductMapping = {
-  product: {
-    $path: 'product',
-    $formatting: (product: any) => mapJson(product, productCardMapping),
-  },
-  cardType: 'product.sys.contentTypeId',
-  title: 'title',
-  text: 'summary',
-  linkLabel: 'buttonLabel',
-  linkUri: {
-    $path: 'product.sys.uri',
-    $default: () => '/products',
-  },
-};
 
 const FeaturedProductComponent = (
   props: RenderBlockProps<ComponentBlock<FeaturedProductProps>>

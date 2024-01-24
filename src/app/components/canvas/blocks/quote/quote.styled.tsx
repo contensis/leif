@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const QuoteWrapperStyled = styled.div`
+export const QuoteWrapperStyled = styled.div`
   margin: 1rem 0;
   position: relative;
 
@@ -12,5 +12,12 @@ const QuoteWrapperStyled = styled.div`
     left: 10px;
     top: 10px;
   }
+
+  footer {
+    cite {
+      font-weight: 600;
+    }
+  }
 `;
-export default QuoteWrapperStyled;
+
+export const SeperatorStyled = styled.span``;

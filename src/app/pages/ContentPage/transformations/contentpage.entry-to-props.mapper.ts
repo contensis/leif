@@ -43,4 +43,5 @@ export const contentPagePropsMapping = {
   formProps: {
     type: 'formPicker.form',
   },
+  canvas: 'canvas',
 };

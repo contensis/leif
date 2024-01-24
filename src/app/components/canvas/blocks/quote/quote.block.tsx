@@ -3,17 +3,22 @@ import {
   QuoteBlock as QuoteBlockProps,
   RenderBlockProps,
 } from '@contensis/canvas-react';
-import QuoteWrapperStyled from './quote.styled';
+import { QuoteWrapperStyled, SeperatorStyled } from './Quote.styled';
 
-const QuoteBlock = (props: RenderBlockProps<QuoteBlockProps>) => {
-  if (!props.block.value) return null;
+const QuoteBlock = ({ block }: RenderBlockProps<QuoteBlockProps>) => {
+  const { value, properties } = block;
+  if (!value) return null;
 
   return (
     <QuoteWrapperStyled>
-      <blockquote cite={props?.block?.properties?.url}>
-        <q>{props.block.properties?.source}</q>
+      <blockquote cite={properties?.url}>
+        <q>{value}</q>
         <footer>
-          <cite> {props.block.properties?.citation}</cite>
+          {properties?.source && <cite>{properties?.source}</cite>}
+          {properties?.source && properties?.citation && (
+            <SeperatorStyled> - </SeperatorStyled>
+          )}
+          {properties?.citation && <span>{properties?.citation}</span>}
         </footer>
       </blockquote>
     </QuoteWrapperStyled>
