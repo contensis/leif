@@ -5,7 +5,7 @@ import {
   Link,
 } from '@contensis/canvas-react';
 import getAttributes from '~/components/canvas/utilities/getAttributes';
-import { PageLinkStyled } from './Link.styled';
+import { PageLinkStyled } from './link.styled';
 
 const LinkBlock = (props: RenderBlockPropsWithChildren<LinkBlockProps>) => {
   const linkValue = props?.block?.properties?.link;

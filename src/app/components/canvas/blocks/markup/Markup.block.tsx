@@ -1,6 +1,5 @@
 import React from 'react';
 import MarkupBlockStyled from './Markup.styled';
-import VideoBlock from '../video/Video.block';
 import {
   ParagraphBlock as ParagraphBlockProps,
   HeadingBlock as HeadingBlockProps,
@@ -8,7 +7,9 @@ import {
   FragmentBlock as FragmentBlockProps,
   RenderBlockProps,
 } from '@contensis/canvas-react';
-import LinkBlock from '../link/Link.block';
+
+import VideoBlock from '~/components/canvas/blocks/video/Video.block';
+import LinkBlock from '~/components/canvas/blocks/link/link.block';
 
 type MarkupBlockProps =
   | ParagraphBlockProps
