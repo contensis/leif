@@ -3,7 +3,7 @@ import {
   FigureStyled,
   ImageStyled,
   CaptionStyled,
-} from '~/components/canvas/blocks/image/Image.styled';
+} from '~/components/canvas/blocks/image/ImageCanvas.styled';
 import {
   ImageBlock as ImageBlockProps,
   RenderBlockProps,

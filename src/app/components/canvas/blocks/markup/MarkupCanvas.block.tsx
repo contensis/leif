@@ -1,10 +1,9 @@
 import React from 'react';
-import MarkupBlockStyled from '~/components/canvas/blocks/markup/Markup.styled';
+import MarkupBlockStyled from '~/components/canvas/blocks/markup/MarkupCanvas.styled';
 import { RenderBlockProps } from '@contensis/canvas-react';
 import { MarkupBlockProps } from '~/components/canvas/blocks/markup/markup.props';
-
-import VideoBlock from '~/components/canvas/blocks/video/Video.block';
-import LinkBlock from '~/components/canvas/blocks/link/Link.block';
+import VideoBlock from '~/components/canvas/blocks/video/VideoCanvas.block';
+import LinkBlock from '~/components/canvas/blocks/link/LinkCanvas.block';
 
 const MarkupBlock = (props: RenderBlockProps<MarkupBlockProps>) => {
   const { block } = props;

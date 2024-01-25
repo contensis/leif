@@ -6,7 +6,7 @@ import {
 import {
   QuoteWrapperStyled,
   SeperatorStyled,
-} from '~/components/canvas/blocks/quote/Quote.styled';
+} from '~/components/canvas/blocks/quote/QuoteCanvas.styled';
 
 const QuoteBlock = ({ block }: RenderBlockProps<QuoteBlockProps>) => {
   const { value, properties } = block;
