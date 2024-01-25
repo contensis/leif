@@ -5,13 +5,8 @@ import {
   Block,
 } from '@contensis/canvas-react';
 import Region from '~/layout/Region';
-
-import MarkupBlock from './blocks/markup/Markup.block';
-import ImageCanvasBlock from './blocks/image/Image.block';
-import QuoteBlock from './blocks/quote/quote.block';
-import PanelBlock from './blocks/panel/Panel.block';
-import FeaturedProductComponent from '~/components/canvas/components/featuredProduct/featuredProduct';
-import FeaturedRow from './components/featuredRow/FeaturedRow';
+import blocks from '~/components/canvas/canvasBlocks';
+import components from '~/components/canvas/canvasComponents';
 
 export interface Props {
   isContentPage?: boolean;
@@ -30,19 +25,7 @@ const Canvas = ({
   return (
     <ContentPageContext.Provider value={isContentPage}>
       <Region width={isContentPage ? 'msmall' : 'small'} margin="default">
-        <RenderContextProvider
-          blocks={{
-            _paragraph: MarkupBlock,
-            _heading: MarkupBlock,
-            _image: ImageCanvasBlock,
-            _quote: QuoteBlock,
-            _panel: PanelBlock,
-          }}
-          components={{
-            featuredProduct: FeaturedProductComponent,
-            cardRow: FeaturedRow,
-          }}
-        >
+        <RenderContextProvider blocks={blocks} components={components}>
           <Renderer data={data} />
         </RenderContextProvider>
       </Region>

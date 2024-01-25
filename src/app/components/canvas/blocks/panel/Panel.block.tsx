@@ -4,7 +4,7 @@ import {
   RenderBlockProps,
   PanelBlock as PanelBlockProps,
 } from '@contensis/canvas-react';
-import PanelStyled from './Panel.styled';
+import PanelStyled from '~/components/canvas/blocks/panel/Panel.styled';
 
 const PanelBlock = (props: RenderBlockProps<PanelBlockProps>) => {
   return (

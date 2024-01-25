@@ -1,5 +1,9 @@
 import React from 'react';
-import { FigureStyled, ImageStyled, CaptionStyled } from './Image.styled';
+import {
+  FigureStyled,
+  ImageStyled,
+  CaptionStyled,
+} from '~/components/canvas/blocks/image/Image.styled';
 import {
   ImageBlock as ImageBlockProps,
   RenderBlockProps,

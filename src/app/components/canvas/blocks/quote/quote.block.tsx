@@ -3,7 +3,10 @@ import {
   QuoteBlock as QuoteBlockProps,
   RenderBlockProps,
 } from '@contensis/canvas-react';
-import { QuoteWrapperStyled, SeperatorStyled } from './quote.styled';
+import {
+  QuoteWrapperStyled,
+  SeperatorStyled,
+} from '~/components/canvas/blocks/quote/Quote.styled';
 
 const QuoteBlock = ({ block }: RenderBlockProps<QuoteBlockProps>) => {
   const { value, properties } = block;

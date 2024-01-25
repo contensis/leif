@@ -1,61 +1,49 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import React from 'react';
 import {
+  Link,
   RenderBlockPropsWithChildren,
   LinkBlock as LinkBlockProps,
-  Link,
 } from '@contensis/canvas-react';
 import getAttributes from '~/components/canvas/utilities/getAttributes';
-import { PageLinkStyled } from './link.styled';
+import { PageLinkStyled } from '~/components/canvas/blocks/link/Link.styled';
+import ContentRenderer from '~/components/canvas/blocks/link/ContentRenderer';
 
-const LinkBlock = (props: RenderBlockPropsWithChildren<LinkBlockProps>) => {
-  const linkValue = props?.block?.properties?.link;
-  const attributes: AnchorHTMLAttributes<HTMLAnchorElement> = getAttributes(
-    props,
-    {
-      href: linkValue?.sys?.uri,
-      target: props?.block?.properties?.newTab ? '_blank' : null,
-      rel: props?.block?.properties?.newTab ? 'noopener noreferrer' : null,
-    }
-  );
+const LinkBlock = ({
+  block,
+  children,
+}: RenderBlockPropsWithChildren<LinkBlockProps>) => {
+  const { link, newTab } = block?.properties || {};
+  const href = link?.sys?.uri;
+  const target = newTab ? '_blank' : null;
+  const rel = newTab ? 'noopener noreferrer' : null;
+  const attributes = getAttributes({ block, children }, { href, target, rel });
 
-  if (attributes.href) {
-    if (
-      props?.block?.properties?.newTab || // if open in new tab
-      !props?.block?.properties?.link?.sys?.contentTypeId // if not an entry link
-    ) {
-      return (
-        <a {...attributes}>
-          <RenderContents
-            contents={props.children}
-            fallback={<Link.Children block={props.block} />}
-          />
-        </a>
-      );
-    } else {
-      return (
-        <PageLinkStyled {...getAttributes(props)} to={attributes.href}>
-          <RenderContents
-            contents={props.children}
-            fallback={<Link.Children block={props.block} />}
-          />
-        </PageLinkStyled>
-      );
-    }
-  } else {
+  if (!href) {
     return (
-      <RenderContents
-        contents={props.children}
-        fallback={<Link.Children block={props.block} />}
+      <ContentRenderer
+        contents={children}
+        fallback={<Link.Children block={block} />}
       />
     );
   }
-};
 
-const RenderContents = (props: {
-  contents?: React.ReactElement;
-  fallback: React.ReactElement;
-}) => {
-  return props.contents ? props.contents : props.fallback;
+  const isExternal = newTab || !link?.sys?.contentTypeId;
+
+  return isExternal ? (
+    <a {...attributes}>
+      <ContentRenderer
+        contents={children}
+        fallback={<Link.Children block={block} />}
+      />
+    </a>
+  ) : (
+    <PageLinkStyled {...attributes} to={href}>
+      <ContentRenderer
+        contents={children}
+        fallback={<Link.Children block={block} />}
+      />
+    </PageLinkStyled>
+  );
 };
 
 export default LinkBlock;

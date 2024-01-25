@@ -48,7 +48,7 @@ export const Image = loadable<RenderBlockProps<ImageBlock>>(
 export const Quote = loadable<RenderBlockProps<QuoteBlock>>(
   () =>
     import(
-      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/quote/quote.block'
+      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/quote/Quote.block'
     )
 );
 
@@ -71,7 +71,7 @@ export const FeaturedProductComponent = loadable<
 >(
   () =>
     import(
-      /* webpackChunkName: "featuredProductComponent.component" */ '~/components/canvas/components/featuredProduct/featuredProduct'
+      /* webpackChunkName: "featuredProductComponent.component" */ '~/components/canvas/components/featuredProduct/FeaturedProduct'
     )
 );
 

@@ -1,51 +1,41 @@
 import React from 'react';
-import MarkupBlockStyled from './Markup.styled';
-import {
-  ParagraphBlock as ParagraphBlockProps,
-  HeadingBlock as HeadingBlockProps,
-  InlineEntryBlock as InlineEntryblockProps,
-  FragmentBlock as FragmentBlockProps,
-  RenderBlockProps,
-} from '@contensis/canvas-react';
+import MarkupBlockStyled from '~/components/canvas/blocks/markup/Markup.styled';
+import { RenderBlockProps } from '@contensis/canvas-react';
+import { MarkupBlockProps } from '~/components/canvas/blocks/markup/markup.props';
 
 import VideoBlock from '~/components/canvas/blocks/video/Video.block';
-import LinkBlock from '~/components/canvas/blocks/link/link.block';
-
-type MarkupBlockProps =
-  | ParagraphBlockProps
-  | HeadingBlockProps
-  | InlineEntryblockProps
-  | FragmentBlockProps;
+import LinkBlock from '~/components/canvas/blocks/link/Link.block';
 
 const MarkupBlock = (props: RenderBlockProps<MarkupBlockProps>) => {
+  const { block } = props;
   let text;
   let containsLink = false;
-  if (Array.isArray(props?.block?.value)) {
-    text = props.block.value.map((item, index) => {
+  if (Array.isArray(block?.value)) {
+    text = block.value.map((item, index) => {
       if (item.type === '_link') {
         containsLink = true;
         return <LinkBlock key={index} block={item} />;
       }
       if (item.type === '_inlineEntry') {
-        return <VideoBlock key={index} block={item} />; // Use VideoBlock for _inlineEntry
+        return <VideoBlock key={index} block={item} />;
       }
       return item?.value;
     });
   } else {
-    text = props?.block?.value;
+    text = block?.value;
   }
 
   return (
     <MarkupBlockStyled alignment="left">
-      {props.block.type === '_paragraph' ? (
-        containsLink || props.block.properties?.paragraphType !== 'lead' ? (
+      {block.type === '_paragraph' ? (
+        containsLink || block.properties?.paragraphType !== 'lead' ? (
           text
         ) : (
           <p className="lead-paragraph">{text}</p>
         )
-      ) : props.block.type === '_heading' ? (
-        React.createElement(`h${props?.block?.properties?.level}`, {}, text)
-      ) : props.block.type === '_fragment' ? (
+      ) : block.type === '_heading' ? (
+        React.createElement(`h${block?.properties?.level}`, {}, text)
+      ) : block.type === '_fragment' ? (
         <React.Fragment>{text}</React.Fragment>
       ) : null}
     </MarkupBlockStyled>
