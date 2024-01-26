@@ -1,6 +1,6 @@
 import mapJson from '~/core/util/json-mapper';
 
-export const cardRowPropsMapping = {
+export const CardRowPropsMapping = {
   title: 'entryTitle',
   uri: {
     $path: 'sys',
@@ -16,15 +16,13 @@ export const cardRowPropsMapping = {
   },
   heroIllustrationAlt: 'heroIllustration',
   imageUri: {
-    $path: ['primaryImage', 'heroImage'],
-    $formatting: (img: any) =>
-      img && img.asset && img.asset.sys && img.asset.sys.uri,
+    $path: ['primaryImage.asset.sys.uri', 'heroImage.asset.sys.uri'],
     $default: () => '/image-library/default-images/leif-fallback.png',
   },
   imageAlt: ['altText', 'caption', 'asset.title'],
 };
 
-export const cardRowPropsMapper = {
+export const CardRowPropsMapper = {
   results: ({ relatedContent }: any) => {
     const contentArray = [];
     const columnArray = [];
@@ -45,11 +43,46 @@ export const cardRowPropsMapper = {
     }
     return {
       contentArray: contentArray.map((res: any) =>
-        mapJson(res, cardRowPropsMapping)
+        mapJson(res, CardRowPropsMapping)
       ),
       columnArray: columnArray.map((res: any) =>
-        mapJson(res, cardRowPropsMapping)
+        mapJson(res, CardRowPropsMapping)
       ),
     };
+  },
+};
+
+/** Mapper for Canvas - Comeback to this. There must be a better way to map this data */
+
+export const CardRowCanvasMapping = {
+  results: {
+    $path: 'block.value',
+    $formatting: ({ contentItems }) => {
+      const contentArray = [];
+      const columnArray = [];
+      for (let i = 0; i < contentItems.length; i++) {
+        if (contentItems.length > 3) {
+          if (i < 2) {
+            contentArray.push(contentItems[i]);
+          } else {
+            columnArray.push(contentItems[i]);
+          }
+        } else if (contentItems.length <= 3) {
+          if (i <= 2) {
+            contentArray.push(contentItems[i]);
+          } else {
+            columnArray.push(contentItems[i]);
+          }
+        }
+      }
+      return {
+        contentArray: contentArray.map((res: any) =>
+          mapJson(res, CardRowPropsMapping)
+        ),
+        columnArray: columnArray.map((res: any) =>
+          mapJson(res, CardRowPropsMapping)
+        ),
+      };
+    },
   },
 };

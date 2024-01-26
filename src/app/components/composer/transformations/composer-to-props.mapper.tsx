@@ -1,11 +1,11 @@
 import { mapComposer } from '~/core/util/json-mapper';
 
-import { imagePropsMapping } from '~/components/image/transformations/image.component-to-props.mapper';
-import { calloutPropsMapping } from '~/components/callout/transformations/callout.component-to-props.mapper';
+import { ImagePropsMapping } from '~/components/image/Image.mapper';
+import { CalloutPropsMapping } from '~/components/callout/Callout.mapper';
 import { iconListPropsMapping } from '~/components/iconList/transformations/iconList.component-to-props.mapper';
 import { ComposerComponents } from '~/core/schema';
-import { featuredProductMapping } from '~/components/featuredProduct/transformations/featuredproduct.component-to-props.mapper';
-import { videoPropsMapping } from '~/components/videoPlayer/transformations/videoplayer.component-to-props.mapper';
+import { FeaturedProductMapping } from '~/components/featuredProduct/FeaturedProduct.mapper';
+import { VideoPropsMapping } from '~/components/videoPlayer/VideoPlayer.mapper';
 import { accordionPropsMapping } from '~/components/accordion/transformations/accordion.component-to-props.mapper';
 import { contentBlockRowPropsMapping } from '~/components/contentBlockRow/transformations/contentblockrow.component-to-props.mapper';
 import { promotedProductPropsMapping } from '~/components/promotedProduct/transformations/promotedproduct.component-to-props.mapper';
@@ -29,10 +29,10 @@ export const composerPropsMapping = {
   [ComposerComponents.twitterEmbed]: { tweet: '.' },
   [ComposerComponents.blockQuote]: { quote: 'text' },
   [ComposerComponents.iconList]: iconListPropsMapping,
-  [ComposerComponents.callout]: calloutPropsMapping,
-  [ComposerComponents.image]: imagePropsMapping,
-  [ComposerComponents.featuredProduct]: featuredProductMapping,
-  [ComposerComponents.video]: videoPropsMapping,
+  [ComposerComponents.callout]: CalloutPropsMapping,
+  [ComposerComponents.image]: ImagePropsMapping,
+  [ComposerComponents.featuredProduct]: FeaturedProductMapping,
+  [ComposerComponents.video]: VideoPropsMapping,
   [ComposerComponents.accordionList]: accordionPropsMapping,
   [ComposerComponents.bodyCopy]: textBlockPropsMapping,
   [ComposerComponents.curatedProductSlider]: curatedProductSliderPropsMapping,

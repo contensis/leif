@@ -1,30 +1,16 @@
 import React from 'react';
 import {
+  RenderBlockPropsWithChildren,
   QuoteBlock as QuoteBlockProps,
-  RenderBlockProps,
+  Quote as QuoteCanvas,
 } from '@contensis/canvas-react';
-import {
-  QuoteWrapperStyled,
-  SeperatorStyled,
-} from '~/components/canvas/blocks/quote/QuoteCanvas.styled';
+import QuoteBlockStyled from '~/components/quoteBlock/QuoteBlock.styled';
 
-const QuoteBlock = ({ block }: RenderBlockProps<QuoteBlockProps>) => {
-  const { value, properties } = block;
-  if (!value) return null;
-
+const QuoteBlock = (props: RenderBlockPropsWithChildren<QuoteBlockProps>) => {
   return (
-    <QuoteWrapperStyled>
-      <blockquote cite={properties?.url}>
-        <q>{value}</q>
-        <footer>
-          {properties?.source && <cite>{properties?.source}</cite>}
-          {properties?.source && properties?.citation && (
-            <SeperatorStyled> - </SeperatorStyled>
-          )}
-          {properties?.citation && <span>{properties?.citation}</span>}
-        </footer>
-      </blockquote>
-    </QuoteWrapperStyled>
+    <QuoteBlockStyled data-component="quote-block">
+      <QuoteCanvas block={props.block} />
+    </QuoteBlockStyled>
   );
 };
 

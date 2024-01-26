@@ -4,25 +4,11 @@ import {
   InlineEntryBlock as InlineEntryBlockProps,
   RenderBlockProps,
 } from '@contensis/canvas-react';
-
-interface VideoTypes {
-  source?: string;
-  text?: string;
-  externalURL?: string;
-  entryTitle?: string;
-}
+import { mapJson } from '@zengenti/contensis-react-base/util';
+import { VideoCanvasPropsMapping } from '~/components/videoPlayer/VideoPlayer.mapper';
 
 const VideoBlock = (props: RenderBlockProps<InlineEntryBlockProps>) => {
-  const {
-    source = '',
-    text = '',
-    externalURL = '',
-    entryTitle = '',
-  } = props.block.value as VideoTypes;
-
-  const title = text || entryTitle;
-
-  return <VideoPlayer type={source} title={title} externalURL={externalURL} />;
+  return <VideoPlayer {...mapJson(props, VideoCanvasPropsMapping)} />;
 };
 
 export default VideoBlock;

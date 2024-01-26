@@ -21,7 +21,10 @@ const FeaturedProduct = ({
   product,
 }: Props) => {
   return (
-    <FeaturedProductStyled className={className}>
+    <FeaturedProductStyled
+      className={className}
+      data-component="featured-product"
+    >
       <div className="featured-product__content">
         <div className="featured-product__content-wrapper">
           {title && <h2 className="featured-product__title">{title}</h2>}

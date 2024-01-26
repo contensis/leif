@@ -1,14 +1,8 @@
 import styled, { css } from 'styled-components';
 
-interface Props {
-  theme?: any;
-  align?: string;
-}
-
 const ImageBlockStyled = styled.div`
-  ${({ theme, align }: Props) => {
+  ${({ theme }) => {
     return css`
-      text-align: ${align};
       overflow: hidden;
       max-width: 840px;
       width: 100%;
@@ -26,6 +20,7 @@ const ImageBlockStyled = styled.div`
           right: -50%;
           width: 100%;
           height: 100%;
+          z-index: 3;
           background-image: url('/static/img/svgs/shapes/image-block-shape.svg');
           background-repeat: no-repeat;
         }

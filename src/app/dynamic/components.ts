@@ -33,7 +33,7 @@ export const CoreComponents = {
 export const Canvas = loadable(
   () =>
     import(
-      /* webpackChunkName: "canvas.component" */ '~/components/canvas/canvas'
+      /* webpackChunkName: "canvas.component" */ '~/components/canvas/Canvas'
     )
 );
 

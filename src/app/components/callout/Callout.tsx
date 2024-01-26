@@ -1,5 +1,6 @@
 import React from 'react';
 import CalloutStyled from './Callout.styled';
+
 export interface Props {
   className?: string;
   type?: 'success' | 'warning' | 'note';
@@ -10,7 +11,7 @@ export interface Props {
 const Callout = ({ className, type = 'success', title, text }: Props) => {
   if (!text) return null;
   return (
-    <CalloutStyled type={type} className={className}>
+    <CalloutStyled data-type={type} className={className}>
       {title && <span className="callout__title">{title}</span>}
       <span
         className="callout__text"

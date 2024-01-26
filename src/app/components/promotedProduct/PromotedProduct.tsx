@@ -79,9 +79,6 @@ const PromotionalBlock = ({
             <Image
               src={imageUri}
               alt={imageAlt}
-              quality={80}
-              layout="fill"
-              objectFit="cover"
               className="promoted-product__image"
             />
           )}

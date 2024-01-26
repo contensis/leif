@@ -10,9 +10,9 @@ const AuthorStyled = styled.div`
         width: 40px;
         border-radius: 50%;
         object-fit: cover;
+        margin-right: 8px;
       }
-      .author__person {
-        margin-left: 8px;
+      .author__name {
         font-family: ${theme.typeStyles.fontFamily.headings};
         ${theme.typeStyles.h6};
       }

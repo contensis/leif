@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import Canvas from '~/components/canvas/canvas';
+import Canvas from '~/components/canvas/Canvas';
 import Metadata from '~/components/metadata/Metadata';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import GenericHero from '~/components/genericHero/GenericHero';

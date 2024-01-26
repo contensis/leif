@@ -2,8 +2,7 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-// import RelatedLinks from '~/components/relatedLinks/RelatedLinks.container';
-import Canvas from '~/components/canvas/canvas';
+import Canvas from '~/components/canvas/Canvas';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import PromotedContent from '~/components/promotedContent/PromotedContent';

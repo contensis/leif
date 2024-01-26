@@ -62,29 +62,36 @@ const GlobalStyle = createGlobalStyle`
     outline-width: medium;
   }
   table {
-    width: 730px !important;
     border-spacing: 0;
     border-collapse: collapse;
     border: none;
+    width: 100%;
+    text-align: left;
   }
-  td, th {
-    width: 220px !important;
+
+  td,
+  th {
+    min-width: 220px;
     padding: 16px;
     text-align: left;
     border: 1px solid ${colors.neutral_white};
-  }
-  tbody {
-    ${typeStyles.cardCopy};
-    tr:nth-of-type(even) {
-      background-color: rgba(119, 232, 198, 0.1);
-    }
-    tr:first-child {
-      ${typeStyles.h5};
-      color: ${colors.secondary};
-      font-family: ${fontFamily.headings};
-      background-color: ${colors.neutral_white};
+    > * {
+      ${typeStyles.cardCopy};
+      margin: 0;
     }
   }
+
+  thead th {
+    ${typeStyles.h5};
+    color: ${colors.secondary};
+    font-family: ${fontFamily.headings};
+    background-color: ${colors.neutral_white};
+  }
+
+  tbody tr:nth-child(2n + 1) {
+    background-color: rgba(119, 232, 198, 0.1);
+  }
+
   ul {
     list-style: none;
     margin: 24px 0;

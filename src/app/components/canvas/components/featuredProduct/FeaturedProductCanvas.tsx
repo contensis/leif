@@ -1,23 +1,26 @@
 import React from 'react';
 import { ComponentBlock, RenderBlockProps } from '@contensis/canvas-react';
 
-import { featuredProductMapping } from '~/components/featuredProduct/transformations/featuredproduct.component-to-props.mapper';
+import { FeaturedProductMapping } from '~/components/featuredProduct/FeaturedProduct.mapper';
 import mapJson from '~/core/util/json-mapper';
 
 import FeaturedProduct, {
   Props as FeaturedProductProps,
 } from '~/components/featuredProduct/FeaturedProduct';
 
-const FeaturedProductComponent = (
+const FeaturedProductCanvas = (
   props: RenderBlockProps<ComponentBlock<FeaturedProductProps>>
 ) => {
-  if (!props.block.value) return null;
+  console.info({ props });
 
-  const featuredProductProps = mapJson(
-    props.block.value,
-    featuredProductMapping
-  ) as FeaturedProductProps;
-
-  return <FeaturedProduct {...featuredProductProps} />;
+  return (
+    <FeaturedProduct
+      {...(mapJson(
+        props.block.value,
+        FeaturedProductMapping
+      ) as FeaturedProductProps)}
+    />
+  );
 };
-export default FeaturedProductComponent;
+
+export default FeaturedProductCanvas;

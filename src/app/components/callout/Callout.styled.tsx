@@ -1,27 +1,23 @@
 import styled, { css } from 'styled-components';
 
-interface Props {
-  theme: any;
-  type: string;
-}
-
 const CalloutStyled = styled.div`
-  ${({ theme, type }: Props) => {
-    const success = theme.colors.primary;
-    const warning = theme.colors.error;
-    const note = theme.colors.link;
-
+  ${({ theme }) => {
     return css`
       background-color: rgba(195, 198, 222, 0.1);
-      box-shadow: inset 6px 0px 0px
-        ${type === 'success'
-          ? success
-          : type === 'warning'
-          ? warning
-          : type === 'note'
-          ? note
-          : ''};
       padding: 16px;
+
+      &[data-type='success'] {
+        box-shadow: inset 6px 0px 0px ${theme.colors.primary};
+      }
+
+      &[data-type='warning'] {
+        box-shadow: inset 6px 0px 0px ${theme.colors.error};
+      }
+
+      &[data-type='note'] {
+        box-shadow: inset 6px 0px 0px ${theme.colors.link};
+      }
+
       .callout__title {
         ${theme.typeStyles.h5};
         font-family: ${theme.typeStyles.fontFamily.headings};

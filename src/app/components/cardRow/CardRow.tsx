@@ -12,7 +12,7 @@ const CardRow = ({ className, results }: Props) => {
   const { contentArray, columnArray } = results;
 
   return (
-    <CardRowStyled className={className}>
+    <CardRowStyled className={className} data-component="card-row">
       {contentArray && contentArray.length >= 1 && (
         <div className="card-row__left-col">
           {contentArray.map((res: any, idx: number) => {

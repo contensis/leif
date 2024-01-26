@@ -15,7 +15,14 @@ export interface Props {
 const ImageBlock = ({ className, alt, src, text, align = 'center' }: Props) => {
   if (!src) return null;
   return (
-    <ImageBlockStyled className={className} align={align}>
+    <ImageBlockStyled
+      className={className}
+      data-alignment={align}
+      data-component="image-block"
+      style={{
+        textAlign: align,
+      }}
+    >
       <div className="image-block__wrapper">
         <Image
           className="image-block__image"

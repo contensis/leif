@@ -4,31 +4,26 @@ import {
   RenderContextProvider,
   Block,
 } from '@contensis/canvas-react';
-import Region from '~/layout/Region';
-import blocks from '~/components/canvas/canvasBlocks';
-import components from '~/components/canvas/canvasComponents';
+import { blocks, components } from '~/components/canvas/Canvas.util';
 
-export interface Props {
-  isContentPage?: boolean;
-}
-
+import CanvasStyled from './Canvas.styled';
 export const ContentPageContext = React.createContext(false);
 
 const Canvas = ({
   data,
   isContentPage = false,
 }: {
-  data?: Block[];
-  isContentPage?: boolean;
+  data: Block[];
+  isContentPage: boolean;
 }) => {
   if (!data) return null;
   return (
     <ContentPageContext.Provider value={isContentPage}>
-      <Region width={isContentPage ? 'msmall' : 'small'} margin="default">
+      <CanvasStyled>
         <RenderContextProvider blocks={blocks} components={components}>
           <Renderer data={data} />
         </RenderContextProvider>
-      </Region>
+      </CanvasStyled>
     </ContentPageContext.Provider>
   );
 };

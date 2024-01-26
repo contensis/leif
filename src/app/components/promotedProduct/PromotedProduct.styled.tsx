@@ -37,8 +37,8 @@ const PromotionalBlockStyled = styled.div`
       }
       @media ${theme.mq.laptop} {
         margin-top: 0;
-        height: 100%;
-        width: 50%;
+          height: 100%;
+          width: 50%;
       }
     }
     .promoted-product__image {
