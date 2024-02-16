@@ -1,134 +1,94 @@
 import React from 'react';
-
 import GenericHeroStyled from './GenericHero.styled';
-import BackButton, { AncestorsProps } from '../backButton/BackButton';
-import Image from '../image/Image';
-import BlogDetail from '../blogDetail/BlogDetail';
-import Icon from '../icon/Icon';
-import LinkButton from '../linkButton/LinkButton';
+import BackButton from '../backButton/BackButton';
 import Link from '../link/Link';
 
 export interface Props {
   className?: string;
-  title?: string;
+  title: string;
   text?: string;
-  ctaLink?: string;
-  ctaText?: string;
-  imageUri?: string;
-  imageAlt?: string;
-  price?: number[];
-  readTime?: number;
   date?: string;
-  isListingPage?: boolean;
-  backLinkLabel?: string;
-  backLinkUri?: string;
-  isRenderedAsLink?: boolean;
-  type?: 'Full width' | 'Two column';
-  headingLevel?: number;
-  ancestors?: AncestorsProps[];
-  datePicker?: any;
+  readtime?: string;
+  price?: string;
+  path?: string;
+  cta?: { label?: string; a11y: string };
+  image: { src: string; alt?: string };
+  backButton?: { path: string; label: string };
+  type?: 'full-width' | 'two-column' | 'center';
 }
 
 const GenericHero = ({
   className,
   title,
   text,
-  backLinkLabel,
-  backLinkUri,
-  ctaLink,
-  ctaText,
-  imageUri,
-  imageAlt,
-  price,
-  readTime,
   date,
-  isListingPage = false,
-  isRenderedAsLink = false,
-  headingLevel = 1,
-  type = 'Two column',
-  ancestors,
+  readtime,
+  price,
+  path,
+  cta,
+  image,
+  backButton,
+  type = 'two-column',
 }: Props) => {
-  interface ConditionalLinkProps {
-    condition?: boolean;
-    wrapper: any;
-    children: any;
-  }
+  const ConditionalLink = ({ condition, wrapper, children }: any) =>
+    condition ? wrapper(children) : children;
 
-  const Heading: any = `h${headingLevel}`;
-
-  const ConditionalLink = ({
-    condition,
-    wrapper,
-    children,
-  }: ConditionalLinkProps) => (condition ? wrapper(children) : children);
-
-  const priceText =
-    price && price.length > 1 ? `${Math.min(...price)}+` : price;
+  const condition = !!path;
+  const wrapper = children => <Link uri={path}>{children}</Link>;
 
   return (
-    <GenericHeroStyled
-      className={className}
-      type={type}
-      title={title}
-      isListingPage={isListingPage}
-      hasPaddingTop={!backLinkUri}
-    >
-      <ConditionalLink
-        condition={isRenderedAsLink}
-        wrapper={(children: any) => (
-          <Link uri={ctaLink} className="generic-hero__link-wrapper">
-            {children}
-          </Link>
-        )}
-      >
-        <div className="generic-hero__content">
-          {!ctaLink && (
-            <BackButton
-              className="generic-hero__back"
-              label={backLinkLabel}
-              uri={backLinkUri}
-              ancestors={ancestors}
+    <GenericHeroStyled className={className}>
+      <ConditionalLink condition={condition} wrapper={wrapper}>
+        <div data-hero={type}>
+          <div className="generic-hero__content">
+            <BackButton className="generic-hero__nav--back" {...backButton} />
+            <svg
+              focusable="false"
+              aria-hidden="true"
+              role="presentation"
+              width="220"
+              height="80"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M307.695 41.102c-4.361 0-8.368-1.946-10.725-5.299l-14.025-19.788c-1.061-1.406-2.593-1.622-3.182-1.622s-2.239.108-3.182 1.622l-14.025 19.788c-2.357 3.353-6.365 5.299-10.725 5.299-4.361 0-8.368-1.946-10.725-5.299l-14.025-19.788c-1.061-1.406-2.593-1.622-3.183-1.622-.589 0-2.239.108-3.182 1.622l-14.025 19.788c-2.357 3.353-6.364 5.299-10.725 5.299s-8.368-1.946-10.725-5.299l-14.025-19.788c-1.061-1.406-2.593-1.622-3.182-1.622s-2.239.108-3.182 1.622l-14.025 19.788c-2.357 3.353-6.365 5.299-10.725 5.299-4.361 0-8.368-1.946-10.725-5.299l-14.025-19.788c-1.061-1.406-2.593-1.622-3.183-1.622-.589 0-2.239.108-3.182 1.622L94.962 35.803c-2.357 3.353-6.364 5.299-10.725 5.299-4.36 0-8.368-1.946-10.725-5.299L59.487 16.015c-1.06-1.406-2.593-1.622-3.182-1.622-.59 0-2.24.108-3.182 1.622L39.098 35.803c-2.358 3.353-6.365 5.299-10.725 5.299-4.361 0-8.368-1.946-10.725-5.299L3.623 16.015C2.562 14.609 1.03 14.393.44 14.393c-.589 0-2.239.108-3.182 1.622l-14.025 19.788c-2.357 3.353-6.364 5.299-10.725 5.299-4.36 0-8.368-1.946-10.725-5.299l-20.979-29.52c-1.296-1.947-.707-4.434 1.297-5.623 2.121-1.19 4.832-.65 6.129 1.19l20.978 29.52c1.06 1.406 2.593 1.622 3.182 1.622.59 0 2.24-.108 3.183-1.622l14.024-19.789C-8.044 8.23-4.037 6.283.324 6.283c4.36 0 8.367 1.946 10.725 5.298L25.073 31.37c1.06 1.406 2.593 1.622 3.182 1.622.59 0 2.24-.108 3.182-1.622l14.025-19.79c2.357-3.352 6.364-5.298 10.725-5.298 4.36 0 8.368 1.946 10.725 5.298l14.025 19.79c1.06 1.406 2.593 1.622 3.182 1.622.59 0 2.24-.108 3.183-1.622l14.025-19.789c2.357-3.352 6.364-5.298 10.725-5.298 4.36 0 8.367 1.946 10.725 5.298l14.025 19.789c1.06 1.406 2.592 1.622 3.182 1.622.589 0 2.239-.108 3.182-1.622l14.025-19.789c2.357-3.352 6.364-5.298 10.725-5.298s8.368 1.946 10.725 5.298l14.025 19.789c1.061 1.406 2.593 1.622 3.182 1.622.59 0 2.24-.108 3.183-1.622l14.024-19.789c2.358-3.352 6.365-5.298 10.726-5.298 4.36 0 8.367 1.946 10.725 5.298l14.025 19.789c1.06 1.406 2.593 1.622 3.182 1.622s2.239-.108 3.182-1.622l14.025-19.79c2.357-3.352 6.364-5.298 10.725-5.298s8.368 1.946 10.725 5.298l14.025 19.789c1.061 1.406 2.593 1.622 3.182 1.622.59 0 2.24-.108 3.182-1.622l21.097-29.52c1.296-1.947 4.125-2.38 6.129-1.19 2.121 1.19 2.593 3.784 1.296 5.623l-20.979 29.52c-2.357 3.353-6.364 5.299-10.607 5.299z"
+                fill="#77E8C6"
+              />
+              <path
+                d="M307.698 77.002c-4.361 0-8.368-1.946-10.725-5.298l-14.026-19.789c-1.06-1.405-2.592-1.622-3.182-1.622-.589 0-2.239.108-3.182 1.622l-14.025 19.789c-2.357 3.352-6.364 5.299-10.725 5.299s-8.368-1.947-10.725-5.299l-14.025-19.789c-1.061-1.405-2.593-1.622-3.182-1.622s-2.24.108-3.182 1.622l-14.025 19.789c-2.357 3.352-6.365 5.299-10.726 5.299-4.36 0-8.367-1.947-10.725-5.299l-14.025-19.789c-1.06-1.405-2.592-1.622-3.182-1.622-.589 0-2.239.108-3.182 1.622l-14.025 19.789c-2.357 3.352-6.364 5.299-10.725 5.299s-8.368-1.947-10.725-5.299l-14.025-19.789c-1.061-1.405-2.593-1.622-3.182-1.622-.59 0-2.239.108-3.182 1.622L94.965 71.704c-2.358 3.352-6.365 5.299-10.725 5.299-4.361 0-8.368-1.947-10.725-5.299L59.489 51.915c-1.06-1.405-2.592-1.622-3.182-1.622-.589 0-2.239.108-3.182 1.622L39.1 71.704c-2.357 3.352-6.364 5.299-10.725 5.299-4.36 0-8.368-1.947-10.725-5.299L3.625 51.915c-1.06-1.405-2.593-1.622-3.182-1.622-.59 0-2.24.108-3.182 1.622l-14.026 19.789c-2.357 3.352-6.364 5.299-10.725 5.299-4.36 0-8.367-1.947-10.725-5.299l-20.978-29.52c-1.297-1.947-.707-4.434 1.296-5.624 2.122-1.19 4.832-.649 6.129 1.19l20.978 29.52c1.061 1.406 2.593 1.623 3.183 1.623.589 0 2.239-.109 3.182-1.623L-10.4 47.482c2.357-3.352 6.364-5.299 10.725-5.299 4.36 0 8.368 1.947 10.725 5.299L25.075 67.27c1.06 1.406 2.593 1.623 3.182 1.623.59 0 2.24-.109 3.182-1.623l14.025-19.788c2.358-3.352 6.365-5.299 10.725-5.299 4.361 0 8.368 1.947 10.726 5.299L80.939 67.27c1.061 1.406 2.593 1.623 3.183 1.623.589 0 2.239-.109 3.182-1.623l14.025-19.788c2.357-3.352 6.364-5.299 10.725-5.299s8.368 1.947 10.725 5.299l14.025 19.788c1.061 1.406 2.593 1.623 3.182 1.623s2.239-.109 3.182-1.623l14.025-19.788c2.358-3.352 6.365-5.299 10.725-5.299 4.361 0 8.368 1.947 10.725 5.299l14.026 19.788c1.06 1.406 2.592 1.623 3.182 1.623.589 0 2.239-.109 3.182-1.623l14.025-19.788c2.357-3.352 6.364-5.299 10.725-5.299s8.368 1.947 10.725 5.299l14.025 19.788c1.061 1.406 2.593 1.623 3.182 1.623.59 0 2.239-.109 3.182-1.623l14.025-19.788c2.358-3.352 6.365-5.299 10.725-5.299 4.361 0 8.368 1.947 10.726 5.299l14.025 19.788c1.06 1.406 2.592 1.623 3.182 1.623.589 0 2.239-.109 3.182-1.623l20.979-29.52c1.296-1.947 4.125-2.38 6.128-1.19 2.122 1.19 2.593 3.785 1.297 5.623l-20.979 29.521c-2.239 3.352-6.247 5.299-10.489 5.299z"
+                fill="#77E8C6"
+              />
+            </svg>
+            <h1 className="generic-hero__title">{title}</h1>
+            {text && <p className="generic-hero__text">{text}</p>}
+            {(date || readtime || price) && (
+              <>
+                <span className="generic-hero__price">{price}</span>
+                <div className="generic-hero__info">
+                  {date && <span>{date}</span>}
+                  {readtime && <span>{readtime}</span>}
+                </div>
+              </>
+            )}
+            {cta && (
+              <span className="generic-hero__btn" aria-label={cta.a11y}>
+                {cta.label}
+              </span>
+            )}
+          </div>
+          {image && (
+            <img
+              src={image.src}
+              alt={image.alt}
+              height={432}
+              width={510}
+              className="generic-hero__img"
+              style={{ objectFit: 'cover' }}
+              loading="lazy"
             />
           )}
-          <Heading className="generic-hero__title">{title}</Heading>
-          {text && <p className="generic-hero__text">{text}</p>}
-          {(priceText || date) && (
-            <div className="generic-hero__detail">
-              {priceText && (
-                <span className="generic-hero__detail-price">£{priceText}</span>
-              )}
-              {date && <BlogDetail date={date} readTime={readTime} />}
-            </div>
-          )}
-          {ctaLink && (
-            <>
-              {isRenderedAsLink && (
-                <span className="generic-hero__btn">
-                  {ctaText}
-                  <Icon type="arrow-right" color="#2B2F51" />
-                </span>
-              )}
-              {!isRenderedAsLink && (
-                <LinkButton
-                  className="generic-hero__link"
-                  icon="arrow-right"
-                  label={ctaText}
-                  href={ctaLink}
-                />
-              )}
-            </>
-          )}
         </div>
-        {imageUri && (
-          <Image
-            src={imageUri}
-            alt={imageAlt}
-            height={432}
-            width={510}
-            className="generic-hero__image"
-            objectFit="cover"
-          />
-        )}
       </ConditionalLink>
     </GenericHeroStyled>
   );

@@ -73,7 +73,7 @@ const _getWordReadTime = (textArr: string[]) => {
 };
 
 // Calculates the overall read time combing both words and images
-export const _calReadTime = (composer: any) => {
+export const doCalculateReadtime = (composer: any) => {
   const TEXT_AND_IMAGES_OBJECT: Props = _getTextAndImages(composer);
   const { textArr, imageArr } = TEXT_AND_IMAGES_OBJECT || [];
 

@@ -25,9 +25,7 @@ const BlogListingPage = ({ mappedEntry }: Props) => {
       <Metadata {...metadataProps} />
       <BlogListingStyled>
         <h1 className="blog-listing__title">{title}</h1>
-        <Region width="large" margin="none">
-          <GenericHero {...featuredBlogProps} />
-        </Region>
+        <GenericHero {...featuredBlogProps} />
         <ListingContainer>
           {(listingProps: ListingProps) => (
             <>

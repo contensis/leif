@@ -15,31 +15,43 @@ import Region from '~/layout/Region';
 
 // Models
 import { Props } from './BlogPost.d';
+import { Composer } from '~/dynamic/components';
 
 const BlogPost = ({ mappedEntry }: Props) => {
   const {
     metadataProps,
-    blogHeroProps,
+    heroProps,
     blogInformationProps,
     leadParagraphProps,
-    canvas,
+    canvasProps,
+    composerProps,
     ctaBannerProps,
     relatedContentProps,
   } = mappedEntry || {};
 
+  const noCanvas =
+    !canvasProps?.data ||
+    (canvasProps?.data.length === 1 && !canvasProps?.data[0].value?.length);
+
+  console.info({ heroProps });
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
-      <Region width="large" margin="none">
-        <GenericHero {...blogHeroProps} />
-      </Region>
+      <GenericHero {...heroProps} />
       <Region width="small" margin="default">
         <BlogInformation {...blogInformationProps} />
       </Region>
-      <Region width="small" margin="default">
-        <LeadParagraph {...leadParagraphProps} />
-      </Region>
-      {canvas && <Canvas data={canvas} />}
+
+      {noCanvas ? (
+        <>
+          <Region width="small" margin="default">
+            <LeadParagraph {...leadParagraphProps} />
+          </Region>
+          <Composer {...composerProps} />
+        </>
+      ) : (
+        <Canvas {...canvasProps} />
+      )}
       <Region width="small" margin="large">
         <CTABanner {...ctaBannerProps} />
       </Region>

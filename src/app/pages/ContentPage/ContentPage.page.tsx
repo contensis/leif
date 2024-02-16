@@ -3,6 +3,7 @@ import React from 'react';
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
 import Canvas from '~/components/canvas/Canvas';
+import { Composer } from '~/dynamic/components';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import SocialShare from '~/components/socialShare/SocialShare';
 import PromotedContent from '~/components/promotedContent/PromotedContent';
@@ -23,32 +24,43 @@ const ContentPage = ({ mappedEntry }: Props) => {
   const {
     contentHeroProps,
     leadParagraphProps,
+    composerProps,
     ctaBannerProps,
     promotedContentProps,
     metadataProps,
     formProps,
-    canvas,
+    canvasProps,
   } = mappedEntry || {};
 
-  const bgImageUri = contentHeroProps?.bgImageUri;
+  const hasImage = contentHeroProps?.image?.src;
   const hasIllustration = contentHeroProps?.hasIllustration;
-  const isLight = bgImageUri ? true : false;
+  const noCanvas =
+    !canvasProps?.data ||
+    (canvasProps?.data.length === 1 && !canvasProps?.data[0].value?.length);
 
   return (
-    <MainLayout isLight={isLight}>
+    <MainLayout isLight={!!hasImage}>
       <Metadata {...metadataProps} />
       <ContentPageStyled
-        hasContentCentered={
-          !!(contentHeroProps && (hasIllustration || !bgImageUri))
+        data-content={
+          contentHeroProps && (hasIllustration || !hasImage)
+            ? 'default'
+            : 'hero-image'
         }
       >
         {contentHeroProps && <ContentHero {...contentHeroProps} />}
-        <div className="content-page__body-content">
-          <div className="content-page__content">
-            <Region margin="none" width="msmall">
-              <LeadParagraph {...leadParagraphProps} />
-            </Region>
-            {canvas && <Canvas data={canvas} />}
+        <div className="content-page__wrapper">
+          <div>
+            {noCanvas ? (
+              <>
+                <Region margin="none" width="msmall">
+                  <LeadParagraph {...leadParagraphProps} />
+                </Region>
+                <Composer {...composerProps} />
+              </>
+            ) : (
+              <Canvas {...canvasProps} />
+            )}
             <Region margin="large" width="msmall">
               <CTABanner {...ctaBannerProps} />
             </Region>

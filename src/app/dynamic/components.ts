@@ -42,26 +42,26 @@ export const Canvas = loadable(
 export const Image = loadable<RenderBlockProps<ImageBlock>>(
   () =>
     import(
-      /* webpackChunkName: "image.component" */ '~/components/canvas/blocks/image/ImageCanvas.block'
+      /* webpackChunkName: "image.component" */ '~/components/canvas/blocks/ImageCanvas.block'
     )
 );
 export const Quote = loadable<RenderBlockProps<QuoteBlock>>(
   () =>
     import(
-      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/quote/QuoteCanvas.block'
+      /* webpackChunkName: "quote.component" */ '~/components/canvas/blocks/QuoteCanvas.block'
     )
 );
 
 export const Video = loadable<RenderBlockProps<InlineEntryBlock>>(
   () =>
     import(
-      /* webpackChunkName: "video.component" */ '~/components/canvas/blocks/video/VideoCanvas.block'
+      /* webpackChunkName: "video.component" */ '~/components/canvas/blocks/VideoCanvas.block'
     )
 );
 export const Panel = loadable<RenderBlockProps<PanelBlock>>(
   () =>
     import(
-      /* webpackChunkName: "panel.component" */ '~/components/canvas/blocks/panel/PanelCanvas.block'
+      /* webpackChunkName: "panel.component" */ '~/components/canvas/blocks/PanelCanvas.block'
     )
 );
 
@@ -71,13 +71,13 @@ export const FeaturedProductComponent = loadable<
 >(
   () =>
     import(
-      /* webpackChunkName: "featuredProductComponent.component" */ '~/components/canvas/components/featuredProduct/FeaturedProductCanvas'
+      /* webpackChunkName: "featuredProductComponent.component" */ '~/components/featuredProduct/FeaturedProduct.canvas'
     )
 );
 
 export const FeaturedRow = loadable<RenderBlockProps<ComponentBlock>>(
   () =>
     import(
-      /* webpackChunkName: "featuredRow.component" */ '~/components/canvas/components/featuredRow/FeaturedRowCanvas'
+      /* webpackChunkName: "featuredRow.component" */ '~/components/cardRow/CardRow.canvas'
     )
 );

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ImageBlockStyled = styled.div`
+export default styled.div`
   ${({ theme }) => {
     return css`
       overflow: hidden;
@@ -13,6 +13,9 @@ const ImageBlockStyled = styled.div`
       }
       .image-block__wrapper {
         position: relative;
+        margin: 0;
+        width: 100%;
+        height: 100%;
         &:before {
           content: '';
           position: absolute;
@@ -39,12 +42,11 @@ const ImageBlockStyled = styled.div`
         margin: 0 auto;
       }
       .image-block__text {
-        margin: 24px 0 0 0;
+        margin: 16px 0 0 0;
+        text-align: left;
         color: ${theme.colors.secondary_light};
         ${theme.typeStyles.smallCopy};
       }
     `;
   }};
 `;
-
-export default ImageBlockStyled;

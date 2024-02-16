@@ -22,6 +22,8 @@ import mapEntriesToResults from '~/components/search/transformations/entry-to-ca
 // Models
 import { RouteComponentProps } from '@zengenti/contensis-react-base';
 import { Props } from './ProductListing.d';
+import { ProductListingHeroMapping } from '~/components/genericHero/GenericHero.mapper';
+import { mapJson } from '@zengenti/contensis-react-base/util';
 
 const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
   const { title, metadataProps } = mappedEntry || {};
@@ -36,19 +38,19 @@ const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
     mapper: mapEntriesToResults,
   });
 
+  const featuredProduct = featuredProducts?.results?.[0] || {};
   if (!mappedEntry) return <></>;
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
-        <Region width="large" margin="none">
-          {featuredProducts &&
-            featuredProducts.results &&
-            featuredProducts.results.length >= 1 && (
-              <GenericHero {...featuredProducts.results[0]} headingLevel={2} />
-            )}
-        </Region>
+        {featuredProduct && (
+          <GenericHero
+            type="two-column"
+            {...mapJson(featuredProduct, ProductListingHeroMapping)}
+          />
+        )}
         <ListingContainer>
           {(listingProps: ListingProps) => (
             <>

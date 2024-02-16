@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import Link from '../link/Link';
 
-const BackButtonStyled = styled(Link)`
+export default styled(Link)`
   ${({ theme }) => {
     return css`
       display: inline-flex;
@@ -25,5 +25,3 @@ const BackButtonStyled = styled(Link)`
     `;
   }};
 `;
-
-export default BackButtonStyled;

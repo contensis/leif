@@ -2,6 +2,8 @@ import React from 'react';
 
 import BackButtonStyled from './BackButton.styled';
 import Icon from '../icon/Icon';
+import { useSelector } from 'react-redux';
+import { routing } from '@zengenti/contensis-react-base/redux';
 
 export interface AncestorsProps {
   displayName: string;
@@ -9,37 +11,28 @@ export interface AncestorsProps {
 }
 interface Props {
   className?: string;
-  ancestors: AncestorsProps[];
   label?: string;
   color?: string;
-  uri?: string;
+  path?: string;
 }
 
-const BackButton = ({
-  className,
-  label,
-  uri,
-  ancestors,
-  color = '#6E729B',
-}: Props) => {
+const BackButton = ({ className, label, path, color = '#6E729B' }: Props) => {
   const getPreviousPage = (array: any[]) => {
-    if (!array || array.length < 0) return null;
-    const max = array.length - 1;
-    const prev = max === 0 ? 0 : max;
-    return array[prev];
+    const maxIndex = array ? array.length - 1 : -1;
+    return maxIndex >= 0 ? array[maxIndex] : null;
   };
 
-  const previousPage: AncestorsProps = getPreviousPage(ancestors);
-  const { path, displayName } = previousPage || {};
+  const ancestors = useSelector(routing.selectors.selectCurrentAncestors);
+  const anchestor = getPreviousPage(ancestors);
 
-  const btnPath = uri ? uri : path;
-  const btnLabel = label ? label : displayName;
+  if (!path && !anchestor?.path) return null;
 
-  if (!btnPath) return null;
   return (
-    <BackButtonStyled className={className} uri={btnPath}>
+    <BackButtonStyled className={className} uri={path || anchestor?.path}>
       <Icon className="back-button__icon" type="arrow-left" color={color} />
-      <span className="back-button__text">{btnLabel}</span>
+      <span className="back-button__text">
+        {label || anchestor?.displayName}
+      </span>
     </BackButtonStyled>
   );
 };

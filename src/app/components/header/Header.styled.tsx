@@ -14,7 +14,7 @@ const HeaderStyled = styled.div`
       align-items: center;
       justify-content: space-between;
       position: relative;
-      z-index: 9;
+      z-index: 99;
       transition: margin-right 280ms ease;
       @media ${theme.mq.laptop} {
         margin-bottom: ${isLight ? '0px' : '40px'};

@@ -1,18 +1,22 @@
 import React from 'react';
-
 import ImageBlockStyled from './ImageBlock.styled';
-import Image from '../image/Image';
 
 export interface Props {
   className?: string;
   image: any;
   alt: string;
   src: string;
-  text?: string;
+  caption?: string;
   align?: 'center' | 'left' | 'right';
 }
 
-const ImageBlock = ({ className, alt, src, text, align = 'center' }: Props) => {
+const ImageBlock = ({
+  className,
+  alt,
+  src,
+  caption,
+  align = 'center',
+}: Props) => {
   if (!src) return null;
   return (
     <ImageBlockStyled
@@ -23,16 +27,19 @@ const ImageBlock = ({ className, alt, src, text, align = 'center' }: Props) => {
         textAlign: align,
       }}
     >
-      <div className="image-block__wrapper">
-        <Image
+      <figure className="image-block__wrapper">
+        <img
           className="image-block__image"
-          alt={alt}
           src={src}
+          alt={alt}
           height={480}
           width={840}
+          loading="lazy"
         />
-      </div>
-      {text && <p className="image-block__text">{text}</p>}
+        {caption && (
+          <figcaption className="image-block__text">{caption}</figcaption>
+        )}
+      </figure>
     </ImageBlockStyled>
   );
 };

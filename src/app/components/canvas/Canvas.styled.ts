@@ -4,7 +4,7 @@ const CanvasStyled = styled.div`
   ${({ theme }) => css`
     padding: 16px 0;
 
-    p.lead {
+    /* p.lead {
       ${theme.typeStyles.h4};
       font-family: ${theme.typeStyles.fontFamily.headings};
     }
@@ -29,7 +29,11 @@ const CanvasStyled = styled.div`
       margin: 24px auto;
     }
 
-    table,
+    [data-component='table-block'] {
+      margin: 80px auto;
+      max-width: 720px;
+    }
+
     [data-component='quote-block'] {
       margin: 80px auto;
     }
@@ -40,7 +44,7 @@ const CanvasStyled = styled.div`
       max-width: 840px;
       width: 100%;
       margin: 80px auto;
-    }
+    } */
   `}
 `;
 

@@ -1,10 +1,10 @@
 import { mapEntries, mapComposer } from '~/core/util/json-mapper';
 import { ContentTypes, CardTypes } from '~/core/schema';
 
-import { composerPropsMapping } from '~/components/composer/transformations/composer-to-props.mapper';
+import { composerPropsMapping } from '~/components/composer/Composer.mapper';
 
 import dateWithSuffix from '~/utils/dateWithSuffix';
-import { _calReadTime } from '~/utils/calculateReadTime';
+import { doCalculateReadtime } from '~/utils/calculateReadTime';
 import { _truncateString } from '~/utils/truncateString';
 
 import { Props as CardProps } from '~/components/card/Card';
@@ -56,7 +56,7 @@ export const blogCardMapping = {
   ],
   readTime: ({ postBody }: any) => {
     const composer = mapComposer(postBody, composerPropsMapping);
-    return _calReadTime(composer);
+    return doCalculateReadtime(composer);
   },
 };
 

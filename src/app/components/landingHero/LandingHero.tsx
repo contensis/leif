@@ -32,16 +32,14 @@ const LandingHero = ({
   const _RenderHero = (hasIllustration: boolean) => {
     if (hasIllustration) {
       return (
-        <Region margin="none" width="default" padding="default">
-          <GenericHero
-            title={title}
-            imageUri={heroIllustrationUri}
-            imageAlt={heroIllustrationAlt}
-            ctaLink={ctaLink}
-            ctaText={ctaText}
-            text={summary}
-          />
-        </Region>
+        <GenericHero
+          title={title}
+          imageUri={heroIllustrationUri}
+          imageAlt={heroIllustrationAlt}
+          ctaLink={ctaLink}
+          ctaText={ctaText}
+          text={summary}
+        />
       );
     } else {
       return (

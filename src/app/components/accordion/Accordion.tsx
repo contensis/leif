@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import AccordionStyled from './Accordion.styled';
-import AccordionItem from '../accordionItem/AccordionItem';
+import AccordionItem from './AccordionItem';
 
 export interface Props {
   className?: string;

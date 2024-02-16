@@ -6,9 +6,7 @@ import { MappedProps as HomePageProps } from '~/pages/Home/Home.d';
 import { MappedProps as LandingPageProps } from '~/pages/LandingPage/LandingPage.d';
 import { MappedProps as ContentPageProps } from '~/pages/ContentPage/ContentPage.d';
 import { MappedProps as BlogListingProps } from '~/pages/BlogListing/BlogListing.d';
-import { MappedProps as EventsListingProps } from '~/pages/EventsListing/EventsListing.d';
 import { MappedProps as BlogPostProps } from '~/pages/BlogPost/BlogPost.d';
-import { MappedProps as EventProps } from '~/pages/Event/Event.d';
 import { Props as ProductListingProps } from '~/pages/ProductListing/ProductListing.d';
 import { MappedProps as ProductPageProps } from '~/pages/ProductPage/ProductPage.d';
 
@@ -34,7 +32,7 @@ export const SearchPage = loadable<RouteComponentProps>(
 export const BlogListing = loadable<RouteComponentProps<BlogListingProps>>(
   () =>
     import(
-      /* webpackChunkName: "blog-listing.page" */ '~/pages/BlogListing/BlogListing.page'
+      /* webpackChunkName: "blog.listing.page" */ '~/pages/BlogListing/BlogListing.page'
     )
 );
 export const BlogPost = loadable<RouteComponentProps<BlogPostProps>>(
@@ -46,7 +44,7 @@ export const ProductListing = loadable<
 >(
   () =>
     import(
-      /* webpackChunkName: "product-listing.page" */ '~/pages/ProductListing/ProductListing.page'
+      /* webpackChunkName: "product.listing.page" */ '~/pages/ProductListing/ProductListing.page'
     )
 );
 export const ProductPage = loadable<RouteComponentProps<ProductPageProps>>(
@@ -76,7 +74,9 @@ export const CorePages = {
   ),
   ZenInfo: loadable<RouteComponentProps>(
     () =>
-      import(/* webpackChunkName: "versioninfo.page" */ '~/pages/VersionInfo')
+      import(
+        /* webpackChunkName: "versioninfo.page" */ '~/pages/VersionInfo/VersionInfo.page'
+      )
   ),
 };
 // ˄˄ Do not delete these pages ˄˄

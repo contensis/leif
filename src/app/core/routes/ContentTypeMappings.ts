@@ -12,73 +12,63 @@ import {
 } from '~/dynamic/pages';
 
 // Mappings
-import { contentPagePropsMapping } from '~/pages/ContentPage/transformations/contentpage.entry-to-props.mapper';
-import { landingPagePropsMapping } from '~/pages/LandingPage/transformations/landingpage.entry-to-props.mapper';
-import { blogPostPropsMapping } from '~/pages/BlogPost/transformations/blogpost.entry-to-props.mapper';
-import { blogListingPropsMapping } from '~/pages/BlogListing/transformations/bloglisting.entry-to-props.mapper';
-import { productListingPropsMapping } from '~/pages/ProductListing/transformations/productlisting.entry-to-props.mapper';
-import { productPagePropsMapping } from '~/pages/ProductPage/transformations/productpage.entry-to-props.mapper';
-import { homepageHeroProps } from '~/pages/Home/transformations/homepage.entry-to-props.mapper';
-import { ContentTypes } from '../schema';
+import { ContentPageMappings } from '~/pages/ContentPage/ContentPage.mapper';
+import { LandingPagePropsMapping } from '~/pages/LandingPage/LandingPage.mapper';
+import { BlogPostPropsMapping } from '~/pages/BlogPost/BlogPost.mapper';
+import { BlogListingPropsMapping } from '~/pages/BlogListing/BlogListing.mapper';
+import { ProductListingPropsMapping } from '~/pages/ProductListing/ProductListing.mapper';
+import { ProductPagePropsMapping } from '~/pages/ProductPage/ProductPage.mapper';
+import { HomepagePropsMapping } from '~/pages/Home/Home.mapper';
+import { ContentTypes } from '~/core/schema';
 
-const {
-  blogListing,
-  blog,
-  contentPage,
-  landingPage,
-  plant,
-  pot,
-  skeletonPage,
-} = ContentTypes;
-
-const contentTypeMappings: ContentTypeMapping[] = [
+const ContentTypeMappings: ContentTypeMapping[] = [
   {
     contentTypeID: 'homepage',
     component: HomePage,
-    entryMapper: ({ entry }) => mapJson(entry, homepageHeroProps),
+    entryMapper: ({ entry }) => mapJson(entry, HomepagePropsMapping),
   },
   // Content Pages
   {
-    contentTypeID: contentPage,
+    contentTypeID: ContentTypes.contentPage,
     component: ContentPage,
     linkDepth: 2,
-    entryMapper: entryMapper(contentPagePropsMapping),
+    entryMapper: entryMapper(ContentPageMappings),
   },
   {
-    contentTypeID: landingPage,
+    contentTypeID: ContentTypes.landingPage,
     component: LandingPage,
-    entryMapper: entryMapper(landingPagePropsMapping),
+    entryMapper: entryMapper(LandingPagePropsMapping),
   },
   {
-    contentTypeID: blog,
+    contentTypeID: ContentTypes.blog,
     component: BlogPost,
-    entryMapper: entryMapper(blogPostPropsMapping),
+    entryMapper: entryMapper(BlogPostPropsMapping),
   },
   {
-    contentTypeID: plant,
+    contentTypeID: ContentTypes.plant,
     component: ProductPage,
-    entryMapper: entryMapper(productPagePropsMapping),
+    entryMapper: entryMapper(ProductPagePropsMapping),
   },
   {
-    contentTypeID: pot,
+    contentTypeID: ContentTypes.pot,
     component: ProductPage,
-    entryMapper: entryMapper(productPagePropsMapping),
+    entryMapper: entryMapper(ProductPagePropsMapping),
   },
   // Listing Pages
   {
-    contentTypeID: blogListing,
+    contentTypeID: ContentTypes.blogListing,
     component: BlogListing,
-    entryMapper: entryMapper(blogListingPropsMapping),
+    entryMapper: entryMapper(BlogListingPropsMapping),
   },
   {
-    contentTypeID: skeletonPage,
+    contentTypeID: ContentTypes.skeletonPage,
     component: ProductListing,
     entryMapper: ({ entry, slug }) => {
       if (slug === 'products') {
-        return mapJson(entry, productListingPropsMapping);
+        return mapJson(entry, ProductListingPropsMapping);
       }
     },
   },
 ];
 
-export default contentTypeMappings;
+export default ContentTypeMappings;

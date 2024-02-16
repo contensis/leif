@@ -7,7 +7,8 @@ import { sizesNoUnit } from './layout';
  */
 export const fontBase = {
   fontSize: '1rem',
-  lineHeight: '2rem',
+  lineHeight: '1.5rem',
+  fontWeight: 400,
 };
 
 /**

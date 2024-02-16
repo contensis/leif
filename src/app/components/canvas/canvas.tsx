@@ -9,17 +9,13 @@ import { blocks, components } from '~/components/canvas/Canvas.util';
 import CanvasStyled from './Canvas.styled';
 export const ContentPageContext = React.createContext(false);
 
-const Canvas = ({
-  data,
-  isContentPage = false,
-}: {
-  data: Block[];
-  isContentPage: boolean;
-}) => {
+export type Props = { data: Block[]; isContentPage: boolean };
+
+const Canvas = ({ data, isContentPage = false }: Props) => {
   if (!data) return null;
   return (
     <ContentPageContext.Provider value={isContentPage}>
-      <CanvasStyled>
+      <CanvasStyled data-component="canvas">
         <RenderContextProvider blocks={blocks} components={components}>
           <Renderer data={data} />
         </RenderContextProvider>

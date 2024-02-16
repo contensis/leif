@@ -1,125 +1,123 @@
 import styled, { css } from 'styled-components';
 
-interface Props {
-  theme?: any;
-  bgImageUri: string;
-}
-
-const ContentHeroStyled = styled.div`
-  ${({ theme, bgImageUri }: Props) => {
+export default styled.div`
+  ${({ theme }) => {
     return css`
-      position: relative;
-      padding-top: 140px;
-      text-align: center;
-      max-width: 730px;
-      width: 100%;
-      margin: 0;
-      @media ${theme.mq.laptop} {
-        text-align: left;
-        margin: 0;
-      }
-      .content-hero__content {
-        height: 100%;
+      &[data-hero='hero-image'] {
+        margin-top: -112px;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-      .content-hero__back-btn {
-        color: ${theme.colors.secondary_light};
-        align-self: flex-start;
-        position: absolute;
-        top: 0;
-        left: auto;
-      }
-      .content-hero__title {
-        background-color: ${theme.colors.neutral_white};
-        border-radius: 8px 8px 0px 0px;
-        padding: 16px 0 0 0;
-        max-width: 950px;
-        width: 100%;
+        height: 640px;
         position: relative;
-        &:before {
-          content: '';
+
+        .content-hero__nav--back {
+          color: #fff;
           position: absolute;
-          top: -80px;
-          left: 50%;
-          transform: translateX(-50%);
-          background-image: url('/static/img/svgs/shapes/generic-hero-shape.svg');
-          background-repeat: no-repeat;
-          height: 80px;
-          width: 220px;
-        }
-        @media ${theme.mq.laptop} {
-          &:before {
-            left: 0;
-            transform: unset;
+          z-index: 9;
+          top: 138px;
+          left: 16px;
+          @media ${theme.mq.largeDesktop} {
+            left: 80px;
           }
         }
-      }
-      ${bgImageUri &&
-      css`
-        position: relative;
-        padding-top: 0;
-        text-align: left;
-        max-width: unset;
-        width: 100%;
-        margin: -100px 0 0 0;
-        background-image: url(${bgImageUri});
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 640px;
-        &:before {
-          content: '';
+
+        .content-hero__overlay {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9;
           background: linear-gradient(
             180deg,
             rgba(43, 47, 81, 0.4) 15.88%,
             rgba(43, 47, 81, 0) 100%
           );
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          z-index: 0;
         }
-        @media ${theme.mq.laptop} {
-          margin: -84px 0 0 0;
-        }
-        .content-hero__content {
-          margin: 0;
-          padding: 0 16px;
-          @media ${theme.mq.laptop} {
-            padding: 0 80px;
-          }
-        }
-        .content-hero__back-btn {
-          color: ${theme.colors.neutral_white};
-          top: 92px;
-          left: 16px;
-          @media ${theme.mq.laptop} {
-            top: 116px;
-            left: auto;
-          }
-        }
-        .content-hero__title {
-          box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
-          padding: 40px 16px;
-          &:before {
-            display: none;
-          }
 
-          @media ${theme.mq.laptop} {
-            padding: 32px 55px;
-          }
-          @media ${theme.mq.desktop} {
-            padding: 64px 110px;
+        .content-hero__image {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .content-hero__content--outer {
+          z-index: 9;
+          max-width: 1280px;
+          width: 100%;
+          margin: 0 auto;
+          position: absolute;
+          transform: translateX(-50%);
+          left: 50%;
+          bottom: 0;
+          @media ${theme.mq.largeDesktop} {
+            display: grid;
+            grid-template-columns: 840px 1fr;
+            gap: 150px;
           }
         }
-      `}
+
+        .content-hero__content--inner svg {
+          display: none;
+        }
+
+        .content-hero__content--inner {
+          max-width: 940px;
+          width: calc(100% - 32px);
+          background: #fff;
+          box-shadow: 0 -16px 24px 0 rgba(56, 33, 146, 0.07);
+          border-radius: 8px 8px 0 0;
+          padding: 40px 16px;
+          margin: 0 auto;
+          @media ${theme.mq.largeDesktop} {
+            width: 100%;
+            padding: 64px 16px;
+            margin: 0;
+          }
+        }
+
+        .content-hero__content--inner > * {
+          max-width: 730px;
+          width: 100%;
+          padding: 0 16px;
+          margin: 0 auto;
+          text-align: center;
+          @media ${theme.mq.largeDesktop} {
+            text-align: left;
+            padding: 0;
+            margin: 0 0 0 auto;
+          }
+        }
+      }
+
+      &[data-hero='no-image'] {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        @media ${theme.mq.largeDesktop} {
+          display: grid;
+          grid-template-columns: 840px 1fr;
+          gap: 150px;
+        }
+
+        .content-hero__nav--back {
+          display: flex;
+          margin-bottom: 40px;
+          align-self: flex-start;
+        }
+
+        .content-hero__content--inner {
+          margin: 0 auto;
+          max-width: 730px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          @media ${theme.mq.largeDesktop} {
+            margin: 0 0 0 auto;
+            display: block;
+          }
+        }
+      }
     `;
   }};
 `;
-
-export default ContentHeroStyled;
