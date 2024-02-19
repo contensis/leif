@@ -52,12 +52,6 @@ export const Quote = loadable<RenderBlockProps<QuoteBlock>>(
     )
 );
 
-export const Video = loadable<RenderBlockProps<InlineEntryBlock>>(
-  () =>
-    import(
-      /* webpackChunkName: "video.component" */ '~/components/canvas/blocks/VideoCanvas.block'
-    )
-);
 export const Panel = loadable<RenderBlockProps<PanelBlock>>(
   () =>
     import(

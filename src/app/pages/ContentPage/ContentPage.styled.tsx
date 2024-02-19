@@ -59,9 +59,10 @@ export default styled.div`
           margin: 24px auto;
         }
 
-        [data-component='table-block'] {
+        [data-component='table-block'],
+        [data-component='cta-block'] {
           margin: 80px auto;
-          max-width: 720px;
+          max-width: 730px;
         }
 
         [data-component='quote-block'] {
@@ -69,9 +70,14 @@ export default styled.div`
         }
 
         [data-component='image-block'],
-        [data-component='featured-product'],
-        [data-component='card-row'] {
+        [data-component='featured-product'] {
           max-width: 840px;
+          width: 100%;
+          margin: 80px auto;
+        }
+
+        [data-component='card-row'] {
+          max-width: 1280px;
           width: 100%;
           margin: 80px auto;
         }

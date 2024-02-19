@@ -1,61 +1,64 @@
 import React from 'react';
-import mapJson from '../../core/util/json-mapper';
 import RelatedLinksStyled from './RelatedLinks.styled';
-import { relatedLinksMapper } from './transformations/relatedlinks.entry-to-card.mapper';
-import Image from '../image/Image';
+import { useSelector } from 'react-redux';
+import { routing } from '@zengenti/contensis-react-base/redux';
 import Link from '../link/Link';
+import { mapJson } from '@zengenti/contensis-react-base/util';
+import { RelatedLinksMapping } from './RelatedLinks.mapper';
 
 export interface Props {
   className?: string;
   title?: string;
-  links?: any;
-  nodeChildren?: any;
-  nodeSiblings?: any;
-  currentNodeId?: string;
-  currentNodeParent?: string;
-  nodeAncestors?: any;
 }
 
-interface MappedResultProps {
-  title: string;
+interface LinkProps {
   path: string;
-  imageUri: string;
-  imageAlt: string;
+  displayName: string;
 }
 
-const RelatedLinks = ({
-  className,
-  title = 'Related  links',
-  links,
-}: Props) => {
-  if (!links || links.length < 1) return null;
+interface MappedLinkProps {
+  path: string;
+  displayName: string;
+  image: {
+    src: string;
+    alt?: string;
+  };
+}
 
+const RelatedLinks = ({ className, title = 'Related  links' }: Props) => {
+  const siblings = useSelector(routing.selectors.selectCurrentSiblings);
+  const ancestors = useSelector(routing.selectors.selectCurrentAncestors);
+  const parent = useSelector(routing.selectors.selectCurrentNode)?.parentId;
+  const nodeid = useSelector(routing.selectors.selectCurrentNode)?.id;
+
+  const links = [
+    ...siblings.filter((node: any) => node.id === parent),
+    ...ancestors.filter((node: any) => node.id !== nodeid),
+  ] as LinkProps[];
+
+  if (!links || links.length < 1) return null;
   return (
     <RelatedLinksStyled className={className}>
-      {title && <h3 className="related-links__title">{title}</h3>}
-      <ul>
-        {links.map((link: any, idx: number) => {
-          const mappedRes: MappedResultProps = mapJson(
-            link,
-            relatedLinksMapper
-          );
-          const { title, path, imageUri, imageAlt } = mappedRes || {};
+      <h3>{title}</h3>
+      <ol>
+        {links.map((link: LinkProps, i: number) => {
+          const mapped = mapJson(link, RelatedLinksMapping) as MappedLinkProps;
           return (
-            <li key={idx}>
-              <Link className="related-links__link" uri={path}>
-                <Image
-                  className="related-links__image"
-                  src={imageUri}
-                  alt={imageAlt}
-                  width={74}
+            <li key={i}>
+              {mapped.image.src && (
+                <img
+                  width={80}
                   height={80}
+                  loading="lazy"
+                  src={mapped.image.src}
+                  alt={mapped.image?.alt || ''}
                 />
-                <span className="related-links__link-title">{title}</span>
-              </Link>
+              )}
+              <Link uri={mapped.path}>{mapped.displayName}</Link>
             </li>
           );
         })}
-      </ul>
+      </ol>
     </RelatedLinksStyled>
   );
 };

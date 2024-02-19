@@ -27,7 +27,7 @@ const CTABanner = ({
 }: Props) => {
   if (!btnLink) return null;
   return (
-    <CTABannerStyled className={className}>
+    <CTABannerStyled className={className} data-component="cta-block">
       <Image
         className="cta-banner__image"
         src={imageUri}

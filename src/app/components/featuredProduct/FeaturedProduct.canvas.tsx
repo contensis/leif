@@ -11,8 +11,6 @@ import FeaturedProduct, {
 const FeaturedProductCanvas = (
   props: RenderBlockProps<ComponentBlock<FeaturedProductProps>>
 ) => {
-  console.info({ props });
-
   return (
     <FeaturedProduct
       {...(mapJson(

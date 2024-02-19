@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ProductListingStyled = styled.div`
+export default styled.div`
   ${({ theme }) => {
     return css`
       padding-bottom: 120px;
@@ -15,8 +15,10 @@ const ProductListingStyled = styled.div`
         max-width: none;
         margin-top: 120px;
       }
+
+      [data-component='generic-hero'] {
+        padding: 0 16px;
+      }
     `;
   }};
 `;
-
-export default ProductListingStyled;

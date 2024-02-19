@@ -19,6 +19,7 @@ import Region from '~/layout/Region';
 
 // Models
 import { Props } from './ContentPage.d';
+import Sidebar from '~/components/sidebar/Sidebar';
 
 const ContentPage = ({ mappedEntry }: Props) => {
   const {
@@ -65,10 +66,7 @@ const ContentPage = ({ mappedEntry }: Props) => {
               <CTABanner {...ctaBannerProps} />
             </Region>
           </div>
-          <aside className="content-page__related-links">
-            <SocialShare className="content-page__social-share" />
-            <RelatedLinks />
-          </aside>
+          <Sidebar />
         </div>
         <Region width="full" margin="default">
           <PromotedContent {...promotedContentProps} />

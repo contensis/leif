@@ -15,6 +15,7 @@ import { Props as TestimonialSliderProps } from '~/components/testimonialSlider/
 import { Props as TextBlockProps } from '~/components/textBlock/TextBlock';
 import { Props as TwitterCardProps } from '~/components/twitterCard/TwitterCard';
 import { Props as VideoPlayerProps } from '~/components/videoPlayer/VideoPlayer';
+import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
 
 export const Accordion = loadable<AccordionProps>(
   () =>
@@ -29,6 +30,12 @@ export const ContentBlockRow = loadable<ContentBlockRowProps>(
   () =>
     import(
       /* webpackChunkName: "content-block-row" */ '~/components/contentBlockRow/ContentBlockRow'
+    )
+);
+export const CTABanner = loadable<CTABannerProps>(
+  () =>
+    import(
+      /* webpackChunkName: "cta-banner" */ '~/components/ctaBanner/CTABanner'
     )
 );
 export const FeaturedProduct = loadable<FeaturedProductProps>(

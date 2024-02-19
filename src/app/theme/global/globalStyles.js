@@ -92,25 +92,25 @@ const GlobalStyle = createGlobalStyle`
     background-color: rgba(119, 232, 198, 0.1);
   }
 
-  ul {
-    list-style: none;
+  ul, ol {
     margin: 24px 0;
     padding: 0 0 0 20px;
-    li {
-      position: relative;
-      &:before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: -20px;
-        background-image: url('/static/img/svgs/icons/bullet-point-icon.svg');
-        background-repeat: no-repeat;
-        width: 12px;
-        height: 12px;
-      }
-      &:not(:last-child) {
-        margin-bottom: 24px;
-      }
+    li:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  ul li {
+    list-style: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: -20px;
+      background-image: url('/static/img/svgs/icons/bullet-point-icon.svg');
+      background-repeat: no-repeat;
+      width: 12px;
+      height: 12px;
     }
   }
   .overlay {

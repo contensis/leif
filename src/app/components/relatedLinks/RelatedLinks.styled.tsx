@@ -1,53 +1,30 @@
 import styled, { css } from 'styled-components';
 
-const RelatedLinksStyled = styled.div`
+export default styled.div`
   ${({ theme }) => {
     return css`
-      ul li {
-        &:before {
-          display: none;
+      margin-top: 40px;
+
+      ol {
+        list-style: none;
+        padding: 0;
+        margin: 40px 0 0;
+        li:not(:last-child) {
+          margin-bottom: 32px;
+          padding-bottom: 24px;
+          border-bottom: 1px solid #f1f1f1;
         }
       }
-      .related-links__title {
-        ${theme.typeStyles.h4}
-        margin-bottom: 40px;
-      }
-      .related-links__image {
-        max-width: 74px;
-        width: 100%;
-        height: 80px;
-        border-radius: 4px;
-        object-fit: cover;
-      }
-      .related-links__link {
-        color: ${theme.colors.secondary};
-        display: flex;
-        align-items: flex-start;
+
+      li a {
+        ${theme.typeStyles.h5};
+        font-family: ${theme.typeStyles.fontFamily.headings};
+        color: #2b2f51;
         text-decoration: none;
         &:hover {
           text-decoration: underline;
         }
       }
-      .related-links__link-title {
-        font-family: ${theme.typeStyles.fontFamily.headings};
-        ${theme.typeStyles.h5};
-        display: block;
-        margin-left: 16px;
-      }
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-          &:not(:first-child) {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid ${theme.colors.neutral_lightgrey};
-          }
-        }
-      }
     `;
   }};
 `;
-
-export default RelatedLinksStyled;

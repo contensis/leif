@@ -33,7 +33,6 @@ const BlogPost = ({ mappedEntry }: Props) => {
     !canvasProps?.data ||
     (canvasProps?.data.length === 1 && !canvasProps?.data[0].value?.length);
 
-  console.info({ heroProps });
   return (
     <MainLayout>
       <Metadata {...metadataProps} />

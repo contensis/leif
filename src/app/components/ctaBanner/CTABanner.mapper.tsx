@@ -19,3 +19,13 @@ export const BannerPropsMapping = {
   },
   btnType: 'primary',
 };
+
+export const BannerCanvasPropsMapping = {
+  title: 'entryTitle',
+  text: 'entryDescription',
+  imageUri: 'image.asset.sys.uri',
+  imageAlt: ['image.altText', 'image.caption', 'image.asset.title'],
+  btnText: 'buttonText',
+  btnLink: ['buttonLink.url', 'buttonLink.sys.uri'],
+  btnType: 'primary',
+};

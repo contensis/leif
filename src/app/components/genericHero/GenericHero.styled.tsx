@@ -48,14 +48,17 @@ export default styled.div`
       .generic-hero__content {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
+
         max-width: 840px;
         width: 100%;
         margin: 0 auto;
         text-align: center;
         @media ${theme.mq.largeDesktop} {
           text-align: left;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
       }
 
@@ -100,6 +103,7 @@ export default styled.div`
 
       .generic-hero__nav--back {
         margin-bottom: 24px;
+        align-self: flex-start;
       }
 
       .generic-hero__img {
