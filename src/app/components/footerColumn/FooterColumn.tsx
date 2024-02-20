@@ -6,7 +6,7 @@ import FooterColumnStyled from './FooterColumn.styled';
 
 interface LinkObject {
   title: string;
-  uri: string;
+  path: string;
 }
 
 interface Props {
@@ -30,10 +30,14 @@ const FooterColumn = ({ className, title, links }: Props) => {
       </button>
       <h3 className="footer-column__title">{title}</h3>
       <div className="footer-column__sub-links">
-        {links.map((l: LinkObject) => {
+        {links.map((link: LinkObject) => {
           return (
-            <Link className="footer-column__sub-link" key={l.title} uri={l.uri}>
-              {l.title}
+            <Link
+              className="footer-column__sub-link"
+              key={link.title}
+              path={link.path}
+            >
+              {link.title}
             </Link>
           );
         })}

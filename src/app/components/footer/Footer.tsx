@@ -8,15 +8,6 @@ import Link from '../link/Link';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import data from './data';
 
-interface LinkObjectProps {
-  title: string;
-  uri: string;
-}
-interface DataObjectProps {
-  title: string;
-  links: LinkObjectProps[];
-}
-
 export interface Props {
   className?: string;
 }
@@ -61,14 +52,14 @@ const Footer = ({ className }: Props) => {
         </div>
       </div>
       <div className="footer__links">
-        {data.map((d: DataObjectProps, idx: number) => {
-          if (!d || !d.links || d.links.length < 1) return null;
+        {data.map(({ title, links }, i: number) => {
+          if (!links || links.length < 1) return null;
           return (
             <FooterColumn
-              key={`${d.title}-${idx}`}
+              key={`${title}-${i}`}
               className="footer__links-column"
-              links={d.links}
-              title={d.title}
+              links={links}
+              title={title}
             />
           );
         })}
