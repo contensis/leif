@@ -12,7 +12,7 @@ const SearchStyled = styled.div`
       .search__title {
         text-align: center;
         position: relative;
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         @media ${theme.mq.laptop} {
           text-align: left;
           &:before {
@@ -42,14 +42,16 @@ const SearchStyled = styled.div`
       .search__results-info--text {
         ${theme.typeStyles.h5};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         margin: 0 0 80px 0;
       }
       .search__facets {
         width: 100%;
         margin-top: 40px;
+        text-align: center;
         @media ${theme.mq.desktop} {
           margin: 0;
+          text-align: left;
         }
       }
       .search__facets .filters__wrapper {
@@ -61,6 +63,7 @@ const SearchStyled = styled.div`
       .filter__facet {
         ${theme.typeStyles.smallCopy};
         font-family: ${theme.typeStyles.fontFamily.default};
+        font-weight: 400;
         max-width: 130px;
         max-width: 288px;
         width: 100%;
@@ -81,11 +84,14 @@ const SearchStyled = styled.div`
         align-items: center;
         max-width: 300px;
         width: 100%;
-        a {
+        > {
           &:not(:last-child) {
             margin-bottom: 40px;
           }
         }
+      }
+      .search__featured-products div {
+        height: fit-content;
       }
       .search__results {
         max-width: 660px;
@@ -95,7 +101,7 @@ const SearchStyled = styled.div`
         &:not(:last-child) {
           padding-bottom: 32px;
           margin-bottom: 40px;
-          border-bottom: 1px solid ${theme.colors.neutral_lightgrey};
+          border-bottom: 1px solid var(--semantic-charcoal-tertiary);
         }
       }
       .search__results-wrapper {

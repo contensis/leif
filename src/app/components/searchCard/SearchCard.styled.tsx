@@ -17,32 +17,31 @@ const SearchCardStyled = styled(Link)`
           text-decoration: underline;
         }
       }
-      .search-card__image-wrapper {
-        position: relative;
+      .search-card__image {
         max-width: 74px;
         width: 100%;
         height: 80px;
         margin-right: 16px;
         @media ${theme.mq.laptop} {
-          max-width: 110px;
+          min-width: 110px;
           height: 120px;
         }
       }
       h2 {
         ${theme.typeStyles.h5};
-        color: ${theme.colors.link};
+        color: var(--semantic-link-primary);
         margin: 0 0 8px 0;
       }
       .search-card__text {
         display: ${!type ? 'block' : 'none'};
-        color: ${theme.colors.neutral_charcoal};
+        color: var(--semantic-charcoal-primary);
         margin: 0 0 8px 0;
         @media ${theme.mq.laptop} {
           display: block;
         }
       }
       .search-card__detail {
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
       }
       ${type === 'product' &&
       css`

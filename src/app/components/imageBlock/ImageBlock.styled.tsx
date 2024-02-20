@@ -44,7 +44,7 @@ export default styled.div`
       .image-block__text {
         margin: 16px 0 0 0;
         text-align: left;
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         ${theme.typeStyles.smallCopy};
       }
     `;

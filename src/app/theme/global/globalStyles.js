@@ -3,8 +3,6 @@ import { normalize } from 'styled-normalize';
 
 import { fontFamily, fontWeight, fontBase, typeStyles } from './typography';
 
-import colors from './colors';
-
 const GlobalStyle = createGlobalStyle`
   /* Normalize / Reset css */
   ${normalize}
@@ -16,6 +14,26 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
   }
+
+  :root {
+    --semantic-brand-primary: #77E8C6;
+    --semantic-brand-secondary: #016F4E;
+    --semantic-brand-tertiary: #39B38E;
+    --semantic-background-primary: #fff;
+    --semantic-background-secondary: #000;
+    --semantic-type-primary: #2b2f51;
+    --semantic-type-secondary: #6e729b;
+    --semantic-type-tertiary: #1e213e;
+    --semantic-link-primary: #303B9F;
+    --semantic-charcoal-primary: #333;
+    --semantic-charcoal-secondary: #A9A9A9;
+    --semantic-charcoal-tertiary: #F1F1F1;
+    --semantic-error-primary: #FF1F55;
+    --semantic-warning-primary: #FFC805;
+  }
+
+
+
   body {
     min-height: 100vh;
     width: 100%;
@@ -23,13 +41,13 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${fontBase.fontSize};
     font-weight: ${fontWeight.regular};
     line-height: ${fontBase.lineHeight};
-    color: ${colors.neutral_charcoal};
+    color: var(--semantic-charcoal-primary);
   }
   h1,h2,h3,h4,h5,h6 {
     margin:0;
     font-family: ${fontFamily.headings};
     font-weight: ${fontWeight.bold};
-    color: ${colors.secondary};
+    color: var(--semantic-type-primary);
   }
   h1 {
     ${typeStyles.h1}
@@ -58,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
   a:focus, button:focus{
     outline-offset: 4px;
     outline: auto;
-    outline-color: ${colors.link};
+    outline-color: var(--semantic-link-primary);
     outline-width: medium;
   }
   table {
@@ -74,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
     min-width: 220px;
     padding: 16px;
     text-align: left;
-    border: 1px solid ${colors.neutral_white};
+    border: 1px solid var(--semantic-background-primary);
     > * {
       ${typeStyles.cardCopy};
       margin: 0;
@@ -83,9 +101,9 @@ const GlobalStyle = createGlobalStyle`
 
   thead th {
     ${typeStyles.h5};
-    color: ${colors.secondary};
+    color: var(--semantic-type-primary);
     font-family: ${fontFamily.headings};
-    background-color: ${colors.neutral_white};
+    background-color: var(--semantic-background-primary);
   }
 
   tbody tr:nth-child(2n + 1) {
@@ -122,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
       left: 0;
       width: 100%;
       height: 100%;
-      background: #2B2F51;
+      background: var(--semantic-type-primary);
       opacity: 0.25;
       z-index: 9;
     }
@@ -136,7 +154,7 @@ const GlobalStyle = createGlobalStyle`
       left: 0;
       width: 100%;
       height: 100%;
-      background: #fff;
+      background: var(--semantic-background-primary);
       opacity: 1;
       z-index: 99;
     }

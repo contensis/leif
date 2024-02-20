@@ -1,97 +1,85 @@
 import styled, { css } from 'styled-components';
 
-interface Props {
-  theme: any;
-  btnTheme: string;
-  isHollow: boolean;
-  hasIcon: boolean;
-  isDisabled: boolean;
-}
-
-const ButtonStyled = styled.button`
-  ${({ theme, btnTheme, isHollow, hasIcon, isDisabled }: Props) => {
+export default styled.button`
+  ${({ theme }) => {
     return css`
+      --semantic-riptide-primary: #77e8c6;
+      --semantic-riptide-secondary: #39b28e;
+      --semantic-martinique-primary: #2b2f51;
+      --semantic-martinique-secondary: #1e213e;
+      --semantic-martinique-tertiary: rgba(195, 198, 222, 0.2);
+      --semantic-white-primary: #fff;
+      --semantic-white-secondary: rgba(255, 255, 255, 0.2);
+
       ${theme.typeStyles.h5};
       font-family: ${theme.typeStyles.fontFamily.headings};
       font-weight: 600;
-      display: inline-block;
-      white-space: nowrap;
-      max-width: 256px;
-      border: none;
-      width: 100%;
-      padding: 16px;
-      text-decoration: none;
-      background-color: ${theme.button.primary.solid.background};
-      color: ${theme.button.primary.solid.color};
       text-align: center;
+      text-decoration: none;
+      padding: 16px 8px;
+      max-width: 256px;
+      width: 100%;
       border-radius: 4px;
+      border: none;
       transition: all 200ms ease-out;
-      &:hover {
-        background-color: ${theme.button.primary.solid.hover.background};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn__icon {
+        margin-left: 16px;
       }
-      ${btnTheme === 'secondary' &&
-      css`
-        background-color: ${isHollow
-          ? theme.button.secondary.hollow.background
-          : theme.button.secondary.solid.background};
-        color: ${isHollow
-          ? theme.button.secondary.hollow.color
-          : theme.button.secondary.solid.color};
-        border: 1px solid;
-        border-color: ${isHollow
-          ? theme.button.secondary.hollow.border
-          : theme.button.secondary.solid.border};
+
+      &:focus {
+        outline: 2px solid var(--semantic-link-primary);
+        outline-offset: -4px;
+      }
+
+      &[data-theme='riptide'] {
+        background-color: var(--semantic-riptide-primary);
+        color: var(--semantic-martinique-primary);
         &:hover {
-          background-color: ${isHollow
-            ? theme.button.secondary.hollow.hover.background
-            : theme.button.secondary.solid.hover.background};
+          background-color: var(--semantic-riptide-secondary);
         }
-      `}
-      ${btnTheme === 'white' &&
-      css`
-        background-color: ${theme.button.white.hollow.background};
-        color: ${theme.button.white.hollow.color};
-        border: 1px solid;
-        border-color: ${theme.button.white.hollow.border};
+      }
+      &[data-theme='riptide'][data-variant='secondary'] {
+        background-color: transparent;
+        border: 1px solid var(--semantic-riptide-primary);
         &:hover {
-          background-color: ${theme.button.white.hollow.hover.background};
+          background-color: var(--semantic-martinique-tertiary);
         }
-      `}
-        ${isDisabled &&
-      css`
-        background: ${isHollow || btnTheme === 'white'
-          ? theme.button.disabled.hollow.background
-          : theme.button.disabled.solid.background};
-        color: ${isHollow || btnTheme === 'white'
-          ? theme.button.disabled.hollow.color
-          : theme.button.disabled.solid.color};
-        border: ${isHollow || btnTheme === 'white'
-          ? theme.button.disabled.hollow.border
-          : theme.button.disabled.solid.border};
+      }
+
+      &[data-theme='martinique'] {
+        background-color: var(--semantic-martinique-primary);
+        color: var(--semantic-riptide-primary);
         &:hover {
-          background: ${isHollow || btnTheme === 'white'
-            ? theme.button.disabled.hollow.background
-            : theme.button.disabled.solid.background};
-          color: ${isHollow || btnTheme === 'white'
-            ? theme.button.disabled.hollow.color
-            : theme.button.disabled.solid.color};
-          border: ${isHollow || btnTheme === 'white'
-            ? theme.button.disabled.hollow.border
-            : theme.button.disabled.solid.border};
-          cursor: not-allowed;
+          background-color: var(--semantic-martinique-secondary);
         }
-      `}
-        ${hasIcon &&
-      css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .btn__icon {
-          margin-left: 8px;
+      }
+      &[data-theme='martinique'][data-variant='secondary'] {
+        background-color: transparent;
+        color: var(--semantic-martinique-primary);
+        border: 1px solid var(--semantic-martinique-primary);
+        &:hover {
+          background-color: var(--semantic-martinique-tertiary);
         }
-      `}
+      }
+
+      &[data-theme='white'] {
+        background-color: var(--semantic-white-primary);
+        color: var(--semantic-white-primary);
+        &:hover {
+          background-color: var(--semantic-white-secondary);
+        }
+      }
+      &[data-theme='white'][data-variant='secondary'] {
+        background-color: transparent;
+        border: 1px solid var(--semantic-white-primary);
+        &:hover {
+          background-color: var(--semantic-white-secondary);
+        }
+      }
     `;
   }}
 `;
-
-export default ButtonStyled;

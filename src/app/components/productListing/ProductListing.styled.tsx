@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ProductListingStyled = styled.div`
+export default styled.div`
   ${({ theme }) => {
     return css`
       .product-listing__filters {
@@ -26,31 +26,12 @@ const ProductListingStyled = styled.div`
       .product-listing__results {
         max-width: 1280px;
         width: 100%;
-        margin: 120px auto 0;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        > * {
-          @media ${theme.mq.laptop} {
-            flex-basis: calc((100% / 2) - 40px);
-            margin-right: 40px;
-            margin-bottom: 40px;
-            &:nth-child(2n) {
-              margin-right: 0;
-            }
-          }
-          @media ${theme.mq.desktop} {
-            flex-basis: calc((100% / 3) - 40px);
-            margin-right: 40px;
-            margin-bottom: 40px;
-            &:nth-child(2n) {
-              margin-right: 40px;
-            }
-            &:nth-child(3n) {
-              margin-right: 0;
-            }
-          }
+        margin: 120px auto;
+        display: grid;
+        row-gap: 64px;
+        column-gap: 40px;
+        @media ${theme.mq.tablet} {
+          grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
         }
       }
       .product-listing__load-more {
@@ -63,5 +44,3 @@ const ProductListingStyled = styled.div`
     `;
   }};
 `;
-
-export default ProductListingStyled;

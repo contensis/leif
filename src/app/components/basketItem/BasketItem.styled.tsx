@@ -29,7 +29,7 @@ const BasketItemStyled = styled.div`
       .basket-item__title {
         ${theme.typeStyles.h6};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         margin-bottom: 8px;
       }
       .basket-item__variant {
@@ -39,7 +39,7 @@ const BasketItemStyled = styled.div`
       .basket-item__price {
         ${theme.typeStyles.h6};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         margin: 0;
       }
       .basket-item__input--wrapper {

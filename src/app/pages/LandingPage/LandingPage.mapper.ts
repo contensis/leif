@@ -2,13 +2,13 @@ import { mapComposer } from '~/core/util/json-mapper';
 import { composerPropsMapping } from '~/components/composer/Composer.mapper';
 import { BannerPropsMapping } from '~/components/ctaBanner/CTABanner.mapper';
 import { LandingHeroPropsMapping } from '~/components/landingHero/LandingHero.mapper';
-// import { CardRowPropsMapping } from '~/components/cardRow/CardRow.mapper';
 import { PageMetadataPropsMapping } from '~/components/metadata/Metadata.mapper';
+import { CardRowSpotlightMapping } from '~/components/cardRowSpotlight/CardRowSpotlight.mapper';
 
 export const LandingPagePropsMapping = {
-  metadataProps: PageMetadataPropsMapping,
-  landingPageHeroProps: LandingHeroPropsMapping,
-  // relatedContentProps: CardRowPropsMapping,
+  metaProps: PageMetadataPropsMapping,
+  heroProps: LandingHeroPropsMapping,
+  cardRowProps: CardRowSpotlightMapping,
   leadParagraphProps: {
     text: 'leadParagraph',
     type: () => 'center',

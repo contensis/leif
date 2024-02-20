@@ -5,7 +5,7 @@ const QuoteBlockStyled = styled.div`
     return css`
       blockquote {
         ${theme.typeStyles.h4};
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         font-family: ${theme.typeStyles.fontFamily.headings};
         position: relative;
         max-width: 482px;
@@ -25,7 +25,7 @@ const QuoteBlockStyled = styled.div`
         }
       }
       footer {
-        color: ${theme.colors.neutral_charcoal};
+        color: var(--semantic-charcoal-primary);
         margin-top: 24px;
         font-family: ${theme.typeStyles.fontFamily.headings};
         ${theme.typeStyles.h6};

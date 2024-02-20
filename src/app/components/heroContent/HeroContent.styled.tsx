@@ -4,7 +4,7 @@ const HeroContentStyled = styled.div`
   ${({ theme }) => {
     return css`
       text-align: center;
-      background-color: ${theme.colors.neutral_white};
+      background-color: var(--semantic-background-primary);
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
       border-radius: 8px 8px 0px 0px;
       position: relative;

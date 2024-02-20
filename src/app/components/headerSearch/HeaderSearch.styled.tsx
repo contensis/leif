@@ -23,8 +23,8 @@ const HeaderSearchStyled = styled.div`
         height: 100%;
         font-size: inherit;
         font-family: inherit;
-        color: ${theme.colors.neutral_white};
-        background-color: ${theme.colors.secondary};
+        color: var(--semantic-background-primary);
+        background-color: var(--semantic-type-primary);
         border: none;
         padding: 24px;
         -webkit-border-radius: 0;
@@ -34,16 +34,16 @@ const HeaderSearchStyled = styled.div`
           -webkit-appearance: none;
         }
         ::-webkit-input-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         ::-moz-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-ms-input-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-moz-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         -webkit-appearance: none;
         outline: 0;
@@ -61,7 +61,7 @@ const HeaderSearchStyled = styled.div`
       .header-search__results {
         margin-top: 60px;
         padding: 24px;
-        background-color: ${theme.colors.neutral_white};
+        background-color: var(--semantic-background-primary);
         box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
         .search-card__text {
           display: none;
@@ -74,11 +74,11 @@ const HeaderSearchStyled = styled.div`
         &:not(:last-child) {
           padding-bottom: 16px;
           margin-bottom: 24px;
-          border-bottom: 1px solid ${theme.colors.neutral_lightgrey};
+          border-bottom: 1px solid var(--semantic-charcoal-tertiary);
         }
       }
       .header-search__results h2 {
-        color: ${theme.colors.neutral_charcoal};
+        color: var(--semantic-charcoal-primary);
         ${theme.typeStyles.h5};
       }
     `;

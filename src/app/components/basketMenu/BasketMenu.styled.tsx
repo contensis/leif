@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import colors from '~/theme/global/colors';
 
 interface Props {
   theme?: any;
@@ -20,13 +19,13 @@ const BasketMenuStyled = styled.div`
         align-items: center;
         justify-content: center;
         border: none;
-        background-color: ${colors.neutral_white};
+        background-color: var(--semantic-background-primary);
         span {
           position: absolute;
           top: 32px;
           left: 32px;
-          background: ${colors.secondary};
-          color: ${colors.primary};
+          background: var(--semantic-type-primary);
+          color: var(--semantic-brand-primary);
           border-radius: 50%;
           width: 24px;
           height: 24px;
@@ -66,10 +65,10 @@ const BasketMenuStyled = styled.div`
           height: 8px;
         }
         ::-webkit-scrollbar-thumb {
-          background: ${theme.colors.neutral_lightgrey};
+          background: var(--semantic-charcoal-tertiary);
         }
         ::-webkit-scrollbar-track {
-          background: ${theme.colors.neutral_white};
+          background: var(--semantic-background-primary);
         }
       }
       .basket-menu__items-wrapper {
@@ -104,7 +103,7 @@ const BasketMenuStyled = styled.div`
           overflow-y: scroll;
           padding-bottom: 16px;
           animation: slideIn 200ms;
-          background-color: ${theme.colors.neutral_white};
+          background-color: var(--semantic-background-primary);
           height: 100vh;
           width: 320px;
           position: absolute;

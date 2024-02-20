@@ -24,7 +24,7 @@ const BlogInformationStyled = styled.div`
       }
       .blog-info__wrapper {
         margin-top: 24px;
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         ${theme.typeStyles.smallCopy};
         @media ${theme.mq.tablet} {
           margin-top: 16px;

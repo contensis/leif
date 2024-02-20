@@ -28,7 +28,7 @@ const BackButton = ({ className, label, path, color = '#6E729B' }: Props) => {
   if (!path && !anchestor?.path) return null;
 
   return (
-    <BackButtonStyled className={className} uri={path || anchestor?.path}>
+    <BackButtonStyled className={className} path={path || anchestor?.path}>
       <Icon className="back-button__icon" type="arrow-left" color={color} />
       <span className="back-button__text">
         {label || anchestor?.displayName}

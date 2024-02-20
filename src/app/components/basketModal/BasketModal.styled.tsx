@@ -6,7 +6,7 @@ const BasketModalStyled = styled.div`
       max-width: 400px;
       width: 100%;
       padding: 24px;
-      background: ${theme.colors.neutral_white};
+      background: var(--semantic-background-primary);
       box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
       .basket-modal__header {
         display: flex;
@@ -18,7 +18,7 @@ const BasketModalStyled = styled.div`
         }
       }
       .basket-modal__tick--wrapper {
-        background-color: ${theme.colors.primary};
+        background-color: var(--semantic-brand-primary);
         height: 24px;
         width: 24px;
         border-radius: 50%;
@@ -60,7 +60,7 @@ const BasketModalStyled = styled.div`
       .basket-modal__product-price {
         ${theme.typeStyles.h6};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         margin-top: 8px;
       }
       .basket-modal__buttons {

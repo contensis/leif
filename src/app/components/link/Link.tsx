@@ -2,12 +2,11 @@ import React from 'react';
 export interface Props {
   className?: string;
   children: any;
-  download?: any;
-  href?: string; // Add ability to retrofit to <a href
+  download?: string;
+  path: string;
   onClick?: (ev: any) => void;
   openInNewWindow?: boolean;
   title?: string;
-  uri: string;
 }
 
 const Link = ({
@@ -17,30 +16,30 @@ const Link = ({
   onClick,
   openInNewWindow,
   title,
-  uri,
+  path,
+  ...rest
 }: Props) => {
   className += ' Link';
-  if (!uri) {
+  if (!path) {
     return <span className={className}>{children}</span>;
   }
 
   const newWindow = openInNewWindow ? '_blank' : '_self';
-  uri = encodeURI(uri);
+  path = encodeURI(path);
 
-  const _handleClick = (e: any) => {
-    if (onClick) {
-      onClick(e);
-    }
+  const doHandleClick = (e: any) => {
+    if (onClick) onClick(e);
   };
 
-  if (newWindow !== '_blank' && uri && uri.startsWith('/')) {
+  if (newWindow !== '_blank' && path?.startsWith('/')) {
     return (
       <a
         className={className}
         download={download}
-        href={uri}
-        onClick={(e: any) => _handleClick(e)}
+        href={path}
+        onClick={(e: any) => doHandleClick(e)}
         title={title}
+        {...rest}
       >
         {children}
       </a>
@@ -50,11 +49,12 @@ const Link = ({
       <a
         className={className}
         download={download}
-        href={uri}
-        onClick={e => _handleClick(e)}
+        href={path}
+        onClick={e => doHandleClick(e)}
         target={newWindow}
         title={title}
         rel="noopener noreferrer"
+        {...rest}
       >
         {children}
       </a>

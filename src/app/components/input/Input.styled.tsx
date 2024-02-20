@@ -12,7 +12,7 @@ const InputStyled = styled.div`
         height: 56px;
         padding: 8px 16px;
         border-radius: 8px;
-        border: 1px solid ${theme.colors.secondary_light};
+        border: 1px solid var(--semantic-type-secondary);
       }
     `;
   }};

@@ -7,48 +7,35 @@ import { Composer } from '~/dynamic/components';
 import TestimonialSlider from '~/components/testimonialSlider/TestimonialSlider';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import Metadata from '~/components/metadata/Metadata';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
-
-// Layout
 import MainLayout from '~/layout/MainLayout';
-import Region from '~/layout/Region';
-
-// Mappers
-import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import CardRow from '~/components/cardRow/CardRow';
+import { mappers } from '~/components/search';
 
 // Models
 import { Props, MappedProps } from './Home.d';
+import HomepageStyled from './Homepage.styled';
 
 const Home = ({ mappedEntry }: Props) => {
-  const { homeHeroProps, metadataProps, contentComposerProps, ctaBannerProps } =
-    (mappedEntry || {}) as MappedProps;
+  const { heroProps, metaProps, composerProps, bannerProps } = (mappedEntry ||
+    {}) as MappedProps;
 
-  const { results: latestReviews } = useMinilist({
-    id: 'latestReviews',
-    mapper: mapEntriesToResults,
-  });
-  const { results: latestBlogs } = useMinilist({
-    id: 'latestBlogs',
-    mapper: mapEntriesToResults,
-  });
+  const reviews = useMinilist({ id: 'latestReviews', mapper: mappers.results });
+  const blogs = useMinilist({ id: 'latestBlogs', mapper: mappers.results });
 
   return (
     <MainLayout isLight={true}>
-      <Metadata {...metadataProps} />
-      <LandingHero {...homeHeroProps} />
-      <Composer {...contentComposerProps} />
-      <TestimonialSlider testimonials={latestReviews} />
-      <Region width="full" margin="large">
-        <RelatedContent
+      <HomepageStyled>
+        <Metadata {...metaProps} />
+        <LandingHero {...heroProps} />
+        <Composer {...composerProps} />
+        <TestimonialSlider testimonials={reviews.results} />
+        <CardRow
           title="Our blogs"
-          results={latestBlogs}
-          linkUri="/blog"
-          linkLabel="View all blogs"
+          cards={blogs.results}
+          btn={{ label: 'View all blogs', path: '/blog' }}
         />
-      </Region>
-      <Region margin="xlarge" width="msmall">
-        <CTABanner {...ctaBannerProps} />
-      </Region>
+        <CTABanner {...bannerProps} />
+      </HomepageStyled>
     </MainLayout>
   );
 };

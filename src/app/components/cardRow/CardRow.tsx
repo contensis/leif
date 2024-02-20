@@ -1,15 +1,14 @@
 import React from 'react';
 import CardRowStyled from './CardRow.styled';
-import ExploreMore, {
-  Props as ExploreMoreProps,
-} from '../card/exploreMore/ExploreMore';
 import LinkButton from '../linkButton/LinkButton';
 import { useWindowSize } from 'usehooks-ts';
+import Card from '~/components/card/Card';
 
 export interface Props {
   className?: string;
   title: string;
-  cards: ExploreMoreProps[];
+  cards: any[];
+  btn?: { path: string; label: string };
 }
 
 const CardRow = ({ className, title, cards, btn }: Props) => {
@@ -44,10 +43,10 @@ const CardRow = ({ className, title, cards, btn }: Props) => {
         }
         if (isDesktop) {
           if (noOfblocks % 2 === 0) {
-            grid.style.gridTemplateColumns = getCSS(380);
+            grid.style.gridTemplateColumns = getCSS(280);
           }
           if (noOfblocks % 3 === 0) {
-            grid.style.gridTemplateColumns = getCSS(200);
+            grid.style.gridTemplateColumns = getCSS(380);
           }
           if (noOfblocks % 4 === 0) {
             grid.style.gridTemplateColumns = getCSS(280);
@@ -71,21 +70,14 @@ const CardRow = ({ className, title, cards, btn }: Props) => {
       {title && <h3 className="card-row__title">{title}</h3>}
       <div className="card-row__container" ref={elGridContainer}>
         {cards.map((card, i: number) => {
-          return (
-            <ExploreMore
-              key={i}
-              title={card.title}
-              image={card.image}
-              path={card.path}
-            />
-          );
+          return <Card key={i} {...card} />;
         })}
       </div>
-      {btn && (
+      {btn?.path && (
         <div className="card-row__btn--wrapper">
           <LinkButton
             className="card-row__btn"
-            href={btn.path}
+            path={btn.path}
             label={btn.label}
           />
         </div>

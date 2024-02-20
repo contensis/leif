@@ -3,6 +3,6 @@ export const LinkCanvasMappings = {
 };
 
 export const InlineEntryMappings = {
-  uri: 'block.value.sys.uri',
+  path: 'block.value.sys.uri',
   text: 'block.value.entryTitle',
 };

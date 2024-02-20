@@ -28,11 +28,11 @@ import {
 
 const ProductPage = ({ mappedEntry }: Props) => {
   const {
-    productHeroSliderProps,
-    productHeroContentProps,
-    textBlockProps,
+    heroProps,
+    sliderProps,
+    textProps,
     iconListProps,
-    matchingProductsProps,
+    promotionProps,
     metadataProps,
   } = mappedEntry || {};
 
@@ -45,6 +45,8 @@ const ProductPage = ({ mappedEntry }: Props) => {
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 
+  console.info({ heroProps });
+
   return (
     <MainLayout>
       <Metadata {...metadataProps} />
@@ -54,16 +56,14 @@ const ProductPage = ({ mappedEntry }: Props) => {
             <BackButton
               className="product-page__back-btn"
               label="All products"
-              uri="/products"
+              path="/products"
             />
             <div className="product-page__hero">
-              <ProductHeroSlider {...productHeroSliderProps} />
-              {!isDesktop && (
-                <ProductHeroContent {...productHeroContentProps} />
-              )}
+              <ProductHeroSlider {...sliderProps} />
+              {!isDesktop && <ProductHeroContent {...heroProps} />}
             </div>
             <Region width="small" margin="medium">
-              <TextBlock {...textBlockProps} />
+              <TextBlock {...textProps} />
             </Region>
             <Region width="small" margin="large">
               <IconList {...iconListProps} />
@@ -74,10 +74,10 @@ const ProductPage = ({ mappedEntry }: Props) => {
               </Region>
             )}
           </div>
-          {isDesktop && <ProductHeroContent {...productHeroContentProps} />}
+          {isDesktop && <ProductHeroContent {...heroProps} />}
         </div>
         <Region width="full" margin="large">
-          <PromotedContent results={results} {...matchingProductsProps} />
+          <PromotedContent results={results} {...promotionProps} />
         </Region>
       </ProductPageStyled>
     </MainLayout>

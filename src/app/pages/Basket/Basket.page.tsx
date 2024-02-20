@@ -6,7 +6,11 @@ import Metadata from '~/components/metadata/Metadata';
 import BasketItem from '~/components/basketItem/BasketItem';
 import BasketSummary from '~/components/basketSummary/BasketSummary';
 import LinkButton from '~/components/linkButton/LinkButton';
-import RelatedContent from '~/components/relatedContent/RelatedContent';
+import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
+import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
+import Icon from '~/components/icon/Icon';
+import Link from '~/components/link/Link';
+import CardRow from '~/components/cardRow/CardRow';
 
 // Selectors
 import { selectProductsInBasket } from '~/redux/basket/selectors';
@@ -21,10 +25,6 @@ import { BasketItemProps } from '~/components/basketMenu/BasketMenu';
 
 // Mappers
 import { useMinilist } from '@zengenti/contensis-react-base/search';
-import mapEntriesToResults from '~/components/search/transformations/entry-to-card-props.mapper';
-import VisuallyHidden from '~/components/visuallyHidden/VisuallyHidden';
-import Icon from '~/components/icon/Icon';
-import Link from '~/components/link/Link';
 
 const BasketPage = () => {
   const basket = useSelector(selectProductsInBasket);
@@ -89,9 +89,9 @@ const BasketPage = () => {
                   <LinkButton
                     className="basket__checkout"
                     label="Checkout"
-                    href="/checkout"
+                    path="/checkout"
                   />
-                  <Link uri="/checkout" className="basket__paypal">
+                  <Link path="/checkout" className="basket__paypal">
                     <img src="/static/img/logos/paypal-logo.png" alt="PayPal" />
                     <VisuallyHidden text="Check out with PayPal" />
                   </Link>
@@ -106,16 +106,16 @@ const BasketPage = () => {
                   className="basket__product-link"
                   label="Browse our products"
                   icon="arrow-right"
-                  href="/products"
+                  path="/products"
                 />
               </div>
             )}
           </div>
         </div>
-        <RelatedContent
+        <CardRow
           className="basket__related-content"
           title="You may also like"
-          results={featuredProducts}
+          cards={featuredProducts}
         />
       </BasketStyled>
     </MainLayout>

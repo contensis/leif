@@ -35,7 +35,7 @@ export interface VariantProps {
 
 export interface Props {
   className?: string;
-  imageUri: string;
+  image: { src: string };
   id: any;
   review?: string;
   title: string;
@@ -48,7 +48,7 @@ export interface Props {
   basket: any;
   _addToBasket: (
     id: string,
-    imageUri: string,
+    image: { src: string },
     productTitle: string,
     quantity: number,
     activeVariant: VariantProps
@@ -58,7 +58,7 @@ export interface Props {
 const ProductHeroContent = ({
   className,
   id,
-  imageUri,
+  image,
   title,
   text,
   variants,
@@ -73,19 +73,17 @@ const ProductHeroContent = ({
 
   const { price, variantTitle } = activeVariant || {};
 
-  /* eslint-disable */
   useEffect(() => {
     if (variants && variants.length >= 1) {
       _setActiveVariant(variants[0]);
     }
-  }, []);
+  }, [variants, _setActiveVariant]);
 
   useEffect(() => {
     setTimeout(() => {
       _setIsPopupOpen(false);
     }, 8000);
-  }, [isPopupOpen]);
-  /* eslint-enable */
+  }, [isPopupOpen, _setIsPopupOpen]);
 
   const _handleClick = (e: any, type: string) => {
     e.preventDefault();
@@ -103,7 +101,7 @@ const ProductHeroContent = ({
       {isPopupOpen && (
         <BasketModal
           className="product-hero__basket-modal"
-          image={imageUri}
+          image={image}
           name={title}
           variant={variantTitle}
           price={price}
@@ -125,12 +123,12 @@ const ProductHeroContent = ({
                   <LinkButton
                     key={idx}
                     label={variant.variantTitle}
-                    href="#"
-                    type="secondary"
-                    isHollow={
+                    path="#"
+                    theme="martinique"
+                    variant={
                       activeVariant.variantTitle === variant.variantTitle
-                        ? false
-                        : true
+                        ? 'primary'
+                        : 'secondary'
                     }
                     className="product-hero__option"
                     onClick={(e: any) => {
@@ -177,7 +175,7 @@ const ProductHeroContent = ({
                 behavior: 'smooth',
               });
               _setIsPopupOpen(true);
-              _addToBasket(id, imageUri, title, quantity, activeVariant);
+              _addToBasket(id, image, title, quantity, activeVariant);
             }}
             className="product-hero__btn"
           />

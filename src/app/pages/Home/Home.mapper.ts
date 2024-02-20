@@ -4,8 +4,8 @@ import { PageMetadataPropsMapping } from '~/components/metadata/Metadata.mapper'
 import contentComposerMapper from '~/components/composer/Composer.mapper';
 
 export const HomepagePropsMapping = {
-  metadataProps: PageMetadataPropsMapping,
-  homeHeroProps: LandingHeroPropsMapping,
-  contentComposerProps: contentComposerMapper({ isHomepage: true }),
-  ctaBannerProps: BannerPropsMapping,
+  metaProps: PageMetadataPropsMapping,
+  heroProps: LandingHeroPropsMapping,
+  composerProps: contentComposerMapper({ isHomepage: true }),
+  bannerProps: BannerPropsMapping,
 };

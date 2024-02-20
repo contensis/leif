@@ -23,7 +23,7 @@ const BlogInformation = ({ className, readTime, date, author }: Props) => {
         <SocialShare className="blog-info__socials" />
       </div>
       <div className="blog-info__wrapper">
-        <BlogDetail date={date} readTime={readTime} />
+        <BlogDetail date={date} readtime={readTime} />
       </div>
     </BlogInformationStyled>
   );

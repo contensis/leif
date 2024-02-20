@@ -76,7 +76,7 @@ const HeaderSearch = ({
         />
         <Link
           className="header-search__site-search--link"
-          uri={`/search?term=${value}`}
+          path={`/search?term=${value}`}
         >
           <Icon type="search" color="#fff" />
           <VisuallyHidden text={`Search for ${value}`} />

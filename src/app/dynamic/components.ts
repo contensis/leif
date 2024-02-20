@@ -7,7 +7,6 @@ import {
   ComponentBlock,
   ImageBlock,
   QuoteBlock,
-  InlineEntryBlock,
   PanelBlock,
 } from '@contensis/canvas-react';
 

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import colors from '~/theme/global/colors';
 
 const NotFoundStyled = styled.div`
   ${({ theme }) => {
@@ -52,7 +51,7 @@ const NotFoundStyled = styled.div`
         font-family: ${theme.typeStyles.fontFamily.headings};
         ${theme.typeStyles.h4};
         margin: 0 0 24px;
-        color: ${colors.secondary};
+        color: var(--semantic-type-primary);
       }
       .not-found__link-btn {
         margin-bottom: 40px;

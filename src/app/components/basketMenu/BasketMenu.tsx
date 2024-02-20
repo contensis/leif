@@ -121,14 +121,14 @@ const BasketMenuSidebar = ({
           <LinkButton
             className="basket-menu__checkout"
             label="Checkout"
-            href="/checkout"
+            path="/checkout"
           />
         )}
         {!hasItemsInBasket && (
           <LinkButton
             className="basket-menu__product-link"
             label="Browse our products"
-            href="/products"
+            path="/products"
             icon="arrow-right"
           />
         )}

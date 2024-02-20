@@ -46,7 +46,7 @@ const SlickSliderStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: ${theme.colors.secondary};
+        background-color: var(--semantic-type-primary);
         height: 40px;
         width: 40px;
         border: none;

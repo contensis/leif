@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import colors from '~/theme/global/colors';
 
 const FormStyled = styled.div`
   ${({ theme }) => {
@@ -12,33 +11,33 @@ const FormStyled = styled.div`
         display: block;
         ${theme.typeStyles.h3};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         text-align: center;
         margin: 0 0 40px 0;
       }
       label {
         display: block;
-        color: ${colors.secondary_dark};
+        color: var(--semantic-type-tertiary);
         ${theme.typeStyles.cardCopy};
         margin: 0 0 8px;
       }
       input,
       textarea {
         ::-webkit-input-placeholder {
-          color: ${colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         ::-moz-placeholder {
-          color: ${colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-ms-input-placeholder {
-          color: ${colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-moz-placeholder {
-          color: ${colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
       }
       input {
-        color: ${colors.secondary_light};
+        color: var(--semantic-type-secondary);
         margin: 0 0 24px;
       }
       button {

@@ -34,10 +34,8 @@ const LandingHero = ({
       return (
         <GenericHero
           title={title}
-          imageUri={heroIllustrationUri}
-          imageAlt={heroIllustrationAlt}
-          ctaLink={ctaLink}
-          ctaText={ctaText}
+          image={{ src: heroIllustrationUri || '', alt: heroIllustrationAlt }}
+          cta={{ a11y: ctaLink || '', label: ctaText }}
           text={summary}
         />
       );
@@ -52,7 +50,7 @@ const LandingHero = ({
                 className="landing-hero__btn"
                 icon="arrow-right"
                 label={ctaText}
-                href={ctaLink}
+                path={ctaLink}
               />
             )}
           </div>

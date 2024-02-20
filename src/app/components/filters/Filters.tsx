@@ -62,9 +62,9 @@ const Filters = ({
             className="filter__facet"
             key={idx}
             onClick={() => updateCurrentFacet(fKey)}
-            btnTheme="secondary"
+            theme="martinique"
+            variant={currentFacet !== fKey ? 'secondary' : 'primary'}
             label={`${facet.title} (${facet?.pagingInfo?.totalCount})`}
-            isHollow={currentFacet !== fKey}
           />
         );
       } else {
@@ -96,18 +96,20 @@ const Filters = ({
       />
       <div className="filters__wrapper">
         {_RenderFilters()}
-        {hasResetBtn && hasDropdownFiltersSelected && currentFacet !== 'all' && (
-          <Button
-            btnTheme="secondary"
-            className="filters__reset-btn"
-            label="Reset filters"
-            isHollow={true}
-            onClick={() => {
-              clearFilters();
-              _setHasDropdownFiltersSelected(false);
-            }}
-          />
-        )}
+        {hasResetBtn &&
+          hasDropdownFiltersSelected &&
+          currentFacet !== 'all' && (
+            <Button
+              className="filters__reset-btn"
+              label="Reset filters"
+              onClick={() => {
+                clearFilters();
+                _setHasDropdownFiltersSelected(false);
+              }}
+              theme="martinique"
+              variant="secondary"
+            />
+          )}
       </div>
     </FiltersStyled>
   );

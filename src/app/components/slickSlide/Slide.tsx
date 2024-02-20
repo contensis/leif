@@ -20,13 +20,14 @@ const Slide = ({ className, src, alt, hasScrollImage }: Props) => {
     >
       {!hasScrollImage && (
         <div className="slide__image-wrapper">
-          <Image
-            src={src}
-            alt={alt}
-            className="slide__image"
-            layout="fill"
-            objectFit="cover"
-          />
+          {src && (
+            <img
+              src={src}
+              alt={alt}
+              className="slide__image"
+              style={{ objectFit: 'cover' }}
+            />
+          )}
         </div>
       )}
       {hasScrollImage && (

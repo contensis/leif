@@ -11,7 +11,6 @@ import {
   ProductSlider,
   PromotionalBlock,
   QuoteBlock,
-  RelatedContent,
   TestimonialSlider,
   TextBlock,
   TwitterCard,
@@ -22,6 +21,7 @@ import {
 import Region from '~/layout/Region';
 
 import { Props } from './Composer.d';
+import CardRow from '../cardRow/CardRow';
 
 const ComposerComponent = (composerProps: Props) => {
   const { isContentPage, ...props } = composerProps;
@@ -68,7 +68,7 @@ const ComposerComponent = (composerProps: Props) => {
   if (props._type === 'featuredBlogPosts') {
     return (
       <Region width="full" margin="large">
-        <RelatedContent {...props} />
+        <CardRow {...props} />
       </Region>
     );
   }
@@ -113,7 +113,7 @@ const ComposerComponent = (composerProps: Props) => {
   }
   if (props._type === 'promotedProduct') {
     return (
-      <Region width="full" margin="none">
+      <Region width="full" margin="none" padding="none">
         <PromotionalBlock {...props} />
       </Region>
     );

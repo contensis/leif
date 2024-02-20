@@ -54,7 +54,7 @@ const RelatedLinks = ({ className, title = 'Related  links' }: Props) => {
                   alt={mapped.image?.alt || ''}
                 />
               )}
-              <Link uri={mapped.path}>{mapped.displayName}</Link>
+              <Link path={mapped.path}>{mapped.displayName}</Link>
             </li>
           );
         })}

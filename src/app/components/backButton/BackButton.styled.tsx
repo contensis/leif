@@ -10,7 +10,7 @@ export default styled(Link)`
       border: none;
       font-family: inherit;
       font-size: inherit;
-      color: ${theme.colors.secondary_light};
+      color: var(--semantic-type-secondary);
       cursor: pointer;
       &:hover {
         text-decoration: none;

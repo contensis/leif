@@ -59,7 +59,7 @@ const BasketStyled = styled.div`
       .basket__paypal {
         text-align: center;
         display: block;
-        border: 1px solid ${theme.colors.secondary};
+        border: 1px solid var(--semantic-type-primary);
         border-radius: 4px;
         margin: 24px auto 0;
         padding: 16px 0;

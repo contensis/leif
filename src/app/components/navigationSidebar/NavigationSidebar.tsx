@@ -117,7 +117,7 @@ const NavigationSidebar = ({
                           <>
                             <li>
                               <Link
-                                uri={path}
+                                path={path}
                                 onClick={() => _toggleMenu(false)}
                               >
                                 View all{' '}
@@ -132,7 +132,7 @@ const NavigationSidebar = ({
                                   return (
                                     <li key={`${displayName}-${idx}`}>
                                       <Link
-                                        uri={path}
+                                        path={path}
                                         onClick={() => _toggleMenu(false)}
                                       >
                                         {displayName}
@@ -151,7 +151,7 @@ const NavigationSidebar = ({
               } else {
                 return (
                   <li key={`${displayName}-${idx}`}>
-                    <Link uri={path} onClick={() => _toggleMenu(false)}>
+                    <Link path={path} onClick={() => _toggleMenu(false)}>
                       {displayName}
                     </Link>
                   </li>
@@ -159,15 +159,15 @@ const NavigationSidebar = ({
               }
             })}
             <li className="nav__socials">
-              <Link uri="https://en-gb.facebook.com/">
+              <Link path="https://en-gb.facebook.com/">
                 <Icon type="facebook" color="#C3C6DE" />
                 <VisuallyHidden text="Facebook" />
               </Link>
-              <Link uri="https://twitter.com/contensis?lang=en">
+              <Link path="https://twitter.com/contensis?lang=en">
                 <Icon type="twitter" color="#C3C6DE" />
                 <VisuallyHidden text="Contensis Twitter" />
               </Link>
-              <Link uri="https://www.linkedin.com/showcase/contensis">
+              <Link path="https://www.linkedin.com/showcase/contensis">
                 <Icon type="linkedin" color="#C3C6DE" />
                 <VisuallyHidden text="Contensis LinkedIn" />
               </Link>

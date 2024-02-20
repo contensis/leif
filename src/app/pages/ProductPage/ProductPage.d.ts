@@ -7,11 +7,11 @@ import { Props as PromotedContentProps } from '~/components/promotedContent/Prom
 import { Props as MetadataProps } from '~/components/metadata/Metadata';
 
 export interface MappedProps {
-  productHeroContentProps: ProductHeroContentProps;
-  productHeroSliderProps: ProductHeroSliderProps;
-  textBlockProps: TextBlockProps;
+  heroProps: ProductHeroContentProps;
+  sliderProps: ProductHeroSliderProps;
+  textProps: TextBlockProps;
   iconListProps: IconListProps;
-  matchingProductsProps: PromotedContentProps;
+  promotionProps: PromotedContentProps;
   metadataProps: MetadataProps;
 }
 

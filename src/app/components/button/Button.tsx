@@ -1,58 +1,46 @@
 import React from 'react';
-
 import ButtonStyled from './Button.styled';
-import Icon from '../icon/Icon';
-import { iconColor } from '../../utils/iconColor';
+import Icon from '~/components/icon/Icon';
 
 export interface Props {
   className?: string;
-  btnTheme?: string;
   type?: 'submit' | 'reset' | 'button';
-  isHollow?: boolean;
-  isDisabled?: boolean;
-  icon?: any;
+  icon?: string;
   label: string;
   onClick?: (ev: any) => void;
+  theme?: 'riptide' | 'martinique' | 'white';
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
 }
 
 const Button = ({
   className,
   type = 'button',
-  btnTheme = 'primary',
-  isHollow = false,
-  isDisabled = false,
+  theme = 'riptide',
+  variant = 'primary',
+  disabled = false,
   icon,
   label,
   onClick,
 }: Props) => {
-  const _handleClick = (e: any) => {
+  const doHandleClick = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!isDisabled && onClick) {
-      onClick(e);
-    } else {
-      return;
-    }
+    if (onClick) onClick(e);
   };
 
   return (
     <ButtonStyled
       className={className}
       type={type}
-      btnTheme={btnTheme}
-      isHollow={isHollow}
-      isDisabled={isDisabled}
-      hasIcon={icon ? true : false}
-      onClick={e => _handleClick(e)}
+      data-theme={theme}
+      data-variant={variant}
+      data-disabled={disabled}
+      disabled={disabled}
+      onClick={e => doHandleClick(e)}
     >
       {label}
-      {icon && (
-        <Icon
-          type={icon}
-          className="btn__icon"
-          color={iconColor(type, isHollow, isDisabled)}
-        />
-      )}
+      {icon && <Icon type={icon} className="btn__icon" />}
     </ButtonStyled>
   );
 };

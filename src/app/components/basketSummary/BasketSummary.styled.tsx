@@ -22,7 +22,7 @@ const BasketSummaryStyled = styled.div`
         align-items: center;
         text-transform: uppercase;
         padding-top: 16px;
-        border-top: 1px solid ${theme.colors.neutral_lightgrey};
+        border-top: 1px solid var(--semantic-charcoal-tertiary);
       }
     `;
   }};

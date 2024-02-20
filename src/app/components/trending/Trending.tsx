@@ -25,8 +25,8 @@ const Trending = ({ className, buttons }: Props) => {
             key={idx}
             {...btn}
             icon="arrow-right"
-            isHollow
-            type="secondary"
+            theme="martinique"
+            variant="secondary"
           />
         );
       })}

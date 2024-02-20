@@ -13,13 +13,13 @@ const RatingStyled = styled.div`
       justify-content: center;
       .rating__star {
         path {
-          fill: ${theme.colors.neutral_lightgrey};
+          fill: var(--semantic-charcoal-tertiary);
         }
       }
       ${rating !== '0' &&
       css`
         .rating__star:nth-child(-n + ${rating}) {
-          background-color: ${theme.colors.warning};
+          background-color: var(--semantic-warning-primary);
         }
       `}
     `;

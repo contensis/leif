@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import PromotionalBlockStyled from './PromotedProduct.styled';
-import Image from '../image/Image';
 import LinkButton from '../linkButton/LinkButton';
 import VideoPlayer, {
   Props as VideoPlayerProps,
@@ -76,10 +75,13 @@ const PromotionalBlock = ({
       >
         <div className="promoted-product__image-wrapper">
           {imageUri && (
-            <Image
+            <img
               src={imageUri}
               alt={imageAlt}
               className="promoted-product__image"
+              loading="lazy"
+              width={800}
+              height={800}
             />
           )}
           {hasVideo && (
@@ -114,7 +116,7 @@ const PromotionalBlock = ({
                   className="promoted-product__link"
                   icon="arrow-right"
                   label={ctaText}
-                  href={ctaLink}
+                  path={ctaLink}
                 />
               )}
             </div>

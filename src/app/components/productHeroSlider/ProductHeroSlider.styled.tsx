@@ -42,7 +42,7 @@ const ProductHeroSliderStyled = styled.div`
         width: 40px;
         height: 40px;
         padding: 0;
-        background-color: ${theme.colors.neutral_white};
+        background-color: var(--semantic-background-primary);
         border-radius: 50%;
         border: none;
         transition: opacity 100ms ease-in-out;
@@ -88,7 +88,7 @@ const ProductHeroSliderStyled = styled.div`
           width: 100vw;
           height: 100vh;
           z-index: 999;
-          background-color: ${theme.colors.neutral_white};
+          background-color: var(--semantic-background-primary);
           @media ${theme.mq.laptop} {
             top: -124px;
           }

@@ -13,7 +13,7 @@ const LeadParagraphStyled = styled.div`
       ${type === 'center' &&
       css`
         text-align: center;
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         padding-top: 96px;
         position: relative;
         &:before {

@@ -10,7 +10,7 @@ import BasketModalStyled from './BasketModal.styled';
 
 export interface Props {
   className?: string;
-  image: string;
+  image: { src: string };
   name: string;
   variant: string;
   price: number;
@@ -51,7 +51,14 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
         </button>
       </div>
       <div className="basket-modal__content--wrapper">
-        <img className="basket-modal__product-image" src={image} alt={name} />
+        {image?.src && (
+          <img
+            className="basket-modal__product-image"
+            src={image.src}
+            alt={name}
+            loading="lazy"
+          />
+        )}
         <div className="basket-modal__content">
           <h3>{name}</h3>
           <span className="basket-modal__product-variant">{variant}</span>
@@ -60,14 +67,15 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
       </div>
       <div className="basket-modal__buttons">
         <LinkButton
-          href="/basket"
+          path="/basket"
           label={`View basket(${totalItemsInBasket})`}
           type="secondary"
-          isHollow
+          theme="martinique"
+          variant="secondary"
           className="basket-modal__button"
         />
         <LinkButton
-          href="/checkout"
+          path="/checkout"
           label="Checkout"
           className="basket-modal__button"
         />

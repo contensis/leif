@@ -26,7 +26,7 @@ const FeaturedProductStyled = styled.div`
           height: 80%;
           left: 0;
           top: 0;
-          background-color: ${theme.colors.neutral_lightgrey};
+          background-color: var(--semantic-charcoal-tertiary);
         }
         &:before {
           content: '';
@@ -72,7 +72,7 @@ const FeaturedProductStyled = styled.div`
       }
       .featured-product__text {
         ${theme.typeStyles.cardCopy};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         margin: 24px 0 0 0;
         a {
           &:hover {

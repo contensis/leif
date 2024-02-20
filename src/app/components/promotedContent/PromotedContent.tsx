@@ -3,6 +3,7 @@ import React from 'react';
 import Card from '../card/Card';
 import PromotedContentStyled from './PromotedContent.styled';
 import LinkButton from '../linkButton/LinkButton';
+import { CardTypes } from '~/core/schema';
 
 export interface Props {
   className?: string;
@@ -24,24 +25,24 @@ const PromotedContent = ({
     <PromotedContentStyled className={className}>
       {title && <h2 className="promoted-content__title">{title}</h2>}
       <div className="promoted-content__results">
-        {results.map((res: any, idx: number) => {
+        {results.map((res: any, i: number) => {
           return (
             <Card
-              key={idx}
-              className="promoted-content__card"
               {...res}
-              type="explore"
+              key={i}
+              className="promoted-content__card"
+              type={CardTypes.Explore}
             />
           );
         })}
       </div>
       {linkUri && (
         <LinkButton
-          type="secondary"
-          isHollow
+          theme="martinique"
+          variant="secondary"
           className="promoted-content__link"
           label={linkLabel}
-          href={linkUri}
+          path={linkUri}
         />
       )}
     </PromotedContentStyled>

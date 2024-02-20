@@ -38,7 +38,7 @@ const FeaturedProduct = ({
             <LinkButton
               className="featured-product__btn"
               label={linkLabel}
-              href={linkUri}
+              path={linkUri}
             />
           )}
         </div>

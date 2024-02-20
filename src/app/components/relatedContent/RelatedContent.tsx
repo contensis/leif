@@ -42,11 +42,11 @@ const RelatedContent = ({
         </div>
         {linkUri && (
           <LinkButton
-            type={linkType}
-            isHollow
+            theme="riptide"
+            variant="secondary"
             className="related-content__link"
             label={linkLabel}
-            href={linkUri}
+            path={linkUri}
           />
         )}
       </div>

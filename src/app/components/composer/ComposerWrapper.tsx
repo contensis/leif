@@ -15,13 +15,13 @@ const ComposerWrapper = ({ items, isContentPage = false }: Props) => {
 
   return (
     <>
-      {items.map((componentProps: any, idx: number) => {
-        if (!componentProps._type) return null;
+      {items.map((props: any, idx: number) => {
+        if (!props._type) return null;
         return (
           <ComposerComponent
             key={idx}
             isContentPage={isContentPage}
-            {...componentProps}
+            {...props}
           />
         );
       })}

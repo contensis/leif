@@ -5,6 +5,7 @@ export default styled.div`
     return css`
       .card-row__title {
         text-align: center;
+        margin-bottom: 48px;
       }
 
       .card-row__container {
@@ -12,10 +13,9 @@ export default styled.div`
         width: 100%;
         margin: 0 auto;
         display: grid;
-        display: grid;
         gap: 40px;
         @media ${theme.mq.largeDesktop} {
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         }
       }
 

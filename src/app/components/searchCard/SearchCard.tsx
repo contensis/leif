@@ -3,6 +3,7 @@ import React from 'react';
 import SearchCardStyled from './SearchCard.styled';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
+import { CardTypes } from '~/core/schema';
 
 export interface Props {
   className?: string;
@@ -20,58 +21,64 @@ export interface Props {
 const SearchCard = ({
   className,
   date,
-  imageAlt,
-  imageUri,
+  image,
   price,
-  readTime,
+  readtime,
   text,
   title,
   type,
-  uri,
+  path,
 }: Props) => {
   const SearchCard = (type: string) => {
     switch (type) {
-      case 'blog':
+      case CardTypes.Blog:
         return (
           <>
-            <div className="search-card__image-wrapper">
-              <Image
-                src={imageUri}
-                alt={imageAlt}
-                className="search-card__image"
-                quality={80}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+            {image.src && (
+              <div className="search-card__image-wrapper">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  width={80}
+                  height={80}
+                  className="search-card__image"
+                  loading="lazy"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            )}
             <div className="search-card__content">
               <h2>{title}</h2>
               <p className="search-card__text">{text}</p>
-              <BlogDetail
-                className="search-card__detail"
-                date={date}
-                readTime={readTime}
-              />
+              {date && (
+                <BlogDetail
+                  className="search-card__detail"
+                  date={date}
+                  readtime={readtime}
+                />
+              )}
             </div>
           </>
         );
-      case 'product': {
-        const priceText = price?.length > 1 ? `${Math.min(...price)}+` : price;
+      case CardTypes.Product: {
         return (
           <>
-            <div className="search-card__image-wrapper">
-              <Image
-                src={imageUri}
-                alt={imageAlt}
-                className="search-card__image"
-                quality={80}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+            {image.src && (
+              <div className="search-card__image-wrapper">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  width={80}
+                  height={80}
+                  className="search-card__image"
+                  loading="lazy"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            )}
             <div className="search-card__content">
               <h2>{title}</h2>
-              <span className="search-card__detail">£{priceText}</span>
+              <span className="search-card__detail">{price}</span>
               <p className="search-card__text">{text}</p>
             </div>
           </>
@@ -87,7 +94,12 @@ const SearchCard = ({
     }
   };
   return (
-    <SearchCardStyled className={className} type={type} title={title} uri={uri}>
+    <SearchCardStyled
+      className={className}
+      type={type}
+      title={title}
+      path={path}
+    >
       {SearchCard(type)}
     </SearchCardStyled>
   );

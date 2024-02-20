@@ -158,8 +158,8 @@ const SearchContainer: React.FC<
               label="Load more"
               icon="arrow-down"
               onClick={() => _handleLoadMore(currentPageIndex + 1)}
-              btnTheme="secondary"
-              isHollow
+              theme="martinique"
+              variant="secondary"
             />
           )}
         </Region>

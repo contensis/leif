@@ -21,9 +21,9 @@ const HeaderStyled = styled.div`
       }
       .header__search-input {
         display: none;
-        background-color: ${theme.colors.secondary};
-        border: 1px solid ${theme.colors.secondary};
-        color: ${theme.colors.neutral_white};
+        background-color: var(--semantic-type-primary);
+        border: 1px solid var(--semantic-type-primary);
+        color: var(--semantic-background-primary);
       }
       .header__logo {
         display: block;
@@ -43,7 +43,7 @@ const HeaderStyled = styled.div`
         right: 0;
         display: flex;
         align-items: stretch;
-        background: ${theme.colors.neutral_white};
+        background: var(--semantic-background-primary);
         filter: drop-shadow(0px 16px 24px rgba(56, 33, 146, 0.07));
         height: 64px;
         @media ${theme.mq.laptop} {

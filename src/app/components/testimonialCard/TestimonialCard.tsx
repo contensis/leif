@@ -16,12 +16,13 @@ const TestimonialCard = ({ className, quote, photo, name }: Props) => {
       <p className="testimonial-card__quote">{quote}</p>
       {photo && (
         <div className="testimonial-card__image-wrapper">
-          <Image
+          <img
             src={photo}
-            alt={`Photo of ${name}`}
+            alt=""
             className="testimonial-card__photo"
             width={40}
             height={40}
+            loading="lazy"
           />
           <span className="testimonial-card__name">{name}</span>
         </div>

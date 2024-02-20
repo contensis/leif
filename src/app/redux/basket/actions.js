@@ -1,16 +1,10 @@
 import { action } from '~/core/util/helpers';
 import { ADD_TO_BASKET, REMOVE_FROM_BASKET, UPDATE_QUANTITY } from './types';
 
-export const addToBasket = (
-  id,
-  imageUri,
-  productTitle,
-  quantity,
-  activeVariant
-) =>
+export const addToBasket = (id, image, productTitle, quantity, activeVariant) =>
   action(ADD_TO_BASKET, {
     id,
-    imageUri,
+    image,
     productTitle,
     quantity,
     activeVariant,

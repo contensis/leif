@@ -73,8 +73,8 @@ const ProductListing = ({
           label="Load more"
           icon="arrow-down"
           onClick={() => _handleLoadMore(pageIndex + 1)}
-          btnTheme="secondary"
-          isHollow
+          variant="secondary"
+          theme="martinique"
         />
       )}
     </ProductListingStyled>

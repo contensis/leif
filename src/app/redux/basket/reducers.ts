@@ -82,7 +82,7 @@ export default produce((state: Draft<any>, action) => {
         state.totalItems = totalItems;
         state.totalPrice = totalPrice;
       } else {
-        const { quantity, id, productTitle, imageUri } = action || {};
+        const { quantity, id, productTitle, image } = action || {};
         const totalItems = (currentTotalItems += quantity);
         const totalPrice = (currentTotalPrice += price * quantity);
 
@@ -91,7 +91,7 @@ export default produce((state: Draft<any>, action) => {
             title: productTitle,
             variant: variantTitle,
             id,
-            imageUri,
+            image,
             sku,
             quantity,
             price,

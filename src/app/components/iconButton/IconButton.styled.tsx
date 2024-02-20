@@ -6,7 +6,7 @@ const IconButtonStyled = styled.button`
       height: 64px;
       width: 64px;
       position: relative;
-      background: ${theme.colors.neutral_white};
+      background: var(--semantic-background-primary);
       border: none;
       margin: 0;
       padding: 0;

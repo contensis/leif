@@ -46,15 +46,9 @@ export const BlogListingHeroMapping = {
 export const ProductListingHeroMapping = {
   title: 'title',
   text: 'text',
-  image: { src: 'imageUri', alt: 'imageAlt' },
-  path: 'ctaLink',
-  price: {
-    $path: 'price',
-    $formatting: (price: number[]) => {
-      if (price.length >= 1) return `£${Math.min(...price)}+`;
-      return `£${price}`;
-    },
-  },
+  image: 'image',
+  path: 'path',
+  price: 'price',
   cta: {
     label: () => 'Find out more',
     a11y: {

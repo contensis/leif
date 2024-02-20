@@ -30,7 +30,7 @@ const IconWithTextStyled = styled.div`
         margin: 0;
         ${theme.typeStyles.h5};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
       }
       .icon-with-text__text {
         margin: 8px 0 0 0;

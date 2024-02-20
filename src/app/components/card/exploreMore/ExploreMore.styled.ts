@@ -5,6 +5,7 @@ export default styled.div`
     return css`
       --a11y: #4c9aff;
 
+      position: relative;
       padding: 24px 16px;
       border-radius: 8px;
       transition: box-shadow 200ms ease-in-out;
@@ -27,7 +28,6 @@ export default styled.div`
       }
 
       .explore-more__path {
-        position: relative;
         color: #2b2f51;
         text-decoration: none;
         &:after {

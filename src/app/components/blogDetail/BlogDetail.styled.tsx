@@ -17,7 +17,7 @@ const BlogDetailStyled = styled.div`
           position: absolute;
           top: 50%;
           right: -2px;
-          background-color: ${theme.colors.primary_light};
+          background-color: var(--semantic-brand-secondary);
           border-radius: 50%;
           transform: translateY(-50%);
           height: 4px;

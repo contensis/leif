@@ -27,7 +27,7 @@ const ProductHeroContentContainer = ({
   _setIsPopupOpen,
   isPopupOpen,
   activeVariant,
-  imageUri,
+  image,
 }: Props) => {
   return (
     <ProductHero
@@ -43,7 +43,7 @@ const ProductHeroContentContainer = ({
       title={title}
       text={text}
       variants={variants}
-      imageUri={imageUri}
+      image={image}
     />
   );
 };
@@ -60,14 +60,12 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     _addToBasket: (
       id: string,
-      imageUri: string,
+      image: { src: string },
       productTitle: string,
       quantity: number,
       activeVariant: VariantProps
     ) =>
-      dispatch(
-        addToBasket(id, imageUri, productTitle, quantity, activeVariant)
-      ),
+      dispatch(addToBasket(id, image, productTitle, quantity, activeVariant)),
     _setActiveVariant: (value: VariantProps) =>
       dispatch(setActiveVariant(value)),
     _setIsPopupOpen: (val: boolean) => dispatch(setIsPopupOpen(val)),

@@ -14,12 +14,13 @@ const Author = ({ className, name, photo }: Props) => {
   return (
     <AuthorStyled className={className}>
       {photo && (
-        <Image
+        <img
           src={photo}
-          alt={`Photo of ${name}`}
+          alt=""
           className="author__photo"
           width={40}
           height={40}
+          loading="lazy"
         />
       )}
       <span className="author__name">By {name}</span>

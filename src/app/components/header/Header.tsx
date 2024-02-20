@@ -72,7 +72,7 @@ const Header = ({
           </>
         )}
       >
-        <Link uri="/" title="Leif Home" className="header__logo-link">
+        <Link path="/" title="Leif Home" className="header__logo-link">
           <img
             className="header__logo"
             src={

@@ -1,32 +1,6 @@
 import mapJson from '~/core/util/json-mapper';
 import { VariantProps } from './ProductHeroContent';
-
-const MatchingPotsPropsMapping = {
-  type: () => 'product',
-  title: 'entryTitle',
-  imageUri: {
-    $path: 'primaryImage',
-    $formatting: (img: any) =>
-      img && img.asset && img.asset.sys && img.asset.sys.uri,
-    $default: () => '/image-library/default-images/leif-fallback.png',
-  },
-  imageAlt: {
-    $path: 'primaryImage',
-    $formatting: (img: any) =>
-      (img && img.altText) || img.caption || (img.asset && img.asset.title),
-    $default: () => 'Leif logo',
-  },
-  price: {
-    $path: ['plantVariant', 'potVariant'],
-    $formatting: (v: any) => {
-      return v.price;
-    },
-  },
-  uri: {
-    $path: 'sys',
-    $formatting: (sys: any) => sys && sys.uri,
-  },
-};
+import { ProductCardMapping } from '../search/transformations/entry-to-card-props.mapper';
 
 const PlantPropsMapping = {
   sku: 'sku',
@@ -39,7 +13,7 @@ const PlantPropsMapping = {
   matchingPots: {
     $path: 'matchingPots',
     $formatting: (matchingPots: any) =>
-      mapJson(matchingPots, MatchingPotsPropsMapping),
+      mapJson(matchingPots, ProductCardMapping),
   },
   variantTitle: {
     $path: '.',
@@ -59,13 +33,12 @@ const PlantPropsMapping = {
 };
 
 export const ProductHeroContentPropsMapping = {
+  id: 'sys.id',
   title: 'productName',
   text: 'description',
-  id: 'sys.id',
-  imageUri: {
-    $path: 'primaryImage',
-    $formatting: (image: any) =>
-      image && image.asset && image.asset.sys && image.asset.sys.uri,
+  image: {
+    src: 'primaryImage.asset.sys.uri',
+    alt: 'primaryImage.altText',
   },
   variants: {
     $path: ['plantVariant', 'potVariant'],

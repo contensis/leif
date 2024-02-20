@@ -24,14 +24,14 @@ const NotFound = () => {
             does not exist.
           </p>
           <LinkButton
-            href="/"
-            type="secondary"
+            path="/"
+            theme="martinique"
+            variant="secondary"
             label="Return to home page"
             className="not-found__link-btn"
-            isHollow={true}
           />
         </div>
-        <Image
+        <img
           className="not-found__image"
           src="/static/img/illustrations/woman-with-map.png"
           alt="Women with map"

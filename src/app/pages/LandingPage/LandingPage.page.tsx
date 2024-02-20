@@ -2,13 +2,12 @@ import React from 'react';
 
 // Components
 import LeadParagraph from '~/components/leadParagraph/LeadParagraph';
-// import Composer from '~/components/composer/ComposerWrapper';
 import { Composer } from '~/dynamic/components';
 import CTABanner from '~/components/ctaBanner/CTABanner';
 import LandingHero from '~/components/landingHero/LandingHero';
 import Metadata from '~/components/metadata/Metadata';
-import CardRow from '~/components/cardRow/CardRow';
 import Form from '~/components/form/Form';
+import CardRowSpotlight from '~/components/cardRowSpotlight/CardRowSpotlight';
 
 // Layout
 import LandingPageStyled from './LandingPage.styled';
@@ -20,26 +19,23 @@ import { Props } from './LandingPage.d';
 
 const LandingPage = ({ mappedEntry }: Props) => {
   const {
-    landingPageHeroProps,
+    metaProps,
+    heroProps,
+    cardRowProps,
     leadParagraphProps,
     contentComposerProps,
     ctaBannerProps,
-    relatedContentProps,
-    metadataProps,
     formProps,
   } = (mappedEntry || {}) as Props;
 
-  const { imageUri } = landingPageHeroProps || {};
-  const isLight = imageUri ? true : false;
+  console.info({ cardRowProps });
 
   return (
-    <MainLayout isLight={isLight}>
-      <Metadata {...metadataProps} />
+    <MainLayout isLight={heroProps.imageUri || false}>
+      <Metadata {...metaProps} />
       <LandingPageStyled>
-        <LandingHero {...landingPageHeroProps} />
-        <Region margin="large" width="full">
-          <CardRow {...relatedContentProps} />
-        </Region>
+        <LandingHero {...heroProps} />
+        <CardRowSpotlight {...cardRowProps} />
         <Region margin="large" width="medium">
           <LeadParagraph {...leadParagraphProps} />
         </Region>

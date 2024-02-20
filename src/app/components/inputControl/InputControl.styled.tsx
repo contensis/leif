@@ -8,7 +8,7 @@ const InputControlStyled = styled.button`
       height: 40px;
       border: none;
       border-radius: 50%;
-      background-color: ${theme.colors.neutral_lightgrey};
+      background-color: var(--semantic-charcoal-tertiary);
       position: relative;
       transition: opacity 100ms ease-in-out;
       &:hover {

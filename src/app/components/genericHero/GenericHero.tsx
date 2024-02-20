@@ -34,7 +34,7 @@ const GenericHero = ({
     condition ? wrapper(children) : children;
 
   const condition = !!path;
-  const wrapper = children => <Link uri={path}>{children}</Link>;
+  const wrapper = children => <Link path={path}>{children}</Link>;
 
   return (
     <GenericHeroStyled className={className} data-component="generic-hero">

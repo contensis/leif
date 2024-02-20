@@ -8,8 +8,8 @@ interface Props {
 const NavigationSidebarStyled = styled.div`
   ${({ theme, isSecondMenuOpen }: Props) => {
     return css`
-      background-color: ${theme.colors.secondary};
-      color: ${theme.colors.neutral_white};
+      background-color: var(--semantic-type-primary);
+      color: var(--semantic-background-primary);
       position: absolute;
       top: 0;
       right: 0;
@@ -35,13 +35,13 @@ const NavigationSidebarStyled = styled.div`
       a {
         ${theme.typeStyles.h3};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.neutral_white};
+        color: var(--semantic-background-primary);
         text-decoration: none;
       }
       .nav__menu-btn--close {
         margin-left: auto;
         display: block;
-        background-color: ${theme.colors.primary};
+        background-color: var(--semantic-brand-primary);
         border: none;
         width: 64px;
         height: 64px;
@@ -92,7 +92,7 @@ const NavigationSidebarStyled = styled.div`
         }
       }
       .nav__menu--second {
-        background-color: ${theme.colors.neutral_white};
+        background-color: var(--semantic-background-primary);
         position: absolute;
         top: 0;
         right: 0;
@@ -104,7 +104,7 @@ const NavigationSidebarStyled = styled.div`
           padding-top: 136px;
         }
         a {
-          color: ${theme.colors.neutral_charcoal};
+          color: var(--semantic-charcoal-primary);
           ${theme.typeStyles.h4};
         }
       }
@@ -134,8 +134,8 @@ const NavigationSidebarStyled = styled.div`
         }
       }
       .isActive {
-        box-shadow: inset 6px 0px 0px ${theme.colors.primary};
-        color: ${theme.colors.primary};
+        box-shadow: inset 6px 0px 0px var(--semantic-brand-primary);
+        color: var(--semantic-brand-primary);
         padding-left: 16px;
       }
       ${isSecondMenuOpen &&

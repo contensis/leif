@@ -20,13 +20,9 @@ const BlogListing = ({
 }: ListingProps) => {
   const [windowOffset, setWindowOffset] = useState<number>(0);
 
-  /* eslint-disable */
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, windowOffset);
-    }
-  }, []);
-  /* eslint-enable */
+    if (typeof window !== 'undefined') window.scrollTo(0, windowOffset);
+  }, [windowOffset]);
 
   const _handleLoadMore = (pageIndex: number) => {
     if (typeof window != 'undefined') {
@@ -73,8 +69,8 @@ const BlogListing = ({
           label="Load more"
           icon="arrow-down"
           onClick={() => _handleLoadMore(pageIndex + 1)}
-          btnTheme="secondary"
-          isHollow
+          theme="martinique"
+          variant="secondary"
         />
       )}
     </BlogListingStyled>

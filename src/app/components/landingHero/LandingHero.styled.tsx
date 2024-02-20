@@ -39,7 +39,7 @@ const LandingHeroStyled = styled.div`
         max-width: 800px;
         width: 100%;
         padding: 40px 16px;
-        background: ${theme.colors.neutral_white};
+        background: var(--semantic-background-primary);
         border-radius: 8px 8px 0 0;
         box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
         @media ${theme.mq.desktop} {

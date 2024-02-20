@@ -34,7 +34,7 @@ const HeroContent = ({
           className="hero-content__btn"
           icon={btnIcon}
           label={ctaText}
-          href={ctaLink}
+          path={ctaLink}
         />
       )}
     </HeroContentStyled>

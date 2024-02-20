@@ -5,7 +5,7 @@ const TestimonialCardStyled = styled.div`
     return css`
       position: relative;
       text-align: center;
-      color: ${theme.colors.neutral_white};
+      color: var(--semantic-background-primary);
       font-family: ${theme.typeStyles.fontFamily.headings};
       padding: 72px 16px 176px;
       @media ${theme.mq.desktop} {

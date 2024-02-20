@@ -7,28 +7,28 @@ const SearchInputStyled = styled.div`
       width: 100%;
       position: relative;
       .search-input__input {
-        color: ${theme.colors.secondary_light};
+        color: var(--semantic-type-secondary);
         ${theme.typeStyles.cardCopy};
         padding: 16px 40px 16px 16px;
         width: 100%;
         border: none;
         background: rgba(195, 198, 222, 0.1);
-        border: 1px solid ${theme.colors.secondary_light};
+        border: 1px solid var(--semantic-type-secondary);
         border-radius: 8px;
         ::-webkit-search-cancel-button {
           -webkit-appearance: none;
         }
         ::-webkit-input-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         ::-moz-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-ms-input-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
         :-moz-placeholder {
-          color: ${theme.colors.secondary_light};
+          color: var(--semantic-type-secondary);
         }
       }
       .search-input__btn {

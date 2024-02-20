@@ -7,21 +7,21 @@ const CalloutStyled = styled.div`
       padding: 16px;
 
       &[data-type='success'] {
-        box-shadow: inset 6px 0px 0px ${theme.colors.primary};
+        box-shadow: inset 6px 0px 0px var(--semantic-brand-primary);
       }
 
       &[data-type='warning'] {
-        box-shadow: inset 6px 0px 0px ${theme.colors.error};
+        box-shadow: inset 6px 0px 0px var(--semantic-error-primary);
       }
 
       &[data-type='note'] {
-        box-shadow: inset 6px 0px 0px ${theme.colors.link};
+        box-shadow: inset 6px 0px 0px var(--semantic-link-primary);
       }
 
       .callout__title {
         ${theme.typeStyles.h5};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         display: block;
         margin-bottom: 8px;
       }

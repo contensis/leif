@@ -15,7 +15,7 @@ const AccordionStyled = styled.div`
       }
       .accordion__btn {
         text-decoration: underline;
-        color: ${theme.colors.link};
+        color: var(--semantic-link-primary);
         background-color: transparent;
         border: none;
         padding: 0;
@@ -32,7 +32,7 @@ const AccordionStyled = styled.div`
       .accordion-item__button {
         ${theme.typeStyles.h5};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
         background-color: rgba(195, 198, 222, 0.2);
         border: none;
         border-radius: 4px;

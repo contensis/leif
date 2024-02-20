@@ -53,7 +53,7 @@ const ProductHeroContentStyled = styled.div`
         margin-top: 24px;
         ${theme.typeStyles.h3};
         font-family: ${theme.typeStyles.fontFamily.headings};
-        color: ${theme.colors.secondary};
+        color: var(--semantic-type-primary);
       }
       .product-hero__options {
         display: flex;
@@ -65,6 +65,7 @@ const ProductHeroContentStyled = styled.div`
         }
       }
       .product-hero__option {
+        display: inline-flex;
         ${theme.typeStyles.smallCopy};
         font-family: ${theme.typeStyles.fontFamily.default};
         font-weight: 400;

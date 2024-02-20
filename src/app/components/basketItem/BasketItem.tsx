@@ -6,7 +6,6 @@ import Input from '../input/Input';
 import InputControl from '../inputControl/InputControl';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import BasketItemStyled from './BasketItem.styled';
-import Image from '../image/Image';
 
 export interface Props {
   className: string;
@@ -15,7 +14,7 @@ export interface Props {
   quantity: number;
   id: string;
   sku: string;
-  imageUri?: string;
+  image?: { src: string };
   variant?: string;
   hasLargeStyles?: boolean;
 }
@@ -28,7 +27,7 @@ const BasketItem = ({
   title,
   variant,
   quantity,
-  imageUri,
+  image,
   hasLargeStyles = false,
 }: Props) => {
   const dispatch = useDispatch();
@@ -58,16 +57,21 @@ const BasketItem = ({
     }
   };
 
+  console.info({ image });
+
   return (
     <BasketItemStyled className={className} hasLargeStyles={hasLargeStyles}>
       <div className="basket-item__content--wrapper">
-        <Image
-          src={imageUri}
-          alt={title}
-          className="basket-item__image"
-          width={120}
-          height={120}
-        />
+        {image?.src && (
+          <img
+            src={image.src}
+            alt={title}
+            className="basket-item__image"
+            width={120}
+            height={120}
+            loading="lazy"
+          />
+        )}
         <div className="basket-item__content">
           <span className="basket-item__title">{title}</span>
           <span className="basket-item__variant">{variant}</span>

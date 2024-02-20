@@ -26,7 +26,7 @@ const Footer = ({ className }: Props) => {
   return (
     <FooterStyled className={className}>
       <div className="footer__left-column">
-        <Link uri="/">
+        <Link path="/">
           <img
             className="footer__logo"
             src="/static/img/logos/logo-dark.svg"
@@ -37,19 +37,22 @@ const Footer = ({ className }: Props) => {
           <VisuallyHidden text="Home" />
         </Link>
         <div className="footer__icons-wrapper">
-          <Link uri="https://en-gb.facebook.com/" className="footer__icon-link">
+          <Link
+            path="https://en-gb.facebook.com/"
+            className="footer__icon-link"
+          >
             <Icon type="facebook" />
             <VisuallyHidden text="Facebook" />
           </Link>
           <Link
-            uri="https://www.linkedin.com/showcase/contensis"
+            path="https://www.linkedin.com/showcase/contensis"
             className="footer__icon-link"
           >
             <Icon type="linkedin" />
             <VisuallyHidden text="Linkedin" />
           </Link>
           <Link
-            uri="https://twitter.com/contensis?lang=en"
+            path="https://twitter.com/contensis?lang=en"
             className="footer__icon-link"
           >
             <Icon type="twitter" />

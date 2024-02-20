@@ -20,7 +20,6 @@ const PromotionalBlockStyled = styled.div`
       padding-bottom: 0;
     }  
     .promoted-product__image-wrapper {
-      position: relative;
       height: 440px;
       margin-top: 40px;
       &:before {
@@ -37,8 +36,8 @@ const PromotionalBlockStyled = styled.div`
       }
       @media ${theme.mq.laptop} {
         margin-top: 0;
-          height: 100%;
-          width: 50%;
+        height: 100%;
+        width: 50%;
       }
     }
     .promoted-product__image {
@@ -99,7 +98,7 @@ const PromotionalBlockStyled = styled.div`
     }
     .promoted-product__content--text {
       text-align: ${align === 'left' ? 'right' : 'left'};
-      background-color: ${theme.colors.neutral_white};
+      background-color: var(--semantic-background-primary);
       position: relative;
       padding: 40px 16px;
       box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
