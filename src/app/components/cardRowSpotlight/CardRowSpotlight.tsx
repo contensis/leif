@@ -34,10 +34,10 @@ const CardRowSpotlight = ({ cards }: Props) => {
             data-layout={getLayout(i)}
             key={i}
           >
-            {card.image.src && (
+            {card?.image?.src && (
               <img
                 src={card.image.src}
-                alt={card.image.alt}
+                alt={card.image?.alt}
                 style={{ objectFit: 'cover' }}
                 loading="lazy"
                 width={200}

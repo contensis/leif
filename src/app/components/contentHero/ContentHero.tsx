@@ -25,13 +25,13 @@ const ContentHero = ({
   if (hasIllustration) return <GenericHero {...illustrationProps} />;
   return (
     <ContentHeroStyled className={className} data-hero={type}>
-      {image.src && (
+      {image?.src && (
         <>
           <div className="content-hero__overlay" />
           <img
             className="content-hero__image"
             src={image.src}
-            alt={image.alt}
+            alt={image?.alt}
             style={{ objectFit: 'cover' }}
             loading="lazy"
           />

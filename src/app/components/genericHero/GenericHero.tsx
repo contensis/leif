@@ -77,10 +77,10 @@ const GenericHero = ({
               </span>
             )}
           </div>
-          {image && (
+          {image?.src && (
             <img
               src={image.src}
-              alt={image.alt}
+              alt={image?.alt}
               height={432}
               width={510}
               className="generic-hero__img"

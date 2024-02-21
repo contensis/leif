@@ -34,11 +34,11 @@ const SearchCard = ({
       case CardTypes.Blog:
         return (
           <>
-            {image.src && (
+            {image?.src && (
               <div className="search-card__image-wrapper">
                 <img
                   src={image.src}
-                  alt={image.alt}
+                  alt={image?.alt}
                   width={80}
                   height={80}
                   className="search-card__image"
@@ -63,11 +63,11 @@ const SearchCard = ({
       case CardTypes.Product: {
         return (
           <>
-            {image.src && (
+            {image?.src && (
               <div className="search-card__image-wrapper">
                 <img
                   src={image.src}
-                  alt={image.alt}
+                  alt={image?.alt}
                   width={80}
                   height={80}
                   className="search-card__image"

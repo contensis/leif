@@ -45,13 +45,13 @@ const RelatedLinks = ({ className, title = 'Related  links' }: Props) => {
           const mapped = mapJson(link, RelatedLinksMapping) as MappedLinkProps;
           return (
             <li key={i}>
-              {mapped.image.src && (
+              {mapped.image?.src && (
                 <img
                   width={80}
                   height={80}
                   loading="lazy"
                   src={mapped.image.src}
-                  alt={mapped.image?.alt || ''}
+                  alt={mapped.image?.alt}
                 />
               )}
               <Link path={mapped.path}>{mapped.displayName}</Link>

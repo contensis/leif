@@ -59,11 +59,11 @@ const ProductCard = ({
             </svg>
           </>
         )}
-        {image.src && (
+        {image?.src && (
           <img
             className="product-card__img"
             src={image.src}
-            alt={image.alt}
+            alt={image?.alt}
             style={{ objectFit: 'cover' }}
             width={400}
             height={400}
