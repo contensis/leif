@@ -51,7 +51,9 @@ export default styled.div`
         h4,
         h5,
         h6,
-        p {
+        p,
+        ul,
+        ol {
           margin-bottom: 24px;
         }
 
