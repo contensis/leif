@@ -70,7 +70,8 @@ export default styled.div`
         }
 
         [data-component='image-block'],
-        [data-component='featured-product'] {
+        [data-component='featured-product'],
+        [data-component='video-block'] {
           max-width: 840px;
           width: 100%;
           margin: 80px auto;

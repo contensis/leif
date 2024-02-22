@@ -13,7 +13,6 @@ export type Props = { data: Block[]; isContentPage: boolean };
 const Canvas = ({ data }: Props) => {
   if (!data) return null;
 
-  console.info({ data });
   return (
     <CanvasStyled data-component="canvas">
       <RenderContextProvider blocks={blocks} components={components}>

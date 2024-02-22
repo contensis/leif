@@ -9,8 +9,10 @@ import InlineEntryBlock from './blocks/InlineEntryCanvas.block';
 import FeaturedProductCanvas from '~/components/featuredProduct/FeaturedProduct.canvas';
 import FeatureRowCanvas from '~/components/cardRow/CardRow.canvas';
 import AccordionCanvas from '../accordion/Accordion.canvas';
+import ParagraphBlock from './blocks/ParagraphCanvas.block';
 
 export const blocks = {
+  _paragraph: ParagraphBlock,
   _image: ImageCanvasBlock,
   _quote: QuoteBlock,
   _panel: PanelBlock,

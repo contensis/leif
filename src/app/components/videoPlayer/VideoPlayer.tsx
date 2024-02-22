@@ -37,7 +37,11 @@ const VideoPlayer = ({
         break;
     }
   };
-  return <div className={className}>{VideoContent(type)}</div>;
+  return (
+    <div className={className} data-component="video-block">
+      {VideoContent(type)}
+    </div>
+  );
 };
 
 export default VideoPlayer;
