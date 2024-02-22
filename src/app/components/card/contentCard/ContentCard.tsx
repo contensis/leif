@@ -3,15 +3,16 @@ import Link from '~/components/link/Link';
 import ContentCardStyled from './ContentCard.styled';
 
 export interface Props {
+  className?: string;
   title: string;
   text: string;
   image: { src: string; alt?: string };
   path: string;
 }
 
-const ContentCard = ({ title, text, image, path }: Props) => {
+const ContentCard = ({ className, title, text, image, path }: Props) => {
   return (
-    <ContentCardStyled>
+    <ContentCardStyled className={className}>
       <Link className="content-card__path" path={path}>
         <h4 className="content-card__title">{title}</h4>
       </Link>

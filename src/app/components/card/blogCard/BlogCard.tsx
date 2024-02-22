@@ -4,6 +4,7 @@ import Link from '~/components/link/Link';
 import BlogCardStyled from './BlogCard.styled';
 
 export interface Props {
+  className?: string;
   title: string;
   text: string;
   image: {
@@ -15,10 +16,18 @@ export interface Props {
   path: string;
 }
 
-const BlogCard = ({ title, image, text, date, readtime, path }: Props) => {
+const BlogCard = ({
+  className,
+  title,
+  image,
+  text,
+  date,
+  readtime,
+  path,
+}: Props) => {
   if (!path) return null;
   return (
-    <BlogCardStyled>
+    <BlogCardStyled className={className}>
       <Link path={path} className="blog-card__path">
         <h3 className="blog-card__title">{title}</h3>
       </Link>

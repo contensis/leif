@@ -6,6 +6,7 @@ export default styled.div`
       --a11y: #4c9aff;
       --semantic-type-primary: #2b2f51;
 
+      position: relative;
       padding: 24px 16px;
       border-radius: 8px;
       transition: box-shadow 200ms ease-in-out;
@@ -29,7 +30,6 @@ export default styled.div`
       }
 
       .blog-card__path {
-        position: relative;
         color: var(--semantic-type-primary);
         text-decoration: none;
         &:after {

@@ -42,5 +42,5 @@ export const BlogPostPropsMapping = {
     linkUri: () => '/blog',
     linkLabel: () => 'View all blogs',
   },
-  canvas: 'canvas',
+  canvasProps: { data: 'canvas' },
 };

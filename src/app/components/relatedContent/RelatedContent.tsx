@@ -42,7 +42,7 @@ const RelatedContent = ({
         </div>
         {linkUri && (
           <LinkButton
-            theme="riptide"
+            theme="martinique"
             variant="secondary"
             className="related-content__link"
             label={linkLabel}

@@ -16,6 +16,7 @@ import Region from '~/layout/Region';
 // Models
 import { Props } from './BlogPost.d';
 import { Composer } from '~/dynamic/components';
+import BlogPostStyled from './BlogPost.styled';
 
 const BlogPost = ({ mappedEntry }: Props) => {
   const {
@@ -34,30 +35,31 @@ const BlogPost = ({ mappedEntry }: Props) => {
     (canvasProps?.data.length === 1 && !canvasProps?.data[0].value?.length);
 
   return (
-    <MainLayout>
+    <>
       <Metadata {...metadataProps} />
-      <GenericHero {...heroProps} />
-      <Region width="small" margin="default">
-        <BlogInformation {...blogInformationProps} />
-      </Region>
-
-      {noCanvas ? (
-        <>
+      <MainLayout>
+        <BlogPostStyled>
+          <GenericHero {...heroProps} />
           <Region width="small" margin="default">
-            <LeadParagraph {...leadParagraphProps} />
+            <BlogInformation {...blogInformationProps} />
           </Region>
-          <Composer {...composerProps} />
-        </>
-      ) : (
-        <Canvas {...canvasProps} />
-      )}
-      <Region width="small" margin="large">
-        <CTABanner {...ctaBannerProps} />
-      </Region>
-      <Region width="default" margin="default">
-        <RelatedContent {...relatedContentProps} />
-      </Region>
-    </MainLayout>
+          {noCanvas ? (
+            <>
+              <Region width="small" margin="default">
+                <LeadParagraph {...leadParagraphProps} />
+              </Region>
+              <Composer {...composerProps} />
+            </>
+          ) : (
+            <Canvas {...canvasProps} />
+          )}
+          <Region width="small" margin="large">
+            <CTABanner {...ctaBannerProps} />
+          </Region>
+          <RelatedContent {...relatedContentProps} />
+        </BlogPostStyled>
+      </MainLayout>
+    </>
   );
 };
 
