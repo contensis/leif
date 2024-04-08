@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${fontWeight.regular};
     line-height: ${fontBase.lineHeight};
     color: ${colors.neutral_charcoal};
+    background-color: #fff;
   }
   h1,h2,h3,h4,h5,h6 {
     margin:0;
