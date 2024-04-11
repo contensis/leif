@@ -7,12 +7,12 @@ import { Props as PromotedContentProps } from '~/components/promotedContent/Prom
 import { Props as MetadataProps } from '~/components/metadata/Metadata';
 
 export interface MappedProps {
-  heroProps: ProductHeroContentProps;
-  sliderProps: ProductHeroSliderProps;
-  textProps: TextBlockProps;
-  iconListProps: IconListProps;
-  promotionProps: PromotedContentProps;
-  metadataProps: MetadataProps;
+  hero: ProductHeroContentProps;
+  slider: ProductHeroSliderProps;
+  text: TextBlockProps;
+  icons: IconListProps;
+  promotion: PromotedContentProps;
+  meta: MetadataProps;
 }
 
 export type Props = RouteComponentProps<MappedProps>;

@@ -14,7 +14,7 @@ import { isEmptyObj } from '../../utils/isEmptyObj';
 import FocusLock from 'react-focus-lock';
 import { isClient } from '../../utils/isClient';
 import { _useLockBodyScroll } from '../../utils/hooks/useLockBodyScroll';
-import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
+import { doToggleOverlay } from '../../utils/doToggleOverlay';
 import BasketSummary from '../basketSummary/BasketSummary';
 
 export interface Props {
@@ -146,8 +146,8 @@ const BasketMenu = ({
   totalItems,
 }: Props) => {
   useEffect(() => {
-    if (isBasketOpen) addOverlayCSS();
-    else removeOverlayCSS();
+    if (isBasketOpen) doToggleOverlay(true);
+    else doToggleOverlay(false);
   }, [isBasketOpen]);
 
   return (

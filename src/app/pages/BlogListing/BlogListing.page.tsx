@@ -17,22 +17,21 @@ import { Props } from './BlogListing.d';
 import { ListingProps } from '@zengenti/contensis-react-base/search';
 
 const BlogListingPage = ({ mappedEntry }: Props) => {
-  const { title, featuredBlogProps, ctaBannerProps, metadataProps } =
-    mappedEntry || {};
+  const { meta, title, featured, banner } = mappedEntry || {};
 
   return (
     <MainLayout>
-      <Metadata {...metadataProps} />
+      <Metadata {...meta} />
       <BlogListingStyled>
         <h1 className="blog-listing__title">{title}</h1>
-        <GenericHero {...featuredBlogProps} />
+        <GenericHero {...featured} />
         <ListingContainer>
           {(listingProps: ListingProps) => (
             <>
               <BlogListing {...listingProps} />
               {listingProps.results && listingProps.results.length > 0 && (
                 <Region width="small" margin="large">
-                  <CTABanner {...ctaBannerProps} />
+                  <CTABanner {...banner} />
                 </Region>
               )}
             </>

@@ -26,7 +26,7 @@ import { ProductListingHeroMapping } from '~/components/genericHero/GenericHero.
 import { mapJson } from '@zengenti/contensis-react-base/util';
 
 const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
-  const { title, metadataProps } = mappedEntry || {};
+  const { title, meta } = mappedEntry || {};
 
   const featuredProducts = useMinilist({
     id: 'featuredProducts',
@@ -42,7 +42,7 @@ const ProductListingPage = ({ mappedEntry }: RouteComponentProps<Props>) => {
   if (!mappedEntry) return <></>;
   return (
     <MainLayout>
-      <Metadata {...metadataProps} />
+      <Metadata {...meta} />
       <ProductListingStyled>
         <h1 className="product-listing__title">{title}</h1>
         {featuredProduct && (

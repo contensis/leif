@@ -132,7 +132,7 @@ const GlobalStyle = createGlobalStyle`
       height: 12px;
     }
   }
-  .overlay {
+  [data-overlay='true'] {
     position: relative;
     &:before {
       content: '';
@@ -144,20 +144,6 @@ const GlobalStyle = createGlobalStyle`
       background: var(--semantic-type-primary);
       opacity: 0.25;
       z-index: 9;
-    }
-  }
-  .white-overlay {
-    position: relative;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--semantic-background-primary);
-      opacity: 1;
-      z-index: 99;
     }
   }
 `;

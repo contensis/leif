@@ -6,7 +6,7 @@ import HeaderStyled from './Header.styled';
 // Utils
 import FocusLock from 'react-focus-lock';
 import Wrapper from '../wrapper/Wrapper';
-import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
+import { doToggleOverlay } from '../../utils/doToggleOverlay';
 
 // Components
 import IconButton from '../iconButton/IconButton';
@@ -52,8 +52,8 @@ const Header = ({
   isLight,
 }: Props) => {
   useEffect(() => {
-    if (isSearchOpen) addOverlayCSS();
-    else removeOverlayCSS();
+    if (isSearchOpen) doToggleOverlay(true);
+    else doToggleOverlay(false);
   }, [isSearchOpen]);
   return (
     <HeaderStyled

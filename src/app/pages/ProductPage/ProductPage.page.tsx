@@ -27,14 +27,7 @@ import {
 } from '~/redux/product/selectors';
 
 const ProductPage = ({ mappedEntry }: Props) => {
-  const {
-    heroProps,
-    sliderProps,
-    textProps,
-    iconListProps,
-    promotionProps,
-    metadataProps,
-  } = mappedEntry || {};
+  const { hero, slider, text, icons, promotion, meta } = mappedEntry || {};
 
   // Select Product Matching Pots from Redux state.
   const results = useSelector(selectActiveVariantMatchingPots);
@@ -45,11 +38,9 @@ const ProductPage = ({ mappedEntry }: Props) => {
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 
-  console.info({ heroProps });
-
   return (
     <MainLayout>
-      <Metadata {...metadataProps} />
+      <Metadata {...meta} />
       <ProductPageStyled>
         <div className="product-page__scroll-container">
           <div className="product-page__content">
@@ -59,14 +50,14 @@ const ProductPage = ({ mappedEntry }: Props) => {
               path="/products"
             />
             <div className="product-page__hero">
-              <ProductHeroSlider {...sliderProps} />
-              {!isDesktop && <ProductHeroContent {...heroProps} />}
+              <ProductHeroSlider {...slider} />
+              {!isDesktop && <ProductHeroContent {...hero} />}
             </div>
             <Region width="small" margin="medium">
-              <TextBlock {...textProps} />
+              <TextBlock {...text} />
             </Region>
             <Region width="small" margin="large">
-              <IconList {...iconListProps} />
+              <IconList {...icons} />
             </Region>
             {reviews && reviews[0] && (
               <Region width="small" margin="large">
@@ -74,10 +65,10 @@ const ProductPage = ({ mappedEntry }: Props) => {
               </Region>
             )}
           </div>
-          {isDesktop && <ProductHeroContent {...heroProps} />}
+          {isDesktop && <ProductHeroContent {...hero} />}
         </div>
         <Region width="full" margin="large">
-          <PromotedContent results={results} {...promotionProps} />
+          <PromotedContent results={results} {...promotion} />
         </Region>
       </ProductPageStyled>
     </MainLayout>

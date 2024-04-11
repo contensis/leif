@@ -16,8 +16,7 @@ import { Props, MappedProps } from './Home.d';
 import HomepageStyled from './Homepage.styled';
 
 const Home = ({ mappedEntry }: Props) => {
-  const { heroProps, metaProps, composerProps, bannerProps } = (mappedEntry ||
-    {}) as MappedProps;
+  const { meta, hero, composer, banner } = (mappedEntry || {}) as MappedProps;
 
   const reviews = useMinilist({ id: 'latestReviews', mapper: mappers.results });
   const blogs = useMinilist({ id: 'latestBlogs', mapper: mappers.results });
@@ -25,16 +24,16 @@ const Home = ({ mappedEntry }: Props) => {
   return (
     <MainLayout isLight={true}>
       <HomepageStyled>
-        <Metadata {...metaProps} />
-        <LandingHero {...heroProps} />
-        <Composer {...composerProps} />
+        <Metadata {...meta} />
+        <LandingHero {...hero} />
+        <Composer {...composer} />
         <TestimonialSlider testimonials={reviews.results} />
         <CardRow
           title="Our blogs"
           cards={blogs.results}
           btn={{ label: 'View all blogs', path: '/blog' }}
         />
-        <CTABanner {...bannerProps} />
+        <CTABanner {...banner} />
       </HomepageStyled>
     </MainLayout>
   );

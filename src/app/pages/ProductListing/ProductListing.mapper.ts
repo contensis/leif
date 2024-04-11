@@ -1,6 +1,6 @@
 import { PageMetadataPropsMapping } from '~/components/metadata/Metadata.mapper';
 
 export const ProductListingPropsMapping = {
-  metadataProps: { ...PageMetadataPropsMapping },
+  meta: PageMetadataPropsMapping,
   title: 'entryTitle',
 };

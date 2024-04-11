@@ -10,9 +10,9 @@ import { doCalculateReadtime } from '~/utils/calculateReadTime';
 import { BlogHeroMapping } from '~/components/genericHero/GenericHero.mapper';
 
 export const BlogPostPropsMapping = {
-  metadataProps: ExternalPromotionPropsMapping,
-  heroProps: BlogHeroMapping,
-  blogInformationProps: {
+  meta: ExternalPromotionPropsMapping,
+  hero: BlogHeroMapping,
+  information: {
     author: {
       photo: {
         $path: 'author.photo',
@@ -29,18 +29,12 @@ export const BlogPostPropsMapping = {
       },
     },
   },
-  leadParagraphProps: {
-    text: 'leadParagraph',
-  },
-  composerProps: {
-    items: ({ postBody }: any) => mapComposer(postBody, composerPropsMapping),
-  },
-  ctaBannerProps: BannerPropsMapping,
-  relatedContentProps: {
+  banner: BannerPropsMapping,
+  content: {
     title: () => 'Read now',
     results: ({ relatedBlogs }: any) => mapEntriesToResults(relatedBlogs),
     linkUri: () => '/blog',
     linkLabel: () => 'View all blogs',
   },
-  canvasProps: { data: 'canvas' },
+  canvas: { data: 'canvas' },
 };

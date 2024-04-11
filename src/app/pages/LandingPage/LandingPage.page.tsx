@@ -18,30 +18,21 @@ import Region from '~/layout/Region';
 import { Props } from './LandingPage.d';
 
 const LandingPage = ({ mappedEntry }: Props) => {
-  const {
-    metaProps,
-    heroProps,
-    cardRowProps,
-    leadParagraphProps,
-    contentComposerProps,
-    ctaBannerProps,
-    formProps,
-  } = (mappedEntry || {}) as Props;
-
-  console.info({ cardRowProps });
+  const { meta, hero, cards, lead, composer, banner, form } = (mappedEntry ||
+    {}) as Props;
 
   return (
-    <MainLayout isLight={heroProps.imageUri || false}>
-      <Metadata {...metaProps} />
+    <MainLayout isLight={hero.imageUri || false}>
+      <Metadata {...meta} />
       <LandingPageStyled>
-        <LandingHero {...heroProps} />
-        <CardRowSpotlight {...cardRowProps} />
+        <LandingHero {...hero} />
+        <CardRowSpotlight {...cards} />
         <Region margin="large" width="medium">
-          <LeadParagraph {...leadParagraphProps} />
+          <LeadParagraph {...lead} />
         </Region>
-        <Composer {...contentComposerProps} />
-        <CTABanner {...ctaBannerProps} />
-        <Form {...formProps} />
+        <Composer {...composer} />
+        <CTABanner {...banner} />
+        <Form {...form} />
       </LandingPageStyled>
     </MainLayout>
   );

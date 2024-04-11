@@ -5,10 +5,10 @@ import { Props as CTABannerProps } from '~/components/ctaBanner/CTABanner';
 import { Props as MetadataProps } from '~/components/metadata/Metadata';
 
 export interface MappedProps {
-  metaProps: MetadataProps;
-  heroProps: LandingHeroProps;
-  composerProps: ComposerProps;
-  bannerProps: CTABannerProps;
+  meta: MetadataProps;
+  hero: LandingHeroProps;
+  composer: ComposerProps;
+  banner: CTABannerProps;
 }
 
 export type Props = RouteComponentProps<MappedProps>;

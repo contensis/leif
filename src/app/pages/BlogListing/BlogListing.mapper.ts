@@ -4,8 +4,8 @@ import { BlogListingHeroMapping } from '~/components/genericHero/GenericHero.map
 import { PageMetadataPropsMapping } from '~/components/metadata/Metadata.mapper';
 
 export const BlogListingPropsMapping = {
-  metadataProps: PageMetadataPropsMapping,
+  meta: PageMetadataPropsMapping,
   title: 'entryTitle',
-  featuredBlogProps: BlogListingHeroMapping,
-  ctaBannerProps: BannerPropsMapping,
+  featured: BlogListingHeroMapping,
+  banner: BannerPropsMapping,
 };

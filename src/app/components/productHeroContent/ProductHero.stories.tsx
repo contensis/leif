@@ -3,7 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import ProductHeroContent from './ProductHeroContent.container';
 import { Props } from './ProductHeroContent';
-import { _UUID } from '../../utils/UUID';
 
 export default {
   title: 'Product/Components/ProductHeroContent',
@@ -16,7 +15,7 @@ const Template: Story<Props> = args => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: _UUID(),
+  id: 'abcd123',
   imageUri: 'https://source.unsplash.com/X_IvVDuHvDQ',
   variants: [
     {

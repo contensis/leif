@@ -6,20 +6,20 @@ import { PageMetadataPropsMapping } from '~/components/metadata/Metadata.mapper'
 import { CardRowSpotlightMapping } from '~/components/cardRowSpotlight/CardRowSpotlight.mapper';
 
 export const LandingPagePropsMapping = {
-  metaProps: PageMetadataPropsMapping,
-  heroProps: LandingHeroPropsMapping,
-  cardRowProps: CardRowSpotlightMapping,
-  leadParagraphProps: {
+  meta: PageMetadataPropsMapping,
+  hero: LandingHeroPropsMapping,
+  cards: CardRowSpotlightMapping,
+  lead: {
     text: 'leadParagraph',
     type: () => 'center',
   },
-  contentComposerProps: {
+  composer: {
     items: ({ bodyContent }: any) =>
       mapComposer(bodyContent, composerPropsMapping),
     isContentPage: () => true,
   },
-  ctaBannerProps: BannerPropsMapping,
-  formProps: {
+  banner: BannerPropsMapping,
+  form: {
     type: 'formPicker.form',
   },
 };

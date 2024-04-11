@@ -42,7 +42,7 @@ const SearchContainer: React.FC<
   currentFacet,
   currentPageIndex,
   facets,
-  featuredResults,
+  featured,
   filters,
   results,
   resultsInfo,
@@ -137,14 +137,10 @@ const SearchContainer: React.FC<
                 )}
                 {hasResults &&
                   currentFacet === SearchFacets.all &&
-                  featuredResults.length > 0 && (
+                  featured.length > 0 && (
                     <div className="search__featured-products">
-                      {featuredResults.slice(-2).map((featuredProduct, idx) => (
-                        <Card
-                          key={idx}
-                          {...(featuredProduct as CardProps)}
-                          path={path}
-                        />
+                      {featured.slice(-2).map((f: CardProps, i: number) => (
+                        <Card key={i} {...f} path={path} />
                       ))}
                     </div>
                   )}

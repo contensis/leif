@@ -8,7 +8,7 @@ import NavigationSidebar from '~/components/navigationSidebar/NavigationSidebar'
 import NavigationStyled from './Navigation.styled';
 
 // Utils
-import { addOverlayCSS, removeOverlayCSS } from '../../utils/addOverlayCSS';
+import { doToggleOverlay } from '../../utils/doToggleOverlay';
 
 export interface Props {
   className?: string;
@@ -32,8 +32,8 @@ const Navigation = ({
   _setIsSearchOpen,
 }: Props) => {
   useEffect(() => {
-    if (isMenuOpen) addOverlayCSS();
-    else removeOverlayCSS();
+    if (isMenuOpen) doToggleOverlay(true);
+    else doToggleOverlay(false);
   }, [isMenuOpen]);
 
   if (!hasNavigationTree) return null;

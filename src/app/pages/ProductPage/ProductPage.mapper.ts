@@ -6,17 +6,17 @@ import { ExternalPromotionPropsMapping } from '~/components/metadata/Metadata.ma
 import mapJson from '~/core/util/json-mapper';
 
 export const ProductPagePropsMapping = {
-  heroProps: ProductHeroContentPropsMapping,
-  sliderProps: ProductHeroSliderPropsMapping,
-  metadataProps: ExternalPromotionPropsMapping,
-  textProps: { text: 'careAdvice' },
-  iconListProps: {
+  hero: ProductHeroContentPropsMapping,
+  slider: ProductHeroSliderPropsMapping,
+  meta: ExternalPromotionPropsMapping,
+  text: { text: 'careAdvice' },
+  icons: {
     icons: {
       $path: 'growingConditions',
       $formatting: (condition: any) => mapJson(condition, IconPropsMapping),
     },
   },
-  promotionProps: {
+  promotion: {
     title: () => 'Matching pots',
     linkUri: () => '/products',
     linkLabel: () => 'View all products',
