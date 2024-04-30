@@ -2,15 +2,17 @@ name: Docker - Build and push latest
 
 on:
   push:
-    branches: ['**']
-    tags-ignore: ['release-*']
+    branches: [ '**' ]
+    tags-ignore: [ 'release-*' ]
   pull_request:
-    branches: ['**']
+    branches: [ '**' ]
 
 env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
+  EPLOY_CONTENSIS_CLIENT_ID: 29a62184-f647-498e-afe8-2bcf9b5deeaf
+  EPLOY_CONTENSIS_SHARED_SECRET: 912b0fb4f88749aa8359af844b804514-652d13db37934384bb4070d0f501f308-262969ccc1d64541ac897ddc255de242
 
 jobs:
   build-builder:
@@ -96,3 +98,18 @@ jobs:
       block-id: leif-website
       image-uri: ${{ needs.build-app.outputs.image-uri }}
       tag-repo: true
+  deploy:
+    name: Push block to Contensis
+    runs-on: ubuntu-latest
+    needs: build-app
+    steps:
+      - name: Push block to Contensis
+        id: push-block
+        uses: contensis/block-push@v1
+        with:
+          block-id: leif-website
+          alias: eploy
+          project-id: leif
+          client-id: ${{ env.EPLOY_CONTENSIS_CLIENT_ID }}
+          shared-secret: ${{ env.EPLOY_CONTENSIS_SHARED_SECRET }}
+          image-uri: ${{ env.APP_IMAGE }}:build-${{ github.run_number }}
