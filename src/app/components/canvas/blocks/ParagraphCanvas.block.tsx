@@ -26,7 +26,6 @@ const useWrapper = (block: CustomBlockProps) => {
     if (block?.value?.length >= 1) {
       for (const value of block.value) {
         if (value?.type === '_inlineEntry') {
-          console.info(' hit me?');
           setWrapper(false);
         }
       }

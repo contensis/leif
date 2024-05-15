@@ -137,7 +137,7 @@ const SearchContainer: React.FC<
                 )}
                 {hasResults &&
                   currentFacet === SearchFacets.all &&
-                  featured.length > 0 && (
+                  featured?.length > 0 && (
                     <div className="search__featured-products">
                       {featured.slice(-2).map((f: CardProps, i: number) => (
                         <Card key={i} {...f} path={path} />
