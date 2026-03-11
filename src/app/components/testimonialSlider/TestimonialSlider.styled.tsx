@@ -7,71 +7,55 @@ interface Props {
 const TestimonialSliderStyled = styled.div`
   ${({ theme }: Props) => {
     return css`
-      background-color: var(--semantic-type-primary);
-      background-image: url('/static/img/backgrounds/testimonial-slider-background.jpeg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--semantic-type-primary);
-        opacity: 0.9;
-      }
+      background-color: var(--semantic-background-warm);
+      padding: 80px 16px;
       @media ${theme.mq.desktop} {
+        padding: 96px 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 600px;
       }
       .testimonial-slider__wrapper {
         max-width: 620px;
         width: 100%;
         margin: 0 auto;
+        position: relative;
         &:before {
-          content: '';
-          position: absolute;
-          top: -24px;
-          left: 50%;
-          height: 160px;
-          width: 12px;
-          transform: rotate(90deg);
-          background-image: url('/static/img/svgs/shapes/quote-block-shape.svg');
-          background-repeat: no-repeat;
-        }
-        @media ${theme.mq.desktop} {
-          &:before {
-            top: 32px;
-          }
+          content: '\u201C';
+          display: block;
+          font-family: 'Source Serif 4', serif;
+          font-size: 6rem;
+          line-height: 1;
+          color: var(--semantic-brand-primary);
+          margin-bottom: 16px;
         }
       }
       .testimonial__pagination {
-        text-align: center;
-        color: var(--semantic-brand-primary);
-        ${theme.typeStyles.smallCopy};
-        position: absolute;
-        bottom: 132px;
-        left: 50%;
-        transform: translateX(-50%);
-        @media ${theme.mq.desktop} {
-          position: relative;
-          bottom: auto;
-          left: auto;
-          transform: unset;
-        }
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      .testimonial__dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--semantic-charcoal-secondary);
+        transition: background-color 200ms ease-out;
+      }
+      .testimonial__dot--active {
+        background-color: var(--semantic-brand-primary);
       }
       .slick-next,
       .slick-prev {
         bottom: 64px;
         top: auto;
-        background-color: var(--semantic-background-primary);
+        background-color: transparent;
+        border: 1px solid var(--semantic-brand-primary);
         svg path {
-          fill: var(--semantic-type-primary);
+          fill: var(--semantic-brand-primary);
         }
         @media ${theme.mq.desktop} {
           bottom: auto;

@@ -16,11 +16,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --semantic-brand-primary: #77E8C6;
+    --semantic-brand-primary: #8FBC8F;
     --semantic-brand-secondary: #016F4E;
     --semantic-brand-tertiary: #39B38E;
     --semantic-background-primary: #fff;
     --semantic-background-secondary: #000;
+    --semantic-background-warm: #FAFAF8;
     --semantic-type-primary: #2b2f51;
     --semantic-type-secondary: #6e729b;
     --semantic-type-tertiary: #1e213e;
@@ -108,7 +109,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   tbody tr:nth-child(2n + 1) {
-    background-color: rgba(119, 232, 198, 0.1);
+    background-color: rgba(143, 188, 143, 0.1);
   }
 
   ul, ol {

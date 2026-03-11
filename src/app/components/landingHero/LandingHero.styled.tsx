@@ -1,67 +1,58 @@
 import styled, { css } from 'styled-components';
 
 const LandingHeroStyled = styled.div`
-  ${({ theme, src }: { src: string }) => {
+  ${({ theme }) => {
     return css`
-      margin-top: -84px;
-      position: relative;
-      background-image: url(${src});
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 0 16px;
-      min-height: 800px;
-      &:before {
-        content: '';
-        background: linear-gradient(
-          180deg,
-          rgba(43, 47, 81, 0.4) 15.88%,
-          rgba(43, 47, 81, 0) 100%
-        );
-        position: absolute;
-        inset: 0;
-        height: 100%;
-        width: 100%;
-      }
+      background-color: var(--semantic-background-primary);
+      padding: 80px 16px;
       @media ${theme.mq.desktop} {
-        display: block;
-        padding: 168px 0;
-        background-size: cover;
-        background-position: center;
+        padding: 120px 0;
       }
-      .landing-hero__content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        max-width: 800px;
-        width: 100%;
-        padding: 40px 16px;
-        background: var(--semantic-background-primary);
-        border-radius: 8px 8px 0 0;
-        box-shadow: 0px -16px 24px rgba(56, 33, 146, 0.07);
+      .landing-hero__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: center;
         @media ${theme.mq.desktop} {
-          max-width: 590px;
-          box-shadow: 0px 16px 24px rgba(56, 33, 146, 0.07);
-          padding: 56px 40px 56px 80px;
-          border-radius: 0 8px 8px 0;
-          text-align: left;
+          grid-template-columns: 55fr 45fr;
+          gap: 80px;
+          padding: 0 40px;
         }
       }
+      .landing-hero__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .landing-hero__rule {
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: var(--semantic-brand-primary);
+        margin-bottom: 32px;
+      }
       .landing-hero__title {
-        margin: 0 0 16px;
+        margin: 0 0 24px;
       }
       .landing-hero__summary {
-        margin: 0 auto 40px;
-        max-width: 590px;
-        width: 100%;
+        margin: 0 0 40px;
+        max-width: 520px;
+        color: var(--semantic-charcoal-primary);
       }
       .landing-hero__btn {
-        margin: 0 auto;
+        margin: 0;
+      }
+      .landing-hero__photo {
+        display: none;
         @media ${theme.mq.desktop} {
-          margin: 0;
+          display: block;
+          width: 100%;
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+          border-radius: 8px;
         }
       }
     `;

@@ -5,9 +5,9 @@ export default styled.div`
     return css`
       [data-component='cta-block'],
       [data-component='card-row'] {
-        margin: 80px auto;
+        margin: 100px auto;
         @media ${theme.mq.laptop} {
-          margin: 120px auto;
+          margin: 140px auto;
         }
       }
     `;

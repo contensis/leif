@@ -4,8 +4,8 @@ import Link from '../link/Link';
 export default styled(Link)`
   ${({ theme }) => {
     return css`
-      --semantic-riptide-primary: #77e8c6;
-      --semantic-riptide-secondary: #39b28e;
+      --semantic-riptide-primary: #8FBC8F;
+      --semantic-riptide-secondary: #6B9E74;
       --semantic-martinique-primary: #2b2f51;
       --semantic-martinique-secondary: #1e213e;
       --semantic-martinique-tertiary: rgba(195, 198, 222, 0.2);
