@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
-import { ContentTypes, ListingPages } from '../schema';
+import { ContentTypes } from '../schema';
 
 import transformations from '~/components/search/transformations';
 
@@ -28,32 +28,13 @@ export default {
     };
     return options;
   },
-  onRouteLoaded: function* onRouteLoaded({ path, entry, params }) {
-    const { sys: { contentTypeId = undefined } = {} } = entry || {}; // Destructure the elements from entry.sys in a null-safe way
-
-    let triggerListing = false;
-    // To give the Content Type pages with Listings
-    // the right parameters to drive them
-    switch (contentTypeId) {
-      case ContentTypes.blogListing:
-      case ContentTypes.skeletonPage:
-        triggerListing = true;
-        break;
-    }
-
+  onRouteLoaded: function* onRouteLoaded({ path, entry }) {
     yield put({ type: ROUTE_HAS_LOADED, path, entry });
 
-    if (
-      path.startsWith('/search') ||
-      (triggerListing && Object.keys(ListingPages).includes(contentTypeId))
-    ) {
-      return {
-        searchOptions: {
-          mappers: transformations,
-          params,
-          listingType: ListingPages[contentTypeId] || undefined,
-        },
-      };
-    }
+    return {
+      searchOptions: {
+        mappers: transformations,
+      },
+    };
   },
 } as WithEvents;

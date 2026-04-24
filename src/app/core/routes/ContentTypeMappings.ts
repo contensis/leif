@@ -19,7 +19,7 @@ import { BlogListingPropsMapping } from '~/pages/BlogListing/BlogListing.mapper'
 import { ProductListingPropsMapping } from '~/pages/ProductListing/ProductListing.mapper';
 import { ProductPagePropsMapping } from '~/pages/ProductPage/ProductPage.mapper';
 import { HomepagePropsMapping } from '~/pages/Home/Home.mapper';
-import { ContentTypes } from '~/core/schema';
+import { ContentTypes, Listings } from '~/core/schema';
 
 const ContentTypeMappings: ContentTypeMapping[] = [
   {
@@ -43,6 +43,9 @@ const ContentTypeMappings: ContentTypeMapping[] = [
     contentTypeID: ContentTypes.blog,
     component: BlogPost,
     entryMapper: entryMapper(BlogPostPropsMapping),
+    searchOptions: {
+      listingType: Listings.blog,
+    },
   },
   {
     contentTypeID: ContentTypes.plant,
@@ -67,6 +70,9 @@ const ContentTypeMappings: ContentTypeMapping[] = [
       if (slug === 'products') {
         return mapJson(entry, ProductListingPropsMapping);
       }
+    },
+    searchOptions: {
+      listingType: Listings.product,
     },
   },
 ];

@@ -126,11 +126,6 @@ export const Listings = {
   product: 'productsListing',
 };
 
-export const ListingPages = {
-  [ContentTypes.blogListing]: Listings.blog,
-  [ContentTypes.skeletonPage]: Listings.product,
-};
-
 export const SearchFacets = {
   all: 'all',
   blog: 'blog',
