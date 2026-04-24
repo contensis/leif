@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { sizesNoUnit, region } from '../theme/global/layout';
 
 interface RegionWrapperProps {

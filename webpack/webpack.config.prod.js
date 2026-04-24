@@ -51,6 +51,16 @@ const CLIENT_MODERN_CONFIG = {
           target: 'es2022',
         },
       },
+      {
+        test: /\.(t|j)sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['@loadable/babel-plugin'],
+          },
+        },
+      },
     ],
   },
   optimization: {

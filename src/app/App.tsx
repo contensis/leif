@@ -1,5 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { StyleSheetManager, ThemeProvider } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 import { RouteLoader } from '@zengenti/contensis-react-base/routing';
 import NotFound from '~/pages/NotFound/NotFound.page';
 
@@ -22,14 +23,24 @@ const AppRoot = (props: AppRootProps) => {
   */
 
   return (
-    <>
+    <StyleSheetManager
+      // This implements the default behavior from styled-components v5
+      shouldForwardProp={(propName, target) => {
+        if (typeof target === 'string') {
+          // For HTML elements, forward the prop if it is a valid HTML attribute
+          return isPropValid(propName);
+        }
+        // For other elements, forward all props
+        return true;
+      }}
+    >
       <div id="app-root">
         <ThemeProvider theme={defaultTheme}>
           <GlobalStyle />
           <RouteLoader {...props} notFoundComponent={NotFound} />
         </ThemeProvider>
       </div>
-    </>
+    </StyleSheetManager>
   );
 };
 
