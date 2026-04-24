@@ -134,9 +134,6 @@
     "webpack-node-externals": "^3.0.0",
     "zengenti-buildstartup-package": "^0.0.18"
   },
-  "resolutions": {
-    "@types/react": "^18"
-  },
   "dependencies": {
     "@contensis/canvas-react": "^1.0.4",
     "@zengenti/contensis-react-base": "^4.0.0",
