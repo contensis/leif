@@ -1,6 +1,5 @@
 import { put } from 'redux-saga/effects';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
-import { ContentTypes } from '../schema';
 
 import transformations from '~/components/search/transformations';
 
