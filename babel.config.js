@@ -49,7 +49,6 @@ const plugins = {
         ssr: true,
       },
     ],
-    'react-hot-loader/babel',
     '@loadable/babel-plugin',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-proposal-optional-chaining',

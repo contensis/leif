@@ -41,7 +41,7 @@ const LandingHero = ({
       );
     } else {
       return (
-        <LandingHeroStyled className={className} src={imageUri}>
+        <LandingHeroStyled className={className} src={imageUri ?? ''}>
           <div className="landing-hero__content">
             <h1 className="landing-hero__title">{title}</h1>
             {summary && <p className="landing-hero__summary">{summary}</p>}

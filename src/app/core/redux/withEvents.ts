@@ -1,7 +1,4 @@
-import { put, call } from 'redux-saga/effects';
-import { setRouteFilters } from '@zengenti/contensis-react-base/search';
-import { queryParams, routeParams } from '../util/navigation';
-// import { GET_SITE_CONFIG } from '~/core/redux/siteConfig/types';
+import { put } from 'redux-saga/effects';
 import { ROUTE_HAS_LOADED, ROUTE_WILL_LOAD } from './types';
 import { ContentTypes, ListingPages } from '../schema';
 
@@ -31,18 +28,8 @@ export default {
     };
     return options;
   },
-  onRouteLoaded: function* onRouteLoaded({
-    path,
-    entry,
-    location,
-    staticRoute,
-  }) {
-    const params = {
-      ...routeParams(staticRoute),
-      ...queryParams(location && location.search),
-    };
-
-    const { sys: { contentTypeId = undefined } = {} } = entry || {}; // Desturucture the elements from entry.sys in a null-safe way
+  onRouteLoaded: function* onRouteLoaded({ path, entry, params }) {
+    const { sys: { contentTypeId = undefined } = {} } = entry || {}; // Destructure the elements from entry.sys in a null-safe way
 
     let triggerListing = false;
     // To give the Content Type pages with Listings
@@ -54,25 +41,19 @@ export default {
         break;
     }
 
-    // eslint-disable-next-line no-console
+    yield put({ type: ROUTE_HAS_LOADED, path, entry });
+
     if (
       path.startsWith('/search') ||
       (triggerListing && Object.keys(ListingPages).includes(contentTypeId))
     ) {
-      yield call(setRouteFilters, {
-        mappers: transformations,
-        params,
-        // Only set for listing pages
-        listingType: ListingPages[contentTypeId] || undefined,
-      } as any);
+      return {
+        searchOptions: {
+          mappers: transformations,
+          params,
+          listingType: ListingPages[contentTypeId] || undefined,
+        },
+      };
     }
-
-    yield put({ type: ROUTE_HAS_LOADED, path, entry });
-
-    // const siteConfig = yield select(hasSiteConfig);
-
-    // if (!siteConfig) {
-    //   yield put({ type: GET_SITE_CONFIG });
-    // }
   },
 } as WithEvents;

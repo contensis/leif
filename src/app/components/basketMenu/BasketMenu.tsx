@@ -46,7 +46,7 @@ const BasketMenuSidebar = ({
   _setIsBasketOpen,
   basket,
 }: BasketSidebarProps) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   _useOnClickOutside(ref, () => _setIsBasketOpen(false));
   _useLockBodyScroll();
 

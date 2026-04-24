@@ -9,7 +9,6 @@ export const { loadNavigationTree } = navigation.actions;
 export const {
   setCurrentProject,
   setNavigationPath,
-  setNotFound,
   setRoute,
   setRouteEntry,
 } = routing.actions;

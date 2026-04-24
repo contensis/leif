@@ -156,7 +156,7 @@ const SERVER_PROD_CONFIG = {
         loader: 'esbuild-loader',
         options: {
           loader: 'tsx',
-          target: 'node18',
+          target: 'node22',
         },
       },
       {

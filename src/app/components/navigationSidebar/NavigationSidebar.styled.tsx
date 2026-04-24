@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   isSecondMenuOpen: boolean;
 }
 
-const NavigationSidebarStyled = styled.div`
-  ${({ theme, isSecondMenuOpen }: Props) => {
+const NavigationSidebarStyled = styled.div<Props>`
+  ${({ theme, isSecondMenuOpen }) => {
     return css`
       background-color: var(--semantic-type-primary);
       color: var(--semantic-background-primary);

@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   isBasketOpen: boolean;
 }
 
-const BasketMenuStyled = styled.div`
-  ${({ theme, isBasketOpen }: Props) => {
+const BasketMenuStyled = styled.div<Props>`
+  ${({ theme, isBasketOpen }) => {
     return css`
       display: flex;
       flex-direction: row-reverse;

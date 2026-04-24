@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   type: string;
 }
 
-const DropdownStyled = styled.div`
-  ${({ theme, type }: Props) => {
+const DropdownStyled = styled.div<Props>`
+  ${({ theme, type }) => {
     return css`
       position: relative;
       max-width: 400px;

@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   bgImageUri: string;
 }
 
-const CardSliderStyled = styled.div`
-  ${({ theme, bgImageUri }: Props) => {
+const CardSliderStyled = styled.div<Props>`
+  ${({ theme, bgImageUri }) => {
     return css`
       position: relative;
       padding: 200px 0 80px;

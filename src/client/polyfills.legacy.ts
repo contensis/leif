@@ -1,7 +1,3 @@
-import { enableES5 } from 'immer';
-
-enableES5();
-
 declare const __magic__: any;
 
 /* eslint-disable no-undef */

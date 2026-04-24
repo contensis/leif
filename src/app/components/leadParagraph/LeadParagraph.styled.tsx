@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme: any;
   type: string;
 }
 
-const LeadParagraphStyled = styled.div`
-  ${({ theme, type }: Props) => {
+const LeadParagraphStyled = styled.div<Props>`
+  ${({ theme, type }) => {
     return css`
       ${theme.typeStyles.h4};
       font-family: ${theme.typeStyles.fontFamily.headings};

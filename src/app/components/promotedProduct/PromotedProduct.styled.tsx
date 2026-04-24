@@ -1,14 +1,13 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   align: string;
   isModalOpen?: boolean;
   hasTrending?: boolean;
 }
 
-const PromotionalBlockStyled = styled.div`
-  ${({ theme, align, isModalOpen, hasTrending }: Props) => {
+const PromotionalBlockStyled = styled.div<Props>`
+  ${({ theme, align, isModalOpen, hasTrending }) => {
     return css`
     position: relative;
     padding-bottom: 120px;

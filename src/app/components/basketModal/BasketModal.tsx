@@ -24,7 +24,7 @@ const BasketModal = ({ className, name, variant, price, image }: Props) => {
 
   const totalItemsInBasket = useSelector(selectTotalProductsInBasket);
 
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   _useOnClickOutside(ref, () => _setIsPopupOpen(false));
 
   return (

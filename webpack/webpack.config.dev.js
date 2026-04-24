@@ -5,6 +5,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const BASE_CONFIG = require('./webpack.config.base');
 const {
@@ -56,6 +57,7 @@ const CLIENT_DEV_CONFIG = {
   },
   plugins: [
     new webpack.DefinePlugin(WEBPACK_DEFINE_CONFIG.dev),
+    new ReactRefreshWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
       filename: './index.html',

@@ -1,6 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
-
 import { ThemeProvider } from 'styled-components';
 import { RouteLoader } from '@zengenti/contensis-react-base/routing';
 import NotFound from '~/pages/NotFound/NotFound.page';
@@ -35,4 +33,4 @@ const AppRoot = (props: AppRootProps) => {
   );
 };
 
-export default hot(module)(AppRoot);
+export default AppRoot;

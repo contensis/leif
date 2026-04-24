@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 interface Props {
-  theme: any;
   isToggled: boolean;
 }
 
-const HamburgerStyled = styled.div`
-  ${({ theme, isToggled }: Props) => {
+const HamburgerStyled = styled.div<Props>`
+  ${({ theme, isToggled }) => {
     return css`
       width: 64px;
       height: 64px;

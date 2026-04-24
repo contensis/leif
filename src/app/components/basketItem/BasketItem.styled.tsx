@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   hasLargeStyles: boolean;
 }
 
-const BasketItemStyled = styled.div`
-  ${({ theme, hasLargeStyles }: Props) => {
+const BasketItemStyled = styled.div<Props>`
+  ${({ theme, hasLargeStyles }) => {
     return css`
       position: relative;
       padding: 0 24px 16px 0;

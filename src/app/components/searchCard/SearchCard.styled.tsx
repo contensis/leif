@@ -2,12 +2,11 @@ import styled, { css } from 'styled-components';
 import Link from '../link/Link';
 
 interface Props {
-  theme?: any;
   type: string;
 }
 
-const SearchCardStyled = styled(Link)`
-  ${({ theme, type }: Props) => {
+const SearchCardStyled = styled(Link)<Props>`
+  ${({ theme, type }) => {
     return css`
       display: flex;
       align-items: center;

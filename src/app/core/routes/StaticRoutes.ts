@@ -10,23 +10,19 @@ import {
 const staticRoutes: StaticRoute[] = [
   {
     path: '/search/:facet?/:contentTypeId?',
-    exact: true,
     component: SearchPage,
   },
   {
     path: '/products/:contentTypeId?',
-    exact: true,
     fetchNode: true,
     component: ProductListing,
   },
   {
     path: '/basket',
-    exact: false,
     component: BasketPage,
   },
   {
     path: '/checkout',
-    exact: false,
     component: CheckoutPage,
   },
   // ********************************

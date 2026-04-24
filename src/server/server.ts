@@ -40,7 +40,8 @@ ZengentiAppServer.start(
 
 const app = ZengentiAppServer.app;
 
-app.on('ready', () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(app as any).on('ready', () => {
   // eslint-disable-next-line no-console
   console.log(
     `${JSON.stringify(
