@@ -142,7 +142,6 @@
     "react-focus-lock": "^2.5.0",
     "react-slick": "^0.28.0",
     "react-twitter-embed": "^3.0.3",
-    "styled-components": "^6",
     "styled-normalize": "^8.0.7",
     "usehooks-ts": "^2.14.0"
   }
