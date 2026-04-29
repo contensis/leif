@@ -32,7 +32,7 @@ const NavigationSidebar = ({
   _toggleSecondMenu,
   isSecondMenuOpen,
 }: NavigationSidebarProps) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   _useOnClickOutside(ref, () => _toggleMenu(false));
   _useLockBodyScroll();
 

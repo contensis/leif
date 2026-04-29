@@ -43,6 +43,7 @@ const BlogListing = ({
       <Filters
         className="blog-listing__filters"
         filters={filters}
+        currentFacet=""
         updateSelectedFilters={updateSelectedFilters}
         updateCurrentFacet={updateCurrentFacet}
         clearFilters={clearFilters}

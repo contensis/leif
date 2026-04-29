@@ -15,9 +15,9 @@ const getProducts = async (filter: string) => {
   );
   query.pageSize = 10;
   try {
-    return await cachedSearch.search(query, 1);
+    return await cachedSearch.search(query, 1, '');
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error instanceof Error ? error.message : String(error));
   }
 };
 

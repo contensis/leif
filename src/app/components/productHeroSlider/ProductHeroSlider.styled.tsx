@@ -1,12 +1,11 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   isModalOpen: boolean;
 }
 
-const ProductHeroSliderStyled = styled.div`
-  ${({ theme, isModalOpen }: Props) => {
+const ProductHeroSliderStyled = styled.div<Props>`
+  ${({ theme, isModalOpen }) => {
     return css`
       position: relative;
       overflow: hidden;

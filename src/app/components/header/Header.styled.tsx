@@ -1,13 +1,12 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 interface Props {
-  theme?: any;
   ref?: any;
   isSearchOpen: boolean;
   isLight: boolean;
 }
 
-const HeaderStyled = styled.div`
-  ${({ theme, isSearchOpen, isLight }: Props) => {
+const HeaderStyled = styled.div<Props>`
+  ${({ theme, isSearchOpen, isLight }) => {
     return css`
       margin-bottom: ${isLight ? '0px' : '24px'};
       display: flex;

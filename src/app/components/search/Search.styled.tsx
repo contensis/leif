@@ -1,12 +1,11 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   noResults?: boolean;
 }
 
-const SearchStyled = styled.div`
-  ${({ theme, noResults }: Props) => {
+const SearchStyled = styled.div<Props>`
+  ${({ theme, noResults }) => {
     return css`
       padding: 0 0 120px;
       .search__title {

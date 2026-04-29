@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { Props } from './Icon';
 
-const IconStyled = styled.div`
-  ${({ type, color, height, width }: Props) => {
+const IconStyled = styled.div<Props>`
+  ${({ type, color, height, width }) => {
     return css`
       height: ${height}px;
       width: ${width}px;

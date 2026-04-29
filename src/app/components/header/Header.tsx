@@ -34,7 +34,7 @@ interface SearchOpenHeaderProps {
 
 const SearchOpenHeader = ({ _setIsSearchOpen }: SearchOpenHeaderProps) => {
   _useLockBodyScroll();
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   _useOnClickOutside(ref, () => _setIsSearchOpen(false));
   return (
     <div ref={ref} className="header__search--wrapper">

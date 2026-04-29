@@ -1,12 +1,11 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface Props {
-  theme?: any;
   showFilters: boolean;
 }
 
-const FiltersStyled = styled.div`
-  ${({ theme, showFilters }: Props) => {
+const FiltersStyled = styled.div<Props>`
+  ${({ theme, showFilters }) => {
     return css`
       .filters__toggle-btn {
         max-width: 288px;

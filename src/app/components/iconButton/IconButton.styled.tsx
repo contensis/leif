@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 const IconButtonStyled = styled.button`
   ${({ theme }) => {

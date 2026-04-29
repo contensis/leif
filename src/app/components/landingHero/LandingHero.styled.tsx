@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
-const LandingHeroStyled = styled.div`
-  ${({ theme, src }: { src: string }) => {
+const LandingHeroStyled = styled.div<{ src: string }>`
+  ${({ theme, src }) => {
     return css`
       margin-top: -84px;
       position: relative;

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import Link from '../link/Link';
 
 export default styled(Link)`

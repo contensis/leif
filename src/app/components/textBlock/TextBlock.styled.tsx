@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface Props {
   alignment: string;
 }
 
-const TextBlockStyled = styled.div`
-  ${({ alignment }: Props) => {
+const TextBlockStyled = styled.div<Props>`
+  ${({ alignment }) => {
     return css`
       text-align: ${alignment === 'centred' ? 'center' : alignment};
       * > p:first-child {

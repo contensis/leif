@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from '@zengenti/contensis-react-base/util';
 
 export interface Props {
   title?: string;

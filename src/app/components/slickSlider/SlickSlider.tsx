@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Helmet } from 'react-helmet';
+import { Helmet } from '@zengenti/contensis-react-base/util';
 import Slider from 'react-slick';
 
 import SlickSliderStyled from './SlickSlider.styled';
@@ -76,25 +76,25 @@ const SlickSlider = ({
     asNavFor: '.slider-for',
     responsive: [
       {
-        breakpoint: sizesNoUnit.mobile,
+        breakpoint: sizesNoUnit.mobile as number,
         settings: {
           slidesToShow: slides.length >= 6 ? 2 : 1,
         },
       },
       {
-        breakpoint: sizesNoUnit.tablet,
+        breakpoint: sizesNoUnit.tablet as number,
         settings: {
           slidesToShow: slides.length >= 6 ? 3 : 2,
         },
       },
       {
-        breakpoint: sizesNoUnit.laptop,
+        breakpoint: sizesNoUnit.laptop as number,
         settings: {
           slidesToShow: slides.length >= 6 ? 4 : 2,
         },
       },
       {
-        breakpoint: sizesNoUnit.xlargeDesktop,
+        breakpoint: sizesNoUnit.xlargeDesktop as number,
         settings: {
           slidesToShow: slides.length >= 6 ? 6 : 2,
         },

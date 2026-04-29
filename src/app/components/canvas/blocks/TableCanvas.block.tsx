@@ -4,7 +4,7 @@ import {
   TableBlock as TableBlockProps,
   Table as TableCanvas,
 } from '@contensis/canvas-react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 const TableBlock = (props: RenderBlockPropsWithChildren<TableBlockProps>) => {
   return (
