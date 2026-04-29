@@ -44,7 +44,9 @@ jobs:
           echo "Pulling images to use for build cache: $BUILDER_IMAGE"
           if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
           docker build -t $BUILDER_IMAGE --cache-from $BUILDER_IMAGE --build-arg builder_image=$BUILDER_IMAGE --target prepare -f docker/build.Dockerfile .
-          docker push --all-tags ${{ env.APP_IMAGE }}
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            docker push --all-tags ${{ env.APP_IMAGE }}
+          fi
           echo "builder-image-uri=$BUILDER_IMAGE" >> $GITHUB_OUTPUT
 
   build-app:
@@ -84,5 +86,7 @@ jobs:
           if [ -n "$(docker pull $BUILDER_IMAGE || echo "")" ]; then echo "Builder image exists: $BUILDER_IMAGE"; fi
           if [[ -n "$BUILDER_IMAGE_ARG" && -n "$(docker pull $LATEST_IMAGE || echo "")" ]]; then echo "App image exists: $LATEST_IMAGE"; fi
           docker build -t $LATEST_IMAGE -t $BUILD_IMAGE --cache-from $LATEST_IMAGE --build-arg builder_image=$BUILDER_IMAGE -f docker/build.Dockerfile .
-          docker push --all-tags ${{ env.APP_IMAGE }}
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            docker push --all-tags ${{ env.APP_IMAGE }}
+          fi
           echo "image-uri=$BUILD_IMAGE" >> $GITHUB_OUTPUT
