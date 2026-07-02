@@ -5,6 +5,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { EsbuildPlugin } = require('esbuild-loader');
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
@@ -117,12 +118,7 @@ const CLIENT_CONFIG = merge(BASE_CONFIG, {
   },
   optimization: isProd
     ? {
-        minimizer: [
-          new CssMinimizerPlugin(),
-          // new EsbuildPlugin({
-          //   target: 'es2022',
-          // }),
-        ],
+        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
         splitChunks: {
           name: false,
           cacheGroups: {
