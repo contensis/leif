@@ -60,9 +60,10 @@ const DELIVERY_API_CONFIG = {
 };
 
 const development = {
-  __isBrowser__: true,
+  ALIAS,
   DELIVERY_API_CONFIG,
   DISABLE_SSR_REDUX: false,
+  PROJECT,
   PROJECTS: PROJECTS(process.env),
   PROXY_DELIVERY_API: true,
   PUBLIC_URI: PUBLIC_URL,

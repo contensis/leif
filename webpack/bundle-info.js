@@ -2,7 +2,6 @@
  * Consolidate build imports and save repetition in the webpack.config.* files
  */
 const DEFINE_CONFIG = require('./define-config');
-const WEBPACK_DEFINE_CONFIG = require('./define-config-webpack');
 
 // Configure devServer reverse proxying
 const { SERVERS, REVERSE_PROXY_PATHS, PROXY_DELIVERY_API } =
@@ -33,6 +32,5 @@ const DEVSERVER_PROXIES = { ...apiProxies, ...reverseProxies };
 module.exports = {
   DEFINE_CONFIG,
   DEVSERVER_PROXIES,
-  WEBPACK_DEFINE_CONFIG,
   REVERSE_PROXIES: reverseProxies,
 };
