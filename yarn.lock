@@ -4085,10 +4085,10 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zengenti/contensis-react-base@^4.0.1-beta.13":
-  version "4.0.1-beta.13"
-  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-4.0.1-beta.13.tgz#35a7a8aee7e3221b42bb38cf10962733d392d819"
-  integrity sha512-qx/Nm7W/jH4Zk0C9hmLqEH7P1RpS9s2/58dNGqeyGdCFFci969X/aarL6RlTXXtszSIRX8+tdvIaxHWaB/W4Rw==
+"@zengenti/contensis-react-base@^4.0.1-beta.21":
+  version "4.0.1-beta.21"
+  resolved "https://registry.yarnpkg.com/@zengenti/contensis-react-base/-/contensis-react-base-4.0.1-beta.21.tgz#ffc1a3669cad807774902597e47423daae4fc939"
+  integrity sha512-2v1j/C93jbDb6JIVkVU1JGAHpiVuHUyxR4GMyieXb/F7RWuf2Q3J3563TcZBBLbuXRkWuz6fny7IBmDjgXfT/A==
   dependencies:
     "@loadable/component" "^5.16.7"
     "@loadable/server" "^5.16.7"
