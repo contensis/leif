@@ -27,8 +27,10 @@
 #       sensitive — kept as a secret purely so the internal hostname stays
 #       out of this public file (GitHub masks secrets in logs).
 #   GITLAB_REGISTRY_USERNAME / GITLAB_REGISTRY_PASSWORD
-#       Deploy token on the leif-deployments GitLab project, scope
-#       write_registry only — not a PAT. TODO: set an expiry date; rotate.
+#       Deploy token on the leif-deployments GitLab project, scopes
+#       read_registry + write_registry — GitLab requires BOTH to push, even
+#       though only write_registry feels relevant. Still not a PAT.
+#       TODO: set an expiry date; rotate.
 #   GITLAB_TRIGGER_TOKEN
 #       Pipeline trigger token on the leif-deployments project.
 #       TODO: set an expiry date; rotate.
