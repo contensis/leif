@@ -50,6 +50,8 @@ on:
 env:
   # Release branch — same commit-title release convention as c4c.
   RELEASE_BRANCH: master
+  # GitLab project the images land in and the deploy pipeline lives on.
+  GITLAB_DEPLOY_REPO: n.flatley/leif-deployments
 
 jobs:
   # ---------------------------------------------------------------------------
@@ -94,8 +96,6 @@ jobs:
     name: Build & push container image
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    outputs:
-      image-uri: ${{ steps.image.outputs.uri }}
     steps:
       - uses: actions/checkout@v7
 
@@ -110,7 +110,7 @@ jobs:
           # or other characters invalid in Docker repo names (and `~`) will
           # break the push. Sanitise here, or restrict which branches build
           # images, before general use.
-          base="${GITLAB_REGISTRY_HOST}/n.flatley/leif-deployments/${BRANCH}/app"
+          base="${GITLAB_REGISTRY_HOST}/${GITLAB_DEPLOY_REPO}/${BRANCH}/app"
           echo "uri=${base}:build-${BUILD}" >> "$GITHUB_OUTPUT"
           echo "latest=${base}:latest" >> "$GITHUB_OUTPUT"
 
@@ -152,7 +152,6 @@ jobs:
     needs: [meta, container]
     runs-on: ubuntu-latest
     env:
-      IMAGE_URI: ${{ needs.container.outputs.image-uri }}
       GITLAB_REGISTRY_HOST: ${{ secrets.GITLAB_REGISTRY_HOST }}
       GITLAB_TRIGGER_TOKEN: ${{ secrets.GITLAB_TRIGGER_TOKEN }}
       GITLAB_DEPLOY_PROJECT: "1174"   # leif-deployments on our GitLab
@@ -171,13 +170,19 @@ jobs:
       - name: Call the trigger API
         env:
           DEPLOY_INTENT: ${{ steps.intent.outputs.value }}
+          BUILD: ${{ github.run_number }}
         run: |
+          # Re-compose the URI from the same inputs the container job used.
+          # It must NOT travel as a job output: GitHub redacts outputs that
+          # contain secrets (the registry host is one) and sends nothing
+          # downstream. Each job composes its own; run_number is shared.
+          image_uri="${GITLAB_REGISTRY_HOST}/${GITLAB_DEPLOY_REPO}/${SOURCE_REF}/app:build-${BUILD}"
           # API host is the registry host without its port.
           api_host="${GITLAB_REGISTRY_HOST%%:*}"
-          curl -sf --fail-with-body -X POST \
+          curl -sS --fail-with-body -X POST \
             "https://${api_host}/api/v4/projects/${GITLAB_DEPLOY_PROJECT}/trigger/pipeline" \
             -F "token=${GITLAB_TRIGGER_TOKEN}" \
             -F "ref=${GITLAB_DEPLOY_REF}" \
-            -F "variables[IMAGE_URI]=${IMAGE_URI}" \
+            -F "variables[IMAGE_URI]=${image_uri}" \
             -F "variables[DEPLOY_INTENT]=${DEPLOY_INTENT}" \
             -F "variables[SOURCE_REF]=${SOURCE_REF}"
