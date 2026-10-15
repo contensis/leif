@@ -14,7 +14,8 @@
 #
 # Jobs:
 #   meta            classify the push: release vs routine (pushes only)
-#   container       build image, push to GitLab registry  (pushes only)
+#   container       build image, push to GitLab registry + public ghcr.io
+#                   mirror  (pushes only)
 #   trigger-deploy  call the leif-deployments trigger API (pushes only)
 #
 # Release semantics match c4c: a commit on the release branch titled exactly
@@ -81,21 +82,31 @@ jobs:
           fi
 
   # ---------------------------------------------------------------------------
-  # Build the image and push it to the leif-deployments project registry.
+  # Build the image once and push it to two registries:
   #
-  # The image path is deliberately hardcoded end-to-end EXCEPT the branch and
-  # the build number — it must land inside the leif-deployments project
-  # registry that the deploy pipeline validates against. Two tags per build:
-  #   app:build-<n>  the deploy tag — immutable, and the only kind the deploy
-  #                  pipeline accepts (Contensis binds image:tag to a block on
-  #                  first push, so a deployed tag is never re-pushed).
-  #   app:latest     convenience tag, moved on every build of the branch —
-  #                  never handed to a deploy.
+  # 1. The leif-deployments project registry (private, deploy source).
+  #    The image path is deliberately hardcoded end-to-end EXCEPT the branch
+  #    and the build number — it must land inside the leif-deployments project
+  #    registry that the deploy pipeline validates against. Two tags per build:
+  #      app:build-<n>  the deploy tag — immutable, and the only kind the
+  #                     deploy pipeline accepts (Contensis binds image:tag to
+  #                     a block on first push, so a deployed tag is never
+  #                     re-pushed).
+  #      app:latest     convenience tag, moved on every build of the branch —
+  #                     never handed to a deploy.
+  #
+  # 2. ghcr.io/contensis/leif/<branch>/app — the legacy public location, kept
+  #    as a public mirror with the identical path/tag scheme. Auth is the
+  #    built-in GITHUB_TOKEN (needs packages: write); new branches create
+  #    their package automatically, as under the old build.yml.
   # ---------------------------------------------------------------------------
   container:
     name: Build & push container image
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v7
 
@@ -103,6 +114,7 @@ jobs:
         id: image
         env:
           GITLAB_REGISTRY_HOST: ${{ secrets.GITLAB_REGISTRY_HOST }}
+          GHCR_REPO: ${{ github.repository }}
           BRANCH: ${{ github.ref_name }}
           BUILD: ${{ github.run_number }}
         run: |
@@ -113,6 +125,11 @@ jobs:
           base="${GITLAB_REGISTRY_HOST}/${GITLAB_DEPLOY_REPO}/${BRANCH}/app"
           echo "uri=${base}:build-${BUILD}" >> "$GITHUB_OUTPUT"
           echo "latest=${base}:latest" >> "$GITHUB_OUTPUT"
+          # Public mirror — the legacy ghcr location, same scheme. These
+          # values contain no secrets, so step outputs are safe here.
+          ghcr_base="ghcr.io/${GHCR_REPO}/${BRANCH}/app"
+          echo "ghcr-uri=${ghcr_base}:build-${BUILD}" >> "$GITHUB_OUTPUT"
+          echo "ghcr-latest=${ghcr_base}:latest" >> "$GITHUB_OUTPUT"
 
       - name: Log in to the GitLab registry
         env:
@@ -123,23 +140,42 @@ jobs:
           printf '%s' "$GITLAB_REGISTRY_PASSWORD" \
             | docker login "$GITLAB_REGISTRY_HOST" -u "$GITLAB_REGISTRY_USERNAME" --password-stdin
 
+      - name: Log in to ghcr.io
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build image
         env:
           IMAGE_URI: ${{ steps.image.outputs.uri }}
           LATEST_URI: ${{ steps.image.outputs.latest }}
+          GHCR_URI: ${{ steps.image.outputs.ghcr-uri }}
+          GHCR_LATEST: ${{ steps.image.outputs.ghcr-latest }}
         run: |
           # TODO: no layer caching yet — the legacy builder-image trick is
           # gone with the single-job build. Add buildx + registry cache if
           # build times become annoying.
-          docker build -t "$IMAGE_URI" -t "$LATEST_URI" -f docker/build.Dockerfile .
+          docker build -t "$IMAGE_URI" -t "$LATEST_URI" \
+            -t "$GHCR_URI" -t "$GHCR_LATEST" \
+            -f docker/build.Dockerfile .
 
-      - name: Push image
+      - name: Push image to GitLab
         env:
           IMAGE_URI: ${{ steps.image.outputs.uri }}
           LATEST_URI: ${{ steps.image.outputs.latest }}
         run: |
           docker push "$IMAGE_URI"
           docker push "$LATEST_URI"
+
+      - name: Push image to ghcr.io
+        env:
+          GHCR_URI: ${{ steps.image.outputs.ghcr-uri }}
+          GHCR_LATEST: ${{ steps.image.outputs.ghcr-latest }}
+        run: |
+          docker push "$GHCR_URI"
+          docker push "$GHCR_LATEST"
 
   # ---------------------------------------------------------------------------
   # Hand the just-pushed image to the deploy pipeline. DEPLOY_INTENT decides
